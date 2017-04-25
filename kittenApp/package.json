@@ -1,0 +1,32 @@
+{
+  "name": "kittenApp",
+  "version": "1.0.0",
+  "private": true,
+  "author": "akveo",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "restart": "rm -r node_modules/react-native-ui-kitten && npm install && ./node_modules/react-native/packager/packager.sh  ."
+  },
+  "dependencies": {
+    "react": "16.0.0-alpha.6",
+    "prop-types": "^15.5.8",
+    "react-native": "0.43.3",
+    "react-native-ui-kitten": "file:../../react-native-ui-kitten/",
+    "react-navigation": "git+https://github.com/react-community/react-navigation.git#7165efce02a60eecc41813fe5e030883996671ec",
+    "lodash": "^4.17.4",
+    "rnpm": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "rnpm":{
+    "assets":["./app/assets/fonts"]
+  }
+}

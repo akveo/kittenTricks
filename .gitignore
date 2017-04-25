@@ -40,4 +40,3 @@ android/app/libs
 android/keystores/debug.keystore
 .gitignore
 .idea/
-kittenApp/
