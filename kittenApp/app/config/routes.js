@@ -37,6 +37,13 @@ export const MainRoutes = [
         screen: Screens.ListMenu,
         children: []
       },
+      {
+        id: 'List',
+        title: 'Side menu',
+        action: 'DrawerOpen',
+        screen: Screens.SideMenu,
+        children: []
+      }
     ]
   },
   {

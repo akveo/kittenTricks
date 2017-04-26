@@ -19,6 +19,15 @@ export class CategoryMenu extends React.Component {
       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       this.data = ds.cloneWithRows(this.props.items);
       this.renderRow = this._renderRow.bind(this);
+      this.navigate = this._navigate.bind(this);
+    }
+  }
+
+  _navigate(row) {
+    if (row.action) {
+      this.props.navigation.navigate(row.action)
+    } else {
+      this.props.navigation.navigate(row.id)
     }
   }
 
@@ -30,7 +39,7 @@ export class CategoryMenu extends React.Component {
         underlayColor={Colors.neutral}
         activeOpacity={1}
         onPress={() => {
-          this.props.navigation.navigate(row.id)
+          this.navigate(row);
         }}>
         <View>
           <RkText>{row.title}</RkText>
@@ -50,8 +59,7 @@ export class CategoryMenu extends React.Component {
       return (
         <ListView
           dataSource={this.data}
-          renderRow={this.renderRow}
-        />
+          renderRow={this.renderRow}/>
       )
     }
   }
@@ -64,10 +72,10 @@ let styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: Colors.neutral,
   },
-  emptyContainer:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center'
+  emptyContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

@@ -9,13 +9,14 @@ import {
 import {NavigationActions} from 'react-navigation';
 import {RkText} from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
+import {KittenTheme} from '../../config/theme';
+
 
 
 export class SideMenu extends React.Component {
 
   constructor(props) {
     super(props);
-
     this._navigateAction = this._navigate.bind(this);
   }
 
@@ -29,7 +30,6 @@ export class SideMenu extends React.Component {
     this.props.navigation.dispatch(resetAction)
   }
 
-
   render() {
     let menu = MainRoutes.map((route, index) => {
       return (
@@ -37,7 +37,8 @@ export class SideMenu extends React.Component {
           style={styles.container}
           key={route.id}
           onPress={() => this._navigateAction(route)}>
-          <View>
+          <View style={styles.content}>
+            <RkText style={styles.icon} rkType='moon primary xlarge'>{route.icon}</RkText>
             <RkText>{route.title}</RkText>
           </View>
         </TouchableHighlight>
@@ -46,6 +47,9 @@ export class SideMenu extends React.Component {
 
     return (
       <ScrollView style={styles.root}>
+        <View style={[styles.container,styles.content]}>
+          <RkText style={styles.icon}>UI Kitten</RkText>
+        </View>
         {menu}
       </ScrollView>
     )
@@ -56,9 +60,18 @@ export class SideMenu extends React.Component {
 let styles = StyleSheet.create({
   container: {
     height: 80,
-    backgroundColor: 'red'
   },
   root: {
     marginTop: Platform.OS === 'ios' ? 20 : 0,
+  },
+  content:{
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    borderTopWidth:1,
+    borderColor:KittenTheme.colors.border.underline
+  },
+  icon:{
+    marginHorizontal:16,
   }
 });
