@@ -1,36 +1,75 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {
-  ScrollView,
+  ListView,
   TouchableHighlight,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import {RkText} from 'react-native-ui-kitten';
+import {Colors} from '../../config/theme';
 
 
 export class CategoryMenu extends React.Component {
-  render() {
-    let menu = this.props.items.map((route, index) => {
-      return (
-        <TouchableHighlight
-          key={index}
-          onPress={() => {
-            this.props.navigation.navigate(route.id)
-          }}>
-          <View>
-            <RkText>{route.title}</RkText>
-          </View>
-        </TouchableHighlight>
-      )
-    });
 
+  constructor(props) {
+    super(props);
+    this.isEmpty = this.props.items.length == 0;
+    if (!this.isEmpty) {
+      let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+      this.data = ds.cloneWithRows(this.props.items);
+      this.renderRow = this._renderRow.bind(this);
+    }
+  }
+
+
+  _renderRow(row) {
     return (
-      <ScrollView>
-        {menu}
-      </ScrollView>
+      <TouchableHighlight
+        style={styles.item}
+        underlayColor={Colors.neutral}
+        activeOpacity={1}
+        onPress={() => {
+          this.props.navigation.navigate(row.id)
+        }}>
+        <View>
+          <RkText>{row.title}</RkText>
+        </View>
+      </TouchableHighlight>
     )
   }
+
+  render() {
+    if (this.isEmpty) {
+      return (
+        <View style={styles.emptyContainer}>
+          <RkText rkType='light subtitle'>Coming Soon...</RkText>
+        </View>
+      )
+    } else {
+      return (
+        <ListView
+          dataSource={this.data}
+          renderRow={this.renderRow}
+        />
+      )
+    }
+  }
 }
+
+let styles = StyleSheet.create({
+  item: {
+    paddingVertical: 32.5,
+    paddingHorizontal: 16.5,
+    borderBottomWidth: 1,
+    borderColor: Colors.neutral,
+  },
+  emptyContainer:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center'
+  }
+});
 
 CategoryMenu.propTypes = {
   navigation: PropTypes.object.isRequired,

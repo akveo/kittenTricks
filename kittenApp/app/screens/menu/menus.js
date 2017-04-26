@@ -5,7 +5,7 @@ import * as Routes from '../../config/routes';
 
 export class LoginMenu extends React.Component {
   static navigationOptions = {
-    title: 'Login',
+    title: 'Login'.toUpperCase(),
   };
   render() {
     return (
@@ -16,7 +16,7 @@ export class LoginMenu extends React.Component {
 
 export class NavigationMenu extends React.Component {
   static navigationOptions = {
-    title: 'Navigation'
+    title: 'Navigation'.toUpperCase()
   };
   render() {
     return (
@@ -27,7 +27,7 @@ export class NavigationMenu extends React.Component {
 
 export class SocialMenu extends React.Component {
   static navigationOptions = {
-    title: 'Social'
+    title: 'Social'.toUpperCase()
   };
   render() {
     return (
@@ -38,7 +38,7 @@ export class SocialMenu extends React.Component {
 
 export class ArticleMenu extends React.Component {
   static navigationOptions = {
-    title: 'Articles'
+    title: 'Articles'.toUpperCase()
   };
   render() {
     return (
@@ -49,7 +49,7 @@ export class ArticleMenu extends React.Component {
 
 export class MessagingMenu extends React.Component {
   static navigationOptions = {
-    title: 'Messaging'
+    title: 'Messaging'.toUpperCase()
   };
   render() {
     return (
@@ -60,7 +60,7 @@ export class MessagingMenu extends React.Component {
 
 export class DashboardMenu extends React.Component {
   static navigationOptions = {
-    title: 'Dashboards'
+    title: 'Dashboards'.toUpperCase()
   };
   render() {
     return (
@@ -70,7 +70,7 @@ export class DashboardMenu extends React.Component {
 }
 export class WalkthroughMenu extends React.Component {
   static navigationOptions = {
-    title: 'Walkthrough'
+    title: 'Walkthrough'.toUpperCase()
   };
   render() {
     return (
@@ -80,7 +80,7 @@ export class WalkthroughMenu extends React.Component {
 }
 export class EcommerceMenu extends React.Component {
   static navigationOptions = {
-    title: 'Ecommerce'
+    title: 'Ecommerce'.toUpperCase()
   };
   render() {
     return (
@@ -90,7 +90,7 @@ export class EcommerceMenu extends React.Component {
 }
 export class OtherMenu extends React.Component {
   static navigationOptions = {
-    title: 'Other'
+    title: 'Other'.toUpperCase()
   };
   render() {
     return (

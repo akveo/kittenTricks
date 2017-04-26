@@ -1,12 +1,22 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation'
 import _ from 'lodash';
+import Styles from '../config/styles';
 import * as Screens from '../screens';
+import {FontIcons} from '../assets/fontIcons';
 
 export const MainRoutes = [
   {
+    id: 'LoginMenu',
+    title: 'Login',
+    icon: FontIcons.login,
+    screen: Screens.LoginMenu,
+    children: []
+  },
+  {
     id: 'NavigationMenu',
-    title: 'Navigation title',
+    icon: FontIcons.navigation,
+    title: 'Navigation',
     screen: Screens.NavigationMenu,
     children: [
       {
@@ -21,54 +31,60 @@ export const MainRoutes = [
         screen: Screens.GridV2,
         children: []
       },
+      {
+        id: 'List',
+        title: 'List Menu',
+        screen: Screens.ListMenu,
+        children: []
+      },
     ]
-  },
-
-  {
-    id: 'LoginMenu',
-    title: 'Login title',
-    screen: Screens.LoginMenu,
-    children: []
   },
   {
     id: 'SocialMenu',
     title: 'Social',
+    icon: FontIcons.profile,
     screen: Screens.SocialMenu,
     children: []
   },
   {
     id: 'ArticlesMenu',
     title: 'Articles',
+    icon: FontIcons.article,
     screen: Screens.ArticleMenu,
     children: []
   },
   {
     id: 'MessagingMenu',
     title: 'Messaging',
+    icon: FontIcons.mail,
     screen: Screens.MessagingMenu,
     children: []
   },
   {
     id: 'DashboardsMenu',
     title: 'Dashboards',
+    icon: FontIcons.dashboard,
     screen: Screens.DashboardMenu,
     children: []
   },
   {
     id: 'WalkthroughMenu',
     title: 'Walkthrough',
+    icon: FontIcons.mobile,
     screen: Screens.WalkthroughMenu,
     children: []
   },
   {
     id: 'EcommerceMenu',
     title: 'Ecommerce',
+    icon: FontIcons.card,
     screen: Screens.EcommerceMenu,
     children: []
   },
   {
     id: 'OtherMenu',
     title: 'Other',
+    icon: FontIcons.other,
     screen: Screens.OtherMenu,
     children: []
   }
@@ -93,8 +109,14 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
   let stack_name = name;
   routes[stack_name] = {
     name: stack_name,
-    title: flatRoutes[name].title,
-    screen: StackNavigator(flatRoutes, {initialRouteName: name,})
+    screen: StackNavigator(flatRoutes, {
+      initialRouteName: name,
+      navigationOptions: {
+        headerStyle: Styles.appHeader,
+        headerTitleStyle: Styles.appHeaderTitle
+      },
+      cardStyle: Styles.card
+    })
   };
   return routes;
 }, {});

@@ -5,9 +5,42 @@ export let bootstrap = () => {
 
   RkTheme.setTheme(KittenTheme);
 
-  RkTheme.setType('RkButton','basic',{
-    content:{
-      fontFamily:'icomoon'
+  /*
+   RkText types
+   */
+
+  RkTheme.setType('RkText', 'basic', {
+    text: {
+      fontFamily: 'Roboto-Medium',
     }
+  });
+
+  RkTheme.setType('RkText', 'light', {
+    text: {
+      fontFamily: 'Roboto-Light',
+    }
+  });
+
+  RkTheme.setType('RkText', 'moon', {
+    text: {
+      fontFamily: 'icomoon',
+    }
+  });
+
+  /*
+   RkButton types
+   */
+
+  RkTheme.setType('RkButton', 'square', {
+    borderRadius: 3,
+    backgroundColor: KittenTheme.colors.back.background,
+    container: {
+      flexDirection:'column',
+      margin: 8
+    },
+  });
+
+  RkTheme.setType('RkButton', 'shadow', {
+
   });
 };
