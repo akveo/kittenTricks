@@ -35,12 +35,22 @@ export let bootstrap = () => {
     borderRadius: 3,
     backgroundColor: KittenTheme.colors.back.background,
     container: {
-      flexDirection:'column',
+      flexDirection: 'column',
       margin: 8
     },
   });
 
-  RkTheme.setType('RkButton', 'shadow', {
+  RkTheme.setType('RkButton', 'tile', {
+    borderRadius: 0,
+    backgroundColor: 'transparent',
+    borderWidth:0.5,
+    borderColor: KittenTheme.colors.border.underline,
+    container: {
+      flexDirection: 'column'
+    }
+  });
 
+  RkTheme.setType('RkButton', 'shadow', {
+    //TODO: need fix for shadow
   });
 };

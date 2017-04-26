@@ -16,8 +16,7 @@ const paddingValue = 8;
 
 export class GridV1 extends React.Component {
   static navigationOptions = ({navigation}) => ({
-    title: 'Grid Menu',
-
+    title: 'Grid Menu'.toUpperCase(),
   });
 
   constructor(props) {
@@ -37,18 +36,16 @@ export class GridV1 extends React.Component {
 
     let items = MainRoutes.map(function (route, index) {
       return (
-        <RkButton rkType='square shadow'
-                  style={{width: size, height: size}}
-                  key={index}
-                  onPress={() => {
-                    navigate(route.id)
-                  }}>
+        <RkButton
+          rkType='square shadow'
+          style={{width: size, height: size}}
+          key={index}
+          onPress={()=> { navigate(route.id) }}>
 
-          <RkText style={styles.icon}
-                  rkType='primary moon xxlarge'>
+          <RkText style={styles.icon} rkType='primary moon xxlarge'>
             {route.icon}
           </RkText>
-          <RkText rkType=''>{route.title}</RkText>
+          <RkText>{route.title}</RkText>
 
         </RkButton>
       )
@@ -57,8 +54,7 @@ export class GridV1 extends React.Component {
 
     return (
       <ScrollView style={styles.root}
-                  contentContainerStyle={styles.rootContainer}
-                  ref='root'>
+                  contentContainerStyle={styles.rootContainer}>
         {items}
       </ScrollView>
     )

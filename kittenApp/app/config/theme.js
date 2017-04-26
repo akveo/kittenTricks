@@ -65,7 +65,7 @@ export const KittenTheme = {
   fonts: {
     sizes: {
       base: Colors.fontSize,
-      small: Colors.fontSize * .8,
+      small: 15,
       medium: Colors.fontSize,
       large: Colors.fontSize * 1.2,
       xlarge: 34,

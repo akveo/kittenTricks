@@ -21,13 +21,13 @@ export const MainRoutes = [
     children: [
       {
         id: 'GridV1',
-        title: 'GridV1- title',
+        title: 'Grid Menu V1',
         screen: Screens.GridV1,
         children: []
       },
       {
         id: 'GridV2',
-        title: 'GridV2- title',
+        title: 'Grid Menu V2',
         screen: Screens.GridV2,
         children: []
       },
