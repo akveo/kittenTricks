@@ -38,7 +38,7 @@ export const MainRoutes = [
         children: []
       },
       {
-        id: 'List',
+        id: 'Side',
         title: 'Side menu',
         action: 'DrawerOpen',
         screen: Screens.SideMenu,
@@ -51,7 +51,14 @@ export const MainRoutes = [
     title: 'Social',
     icon: FontIcons.profile,
     screen: Screens.SocialMenu,
-    children: []
+    children: [
+      {
+        id: 'ProfileV1',
+        title: 'User Profile V1',
+        screen: Screens.ProfileV1,
+        children: []
+      },
+    ]
   },
   {
     id: 'ArticlesMenu',

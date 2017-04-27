@@ -35,10 +35,13 @@ export class SideMenu extends React.Component {
         <TouchableHighlight
           style={styles.container}
           key={route.id}
+          underlayColor={KittenTheme.colors.back.primaryActive}
+          activeOpacity={1}
           onPress={() => this._navigateAction(route)}>
           <View style={styles.content}>
             <View style={styles.content}>
-              <RkText style={styles.icon} rkType='moon primary xlarge'>{route.icon}</RkText>
+              <RkText style={styles.icon}
+                      rkType='moon primary xlarge'>{route.icon}</RkText>
               <RkText>{route.title}</RkText>
             </View>
             <RkText rkType='awesome neutral small'>&#xf054;</RkText>

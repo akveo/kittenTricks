@@ -1,16 +1,21 @@
- export const Colors = {
+export const Colors = {
   primary: '#f53d56',
   success: '#3bd555',
+  foreground: '#212121',
+  alterForeground: '#707070',
+  iconForeground: '#bcbcbc',
+  background: '#fff',
+  faded: '#e5e5e5',
+  alterBackground: '#f2f2f2',
+  chatIcon: '#c2c2c2',
+  neutral: '#f2f2f2',
+  icon: '#969696',
+  overlay: '#00000057',
+  //unused
   info: '#19bfe5',
   warning: '#feb401',
   danger: '#ed1c4d',
-  foreground: '#212121',
-  background: '#fff',
-  alterBackground:'#efefef',
-  neutral:'#f2f2f2',
-  neutralForeground:'#00000023',
-  overlay: '#00000057',
-  fontSize: 18,
+  fontSize: 18
 };
 
 export const KittenTheme = {
@@ -34,8 +39,9 @@ export const KittenTheme = {
       additional: Colors.background,
       subtitle: Colors.foreground,
       hint: '#00000059',
-      primary:Colors.primary,
-      neutral:Colors.neutralForeground,
+      primary: Colors.primary,
+      secondary: Colors.alterForeground,
+      icon: Colors.iconForeground
     },
     back: {
       base: Colors.background,
@@ -53,6 +59,7 @@ export const KittenTheme = {
       background: Colors.background,
       outline: 'transparent',
       material: Colors.primary,
+      neutral: Colors.neutral,
       disabled: Colors.neutral
     },
     border: {
@@ -60,16 +67,17 @@ export const KittenTheme = {
       underline: Colors.neutral,
       solid: '#0000003B',
       material: Colors.warning,
-      disabled:Colors.neutral,
+      disabled: Colors.neutral,
       card: '#00000014'
     }
   },
   fonts: {
     sizes: {
       base: Colors.fontSize,
+      xsmall: 13,
       small: 15,
       medium: Colors.fontSize,
-      large: Colors.fontSize * 1.2,
+      large: 24,
       xlarge: 34,
       xxlarge: 40,
     }

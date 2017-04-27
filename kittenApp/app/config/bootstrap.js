@@ -1,5 +1,6 @@
 import {RkTheme} from 'react-native-ui-kitten';
 import {KittenTheme} from './theme';
+import {AvatarTypes} from '../components/avatar/types';
 
 export let bootstrap = () => {
 
@@ -12,6 +13,12 @@ export let bootstrap = () => {
   RkTheme.setType('RkText', 'basic', {
     text: {
       fontFamily: 'Roboto-Medium',
+    }
+  });
+
+  RkTheme.setType('RkText', 'regular', {
+    text: {
+      fontFamily: 'Roboto-Regular',
     }
   });
 
@@ -33,11 +40,17 @@ export let bootstrap = () => {
     }
   });
 
-  RkTheme.setType('RkText', 'neutral', {
-   color:KittenTheme.colors.text.neutral
+  RkTheme.setType('RkText', 'secondary', {
+    color: KittenTheme.colors.text.secondary
   });
 
+  RkTheme.setType('RkText', 'xsmall', {
+    fontSize: KittenTheme.fonts.sizes.xsmall,
+  });
 
+  RkTheme.setType('RkText', 'icon', {
+    color: KittenTheme.colors.text.icon
+  });
   /*
    RkButton types
    */
@@ -54,7 +67,7 @@ export let bootstrap = () => {
   RkTheme.setType('RkButton', 'tile', {
     borderRadius: 0,
     backgroundColor: 'transparent',
-    borderWidth:0.5,
+    borderWidth: 0.5,
     borderColor: KittenTheme.colors.border.underline,
     container: {
       flexDirection: 'column'
@@ -64,4 +77,39 @@ export let bootstrap = () => {
   RkTheme.setType('RkButton', 'shadow', {
     //TODO: need fix for shadow
   });
+
+  RkTheme.setType('RkButton', 'link', {
+    color: KittenTheme.colors.primary,
+  });
+
+  RkTheme.setType('RkButton', 'contrast', {
+    color: KittenTheme.colors.text.base,
+  });
+
+  /*
+   RkModalImg types
+   */
+
+  RkTheme.setType('RkModalImg', 'basic', {
+    img: {
+      margin: 1.5,
+    },
+    modal: {
+      backgroundColor: KittenTheme.colors.back.background
+    },
+    footer: {
+      backgroundColor: KittenTheme.colors.back.background,
+      height:50
+    },
+    header: {
+      backgroundColor: KittenTheme.colors.back.background,
+      paddingBottom:6
+    },
+  });
+
+  /*
+   Register components
+   */
+
+  RkTheme.registerComponent('Avatar', AvatarTypes);
 };

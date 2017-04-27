@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   ScrollView,
   StyleSheet,
   Dimensions
@@ -10,7 +9,7 @@ import {
   RkText
 } from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
-import {Colors} from '../../config/theme';
+import {KittenTheme} from '../../config/theme';
 
 const paddingValue = 8;
 
@@ -40,7 +39,9 @@ export class GridV1 extends React.Component {
           rkType='square shadow'
           style={{width: size, height: size}}
           key={index}
-          onPress={()=> { navigate(route.id) }}>
+          onPress={() => {
+            navigate(route.id)
+          }}>
 
           <RkText style={styles.icon} rkType='primary moon xxlarge'>
             {route.icon}
@@ -63,7 +64,7 @@ export class GridV1 extends React.Component {
 
 let styles = StyleSheet.create({
   root: {
-    backgroundColor: Colors.alterBackground,
+    backgroundColor: KittenTheme.colors.back.neutral,
     padding: paddingValue,
   },
   rootContainer: {
