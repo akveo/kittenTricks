@@ -86,6 +86,14 @@ export let bootstrap = () => {
     color: KittenTheme.colors.text.base,
   });
 
+  RkTheme.setType('RkButton', 'icon', {
+    height: 56,
+    width: 56,
+    borderColor: KittenTheme.colors.border.underline,
+    borderWidth: 1,
+    backgroundColor: 'transparent'
+  });
+
   /*
    RkModalImg types
    */
@@ -99,11 +107,11 @@ export let bootstrap = () => {
     },
     footer: {
       backgroundColor: KittenTheme.colors.back.background,
-      height:50
+      height: 50
     },
     header: {
       backgroundColor: KittenTheme.colors.back.background,
-      paddingBottom:6
+      paddingBottom: 6
     },
   });
 

@@ -24,7 +24,7 @@ export class Avatar extends RkComponent {
     let {container, image, username} = this.defineStyles();
 
     return (
-      <View style={container}>
+      <View style={[container,this.props.style]}>
         <Image style={image} source={this.props.img}/>
         <View>
           <RkText style={username}>{this.props.name}</RkText>

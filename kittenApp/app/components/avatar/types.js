@@ -20,14 +20,30 @@ export const AvatarTypes = (theme) => {
         width: 110,
         height: 110,
         borderRadius: 55,
-        marginBottom:19
+        marginBottom: 19
       },
       container: {
         flexDirection: 'column'
       },
-      username:{
+      username: {
         fontSize: theme.fonts.sizes.large
       }
+    },
+    notext: {
+      username: {
+        width: 0,
+        height: 0,
+      },
+      image:{
+        marginBottom: 0
+      }
+    },
+    noimage: {
+      image: {
+        width: 0,
+        height: 0,
+        marginBottom: 0
+      },
     }
   })
 };

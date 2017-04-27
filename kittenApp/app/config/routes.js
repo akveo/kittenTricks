@@ -7,13 +7,6 @@ import {FontIcons} from '../assets/fontIcons';
 
 export const MainRoutes = [
   {
-    id: 'LoginMenu',
-    title: 'Login',
-    icon: FontIcons.login,
-    screen: Screens.LoginMenu,
-    children: []
-  },
-  {
     id: 'NavigationMenu',
     icon: FontIcons.navigation,
     title: 'Navigation',
@@ -47,6 +40,13 @@ export const MainRoutes = [
     ]
   },
   {
+    id: 'LoginMenu',
+    title: 'Login',
+    icon: FontIcons.login,
+    screen: Screens.LoginMenu,
+    children: []
+  },
+  {
     id: 'SocialMenu',
     title: 'Social',
     icon: FontIcons.profile,
@@ -56,6 +56,12 @@ export const MainRoutes = [
         id: 'ProfileV1',
         title: 'User Profile V1',
         screen: Screens.ProfileV1,
+        children: []
+      },
+      {
+        id: 'ProfileV2',
+        title: 'User Profile V2',
+        screen: Screens.ProfileV2,
         children: []
       },
     ]
