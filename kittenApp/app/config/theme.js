@@ -8,6 +8,7 @@
   background: '#fff',
   alterBackground:'#efefef',
   neutral:'#f2f2f2',
+  neutralForeground:'#00000023',
   overlay: '#00000057',
   fontSize: 18,
 };
@@ -34,6 +35,7 @@ export const KittenTheme = {
       subtitle: Colors.foreground,
       hint: '#00000059',
       primary:Colors.primary,
+      neutral:Colors.neutralForeground,
     },
     back: {
       base: Colors.background,

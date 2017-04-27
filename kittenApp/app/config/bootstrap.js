@@ -27,6 +27,17 @@ export let bootstrap = () => {
     }
   });
 
+  RkTheme.setType('RkText', 'awesome', {
+    text: {
+      fontFamily: 'fontawesome',
+    }
+  });
+
+  RkTheme.setType('RkText', 'neutral', {
+   color:KittenTheme.colors.text.neutral
+  });
+
+
   /*
    RkButton types
    */
