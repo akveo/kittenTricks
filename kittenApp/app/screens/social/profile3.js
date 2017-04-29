@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View,
   ScrollView,
-  StyleSheet
+  StyleSheet, Text
 } from 'react-native';
 import {
   RkText,
@@ -11,10 +11,10 @@ import {
 import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {Gallery} from '../../components/gallery';
+import {GradientButton} from '../../components/gradientButton';
 import {Users} from '../../data/users';
-import {FontIcons} from '../../assets/icons';
 
-export class ProfileV2 extends React.Component {
+export class ProfileV3 extends React.Component {
   static navigationOptions = {
     title: 'User Profile'.toUpperCase()
   };
@@ -25,27 +25,18 @@ export class ProfileV2 extends React.Component {
   }
 
   render() {
-    let name = `${this.user.firstName} ${this.user.lastName}`;
     return (
       <ScrollView>
         <View style={[styles.header, styles.bordered]}>
-          <View style={styles.row}>
-            <View style={styles.buttons}>
-              <RkButton style={styles.button} rkType='icon circle'>
-                <RkText rkType='moon large primary'>{FontIcons.profile}</RkText>
-              </RkButton>
-            </View>
-            <Avatar img={this.user.photo} rkType='big notext'/>
-            <View style={styles.buttons}>
-              <RkButton style={styles.button} rkType='icon circle'>
-                <RkText rkType='moon large primary'>{FontIcons.mail}</RkText>
-              </RkButton>
-            </View>
-          </View>
-          <View>
-            <Avatar name={name} rkType='big noimage'/>
-          </View>
+          <Avatar img={this.user.photo}
+                  name={`${this.user.firstName} ${this.user.lastName}`}
+                  rkType='big'/>
+
+
+            <GradientButton style={styles.button} text='FOLLOW'/>
+
         </View>
+
         <View style={styles.userInfo}>
           <View style={styles.section}>
             <RkText style={styles.space}>{this.user.postCount}</RkText>
@@ -66,15 +57,11 @@ export class ProfileV2 extends React.Component {
   }
 }
 
-
 let styles = StyleSheet.create({
   header: {
+    alignItems: 'center',
     paddingTop: 25,
-    paddingBottom: 17,
-  },
-  row: {
-    flexDirection: 'row',
-    paddingBottom: 19,
+    paddingBottom: 17
   },
   userInfo: {
     flexDirection: 'row',
@@ -100,10 +87,13 @@ let styles = StyleSheet.create({
     height: 42
   },
   buttons: {
-    flex: 1
+    flexDirection: 'row',
+    paddingVertical: 8,
   },
   button: {
-    marginTop: 27.5,
-    alignSelf: 'center'
-  }
+    marginTop: 18,
+    alignSelf:'center',
+    width:140
+  },
+
 });

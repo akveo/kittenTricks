@@ -2,7 +2,8 @@ import React from 'react';
 import {
   ScrollView,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  Text
 } from 'react-native';
 import {
   RkButton,
@@ -10,7 +11,7 @@ import {
 } from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
 import {KittenTheme} from '../../config/theme';
-
+import LinearGradient from 'react-native-linear-gradient';
 const paddingValue = 8;
 
 export class GridV1 extends React.Component {
@@ -56,6 +57,7 @@ export class GridV1 extends React.Component {
     return (
       <ScrollView style={styles.root}
                   contentContainerStyle={styles.rootContainer}>
+
         {items}
       </ScrollView>
     )

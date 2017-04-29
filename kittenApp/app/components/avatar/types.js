@@ -26,6 +26,7 @@ export const AvatarTypes = (theme) => {
         flexDirection: 'column'
       },
       username: {
+        paddingLeft: 0,
         fontSize: theme.fonts.sizes.large
       }
     },

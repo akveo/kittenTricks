@@ -11,6 +11,7 @@ import {
   RkModalImg
 } from 'react-native-ui-kitten';
 import {Ellipsis} from './ellipsis';
+import {FontAwesome} from '../assets/icons';
 
 export class Gallery extends React.Component {
 
@@ -39,19 +40,19 @@ export class Gallery extends React.Component {
       <View style={styles.footer}>
         <View style={styles.section}>
           <RkButton rkType='clear'>
-            <RkText rkType='awesome primary' style={styles.icon}>&#xf004;</RkText>
+            <RkText rkType='awesome primary' style={styles.icon}>{FontAwesome.heart}</RkText>
             <RkText rkType='xsmall primary regular' style={styles.label}>18</RkText>
           </RkButton>
         </View>
         <View style={styles.section}>
           <RkButton rkType='clear'>
-            <RkText rkType='awesome icon' style={styles.icon}>&#xf0e5;</RkText>
+            <RkText rkType='awesome icon' style={styles.icon}>{FontAwesome.comment}</RkText>
             <RkText rkType='xsmall regular icon' style={styles.label}>24</RkText>
           </RkButton>
         </View>
         <View style={styles.section}>
           <RkButton rkType='clear'>
-            <RkText rkType='awesome icon' style={styles.icon}>&#xf2c0;</RkText>
+            <RkText rkType='awesome icon' style={styles.icon}>{FontAwesome.user}</RkText>
             <RkText rkType='xsmall regular icon' style={styles.label}>5</RkText>
           </RkButton>
         </View>

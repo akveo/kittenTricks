@@ -1,6 +1,8 @@
 import {RkTheme} from 'react-native-ui-kitten';
 import {KittenTheme} from './theme';
 import {AvatarTypes} from '../components/avatar/types';
+import {GradientButtonTypes} from '../components/gradientButton/types';
+import {SwitchTypes} from '../components/switch/types';
 
 export let bootstrap = () => {
 
@@ -12,19 +14,19 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkText', 'basic', {
     text: {
-      fontFamily: 'Roboto-Medium',
+      fontFamily: KittenTheme.fonts.family.bold,
     }
   });
 
   RkTheme.setType('RkText', 'regular', {
     text: {
-      fontFamily: 'Roboto-Regular',
+      fontFamily: KittenTheme.fonts.family.regular,
     }
   });
 
   RkTheme.setType('RkText', 'light', {
     text: {
-      fontFamily: 'Roboto-Light',
+      fontFamily: KittenTheme.fonts.family.light,
     }
   });
 
@@ -116,8 +118,38 @@ export let bootstrap = () => {
   });
 
   /*
+   RkTextInput
+   */
+
+  RkTheme.setType('RkTextInput', 'basic', {
+    input: {
+      fontFamily: KittenTheme.fonts.family.bold
+    }
+  });
+
+  RkTheme.setType('RkTextInput', 'right', {
+    input: {
+      textAlign: 'right',
+      marginTop:{
+        ios:18,
+        android:11
+      }
+    },
+    label: {
+      fontFamily: KittenTheme.fonts.family.light,
+    },
+    container: {
+      marginVertical: 4
+
+    },
+    labelFontSize: KittenTheme.fonts.sizes.small
+  });
+
+  /*
    Register components
    */
 
   RkTheme.registerComponent('Avatar', AvatarTypes);
+  RkTheme.registerComponent('GradientButton', GradientButtonTypes);
+  RkTheme.registerComponent('RkSwitch', SwitchTypes);
 };

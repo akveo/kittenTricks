@@ -3,7 +3,7 @@ import {StackNavigator} from 'react-navigation'
 import _ from 'lodash';
 import Styles from '../config/styles';
 import * as Screens from '../screens';
-import {FontIcons} from '../assets/fontIcons';
+import {FontIcons} from '../assets/icons';
 
 export const MainRoutes = [
   {
@@ -32,7 +32,7 @@ export const MainRoutes = [
       },
       {
         id: 'Side',
-        title: 'Side menu',
+        title: 'Side Menu',
         action: 'DrawerOpen',
         screen: Screens.SideMenu,
         children: []
@@ -62,6 +62,18 @@ export const MainRoutes = [
         id: 'ProfileV2',
         title: 'User Profile V2',
         screen: Screens.ProfileV2,
+        children: []
+      },
+      {
+        id: 'ProfileV3',
+        title: 'User Profile V3',
+        screen: Screens.ProfileV3,
+        children: []
+      },
+      {
+        id: 'ProfileSettings',
+        title: 'Profile Settings',
+        screen: Screens.ProfileSettings,
         children: []
       },
     ]

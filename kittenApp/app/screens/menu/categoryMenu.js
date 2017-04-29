@@ -9,18 +9,18 @@ import {
 import {RkText} from 'react-native-ui-kitten';
 import {Colors} from '../../config/theme';
 
-
 export class CategoryMenu extends React.Component {
 
   constructor(props) {
     super(props);
-    this.isEmpty = this.props.items.length == 0;
+    this.isEmpty = this.props.items.length === 0;
     if (!this.isEmpty) {
       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       this.data = ds.cloneWithRows(this.props.items);
       this.renderRow = this._renderRow.bind(this);
       this.navigate = this._navigate.bind(this);
     }
+    this.state = {selected: true};
   }
 
   _navigate(row) {
@@ -52,7 +52,8 @@ export class CategoryMenu extends React.Component {
     if (this.isEmpty) {
       return (
         <View style={styles.emptyContainer}>
-          <RkText rkType='light subtitle'>Coming Soon...</RkText>
+          <RkText rkType='light subtitle'>{this.state.selected?'true':'false'}</RkText>
+          }}/>
         </View>
       )
     } else {

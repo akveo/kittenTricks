@@ -9,12 +9,13 @@
     "restart": "rm -r node_modules/react-native-ui-kitten && npm install && ./node_modules/react-native/packager/packager.sh  ."
   },
   "dependencies": {
-    "react": "16.0.0-alpha.6",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.8",
+    "react": "16.0.0-alpha.6",
     "react-native": "0.43.3",
+    "react-native-linear-gradient": "^2.0.0",
     "react-native-ui-kitten": "file:../../react-native-ui-kitten/",
     "react-navigation": "git+https://github.com/react-community/react-navigation.git#7165efce02a60eecc41813fe5e030883996671ec",
-    "lodash": "^4.17.4",
     "rnpm": "^1.9.0"
   },
   "devDependencies": {
@@ -26,7 +27,9 @@
   "jest": {
     "preset": "react-native"
   },
-  "rnpm":{
-    "assets":["./app/assets/fonts"]
+  "rnpm": {
+    "assets": [
+      "./app/assets/fonts"
+    ]
   }
 }
