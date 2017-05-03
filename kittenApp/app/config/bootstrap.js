@@ -130,9 +130,9 @@ export let bootstrap = () => {
   RkTheme.setType('RkTextInput', 'right', {
     input: {
       textAlign: 'right',
-      marginTop:{
-        ios:18,
-        android:11
+      marginTop: {
+        ios: 18,
+        android: 11
       }
     },
     label: {
@@ -143,6 +143,31 @@ export let bootstrap = () => {
 
     },
     labelFontSize: KittenTheme.fonts.sizes.small
+  });
+
+  RkTheme.setType('RkTextInput', 'search', {
+    input: {
+      marginVertical: 0,
+      marginHorizontal: 0,
+      marginTop:0,
+      paddingTop:{
+        ios:2,
+        android:0
+      },
+      paddingBottom:0,
+      textAlignVertical:'center',
+      includeFontPadding:false,
+      fontFamily: KittenTheme.fonts.family.light,
+      fontSize: KittenTheme.fonts.sizes.small
+    },
+    container: {
+      backgroundColor: KittenTheme.colors.back.base,
+      marginVertical: 0,
+      borderRadius: 20,
+      paddingHorizontal: 16
+    },
+    labelColor: KittenTheme.colors.text.icon,
+    placeholderTextColor: KittenTheme.colors.text.hint
   });
 
   /*

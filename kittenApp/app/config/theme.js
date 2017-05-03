@@ -7,7 +7,7 @@ export const Colors = {
   background: '#ffffff',
   faded: '#e5e5e5',
   alterBackground: '#f2f2f2',
-  chatIcon: '#c2c2c2',
+  icon: '#c2c2c2',
   neutral: '#f2f2f2',
   hint: '#969696',
   overlay: '#00000057',
@@ -39,7 +39,6 @@ export const KittenTheme = {
     background: Colors.background,
     overlay: Colors.overlay,
 
-
     text: {
       base: Colors.foreground,
       additional: Colors.background,
@@ -47,10 +46,12 @@ export const KittenTheme = {
       hint: Colors.hint,
       primary: Colors.primary,
       secondary: Colors.alterForeground,
-      icon: Colors.iconForeground
+      icon: Colors.iconForeground,
+      neutral: Colors.neutral
     },
     back: {
       base: Colors.background,
+      alternative: Colors.alterBackground,
       primary: Colors.primary,
       primaryActive: Colors.neutral,
       success: Colors.success,

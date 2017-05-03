@@ -82,6 +82,12 @@ export const MainRoutes = [
         screen: Screens.Notifications,
         children: []
       },
+      {
+        id: 'Contacts',
+        title: 'Contacts',
+        screen: Screens.Contacts,
+        children: []
+      },
     ]
   },
   {
