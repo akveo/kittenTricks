@@ -9,6 +9,7 @@
     "restart": "rm -r node_modules/react-native-ui-kitten && npm install && ./node_modules/react-native/packager/packager.sh  ."
   },
   "dependencies": {
+    "human-date": "^1.4.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.8",
     "react": "16.0.0-alpha.6",

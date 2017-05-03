@@ -11,7 +11,7 @@ import {
 import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {Gallery} from '../../components/gallery';
-import {Users} from '../../data/users';
+import {Users} from '../../data/appData';
 import {FontIcons} from '../../assets/icons';
 
 export class ProfileV2 extends React.Component {
@@ -35,15 +35,15 @@ export class ProfileV2 extends React.Component {
                 <RkText rkType='moon large primary'>{FontIcons.profile}</RkText>
               </RkButton>
             </View>
-            <Avatar img={this.user.photo} rkType='big notext'/>
+            <Avatar img={this.user.photo} rkType='big'/>
             <View style={styles.buttons}>
               <RkButton style={styles.button} rkType='icon circle'>
                 <RkText rkType='moon large primary'>{FontIcons.mail}</RkText>
               </RkButton>
             </View>
           </View>
-          <View>
-            <Avatar name={name} rkType='big noimage'/>
+          <View style={styles.section}>
+            <RkText rkType='large'>{name}</RkText>
           </View>
         </View>
         <View style={styles.userInfo}>
@@ -74,7 +74,7 @@ let styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    paddingBottom: 19,
+
   },
   userInfo: {
     flexDirection: 'row',

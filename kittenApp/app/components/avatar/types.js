@@ -2,7 +2,6 @@ export const AvatarTypes = (theme) => {
   return ({
     _base: {
       container: {
-        flex: 1,
         alignItems: 'center',
         flexDirection: 'row',
       },
@@ -10,9 +9,21 @@ export const AvatarTypes = (theme) => {
         width: 40,
         height: 40
       },
-      username: {
-        paddingLeft: 10,
-        color: theme.colors.text.base
+      badge: {
+        backgroundColor: 'red',
+        width: 15,
+        height: 15,
+        borderRadius: 7.5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        bottom: -2,
+        right: -2
+      },
+      badgeText: {
+        backgroundColor: 'transparent',
+        fontSize: 9,
+        color: theme.colors.text.additional
       }
     },
     big: {
@@ -24,26 +35,11 @@ export const AvatarTypes = (theme) => {
       },
       container: {
         flexDirection: 'column'
-      },
-      username: {
-        paddingLeft: 0,
-        fontSize: theme.fonts.sizes.large
       }
     },
-    notext: {
-      username: {
-        width: 0,
-        height: 0,
-      },
-      image:{
-        marginBottom: 0
-      }
-    },
-    noimage: {
+    circle: {
       image: {
-        width: 0,
-        height: 0,
-        marginBottom: 0
+        borderRadius: 20
       },
     }
   })

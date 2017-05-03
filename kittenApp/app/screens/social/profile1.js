@@ -11,7 +11,7 @@ import {
 import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {Gallery} from '../../components/gallery';
-import {Users} from '../../data/users';
+import {Users} from '../../data/appData';
 
 export class ProfileV1 extends React.Component {
   static navigationOptions = {
@@ -24,12 +24,12 @@ export class ProfileV1 extends React.Component {
   }
 
   render() {
+    let name = `${this.user.firstName} ${this.user.lastName}`;
     return (
       <ScrollView>
         <View style={[styles.header, styles.bordered]}>
-          <Avatar img={this.user.photo}
-                  name={`${this.user.firstName} ${this.user.lastName}`}
-                  rkType='big'/>
+          <Avatar img={this.user.photo} rkType='big'/>
+          <RkText rkType='large'>{name}</RkText>
         </View>
         <View style={[styles.userInfo, styles.bordered]}>
           <View style={styles.section}>

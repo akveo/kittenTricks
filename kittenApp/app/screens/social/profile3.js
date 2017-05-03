@@ -12,7 +12,7 @@ import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {Gallery} from '../../components/gallery';
 import {GradientButton} from '../../components/gradientButton';
-import {Users} from '../../data/users';
+import {Users} from '../../data/appData';
 
 export class ProfileV3 extends React.Component {
   static navigationOptions = {
@@ -25,16 +25,13 @@ export class ProfileV3 extends React.Component {
   }
 
   render() {
+    let name = `${this.user.firstName} ${this.user.lastName}`;
     return (
       <ScrollView>
         <View style={[styles.header, styles.bordered]}>
-          <Avatar img={this.user.photo}
-                  name={`${this.user.firstName} ${this.user.lastName}`}
-                  rkType='big'/>
-
-
-            <GradientButton style={styles.button} text='FOLLOW'/>
-
+          <Avatar img={this.user.photo} rkType='big'/>
+          <RkText rkType='large'>{name}</RkText>
+          <GradientButton style={styles.button} text='FOLLOW'/>
         </View>
 
         <View style={styles.userInfo}>
@@ -92,8 +89,8 @@ let styles = StyleSheet.create({
   },
   button: {
     marginTop: 18,
-    alignSelf:'center',
-    width:140
+    alignSelf: 'center',
+    width: 140
   },
 
 });

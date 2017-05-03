@@ -76,6 +76,12 @@ export const MainRoutes = [
         screen: Screens.ProfileSettings,
         children: []
       },
+      {
+        id: 'Notifications',
+        title: 'Notifications',
+        screen: Screens.Notifications,
+        children: []
+      },
     ]
   },
   {

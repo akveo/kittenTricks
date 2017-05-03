@@ -9,7 +9,7 @@ import {
   RkText,
   RkTextInput
 } from 'react-native-ui-kitten';
-import {Users} from '../../data/users';
+import {Users} from '../../data/appData';
 import {Avatar} from '../../components/avatar';
 import {KittenTheme} from '../../config/theme';
 import {SocialSetting} from '../../components/socialSetting';
@@ -45,7 +45,7 @@ export class ProfileSettings extends React.Component {
     return (
       <ScrollView>
         <View style={styles.header}>
-          <Avatar img={this.user.photo} rkType='big notext'/>
+          <Avatar img={this.user.photo} rkType='big'/>
         </View>
         <View style={styles.section}>
           <View style={[styles.row, styles.heading]}>
