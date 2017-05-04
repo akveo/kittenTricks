@@ -13,6 +13,8 @@ import {
 import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {SocialBar} from '../../components/socialBar';
+import {Data} from '../../data';
+let hdate = require('human-date');
 
 export class Feed extends React.Component {
   static navigationOptions = {
@@ -22,30 +24,26 @@ export class Feed extends React.Component {
   constructor(props) {
     super(props);
 
-    this.data = [
-      {key: 1},
-      {key: 2}
-    ];
+    this.data = Data.getPosts();
   }
 
-  renderItem(info) {
+  _keyExtractor = (post, index) => post.id;
+
+  _renderItem(info) {
     return (
       <RkCard style={styles.card}>
         <View rkCardHeader>
           <Avatar rkType='small'
                   style={styles.avatar}
-                  img={require('../../data/img/photo32.jpg')}/>
+                  img={info.item.avatar}/>
           <View>
-            <RkText rkType='primary1'>Vasiliy Sivoy</RkText>
-            <RkText rkType='secondary2 alterColor'>2 min ago</RkText>
+            <RkText rkType='primary1'>{info.item.username}</RkText>
+            <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(info.item.time)}</RkText>
           </View>
         </View>
-        <Image rkCardImg source={require('../../data/img/photo17.png')}/>
+        <Image rkCardImg source={info.item.photo}/>
         <View rkCardContent>
-          <RkText rkType='primary5'>
-            I have got a cat. Her name is Matilda. She is quite old for a cat. Matilda is very
-            fluffy. She has big eyes. Her eyes are light green, but they become yellow in bright sunlight.
-          </RkText>
+          <RkText rkType='primary5'>{info.item.text}</RkText>
         </View>
         <View rkCardFooter>
           <SocialBar/>
@@ -57,7 +55,8 @@ export class Feed extends React.Component {
   render() {
     return (
       <FlatList data={this.data}
-                renderItem={this.renderItem}
+                renderItem={this._renderItem}
+                keyExtractor={this._keyExtractor}
                 style={styles.container}/>
     )
   }
@@ -69,7 +68,7 @@ let styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 10
   },
-  card:{
+  card: {
     marginVertical: 8,
   },
   avatar: {

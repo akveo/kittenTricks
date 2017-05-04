@@ -11,7 +11,7 @@ import {
 import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {Gallery} from '../../components/gallery';
-import {Users} from '../../data/appData';
+import {Data} from '../../data/';
 
 export class ProfileV1 extends React.Component {
   static navigationOptions = {
@@ -20,7 +20,7 @@ export class ProfileV1 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.user = Users[0];
+    this.user = Data.getUser(1);
   }
 
   render() {

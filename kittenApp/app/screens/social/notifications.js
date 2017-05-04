@@ -7,7 +7,7 @@ import {
 import {RkText} from 'react-native-ui-kitten';
 import {Avatar} from '../../components/avatar';
 import {KittenTheme} from '../../config/theme';
-import {NotificationsData} from '../../data/appData';
+import {Data} from '../../data';
 let hdate = require('human-date');
 
 export class Notifications extends React.Component {
@@ -19,7 +19,7 @@ export class Notifications extends React.Component {
     super(props);
 
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.data = ds.cloneWithRows(NotificationsData);
+    this.data = ds.cloneWithRows(Data.getNotifications());
   }
 
 
