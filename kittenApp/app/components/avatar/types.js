@@ -37,6 +37,13 @@ export const AvatarTypes = (theme) => {
         flexDirection: 'column'
       }
     },
+    small: {
+      image: {
+        width: 32,
+        height: 32,
+        borderRadius:16
+      }
+    },
     circle: {
       image: {
         borderRadius: 20

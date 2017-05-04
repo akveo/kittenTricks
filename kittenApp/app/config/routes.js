@@ -88,6 +88,12 @@ export const MainRoutes = [
         screen: Screens.Contacts,
         children: []
       },
+      {
+        id: 'Feed',
+        title: 'Feed',
+        screen: Screens.Feed,
+        children: []
+      },
     ]
   },
   {

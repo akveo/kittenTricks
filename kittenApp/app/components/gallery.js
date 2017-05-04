@@ -11,7 +11,7 @@ import {
   RkModalImg
 } from 'react-native-ui-kitten';
 import {Ellipsis} from './ellipsis';
-import {FontAwesome} from '../assets/icons';
+import {SocialBar} from './socialBar'
 
 export class Gallery extends React.Component {
 
@@ -27,7 +27,7 @@ export class Gallery extends React.Component {
     return (
       <View style={styles.header}>
         <RkButton rkType='clear contrast' onPress={options.closeImage}>Close</RkButton>
-        <RkText rkType='light'>{`${options.pageNumber}/${options.totalPages}`}</RkText>
+        <RkText rkType='header4'>{`${options.pageNumber}/${options.totalPages}`}</RkText>
         <RkButton rkType='clear'>
           <Ellipsis/>
         </RkButton>
@@ -37,26 +37,7 @@ export class Gallery extends React.Component {
 
   _renderFooter(options) {
     return (
-      <View style={styles.footer}>
-        <View style={styles.section}>
-          <RkButton rkType='clear'>
-            <RkText rkType='awesome primary' style={styles.icon}>{FontAwesome.heart}</RkText>
-            <RkText rkType='xsmall primary regular' style={styles.label}>18</RkText>
-          </RkButton>
-        </View>
-        <View style={styles.section}>
-          <RkButton rkType='clear'>
-            <RkText rkType='awesome icon' style={styles.icon}>{FontAwesome.comment}</RkText>
-            <RkText rkType='xsmall regular icon' style={styles.label}>24</RkText>
-          </RkButton>
-        </View>
-        <View style={styles.section}>
-          <RkButton rkType='clear'>
-            <RkText rkType='awesome icon' style={styles.icon}>{FontAwesome.user}</RkText>
-            <RkText rkType='xsmall regular icon' style={styles.label}>5</RkText>
-          </RkButton>
-        </View>
-      </View>
+      <SocialBar/>
     );
   }
 
@@ -91,23 +72,5 @@ let styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between'
-  },
-  footer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    flex: 1
-  },
-  section: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flex: 1,
-  },
-  icon: {
-    marginRight: 8,
-    fontSize: 20
-  },
-  label: {
-    alignSelf: 'flex-end'
   }
 });

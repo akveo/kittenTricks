@@ -26,7 +26,6 @@ export class Notifications extends React.Component {
   renderRow(row) {
 
     let hasAttachment = row.attach !== undefined;
-
     let attachment = <View/>;
 
     let mainContentStyle;
@@ -46,11 +45,11 @@ export class Notifications extends React.Component {
           <View style={mainContentStyle}>
             <View style={styles.text}>
               <RkText>
-                <RkText rkType='small'>{row.username}</RkText>
-                <RkText rkType='small light'> {row.description}</RkText>
+                <RkText rkType='header6'>{row.username}</RkText>
+                <RkText rkType='primary2'> {row.description}</RkText>
               </RkText>
             </View>
-            <RkText rkType='subtitle xsmall light '>{hdate.relativeTime(row.time)}</RkText>
+            <RkText rkType='secondary5 secondaryColor'>{hdate.relativeTime(row.time)}</RkText>
           </View>
           {attachment}
         </View>

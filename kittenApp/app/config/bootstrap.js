@@ -13,46 +13,130 @@ export let bootstrap = () => {
    */
 
   RkTheme.setType('RkText', 'basic', {
-    text: {
-      fontFamily: KittenTheme.fonts.family.bold,
-    }
+    fontFamily: KittenTheme.fonts.family.bold,
   });
 
   RkTheme.setType('RkText', 'regular', {
-    text: {
-      fontFamily: KittenTheme.fonts.family.regular,
-    }
+    fontFamily: KittenTheme.fonts.family.regular,
   });
 
   RkTheme.setType('RkText', 'light', {
-    text: {
-      fontFamily: KittenTheme.fonts.family.light,
-    }
+    fontFamily: KittenTheme.fonts.family.light,
   });
 
   RkTheme.setType('RkText', 'moon', {
-    text: {
-      fontFamily: 'icomoon',
-    }
+    fontFamily: 'icomoon',
   });
 
   RkTheme.setType('RkText', 'awesome', {
-    text: {
-      fontFamily: 'fontawesome',
-    }
+    fontFamily: 'fontawesome',
   });
 
-  RkTheme.setType('RkText', 'secondary', {
+  //all font sizes
+  for (let key in KittenTheme.fonts.sizes) {
+    RkTheme.setType('RkText', key, {
+      fontSize: KittenTheme.fonts.sizes[key]
+    });
+  }
+
+  //all text colors
+  for (let key in KittenTheme.colors.text) {
+    RkTheme.setType('RkText', `${key}Color`, {
+      color: KittenTheme.colors.text[key]
+    });
+  }
+
+  //theme text styles
+  RkTheme.setType('RkText', 'header1', {
+    fontSize: KittenTheme.fonts.sizes.h1,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'header2', {
+    fontSize: KittenTheme.fonts.sizes.h2,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'header3', {
+    fontSize: KittenTheme.fonts.sizes.h3,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'header4', {
+    fontSize: KittenTheme.fonts.sizes.h4,
+    fontFamily: KittenTheme.fonts.family.light
+  });
+  RkTheme.setType('RkText', 'header5', {
+    fontSize: KittenTheme.fonts.sizes.h5,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'header6', {
+    fontSize: KittenTheme.fonts.sizes.h6,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'header7', {
+    fontSize: KittenTheme.fonts.sizes.h7,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'secondary1', {
+    fontSize: KittenTheme.fonts.sizes.s1,
+    fontFamily: KittenTheme.fonts.family.light
+  });
+  RkTheme.setType('RkText', 'secondary2', {
+    fontSize: KittenTheme.fonts.sizes.s2,
+    fontFamily: KittenTheme.fonts.family.light
+  });
+  RkTheme.setType('RkText', 'secondary3', {
+    fontSize: KittenTheme.fonts.sizes.s3,
+    fontFamily: KittenTheme.fonts.family.regular
+  });
+  RkTheme.setType('RkText', 'secondary4', {
+    fontSize: KittenTheme.fonts.sizes.s4,
+    fontFamily: KittenTheme.fonts.family.regular
+  });
+  RkTheme.setType('RkText', 'secondary5', {
+    fontSize: KittenTheme.fonts.sizes.s5,
+    fontFamily: KittenTheme.fonts.family.regular
+  });
+  RkTheme.setType('RkText', 'secondary6', {
+    fontSize: KittenTheme.fonts.sizes.s6,
+    fontFamily: KittenTheme.fonts.family.regular
+  });
+  RkTheme.setType('RkText', 'primary1', {
+    fontSize: KittenTheme.fonts.sizes.p1,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'primary2', {
+    fontSize: KittenTheme.fonts.sizes.p2,
+    fontFamily: KittenTheme.fonts.family.light
+  });
+  RkTheme.setType('RkText', 'primary3', {
+    fontSize: KittenTheme.fonts.sizes.p3,
+    fontFamily: KittenTheme.fonts.family.bold
+  });
+  RkTheme.setType('RkText', 'primary4', {
+    fontSize: KittenTheme.fonts.sizes.p4,
+    fontFamily: KittenTheme.fonts.family.regular
+  });
+  RkTheme.setType('RkText', 'primary5', {
+    fontSize: KittenTheme.fonts.sizes.p5,
+    fontFamily: KittenTheme.fonts.family.light
+  });
+
+  RkTheme.setType('RkText', 'time', {
+    fontSize: KittenTheme.fonts.sizes.sec2,
+    text: {
+      fontFamily: KittenTheme.fonts.family.light
+    },
     color: KittenTheme.colors.text.secondary
   });
 
-  RkTheme.setType('RkText', 'xsmall', {
-    fontSize: KittenTheme.fonts.sizes.xsmall,
+  RkTheme.setType('RkText', 'timeSmall', {
+    fontSize: KittenTheme.fonts.sizes.sec3,
+    text: {
+      fontFamily: KittenTheme.fonts.family.regular
+    },
+    color: KittenTheme.colors.text.hint
   });
 
-  RkTheme.setType('RkText', 'icon', {
-    color: KittenTheme.colors.text.icon
-  });
+
   /*
    RkButton types
    */
@@ -149,16 +233,17 @@ export let bootstrap = () => {
     input: {
       marginVertical: 0,
       marginHorizontal: 0,
-      marginTop:0,
-      paddingTop:{
-        ios:2,
-        android:0
+      marginTop: 0,
+      paddingTop: {
+        ios: 2,
+        android: 0
       },
-      paddingBottom:0,
-      textAlignVertical:'center',
-      includeFontPadding:false,
+      paddingBottom: 0,
+      textAlignVertical: 'center',
+      includeFontPadding: false,
       fontFamily: KittenTheme.fonts.family.light,
-      fontSize: KittenTheme.fonts.sizes.small
+      fontSize: KittenTheme.fonts.sizes.small,
+      color: KittenTheme.colors.text.alter
     },
     container: {
       backgroundColor: KittenTheme.colors.back.base,
@@ -166,8 +251,30 @@ export let bootstrap = () => {
       borderRadius: 20,
       paddingHorizontal: 16
     },
-    labelColor: KittenTheme.colors.text.icon,
-    placeholderTextColor: KittenTheme.colors.text.hint
+    labelColor: KittenTheme.colors.icon.base,
+    placeholderTextColor: KittenTheme.colors.text.secondary
+  });
+
+  /*
+   RkCard types
+   */
+
+  RkTheme.setType('RkCard', 'basic', {
+    container:{
+      borderRadius:3
+    },
+    header: {
+      justifyContent: 'flex-start',
+      paddingVertical: 14
+    },
+    content: {
+      padding: 16
+    },
+    footer: {
+      paddingBottom: 20,
+      paddingTop: 7.5,
+      paddingHorizontal:0
+    }
   });
 
   /*

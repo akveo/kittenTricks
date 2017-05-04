@@ -3,7 +3,7 @@ export const Colors = {
   success: '#3bd555',
   foreground: '#212121',
   alterForeground: '#707070',
-  iconForeground: '#bcbcbc',
+  secondaryText: '#bcbcbc',
   background: '#ffffff',
   faded: '#e5e5e5',
   alterBackground: '#f2f2f2',
@@ -20,8 +20,9 @@ export const Colors = {
   info: '#19bfe5',
   warning: '#feb401',
   danger: '#ed1c4d',
-  fontSize: 18
 };
+
+const FontBaseValue = 18;
 
 export const KittenTheme = {
   colors: {
@@ -38,16 +39,13 @@ export const KittenTheme = {
     foreground: Colors.foreground,
     background: Colors.background,
     overlay: Colors.overlay,
-
     text: {
       base: Colors.foreground,
-      additional: Colors.background,
-      subtitle: Colors.foreground,
-      hint: Colors.hint,
-      primary: Colors.primary,
-      secondary: Colors.alterForeground,
-      icon: Colors.iconForeground,
-      neutral: Colors.neutral
+      alter: Colors.alterForeground,
+      secondary: Colors.secondaryText
+    },
+    icon: {
+      base: Colors.icon
     },
     back: {
       base: Colors.background,
@@ -83,13 +81,30 @@ export const KittenTheme = {
   },
   fonts: {
     sizes: {
-      base: Colors.fontSize,
-      xsmall: 13,
-      small: 15,
-      medium: Colors.fontSize,
-      large: 24,
-      xlarge: 34,
-      xxlarge: 40,
+      h1: 26,
+      h2: 24,
+      h3: 20,
+      h4: 18,
+      h5: 18,
+      h6: 16,
+      h7: 15,
+      p1: 18,
+      p2: 16,
+      p3: 15,
+      p4: 15,
+      p5: 15,
+      s1: 15,
+      s2: 14,
+      s3: 14,
+      s4: 12,
+      s5: 12,
+      s6: 12,
+      base: FontBaseValue,
+      small: FontBaseValue * .8,
+      medium: FontBaseValue,
+      large: FontBaseValue * 1.2,
+      xlarge: FontBaseValue / 0.75,
+      xxlarge: FontBaseValue * 1.6,
     },
     family: {
       light: 'Roboto-Light',

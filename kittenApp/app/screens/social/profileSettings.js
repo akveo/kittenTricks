@@ -49,7 +49,7 @@ export class ProfileSettings extends React.Component {
         </View>
         <View style={styles.section}>
           <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary small'>INFO</RkText>
+            <RkText rkType='header6 primary'>INFO</RkText>
           </View>
           <View style={styles.row}>
             <RkTextInput label='First Name'
@@ -86,7 +86,7 @@ export class ProfileSettings extends React.Component {
 
         <View style={styles.section}>
           <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary small'>CHANGE PASSWORD</RkText>
+            <RkText rkType='primary header6'>CHANGE PASSWORD</RkText>
           </View>
           <View style={styles.row}>
             <RkTextInput label='Old Password'
@@ -113,16 +113,16 @@ export class ProfileSettings extends React.Component {
 
         <View style={styles.section}>
           <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary small'>CONNECT YOUR ACCOUNT</RkText>
+            <RkText rkType='primary header6'>CONNECT YOUR ACCOUNT</RkText>
           </View>
           <View style={styles.row}>
-            <SocialSetting name='twitter' icon={FontAwesome.twitter} tintColor={Colors.twitter}/>
+            <SocialSetting name='Twitter' icon={FontAwesome.twitter} tintColor={Colors.twitter}/>
           </View>
           <View style={styles.row}>
-            <SocialSetting name='google' icon={FontAwesome.google} tintColor={Colors.google}/>
+            <SocialSetting name='Google' icon={FontAwesome.google} tintColor={Colors.google}/>
           </View>
           <View style={styles.row}>
-            <SocialSetting name='facebook' icon={FontAwesome.facebook} tintColor={Colors.facebook}/>
+            <SocialSetting name='Facebook' icon={FontAwesome.facebook} tintColor={Colors.facebook}/>
           </View>
         </View>
         <GradientButton rkType='large' style={styles.button} text='SAVE'/>

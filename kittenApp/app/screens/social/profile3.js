@@ -30,22 +30,22 @@ export class ProfileV3 extends React.Component {
       <ScrollView>
         <View style={[styles.header, styles.bordered]}>
           <Avatar img={this.user.photo} rkType='big'/>
-          <RkText rkType='large'>{name}</RkText>
+          <RkText rkType='header2'>{name}</RkText>
           <GradientButton style={styles.button} text='FOLLOW'/>
         </View>
 
         <View style={styles.userInfo}>
           <View style={styles.section}>
-            <RkText style={styles.space}>{this.user.postCount}</RkText>
-            <RkText rkType='small light secondary'>Posts</RkText>
+            <RkText rkType='header3' style={styles.space}>{this.user.postCount}</RkText>
+            <RkText rkType='secondary1 secondaryColor'>Posts</RkText>
           </View>
           <View style={styles.section}>
-            <RkText style={styles.space}>{this.user.followersCount}</RkText>
-            <RkText rkType='small light secondary'>Followers</RkText>
+            <RkText rkType='header3' style={styles.space}>{this.user.followersCount}</RkText>
+            <RkText rkType='secondary1 secondaryColor'>Followers</RkText>
           </View>
           <View style={styles.section}>
-            <RkText style={styles.space}>{this.user.followingCount}</RkText>
-            <RkText rkType='small light secondary'>Following</RkText>
+            <RkText rkType='header3' style={styles.space}>{this.user.followingCount}</RkText>
+            <RkText rkType='secondary1 secondaryColor'>Following</RkText>
           </View>
         </View>
         <Gallery items={this.user.images}/>
