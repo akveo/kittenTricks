@@ -22,24 +22,24 @@ export const SocialBarTypes = (theme) => {
       }
     },
     leftAligned: {
-      section:{
-        alignItems:'flex-start',
-        justifyContent:'flex-start'
+      section: {
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start'
       },
-      label:{
-        color:'white',
+      label: {
+        color: theme.colors.text.overlay,
       },
-      icon:{
-        color:'white'
+      icon: {
+        color: theme.colors.text.overlay
       }
     },
-    space:{
-      container:{
-        justifyContent:'space-between',
-        paddingHorizontal:10
+    space: {
+      container: {
+        justifyContent: 'space-between',
+        paddingHorizontal: 10
       },
-      section:{
-        flex:-1
+      section: {
+        flex: -1
       }
     }
   })

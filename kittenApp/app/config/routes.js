@@ -114,6 +114,12 @@ export const MainRoutes = [
         screen: Screens.Articles2,
         children: []
       },
+      {
+        id: 'Articles3',
+        title: 'Article List V3',
+        screen: Screens.Articles3,
+        children: []
+      },
     ]
   },
   {

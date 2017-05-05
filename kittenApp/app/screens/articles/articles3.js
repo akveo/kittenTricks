@@ -14,14 +14,14 @@ import {Data} from '../../data';
 import {KittenTheme} from '../../config/theme';
 let hdate = require('human-date');
 
-export class Articles2 extends React.Component {
+
+export class Articles3 extends React.Component {
   static navigationOptions = {
     title: 'Article List'.toUpperCase()
   };
 
   constructor(props) {
     super(props);
-
     this.data = Data.getPosts();
   }
 
@@ -29,21 +29,23 @@ export class Articles2 extends React.Component {
     return post.id;
   }
 
-  _renderItem(info) {
-    return (
-      <RkCard rkType='imgBlock' style={styles.card}>
-        <Image rkCardImg source={info.item.photo}/>
-
-        <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-          <RkText rkType='header5 overlayColor'>{info.item.title}</RkText>
-          <RkText style={styles.time} rkType='secondary2 overlayColor'>{hdate.relativeTime(info.item.time)}</RkText>
+  _renderItem(info){
+    return(
+      <RkCard style={styles.card}>
+        <View rkCardHeader>
+          <View>
+            <RkText rkType='primary1'>{info.item.title}</RkText>
+            <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(info.item.time)}</RkText>
+          </View>
         </View>
-        <View rkCardFooter>
-          <SocialBar rkType='space' showLabel={true}/>
+        <Image rkCardImg source={info.item.photo}/>
+        <View style={styles.footer} rkCardFooter>
+          <SocialBar/>
         </View >
       </RkCard>
     )
   }
+
 
   render() {
     return (
@@ -51,7 +53,6 @@ export class Articles2 extends React.Component {
                 renderItem={this._renderItem}
                 keyExtractor={this._keyExtractor}
                 style={styles.container}/>
-
     )
   }
 }
@@ -59,13 +60,13 @@ export class Articles2 extends React.Component {
 let styles = StyleSheet.create({
   container: {
     backgroundColor: KittenTheme.colors.back.neutral,
-    paddingVertical: 8,
-    paddingHorizontal: 14
+    paddingHorizontal:14,
+    paddingVertical:8
   },
-  card: {
-    marginVertical: 8,
+  card:{
+    marginVertical:8
   },
-  time:{
-    marginTop:5
+  footer:{
+    paddingTop:16
   }
 });
