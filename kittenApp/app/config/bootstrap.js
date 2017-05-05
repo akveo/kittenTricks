@@ -3,6 +3,7 @@ import {KittenTheme} from './theme';
 import {AvatarTypes} from '../components/avatar/types';
 import {GradientButtonTypes} from '../components/gradientButton/types';
 import {SwitchTypes} from '../components/switch/types';
+import {SocialBarTypes} from '../components/socialBar/types';
 
 export let bootstrap = () => {
 
@@ -260,8 +261,8 @@ export let bootstrap = () => {
    */
 
   RkTheme.setType('RkCard', 'basic', {
-    container:{
-      borderRadius:3
+    container: {
+      borderRadius: 3
     },
     header: {
       justifyContent: 'flex-start',
@@ -273,7 +274,30 @@ export let bootstrap = () => {
     footer: {
       paddingBottom: 20,
       paddingTop: 7.5,
-      paddingHorizontal:0
+      paddingHorizontal: 0
+    }
+  });
+
+  RkTheme.setType('RkCard', 'backImg', {
+    container: {
+      borderWidth: 0,
+      borderRadius: 0
+    },
+    img: {
+      height: 225
+    },
+    imgOverlay: {
+      height: 225,
+      backgroundColor: 'transparent'
+    },
+    content: {
+      paddingHorizontal: 14
+    },
+    footer: {
+      paddingTop: 15,
+      paddingBottom: 0,
+      paddingVertical: 7.5,
+      paddingHorizontal: 0
     }
   });
 
@@ -284,4 +308,5 @@ export let bootstrap = () => {
   RkTheme.registerComponent('Avatar', AvatarTypes);
   RkTheme.registerComponent('GradientButton', GradientButtonTypes);
   RkTheme.registerComponent('RkSwitch', SwitchTypes);
+  RkTheme.registerComponent('SocialBar', SocialBarTypes);
 };

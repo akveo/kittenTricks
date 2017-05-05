@@ -23,7 +23,8 @@ class DataProvider {
     for (let post of posts) {
       let user = _.find(appData.Users, {id: post.userId});
       post.avatar = user.photo;
-      post.username = `${user.firstName} ${user.lastName}`
+      post.username = `${user.firstName} ${user.lastName}`;
+      post.title = post.text.split('.')[0]
     }
     return posts;
   }

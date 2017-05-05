@@ -101,7 +101,14 @@ export const MainRoutes = [
     title: 'Articles',
     icon: FontIcons.article,
     screen: Screens.ArticleMenu,
-    children: []
+    children: [
+      {
+        id: 'Articles1',
+        title: 'Article List V1',
+        screen: Screens.Articles1,
+        children: []
+      },
+    ]
   },
   {
     id: 'MessagingMenu',

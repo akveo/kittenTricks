@@ -27,7 +27,9 @@ export class Feed extends React.Component {
     this.data = Data.getPosts();
   }
 
-  _keyExtractor = (post, index) => post.id;
+  _keyExtractor(post, index) {
+    return post.id;
+  }
 
   _renderItem(info) {
     return (
