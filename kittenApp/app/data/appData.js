@@ -405,13 +405,13 @@ export const Posts =
     'userId': 7,
     'photo': require('../data/img/photo17.png'),
     'time': -1373,
-    'text': 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.'
+    'text': 'Mauris enim leo. rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.'
   }, {
     'id': 3,
     'userId': 12,
     'photo': require('../data/img/photo18.png'),
     'time': -2446,
-    'text': 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.'
+    'text': 'Cras mi pede. Malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.'
   }, {
     'id': 4,
     'userId': 14,
@@ -435,7 +435,7 @@ export const Posts =
     'userId': 16,
     'photo': require('../data/img/photo19.png'),
     'time': -6738,
-    'text': 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.'
+    'text': 'Maecenas leo odio. condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.'
   }, {
     'id': 8,
     'userId': 13,
@@ -453,5 +453,5 @@ export const Posts =
     'userId': 19,
     'photo': require('../data/img/photo20.png'),
     'time': -9957,
-    'text': 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.'
+    'text': 'Mauris enim leo. Fhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.'
   }];

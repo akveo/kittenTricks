@@ -33,8 +33,8 @@ export class Articles1 extends React.Component {
       <RkCard rkType='backImg'>
         <Image rkCardImg source={info.item.photo}/>
         <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-          <RkText style={styles.white} rkType='header2'>{info.item.title}</RkText>
-          <RkText style={styles.white} rkType='secondary2'>{hdate.relativeTime(info.item.time)}</RkText>
+          <RkText rkType='header2 overlayColor'>{info.item.title}</RkText>
+          <RkText rkType='secondary2 overlayColor'>{hdate.relativeTime(info.item.time)}</RkText>
           <View rkCardFooter style={styles.footer}>
             <SocialBar rkType='leftAligned'/>
           </View >
@@ -60,9 +60,6 @@ let styles = StyleSheet.create({
   container: {},
   overlay: {
     justifyContent: 'flex-end',
-  },
-  white: {
-    color: '#ffffff'
   },
   footer: {
     width: 240

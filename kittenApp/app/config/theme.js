@@ -3,6 +3,7 @@ export const Colors = {
   success: '#3bd555',
   foreground: '#212121',
   alterForeground: '#707070',
+  overlayForeground: '#ffffff',
   secondaryText: '#bcbcbc',
   background: '#ffffff',
   faded: '#e5e5e5',
@@ -42,7 +43,8 @@ export const KittenTheme = {
     text: {
       base: Colors.foreground,
       alter: Colors.alterForeground,
-      secondary: Colors.secondaryText
+      secondary: Colors.secondaryText,
+      overlay: Colors.overlayForeground
     },
     icon: {
       base: Colors.icon

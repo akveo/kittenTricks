@@ -13,10 +13,11 @@ export const SocialBarTypes = (theme) => {
         flex: 1,
       },
       icon: {
-        marginRight: 8,
+
         fontSize: 20
       },
       label: {
+        marginLeft: 8,
         alignSelf: 'flex-end'
       }
     },
@@ -30,6 +31,15 @@ export const SocialBarTypes = (theme) => {
       },
       icon:{
         color:'white'
+      }
+    },
+    space:{
+      container:{
+        justifyContent:'space-between',
+        paddingHorizontal:10
+      },
+      section:{
+        flex:-1
       }
     }
   })
