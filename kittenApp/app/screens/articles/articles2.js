@@ -35,7 +35,7 @@ export class Articles2 extends React.Component {
         <Image rkCardImg source={info.item.photo}/>
 
         <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-          <RkText rkType='header5 overlayColor'>{info.item.title}</RkText>
+          <RkText rkType='header4 overlayColor'>{info.item.title}</RkText>
           <RkText style={styles.time} rkType='secondary2 overlayColor'>{hdate.relativeTime(info.item.time)}</RkText>
         </View>
         <View rkCardFooter>

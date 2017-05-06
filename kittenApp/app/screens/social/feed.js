@@ -39,13 +39,13 @@ export class Feed extends React.Component {
                   style={styles.avatar}
                   img={info.item.avatar}/>
           <View>
-            <RkText rkType='primary1'>{info.item.username}</RkText>
+            <RkText rkType='header4'>{info.item.username}</RkText>
             <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(info.item.time)}</RkText>
           </View>
         </View>
         <Image rkCardImg source={info.item.photo}/>
         <View rkCardContent>
-          <RkText rkType='primary5'>{info.item.text}</RkText>
+          <RkText rkType='primary3'>{info.item.text}</RkText>
         </View>
         <View rkCardFooter>
           <SocialBar/>

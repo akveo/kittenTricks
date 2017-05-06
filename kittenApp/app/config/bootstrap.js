@@ -62,7 +62,7 @@ export let bootstrap = () => {
   });
   RkTheme.setType('RkText', 'header4', {
     fontSize: KittenTheme.fonts.sizes.h4,
-    fontFamily: KittenTheme.fonts.family.light
+    fontFamily: KittenTheme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'header5', {
     fontSize: KittenTheme.fonts.sizes.h5,
@@ -70,10 +70,6 @@ export let bootstrap = () => {
   });
   RkTheme.setType('RkText', 'header6', {
     fontSize: KittenTheme.fonts.sizes.h6,
-    fontFamily: KittenTheme.fonts.family.bold
-  });
-  RkTheme.setType('RkText', 'header7', {
-    fontSize: KittenTheme.fonts.sizes.h7,
     fontFamily: KittenTheme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'secondary1', {
@@ -94,49 +90,32 @@ export let bootstrap = () => {
   });
   RkTheme.setType('RkText', 'secondary5', {
     fontSize: KittenTheme.fonts.sizes.s5,
-    fontFamily: KittenTheme.fonts.family.regular
+    fontFamily: KittenTheme.fonts.family.light
   });
   RkTheme.setType('RkText', 'secondary6', {
+    fontSize: KittenTheme.fonts.sizes.s6,
+    fontFamily: KittenTheme.fonts.family.light
+  });
+  RkTheme.setType('RkText', 'secondary7', {
     fontSize: KittenTheme.fonts.sizes.s6,
     fontFamily: KittenTheme.fonts.family.regular
   });
   RkTheme.setType('RkText', 'primary1', {
     fontSize: KittenTheme.fonts.sizes.p1,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontFamily: KittenTheme.fonts.family.light
   });
   RkTheme.setType('RkText', 'primary2', {
     fontSize: KittenTheme.fonts.sizes.p2,
-    fontFamily: KittenTheme.fonts.family.light
+    fontFamily: KittenTheme.fonts.family.regular
   });
   RkTheme.setType('RkText', 'primary3', {
     fontSize: KittenTheme.fonts.sizes.p3,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontFamily: KittenTheme.fonts.family.light
   });
   RkTheme.setType('RkText', 'primary4', {
     fontSize: KittenTheme.fonts.sizes.p4,
     fontFamily: KittenTheme.fonts.family.regular
   });
-  RkTheme.setType('RkText', 'primary5', {
-    fontSize: KittenTheme.fonts.sizes.p5,
-    fontFamily: KittenTheme.fonts.family.light
-  });
-
-  RkTheme.setType('RkText', 'time', {
-    fontSize: KittenTheme.fonts.sizes.sec2,
-    text: {
-      fontFamily: KittenTheme.fonts.family.light
-    },
-    color: KittenTheme.colors.text.secondary
-  });
-
-  RkTheme.setType('RkText', 'timeSmall', {
-    fontSize: KittenTheme.fonts.sizes.sec3,
-    text: {
-      fontFamily: KittenTheme.fonts.family.regular
-    },
-    color: KittenTheme.colors.text.hint
-  });
-
 
   /*
    RkButton types
@@ -321,6 +300,19 @@ export let bootstrap = () => {
       paddingHorizontal: 0
     }
   });
+
+  RkTheme.setType('RkCard', 'horizontal', {
+    container: {
+      flexDirection: 'row',
+      height: 110
+    },
+    img: {
+      height: null,
+      flex:-1,
+      width: 120
+    }
+  });
+
 
   /*
    Register components
