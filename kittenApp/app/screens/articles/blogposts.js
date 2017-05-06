@@ -7,11 +7,10 @@ import {
 } from 'react-native';
 import {
   RkCard,
-  RkButton,
   RkText
 } from 'react-native-ui-kitten';
 import {KittenTheme} from '../../config/theme';
-import {Avatar} from '../../components/avatar';
+import {Avatar} from '../../components';
 import {Data} from '../../data';
 let hdate = require('human-date');
 
@@ -41,12 +40,12 @@ export class Blogposts extends React.Component {
         </View>
         <View rkCardContent>
           <View>
-            <RkText rkType='primary3' numberOfLines={2}>{info.item.text}</RkText>
+            <RkText rkType='primary3 mediumLine' numberOfLines={2}>{info.item.text}</RkText>
           </View>
         </View>
         <View rkCardFooter>
           <View style={styles.userInfo}>
-            <Avatar style={styles.avatar} rkType='circle' img={info.item.avatar}/>
+            <Avatar style={styles.avatar} rkType='circle small' img={info.item.avatar}/>
             <RkText rkType='header6'>{info.item.username}</RkText>
           </View>
           <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(info.item.time)}</RkText>
@@ -74,11 +73,11 @@ let styles = StyleSheet.create({
   card: {
     marginVertical: 8,
   },
-  userInfo:{
-    flexDirection:'row',
-    alignItems:'center'
+  userInfo: {
+    flexDirection: 'row',
+    alignItems: 'center'
   },
-  avatar:{
-    marginRight:17
+  avatar: {
+    marginRight: 17
   }
 });

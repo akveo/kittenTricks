@@ -47,6 +47,15 @@ export let bootstrap = () => {
     });
   }
 
+  //all text line heights
+  for (let key in KittenTheme.fonts.lineHeights) {
+    RkTheme.setType('RkText', `${key}Line`, {
+      text: {
+        lineHeight: KittenTheme.fonts.lineHeights[key]
+      }
+    });
+  }
+
   //theme text styles
   RkTheme.setType('RkText', 'header1', {
     fontSize: KittenTheme.fonts.sizes.h1,
@@ -328,7 +337,32 @@ export let bootstrap = () => {
       paddingHorizontal: 16,
       paddingTop: 15,
       paddingBottom: 16,
-      alignItems:'center'
+      alignItems: 'center'
+    }
+  });
+
+  RkTheme.setType('RkCard', 'article', {
+    container: {
+      borderWidth: 0
+    },
+    header: {
+      paddingVertical: 0,
+      paddingTop: 20,
+      paddingBottom: 16,
+      justifyContent: 'space-between',
+      borderBottomWidth: 1,
+      borderColor: KittenTheme.colors.border.underline
+    },
+    content: {
+      padding: 16,
+      borderBottomWidth: 1,
+      borderColor: KittenTheme.colors.border.underline
+    },
+    footer: {
+      paddingHorizontal: 14,
+      paddingTop: 15,
+      paddingBottom: 16,
+      alignItems: 'center'
     }
   });
 

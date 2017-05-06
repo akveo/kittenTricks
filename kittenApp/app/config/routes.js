@@ -132,6 +132,12 @@ export const MainRoutes = [
         screen: Screens.Blogposts,
         children: []
       },
+      {
+        id: 'Article',
+        title: 'Article View',
+        screen: Screens.Article,
+        children: []
+      }
     ]
   },
   {
