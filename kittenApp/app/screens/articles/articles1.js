@@ -11,7 +11,7 @@ import {
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
 import {Data} from '../../data';
-let hdate = require('human-date');
+let moment = require('moment');
 
 export class Articles1 extends React.Component {
   static navigationOptions = {
@@ -34,7 +34,7 @@ export class Articles1 extends React.Component {
         <Image rkCardImg source={info.item.photo}/>
         <View rkCardImgOverlay rkCardContent style={styles.overlay}>
           <RkText rkType='header2 overlayColor'>{info.item.title}</RkText>
-          <RkText rkType='secondary2 overlayColor'>{hdate.relativeTime(info.item.time)}</RkText>
+          <RkText rkType='secondary2 overlayColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
           <View rkCardFooter style={styles.footer}>
             <SocialBar rkType='leftAligned'/>
           </View >

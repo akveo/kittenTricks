@@ -5,3 +5,4 @@ export * from './switch/index';
 export * from './ellipsis';
 export * from './gallery';
 export * from './socialSetting';
+export * from './keyboardSpacer';

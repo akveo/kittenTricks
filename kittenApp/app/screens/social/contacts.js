@@ -63,7 +63,7 @@ export class Contacts extends React.Component {
                      autoCorrect={false}
                      onChange={(event) => this._filter(event.nativeEvent.text)}
                      label={<RkText rkType='awesome'>{FontAwesome.search}</RkText>}
-                     rkType='search'
+                     rkType='row'
                      placeholder='Search'/>
       </View>
     )

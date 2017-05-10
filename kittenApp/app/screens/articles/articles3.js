@@ -12,7 +12,7 @@ import {
 import {SocialBar} from '../../components';
 import {Data} from '../../data';
 import {KittenTheme} from '../../config/theme';
-let hdate = require('human-date');
+let moment = require('moment');
 
 
 export class Articles3 extends React.Component {
@@ -35,7 +35,7 @@ export class Articles3 extends React.Component {
         <View rkCardHeader>
           <View>
             <RkText rkType='header4'>{info.item.title}</RkText>
-            <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(info.item.time)}</RkText>
+            <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
           </View>
         </View>
         <Image rkCardImg source={info.item.photo}/>
@@ -45,7 +45,6 @@ export class Articles3 extends React.Component {
       </RkCard>
     )
   }
-
 
   render() {
     return (

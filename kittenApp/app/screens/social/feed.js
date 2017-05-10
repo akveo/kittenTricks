@@ -14,7 +14,7 @@ import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {SocialBar} from '../../components/socialBar';
 import {Data} from '../../data';
-let hdate = require('human-date');
+let moment = require('moment');
 
 export class Feed extends React.Component {
   static navigationOptions = {
@@ -40,7 +40,7 @@ export class Feed extends React.Component {
                   img={info.item.avatar}/>
           <View>
             <RkText rkType='header4'>{info.item.username}</RkText>
-            <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(info.item.time)}</RkText>
+              <RkText rkType='secondary2 alterColor'>{moment(info.item.time).format('LT')}</RkText>
           </View>
         </View>
         <Image rkCardImg source={info.item.photo}/>

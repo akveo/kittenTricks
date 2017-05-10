@@ -52,6 +52,7 @@ export const KittenTheme = {
     back: {
       base: Colors.background,
       alternative: Colors.alterBackground,
+      inactive: Colors.faded,
       primary: Colors.primary,
       primaryActive: Colors.neutral,
       success: Colors.success,

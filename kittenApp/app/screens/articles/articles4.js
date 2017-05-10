@@ -12,7 +12,7 @@ import {
 import {SocialBar} from '../../components';
 import {Data} from '../../data';
 import {KittenTheme} from '../../config/theme';
-let hdate = require('human-date');
+let moment = require('moment');
 
 export class Articles4 extends React.Component {
   static navigationOptions = {

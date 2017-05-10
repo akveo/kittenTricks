@@ -19,5 +19,6 @@ export const FontAwesome = {
   google: String.fromCharCode(61856),
   facebook: String.fromCharCode(61594),
   plus: String.fromCharCode(61543),
-  search: String.fromCharCode(61442)
+  search: String.fromCharCode(61442),
+  smile: String.fromCharCode(61720)
 };

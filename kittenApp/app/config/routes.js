@@ -145,7 +145,14 @@ export const MainRoutes = [
     title: 'Messaging',
     icon: FontIcons.mail,
     screen: Screens.MessagingMenu,
-    children: []
+    children: [
+      {
+        id: 'Chat',
+        title: 'Chat',
+        screen: Screens.Chat,
+        children: []
+      },
+    ]
   },
   {
     id: 'DashboardsMenu',

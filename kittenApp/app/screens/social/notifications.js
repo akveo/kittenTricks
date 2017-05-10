@@ -8,7 +8,7 @@ import {RkText} from 'react-native-ui-kitten';
 import {Avatar} from '../../components/avatar';
 import {KittenTheme} from '../../config/theme';
 import {Data} from '../../data';
-let hdate = require('human-date');
+let moment = require('moment');
 
 export class Notifications extends React.Component {
   static navigationOptions = {
@@ -49,7 +49,7 @@ export class Notifications extends React.Component {
                 <RkText rkType='primary2'> {row.description}</RkText>
               </RkText>
             </View>
-            <RkText rkType='secondary5 secondaryColor'>{hdate.relativeTime(row.time)}</RkText>
+            <RkText rkType='secondary5 secondaryColor'>{moment().add(row.time, 'seconds').fromNow()}</RkText>
           </View>
           {attachment}
         </View>

@@ -12,7 +12,7 @@ import {
 import {SocialBar} from '../../components';
 import {Data} from '../../data';
 import {KittenTheme} from '../../config/theme';
-let hdate = require('human-date');
+let moment = require('moment');
 
 export class Articles2 extends React.Component {
   static navigationOptions = {
@@ -36,7 +36,8 @@ export class Articles2 extends React.Component {
 
         <View rkCardImgOverlay rkCardContent style={styles.overlay}>
           <RkText rkType='header4 overlayColor'>{info.item.title}</RkText>
-          <RkText style={styles.time} rkType='secondary2 overlayColor'>{hdate.relativeTime(info.item.time)}</RkText>
+          <RkText style={styles.time}
+                  rkType='secondary2 overlayColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
         </View>
         <View rkCardFooter>
           <SocialBar rkType='space' showLabel={true}/>
@@ -65,7 +66,7 @@ let styles = StyleSheet.create({
   card: {
     marginVertical: 8,
   },
-  time:{
-    marginTop:5
+  time: {
+    marginTop: 5
   }
 });

@@ -12,7 +12,7 @@ import {
 import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components';
 import {Data} from '../../data';
-let hdate = require('human-date');
+let moment = require('moment');
 
 export class Blogposts extends React.Component {
   static navigationOptions = {
@@ -48,7 +48,7 @@ export class Blogposts extends React.Component {
             <Avatar style={styles.avatar} rkType='circle small' img={info.item.avatar}/>
             <RkText rkType='header6'>{info.item.username}</RkText>
           </View>
-          <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(info.item.time)}</RkText>
+          <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
         </View>
       </RkCard>
     )

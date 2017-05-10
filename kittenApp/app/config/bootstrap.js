@@ -106,7 +106,7 @@ export let bootstrap = () => {
     fontFamily: KittenTheme.fonts.family.light
   });
   RkTheme.setType('RkText', 'secondary7', {
-    fontSize: KittenTheme.fonts.sizes.s6,
+    fontSize: KittenTheme.fonts.sizes.s7,
     fontFamily: KittenTheme.fonts.family.regular
   });
   RkTheme.setType('RkText', 'primary1', {
@@ -218,7 +218,7 @@ export let bootstrap = () => {
     labelFontSize: KittenTheme.fonts.sizes.small
   });
 
-  RkTheme.setType('RkTextInput', 'search', {
+  RkTheme.setType('RkTextInput', 'row', {
     input: {
       marginVertical: 0,
       marginHorizontal: 0,
@@ -242,6 +242,20 @@ export let bootstrap = () => {
     },
     labelColor: KittenTheme.colors.icon.base,
     placeholderTextColor: KittenTheme.colors.text.secondary
+  });
+
+  RkTheme.setType('RkTextInput', 'sticker', {
+    input: {
+      marginHorizontal:14
+    },
+    container: {
+      justifyContent: 'center',
+      paddingHorizontal: 0
+    },
+    label:{
+      position:'absolute',
+      right:0
+    }
   });
 
   /*

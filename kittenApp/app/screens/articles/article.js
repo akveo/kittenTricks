@@ -13,7 +13,7 @@ import {
 import {Data} from '../../data';
 import {Avatar} from '../../components';
 import {SocialBar} from '../../components';
-let hdate = require('human-date');
+let moment = require('moment');
 
 
 export class Article extends React.Component {
@@ -35,7 +35,7 @@ export class Article extends React.Component {
           <View rkCardHeader>
             <View>
               <RkText style={styles.title} rkType='header4'>{this.data.title}</RkText>
-              <RkText rkType='secondary2 alterColor'>{hdate.relativeTime(this.data.time)}</RkText>
+              <RkText rkType='secondary2 alterColor'>{moment().add(this.data.time,'seconds').fromNow()}</RkText>
             </View>
             <Avatar rkType='circle' img={this.data.avatar}/>
           </View>
