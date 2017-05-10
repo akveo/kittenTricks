@@ -20,21 +20,31 @@ import {Avatar} from '../../components/avatar';
 let moment = require('moment');
 
 export class Chat extends React.Component {
+  
   static navigationOptions = ({navigation}) => {
     let renderAvatar = (user) => {
       return (<Avatar style={styles.avatar} rkType='small' img={user.photo}/>);
     };
 
+    let renderTitle = (user) => {
+      return (
+        <View style={styles.header}>
+          <RkText rkType='header5'>{`${user.firstName} ${user.lastName}`}</RkText>
+          <RkText rkType='secondary3 secondaryColor'>Online</RkText>
+        </View>
+      )
+    };
+
     let userId = 1;
     let user = Data.getUser(userId);
     let rightButton = renderAvatar(user);
+    let title = renderTitle(user);
     return (
       {
-        title: 'Chat'.toUpperCase(),
+        headerTitle: title,
         headerRight: rightButton
       });
   };
-
 
   constructor(props) {
     super(props);
@@ -137,6 +147,9 @@ export class Chat extends React.Component {
 }
 
 let styles = StyleSheet.create({
+  header: {
+    alignItems: 'center'
+  },
   avatar: {
     marginRight: 16
   },
