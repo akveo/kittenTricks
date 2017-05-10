@@ -15,49 +15,35 @@ import _ from 'lodash';
 import {KittenTheme} from '../../config/theme';
 import {FontAwesome} from '../../assets/icons';
 import {KeyboardSpacer} from '../../components/';
+import {Data} from '../../data';
+import {Avatar} from '../../components/avatar';
 let moment = require('moment');
 
 export class Chat extends React.Component {
-  static navigationOptions = {
-    title: 'Chat'.toUpperCase()
+  static navigationOptions = ({navigation}) => {
+    let renderAvatar = (user) => {
+      return (<Avatar style={styles.avatar} rkType='small' img={user.photo}/>);
+    };
+
+    let userId = 1;
+    let user = Data.getUser(userId);
+    let rightButton = renderAvatar(user);
+    return (
+      {
+        title: 'Chat'.toUpperCase(),
+        headerRight: rightButton
+      });
   };
+
 
   constructor(props) {
     super(props);
+    let userId = 1;
+    let conversation = Data.getConversation(userId);
+
     this.state = {
-      data: [
-        {
-          id: 0,
-          type: 'in',
-          date: -300,
-          text: 'When using Chrome debugging, it runs all the JavaScript code within Chrome itself and communicates with native code via WebSocket. So you are using V8.'
-        },
-        {
-          id: 1,
-          date: -240,
-          type: 'in',
-          text: 'When using React Native, you\'re going to be running your JavaScript code in two environments:'
-        },
-        {
-          id: 2,
-          date: -100,
-          type: 'out',
-          text: 'Syntax transformers make writing code more enjoyable by allowing you to use new JavaScript syntax without having to wait for support on all interpreters.'
-        },
-        {
-          id: 3,
-          date: -45,
-          type: 'out',
-          text: 'Here\'s a full list of React Native\'s enabled transformations.'
-        },
-        {
-          id: 4,
-          date: -45,
-          type: 'out',
-          text: 'Here\'s a full list of React Native\'s enabled transformations.'
-        }]
+      data: conversation
     };
-    //this.scroll = this._scroll.bind(this);
   }
 
   _keyExtractor(post, index) {
@@ -151,6 +137,9 @@ export class Chat extends React.Component {
 }
 
 let styles = StyleSheet.create({
+  avatar: {
+    marginRight: 16
+  },
   container: {
     flex: 1,
   },

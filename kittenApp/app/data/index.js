@@ -28,6 +28,10 @@ class DataProvider {
     }
     return posts;
   }
+
+  getConversation(userId){
+    return _.cloneDeep(appData.Conversations);
+  }
 }
 
 export let Data = new DataProvider();
