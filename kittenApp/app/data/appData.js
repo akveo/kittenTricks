@@ -482,3 +482,46 @@ export const Conversations = [
     text: 'Here\'s a full list of React Native\'s enabled transformations.'
   }
 ];
+
+export const Comments = [
+  {
+    'id': 1,
+    'userId': 13,
+    'message': 'Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.',
+    'time': 0
+  }, {
+    'id': 2,
+    'userId': 13,
+    'message': 'Quisque ut erat. Curabitur gravida nisi at nibh.',
+    'time': -311
+  }, {
+    'id': 3,
+    'userId': 15,
+    'message': 'Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.',
+    'time': -622
+  }, {
+    'id': 4,
+    'userId': 7,
+    'message': 'In est risus, auctor sed, tristique in, tempus sit amet, sem.',
+    'time': -933
+  }, {
+    'id': 5,
+    'userId': 10,
+    'message': 'In hac habitasse platea dictumst.',
+    'time': -1244
+  }, {
+    'id': 6,
+    'userId': 9,
+    'message': 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.',
+    'time': -1555
+  }, {
+    'id': 7,
+    'userId': 3,
+    'message': 'Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.',
+    'time': -1866
+  }, {
+    'id': 8,
+    'userId': 19,
+    'message': 'Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
+    'time': -2177
+  }];

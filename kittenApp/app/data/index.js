@@ -43,13 +43,24 @@ class DataProvider {
     for (let user of users) {
       let chat = {
         user,
-        lastMsg: 'As for me, I\'m doing well. Nothing new really happened here. Except, Marta and Richard decided to get married next month.',
+        lastMsg: 'As for me, I\'m doing well. Nothing new really happened here. Except, ' +
+        'Marta and Richard decided to get married next month.',
         date: -(273 * users.indexOf(user))
       };
       chats.push(chat);
     }
 
     return chats;
+  }
+
+  getComments(postId){
+    let comments = _.cloneDeep(appData.Comments);
+
+    for (let comment of comments){
+      comment.user = this.getUser(comment.userId);
+    }
+
+    return _.sortBy(comments, ['time']);
   }
 }
 
