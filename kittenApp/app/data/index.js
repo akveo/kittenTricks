@@ -7,6 +7,10 @@ class DataProvider {
     return _.find(appData.Users, {id});
   }
 
+  getUsers() {
+    return _.cloneDeep(appData.Users);
+  }
+
   getNotifications() {
     let actions = _.cloneDeep(appData.Actions);
     for (let action of actions) {
@@ -18,7 +22,7 @@ class DataProvider {
     return actions;
   }
 
-  getPosts(){
+  getPosts() {
     let posts = _.cloneDeep(appData.Posts);
     for (let post of posts) {
       let user = _.find(appData.Users, {id: post.userId});
@@ -29,8 +33,23 @@ class DataProvider {
     return posts;
   }
 
-  getConversation(userId){
+  getConversation(userId) {
     return _.cloneDeep(appData.Conversations);
+  }
+
+  getChatList() {
+    let chats = [];
+    let users = _.cloneDeep(appData.Users);
+    for (let user of users) {
+      let chat = {
+        user,
+        lastMsg: 'As for me, I\'m doing well. Nothing new really happened here. Except, Marta and Richard decided to get married next month.',
+        date: -(273 * users.indexOf(user))
+      };
+      chats.push(chat);
+    }
+
+    return chats;
   }
 }
 

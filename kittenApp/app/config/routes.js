@@ -152,6 +152,12 @@ export const MainRoutes = [
         screen: Screens.Chat,
         children: []
       },
+      {
+        id: 'ChatList',
+        title: 'Chat List',
+        screen: Screens.ChatList,
+        children: []
+      },
     ]
   },
   {

@@ -246,15 +246,15 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkTextInput', 'sticker', {
     input: {
-      marginHorizontal:14
+      marginHorizontal: 14
     },
     container: {
       justifyContent: 'center',
       paddingHorizontal: 0
     },
-    label:{
-      position:'absolute',
-      right:0
+    label: {
+      position: 'absolute',
+      right: 0
     }
   });
 
@@ -328,6 +328,9 @@ export let bootstrap = () => {
     container: {
       flexDirection: 'row',
       height: 110
+    },
+    content: {
+      flex: 1,
     },
     img: {
       height: null,

@@ -40,7 +40,7 @@ export class Feed extends React.Component {
                   img={info.item.avatar}/>
           <View>
             <RkText rkType='header4'>{info.item.username}</RkText>
-              <RkText rkType='secondary2 alterColor'>{moment(info.item.time).format('LT')}</RkText>
+            <RkText rkType='secondary2 alterColor'>{moment(info.item.time).format('LT')}</RkText>
           </View>
         </View>
         <Image rkCardImg source={info.item.photo}/>

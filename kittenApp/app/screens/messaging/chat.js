@@ -20,7 +20,7 @@ import {Avatar} from '../../components/avatar';
 let moment = require('moment');
 
 export class Chat extends React.Component {
-  
+
   static navigationOptions = ({navigation}) => {
     let renderAvatar = (user) => {
       return (<Avatar style={styles.avatar} rkType='small' img={user.photo}/>);

@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import _ from 'lodash';
 import {RkText, RkTextInput} from 'react-native-ui-kitten';
-import {Users} from '../../data/appData';
+import {Data} from '../../data';
 import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {FontAwesome} from '../../assets/icons';
@@ -19,9 +19,11 @@ export class Contacts extends React.Component {
   constructor(props) {
     super(props);
 
+    let users = Data.getUsers();
+
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      data: ds.cloneWithRows(Users)
+      data: ds.cloneWithRows(users)
     };
 
     this.filter = this._filter.bind(this);

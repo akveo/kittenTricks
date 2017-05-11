@@ -34,7 +34,7 @@ export class Articles4 extends React.Component {
       <RkCard rkType='horizontal' style={styles.card}>
         <Image rkCardImg source={info.item.photo}/>
 
-        <View rkCardContent style={{flex: 1}}>
+        <View rkCardContent>
           <RkText numberOfLines={1} rkType='header6'>{info.item.title}</RkText>
           <RkText rkType='secondary6 alterColor'>{info.item.username}</RkText>
           <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
