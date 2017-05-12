@@ -134,6 +134,11 @@ export let bootstrap = () => {
     fontFamily: KittenTheme.fonts.family.regular
   });
 
+  RkTheme.setType('RkText', 'center', {
+    text: {
+      textAlign: 'center'
+    }
+  });
   /*
    RkButton types
    */

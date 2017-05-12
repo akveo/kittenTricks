@@ -57,6 +57,18 @@ export const MainRoutes = [
         screen: Screens.LoginV2,
         children: []
       },
+      {
+        id: 'SignUp',
+        title: 'Sign Up',
+        screen: Screens.SignUp,
+        children: []
+      },
+      {
+        id: 'password',
+        title: 'Password Recovery',
+        screen: Screens.PasswordRecovery,
+        children: []
+      },
     ]
   },
   {
