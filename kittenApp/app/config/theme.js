@@ -84,6 +84,7 @@ export const KittenTheme = {
   },
   fonts: {
     sizes: {
+      h0: 32,
       h1: 26,
       h2: 24,
       h3: 20,
@@ -107,6 +108,7 @@ export const KittenTheme = {
       large: FontBaseValue * 1.2,
       xlarge: FontBaseValue / 0.75,
       xxlarge: FontBaseValue * 1.6,
+
     },
     lineHeights: {
       medium: 18,
@@ -115,7 +117,8 @@ export const KittenTheme = {
     family: {
       light: 'Roboto-Light',
       regular: 'Roboto-Regular',
-      bold: 'Roboto-Medium'
+      bold: 'Roboto-Medium',
+      logo: 'Righteous-Regular',
     }
   }
 };

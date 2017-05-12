@@ -19,11 +19,11 @@ export class Contacts extends React.Component {
   constructor(props) {
     super(props);
 
-    let users = Data.getUsers();
+    this.users = Data.getUsers();
 
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      data: ds.cloneWithRows(users)
+      data: ds.cloneWithRows(this.users)
     };
 
     this.filter = this._filter.bind(this);
@@ -49,10 +49,10 @@ export class Contacts extends React.Component {
   }
 
   renderSeparator(sectionID, rowID) {
-    let isLastRow = rowID == Users.length - 1;
-    if (isLastRow) {
-      return null;
-    }
+    // let isLastRow = rowID == this.users.length - 1;
+    // if (isLastRow) {
+    //   return null;
+    // }
     return (
       <View style={styles.separator}/>
     )
@@ -73,7 +73,7 @@ export class Contacts extends React.Component {
 
   _filter(text) {
     let pattern = new RegExp(text, 'i');
-    let users = _.filter(Users, (user) => {
+    let users = _.filter(this.users, (user) => {
 
       if (user.firstName.search(pattern) != -1
         || user.lastName.search(pattern) != -1)

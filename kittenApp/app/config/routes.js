@@ -44,7 +44,20 @@ export const MainRoutes = [
     title: 'Login',
     icon: FontIcons.login,
     screen: Screens.LoginMenu,
-    children: []
+    children: [
+      {
+        id: 'Login1',
+        title: 'Login V1',
+        screen: Screens.LoginV1,
+        children: []
+      },
+      {
+        id: 'Login2',
+        title: 'Login V2',
+        screen: Screens.LoginV2,
+        children: []
+      },
+    ]
   },
   {
     id: 'SocialMenu',
@@ -217,6 +230,7 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
     name: stack_name,
     screen: StackNavigator(flatRoutes, {
       initialRouteName: name,
+      headerMode: 'screen',
       navigationOptions: {
         headerStyle: Styles.appHeader,
         headerTitleStyle: Styles.appHeaderTitle

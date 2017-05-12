@@ -5,17 +5,16 @@ import {
   StyleSheet
 } from 'react-native';
 import {
-  RkButton,
   RkText,
   RkTextInput
 } from 'react-native-ui-kitten';
 import {Users} from '../../data/appData';
-import {Avatar} from '../../components/avatar';
+import {Avatar} from '../../components';
 import {KittenTheme} from '../../config/theme';
-import {SocialSetting} from '../../components/socialSetting';
+import {SocialSetting} from '../../components';
 import {FontAwesome} from '../../assets/icons';
 import {Colors} from '../../config/theme';
-import {GradientButton} from '../../components/gradientButton';
+import {GradientButton} from '../../components';
 
 export class ProfileSettings extends React.Component {
   static navigationOptions = {

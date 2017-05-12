@@ -25,12 +25,20 @@ export let bootstrap = () => {
     fontFamily: KittenTheme.fonts.family.light,
   });
 
+  RkTheme.setType('RkText', 'logo', {
+    fontFamily: KittenTheme.fonts.family.logo,
+  });
+
   RkTheme.setType('RkText', 'moon', {
     fontFamily: 'icomoon',
   });
 
   RkTheme.setType('RkText', 'awesome', {
     fontFamily: 'fontawesome',
+  });
+
+  RkTheme.setType('RkText', 'hero', {
+    fontSize: 33
   });
 
   //all font sizes
@@ -169,6 +177,14 @@ export let bootstrap = () => {
     backgroundColor: 'transparent'
   });
 
+  RkTheme.setType('RkButton', 'social', {
+    height: 62,
+    width: 62,
+    borderRadius: 31,
+    borderColor: KittenTheme.colors.border.base,
+    borderWidth: 1,
+    backgroundColor: 'transparent'
+  });
   /*
    RkModalImg types
    */
@@ -200,6 +216,20 @@ export let bootstrap = () => {
     }
   });
 
+  RkTheme.setType('RkTextInput', 'rounded', {
+    fontSize: KittenTheme.fonts.sizes.h6,
+    borderWidth: 1,
+    underlineWidth: 1,
+    color: KittenTheme.colors.text.alter,
+    input: {
+      marginVertical: {
+        ios: 15,
+        android: 4
+      },
+    },
+  });
+
+
   RkTheme.setType('RkTextInput', 'right', {
     input: {
       textAlign: 'right',
@@ -213,7 +243,6 @@ export let bootstrap = () => {
     },
     container: {
       marginVertical: 4
-
     },
     labelFontSize: KittenTheme.fonts.sizes.small
   });
@@ -235,6 +264,7 @@ export let bootstrap = () => {
       color: KittenTheme.colors.text.alter
     },
     container: {
+      flex: 1,
       backgroundColor: KittenTheme.colors.back.base,
       marginVertical: 0,
       borderRadius: 20,
@@ -382,7 +412,6 @@ export let bootstrap = () => {
       alignItems: 'center'
     }
   });
-
 
   /*
    Register components

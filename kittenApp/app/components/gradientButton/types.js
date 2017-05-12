@@ -25,9 +25,6 @@ export const GradientButtonTypes = (theme) => {
         alignSelf:'stretch',
         height:56,
         borderRadius:28,
-        marginTop:10,
-        marginBottom:30,
-        marginHorizontal:17
       }
     }
   })
