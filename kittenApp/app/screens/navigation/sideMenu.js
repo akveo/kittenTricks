@@ -4,6 +4,7 @@ import {
   TouchableHighlight,
   View,
   ScrollView,
+  Image,
   Platform
 } from 'react-native';
 import {NavigationActions} from 'react-navigation';
@@ -42,10 +43,10 @@ export class SideMenu extends React.Component {
           <View style={styles.content}>
             <View style={styles.content}>
               <RkText style={styles.icon}
-                      rkType='moon primary xlarge'>{route.icon}</RkText>
+                      rkType='moon accentColor xlarge'>{route.icon}</RkText>
               <RkText>{route.title}</RkText>
             </View>
-            <RkText rkType='awesome neutral small'>{FontAwesome.chevronRight}</RkText>
+            <RkText rkType='awesome secondaryColor small'>{FontAwesome.chevronRight}</RkText>
           </View>
         </TouchableHighlight>
       )
@@ -54,7 +55,8 @@ export class SideMenu extends React.Component {
     return (
       <ScrollView style={styles.root}>
         <View style={[styles.container, styles.content]}>
-          <RkText style={styles.icon}>UI Kitten</RkText>
+          <Image style={styles.icon} source={require('../../assets/images/smallLogo.png')}/>
+          <RkText rkType='logo'>UI Kitten</RkText>
         </View>
         {menu}
       </ScrollView>
@@ -79,6 +81,6 @@ let styles = StyleSheet.create({
     alignItems: 'center'
   },
   icon: {
-    marginRight: 16,
+    marginRight: 13,
   }
 });

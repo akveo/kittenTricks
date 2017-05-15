@@ -1,4 +1,5 @@
 export const Colors = {
+  accent: '#ff2824',
   primary: '#f53d56',
   success: '#3bd555',
   foreground: '#212121',
@@ -45,7 +46,8 @@ export const KittenTheme = {
       base: Colors.foreground,
       alter: Colors.alterForeground,
       secondary: Colors.secondaryText,
-      overlay: Colors.overlayForeground
+      overlay: Colors.overlayForeground,
+      accent: Colors.accent
     },
     icon: {
       base: Colors.icon

@@ -34,13 +34,13 @@ export class LoginV1 extends React.Component {
         <View style={styles.container}>
           <View style={styles.buttons}>
             <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero primary'>{FontAwesome.twitter}</RkText>
+              <RkText rkType='awesome hero accentColor'>{FontAwesome.twitter}</RkText>
             </RkButton>
             <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero primary'>{FontAwesome.google}</RkText>
+              <RkText rkType='awesome hero accentColor'>{FontAwesome.google}</RkText>
             </RkButton>
             <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero primary'>{FontAwesome.facebook}</RkText>
+              <RkText rkType='awesome hero accentColor'>{FontAwesome.facebook}</RkText>
             </RkButton>
           </View>
           <RkTextInput rkType='rounded' placeholder='Username'/>

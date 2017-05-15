@@ -16,6 +16,7 @@
     "react-native": "0.43.3",
     "react-native-keyboard-spacer": "^0.3.1",
     "react-native-linear-gradient": "^2.0.0",
+    "react-native-progress-bar": "^0.1.2",
     "react-native-ui-kitten": "file:../../react-native-ui-kitten/",
     "react-navigation": "git+https://github.com/react-community/react-navigation.git#7165efce02a60eecc41813fe5e030883996671ec",
     "rnpm": "^1.9.0"

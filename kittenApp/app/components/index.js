@@ -7,3 +7,4 @@ export * from './gallery';
 export * from './socialSetting';
 export * from './keyboardSpacer';
 export * from './findFriends';
+export * from './progressBar';

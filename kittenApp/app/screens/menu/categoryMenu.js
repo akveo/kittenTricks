@@ -7,7 +7,7 @@ import {
   StyleSheet
 } from 'react-native';
 import {RkText} from 'react-native-ui-kitten';
-import {Colors} from '../../config/theme';
+import {KittenTheme} from '../../config/theme';
 
 export class CategoryMenu extends React.Component {
 
@@ -36,7 +36,7 @@ export class CategoryMenu extends React.Component {
     return (
       <TouchableHighlight
         style={styles.item}
-        underlayColor={Colors.neutral}
+        underlayColor={KittenTheme.colors.back.neutral}
         activeOpacity={1}
         onPress={() => {
           this.navigate(row);
@@ -70,7 +70,7 @@ let styles = StyleSheet.create({
     paddingVertical: 32.5,
     paddingHorizontal: 16.5,
     borderBottomWidth: 1,
-    borderColor: Colors.neutral,
+    borderColor: KittenTheme.colors.border.underline,
   },
   emptyContainer: {
     flex: 1,
