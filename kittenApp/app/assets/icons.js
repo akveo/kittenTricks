@@ -20,5 +20,6 @@ export const FontAwesome = {
   facebook: String.fromCharCode(61594),
   plus: String.fromCharCode(61543),
   search: String.fromCharCode(61442),
-  smile: String.fromCharCode(61720)
+  smile: String.fromCharCode(61720),
+  chevronRight: String.fromCharCode(61524)
 };

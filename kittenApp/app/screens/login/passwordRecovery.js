@@ -3,17 +3,12 @@ import {
   StyleSheet,
   View,
   Image,
-  Dimensions,
-  KeyboardAvoidingView
 } from 'react-native';
 import {
-  RkButton,
   RkText,
   RkTextInput
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 export class PasswordRecovery extends React.Component {
   static navigationOptions = {

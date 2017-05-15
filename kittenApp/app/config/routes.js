@@ -217,7 +217,14 @@ export const MainRoutes = [
     title: 'Other',
     icon: FontIcons.other,
     screen: Screens.OtherMenu,
-    children: []
+    children: [
+      {
+        id: 'Settings',
+        title: 'Settings',
+        screen: Screens.Settings,
+        children: []
+      }
+    ]
   }
 ];
 

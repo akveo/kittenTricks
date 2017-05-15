@@ -5,12 +5,13 @@ import {
 } from 'react-native';
 import {RkText} from 'react-native-ui-kitten';
 import {RkSwitch} from './switch/index';
+import {Colors} from '../config/theme';
 
 export class SocialSetting extends React.Component {
 
   constructor(props) {
     super(props);
-    this.base = '#cacaca';
+    this.base = Colors.disabled;
     this.state = {
       selected: this.props.selected
     }

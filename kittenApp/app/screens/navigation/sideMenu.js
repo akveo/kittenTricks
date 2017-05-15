@@ -10,6 +10,7 @@ import {NavigationActions} from 'react-navigation';
 import {RkText} from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
 import {KittenTheme} from '../../config/theme';
+import {FontAwesome} from '../../assets/icons';
 
 
 export class SideMenu extends React.Component {
@@ -44,7 +45,7 @@ export class SideMenu extends React.Component {
                       rkType='moon primary xlarge'>{route.icon}</RkText>
               <RkText>{route.title}</RkText>
             </View>
-            <RkText rkType='awesome neutral small'>&#xf054;</RkText>
+            <RkText rkType='awesome neutral small'>{FontAwesome.chevronRight}</RkText>
           </View>
         </TouchableHighlight>
       )

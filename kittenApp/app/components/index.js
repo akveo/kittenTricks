@@ -6,3 +6,4 @@ export * from './ellipsis';
 export * from './gallery';
 export * from './socialSetting';
 export * from './keyboardSpacer';
+export * from './findFriends';

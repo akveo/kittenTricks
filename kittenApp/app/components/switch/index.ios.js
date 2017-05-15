@@ -29,7 +29,8 @@ export class RkSwitch extends RkComponent {
     let offColor = this.extractNonStyleValue(container, 'offColor');
 
     return (
-      <Switch value={this.props.value}
+      <Switch style={this.props.style}
+              value={this.props.value}
               onValueChange={(value) => this.onChange(value)}
               onTintColor={onColor}/>
     )

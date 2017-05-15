@@ -17,6 +17,7 @@ export const Colors = {
   twitter: '#41abe1',
   google: '#e94335',
   facebook: '#3b5998',
+  disabled: '#cacaca',
   //unused
   info: '#19bfe5',
   warning: '#feb401',

@@ -52,8 +52,7 @@ export class CategoryMenu extends React.Component {
     if (this.isEmpty) {
       return (
         <View style={styles.emptyContainer}>
-          <RkText rkType='light subtitle'>{this.state.selected?'true':'false'}</RkText>
-          }}/>
+          <RkText rkType='light subtitle'>Coming Soon...</RkText>
         </View>
       )
     } else {
