@@ -12,7 +12,7 @@ import {GradientButton} from '../../components/';
 
 export class PasswordRecovery extends React.Component {
   static navigationOptions = {
-    headerVisible: false
+    header: null
   };
 
   constructor(props) {

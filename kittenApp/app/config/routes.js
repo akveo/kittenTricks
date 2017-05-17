@@ -4,6 +4,7 @@ import _ from 'lodash';
 import Styles from '../config/styles';
 import * as Screens from '../screens';
 import {FontIcons} from '../assets/icons';
+import {NavBar} from '../components';
 
 export const MainRoutes = [
   {
@@ -250,11 +251,13 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
     screen: StackNavigator(flatRoutes, {
       initialRouteName: name,
       headerMode: 'screen',
-      navigationOptions: {
+      navigationOptions: ({navigation, screenProps}) => ({
         headerStyle: Styles.appHeader,
-        headerTitleStyle: Styles.appHeaderTitle
-      },
-      cardStyle: Styles.card
+        headerTitleStyle: Styles.appHeaderTitle,
+        header: (headerProps) => (<NavBar navigation={navigation} headerProps={headerProps}/>)
+
+      }),
+      cardStyle: Styles.card,
     })
   };
   return routes;

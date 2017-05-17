@@ -148,10 +148,10 @@ export class Chat extends React.Component {
 
 let styles = StyleSheet.create({
   header: {
-    alignItems: 'center'
+    alignItems:'center'
   },
   avatar: {
-    marginRight: 16
+    marginRight: 16,
   },
   container: {
     flex: 1,

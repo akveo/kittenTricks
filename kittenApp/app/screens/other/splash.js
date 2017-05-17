@@ -2,11 +2,13 @@ import React from 'react';
 import {
   StyleSheet,
   Image,
-  View
+  View,
+  Dimensions
 } from 'react-native';
 import {RkText} from 'react-native-ui-kitten'
 import {ProgressBar} from '../../components';
-import {Colors , KittenTheme} from '../../config/theme';
+import {Colors, KittenTheme} from '../../config/theme';
+import {NavigationActions} from 'react-navigation';
 
 
 let timeFrame = 500;
@@ -25,10 +27,14 @@ export class SplashScreen extends React.Component {
       if (this.state.progress == 1) {
         clearInterval(this.timer);
         setTimeout(() => {
-          this.props.navigation.navigate('Home');
+          let toHome = NavigationActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({routeName: 'Home'})]
+          });
+          this.props.navigation.dispatch(toHome)
         }, timeFrame);
       } else {
-        let random = Math.random() * 0.4;
+        let random = Math.random() * 0.5;
         let progress = this.state.progress + random;
         if (progress > 1) {
           progress = 1;
@@ -40,10 +46,11 @@ export class SplashScreen extends React.Component {
   }
 
   render() {
+    let width = Dimensions.get('window').width;
     return (
       <View style={styles.container}>
         <View>
-          <Image source={require('../../assets/images/splashBack.png')}/>
+          <Image style={[styles.image, {width}]} source={require('../../assets/images/splashBack.png')}/>
           <View style={styles.text}>
             <RkText rkType='light' style={styles.hero}>React Native</RkText>
             <RkText rkType='logo' style={styles.appName}>UI Kitten</RkText>
@@ -63,6 +70,9 @@ let styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     justifyContent: 'space-between',
     flex: 1
+  },
+  image: {
+    resizeMode: 'cover',
   },
   text: {
     alignItems: 'center'

@@ -17,7 +17,7 @@ import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 export class SignUp extends React.Component {
   static navigationOptions = {
-    headerVisible: false
+    header: null
   };
 
   constructor(props) {

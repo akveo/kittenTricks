@@ -3,11 +3,12 @@ import {Colors} from './theme'
 
 const Styles = StyleSheet.create({
   appHeader: {
-    backgroundColor: Colors.background,
+    backgroundColor: 'red' //Colors.background,
   },
   appHeaderTitle: {
     fontFamily: 'Roboto-Medium',
-    fontSize: 18
+    fontSize: 18,
+    backgroundColor: 'blue',
   },
   card: {
     backgroundColor: Colors.background

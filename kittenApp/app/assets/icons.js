@@ -21,5 +21,7 @@ export const FontAwesome = {
   plus: String.fromCharCode(61543),
   search: String.fromCharCode(61442),
   smile: String.fromCharCode(61720),
-  chevronRight: String.fromCharCode(61524)
+  chevronRight: String.fromCharCode(61524),
+  chevronLeft: String.fromCharCode(61700),
+  bars: String.fromCharCode(61641)
 };

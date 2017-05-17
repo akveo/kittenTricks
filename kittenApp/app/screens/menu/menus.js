@@ -5,7 +5,7 @@ import * as Routes from '../../config/routes';
 
 export class LoginMenu extends React.Component {
   static navigationOptions = {
-    title: 'Login'.toUpperCase(),
+    title: 'Login'.toUpperCase()
   };
   render() {
     return (

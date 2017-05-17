@@ -17,7 +17,7 @@ const KittenApp = StackNavigator({
       })
   }
 }, {
-  headerMode: 'none'
+  headerMode: 'none',
 });
 
 
