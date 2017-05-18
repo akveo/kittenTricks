@@ -3,17 +3,16 @@ import {
   StyleSheet,
   View,
   Image,
-  Dimensions,
-  KeyboardAvoidingView
+  Dimensions
 } from 'react-native';
 import {
   RkButton,
   RkText,
-  RkTextInput
+  RkTextInput,
+  RkAvoidKeyboard
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 export class LoginV1 extends React.Component {
   static navigationOptions = {
@@ -29,7 +28,7 @@ export class LoginV1 extends React.Component {
     let height = Dimensions.get('window').height - contentHeight;
     let width = Dimensions.get('window').width;
     return (
-      <KeyboardAvoidingView behavior='position' style={styles.screen}>
+      <RkAvoidKeyboard style={styles.screen}>
         <Image style={[styles.image, {height, width}]} source={require('../../assets/images/background.png')}/>
         <View style={styles.container}>
           <View style={styles.buttons}>
@@ -45,7 +44,9 @@ export class LoginV1 extends React.Component {
           </View>
           <RkTextInput rkType='rounded' placeholder='Username'/>
           <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
-          <GradientButton style={styles.save} rkType='large' text='LOGIN'/>
+          <GradientButton onPress={()=>{
+            this.props.navigation.goBack()
+          }} rkType='large' style={styles.save} text='LOGIN'/>
 
           <View style={styles.footer}>
             <View style={styles.textRow}>
@@ -56,7 +57,7 @@ export class LoginV1 extends React.Component {
             </View>
           </View>
         </View>
-      </KeyboardAvoidingView>
+      </RkAvoidKeyboard>
     )
   }
 }
@@ -92,5 +93,6 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
   },
   save: {
+
   }
 });

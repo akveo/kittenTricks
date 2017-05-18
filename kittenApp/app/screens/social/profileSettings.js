@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 import {
   RkText,
-  RkTextInput
+  RkTextInput,
+  RkAvoidKeyboard
 } from 'react-native-ui-kitten';
 import {Users} from '../../data/appData';
 import {Avatar} from '../../components';
@@ -43,88 +44,90 @@ export class ProfileSettings extends React.Component {
   render() {
     return (
       <ScrollView>
-        <View style={styles.header}>
-          <Avatar img={this.user.photo} rkType='big'/>
-        </View>
-        <View style={styles.section}>
-          <View style={[styles.row, styles.heading]}>
-            <RkText rkType='header6 primary'>INFO</RkText>
+        <RkAvoidKeyboard>
+          <View style={styles.header}>
+            <Avatar img={this.user.photo} rkType='big'/>
           </View>
-          <View style={styles.row}>
-            <RkTextInput label='First Name'
-                         value={this.state.firstName}
-                         rkType='right clear'
-                         onChangeText={(text) => this.setState({firstName: text})}/>
-          </View>
-          <View style={styles.row}>
-            <RkTextInput label='Last Name'
-                         value={this.state.lastName}
-                         onChangeText={(text) => this.setState({lastName: text})}
-                         rkType='right clear'/>
-          </View>
-          <View style={styles.row}>
-            <RkTextInput label='Email'
-                         value={this.state.email}
-                         onChangeText={(text) => this.setState({email: text})}
-                         rkType='right clear'/>
-          </View>
-          <View style={styles.row}>
-            <RkTextInput label='Country'
-                         value={this.state.country}
-                         onChangeText={(text) => this.setState({country: text})}
-                         rkType='right clear'/>
-          </View>
-          <View style={styles.row}>
-            <RkTextInput label='Phone'
-                         value={this.state.phone}
-                         onChangeText={(text) => this.setState({phone: text})}
-                         rkType='right clear'/>
+          <View style={styles.section}>
+            <View style={[styles.row, styles.heading]}>
+              <RkText rkType='header6 primary'>INFO</RkText>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='First Name'
+                           value={this.state.firstName}
+                           rkType='right clear'
+                           onChangeText={(text) => this.setState({firstName: text})}/>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='Last Name'
+                           value={this.state.lastName}
+                           onChangeText={(text) => this.setState({lastName: text})}
+                           rkType='right clear'/>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='Email'
+                           value={this.state.email}
+                           onChangeText={(text) => this.setState({email: text})}
+                           rkType='right clear'/>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='Country'
+                           value={this.state.country}
+                           onChangeText={(text) => this.setState({country: text})}
+                           rkType='right clear'/>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='Phone'
+                           value={this.state.phone}
+                           onChangeText={(text) => this.setState({phone: text})}
+                           rkType='right clear'/>
+            </View>
+
           </View>
 
-        </View>
+          <View style={styles.section}>
+            <View style={[styles.row, styles.heading]}>
+              <RkText rkType='primary header6'>CHANGE PASSWORD</RkText>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='Old Password'
+                           value={this.state.password}
+                           rkType='right clear'
+                           secureTextEntry={true}
+                           onChangeText={(text) => this.setState({password: text})}/>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='New Password'
+                           value={this.state.newPassword}
+                           rkType='right clear'
+                           secureTextEntry={true}
+                           onChangeText={(text) => this.setState({newPassword: text})}/>
+            </View>
+            <View style={styles.row}>
+              <RkTextInput label='Confirm Password'
+                           value={this.state.confirmPassword}
+                           rkType='right clear'
+                           secureTextEntry={true}
+                           onChangeText={(text) => this.setState({confirmPassword: text})}/>
+            </View>
+          </View>
 
-        <View style={styles.section}>
-          <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary header6'>CHANGE PASSWORD</RkText>
+          <View style={styles.section}>
+            <View style={[styles.row, styles.heading]}>
+              <RkText rkType='primary header6'>CONNECT YOUR ACCOUNT</RkText>
+            </View>
+            <View style={styles.row}>
+              <SocialSetting name='Twitter' icon={FontAwesome.twitter} tintColor={Colors.twitter}/>
+            </View>
+            <View style={styles.row}>
+              <SocialSetting name='Google' icon={FontAwesome.google} tintColor={Colors.google}/>
+            </View>
+            <View style={styles.row}>
+              <SocialSetting name='Facebook' icon={FontAwesome.facebook} tintColor={Colors.facebook}/>
+            </View>
           </View>
-          <View style={styles.row}>
-            <RkTextInput label='Old Password'
-                         value={this.state.password}
-                         rkType='right clear'
-                         secureTextEntry={true}
-                         onChangeText={(text) => this.setState({password: text})}/>
-          </View>
-          <View style={styles.row}>
-            <RkTextInput label='New Password'
-                         value={this.state.newPassword}
-                         rkType='right clear'
-                         secureTextEntry={true}
-                         onChangeText={(text) => this.setState({newPassword: text})}/>
-          </View>
-          <View style={styles.row}>
-            <RkTextInput label='Confirm Password'
-                         value={this.state.confirmPassword}
-                         rkType='right clear'
-                         secureTextEntry={true}
-                         onChangeText={(text) => this.setState({confirmPassword: text})}/>
-          </View>
-        </View>
-
-        <View style={styles.section}>
-          <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary header6'>CONNECT YOUR ACCOUNT</RkText>
-          </View>
-          <View style={styles.row}>
-            <SocialSetting name='Twitter' icon={FontAwesome.twitter} tintColor={Colors.twitter}/>
-          </View>
-          <View style={styles.row}>
-            <SocialSetting name='Google' icon={FontAwesome.google} tintColor={Colors.google}/>
-          </View>
-          <View style={styles.row}>
-            <SocialSetting name='Facebook' icon={FontAwesome.facebook} tintColor={Colors.facebook}/>
-          </View>
-        </View>
-        <GradientButton rkType='large' style={styles.button} text='SAVE'/>
+          <GradientButton rkType='large' style={styles.button} text='SAVE'/>
+        </RkAvoidKeyboard>
       </ScrollView>
     )
   }
@@ -148,5 +151,8 @@ let styles = StyleSheet.create({
     borderColor: KittenTheme.colors.border.underline,
     alignItems: 'center'
   },
-  button: {}
+  button: {
+    marginHorizontal: 16,
+    marginBottom: 32
+  }
 });

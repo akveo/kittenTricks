@@ -20,11 +20,14 @@ export const GradientButtonTypes = (theme) => {
         color: theme.colors.text.additional
       }
     },
-    large:{
-      button:{
-        alignSelf:'stretch',
-        height:56,
-        borderRadius:28,
+    large: {
+      button: {
+        alignSelf: 'stretch',
+        height: 56,
+        borderRadius: 28,
+      },
+      gradient: {
+        borderRadius: 28
       }
     }
   })

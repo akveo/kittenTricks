@@ -9,12 +9,12 @@ import {
 import {
   RkButton,
   RkText,
-  RkTextInput
+  RkTextInput,
+  RkAvoidKeyboard
 } from 'react-native-ui-kitten';
 import _ from 'lodash';
 import {KittenTheme} from '../../config/theme';
 import {FontAwesome} from '../../assets/icons';
-import {KeyboardSpacer} from '../../components/';
 import {Data} from '../../data';
 import {Avatar} from '../../components/avatar';
 let moment = require('moment');
@@ -81,17 +81,16 @@ export class Chat extends React.Component {
     )
   }
 
-  _scroll(toEnd) {
-    let position = toEnd ? 1 : 0.4;
+  _scroll() {
     let scroll = () => {
       this.refs.list.scrollToIndex(
-        {viewPosition: position, index: this.state.data.length - 1});
+        {viewPosition: 1, index: this.state.data.length - 1});
     };
 
     if (Platform.OS === 'ios') {
       scroll();
     } else {
-      _.delay(scroll, 300);
+      _.delay(scroll, 100);
     }
   }
 
@@ -111,44 +110,44 @@ export class Chat extends React.Component {
       data,
       message: ''
     });
-    this._scroll();
+    this._scroll(true);
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <FlatList ref='list'
-                  extraData={this.state}
-                  style={styles.list}
-                  data={this.state.data}
-                  keyExtractor={this._keyExtractor}
-                  renderItem={this._renderItem}/>
-        <View style={styles.footer}>
-          <RkButton style={styles.plus} rkType='clear'>
-            <RkText rkType='awesome alterColor'>{FontAwesome.plus}</RkText>
-          </RkButton>
+        <RkAvoidKeyboard style={styles.container}>
+          <FlatList ref='list'
+                    extraData={this.state}
+                    style={styles.list}
+                    data={this.state.data}
+                    keyExtractor={this._keyExtractor}
+                    renderItem={this._renderItem}/>
+          <View style={styles.footer}>
+            <RkButton style={styles.plus} rkType='clear'>
+              <RkText rkType='awesome alterColor'>{FontAwesome.plus}</RkText>
+            </RkButton>
 
-          <RkTextInput
-            onFocus={() => this._scroll()}
-            onBlur={() => this._scroll(true)}
-            onChangeText={(message) => this.setState({message})}
-            value={this.state.message}
-            rkType='row sticker'
-            placeholder="Add a comment..."/>
+            <RkTextInput
+              onFocus={() => this._scroll(true)}
+              onBlur={() => this._scroll(true)}
+              onChangeText={(message) => this.setState({message})}
+              value={this.state.message}
+              rkType='row sticker'
+              placeholder="Add a comment..."/>
 
-          <RkButton onPress={() => this._pushMessage()} style={styles.send} rkType='circle'>
-            <Image source={require('../../assets/icons/sendIcon.png')}/>
-          </RkButton>
-        </View>
-        <KeyboardSpacer/>
-      </View>
+            <RkButton onPress={() => this._pushMessage()} style={styles.send} rkType='circle'>
+              <Image source={require('../../assets/icons/sendIcon.png')}/>
+            </RkButton>
+          </View>
+        </RkAvoidKeyboard>
+
     )
   }
 }
 
 let styles = StyleSheet.create({
   header: {
-    alignItems:'center'
+    alignItems: 'center'
   },
   avatar: {
     marginRight: 16,
@@ -157,7 +156,7 @@ let styles = StyleSheet.create({
     flex: 1,
   },
   list: {
-    flex: 1,
+
     paddingHorizontal: 17
   },
   footer: {

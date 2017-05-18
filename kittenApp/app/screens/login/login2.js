@@ -3,21 +3,20 @@ import {
   StyleSheet,
   View,
   Image,
-  Dimensions,
-  KeyboardAvoidingView
 } from 'react-native';
 import {
   RkButton,
   RkText,
-  RkTextInput
+  RkTextInput,
+  RkAvoidKeyboard
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
+import {KittenTheme} from '../../config/theme';
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
-    header:null
+    header: null
   };
 
   constructor(props) {
@@ -26,8 +25,8 @@ export class LoginV2 extends React.Component {
 
   render() {
     return (
-      <View behavior='position' style={styles.screen}>
-        <View style={{alignItems: 'center'}}>
+      <RkAvoidKeyboard style={styles.screen}>
+        <View style={styles.header}>
           <Image style={styles.image} source={require('../../assets/images/logo.png')}/>
           <RkText rkType='light h1'>React Native</RkText>
           <RkText rkType='logo h0'>UI Kitten</RkText>
@@ -59,7 +58,7 @@ export class LoginV2 extends React.Component {
             </View>
           </View>
         </View>
-      </View>
+      </RkAvoidKeyboard>
     )
   }
 }
@@ -68,10 +67,13 @@ let styles = StyleSheet.create({
   screen: {
     padding: 16,
     flex: 1,
-    justifyContent:'space-around'
+    justifyContent: 'space-between',
   },
-  image: {
-    marginBottom: 10
+  header: {
+    paddingBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1
   },
   content: {
     justifyContent: 'space-between'
@@ -83,11 +85,14 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 24,
     marginHorizontal: 24,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   textRow: {
     flexDirection: 'row',
     justifyContent: 'center'
   },
-
+  button: {
+    borderColor: KittenTheme.colors.border.solid
+  },
+  footer: {}
 });
