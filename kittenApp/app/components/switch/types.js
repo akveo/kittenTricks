@@ -4,6 +4,8 @@ export const SwitchTypes = (theme) => {
       container: {
         width: 52,
         height: 32,
+        overflow: 'hidden',
+        justifyContent: 'center',
         borderRadius: 16,
         borderWidth: 1,
         borderColor: theme.colors.border.hint,

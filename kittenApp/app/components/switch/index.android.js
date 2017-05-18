@@ -4,17 +4,13 @@
  * Copyright (c) 2016 PoberWong
  *
  */
+import React from 'react'
 import {
-  View,
-  StyleSheet,
   Animated,
   Easing,
   PanResponder,
-  TouchableOpacity
 } from 'react-native';
 import {RkComponent} from 'react-native-ui-kitten'
-import hexToRgb from '../../utils/colorUtils';
-import React, {Component, PropTypes} from 'react'
 
 const width = 52;
 const height = 32;
@@ -35,7 +31,6 @@ export class RkSwitch extends RkComponent {
 
   constructor(props, context) {
     super(props, context);
-
 
     this.offset = width - height;
     this.handlerSize = height;
@@ -76,7 +71,6 @@ export class RkSwitch extends RkComponent {
   }
 
   _onPanResponderGrant = (evt, gestureState) => {
-
     this.animateHandler(height * 0.9)
   };
 
@@ -86,11 +80,11 @@ export class RkSwitch extends RkComponent {
     this.setState({
       toggleable: value ? (gestureState.dx < 10) : (gestureState.dx > -10)
     })
-  }
+  };
 
   _onPanResponderRelease = (evt, gestureState) => {
-    const {handlerAnimation, toggleable, value} = this.state;
-    const {height, disabled, onValueChange, onSyncPress} = this.props;
+    const {toggleable} = this.state;
+    const {disabled, onValueChange} = this.props;
 
     if (toggleable && !disabled) {
       if (onValueChange) {
@@ -152,9 +146,8 @@ export class RkSwitch extends RkComponent {
     let onColor = this.extractNonStyleValue(container, 'onColor');
     let offColor = this.extractNonStyleValue(container, 'offColor');
 
-
     const interpolatedBackgroundColor = switchAnimation.interpolate({
-      inputRange: [0, height],
+      inputRange: [1, height],
       outputRange: value ? [onColor, offColor] : [offColor, onColor]
     });
 
@@ -162,7 +155,7 @@ export class RkSwitch extends RkComponent {
       <Animated.View
         {...rest}
         {...this._panResponder.panHandlers}
-        style={[styles.container, style, container, {
+        style={[style, container, {
           backgroundColor: interpolatedBackgroundColor
         }]}>
         <Animated.View style={[thumb, {
@@ -175,10 +168,3 @@ export class RkSwitch extends RkComponent {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    overflow: 'hidden',
-    justifyContent: 'center'
-  }
-});
