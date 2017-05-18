@@ -2,8 +2,8 @@ export const SwitchTypes = (theme) => {
   return ({
     _base: {
       container: {
-        width: 50,
-        height: 30,
+        width: 52,
+        height: 32,
         borderRadius: 16,
         borderWidth: 1,
         borderColor: theme.colors.border.hint,
@@ -15,13 +15,12 @@ export const SwitchTypes = (theme) => {
       },
       thumb: {
         position: 'absolute',
-        top: -1,
-        height: 30,
-        width: 30,
+        height: 32,
+        width: 32,
         borderWidth: 1,
         borderColor: theme.colors.border.hint,
         backgroundColor: theme.colors.back.base,
-        borderRadius: 15,
+        borderRadius: 16,
       }
     },
     selected: {
