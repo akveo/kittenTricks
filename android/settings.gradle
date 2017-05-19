@@ -1,4 +1,4 @@
-rootProject.name = 'kittenApp'
+rootProject.name = 'akveo.kittenPads'
 
 include ':app'
 include ':react-native-linear-gradient'

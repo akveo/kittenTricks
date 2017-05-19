@@ -1,4 +1,4 @@
-package com.kittenapp;
+package com.akveo.kittenPads;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "kittenApp";
+        return "kittenPads";
     }
 }

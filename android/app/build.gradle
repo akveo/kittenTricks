@@ -89,7 +89,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.kittenapp"
+        applicationId "com.akveo.kittenPads"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
