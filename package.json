@@ -1,5 +1,5 @@
 {
-  "name": "kittenApp",
+  "name": "kittenPads",
   "version": "1.0.0",
   "private": true,
   "author": "akveo",
@@ -18,7 +18,7 @@
     "react-native-linear-gradient": "^2.0.0",
     "react-native-progress-bar": "^0.1.2",
     "react-native-switch-pro": "^0.4.2",
-    "react-native-ui-kitten": "file:../../react-native-ui-kitten/",
+    "react-native-ui-kitten": "file:../react-native-ui-kitten/",
     "react-navigation": "^1.0.0-beta.9",
     "rnpm": "^1.9.0"
   },
