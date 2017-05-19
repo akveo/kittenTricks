@@ -1,4 +1,8 @@
 rootProject.name = 'akveo.kittenPads'
+include ':mobile-center-crashes'
+project(':mobile-center-crashes').projectDir = new File(rootProject.projectDir, '../node_modules/mobile-center-crashes/android')
+include ':mobile-center-analytics'
+project(':mobile-center-analytics').projectDir = new File(rootProject.projectDir, '../node_modules/mobile-center-analytics/android')
 
 include ':app'
 include ':react-native-linear-gradient'

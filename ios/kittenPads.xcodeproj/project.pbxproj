@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -30,6 +29,9 @@
 		AAC252521EB328350080D1AC /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC252381EB328000080D1AC /* libBVLinearGradient.a */; };
 		D986882F55454954847CD201 /* Righteous-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE05BF1396DE44208CB86D27 /* Righteous-Regular.ttf */; };
 		F9B401A2CAE74266831C6A12 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0C3BF3122D04DC7AC90E68E /* Roboto-Bold.ttf */; };
+		871E49092A8E4A0AA0D4D158 /* libRNAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 482D0ACE0884450198E10DF8 /* libRNAnalytics.a */; };
+		B054CB25BC0B494CB273A982 /* MobileCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6364E0FF0745509E767D18 /* MobileCenter-Config.plist */; };
+		8412BA3A3D304CA2A5627061 /* libRNCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA361DB0CB6C4E38BBF313E4 /* libRNCrashes.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +247,11 @@
 		D0C3BF3122D04DC7AC90E68E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../app/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		DF3C2F04A11B4235B5E4C91C /* icomoon.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icomoon.ttf; path = ../app/assets/fonts/icomoon.ttf; sourceTree = "<group>"; };
 		EF77D65276B345558FA01DF3 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../app/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		A611F11A2A2143A392845E6D /* RNAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "RNAnalytics.xcodeproj"; path = "../node_modules/mobile-center-analytics/ios/RNAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		482D0ACE0884450198E10DF8 /* libRNAnalytics.a */ = {isa = PBXFileReference; name = "libRNAnalytics.a"; path = "libRNAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		0A6364E0FF0745509E767D18 /* MobileCenter-Config.plist */ = {isa = PBXFileReference; name = "MobileCenter-Config.plist"; path = "kittenPads/MobileCenter-Config.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
+		A3C0EF5FD30B48CC9CBEBD30 /* RNCrashes.xcodeproj */ = {isa = PBXFileReference; name = "RNCrashes.xcodeproj"; path = "../node_modules/mobile-center-crashes/ios/RNCrashes.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		DA361DB0CB6C4E38BBF313E4 /* libRNCrashes.a */ = {isa = PBXFileReference; name = "libRNCrashes.a"; path = "libRNCrashes.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +271,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				871E49092A8E4A0AA0D4D158 /* libRNAnalytics.a in Frameworks */,
+				8412BA3A3D304CA2A5627061 /* libRNCrashes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +415,8 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				A611F11A2A2143A392845E6D /* RNAnalytics.xcodeproj */,
+				A3C0EF5FD30B48CC9CBEBD30 /* RNCrashes.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -426,6 +437,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				267D05B5106C4039A5D1510D /* Resources */,
+				0A6364E0FF0745509E767D18 /* MobileCenter-Config.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -744,6 +756,7 @@
 				626D9749BDC742C78AD48CDC /* Roboto-Regular.ttf in Resources */,
 				18165D7C46ED4165ABE7B8E2 /* fontawesome.ttf in Resources */,
 				D986882F55454954847CD201 /* Righteous-Regular.ttf in Resources */,
+				B054CB25BC0B494CB273A982 /* MobileCenter-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +820,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.akveo.kittenPads;
 				PRODUCT_NAME = kittenPads;
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/kittenPads\"",
+					"\"$(SRCROOT)/kittenPads\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+				);
 			};
 			name = Debug;
 		};
@@ -825,6 +848,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.akveo.kittenPads;
 				PRODUCT_NAME = kittenPads;
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/kittenPads\"",
+					"\"$(SRCROOT)/kittenPads\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
+					"$(SRCROOT)/../node_modules/mobile-center-crashes/ios/RNCrashes",
+				);
 			};
 			name = Release;
 		};
