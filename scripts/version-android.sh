@@ -9,7 +9,7 @@ NEW_CODE=$(($VERSION_CODE+1))
 NEW_NAME=$PACKAGE_VERSION
 echo "Updating Android build information. New version code: $NEW_CODE - New version name: $NEW_NAME";
 
-sed -i.bak 's/android:versionName="."/android:versionName="'${NEW_NAME}'"/g' $MANIFEST_PATH
 sed -i.bak 's/android:versionCode="."/android:versionCode="'${NEW_CODE}'"/g' $MANIFEST_PATH
+sed -i.bak 's/android:versionName="."/android:versionName="'${NEW_NAME}'"/g' $MANIFEST_PATH
 
 git add "${MANIFEST_PATH}"
