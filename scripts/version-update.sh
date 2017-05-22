@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-sh ./version-android.sh
-sh ./version-ios.sh
+sh ./scripts/version-android.sh
+sh ./scripts/version-ios.sh
