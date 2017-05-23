@@ -1,0 +1,10 @@
+framework module MobileCenter {
+  umbrella header "MobileCenter.h"
+  
+  export *
+  module * { export * }
+  
+  link framework "Foundation"
+  link framework "SystemConfiguration"
+  link framework "UIKit"
+}

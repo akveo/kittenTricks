@@ -1,0 +1,8 @@
+framework module RNMobileCenter {
+  umbrella header "RNMobileCenter.h"
+  
+  export *
+  module * { export * }
+  
+  link framework "Foundation"
+}
