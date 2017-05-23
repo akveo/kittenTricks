@@ -546,6 +546,12 @@
 			attributes = {
 				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = P48M49RUTP;
+						ProvisioningStyle = Manual;
+					};
+				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "kittenPads" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -936,6 +942,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = P48M49RUTP;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
@@ -953,8 +960,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.akveo.kittenPads;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akveo.kittenpads;
 				PRODUCT_NAME = kittenPads;
+				PROVISIONING_PROFILE = "9b650b2b-a505-4d71-aaa4-d2774f19e488";
+				PROVISIONING_PROFILE_SPECIFIER = kittenPadsDev;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -965,6 +974,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P48M49RUTP;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/mobile-center-analytics/ios/RNAnalytics",
@@ -982,8 +992,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.akveo.kittenPads;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akveo.kittenpads;
 				PRODUCT_NAME = kittenPads;
+				PROVISIONING_PROFILE = "9b650b2b-a505-4d71-aaa4-d2774f19e488";
+				PROVISIONING_PROFILE_SPECIFIER = kittenPadsDev;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
