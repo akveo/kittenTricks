@@ -549,7 +549,7 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = P48M49RUTP;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -940,6 +940,8 @@
 			baseConfigurationReference = 239924F9DD898A31304D981A /* Pods-kittenPads.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = P48M49RUTP;
@@ -962,8 +964,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.akveo.kittenpads;
 				PRODUCT_NAME = kittenPads;
-				PROVISIONING_PROFILE = "9b650b2b-a505-4d71-aaa4-d2774f19e488";
-				PROVISIONING_PROFILE_SPECIFIER = kittenPadsDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -973,6 +975,8 @@
 			baseConfigurationReference = 951C2C3ED3EC57DD80B6D417 /* Pods-kittenPads.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P48M49RUTP;
 				HEADER_SEARCH_PATHS = (
@@ -994,8 +998,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.akveo.kittenpads;
 				PRODUCT_NAME = kittenPads;
-				PROVISIONING_PROFILE = "9b650b2b-a505-4d71-aaa4-d2774f19e488";
-				PROVISIONING_PROFILE_SPECIFIER = kittenPadsDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1017,7 +1021,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1058,7 +1062,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
