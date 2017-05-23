@@ -361,9 +361,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CB83D449A6C2528E43542EBDE7C4F9CC /* Pods-kittenPads.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -428,9 +429,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2FE4178B6876764350A40589757D035 /* Pods-kittenPads.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -450,7 +452,8 @@
 		69B72B9AB9C56C5CA6FACCCD9B1984A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MobileCenter";
 				DEVELOPMENT_TEAM = BZZ355F5H6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -517,7 +520,8 @@
 		E0378956A2A3E613CA96CE049E8F364C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexei Malashkevich (KNN3QH29TV)";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MobileCenter";
 				DEVELOPMENT_TEAM = BZZ355F5H6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
