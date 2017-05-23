@@ -1,1 +1,0 @@
-../../../../MobileCenter/MobileCenter-SDK-iOS/MobileCenter.framework/Headers/MSWrapperSdk.h

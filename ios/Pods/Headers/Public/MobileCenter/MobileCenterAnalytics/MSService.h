@@ -1,1 +1,0 @@
-../../../../MobileCenter/MobileCenter-SDK-iOS/MobileCenterAnalytics.framework/Headers/MSService.h

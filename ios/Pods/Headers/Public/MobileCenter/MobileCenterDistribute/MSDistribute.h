@@ -1,1 +1,0 @@
-../../../../MobileCenter/MobileCenter-SDK-iOS/MobileCenterDistribute.framework/Headers/MSDistribute.h

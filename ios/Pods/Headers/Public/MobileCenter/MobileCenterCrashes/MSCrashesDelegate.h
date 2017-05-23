@@ -1,1 +1,0 @@
-../../../../MobileCenter/MobileCenter-SDK-iOS/MobileCenterCrashes.framework/Headers/MSCrashesDelegate.h

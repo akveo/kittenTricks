@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
-    "mobile-center-analytics": "^0.4.0",
-    "mobile-center-crashes": "^0.4.0",
     "moment": "^2.18.1",
     "prop-types": "^15.5.8",
     "react": "16.0.0-alpha.6",
