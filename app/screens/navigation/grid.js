@@ -11,7 +11,6 @@ import {
 } from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
 import {KittenTheme} from '../../config/theme';
-import LinearGradient from 'react-native-linear-gradient';
 const paddingValue = 8;
 
 export class GridV1 extends React.Component {
@@ -26,8 +25,7 @@ export class GridV1 extends React.Component {
 
   _calculateItemSize() {
     let {height, width} = Dimensions.get('window');
-    let buttonWidth = (width - paddingValue * 6) / 2;
-    return buttonWidth;
+    return (width - paddingValue * 6) / 2;
   }
 
   render() {
@@ -44,7 +42,7 @@ export class GridV1 extends React.Component {
             navigate(route.id)
           }}>
 
-          <RkText style={styles.icon} rkType='primary moon xxlarge'>
+          <RkText style={styles.icon} rkType='primary moon menuIcon'>
             {route.icon}
           </RkText>
           <RkText>{route.title}</RkText>
@@ -57,7 +55,6 @@ export class GridV1 extends React.Component {
     return (
       <ScrollView style={styles.root}
                   contentContainerStyle={styles.rootContainer}>
-
         {items}
       </ScrollView>
     )
@@ -73,5 +70,7 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
-  icon: {marginBottom: 16}
+  icon: {
+    marginBottom: 16
+  }
 });

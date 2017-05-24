@@ -49,12 +49,15 @@ export class Settings extends React.Component {
           <View style={styles.row}>
             <RkText rkType='header6'>Send Push Notifications</RkText>
             <RkSwitch style={styles.switch}
-                      value={this.state.sendPush} onValueChange={(sendPush) => this.setState({sendPush})}/>
+                      value={this.state.sendPush}
+                      name="Push"
+                      onValueChange={(sendPush) => this.setState({sendPush})}/>
           </View>
           <View style={styles.row}>
-            <RkText rkType='header6'>Send Push Notifications</RkText>
+            <RkText rkType='header6'>Refresh Automatically</RkText>
             <RkSwitch style={styles.switch}
                       value={this.state.shouldRefresh}
+                      name="Refresh"
                       onValueChange={(shouldRefresh) => this.setState({shouldRefresh})}/>
           </View>
         </View>
@@ -80,16 +83,6 @@ export class Settings extends React.Component {
                          selected={this.state.facebookEnabled} onPress={() => {
               this.setState({facebookEnabled: !this.state.facebookEnabled})
             }}/>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Edit Profile</RkText>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Edit Profile</RkText>
-            </TouchableOpacity>
           </View>
         </View>
 

@@ -46,7 +46,7 @@ export class GridV2 extends React.Component {
                     onPress={() => {
                       navigate(route.id)
                     }}>
-            <RkText style={styles.icon} rkType='primary moon xlarge'>
+            <RkText style={styles.icon} rkType='primary moon xxlarge'>
               {route.icon}
             </RkText>
             <RkText rkType='small'>{route.title}</RkText>

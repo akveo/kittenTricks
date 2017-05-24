@@ -231,7 +231,17 @@ export const MainRoutes = [
 
 let main = {};
 let flatRoutes = {};
-(MainRoutes).map(function (route, index) {
+
+
+let menuRoutes = _.cloneDeep(MainRoutes);
+menuRoutes.unshift({
+  id: 'GridV2',
+  title: 'Start',
+  screen: Screens.GridV2,
+  children: []
+},);
+
+(menuRoutes).map(function (route, index) {
 
   let wrapToRoute = (route) => {
     return {screen: route.screen, title: route.title}
@@ -262,6 +272,7 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
   };
   return routes;
 }, {});
+
 
 export const AppRoutes = DrawerRoutes;
 export const LoginRoutes = _.find(MainRoutes, {id: 'LoginMenu'}).children;

@@ -33,7 +33,7 @@ export class ListMenu extends React.Component {
         }}>
         <View style={styles.container}>
           <RkText style={styles.icon}
-                  rkType='primary moon xlarge'>{row.icon}</RkText>
+                  rkType='primary moon xxlarge'>{row.icon}</RkText>
           <RkText>{row.title}</RkText>
         </View>
       </TouchableHighlight>

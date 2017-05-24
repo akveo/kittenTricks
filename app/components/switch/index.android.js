@@ -12,11 +12,11 @@ import {
 } from 'react-native';
 import {RkComponent} from 'react-native-ui-kitten'
 
-const width = 52;
-const height = 32;
-const animationDuration = 200;
-const offLeftValue = -2;
-const onLeftValue = 20;
+let width = 52;
+let height = 32;
+let animationDuration = 200;
+let offLeftValue = -2;
+let onLeftValue = 20;
 
 export class RkSwitch extends RkComponent {
   componentName = 'RkSwitch';
@@ -35,9 +35,10 @@ export class RkSwitch extends RkComponent {
     this.offset = width - height;
     this.handlerSize = height;
 
-    const value = props.value || props.defaultValue;
+    let value = props.value;
     this.state = {
-      value,
+      name: this.props.name,
+      value: value,
       toggleable: true,
       alignItems: value ? 'flex-end' : 'flex-start',
       left: value ? onLeftValue : offLeftValue,
@@ -47,7 +48,7 @@ export class RkSwitch extends RkComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {value} = this.state;
+    let {value} = this.state;
     if (nextProps === this.props) {
       return
     }
@@ -75,7 +76,7 @@ export class RkSwitch extends RkComponent {
   };
 
   _onPanResponderMove = (evt, gestureState) => {
-    const {value, toggleable} = this.state;
+    let {value, toggleable} = this.state;
 
     this.setState({
       toggleable: value ? (gestureState.dx < 10) : (gestureState.dx > -10)
@@ -83,35 +84,35 @@ export class RkSwitch extends RkComponent {
   };
 
   _onPanResponderRelease = (evt, gestureState) => {
-    const {toggleable} = this.state;
-    const {disabled, onValueChange} = this.props;
+    let {toggleable} = this.state;
+    let {disabled, onValueChange} = this.props;
 
     if (toggleable && !disabled) {
       if (onValueChange) {
-        this.toggleSwitch(true, onValueChange)
+        this.toggleSwitch(onValueChange)
       }
     }
   };
 
   toggleSwitch = (result, callback = () => null) => {
-    const {value, switchAnimation} = this.state;
-    const toValue = !value;
+    let {value, switchAnimation} = this.state;
+    let toValue = !value;
 
     this.animateHandler(this.handlerSize);
-    if (result) {
-      this.animateSwitch(toValue, () => {
-        callback(toValue);
-        this.setState({
-          value: toValue,
-          left: toValue ? onLeftValue : offLeftValue
-        });
-        switchAnimation.setValue(toValue ? -1 : 1)
-      })
-    }
+
+    this.animateSwitch(toValue, () => {
+      callback(toValue);
+      this.setState({
+        value: toValue,
+        left: toValue ? onLeftValue : offLeftValue
+      });
+     switchAnimation.setValue(toValue ? -1 : 1)
+    })
+
   };
 
   animateSwitch = (value, callback = () => null) => {
-    const {switchAnimation} = this.state;
+    let {switchAnimation} = this.state;
 
     Animated.timing(switchAnimation,
       {
@@ -123,7 +124,7 @@ export class RkSwitch extends RkComponent {
   };
 
   animateHandler = (value, callback = () => null) => {
-    const {handlerAnimation} = this.state;
+    let {handlerAnimation} = this.state;
 
     Animated.timing(handlerAnimation,
       {
@@ -135,8 +136,8 @@ export class RkSwitch extends RkComponent {
   };
 
   render() {
-    const {switchAnimation, handlerAnimation, left, value} = this.state;
-    const {
+    let {switchAnimation, handlerAnimation, left, value} = this.state;
+    let {
       style,
       ...rest
     } = this.props;
@@ -146,9 +147,9 @@ export class RkSwitch extends RkComponent {
     let onColor = this.extractNonStyleValue(container, 'onColor');
     let offColor = this.extractNonStyleValue(container, 'offColor');
 
-    const interpolatedBackgroundColor = switchAnimation.interpolate({
-      inputRange: [1, height],
-      outputRange: value ? [onColor, offColor] : [offColor, onColor]
+    let interpolatedBackgroundColor = switchAnimation.interpolate({
+      inputRange: value ? [-this.offset, -1] : [1, this.offset],
+      outputRange: [offColor, onColor]
     });
 
     return (
@@ -156,7 +157,7 @@ export class RkSwitch extends RkComponent {
         {...rest}
         {...this._panResponder.panHandlers}
         style={[style, container, {
-          backgroundColor: interpolatedBackgroundColor
+          backgroundColor: interpolatedBackgroundColor,
         }]}>
         <Animated.View style={[thumb, {
           position: 'absolute',

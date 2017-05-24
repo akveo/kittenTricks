@@ -41,6 +41,10 @@ export let bootstrap = () => {
     fontSize: 33
   });
 
+  RkTheme.setType('RkText', 'menuIcon', {
+    fontSize: 44
+  });
+
   //all font sizes
   for (let key in KittenTheme.fonts.sizes) {
     RkTheme.setType('RkText', key, {
