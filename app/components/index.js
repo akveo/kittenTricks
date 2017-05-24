@@ -8,3 +8,4 @@ export * from './socialSetting';
 export * from './findFriends';
 export * from './progressBar';
 export * from './navBar';
+export * from './paginationIndicator';

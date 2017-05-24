@@ -203,7 +203,7 @@ export const MainRoutes = [
     id: 'WalkthroughMenu',
     title: 'Walkthrough',
     icon: FontIcons.mobile,
-    screen: Screens.WalkthroughMenu,
+    screen: Screens.WalkthroughScreen,
     children: []
   },
   {
@@ -264,6 +264,7 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
       navigationOptions: ({navigation, screenProps}) => ({
         headerStyle: Styles.appHeader,
         headerTitleStyle: Styles.appHeaderTitle,
+        gesturesEnabled: false,
         header: (headerProps) => (<NavBar navigation={navigation} headerProps={headerProps}/>)
 
       }),

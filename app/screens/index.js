@@ -5,3 +5,4 @@ export * from './social';
 export * from './articles';
 export * from './messaging';
 export * from './login';
+export * from './walkthroughs';
