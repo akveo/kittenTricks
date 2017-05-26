@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {CategoryMenu} from './categoryMenu';
-import * as Routes from '../../config/routes';
+import * as Routes from '../../config/routesBuilder';
 
 export class LoginMenu extends React.Component {
   static navigationOptions = {
@@ -14,7 +14,7 @@ export class LoginMenu extends React.Component {
   }
 }
 
-export class NavigationMenu extends React.Component {
+  export class NavigationMenu extends React.Component {
   static navigationOptions = {
     title: 'Navigation'.toUpperCase()
   };

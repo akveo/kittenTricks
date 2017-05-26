@@ -1,6 +1,6 @@
 import React from 'react';
 import {DrawerNavigator, StackNavigator} from 'react-navigation';
-import {AppRoutes, SideMenuComponent} from './config/routes';
+import {AppRoutes} from './config/routesBuilder';
 import * as Screens from './screens';
 import {bootstrap} from './config/bootstrap';
 
@@ -13,13 +13,12 @@ const KittenApp = StackNavigator({
         ...AppRoutes,
       },
       {
-        contentComponent: SideMenuComponent
+        contentComponent: (props) => <Screens.SideMenu {...props}/>
       })
   }
 }, {
   headerMode: 'none',
 });
-
 
 bootstrap();
 

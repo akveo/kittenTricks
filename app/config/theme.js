@@ -74,6 +74,7 @@ export const KittenTheme = {
       disabled: Colors.neutral,
       gradient1: Colors.gradient1,
       gradient2: Colors.gradient2,
+      overlay: Colors.overlay,
     },
     border: {
       base: Colors.primary,
@@ -84,11 +85,11 @@ export const KittenTheme = {
       card: '#00000014',
       hint: Colors.hint
     },
-    gradients:{
-      visa:['#63e2ff','#712ec3'],
-      mastercard:['#febb5b','#f24645'],
-      axp:['#42e695','#3bb2bb'],
-
+    gradients: {
+      base: [Colors.gradient1, Colors.gradient2],
+      visa: ['#63e2ff', '#712ec3'],
+      mastercard: ['#febb5b', '#f24645'],
+      axp: ['#42e695', '#3bb2bb'],
     }
   },
   fonts: {

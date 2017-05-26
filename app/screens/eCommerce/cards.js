@@ -200,7 +200,7 @@ let styles = StyleSheet.create({
     borderRadius: 7
   },
   popupOverlay: {
-    backgroundColor: '#00000055',
+    backgroundColor: KittenTheme.colors.back.overlay,
     flex: 1,
     marginTop: UIConstants.HeaderHeight
   },
