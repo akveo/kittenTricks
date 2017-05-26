@@ -49,10 +49,6 @@ export class Contacts extends React.Component {
   }
 
   renderSeparator(sectionID, rowID) {
-    // let isLastRow = rowID == this.users.length - 1;
-    // if (isLastRow) {
-    //   return null;
-    // }
     return (
       <View style={styles.separator}/>
     )

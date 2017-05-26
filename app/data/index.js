@@ -62,6 +62,10 @@ class DataProvider {
 
     return _.sortBy(comments, ['time']);
   }
+
+  getCards(){
+    return _.cloneDeep(appData.Cards);
+  }
 }
 
 export let Data = new DataProvider();

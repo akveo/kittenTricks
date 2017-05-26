@@ -211,7 +211,15 @@ export const MainRoutes = [
     title: 'Ecommerce',
     icon: FontIcons.card,
     screen: Screens.EcommerceMenu,
-    children: []
+    children: [
+      {
+        id: 'Cards',
+        title: 'Cards',
+        icon: FontIcons.card,
+        screen: Screens.Cards,
+        children: []
+      },
+    ]
   },
   {
     id: 'OtherMenu',

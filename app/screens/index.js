@@ -6,3 +6,4 @@ export * from './articles';
 export * from './messaging';
 export * from './login';
 export * from './walkthroughs';
+export * from './eCommerce';

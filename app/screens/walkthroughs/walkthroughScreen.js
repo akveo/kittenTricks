@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  Image,
   StyleSheet,
-  View,
-  FlatList
+  View
 } from 'react-native';
 import {GradientButton} from '../../components/';
 import {Walkthrough} from '../../components/walkthrough';

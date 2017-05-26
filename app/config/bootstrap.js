@@ -15,6 +15,7 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkText', 'basic', {
     fontFamily: KittenTheme.fonts.family.bold,
+    backgroundColor: 'transparent'
   });
 
   RkTheme.setType('RkText', 'regular', {
@@ -146,6 +147,12 @@ export let bootstrap = () => {
   /*
    RkButton types
    */
+
+  RkTheme.setType('RkButton', 'basic', {
+    container: {
+      alignSelf: 'auto',
+    }
+  });
 
   RkTheme.setType('RkButton', 'square', {
     borderRadius: 3,
@@ -281,6 +288,16 @@ export let bootstrap = () => {
     },
     labelColor: KittenTheme.colors.icon.base,
     placeholderTextColor: KittenTheme.colors.text.secondary
+  });
+
+  RkTheme.setType('RkTextInput', 'iconRight', {
+    label: {
+      position: 'absolute',
+      right: 0
+    },
+    input: {
+      marginRight: 46
+    },
   });
 
   RkTheme.setType('RkTextInput', 'sticker', {
@@ -421,6 +438,30 @@ export let bootstrap = () => {
       alignItems: 'center'
     }
   });
+
+  RkTheme.setType('RkCard', 'credit', {
+    container: {
+      borderWidth: 0,
+      borderRadius: 7
+    },
+    header: {
+      justifyContent: 'space-between',
+      paddingHorizontal: 14,
+      alignItems: 'center',
+      paddingBottom: 46
+    },
+    content: {
+      alignItems: 'center',
+      paddingVertical: 0
+    },
+    footer: {
+      paddingBottom: 14,
+      paddingTop: 16,
+      paddingHorizontal: 14,
+      alignItems: 'flex-end'
+    }
+  });
+
 
   /*
    Register components

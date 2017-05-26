@@ -83,6 +83,12 @@ export const KittenTheme = {
       disabled: Colors.neutral,
       card: '#00000014',
       hint: Colors.hint
+    },
+    gradients:{
+      visa:['#63e2ff','#712ec3'],
+      mastercard:['#febb5b','#f24645'],
+      axp:['#42e695','#3bb2bb'],
+
     }
   },
   fonts: {
