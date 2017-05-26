@@ -16,6 +16,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {Data} from '../../data';
 import {KittenTheme} from '../../config/theme';
 import {PasswordTextInput} from '../../components/passwordTextInput';
+import {UIConstants} from '../../config/appConstants';
 
 export class Cards extends React.Component {
   static navigationOptions = {
@@ -194,14 +195,14 @@ let styles = StyleSheet.create({
   },
   popup: {
     backgroundColor: KittenTheme.colors.back.base,
-    marginTop: 140,
+    marginTop: 70,
     marginHorizontal: 37,
     borderRadius: 7
   },
   popupOverlay: {
     backgroundColor: '#00000055',
     flex: 1,
-    marginTop: 65
+    marginTop: UIConstants.HeaderHeight
   },
   popupContent: {
     alignItems: 'center',

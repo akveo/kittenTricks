@@ -2,21 +2,19 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Platform,
   Dimensions
 } from 'react-native';
 import _ from 'lodash';
 import {RkText, RkButton} from 'react-native-ui-kitten';
 import {FontAwesome} from '../assets/icons';
 import {KittenTheme} from '../config/theme';
-
-const appbarHeight = Platform.OS === 'ios' ? 44 : 56;
-const statusbarHeight = Platform.OS === 'ios' ? 20 : 0;
+import {UIConstants} from '../config/appConstants';
 
 export class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {width: undefined};
+
   }
 
   _renderRight(headerRight) {
@@ -109,7 +107,7 @@ export class NavBar extends React.Component {
 let styles = StyleSheet.create({
   layout: {
     backgroundColor: KittenTheme.colors.back.base,
-    paddingTop: statusbarHeight,
+    paddingTop: UIConstants.StatusbarHeight,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: StyleSheet.hairlineWidth,
@@ -120,7 +118,7 @@ let styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    height: appbarHeight,
+    height: UIConstants.AppbarHeight,
 
   },
   left: {
