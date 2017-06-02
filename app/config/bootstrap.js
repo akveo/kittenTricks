@@ -1,3 +1,4 @@
+import {StatusBar} from 'react-native';
 import {RkTheme} from 'react-native-ui-kitten';
 import {KittenTheme} from './theme';
 import {DarkKittenTheme} from './darkTheme';
@@ -473,6 +474,5 @@ export let bootstrap = () => {
   RkTheme.registerComponent('RkSwitch', SwitchTypes);
   RkTheme.registerComponent('SocialBar', SocialBarTypes);
 
-
-//  RkTheme.setTheme(DarkKittenTheme);
+  StatusBar.setBarStyle('dark-content', true);
 };

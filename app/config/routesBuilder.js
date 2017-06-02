@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import {StackNavigator} from 'react-navigation'
-import {RkStyleSheet, withRkTheme} from 'react-native-ui-kitten'
+import {withRkTheme} from 'react-native-ui-kitten'
 import {NavBar} from '../components';
 import {MainRoutes, MenuRoutes} from './routes';
 
@@ -24,6 +24,8 @@ let flatRoutes = {};
   }
 });
 
+let ThemedNavigationBar = withRkTheme(NavBar);
+
 const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
   let stack_name = name;
   routes[stack_name] = {
@@ -34,7 +36,7 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
       navigationOptions: ({navigation, screenProps}) => ({
         gesturesEnabled: false,
         header: (headerProps) => {
-          return <NavBar navigation={navigation} headerProps={headerProps}/>
+          return <ThemedNavigationBar navigation={navigation} headerProps={headerProps}/>
         }
       })
     })

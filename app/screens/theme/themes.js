@@ -1,41 +1,69 @@
 import React from 'react';
 import {
-  StyleSheet,
-  View
+  View,
+  Image,
+  StatusBar
 } from 'react-native';
-import {RkText, RkButton, RkTheme} from 'react-native-ui-kitten';
+import {
+  RkText,
+  RkButton,
+  RkTheme,
+  RkStyleSheet
+} from 'react-native-ui-kitten';
 import {DarkKittenTheme} from '../../config/darkTheme';
 import {KittenTheme} from '../../config/theme';
-
-let baseTheme = 'base';
-let nightTheme = 'night';
+import {GradientButton} from '../../components/';
 
 export class Themes extends React.Component {
   static navigationOptions = {
-    title: ''
+    title: 'Theme'.toUpperCase()
   };
 
   constructor(props) {
     super(props);
-
   }
 
   render() {
     return (
-      <View>
-        <RkButton onPress={() => {
-          RkTheme.setTheme(DarkKittenTheme);
-        }}>
-          Night
-        </RkButton>
+      <View style={styles.root}>
+        <View style={styles.container}>
+          <RkText>Light Theme</RkText>
+          <Image source={require('../../assets/images/lightThemeImage.png')}/>
+          <GradientButton
+            text='APPLY'
+            onPress={() => {
+              StatusBar.setBarStyle('dark-content', true);
+              RkTheme.setTheme(KittenTheme);
+            }}/>
+        </View>
+        <View style={styles.container}>
+          <RkText>Dark Theme</RkText>
+          <Image source={require('../../assets/images/darkThemeImage.png')}/>
+          <GradientButton
+            text='APPLY'
+            onPress={() => {
+              RkTheme.setTheme(DarkKittenTheme);
+              StatusBar.setBarStyle('light-content', true);
+            }}/>
 
-        <RkButton onPress={() => {
-          RkTheme.setTheme(KittenTheme);
-        }}> Kitten </RkButton>
+        </View>
       </View>
 
     )
   }
 }
 
-let styles = StyleSheet.create({});
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base,
+    flex: 1,
+    paddingHorizontal: 72,
+
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 20
+  }
+}));
