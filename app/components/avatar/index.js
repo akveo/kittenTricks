@@ -5,10 +5,10 @@ import {
 } from 'react-native';
 import {
   RkComponent,
-  RkText
+  RkText,
+  RkTheme
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
-import {KittenTheme} from '../../config/theme';
 
 export class Avatar extends RkComponent {
   componentName = 'Avatar';
@@ -40,11 +40,11 @@ export class Avatar extends RkComponent {
     switch (this.props.badge) {
       case 'like':
         symbol = FontAwesome.heart;
-        backgroundColor = KittenTheme.colors.back.primary;
+        backgroundColor = RkTheme.current.colors.back.primary;
         break;
       case 'follow':
         symbol = FontAwesome.plus;
-        backgroundColor = KittenTheme.colors.back.success;
+        backgroundColor = RkTheme.current.colors.back.success;
         break;
     }
 

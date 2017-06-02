@@ -2,17 +2,13 @@ import React from 'react';
 import {
   FlatList,
   View,
-  StyleSheet
 } from 'react-native';
-import _ from 'lodash';
 import {
-  RkText,
-  RkTextInput
+  RkStyleSheet,
+  RkText
 } from 'react-native-ui-kitten';
 import {Avatar} from '../../components';
-import {FontAwesome} from '../../assets/icons';
 import {Data} from '../../data';
-import {KittenTheme} from '../../config/theme';
 let moment = require('moment');
 
 export class Comments extends React.Component {
@@ -60,6 +56,7 @@ export class Comments extends React.Component {
   render() {
     return (
       <FlatList
+        style={styles.root}
         data={this.state.data}
         extraData={this.state}
         ItemSeparatorComponent={this._renderSeparator}
@@ -69,7 +66,10 @@ export class Comments extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   container: {
     paddingLeft: 19,
     paddingRight: 16,
@@ -88,6 +88,6 @@ let styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: KittenTheme.colors.border.underline
+    backgroundColor: theme.colors.border.underline
   }
-});
+}));

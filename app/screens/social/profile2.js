@@ -2,15 +2,13 @@ import React from 'react';
 import {
   View,
   ScrollView,
-  StyleSheet
 } from 'react-native';
 import {
   RkText,
-  RkButton
+  RkButton, RkStyleSheet
 } from 'react-native-ui-kitten';
-import {KittenTheme} from '../../config/theme';
-import {Avatar} from '../../components/avatar';
-import {Gallery} from '../../components/gallery';
+import {Avatar} from '../../components';
+import {Gallery} from '../../components';
 import {Users} from '../../data/appData';
 import {FontIcons} from '../../assets/icons';
 
@@ -27,7 +25,7 @@ export class ProfileV2 extends React.Component {
   render() {
     let name = `${this.user.firstName} ${this.user.lastName}`;
     return (
-      <ScrollView>
+      <ScrollView style={styles.root}>
         <View style={[styles.header, styles.bordered]}>
           <View style={styles.row}>
             <View style={styles.buttons}>
@@ -67,7 +65,10 @@ export class ProfileV2 extends React.Component {
 }
 
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   header: {
     paddingTop: 25,
     paddingBottom: 17,
@@ -82,7 +83,7 @@ let styles = StyleSheet.create({
   },
   bordered: {
     borderBottomWidth: 1,
-    borderColor: KittenTheme.colors.border.underline
+    borderColor: theme.colors.border.underline
   },
   section: {
     flex: 1,
@@ -92,7 +93,7 @@ let styles = StyleSheet.create({
     marginBottom: 3
   },
   separator: {
-    backgroundColor: KittenTheme.colors.border.underline,
+    backgroundColor: theme.colors.border.underline,
     alignSelf: 'center',
     flexDirection: 'row',
     flex: 0,
@@ -106,4 +107,4 @@ let styles = StyleSheet.create({
     marginTop: 27.5,
     alignSelf: 'center'
   }
-});
+}));

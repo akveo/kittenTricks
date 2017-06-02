@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {RkStyleSheet} from 'react-native-ui-kitten';
 
 export class Ellipsis extends React.Component {
   render() {
@@ -13,17 +14,17 @@ export class Ellipsis extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   container: {
-    flexDirection:'row',
-    marginHorizontal:5,
-    marginVertical:10
+    flexDirection: 'row',
+    marginHorizontal: 5,
+    marginVertical: 10
   },
   dot: {
     height: 5.5,
     width: 5.5,
-    borderRadius:3,
-    backgroundColor: 'black',
-    marginHorizontal:2.5
+    borderRadius: 3,
+    backgroundColor: theme.colors.text.base,
+    marginHorizontal: 2.5
   }
-});
+}));

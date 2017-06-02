@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   FlatList,
-  StyleSheet,
   View,
   Platform,
   Image
@@ -10,10 +9,9 @@ import {
   RkButton,
   RkText,
   RkTextInput,
-  RkAvoidKeyboard
+  RkAvoidKeyboard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import _ from 'lodash';
-import {KittenTheme} from '../../config/theme';
 import {FontAwesome} from '../../assets/icons';
 import {Data} from '../../data';
 import {Avatar} from '../../components/avatar';
@@ -115,37 +113,37 @@ export class Chat extends React.Component {
 
   render() {
     return (
-        <RkAvoidKeyboard style={styles.container}>
-          <FlatList ref='list'
-                    extraData={this.state}
-                    style={styles.list}
-                    data={this.state.data}
-                    keyExtractor={this._keyExtractor}
-                    renderItem={this._renderItem}/>
-          <View style={styles.footer}>
-            <RkButton style={styles.plus} rkType='clear'>
-              <RkText rkType='awesome alterColor'>{FontAwesome.plus}</RkText>
-            </RkButton>
+      <RkAvoidKeyboard style={styles.container}>
+        <FlatList ref='list'
+                  extraData={this.state}
+                  style={styles.list}
+                  data={this.state.data}
+                  keyExtractor={this._keyExtractor}
+                  renderItem={this._renderItem}/>
+        <View style={styles.footer}>
+          <RkButton style={styles.plus} rkType='clear'>
+            <RkText rkType='awesome alterColor'>{FontAwesome.plus}</RkText>
+          </RkButton>
 
-            <RkTextInput
-              onFocus={() => this._scroll(true)}
-              onBlur={() => this._scroll(true)}
-              onChangeText={(message) => this.setState({message})}
-              value={this.state.message}
-              rkType='row sticker'
-              placeholder="Add a comment..."/>
+          <RkTextInput
+            onFocus={() => this._scroll(true)}
+            onBlur={() => this._scroll(true)}
+            onChangeText={(message) => this.setState({message})}
+            value={this.state.message}
+            rkType='row sticker'
+            placeholder="Add a comment..."/>
 
-            <RkButton onPress={() => this._pushMessage()} style={styles.send} rkType='circle'>
-              <Image source={require('../../assets/icons/sendIcon.png')}/>
-            </RkButton>
-          </View>
-        </RkAvoidKeyboard>
+          <RkButton onPress={() => this._pushMessage()} style={styles.send} rkType='circle'>
+            <Image source={require('../../assets/icons/sendIcon.png')}/>
+          </RkButton>
+        </View>
+      </RkAvoidKeyboard>
 
     )
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   header: {
     alignItems: 'center'
   },
@@ -154,6 +152,7 @@ let styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    backgroundColor: theme.colors.back.base
   },
   list: {
 
@@ -163,7 +162,7 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
     minHeight: 60,
     padding: 10,
-    backgroundColor: KittenTheme.colors.back.neutral
+    backgroundColor: theme.colors.back.disabled
   },
   item: {
     marginVertical: 14,
@@ -180,10 +179,10 @@ let styles = StyleSheet.create({
     borderRadius: 20,
   },
   balloonIn: {
-    backgroundColor: KittenTheme.colors.back.alternative
+    backgroundColor: theme.colors.back.messageIn
   },
   balloonOut: {
-    backgroundColor: KittenTheme.colors.back.inactive,
+    backgroundColor: theme.colors.back.messageOut,
   },
   time: {
     alignSelf: 'flex-end',
@@ -197,6 +196,7 @@ let styles = StyleSheet.create({
   send: {
     width: 40,
     height: 40,
-    marginLeft: 10
+    marginLeft: 10,
+    backgroundColor: theme.colors.back.highlight
   }
-});
+}));

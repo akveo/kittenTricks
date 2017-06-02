@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  StyleSheet,
   View
 } from 'react-native';
+import {RkStyleSheet} from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {Walkthrough} from '../../components/walkthrough';
 import {Walkthrough1} from './walkthrough1';
@@ -43,8 +43,9 @@ export class WalkthroughScreen extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   screen: {
+    backgroundColor: theme.colors.back.base,
     paddingVertical: 28,
     alignItems: 'center',
     flex: 1,
@@ -53,4 +54,4 @@ let styles = StyleSheet.create({
     marginTop: 25,
     marginHorizontal: 16,
   }
-});
+}));

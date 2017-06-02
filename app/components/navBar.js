@@ -5,9 +5,8 @@ import {
   Dimensions
 } from 'react-native';
 import _ from 'lodash';
-import {RkText, RkButton} from 'react-native-ui-kitten';
+import {RkText, RkButton, RkStyleSheet} from 'react-native-ui-kitten';
 import {FontAwesome} from '../assets/icons';
-import {KittenTheme} from '../config/theme';
 import {UIConstants} from '../config/appConstants';
 
 export class NavBar extends React.Component {
@@ -104,9 +103,9 @@ export class NavBar extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   layout: {
-    backgroundColor: KittenTheme.colors.back.base,
+    backgroundColor: theme.colors.back.base,
     paddingTop: UIConstants.StatusbarHeight,
     shadowColor: '#000',
     shadowOpacity: 0.1,
@@ -142,4 +141,4 @@ let styles = StyleSheet.create({
   menu: {
     width: 40
   }
-});
+}));

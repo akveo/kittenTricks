@@ -2,12 +2,14 @@ import React from 'react';
 import {
   ListView,
   TouchableHighlight,
-  View,
-  StyleSheet
+  View
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten';
+import {
+  RkText,
+  RkStyleSheet,
+  RkTheme
+} from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
-import {KittenTheme} from '../../config/theme';
 
 export class ListMenu extends React.Component {
   static navigationOptions = {
@@ -26,7 +28,7 @@ export class ListMenu extends React.Component {
     return (
       <TouchableHighlight
         style={styles.item}
-        underlayColor={KittenTheme.colors.back.primaryActive}
+        underlayColor={RkTheme.current.colors.back.primaryActive}
         activeOpacity={1}
         onPress={() => {
           this.props.navigation.navigate(row.id)
@@ -43,6 +45,7 @@ export class ListMenu extends React.Component {
   render() {
     return (
       <ListView
+        style={styles.list}
         dataSource={this.data}
         renderRow={this.renderRow}
       />
@@ -50,21 +53,24 @@ export class ListMenu extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   item: {
     height: 80,
     justifyContent: 'center',
     borderBottomWidth: 1,
-    borderColor: KittenTheme.colors.border.underline,
+    borderColor: theme.colors.border.underline,
     paddingHorizontal: 16
   },
-  container: {
-    flexDirection:'row',
-    alignItems:'center'
+  list: {
+    backgroundColor: theme.colors.back.base,
   },
-  icon:{
-    width:34,
-    textAlign:'center',
-    marginRight:16
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  icon: {
+    width: 34,
+    textAlign: 'center',
+    marginRight: 16
   }
-});
+}));

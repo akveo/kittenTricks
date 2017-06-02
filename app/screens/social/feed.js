@@ -3,14 +3,11 @@ import {
   FlatList,
   View,
   Image,
-  StyleSheet
 } from 'react-native';
 import {
   RkCard,
-  RkButton,
-  RkText
+  RkText, RkStyleSheet
 } from 'react-native-ui-kitten';
-import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {SocialBar} from '../../components/socialBar';
 import {Data} from '../../data';
@@ -64,9 +61,9 @@ export class Feed extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme=>({
   container: {
-    backgroundColor: KittenTheme.colors.back.neutral,
+    backgroundColor: '#1f2449',
     paddingVertical: 8,
     paddingHorizontal: 10
   },
@@ -76,4 +73,4 @@ let styles = StyleSheet.create({
   avatar: {
     marginRight: 16
   }
-});
+}));

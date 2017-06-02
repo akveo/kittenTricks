@@ -13,10 +13,11 @@ export const GradientButtonTypes = (theme) => {
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 20,
-        colors: [theme.colors.gradients.base]
+        colors: theme.colors.gradients.base
       },
       text: {
         backgroundColor: 'transparent',
+        color: theme.colors.text.overlay
       }
     },
     large: {

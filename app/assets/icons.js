@@ -23,5 +23,6 @@ export const FontAwesome = {
   smile: String.fromCharCode(61720),
   chevronRight: String.fromCharCode(61524),
   chevronLeft: String.fromCharCode(61700),
-  bars: String.fromCharCode(61641)
+  bars: String.fromCharCode(61641),
+  slashEye: String.fromCharCode(61552),
 };

@@ -1,18 +1,17 @@
 import React from 'react';
 import {
   FlatList,
-  View,
-  StyleSheet
+  View
 } from 'react-native';
 import _ from 'lodash';
 import {
+  RkStyleSheet,
   RkText,
   RkTextInput
 } from 'react-native-ui-kitten';
 import {Avatar} from '../../components';
 import {FontAwesome} from '../../assets/icons';
 import {Data} from '../../data';
-import {KittenTheme} from '../../config/theme';
 let moment = require('moment');
 
 export class ChatList extends React.Component {
@@ -85,6 +84,7 @@ export class ChatList extends React.Component {
   render() {
     return (
       <FlatList
+        style={styles.root}
         data={this.state.data}
         extraData={this.state}
         ListHeaderComponent={this.renderHeader}
@@ -95,9 +95,12 @@ export class ChatList extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   searchContainer: {
-    backgroundColor: KittenTheme.colors.back.alternative,
+    backgroundColor: theme.colors.back.alternative,
     paddingHorizontal: 16,
     paddingVertical: 10,
     height: 60,
@@ -120,6 +123,6 @@ let styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: KittenTheme.colors.border.underline
+    backgroundColor: theme.colors.border.underline
   }
-});
+}));

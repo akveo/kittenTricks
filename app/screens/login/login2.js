@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  StyleSheet,
   View,
   Image,
 } from 'react-native';
@@ -8,11 +7,11 @@ import {
   RkButton,
   RkText,
   RkTextInput,
-  RkAvoidKeyboard
+  RkAvoidKeyboard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
-import {KittenTheme} from '../../config/theme';
+import {RkTheme} from 'react-native-ui-kitten';
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
@@ -24,10 +23,16 @@ export class LoginV2 extends React.Component {
   }
 
   render() {
+    let renderIcon = () => {
+      if (RkTheme.current.name === 'light')
+        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
+      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
+    };
+
     return (
-      <RkAvoidKeyboard style={styles.screen}>
+      <RkAvoidKeyboard style={[{backgroundColor: RkTheme.current.colors.back.base}, styles.screen]}>
         <View style={styles.header}>
-          <Image style={styles.image} source={require('../../assets/images/logo.png')}/>
+          {renderIcon()}
           <RkText rkType='light h1'>React Native</RkText>
           <RkText rkType='logo h0'>UI Kitten</RkText>
         </View>
@@ -35,7 +40,9 @@ export class LoginV2 extends React.Component {
           <View>
             <RkTextInput rkType='rounded' placeholder='Username'/>
             <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
-            <GradientButton style={styles.save} rkType='large' text='LOGIN'/>
+            <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
+              this.props.navigation.goBack()
+            }}/>
           </View>
           <View style={styles.buttons}>
             <RkButton style={styles.button} rkType='social'>
@@ -63,7 +70,7 @@ export class LoginV2 extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   screen: {
     padding: 16,
     flex: 1,
@@ -92,7 +99,7 @@ let styles = StyleSheet.create({
     justifyContent: 'center'
   },
   button: {
-    borderColor: KittenTheme.colors.border.solid
+    borderColor: theme.colors.border.solid
   },
   footer: {}
-});
+}));

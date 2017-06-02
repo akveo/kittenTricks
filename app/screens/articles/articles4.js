@@ -1,17 +1,15 @@
 import React from 'react';
 import {
   FlatList,
-  StyleSheet,
   Image,
   View
 } from 'react-native';
 import {
   RkText,
-  RkCard
+  RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
 import {Data} from '../../data';
-import {KittenTheme} from '../../config/theme';
 let moment = require('moment');
 
 export class Articles4 extends React.Component {
@@ -49,26 +47,30 @@ export class Articles4 extends React.Component {
   render() {
     return (
       <View>
-        <FlatList data={this.data}
-                  renderItem={this._renderItem}
-                  keyExtractor={this._keyExtractor}
-                  style={styles.container}/>
+        <FlatList
+          data={this.data}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+          style={styles.container}/>
       </View>
     )
   }
 }
 
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   container: {
-    backgroundColor: KittenTheme.colors.back.neutral,
+    backgroundColor: theme.colors.back.neutral,
     paddingVertical: 8,
     paddingHorizontal: 14
   },
   card: {
     marginVertical: 8,
   },
-  post:{
-    marginTop:13
+  post: {
+    marginTop: 13
   }
-});
+}));

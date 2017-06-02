@@ -1,9 +1,11 @@
 import React from 'react';
 import {
-  Image,
-  StyleSheet,
-} from 'react-native';
-import {RkButton, RkTextInput} from 'react-native-ui-kitten';
+  RkButton,
+  RkTextInput,
+  RkText,
+  RkStyleSheet
+} from 'react-native-ui-kitten';
+import {FontAwesome} from '../assets/icons';
 
 export class PasswordTextInput extends React.Component {
 
@@ -19,7 +21,7 @@ export class PasswordTextInput extends React.Component {
                 onPress={() => {
                   this.setState({hidden: !this.state.hidden})
                 }}>
-        <Image source={require('../assets/icons/eyeIcon.png')}/>
+        <RkText style={styles.icon} rkType='awesome'>{FontAwesome.slashEye}</RkText>
       </RkButton>
     );
 
@@ -34,8 +36,12 @@ export class PasswordTextInput extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  icon: {
+    color: theme.colors.text.icon,
+    fontSize: 24
+  },
   button: {
     right: 17
   }
-});
+}));

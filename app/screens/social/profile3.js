@@ -1,17 +1,15 @@
 import React from 'react';
 import {
   View,
-  ScrollView,
-  StyleSheet, Text
+  ScrollView
 } from 'react-native';
 import {
-  RkText,
-  RkButton
+  RkStyleSheet,
+  RkText
 } from 'react-native-ui-kitten';
-import {KittenTheme} from '../../config/theme';
-import {Avatar} from '../../components/avatar';
-import {Gallery} from '../../components/gallery';
-import {GradientButton} from '../../components/gradientButton';
+import {Avatar} from '../../components';
+import {Gallery} from '../../components';
+import {GradientButton} from '../../components';
 import {Users} from '../../data/appData';
 
 export class ProfileV3 extends React.Component {
@@ -27,7 +25,7 @@ export class ProfileV3 extends React.Component {
   render() {
     let name = `${this.user.firstName} ${this.user.lastName}`;
     return (
-      <ScrollView>
+      <ScrollView style={styles.root}>
         <View style={[styles.header, styles.bordered]}>
           <Avatar img={this.user.photo} rkType='big'/>
           <RkText rkType='header2'>{name}</RkText>
@@ -54,7 +52,10 @@ export class ProfileV3 extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   header: {
     alignItems: 'center',
     paddingTop: 25,
@@ -66,7 +67,7 @@ let styles = StyleSheet.create({
   },
   bordered: {
     borderBottomWidth: 1,
-    borderColor: KittenTheme.colors.border.underline
+    borderColor: theme.colors.border.underline
   },
   section: {
     flex: 1,
@@ -76,7 +77,7 @@ let styles = StyleSheet.create({
     marginBottom: 3
   },
   separator: {
-    backgroundColor: KittenTheme.colors.border.underline,
+    backgroundColor: theme.colors.border.underline,
     alignSelf: 'center',
     flexDirection: 'row',
     flex: 0,
@@ -93,4 +94,4 @@ let styles = StyleSheet.create({
     width: 140
   },
 
-});
+}));

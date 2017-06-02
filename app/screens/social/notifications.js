@@ -2,11 +2,10 @@ import React from 'react';
 import {
   ListView,
   View,
-  StyleSheet, Image
+  Image
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten';
-import {Avatar} from '../../components/avatar';
-import {KittenTheme} from '../../config/theme';
+import {RkStyleSheet, RkText} from 'react-native-ui-kitten';
+import {Avatar} from '../../components';
 import {Data} from '../../data';
 let moment = require('moment');
 
@@ -60,6 +59,7 @@ export class Notifications extends React.Component {
   render() {
     return (
       <ListView
+        style={styles.root}
         dataSource={this.data}
         renderRow={this.renderRow}/>
 
@@ -67,12 +67,15 @@ export class Notifications extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   container: {
     padding: 16,
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderColor: KittenTheme.colors.border.underline,
+    borderColor: theme.colors.border.underline,
     alignItems: 'flex-start'
   },
   avatar: {},
@@ -98,4 +101,4 @@ let styles = StyleSheet.create({
     height: 50,
     width: 50
   }
-});
+}));

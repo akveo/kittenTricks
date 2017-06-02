@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  StyleSheet,
   View,
   Image,
   Dimensions
@@ -9,7 +8,7 @@ import {
   RkButton,
   RkText,
   RkTextInput,
-  RkAvoidKeyboard
+  RkAvoidKeyboard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
@@ -44,7 +43,7 @@ export class LoginV1 extends React.Component {
           </View>
           <RkTextInput rkType='rounded' placeholder='Username'/>
           <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
-          <GradientButton onPress={()=>{
+          <GradientButton onPress={() => {
             this.props.navigation.goBack()
           }} rkType='large' style={styles.save} text='LOGIN'/>
 
@@ -62,10 +61,11 @@ export class LoginV1 extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   screen: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: theme.colors.back.base
   },
   image: {
     resizeMode: 'cover',
@@ -91,8 +91,5 @@ let styles = StyleSheet.create({
   textRow: {
     justifyContent: 'center',
     flexDirection: 'row',
-  },
-  save: {
-
   }
-});
+}));

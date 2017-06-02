@@ -1,15 +1,18 @@
 import React from 'react';
 import {
   ScrollView,
-  StyleSheet,
   View,
   TouchableOpacity
 } from 'react-native';
 import {
-  RkText
+  RkText,
+  RkStyleSheet,
+  RkTheme
 } from 'react-native-ui-kitten';
-import {Colors, KittenTheme} from '../../config/theme';
-import {RkSwitch, FindFriends} from '../../components';
+import {
+  RkSwitch,
+  FindFriends
+} from '../../components';
 import {FontAwesome} from '../../assets/icons';
 
 export class Settings extends React.Component {
@@ -66,20 +69,20 @@ export class Settings extends React.Component {
             <RkText rkType='primary header6'>FIND FRIENDS</RkText>
           </View>
           <View style={styles.row}>
-            <FindFriends color={Colors.twitter} text='Twitter' icon={FontAwesome.twitter}
+            <FindFriends color={RkTheme.current.colors.twitter} text='Twitter' icon={FontAwesome.twitter}
                          selected={this.state.twitterEnabled}
                          onPress={() => {
                            this.setState({twitterEnabled: !this.state.twitterEnabled})
                          }}/>
           </View>
           <View style={styles.row}>
-            <FindFriends color={Colors.google} text='Google' icon={FontAwesome.google}
+            <FindFriends color={RkTheme.current.colors.google} text='Google' icon={FontAwesome.google}
                          selected={this.state.googleEnabled} onPress={() => {
               this.setState({googleEnabled: !this.state.googleEnabled})
             }}/>
           </View>
           <View style={styles.row}>
-            <FindFriends color={Colors.facebook} text='Facebook' icon={FontAwesome.facebook}
+            <FindFriends color={RkTheme.current.colors.facebook} text='Facebook' icon={FontAwesome.facebook}
                          selected={this.state.facebookEnabled} onPress={() => {
               this.setState({facebookEnabled: !this.state.facebookEnabled})
             }}/>
@@ -116,9 +119,11 @@ export class Settings extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  container: {
+    backgroundColor: theme.colors.back.base,
+  },
   header: {
-    backgroundColor: KittenTheme.colors.back.neutral,
     paddingVertical: 25
   },
   section: {
@@ -132,7 +137,7 @@ let styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 17.5,
     borderBottomWidth: 1,
-    borderColor: KittenTheme.colors.border.underline,
+    borderColor: theme.colors.border.underline,
     alignItems: 'center'
   },
   rowButton: {
@@ -142,4 +147,4 @@ let styles = StyleSheet.create({
   switch: {
     marginVertical: 14
   },
-});
+}));

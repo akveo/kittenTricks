@@ -1,12 +1,10 @@
 import React from 'react';
 import {
   ScrollView,
-  StyleSheet,
   View
 } from 'react-native';
-import {RkText, RkButton} from 'react-native-ui-kitten';
+import {RkText, RkButton, RkStyleSheet, RkThemeProvider} from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
-import {KittenTheme} from '../../config/theme';
 
 export class GridV2 extends React.Component {
   static navigationOptions = {
@@ -59,26 +57,32 @@ export class GridV2 extends React.Component {
       }
     }
 
+
     return (
-      <ScrollView
-        onLayout={this._onLayout}
-        contentContainerStyle={styles.rootContainer}>
-        {items}
-      </ScrollView>
+
+        <ScrollView
+          style={styles.root}
+          onLayout={this._onLayout}
+          contentContainerStyle={styles.rootContainer}>
+          {items}
+        </ScrollView>
     );
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   rootContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   empty: {
     borderWidth: 0.5,
-    borderColor: KittenTheme.colors.border.underline
+    borderColor: theme.colors.border.underline
   },
   icon: {
     marginBottom: 16
   }
-});
+}));

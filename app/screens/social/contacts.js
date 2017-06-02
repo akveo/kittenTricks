@@ -1,13 +1,15 @@
 import React from 'react';
 import {
   ListView,
-  StyleSheet,
   View
 } from 'react-native';
 import _ from 'lodash';
-import {RkText, RkTextInput} from 'react-native-ui-kitten';
+import {
+  RkStyleSheet,
+  RkText,
+  RkTextInput
+} from 'react-native-ui-kitten';
 import {Data} from '../../data';
-import {KittenTheme} from '../../config/theme';
 import {Avatar} from '../../components/avatar';
 import {FontAwesome} from '../../assets/icons';
 
@@ -81,18 +83,23 @@ export class Contacts extends React.Component {
 
   render() {
     return (
-      <ListView dataSource={this.state.data}
-                renderRow={this.renderRow}
-                renderSeparator={this.renderSeparator}
-                renderHeader={this.renderHeader}
-                enableEmptySections={true}/>
+      <ListView
+        style={styles.root}
+        dataSource={this.state.data}
+        renderRow={this.renderRow}
+        renderSeparator={this.renderSeparator}
+        renderHeader={this.renderHeader}
+        enableEmptySections={true}/>
     )
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   searchContainer: {
-    backgroundColor: KittenTheme.colors.back.alternative,
+    backgroundColor: theme.colors.back.alternative,
     paddingHorizontal: 16,
     paddingVertical: 10,
     height: 60,
@@ -109,6 +116,6 @@ let styles = StyleSheet.create({
   separator: {
     flex: 1,
     height: 1,
-    backgroundColor: KittenTheme.colors.border.underline
+    backgroundColor: theme.colors.border.underline
   }
-});
+}));

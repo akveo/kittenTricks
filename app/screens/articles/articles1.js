@@ -1,13 +1,12 @@
 import React from 'react';
 import {
   FlatList,
-  StyleSheet,
   Image,
   View
 } from 'react-native';
 import {
   RkText,
-  RkCard
+  RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
 import {Data} from '../../data';
@@ -50,18 +49,20 @@ export class Articles1 extends React.Component {
       <FlatList data={this.data}
                 renderItem={this._renderItem}
                 keyExtractor={this._keyExtractor}
-                style={styles.container}/>
+                style={styles.root}/>
 
     )
   }
 }
 
-let styles = StyleSheet.create({
-  container: {},
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   overlay: {
     justifyContent: 'flex-end',
   },
   footer: {
     width: 240
   }
-});
+}));

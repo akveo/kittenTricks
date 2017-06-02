@@ -1,14 +1,13 @@
 import React from 'react';
 import {
   ScrollView,
-  StyleSheet,
   Image,
   View
 } from 'react-native';
 import {
   RkCard,
-  RkButton,
-  RkText
+  RkText,
+  RkStyleSheet
 } from 'react-native-ui-kitten';
 import {Data} from '../../data';
 import {Avatar} from '../../components';
@@ -29,13 +28,13 @@ export class Article extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={styles.root}>
         <RkCard rkType='article'>
           <Image rkCardImg source={this.data.photo}/>
           <View rkCardHeader>
             <View>
               <RkText style={styles.title} rkType='header4'>{this.data.title}</RkText>
-              <RkText rkType='secondary2 alterColor'>{moment().add(this.data.time,'seconds').fromNow()}</RkText>
+              <RkText rkType='secondary2 alterColor'>{moment().add(this.data.time, 'seconds').fromNow()}</RkText>
             </View>
             <Avatar rkType='circle' img={this.data.avatar}/>
           </View>
@@ -53,8 +52,11 @@ export class Article extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   title: {
     marginBottom: 5
   },
-});
+}));

@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-  StyleSheet,
   View,
   Image,
 } from 'react-native';
 import {
+  RkStyleSheet,
   RkText,
   RkTextInput
 } from 'react-native-ui-kitten';
@@ -32,18 +32,21 @@ export class PasswordRecovery extends React.Component {
             Enter your email below to receive your password reset instructions
           </RkText>
         </View>
-        <GradientButton style={styles.save} rkType='large' text='LOGIN'/>
+        <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
+          this.props.navigation.goBack()
+        }}/>
       </View>
     )
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   screen: {
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 24,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundColor: theme.colors.back.base
   },
   header: {
     alignItems: 'center'
@@ -54,4 +57,4 @@ let styles = StyleSheet.create({
   content: {
     alignItems: 'center'
   }
-});
+}));

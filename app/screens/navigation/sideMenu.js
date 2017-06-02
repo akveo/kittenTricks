@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  StyleSheet,
   TouchableHighlight,
   View,
   ScrollView,
@@ -8,9 +7,8 @@ import {
   Platform
 } from 'react-native';
 import {NavigationActions} from 'react-navigation';
-import {RkText} from 'react-native-ui-kitten';
+import {RkStyleSheet, RkText, RkTheme} from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
-import {KittenTheme} from '../../config/theme';
 import {FontAwesome} from '../../assets/icons';
 
 
@@ -31,19 +29,26 @@ export class SideMenu extends React.Component {
     this.props.navigation.dispatch(resetAction)
   }
 
+  _renderIcon() {
+    if (RkTheme.current.name === 'light')
+      return <Image style={styles.icon} source={require('../../assets/images/smallLogo.png')}/>;
+    return <Image style={styles.icon} source={require('../../assets/images/smallLogoDark.png')}/>
+
+  }
+
   render() {
     let menu = MainRoutes.map((route, index) => {
       return (
         <TouchableHighlight
           style={styles.container}
           key={route.id}
-          underlayColor={KittenTheme.colors.back.primaryActive}
+          underlayColor={RkTheme.current.colors.back.primaryActive}
           activeOpacity={1}
           onPress={() => this._navigateAction(route)}>
           <View style={styles.content}>
             <View style={styles.content}>
               <RkText style={styles.icon}
-                      rkType='moon accentColor xlarge'>{route.icon}</RkText>
+                      rkType='moon primary xlarge'>{route.icon}</RkText>
               <RkText>{route.title}</RkText>
             </View>
             <RkText rkType='awesome secondaryColor small'>{FontAwesome.chevronRight}</RkText>
@@ -55,7 +60,7 @@ export class SideMenu extends React.Component {
     return (
       <ScrollView style={styles.root}>
         <View style={[styles.container, styles.content]}>
-          <Image style={styles.icon} source={require('../../assets/images/smallLogo.png')}/>
+          {this._renderIcon()}
           <RkText rkType='logo'>UI Kitten</RkText>
         </View>
         {menu}
@@ -65,15 +70,16 @@ export class SideMenu extends React.Component {
 }
 
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   container: {
     height: 80,
-    paddingHorizontal:16,
+    paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderColor: KittenTheme.colors.border.underline
+    borderColor: theme.colors.border.underline
   },
   root: {
-    marginTop: Platform.OS === 'ios' ? 20 : 0,
+    paddingTop: Platform.OS === 'ios' ? 20 : 0,
+    backgroundColor: theme.colors.back.base
   },
   content: {
     flex: 1,
@@ -83,4 +89,4 @@ let styles = StyleSheet.create({
   icon: {
     marginRight: 13,
   }
-});
+}));

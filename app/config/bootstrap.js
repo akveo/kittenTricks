@@ -1,5 +1,6 @@
 import {RkTheme} from 'react-native-ui-kitten';
 import {KittenTheme} from './theme';
+import {DarkKittenTheme} from './darkTheme';
 import {AvatarTypes} from '../components/avatar/types';
 import {GradientButtonTypes} from '../components/gradientButton/types';
 import {SwitchTypes} from '../components/switch/types';
@@ -14,20 +15,20 @@ export let bootstrap = () => {
    */
 
   RkTheme.setType('RkText', 'basic', {
-    fontFamily: KittenTheme.fonts.family.bold,
+    fontFamily: theme => theme.fonts.family.bold,
     backgroundColor: 'transparent'
   });
 
   RkTheme.setType('RkText', 'regular', {
-    fontFamily: KittenTheme.fonts.family.regular,
+    fontFamily: theme => theme.fonts.family.regular,
   });
 
   RkTheme.setType('RkText', 'light', {
-    fontFamily: KittenTheme.fonts.family.light,
+    fontFamily: theme => theme.fonts.family.light,
   });
 
   RkTheme.setType('RkText', 'logo', {
-    fontFamily: KittenTheme.fonts.family.logo,
+    fontFamily: theme => theme.fonts.family.logo,
   });
 
   RkTheme.setType('RkText', 'moon', {
@@ -47,96 +48,96 @@ export let bootstrap = () => {
   });
 
   //all font sizes
-  for (let key in KittenTheme.fonts.sizes) {
+  for (let key in RkTheme.current.fonts.sizes) {
     RkTheme.setType('RkText', key, {
-      fontSize: KittenTheme.fonts.sizes[key]
+      fontSize: theme => theme.fonts.sizes[key]
     });
   }
 
   //all text colors
-  for (let key in KittenTheme.colors.text) {
+  for (let key in RkTheme.current.colors.text) {
     RkTheme.setType('RkText', `${key}Color`, {
-      color: KittenTheme.colors.text[key]
+      color: theme => theme.colors.text[key]
     });
   }
 
   //all text line heights
-  for (let key in KittenTheme.fonts.lineHeights) {
+  for (let key in RkTheme.current.fonts.lineHeights) {
     RkTheme.setType('RkText', `${key}Line`, {
       text: {
-        lineHeight: KittenTheme.fonts.lineHeights[key]
+        lineHeight: theme => theme.fonts.lineHeights[key]
       }
     });
   }
 
   //theme text styles
   RkTheme.setType('RkText', 'header1', {
-    fontSize: KittenTheme.fonts.sizes.h1,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontSize: theme => theme.fonts.sizes.h1,
+    fontFamily: theme => theme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'header2', {
-    fontSize: KittenTheme.fonts.sizes.h2,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontSize: theme => theme.fonts.sizes.h2,
+    fontFamily: theme => theme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'header3', {
-    fontSize: KittenTheme.fonts.sizes.h3,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontSize: theme => theme.fonts.sizes.h3,
+    fontFamily: theme => theme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'header4', {
-    fontSize: KittenTheme.fonts.sizes.h4,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontSize: theme => theme.fonts.sizes.h4,
+    fontFamily: theme => theme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'header5', {
-    fontSize: KittenTheme.fonts.sizes.h5,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontSize: theme => theme.fonts.sizes.h5,
+    fontFamily: theme => theme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'header6', {
-    fontSize: KittenTheme.fonts.sizes.h6,
-    fontFamily: KittenTheme.fonts.family.bold
+    fontSize: theme => theme.fonts.sizes.h6,
+    fontFamily: theme => theme.fonts.family.bold
   });
   RkTheme.setType('RkText', 'secondary1', {
-    fontSize: KittenTheme.fonts.sizes.s1,
-    fontFamily: KittenTheme.fonts.family.light
+    fontSize: theme => theme.fonts.sizes.s1,
+    fontFamily: theme => theme.fonts.family.light
   });
   RkTheme.setType('RkText', 'secondary2', {
-    fontSize: KittenTheme.fonts.sizes.s2,
-    fontFamily: KittenTheme.fonts.family.light
+    fontSize: theme => theme.fonts.sizes.s2,
+    fontFamily: theme => theme.fonts.family.light
   });
   RkTheme.setType('RkText', 'secondary3', {
-    fontSize: KittenTheme.fonts.sizes.s3,
-    fontFamily: KittenTheme.fonts.family.regular
+    fontSize: theme => theme.fonts.sizes.s3,
+    fontFamily: theme => theme.fonts.family.regular
   });
   RkTheme.setType('RkText', 'secondary4', {
-    fontSize: KittenTheme.fonts.sizes.s4,
-    fontFamily: KittenTheme.fonts.family.regular
+    fontSize: theme => theme.fonts.sizes.s4,
+    fontFamily: theme => theme.fonts.family.regular
   });
   RkTheme.setType('RkText', 'secondary5', {
-    fontSize: KittenTheme.fonts.sizes.s5,
-    fontFamily: KittenTheme.fonts.family.light
+    fontSize: theme => theme.fonts.sizes.s5,
+    fontFamily: theme => theme.fonts.family.light
   });
   RkTheme.setType('RkText', 'secondary6', {
-    fontSize: KittenTheme.fonts.sizes.s6,
-    fontFamily: KittenTheme.fonts.family.light
+    fontSize: theme => theme.fonts.sizes.s6,
+    fontFamily: theme => theme.fonts.family.light
   });
   RkTheme.setType('RkText', 'secondary7', {
-    fontSize: KittenTheme.fonts.sizes.s7,
-    fontFamily: KittenTheme.fonts.family.regular
+    fontSize: theme => theme.fonts.sizes.s7,
+    fontFamily: theme => theme.fonts.family.regular
   });
   RkTheme.setType('RkText', 'primary1', {
-    fontSize: KittenTheme.fonts.sizes.p1,
-    fontFamily: KittenTheme.fonts.family.light
+    fontSize: theme => theme.fonts.sizes.p1,
+    fontFamily: theme => theme.fonts.family.light
   });
   RkTheme.setType('RkText', 'primary2', {
-    fontSize: KittenTheme.fonts.sizes.p2,
-    fontFamily: KittenTheme.fonts.family.regular
+    fontSize: theme => theme.fonts.sizes.p2,
+    fontFamily: theme => theme.fonts.family.regular
   });
   RkTheme.setType('RkText', 'primary3', {
-    fontSize: KittenTheme.fonts.sizes.p3,
-    fontFamily: KittenTheme.fonts.family.light
+    fontSize: theme => theme.fonts.sizes.p3,
+    fontFamily: theme => theme.fonts.family.light
   });
   RkTheme.setType('RkText', 'primary4', {
-    fontSize: KittenTheme.fonts.sizes.p4,
-    fontFamily: KittenTheme.fonts.family.regular
+    fontSize: theme => theme.fonts.sizes.p4,
+    fontFamily: theme => theme.fonts.family.regular
   });
 
   RkTheme.setType('RkText', 'center', {
@@ -156,7 +157,7 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkButton', 'square', {
     borderRadius: 3,
-    backgroundColor: KittenTheme.colors.back.background,
+    backgroundColor: theme => theme.colors.back.background,
     container: {
       flexDirection: 'column',
       margin: 8
@@ -167,39 +168,35 @@ export let bootstrap = () => {
     borderRadius: 0,
     backgroundColor: 'transparent',
     borderWidth: 0.5,
-    borderColor: KittenTheme.colors.border.underline,
+    borderColor: theme => theme.colors.border.underline,
     container: {
       flexDirection: 'column'
     }
   });
 
-  RkTheme.setType('RkButton', 'shadow', {
-    //TODO: need fix for shadow
-  });
-
   RkTheme.setType('RkButton', 'link', {
-    color: KittenTheme.colors.primary,
+    color: theme => theme.colors.primary,
   });
 
   RkTheme.setType('RkButton', 'contrast', {
-    color: KittenTheme.colors.text.base,
+    color: theme => theme.colors.text.base,
   });
 
   RkTheme.setType('RkButton', 'icon', {
     height: 56,
     width: 56,
-    borderColor: KittenTheme.colors.border.underline,
-    borderWidth: 1,
-    backgroundColor: 'transparent'
+    borderColor: theme => theme.colors.border.underline,
+    backgroundColor: theme => theme.colors.back.control,
+    borderWidth: 1
   });
 
   RkTheme.setType('RkButton', 'social', {
     height: 62,
     width: 62,
     borderRadius: 31,
-    borderColor: KittenTheme.colors.border.base,
+    borderColor: theme => theme.colors.border.base,
     borderWidth: 1,
-    backgroundColor: 'transparent'
+    backgroundColor: theme => theme.colors.back.control
   });
   /*
    RkModalImg types
@@ -210,14 +207,14 @@ export let bootstrap = () => {
       margin: 1.5,
     },
     modal: {
-      backgroundColor: KittenTheme.colors.back.background
+      backgroundColor: theme => theme.colors.back.background
     },
     footer: {
-      backgroundColor: KittenTheme.colors.back.background,
+      backgroundColor: theme => theme.colors.back.background,
       height: 50
     },
     header: {
-      backgroundColor: KittenTheme.colors.back.background,
+      backgroundColor: theme => theme.colors.back.background,
       paddingBottom: 6
     },
   });
@@ -228,15 +225,16 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkTextInput', 'basic', {
     input: {
-      fontFamily: KittenTheme.fonts.family.bold
-    }
+      fontFamily: theme => theme.fonts.family.bold
+    },
+    backgroundColor: theme => theme.colors.back.control
   });
 
   RkTheme.setType('RkTextInput', 'rounded', {
-    fontSize: KittenTheme.fonts.sizes.h6,
+    fontSize: theme => theme.fonts.sizes.h6,
     borderWidth: 1,
     underlineWidth: 1,
-    color: KittenTheme.colors.text.alter,
+    color: theme => theme.colors.text.alter,
     input: {
       marginVertical: {
         ios: 15,
@@ -255,12 +253,13 @@ export let bootstrap = () => {
       }
     },
     label: {
-      fontFamily: KittenTheme.fonts.family.light,
+      fontFamily: theme => theme.fonts.family.light,
     },
     container: {
       marginVertical: 4
     },
-    labelFontSize: KittenTheme.fonts.sizes.small
+    backgroundColor: 'transparent',
+    labelFontSize: theme => theme.fonts.sizes.small
   });
 
   RkTheme.setType('RkTextInput', 'row', {
@@ -275,19 +274,20 @@ export let bootstrap = () => {
       paddingBottom: 0,
       textAlignVertical: 'center',
       includeFontPadding: false,
-      fontFamily: KittenTheme.fonts.family.light,
-      fontSize: KittenTheme.fonts.sizes.small,
-      color: KittenTheme.colors.text.alter
+      fontFamily: theme => theme.fonts.family.light,
+      fontSize: theme => theme.fonts.sizes.small,
+      color: theme => theme.colors.text.alter
     },
     container: {
       flex: 1,
-      backgroundColor: KittenTheme.colors.back.base,
+      backgroundColor: theme => theme.colors.back.base,
       marginVertical: 0,
       borderRadius: 20,
       paddingHorizontal: 16
     },
-    labelColor: KittenTheme.colors.icon.base,
-    placeholderTextColor: KittenTheme.colors.text.secondary
+    labelColor: theme => theme.colors.text.icon,
+    placeholderTextColor: theme => theme.colors.text.secondary,
+    backgroundColor: theme => theme.colors.back.control
   });
 
   RkTheme.setType('RkTextInput', 'iconRight', {
@@ -320,7 +320,8 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkCard', 'basic', {
     container: {
-      borderRadius: 3
+      borderRadius: 3,
+      backgroundColor: theme => theme.colors.back.control
     },
     header: {
       justifyContent: 'flex-start',
@@ -416,7 +417,8 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkCard', 'article', {
     container: {
-      borderWidth: 0
+      borderWidth: 0,
+      backgroundColor: 'transparent'
     },
     header: {
       paddingVertical: 0,
@@ -424,12 +426,12 @@ export let bootstrap = () => {
       paddingBottom: 16,
       justifyContent: 'space-between',
       borderBottomWidth: 1,
-      borderColor: KittenTheme.colors.border.underline
+      borderColor: theme => theme.colors.border.underline
     },
     content: {
       padding: 16,
       borderBottomWidth: 1,
-      borderColor: KittenTheme.colors.border.underline
+      borderColor: theme => theme.colors.border.underline
     },
     footer: {
       paddingHorizontal: 14,
@@ -462,7 +464,6 @@ export let bootstrap = () => {
     }
   });
 
-
   /*
    Register components
    */
@@ -471,4 +472,7 @@ export let bootstrap = () => {
   RkTheme.registerComponent('GradientButton', GradientButtonTypes);
   RkTheme.registerComponent('RkSwitch', SwitchTypes);
   RkTheme.registerComponent('SocialBar', SocialBarTypes);
+
+
+//  RkTheme.setTheme(DarkKittenTheme);
 };

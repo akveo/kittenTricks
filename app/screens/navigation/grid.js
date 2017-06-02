@@ -1,16 +1,13 @@
 import React from 'react';
 import {
   ScrollView,
-  StyleSheet,
   Dimensions,
-  Text
 } from 'react-native';
 import {
-  RkButton,
+  RkButton, RkStyleSheet,
   RkText
 } from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
-import {KittenTheme} from '../../config/theme';
 const paddingValue = 8;
 
 export class GridV1 extends React.Component {
@@ -61,9 +58,9 @@ export class GridV1 extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: KittenTheme.colors.back.neutral,
+    backgroundColor: theme.colors.back.neutral,
     padding: paddingValue,
   },
   rootContainer: {
@@ -73,4 +70,4 @@ let styles = StyleSheet.create({
   icon: {
     marginBottom: 16
   }
-});
+}));

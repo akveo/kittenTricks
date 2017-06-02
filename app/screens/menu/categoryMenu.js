@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import {
   ListView,
   TouchableHighlight,
-  View,
-  StyleSheet
+  View
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten';
-import {KittenTheme} from '../../config/theme';
+import {RkStyleSheet, RkTheme, RkText} from 'react-native-ui-kitten';
 
 export class CategoryMenu extends React.Component {
 
@@ -36,7 +34,7 @@ export class CategoryMenu extends React.Component {
     return (
       <TouchableHighlight
         style={styles.item}
-        underlayColor={KittenTheme.colors.back.neutral}
+        underlayColor={RkTheme.current.colors.back.neutral}
         activeOpacity={1}
         onPress={() => {
           this.navigate(row);
@@ -58,6 +56,7 @@ export class CategoryMenu extends React.Component {
     } else {
       return (
         <ListView
+          style={styles.list}
           dataSource={this.data}
           renderRow={this.renderRow}/>
       )
@@ -65,19 +64,23 @@ export class CategoryMenu extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   item: {
     paddingVertical: 32.5,
     paddingHorizontal: 16.5,
     borderBottomWidth: 1,
-    borderColor: KittenTheme.colors.border.underline,
+    borderColor: theme.colors.border.underline,
+  },
+  list:{
+    backgroundColor: theme.colors.back.base
   },
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: theme.colors.back.base
   }
-});
+}));
 
 CategoryMenu.propTypes = {
   navigation: PropTypes.object.isRequired,

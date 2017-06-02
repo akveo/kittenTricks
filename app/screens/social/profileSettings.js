@@ -1,20 +1,19 @@
 import React from 'react';
 import {
   ScrollView,
-  View,
-  StyleSheet
+  View
 } from 'react-native';
 import {
   RkText,
   RkTextInput,
-  RkAvoidKeyboard
+  RkAvoidKeyboard,
+  RkTheme,
+  RkStyleSheet
 } from 'react-native-ui-kitten';
 import {Users} from '../../data/appData';
 import {Avatar} from '../../components';
-import {KittenTheme} from '../../config/theme';
 import {SocialSetting} from '../../components';
 import {FontAwesome} from '../../assets/icons';
-import {Colors} from '../../config/theme';
 import {GradientButton} from '../../components';
 
 export class ProfileSettings extends React.Component {
@@ -43,7 +42,7 @@ export class ProfileSettings extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={styles.root}>
         <RkAvoidKeyboard>
           <View style={styles.header}>
             <Avatar img={this.user.photo} rkType='big'/>
@@ -117,13 +116,13 @@ export class ProfileSettings extends React.Component {
               <RkText rkType='primary header6'>CONNECT YOUR ACCOUNT</RkText>
             </View>
             <View style={styles.row}>
-              <SocialSetting name='Twitter' icon={FontAwesome.twitter} tintColor={Colors.twitter}/>
+              <SocialSetting name='Twitter' icon={FontAwesome.twitter} tintColor={RkTheme.current.colors.twitter}/>
             </View>
             <View style={styles.row}>
-              <SocialSetting name='Google' icon={FontAwesome.google} tintColor={Colors.google}/>
+              <SocialSetting name='Google' icon={FontAwesome.google} tintColor={RkTheme.current.colors.google}/>
             </View>
             <View style={styles.row}>
-              <SocialSetting name='Facebook' icon={FontAwesome.facebook} tintColor={Colors.facebook}/>
+              <SocialSetting name='Facebook' icon={FontAwesome.facebook} tintColor={RkTheme.current.colors.facebook}/>
             </View>
           </View>
           <GradientButton rkType='large' style={styles.button} text='SAVE'/>
@@ -133,9 +132,12 @@ export class ProfileSettings extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base
+  },
   header: {
-    backgroundColor: KittenTheme.colors.back.neutral,
+    backgroundColor: theme.colors.back.neutral,
     paddingVertical: 25
   },
   section: {
@@ -148,11 +150,11 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 17.5,
     borderBottomWidth: 1,
-    borderColor: KittenTheme.colors.border.underline,
+    borderColor: theme.colors.border.underline,
     alignItems: 'center'
   },
   button: {
     marginHorizontal: 16,
     marginBottom: 32
   }
-});
+}));

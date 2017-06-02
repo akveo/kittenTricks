@@ -10,11 +10,12 @@ import {
 import {
   RkText,
   RkCard,
-  RkButton, RkTextInput
+  RkButton,
+  RkStyleSheet,
+  RkTheme
 } from 'react-native-ui-kitten';
 import LinearGradient from 'react-native-linear-gradient';
 import {Data} from '../../data';
-import {KittenTheme} from '../../config/theme';
 import {PasswordTextInput} from '../../components/passwordTextInput';
 import {UIConstants} from '../../config/appConstants';
 
@@ -33,17 +34,17 @@ export class Cards extends React.Component {
     switch (type) {
       case 'visa':
         return {
-          gradient: KittenTheme.colors.gradients.visa,
+          gradient: RkTheme.current.colors.gradients.visa,
           icon: require('../../assets/icons/visaIcon.png')
         };
       case 'mastercard':
         return {
-          gradient: KittenTheme.colors.gradients.mastercard,
+          gradient: RkTheme.current.colors.gradients.mastercard,
           icon: require('../../assets/icons/masterCardIcon.png')
         };
       case 'axp':
         return {
-          gradient: KittenTheme.colors.gradients.axp,
+          gradient: RkTheme.current.colors.gradients.axp,
           icon: require('../../assets/icons/americanExpressIcon.png')
         };
     }
@@ -123,7 +124,7 @@ export class Cards extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.root}>
         <FlatList style={styles.list}
                   showsVerticalScrollIndicator={false}
                   ListFooterComponent={() => this._renderFooter()}
@@ -162,7 +163,10 @@ export class Cards extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
+  root: {
+    backgroundColor: theme.colors.back.base,
+  },
   list: {
     marginHorizontal: 16,
   },
@@ -194,13 +198,13 @@ let styles = StyleSheet.create({
     width: 56
   },
   popup: {
-    backgroundColor: KittenTheme.colors.back.base,
+    backgroundColor: theme.colors.back.base,
     marginTop: 70,
     marginHorizontal: 37,
     borderRadius: 7
   },
   popupOverlay: {
-    backgroundColor: KittenTheme.colors.back.overlay,
+    backgroundColor: theme.colors.back.overlay,
     flex: 1,
     marginTop: UIConstants.HeaderHeight
   },
@@ -215,14 +219,14 @@ let styles = StyleSheet.create({
     marginTop: 15,
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderColor: KittenTheme.colors.border.underline
+    borderColor: theme.colors.border.underline
   },
   popupButton: {
     flex: 1,
     marginVertical: 16
   },
   separator: {
-    backgroundColor: KittenTheme.colors.back.neutral,
+    backgroundColor: theme.colors.back.neutral,
     width: 1
   }
-});
+}));
