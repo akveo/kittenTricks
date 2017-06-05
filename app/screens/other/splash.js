@@ -5,9 +5,15 @@ import {
   View,
   Dimensions
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten'
+import {
+  RkText,
+  RkTheme
+} from 'react-native-ui-kitten'
 import {ProgressBar} from '../../components';
-import {Colors, KittenTheme} from '../../config/theme';
+import {
+  Colors,
+  KittenTheme
+} from '../../config/theme';
 import {NavigationActions} from 'react-navigation';
 
 
@@ -23,6 +29,9 @@ export class SplashScreen extends React.Component {
   }
 
   componentDidMount() {
+
+    RkTheme.setTheme(KittenTheme);
+
     this.timer = setInterval(() => {
       if (this.state.progress == 1) {
         clearInterval(this.timer);

@@ -7,10 +7,13 @@ import {
   Platform
 } from 'react-native';
 import {NavigationActions} from 'react-navigation';
-import {RkStyleSheet, RkText, RkTheme} from 'react-native-ui-kitten';
+import {
+  RkStyleSheet,
+  RkText,
+  RkTheme
+} from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
 import {FontAwesome} from '../../assets/icons';
-
 
 export class SideMenu extends React.Component {
 
@@ -58,17 +61,19 @@ export class SideMenu extends React.Component {
     });
 
     return (
-      <ScrollView style={styles.root}>
-        <View style={[styles.container, styles.content]}>
-          {this._renderIcon()}
-          <RkText rkType='logo'>UI Kitten</RkText>
-        </View>
-        {menu}
-      </ScrollView>
+      <View style={styles.root}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}>
+          <View style={[styles.container, styles.content]}>
+            {this._renderIcon()}
+            <RkText rkType='logo'>UI Kitten</RkText>
+          </View>
+          {menu}
+        </ScrollView>
+      </View>
     )
   }
 }
-
 
 let styles = RkStyleSheet.create(theme => ({
   container: {
