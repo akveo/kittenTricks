@@ -22,13 +22,26 @@ class DataProvider {
     return actions;
   }
 
+  getArticles() {
+    return _.cloneDeep(appData.Articles);
+  }
+
+  getFacts() {
+    let facts = _.cloneDeep(appData.Facts);
+    for (let fact of facts) {
+      let user = _.find(appData.Users, {id: fact.userId});
+      fact.username = `${user.firstName} ${user.lastName}`;
+    }
+
+    return facts;
+  }
+
   getPosts() {
     let posts = _.cloneDeep(appData.Posts);
     for (let post of posts) {
       let user = _.find(appData.Users, {id: post.userId});
       post.avatar = user.photo;
       post.username = `${user.firstName} ${user.lastName}`;
-      post.title = post.text.split('.')[0]
     }
     return posts;
   }
@@ -53,17 +66,17 @@ class DataProvider {
     return chats;
   }
 
-  getComments(postId){
+  getComments(postId) {
     let comments = _.cloneDeep(appData.Comments);
 
-    for (let comment of comments){
+    for (let comment of comments) {
       comment.user = this.getUser(comment.userId);
     }
 
     return _.sortBy(comments, ['time']);
   }
 
-  getCards(){
+  getCards() {
     return _.cloneDeep(appData.Cards);
   }
 }

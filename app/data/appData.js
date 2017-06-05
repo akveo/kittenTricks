@@ -1,16 +1,16 @@
 let images = [
-  require('../data/img/Image 1.png'),
+  require('../data/img/Image 10.png'),
+  require('../data/img/Image 11.png'),
   require('../data/img/Image 2.png'),
   require('../data/img/Image 3.png'),
   require('../data/img/Image 4.png'),
-  require('../data/img/Image 5.png'),
-  require('../data/img/Image 6.png'),
-  require('../data/img/Image 7.png'),
-  require('../data/img/Image 8.png'),
-  require('../data/img/Image 9.png'),
-  require('../data/img/Image 10.png'),
-  require('../data/img/Image 11.png'),
+  require('../data/img/Image 1.png'),
   require('../data/img/Image 12.png'),
+  require('../data/img/Image 8.png'),
+  require('../data/img/Image 6.png'),
+  require('../data/img/Image 9.png'),
+  require('../data/img/Image 5.png'),
+  require('../data/img/Image 7.png'),
 ];
 
 export const Users = [{
@@ -23,7 +23,7 @@ export const Users = [{
   password: '123456',
   newPassword: '12345678',
   confirmPassword: '12345678',
-  photo: require('../data/img/photo32.jpg'),
+  photo: require('../data/img/avatars/Image 9.png'),
   postCount: 86,
   followersCount: '22.1k',
   followingCount: 536,
@@ -32,9 +32,9 @@ export const Users = [{
 },
   {
     id: 2,
-    firstName: 'Garrett',
+    firstName: 'Emilie',
     lastName: 'McDiarmid',
-    email: 'gmcdiarmid1@yale.edu',
+    email: 'emcdiarmid1@yale.edu',
     country: 'China',
     password: 'YyKgJ8A3b4b',
     newPassword: 'DpCRPYW7Fgy',
@@ -44,11 +44,11 @@ export const Users = [{
     followingCount: 975,
     followersCount: '1,7k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 1.png'),
   },
   {
     id: 3,
-    firstName: 'Sam',
+    firstName: 'Sandra',
     lastName: 'Paver',
     email: 'spaver2@ox.ac.uk',
     country: 'Greece',
@@ -60,13 +60,13 @@ export const Users = [{
     followingCount: 736,
     followersCount: '1,1k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 3.png'),
   },
   {
     id: 4,
-    firstName: 'Florette',
+    firstName: 'Nancy',
     lastName: 'O\'Crevan',
-    email: 'focrevan3@zimbio.com',
+    email: 'nocrevan3@zimbio.com',
     country: 'China',
     password: 'W0NxvHo2C',
     newPassword: 'vj4ueTKK',
@@ -76,13 +76,13 @@ export const Users = [{
     followingCount: 86,
     followersCount: '3,3k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 4.png'),
   },
   {
     id: 5,
-    firstName: 'Reena',
+    firstName: 'Clayton',
     lastName: 'O\'Mullaney',
-    email: 'romullaney4@tripadvisor.com',
+    email: 'cmullaney4@tripadvisor.com',
     country: 'Philippines',
     password: 'ZlzECwoN',
     newPassword: 'N9l5KLpBW',
@@ -92,7 +92,7 @@ export const Users = [{
     followingCount: 745,
     followersCount: '2,7k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 5.png'),
   },
   {
     id: 6,
@@ -108,13 +108,13 @@ export const Users = [{
     followingCount: 444,
     followersCount: '2,6k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 6.png'),
   },
   {
     id: 7,
-    firstName: 'Veriee',
-    lastName: 'Pearde',
-    email: 'vpearde6@woothemes.com',
+    firstName: 'Patrick',
+    lastName: 'Holden',
+    email: 'p.holden6@woothemes.com',
     country: 'Indonesia',
     password: 'inOEsoAlnh',
     newPassword: '60z2bgL',
@@ -124,11 +124,11 @@ export const Users = [{
     followingCount: 731,
     followersCount: '18,3k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 7.png'),
   },
   {
     id: 8,
-    firstName: 'Edsel',
+    firstName: 'Edward',
     lastName: 'Storton',
     email: 'estorton7@google.ca',
     country: 'Nigeria',
@@ -140,13 +140,13 @@ export const Users = [{
     followingCount: 667,
     followersCount: '2,5k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 8.png'),
   },
   {
     id: 9,
-    firstName: 'Raquela',
+    firstName: 'Carole',
     lastName: 'Blundon',
-    email: 'rblundon8@google.pl',
+    email: 'cblundon8@google.pl',
     country: 'United States',
     password: 't9xI6skPz',
     newPassword: 'y84Jquaxg8',
@@ -156,13 +156,13 @@ export const Users = [{
     followingCount: 750,
     followersCount: '2,2k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 10.png'),
   },
   {
     id: 10,
-    firstName: 'Fiorenze',
-    lastName: 'Francie',
-    email: 'ffrancie9@php.net',
+    firstName: 'Bryce',
+    lastName: 'Curle',
+    email: 'bcurled@paginegialle.it',
     country: 'Indonesia',
     password: 'ACCsjlPq',
     newPassword: 'm05jBM1S88',
@@ -172,7 +172,7 @@ export const Users = [{
     followingCount: 343,
     followersCount: '65,1k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 11.png'),
   },
   {
     id: 11,
@@ -188,156 +188,13 @@ export const Users = [{
     followingCount: 165,
     followersCount: '5,0k',
     images: images,
-    photo: require('../data/img/photo32.jpg'),
+    photo: require('../data/img/avatars/Image 12.png'),
   },
-  {
-    id: 12,
-    firstName: 'Benedick',
-    lastName: 'Bailey',
-    email: 'bbaileyb@creativecommons.org',
-    country: 'Slovenia',
-    password: 'cKWpKvJ2',
-    newPassword: 'RYap60AhlP',
-    confirmPassword: 'RYap60AhlP',
-    postCount: 22,
-    phone: '386-(902)739-2950',
-    followingCount: 326,
-    followersCount: '77,5k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 13,
-    firstName: 'Mabelle',
-    lastName: 'Haslegrave',
-    email: 'mhaslegravec@freewebs.com',
-    country: 'Vietnam',
-    password: 'cmoUUlN',
-    newPassword: 'thOxN7kdUiO',
-    confirmPassword: 'thOxN7kdUiO',
-    postCount: 28,
-    phone: '84-(243)835-0078',
-    followingCount: 619,
-    followersCount: '4,1k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 14,
-    firstName: 'Bryce',
-    lastName: 'Curle',
-    email: 'bcurled@paginegialle.it',
-    country: 'China',
-    password: 'SP7Zu5v6igtz',
-    newPassword: 'akCQZxJe',
-    confirmPassword: 'akCQZxJe',
-    postCount: 70,
-    phone: '86-(578)941-8924',
-    followingCount: 247,
-    followersCount: '52k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 15,
-    firstName: 'Heindrick',
-    lastName: 'Adlington',
-    email: 'hadlingtone@uol.com.br',
-    country: 'Pakistan',
-    password: 'i2Gbxx7THhkR',
-    newPassword: '4wgPOlP0ovV8',
-    confirmPassword: '4wgPOlP0ovV8',
-    postCount: 52,
-    phone: '92-(691)190-4326',
-    followingCount: 703,
-    followersCount: '4,5k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 16,
-    firstName: 'Keri',
-    lastName: 'Danielian',
-    email: 'kdanielianf@mayoclinic.com',
-    country: 'Indonesia',
-    password: '4iwfAj',
-    newPassword: 'MrYTprA',
-    confirmPassword: 'MrYTprA',
-    postCount: 71,
-    phone: '62-(896)786-2308',
-    followingCount: 924,
-    followersCount: '53,7k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 17,
-    firstName: 'Korney',
-    lastName: 'Rozec',
-    email: 'krozecg@foxnews.com',
-    country: 'Mexico',
-    password: 'LY3aDOt',
-    newPassword: 'PY8XlW',
-    confirmPassword: 'PY8XlW',
-    postCount: 87,
-    phone: '52-(273)875-5564',
-    followingCount: 112,
-    followersCount: '3,7k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 18,
-    firstName: 'Mozes',
-    lastName: 'Sedgefield',
-    email: 'msedgefieldh@eepurl.com',
-    country: 'France',
-    password: 'dMiX7gGPrFb',
-    newPassword: 'b845HITycoa',
-    confirmPassword: 'b845HITycoa',
-    postCount: 39,
-    phone: '33-(879)578-5710',
-    followingCount: 265,
-    followersCount: '7,2k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 19,
-    firstName: 'Nola',
-    lastName: 'Etherson',
-    email: 'nethersoni@digg.com',
-    country: 'Indonesia',
-    password: 'Lrf3AdG',
-    newPassword: '90RrZS',
-    confirmPassword: '90RrZS',
-    postCount: 88,
-    phone: '62-(753)814-8542',
-    followingCount: 162,
-    followersCount: '3,4k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  },
-  {
-    id: 20,
-    firstName: 'Georgeanne',
-    lastName: 'Bodd',
-    email: 'gboddj@topsy.com',
-    country: 'Norway',
-    password: 'DN5yJr84C',
-    newPassword: 'ykk95IpY3Os',
-    confirmPassword: 'ykk95IpY3Os',
-    postCount: 33,
-    phone: '47-(523)899-3891',
-    followingCount: 891,
-    followersCount: '51,2k',
-    images: images,
-    photo: require('../data/img/photo32.jpg'),
-  }];
+];
 
 
 export const Actions = [{
-  id: 16,
+  id: 10,
   action: 'follow',
   description: 'liked profile page for Dribbble App Design Concept',
   time: -1
@@ -348,7 +205,7 @@ export const Actions = [{
   time: -271,
   attach: require('../data/img/Image 8.png'),
 }, {
-  id: 12,
+  id: 2,
   action: 'like',
   description: 'liked a photo on your album',
   time: -541,
@@ -375,7 +232,7 @@ export const Actions = [{
   time: -1621,
   attach: require('../data/img/Image 8.png'),
 }, {
-  id: 17,
+  id: 7,
   action: 'follow',
   description: 'followed you iOS Developer and Graphic Designer',
   time: -1891
@@ -385,75 +242,115 @@ export const Actions = [{
   description: 'liked profile page for Dribbble App Design Concept',
   time: -2161
 }, {
-  id: 13,
+  id: 3,
   action: 'like',
   description: 'liked a photo on your album',
   time: -2431,
   attach: require('../data/img/Image 8.png'),
 }];
 
+export const Articles =
+  [{
+    'id': 1,
+    'photo': require('../data/img/photo1.png'),
+    'time': -300,
+    'header': 'Plants Of Our Nature'
+  }, {
+    'id': 2,
+    'photo': require('../data/img/photo2.png'),
+    'time': -1373,
+    'header': 'Balloon Trip'
+  }, {
+    'id': 3,
+    'photo': require('../data/img/photo3.png'),
+    'time': -2446,
+    'header': 'Sea World'
+  }, {
+    'id': 4,
+    'photo': require('../data/img/photo4.png'),
+    'time': -3519,
+    'header': 'Flowers'
+  }, {
+    'id': 5,
+    'photo': require('../data/img/photo5.png'),
+    'time': -4592,
+    'header': 'Birds Of Our Planet'
+  }, {
+    'id': 6,
+    'photo': require('../data/img/photo6.png'),
+    'time': -5665,
+    'header': 'Mountains'
+  }];
+
+export const Facts =
+  [{
+    'id': 1,
+    'photo': require('../data/img/photo45.png'),
+    'time': -300,
+    'userId': 3,
+    'title': 'Smile and Frown',
+    'text': 'It takes 17 muscles to smile and 43 to frown.'
+  }, {
+    'id': 2,
+    'photo': require('../data/img/photo46.png'),
+    'time': -1373,
+    'userId': 2,
+    'title': 'Interesting Fact',
+    'text': 'Dolphins sleep with one eye open.'
+  }, {
+    'id': 3,
+    'photo': require('../data/img/photo47.png'),
+    'time': -2446,
+    'userId': 2,
+    'title': 'Elephant',
+    'text': 'Elephant is one of the few mammals that can\'t jump.'
+  }, {
+    'id': 4,
+    'photo': require('../data/img/photo48.png'),
+    'time': -3519,
+    'userId': 8,
+    'title': 'Cold Water',
+    'text': 'Cold water weighs less than hot water.'
+  }, {
+    'id': 5,
+    'photo': require('../data/img/photo49.png'),
+    'userId': 5,
+    'time': -4592,
+    'title': 'Our Eyes',
+    'text': 'You blink over 10,000,000 times a year.'
+  }];
 
 export const Posts =
   [{
     'id': 1,
     'userId': 3,
-    'photo': require('../data/img/photo20.png'),
+    'photo': require('../data/img/photo17.png'),
     'time': -300,
-    'text': 'Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.'
+    'title': 'My Little Kitten',
+    'text': 'I have got a cat. Her name is Matilda. She is quite old for a cat. She is eleven years old. Matilda is very' +
+    ' fluffy. Her back is black and her belly and chest are white. She also has a black muzzle with long white whiskers. ' +
+    'Her legs and paws are white. Matilda has big eyes. Her eyes are light green, but they become yellow in bright sunlight. I love my cat.'
   }, {
     'id': 2,
     'userId': 7,
-    'photo': require('../data/img/photo17.png'),
+    'photo': require('../data/img/photo18.png'),
     'time': -1373,
-    'text': 'Mauris enim leo. rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.'
+    'title': 'Interesting Fact',
+    'text': 'One chef prepared a delicious cake with apples and named it in honor of his beloved Charlotte.'
   }, {
     'id': 3,
-    'userId': 12,
-    'photo': require('../data/img/photo18.png'),
+    'userId': 2,
+    'photo': require('../data/img/photo19.png'),
     'time': -2446,
-    'text': 'Cras mi pede. Malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.'
+    'title': 'Music In Our Life',
+    'text': 'The scientists say that they can define your character if they know what music you like.'
   }, {
     'id': 4,
-    'userId': 14,
+    'userId': 4,
     'photo': require('../data/img/photo20.png'),
     'time': -3519,
-    'text': 'Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.'
-  }, {
-    'id': 5,
-    'userId': 18,
-    'photo': require('../data/img/photo17.png'),
-    'time': -4592,
-    'text': 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.'
-  }, {
-    'id': 6,
-    'userId': 3,
-    'photo': require('../data/img/photo17.png'),
-    'time': -5665,
-    'text': 'Praesent blandit. Nam nulla.'
-  }, {
-    'id': 7,
-    'userId': 16,
-    'photo': require('../data/img/photo19.png'),
-    'time': -6738,
-    'text': 'Maecenas leo odio. condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.'
-  }, {
-    'id': 8,
-    'userId': 13,
-    'photo': require('../data/img/photo18.png'),
-    'time': -7811,
-    'text': 'Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.'
-  }, {
-    'id': 9,
-    'userId': 15,
-    'photo': require('../data/img/photo19.png'),
-    'time': -8884,
-    'text': 'Sed ante. Vivamus tortor. Duis mattis egestas metus.'
-  }, {
-    'id': 10,
-    'userId': 19,
-    'photo': require('../data/img/photo20.png'),
-    'time': -9957,
-    'text': 'Mauris enim leo. Fhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.'
+    'title': 'Exciting Adventure',
+    'text': 'My trip to Spain last summer. I think that it was the most interesting trip in my life.'
   }];
 
 export const Conversations = [
@@ -486,17 +383,17 @@ export const Conversations = [
 export const Comments = [
   {
     'id': 1,
-    'userId': 13,
+    'userId': 11,
     'message': 'Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.',
     'time': 0
   }, {
     'id': 2,
-    'userId': 13,
+    'userId': 11,
     'message': 'Quisque ut erat. Curabitur gravida nisi at nibh.',
     'time': -311
   }, {
     'id': 3,
-    'userId': 15,
+    'userId': 9,
     'message': 'Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.',
     'time': -622
   }, {
@@ -511,7 +408,7 @@ export const Comments = [
     'time': -1244
   }, {
     'id': 6,
-    'userId': 9,
+    'userId': 5,
     'message': 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.',
     'time': -1555
   }, {
@@ -521,7 +418,7 @@ export const Comments = [
     'time': -1866
   }, {
     'id': 8,
-    'userId': 19,
+    'userId': 2,
     'message': 'Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
     'time': -2177
   }];

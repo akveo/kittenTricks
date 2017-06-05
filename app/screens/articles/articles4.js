@@ -20,7 +20,7 @@ export class Articles4 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.data = Data.getPosts();
+    this.data = Data.getFacts();
   }
 
   _keyExtractor(post, index) {

@@ -20,7 +20,7 @@ export class Articles3 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.data = Data.getPosts();
+    this.data = Data.getArticles();
   }
 
   _keyExtractor(post, index) {
@@ -32,7 +32,7 @@ export class Articles3 extends React.Component {
       <RkCard style={styles.card}>
         <View rkCardHeader>
           <View>
-            <RkText rkType='header4'>{info.item.title}</RkText>
+            <RkText rkType='header4'>{info.item.header}</RkText>
             <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
           </View>
         </View>
