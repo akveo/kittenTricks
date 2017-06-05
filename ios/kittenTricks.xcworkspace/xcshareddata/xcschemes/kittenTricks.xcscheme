@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "kittenPads.app"
-               BlueprintName = "kittenPads"
-               ReferencedContainer = "container:kittenPads.xcodeproj">
+               BuildableName = "kittenTricks.app"
+               BlueprintName = "kittenTricks"
+               ReferencedContainer = "container:kittenTricks.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

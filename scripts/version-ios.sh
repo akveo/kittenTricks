@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECT_DIR="ios/kittenPads"
+PROJECT_DIR="ios/kittenTricks"
 INFOPLIST_FILE="Info.plist"
 INFOPLIST_DIR="${PROJECT_DIR}/${INFOPLIST_FILE}"
 

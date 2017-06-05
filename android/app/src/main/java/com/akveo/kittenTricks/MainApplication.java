@@ -1,4 +1,4 @@
-package com.akveo.kittenPads;
+package com.akveo.kittenTricks;
 
 import android.app.Application;
 

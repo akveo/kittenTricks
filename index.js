@@ -4,4 +4,4 @@ import {
 
 import App from './app/app';
 
-AppRegistry.registerComponent('kittenPads', () => App);
+AppRegistry.registerComponent('kittenTricks', () => App);
