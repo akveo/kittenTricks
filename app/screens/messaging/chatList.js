@@ -97,10 +97,10 @@ export class ChatList extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   searchContainer: {
-    backgroundColor: theme.colors.back.alternative,
+    backgroundColor: theme.colors.screen.bold,
     paddingHorizontal: 16,
     paddingVertical: 10,
     height: 60,
@@ -123,6 +123,6 @@ let styles = RkStyleSheet.create(theme => ({
   },
   separator: {
     height: 1,
-    backgroundColor: theme.colors.border.underline
+    backgroundColor: theme.colors.border.base
   }
 }));

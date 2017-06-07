@@ -34,7 +34,7 @@ export class CategoryMenu extends React.Component {
     return (
       <TouchableHighlight
         style={styles.item}
-        underlayColor={RkTheme.current.colors.back.neutral}
+        underlayColor={RkTheme.current.colors.button.underlay}
         activeOpacity={1}
         onPress={() => {
           this.navigate(row);
@@ -72,13 +72,13 @@ let styles = RkStyleSheet.create(theme => ({
     borderColor: theme.colors.border.underline,
   },
   list:{
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   }
 }));
 

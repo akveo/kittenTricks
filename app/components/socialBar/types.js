@@ -13,7 +13,6 @@ export const SocialBarTypes = (theme) => {
         flex: 1,
       },
       icon: {
-
         fontSize: 20
       },
       label: {
@@ -27,10 +26,10 @@ export const SocialBarTypes = (theme) => {
         justifyContent: 'flex-start'
       },
       label: {
-        color: theme.colors.text.overlay,
+        color: theme.colors.text.inverse,
       },
       icon: {
-        color: theme.colors.text.overlay
+        color: theme.colors.text.inverse
       }
     },
     space: {

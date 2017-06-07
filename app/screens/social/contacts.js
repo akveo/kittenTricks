@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   ListView,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import _ from 'lodash';
 import {
@@ -96,10 +97,10 @@ export class Contacts extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   searchContainer: {
-    backgroundColor: theme.colors.back.alternative,
+    backgroundColor: theme.colors.screen.bold,
     paddingHorizontal: 16,
     paddingVertical: 10,
     height: 60,
@@ -115,7 +116,7 @@ let styles = RkStyleSheet.create(theme => ({
   },
   separator: {
     flex: 1,
-    height: 1,
-    backgroundColor: theme.colors.border.underline
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: theme.colors.border.base
   }
 }));

@@ -68,7 +68,7 @@ export class Comments extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   container: {
     paddingLeft: 19,

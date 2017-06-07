@@ -17,7 +17,7 @@ export const GradientButtonTypes = (theme) => {
       },
       text: {
         backgroundColor: 'transparent',
-        color: theme.colors.text.overlay
+        color: theme.colors.text.inverse
       }
     },
     large: {

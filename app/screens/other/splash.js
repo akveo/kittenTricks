@@ -66,7 +66,7 @@ export class SplashScreen extends React.Component {
           </View>
         </View>
         <ProgressBar
-          color={Colors.accent}
+          color={RkTheme.current.colors.accent}
           style={styles.progress}
           progress={this.state.progress} width={320}/>
       </View>
@@ -95,6 +95,6 @@ let styles = StyleSheet.create({
   progress: {
     alignSelf: 'center',
     marginBottom: 35,
-    backgroundColor: KittenTheme.colors.back.inactive
+    backgroundColor: '#e5e5e5'
   }
 });

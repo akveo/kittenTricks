@@ -3,15 +3,15 @@ import {
   View,
   StyleSheet
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten';
+import {
+  RkText,
+  RkTheme
+} from 'react-native-ui-kitten';
 import {RkSwitch} from './switch/index';
-import {Colors} from '../config/theme';
-
 export class SocialSetting extends React.Component {
 
   constructor(props) {
     super(props);
-    this.base = Colors.disabled;
     this.state = {
       selected: this.props.selected
     }
@@ -19,7 +19,7 @@ export class SocialSetting extends React.Component {
 
   render() {
 
-    let color = this.state.selected ? this.props.tintColor : this.base;
+    let color = this.state.selected ? this.props.tintColor : RkTheme.current.colors.disabled;
 
     return (
       <View style={styles.container}>

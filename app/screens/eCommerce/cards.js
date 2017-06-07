@@ -72,7 +72,7 @@ export class Cards extends React.Component {
   _renderFooter() {
     return (
       <View style={styles.footer}>
-        <RkButton style={styles.button} rkType='circle'>
+        <RkButton style={styles.button} rkType='circle primary'>
           <Image source={require('../../assets/icons/iconPlus.png')}/>
         </RkButton>
       </View>
@@ -96,25 +96,25 @@ export class Cards extends React.Component {
                           end={{x: 1, y: 0.5}}
                           style={styles.background}>
             <View rkCardHeader>
-              <RkText rkType='header4 overlayColor'>{info.item.bank}</RkText>
+              <RkText rkType='header4 inverseColor'>{info.item.bank}</RkText>
               <Image source={icon}/>
             </View>
             <View rkCardContent>
               <View style={styles.cardNoContainer}>
-                <RkText style={styles.cardNo} rkType='header2 overlayColor'>{firstPart}</RkText>
-                <RkText style={[styles.cardNo, styles.cardPlaceholder]} rkType='header2 overlayColor'>* * * *</RkText>
-                <RkText style={[styles.cardNo, styles.cardPlaceholder]} rkType='header2 overlayColor'>* * * *</RkText>
-                <RkText style={styles.cardNo} rkType='header2 overlayColor'>{lastPart}</RkText>
+                <RkText style={styles.cardNo} rkType='header2 inverseColor'>{firstPart}</RkText>
+                <RkText style={[styles.cardNo, styles.cardPlaceholder]} rkType='header2 inverseColor'>* * * *</RkText>
+                <RkText style={[styles.cardNo, styles.cardPlaceholder]} rkType='header2 inverseColor'>* * * *</RkText>
+                <RkText style={styles.cardNo} rkType='header2 inverseColor'>{lastPart}</RkText>
               </View>
-              <RkText style={styles.date} rkType='header6 overlayColor'>{info.item.date}</RkText>
+              <RkText style={styles.date} rkType='header6 inverseColor'>{info.item.date}</RkText>
             </View>
             <View rkCardFooter>
               <View>
-                <RkText rkType='header4 overlayColor'>{info.item.currency.toUpperCase()}</RkText>
-                <RkText rkType='header6 overlayColor'>{info.item.name.toUpperCase()}</RkText>
+                <RkText rkType='header4 inverseColor'>{info.item.currency.toUpperCase()}</RkText>
+                <RkText rkType='header6 inverseColor'>{info.item.name.toUpperCase()}</RkText>
               </View>
               <RkText
-                rkType='header2 overlayColor'>{this._formatCurrency(info.item.amount, info.item.currency)}</RkText>
+                rkType='header2 inverseColor'>{this._formatCurrency(info.item.amount, info.item.currency)}</RkText>
             </View>
           </LinearGradient>
         </TouchableOpacity>
@@ -165,7 +165,7 @@ export class Cards extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.base,
   },
   list: {
     marginHorizontal: 16,
@@ -198,13 +198,13 @@ let styles = RkStyleSheet.create(theme => ({
     width: 56
   },
   popup: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.base,
     marginTop: 70,
     marginHorizontal: 37,
     borderRadius: 7
   },
   popupOverlay: {
-    backgroundColor: theme.colors.back.overlay,
+    backgroundColor: theme.colors.screen.overlay,
     flex: 1,
     marginTop: UIConstants.HeaderHeight
   },
@@ -219,14 +219,14 @@ let styles = RkStyleSheet.create(theme => ({
     marginTop: 15,
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderColor: theme.colors.border.underline
+    borderColor: theme.colors.border.base
   },
   popupButton: {
     flex: 1,
     marginVertical: 16
   },
   separator: {
-    backgroundColor: theme.colors.back.neutral,
+    backgroundColor: theme.colors.border.base,
     width: 1
   }
 }));

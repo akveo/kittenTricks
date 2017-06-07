@@ -8,7 +8,9 @@ import {
   RkButton,
   RkText,
   RkTextInput,
-  RkAvoidKeyboard, RkStyleSheet
+  RkAvoidKeyboard,
+  RkStyleSheet,
+  RkTheme
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
@@ -22,13 +24,25 @@ export class LoginV1 extends React.Component {
     super(props);
   }
 
-  render() {
+  _renderImage(image) {
     let contentHeight = 375;
     let height = Dimensions.get('window').height - contentHeight;
     let width = Dimensions.get('window').width;
+
+    if (RkTheme.current.name === 'light')
+      image = (<Image style={[styles.image, {height, width}]}
+                      source={require('../../assets/images/backgroundLoginV1.png')}/>);
+    else
+      image = (<Image style={[styles.image, {height, width}]}
+                      source={require('../../assets/images/backgroundLoginV1DarkTheme.png')}/>);
+    return image;
+  }
+
+  render() {
+    let image = this._renderImage();
     return (
       <RkAvoidKeyboard style={styles.screen}>
-        <Image style={[styles.image, {height, width}]} source={require('../../assets/images/background.png')}/>
+        {image}
         <View style={styles.container}>
           <View style={styles.buttons}>
             <RkButton style={styles.button} rkType='social'>
@@ -65,7 +79,7 @@ let styles = RkStyleSheet.create(theme => ({
   screen: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   image: {
     resizeMode: 'cover',

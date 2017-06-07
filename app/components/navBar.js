@@ -105,7 +105,7 @@ export class NavBar extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   layout: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.base,
     paddingTop: UIConstants.StatusbarHeight,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.colors.border.underline

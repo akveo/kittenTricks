@@ -7,7 +7,8 @@ import {
   RkButton,
   RkText,
   RkTextInput,
-  RkStyleSheet
+  RkStyleSheet,
+  RkTheme
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 
@@ -21,10 +22,15 @@ export class SignUp extends React.Component {
   }
 
   render() {
+    let renderIcon = () => {
+      if (RkTheme.current.name === 'light')
+        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
+      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
+    };
     return (
       <View style={styles.screen}>
         <View style={{alignItems: 'center'}}>
-          <Image style={styles.image} source={require('../../assets/images/logo.png')}/>
+          {renderIcon()}
           <RkText rkType='h1'>Registration</RkText>
         </View>
         <View style={styles.content}>
@@ -56,7 +62,7 @@ let styles = RkStyleSheet.create(theme => ({
     padding: 16,
     flex: 1,
     justifyContent: 'space-around',
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   image: {
     marginBottom: 10
@@ -73,9 +79,11 @@ let styles = RkStyleSheet.create(theme => ({
     marginHorizontal: 24,
     justifyContent: 'space-around'
   },
+  footer:{
+    justifyContent:'flex-end'
+  },
   textRow: {
     flexDirection: 'row',
     justifyContent: 'center'
   },
-
 }));

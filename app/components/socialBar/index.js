@@ -46,14 +46,14 @@ export class SocialBar extends RkComponent {
         </View>
         <View style={section}>
           <RkButton rkType='clear'>
-            <RkText rkType='awesome alterColor' style={icon}>{FontAwesome.comment}</RkText>
-            <RkText rkType='primary4 alterColor' style={label}>{comments}</RkText>
+            <RkText rkType='awesome hintColor' style={icon}>{FontAwesome.comment}</RkText>
+            <RkText rkType='primary4 hintColor' style={label}>{comments}</RkText>
           </RkButton>
         </View>
         <View style={section}>
           <RkButton rkType='clear'>
-            <RkText rkType='awesome alterColor' style={icon}>{FontAwesome.user}</RkText>
-            <RkText rkType='primary4 alterColor' style={label}>{shares}</RkText>
+            <RkText rkType='awesome hintColor' style={icon}>{FontAwesome.user}</RkText>
+            <RkText rkType='primary4 hintColor' style={label}>{shares}</RkText>
           </RkButton>
         </View>
       </View>

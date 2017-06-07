@@ -62,7 +62,7 @@ let styles = RkStyleSheet.create(theme => ({
     paddingHorizontal: 16
   },
   list: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.base,
   },
   container: {
     flexDirection: 'row',

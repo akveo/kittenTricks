@@ -10,7 +10,6 @@ export const AvatarTypes = (theme) => {
         height: 40
       },
       badge: {
-        backgroundColor: 'red',
         width: 15,
         height: 15,
         borderRadius: 7.5,
@@ -23,7 +22,6 @@ export const AvatarTypes = (theme) => {
       badgeText: {
         backgroundColor: 'transparent',
         fontSize: 9,
-        color: theme.colors.text.additional
       }
     },
     big: {

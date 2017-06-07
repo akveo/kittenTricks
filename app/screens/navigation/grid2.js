@@ -1,9 +1,14 @@
 import React from 'react';
 import {
   ScrollView,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
-import {RkText, RkButton, RkStyleSheet, RkThemeProvider} from 'react-native-ui-kitten';
+import {
+  RkText,
+  RkButton,
+  RkStyleSheet
+} from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/routes';
 
 export class GridV2 extends React.Component {
@@ -57,30 +62,28 @@ export class GridV2 extends React.Component {
       }
     }
 
-
     return (
-
-        <ScrollView
-          style={styles.root}
-          onLayout={this._onLayout}
-          contentContainerStyle={styles.rootContainer}>
-          {items}
-        </ScrollView>
+      <ScrollView
+        style={styles.root}
+        onLayout={this._onLayout}
+        contentContainerStyle={styles.rootContainer}>
+        {items}
+      </ScrollView>
     );
   }
 }
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   rootContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   empty: {
-    borderWidth: 0.5,
-    borderColor: theme.colors.border.underline
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.colors.border.base
   },
   icon: {
     marginBottom: 16

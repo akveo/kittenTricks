@@ -1,10 +1,13 @@
 import React from 'react';
 import {
-  StyleSheet,
   Image,
   View
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten';
+import {
+  RkText,
+  RkStyleSheet,
+  RkTheme
+} from 'react-native-ui-kitten';
 
 export class Walkthrough1 extends React.Component {
 
@@ -13,17 +16,22 @@ export class Walkthrough1 extends React.Component {
   }
 
   render() {
+    let image = RkTheme.current.name === 'light'
+      ? <Image source={require('../../assets/images/kittenImage.png')}/>
+      : <Image source={require('../../assets/images/kittenImageDark.png')}/>;
+
     return (
       <View style={styles.screen}>
-        <Image source={require('../../assets/images/kittenImage.png')}/>
+        {image}
         <RkText style={styles.text}>Welcome to Kitten Pads</RkText>
       </View>
     )
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   screen: {
+    backgroundColor: theme.colors.screen.base,
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1
@@ -31,4 +39,4 @@ let styles = StyleSheet.create({
   text: {
     marginTop: 20
   }
-});
+}));

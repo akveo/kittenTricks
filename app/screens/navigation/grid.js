@@ -60,7 +60,7 @@ export class GridV1 extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.neutral,
+    backgroundColor: theme.colors.screen.scroll,
     padding: paddingValue,
   },
   rootContainer: {

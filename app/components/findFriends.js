@@ -4,9 +4,11 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten';
+import {
+  RkText,
+  RkTheme
+} from 'react-native-ui-kitten';
 import {FontAwesome} from '../assets/icons';
-import {Colors} from '../config/theme';
 
 export class FindFriends extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ export class FindFriends extends React.Component {
   }
 
   render() {
-    let color = {color: this.props.selected ? this.props.color : Colors.disabled};
+    let color = {color: this.props.selected ? this.props.color : RkTheme.current.colors.disabled};
 
     return (
       <TouchableOpacity style={[styles.wrapper, this.props.style]} onPress={this.props.onPress}>

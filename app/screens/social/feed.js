@@ -63,7 +63,7 @@ export class Feed extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   container: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,
     paddingHorizontal: 10
   },

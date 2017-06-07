@@ -121,7 +121,7 @@ export class Settings extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   container: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.base,
   },
   header: {
     paddingVertical: 25
@@ -137,7 +137,7 @@ let styles = RkStyleSheet.create(theme => ({
     justifyContent: 'space-between',
     paddingHorizontal: 17.5,
     borderBottomWidth: 1,
-    borderColor: theme.colors.border.underline,
+    borderColor: theme.colors.border.base,
     alignItems: 'center'
   },
   rowButton: {

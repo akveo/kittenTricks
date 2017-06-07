@@ -47,15 +47,15 @@ export class ProfileV2 extends React.Component {
         <View style={styles.userInfo}>
           <View style={styles.section}>
             <RkText rkType='header3' style={styles.space}>{this.user.postCount}</RkText>
-            <RkText rkType='secondary1 secondaryColor'>Posts</RkText>
+            <RkText rkType='secondary1 hintColor'>Posts</RkText>
           </View>
           <View style={styles.section}>
             <RkText rkType='header3' style={styles.space}>{this.user.followersCount}</RkText>
-            <RkText rkType='secondary1 secondaryColor'>Followers</RkText>
+            <RkText rkType='secondary1 hintColor'>Followers</RkText>
           </View>
           <View style={styles.section}>
             <RkText rkType='header3' style={styles.space}>{this.user.followingCount}</RkText>
-            <RkText rkType='secondary1 secondaryColor'>Following</RkText>
+            <RkText rkType='secondary1 hintColor'>Following</RkText>
           </View>
         </View>
         <Gallery items={this.user.images}/>
@@ -67,7 +67,7 @@ export class ProfileV2 extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   header: {
     paddingTop: 25,

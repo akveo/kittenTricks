@@ -36,21 +36,24 @@ export class Avatar extends RkComponent {
   renderBadge(style, textStyle) {
     let symbol;
     let backgroundColor;
+    let color;
 
     switch (this.props.badge) {
       case 'like':
         symbol = FontAwesome.heart;
-        backgroundColor = RkTheme.current.colors.back.primary;
+        backgroundColor = RkTheme.current.colors.badge.likeBackground;
+        color = RkTheme.current.colors.badge.likeForeground;
         break;
       case 'follow':
         symbol = FontAwesome.plus;
-        backgroundColor = RkTheme.current.colors.back.success;
+        backgroundColor = RkTheme.current.colors.badge.plusBackground;
+        color = RkTheme.current.colors.badge.plusForeground;
         break;
     }
 
     return (
       <View style={[style, {backgroundColor}]}>
-        <RkText rkType='awesome' style={textStyle}>
+        <RkText rkType='awesome' style={[textStyle, {color}]}>
           {symbol}
         </RkText>
       </View>

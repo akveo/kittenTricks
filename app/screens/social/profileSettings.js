@@ -134,7 +134,7 @@ export class ProfileSettings extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   header: {
     backgroundColor: theme.colors.back.neutral,
@@ -150,7 +150,7 @@ let styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row',
     paddingHorizontal: 17.5,
     borderBottomWidth: 1,
-    borderColor: theme.colors.border.underline,
+    borderColor: theme.colors.border.base,
     alignItems: 'center'
   },
   button: {

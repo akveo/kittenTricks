@@ -1,16 +1,56 @@
-export const Colors = {
+const Colors = {
+  accent: '#ffffff',
   primary: '#ffffff',
+  success: '#3bd555',
+  disabled: '#686894',
+  danger: '#f53d56',
+
   foreground: '#ffffff',
-  alterBackground: '#28305a',
-  background: '#1f2449',
-  neutral: '#1f2449',
-  neutral2: '#1e2245',
-  hint: '#acacd2',
-  gradient1: '#00d4d0',
-  gradient2: '#7028e4',
-  separator: '#1b1f40',
-  inactive: '#343f75',
-  accent: '#167ed9'
+  alterForeground: '#acacd2',
+  inverseForeground: '#ffffff',
+  secondaryForeground: '#bcbcbc',
+  hintForeground: '#969696',
+  fadedForeground: '#ffffffdd',
+
+  boldBackground: '#090f3f',
+  background: '#0a1142',
+  alterBackground: '#12194d',
+  overlayBackground: '#00000057',
+  neutralBackground: '#2f396b',
+  fadedBackground: '#28305a',
+  brandBackground: '#6b35e4',
+
+  border: '#000000',
+
+  twitter: '#ffffff',
+  google: '#ffffff',
+  facebook: '#ffffff',
+
+  gradientBaseBegin: '#ff9147',
+  gradientBaseEnd: '#ff524c',
+  gradientVisaBegin:'#63e2ff',
+  gradientVisaEnd:'#712ec3',
+  gradientMasterBegin:'#febb5b',
+  gradientMasterEnd:'#f24645',
+  gradientAxpBegin:'#42e695',
+  gradientAxpEnd:'#3bb2bb',
+
+  // -----
+  faded: '#e5e5e5',
+  icon: '#c2c2c2',
+  neutral: '#f2f2f2',
+
+
+  info: '#19bfe5',
+  warning: '#feb401',
+
+};
+
+const Fonts = {
+  light: 'Roboto-Light',
+  regular: 'Roboto-Regular',
+  bold: 'Roboto-Medium',
+  logo: 'Righteous-Regular',
 };
 
 const FontBaseValue = 18;
@@ -18,73 +58,61 @@ const FontBaseValue = 18;
 export const DarkKittenTheme = {
   name: 'dark',
   colors: {
+    accent: Colors.accent,
     primary: Colors.primary,
-    primaryActive: Colors.primaryActive,
-    success: Colors.success,
-    successActive: Colors.successActive,
-    info: Colors.info,
-    infoActive: Colors.infoActive,
-    warning: Colors.warning,
-    warningActive: Colors.warningActive,
-    danger: Colors.danger,
-    dangerActive: Colors.dangerActive,
-    foreground: Colors.foreground,
-    background: Colors.background,
-    overlay: Colors.overlay,
-    twitter: Colors.primary,
-    google: Colors.primary,
-    facebook: Colors.primary,
+    disabled: Colors.disabled,
+    twitter: Colors.twitter,
+    google: Colors.google,
+    facebook: Colors.facebook,
+    brand: Colors.brandBackground,
     text: {
       base: Colors.foreground,
-      alter: Colors.foreground,
       secondary: Colors.foreground,
-      overlay: Colors.foreground,
-      accent: Colors.foreground,
-      hint: Colors.hint,
-      icon: Colors.hint,
+      accent: Colors.accent,
+      inverse: Colors.inverseForeground,
+      hint: Colors.alterForeground
     },
-    back: {
+    screen: {
       base: Colors.background,
-      alternative: Colors.background,
-      inactive: Colors.inactive,
-      primary: Colors.primary,
-      primaryActive: Colors.neutral,
-      success: Colors.success,
-      successActive: Colors.successActive,
-      info: Colors.info,
-      infoActive: Colors.infoActive,
-      warning: Colors.warning,
-      warningActive: Colors.warningActive,
-      danger: Colors.danger,
-      dangerActive: Colors.dangerActive,
-      foreground: Colors.foreground,
-      background: Colors.background,
-      outline: 'transparent',
-      material: Colors.primary,
-      neutral: Colors.neutral,
-      disabled: Colors.neutral2,
-      gradient1: Colors.gradient1,
-      gradient2: Colors.gradient2,
-      overlay: Colors.overlay,
-      control: Colors.alterBackground,
-      messageIn: Colors.alterBackground,
-      messageOut: Colors.inactive,
-      highlight: Colors.accent
+      alter: Colors.alterBackground,
+      scroll: Colors.background,
+      bold: Colors.boldBackground,
+      overlay: Colors.overlayBackground
+    },
+    button: {
+      back: Colors.alterBackground,
+      underlay: Colors.neutralBackground,
+      highlight: Colors.brandBackground
+    },
+    input: {
+      text: Colors.alterForeground,
+      background: Colors.alterBackground,
+      label: Colors.alterForeground,
+      placeholder: Colors.alterForeground,
     },
     border: {
-      base: Colors.background,
-      underline: Colors.separator,
-      solid: '#0000003B',
-      material: Colors.warning,
-      disabled: Colors.neutral,
-      card: '#00000014',
-      hint: Colors.hint
+      base: Colors.border,
+      accent: Colors.alterBackground,
+    },
+    control: {
+      background: Colors.alterBackground
+    },
+    badge: {
+      likeBackground: Colors.foreground,
+      likeForeground: Colors.danger,
+      plusBackground: Colors.foreground,
+      plusForeground: Colors.success,
+    },
+    chat: {
+      messageInBackground: Colors.fadedBackground,
+      messageOutBackground: Colors.neutralBackground,
+      text: Colors.fadedForeground
     },
     gradients: {
-      base: [Colors.gradient1, Colors.gradient2],
-      visa: ['#63e2ff', '#712ec3'],
-      mastercard: ['#febb5b', '#f24645'],
-      axp: ['#42e695', '#3bb2bb'],
+      base: [Colors.gradientBaseBegin, Colors.gradientBaseEnd],
+      visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
+      mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
+      axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
     }
   },
   fonts: {
@@ -113,17 +141,16 @@ export const DarkKittenTheme = {
       large: FontBaseValue * 1.2,
       xlarge: FontBaseValue / 0.75,
       xxlarge: FontBaseValue * 1.6,
-
     },
     lineHeights: {
       medium: 18,
       big: 24
     },
     family: {
-      light: 'Roboto-Light',
-      regular: 'Roboto-Regular',
-      bold: 'Roboto-Medium',
-      logo: 'Righteous-Regular',
+      regular: Fonts.regular,
+      light: Fonts.light,
+      bold: Fonts.bold,
+      logo: Fonts.logo
     }
   }
 };

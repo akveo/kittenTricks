@@ -6,7 +6,8 @@ import {
 import {
   RkStyleSheet,
   RkText,
-  RkTextInput
+  RkTextInput,
+  RkTheme
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 
@@ -20,10 +21,16 @@ export class PasswordRecovery extends React.Component {
   }
 
   render() {
+    let renderIcon = () => {
+      if (RkTheme.current.name === 'light')
+        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
+      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
+    };
+
     return (
       <View behavior='position' style={styles.screen}>
         <View style={styles.header}>
-          <Image style={styles.image} source={require('../../assets/images/logo.png')}/>
+          {renderIcon()}
           <RkText rkType='h1'>Password Recovery</RkText>
         </View>
         <View style={styles.content}>
@@ -46,7 +53,7 @@ let styles = RkStyleSheet.create(theme => ({
     paddingHorizontal: 16,
     paddingVertical: 24,
     justifyContent: 'space-between',
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   header: {
     alignItems: 'center'

@@ -3,7 +3,7 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import {RkButton} from 'react-native-ui-kitten';
+import {RkStyleSheet} from 'react-native-ui-kitten';
 
 export class PaginationIndicator extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ export class PaginationIndicator extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   container: {
     flexDirection: 'row'
   },
@@ -48,11 +48,11 @@ let styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 5,
-    borderColor: '#ff2824',
+    borderColor: theme.colors.brand,
     borderWidth: 1,
     marginHorizontal: 5
   },
   selected: {
-    backgroundColor: '#ff2824'
+    backgroundColor: theme.colors.brand
   }
-});
+}));

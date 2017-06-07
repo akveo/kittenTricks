@@ -1,4 +1,7 @@
-import {StatusBar} from 'react-native';
+import {
+  StatusBar,
+  StyleSheet
+} from 'react-native';
 import {RkTheme} from 'react-native-ui-kitten';
 import {KittenTheme} from './theme';
 import {AvatarTypes} from '../components/avatar/types';
@@ -8,7 +11,7 @@ import {SocialBarTypes} from '../components/socialBar/types';
 
 export let bootstrap = () => {
 
-  RkTheme.setTheme(KittenTheme);
+  RkTheme.setTheme(KittenTheme, null);
 
   /*
    RkText types
@@ -145,6 +148,10 @@ export let bootstrap = () => {
       textAlign: 'center'
     }
   });
+
+  RkTheme.setType('RkText', 'chat', {
+    color: theme => theme.colors.chat.text
+  });
   /*
    RkButton types
    */
@@ -157,7 +164,7 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkButton', 'square', {
     borderRadius: 3,
-    backgroundColor: theme => theme.colors.back.background,
+    backgroundColor: theme => theme.colors.button.back,
     container: {
       flexDirection: 'column',
       margin: 8
@@ -168,7 +175,7 @@ export let bootstrap = () => {
     borderRadius: 0,
     backgroundColor: 'transparent',
     borderWidth: 0.5,
-    borderColor: theme => theme.colors.border.underline,
+    borderColor: theme => theme.colors.border.base,
     container: {
       flexDirection: 'column'
     }
@@ -185,18 +192,22 @@ export let bootstrap = () => {
   RkTheme.setType('RkButton', 'icon', {
     height: 56,
     width: 56,
-    borderColor: theme => theme.colors.border.underline,
-    backgroundColor: theme => theme.colors.back.control,
+    borderColor: theme => theme.colors.border.base,
+    backgroundColor: theme => theme.colors.control.background,
     borderWidth: 1
+  });
+
+  RkTheme.setType('RkButton', 'highlight', {
+    backgroundColor: theme => theme.colors.button.highlight
   });
 
   RkTheme.setType('RkButton', 'social', {
     height: 62,
     width: 62,
     borderRadius: 31,
-    borderColor: theme => theme.colors.border.base,
+    borderColor: theme => theme.colors.border.accent,
     borderWidth: 1,
-    backgroundColor: theme => theme.colors.back.control
+    backgroundColor: theme => theme.colors.control.background
   });
   /*
    RkModalImg types
@@ -207,14 +218,14 @@ export let bootstrap = () => {
       margin: 1.5,
     },
     modal: {
-      backgroundColor: theme => theme.colors.back.background
+      backgroundColor: theme => theme.colors.screen.base
     },
     footer: {
-      backgroundColor: theme => theme.colors.back.background,
+      backgroundColor: theme => theme.colors.screen.base,
       height: 50
     },
     header: {
-      backgroundColor: theme => theme.colors.back.background,
+      backgroundColor: theme => theme.colors.screen.base,
       paddingBottom: 6
     },
   });
@@ -227,14 +238,16 @@ export let bootstrap = () => {
     input: {
       fontFamily: theme => theme.fonts.family.bold
     },
-    backgroundColor: theme => theme.colors.back.control
+    backgroundColor: theme => theme.colors.control.background,
+    labelColor: theme => theme.colors.input.label,
+    placeholderTextColor: theme => theme.colors.input.placeholder,
   });
 
   RkTheme.setType('RkTextInput', 'rounded', {
     fontSize: theme => theme.fonts.sizes.h6,
     borderWidth: 1,
     underlineWidth: 1,
-    color: theme => theme.colors.text.alter,
+    placeholderTextColor: theme => theme.colors.input.text,
     input: {
       marginVertical: {
         ios: 15,
@@ -259,7 +272,7 @@ export let bootstrap = () => {
       marginVertical: 4
     },
     backgroundColor: 'transparent',
-    labelFontSize: theme => theme.fonts.sizes.small
+    labelFontSize: theme => theme.fonts.sizes.small,
   });
 
   RkTheme.setType('RkTextInput', 'row', {
@@ -276,18 +289,15 @@ export let bootstrap = () => {
       includeFontPadding: false,
       fontFamily: theme => theme.fonts.family.light,
       fontSize: theme => theme.fonts.sizes.small,
-      color: theme => theme.colors.text.alter
     },
     container: {
       flex: 1,
-      backgroundColor: theme => theme.colors.back.base,
+      backgroundColor: theme => theme.colors.input.background,
       marginVertical: 0,
       borderRadius: 20,
       paddingHorizontal: 16
     },
-    labelColor: theme => theme.colors.text.icon,
-    placeholderTextColor: theme => theme.colors.text.secondary,
-    backgroundColor: theme => theme.colors.back.control
+
   });
 
   RkTheme.setType('RkTextInput', 'iconRight', {
@@ -321,7 +331,7 @@ export let bootstrap = () => {
   RkTheme.setType('RkCard', 'basic', {
     container: {
       borderRadius: 3,
-      backgroundColor: theme => theme.colors.back.control
+      backgroundColor: theme => theme.colors.control.background
     },
     header: {
       justifyContent: 'flex-start',
@@ -425,13 +435,13 @@ export let bootstrap = () => {
       paddingTop: 20,
       paddingBottom: 16,
       justifyContent: 'space-between',
-      borderBottomWidth: 1,
-      borderColor: theme => theme.colors.border.underline
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderColor: theme => theme.colors.border.base
     },
     content: {
       padding: 16,
       borderBottomWidth: 1,
-      borderColor: theme => theme.colors.border.underline
+      borderColor: theme => theme.colors.border.base
     },
     footer: {
       paddingHorizontal: 14,

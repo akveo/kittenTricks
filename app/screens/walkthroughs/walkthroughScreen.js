@@ -45,7 +45,7 @@ export class WalkthroughScreen extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   screen: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.base,
     paddingVertical: 28,
     alignItems: 'center',
     flex: 1,

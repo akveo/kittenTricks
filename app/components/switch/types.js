@@ -8,11 +8,11 @@ export const SwitchTypes = (theme) => {
         justifyContent: 'center',
         borderRadius: 16,
         borderWidth: 1,
-        borderColor: theme.colors.border.hint,
-        onColor: theme.colors.back.primary,
+        borderColor: theme.colors.border.base,
+        onColor: theme.colors.primary,
         offColor: {
-          android: theme.colors.back.base,
-          ios: theme.colors.border.hint
+          android: theme.colors.screen.base,
+          ios: theme.colors.border.base
         }
       },
       thumb: {
@@ -21,16 +21,16 @@ export const SwitchTypes = (theme) => {
         width: 32,
         borderWidth: 1,
         borderColor: theme.colors.border.hint,
-        backgroundColor: theme.colors.back.base,
+        backgroundColor: theme.colors.screen.base,
         borderRadius: 16,
       }
     },
     selected: {
       thumb: {
-        borderColor: theme.colors.back.primary
+        borderColor: theme.colors.primary
       },
       container: {
-        borderColor: theme.colors.back.primary,
+        borderColor: theme.colors.primary,
       }
     }
   })

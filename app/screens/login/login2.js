@@ -75,6 +75,7 @@ let styles = RkStyleSheet.create(theme => ({
     padding: 16,
     flex: 1,
     justifyContent: 'space-between',
+    backgroundColor: theme.colors.screen.base
   },
   header: {
     paddingBottom: 10,

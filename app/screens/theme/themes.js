@@ -55,7 +55,7 @@ export class Themes extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base,
+    backgroundColor: theme.colors.screen.base,
     flex: 1,
     paddingHorizontal: 72,
 

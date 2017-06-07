@@ -54,7 +54,7 @@ export class Article extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   title: {
     marginBottom: 5

@@ -4,7 +4,11 @@ import {
   Image,
   View
 } from 'react-native';
-import {RkText} from 'react-native-ui-kitten';
+import {
+  RkText,
+  RkStyleSheet,
+  RkTheme
+} from 'react-native-ui-kitten';
 
 export class Walkthrough2 extends React.Component {
 
@@ -13,24 +17,29 @@ export class Walkthrough2 extends React.Component {
   }
 
   render() {
+    let image = RkTheme.current.name === 'light'
+      ? <Image source={require('../../assets/images/screensImage.png')}/>
+      : <Image source={require('../../assets/images/screensImageDark.png')}/>;
+
     return (
       <View style={styles.screen}>
-        <Image source={require('../../assets/images/screensImage.png')}/>
+        {image}
         <RkText style={styles.text}>Explore different examples of frequently used pages</RkText>
       </View>
     )
   }
 }
 
-let styles = StyleSheet.create({
+let styles = RkStyleSheet.create(theme => ({
   screen: {
+    backgroundColor: theme.colors.screen.base,
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1
   },
   text: {
-    textAlign:'center',
+    textAlign: 'center',
     marginTop: 20,
     marginHorizontal: 50
   }
-});
+}));

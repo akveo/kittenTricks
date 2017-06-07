@@ -45,7 +45,7 @@ export class SideMenu extends React.Component {
         <TouchableHighlight
           style={styles.container}
           key={route.id}
-          underlayColor={RkTheme.current.colors.back.primaryActive}
+          underlayColor={RkTheme.current.colors.button.underlay}
           activeOpacity={1}
           onPress={() => this._navigateAction(route)}>
           <View style={styles.content}>
@@ -84,7 +84,7 @@ let styles = RkStyleSheet.create(theme => ({
   },
   root: {
     paddingTop: Platform.OS === 'ios' ? 20 : 0,
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   content: {
     flex: 1,

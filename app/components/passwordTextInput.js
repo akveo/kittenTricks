@@ -21,7 +21,7 @@ export class PasswordTextInput extends React.Component {
                 onPress={() => {
                   this.setState({hidden: !this.state.hidden})
                 }}>
-        <RkText style={styles.icon} rkType='awesome'>{FontAwesome.slashEye}</RkText>
+        <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
       </RkButton>
     );
 
@@ -38,7 +38,6 @@ export class PasswordTextInput extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   icon: {
-    color: theme.colors.text.icon,
     fontSize: 24
   },
   button: {

@@ -69,7 +69,7 @@ export class Notifications extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.back.base
+    backgroundColor: theme.colors.screen.base
   },
   container: {
     padding: 16,

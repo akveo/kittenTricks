@@ -59,11 +59,8 @@ export class Articles4 extends React.Component {
 
 
 let styles = RkStyleSheet.create(theme => ({
-  root: {
-    backgroundColor: theme.colors.back.base
-  },
   container: {
-    backgroundColor: theme.colors.back.neutral,
+    backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,
     paddingHorizontal: 14
   },

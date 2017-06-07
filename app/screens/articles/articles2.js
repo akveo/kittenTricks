@@ -33,9 +33,9 @@ export class Articles2 extends React.Component {
         <Image rkCardImg source={info.item.photo}/>
 
         <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-          <RkText rkType='header4 overlayColor'>{info.item.header}</RkText>
+          <RkText rkType='header4 inverseColor'>{info.item.header}</RkText>
           <RkText style={styles.time}
-                  rkType='secondary2 overlayColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
+                  rkType='secondary2 inverseColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
         </View>
         <View rkCardFooter>
           <SocialBar rkType='space' showLabel={true}/>
@@ -57,11 +57,8 @@ export class Articles2 extends React.Component {
 }
 
 let styles = RkStyleSheet.create(theme => ({
-  root: {
-    backgroundColor: theme.colors.back.base
-  },
   container: {
-    backgroundColor: theme.colors.back.neutral,
+    backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,
     paddingHorizontal: 14
   },
