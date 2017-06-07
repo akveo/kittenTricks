@@ -137,7 +137,7 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.screen.base
   },
   header: {
-    backgroundColor: theme.colors.back.neutral,
+    backgroundColor: theme.colors.screen.neutral,
     paddingVertical: 25
   },
   section: {

@@ -1,5 +1,8 @@
 import React from 'react';
-import {DrawerNavigator, StackNavigator} from 'react-navigation';
+import {
+  DrawerNavigator,
+  StackNavigator
+} from 'react-navigation';
 import {withRkTheme} from 'react-native-ui-kitten';
 import {AppRoutes} from './config/routesBuilder';
 import * as Screens from './screens';

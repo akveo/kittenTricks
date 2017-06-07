@@ -166,7 +166,7 @@ let styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row',
     minHeight: 60,
     padding: 10,
-    backgroundColor: theme.colors.back.disabled
+    backgroundColor: theme.colors.screen.alter
   },
   item: {
     marginVertical: 14,
