@@ -75,7 +75,7 @@ let styles = RkStyleSheet.create(theme => ({
     paddingRight: 16,
     paddingVertical: 12,
     flexDirection: 'row',
-    alignItems:'flex-start'
+    alignItems: 'flex-start'
   },
   content: {
     marginLeft: 16,
@@ -88,6 +88,6 @@ let styles = RkStyleSheet.create(theme => ({
   },
   separator: {
     height: 1,
-    backgroundColor: theme.colors.border.underline
+    backgroundColor: theme.colors.border.base
   }
 }));

@@ -58,7 +58,7 @@ let styles = RkStyleSheet.create(theme => ({
     height: 80,
     justifyContent: 'center',
     borderBottomWidth: 1,
-    borderColor: theme.colors.border.underline,
+    borderColor: theme.colors.border.base,
     paddingHorizontal: 16
   },
   list: {

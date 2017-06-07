@@ -83,7 +83,7 @@ let styles = RkStyleSheet.create(theme => ({
   },
   bordered: {
     borderBottomWidth: 1,
-    borderColor: theme.colors.border.underline
+    borderColor: theme.colors.border.base
   },
   section: {
     flex: 1,
@@ -93,7 +93,7 @@ let styles = RkStyleSheet.create(theme => ({
     marginBottom: 3
   },
   separator: {
-    backgroundColor: theme.colors.border.underline,
+    backgroundColor: theme.colors.border.base,
     alignSelf: 'center',
     flexDirection: 'row',
     flex: 0,

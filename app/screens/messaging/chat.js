@@ -159,7 +159,6 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.screen.base
   },
   list: {
-
     paddingHorizontal: 17
   },
   footer: {

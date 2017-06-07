@@ -69,7 +69,7 @@ let styles = RkStyleSheet.create(theme => ({
     paddingVertical: 32.5,
     paddingHorizontal: 16.5,
     borderBottomWidth: 1,
-    borderColor: theme.colors.border.underline,
+    borderColor: theme.colors.border.base,
   },
   list:{
     backgroundColor: theme.colors.screen.base

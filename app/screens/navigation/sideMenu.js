@@ -80,7 +80,7 @@ let styles = RkStyleSheet.create(theme => ({
     height: 80,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderColor: theme.colors.border.underline
+    borderColor: theme.colors.border.base
   },
   root: {
     paddingTop: Platform.OS === 'ios' ? 20 : 0,

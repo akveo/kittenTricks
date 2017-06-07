@@ -75,7 +75,7 @@ let styles = RkStyleSheet.create(theme => ({
     padding: 16,
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderColor: theme.colors.border.underline,
+    borderColor: theme.colors.border.base,
     alignItems: 'flex-start'
   },
   avatar: {},

@@ -108,7 +108,7 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.screen.base,
     paddingTop: UIConstants.StatusbarHeight,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.border.underline
+    borderBottomColor: theme.colors.border.base
   },
   container: {
     flexDirection: 'row',
