@@ -29,6 +29,20 @@ export const GradientButtonTypes = (theme) => {
       gradient: {
         borderRadius: 28
       }
+    },
+    statItem: {
+      button: {
+        flex: 1,
+        borderRadius: 5,
+        marginHorizontal: 10,
+        height: null,
+        alignSelf: 'auto',
+      },
+      gradient: {
+        flex: 1,
+        borderRadius: 5,
+        padding: 10,
+      }
     }
   })
 };

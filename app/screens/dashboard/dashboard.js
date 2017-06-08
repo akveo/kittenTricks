@@ -6,20 +6,14 @@ import {
     Dimensions
 } from 'react-native';
 import {
-    RkButton,
     RkText,
-    RkTextInput,
     RkCard,
     RkStyleSheet,
     RkTheme,
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
-import LinearGradient from 'react-native-linear-gradient';
 import {StockLineChart} from '../../components/';
-
-// https://dribbble.com/shots/3062420-mobile
-// https://dribbble.com/shots/3007787-Finance-Summary-Page
-// https://dribbble.com/shots/3040283-SplashID-App
+import {GradientButton} from '../../components/';
 
 
 export class Dashboard extends React.Component {
@@ -56,10 +50,7 @@ export class Dashboard extends React.Component {
 
     renderStatItem(item) {
         return (
-            <LinearGradient key={item.name} colors={item.gradientColors}
-                            start={{x: 0.0, y: 0.5}}
-                            end={{x: 1, y: 0.5}}
-                            style={styles.gradient}>
+            <GradientButton rkType='statItem' key={item.name} colors={item.gradientColors}>
                 <View style={styles.statItemContainer}>
                     <RkText rkType='awesome' style={styles.statItemIcon}>{FontAwesome[item.icon]}</RkText>
                     <View>
@@ -67,7 +58,7 @@ export class Dashboard extends React.Component {
                         <RkText style={styles.statItemName}>{item.name}</RkText>
                     </View>
                 </View>
-            </LinearGradient>
+            </GradientButton>
         )
     }
 
@@ -108,16 +99,14 @@ let styles = RkStyleSheet.create(theme => ({
     },
     statItems: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
         marginTop: 10
     },
     statItemContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        padding: 10,
     },
-    chartBlock:{
-      paddingVertical: 20
+    chartBlock: {
+        paddingVertical: 20
     },
     statItemIcon: {
         // TODO color

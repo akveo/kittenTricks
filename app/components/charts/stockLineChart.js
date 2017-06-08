@@ -6,18 +6,15 @@ import {
 } from 'react-native';
 import {
     RkComponent,
-    RkText,
     RkTheme
 } from 'react-native-ui-kitten';
 
-import colorUtils from './../../utils/colorUtils'
 import {
     VictoryChart,
     VictoryAxis,
     VictoryLine,
 } from "victory-native";
 
-import {Svg, Defs, LinearGradient, Stop}  from "react-native-svg";
 
 
 export class StockLineChart extends RkComponent {
@@ -133,6 +130,7 @@ export class StockLineChart extends RkComponent {
                     tickValues={['', '2013', '2014', '2015', '2016', '2017', '']}
                     style={{
                         axis: {stroke: "transparent"},
+                        grid: {stroke: RkTheme.current.colors.disabled},
                         tickLabels: {
                             fontSize: 14,
                             padding: 5,
@@ -141,6 +139,10 @@ export class StockLineChart extends RkComponent {
                         }
                     }}
                 />
+                <VictoryAxis dependentAxis style={{
+                    axis: {stroke: "transparent"},
+                    grid: {stroke: RkTheme.current.colors.disabled}
+                }}/>
                 {this.renderLine(this.state.lines[0])}
                 {this.renderLine(this.state.lines[1])}
                 {this.renderLine(this.state.lines[2])}
