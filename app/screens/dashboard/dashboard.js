@@ -15,7 +15,8 @@ import {FontAwesome} from '../../assets/icons';
 import {
     LineChart,
     PieChart,
-    AreaChart
+    AreaChart,
+    AreaSmoothedChart
 } from '../../components/';
 import {GradientButton} from '../../components/';
 
@@ -89,6 +90,9 @@ export class Dashboard extends React.Component {
                 </View>
                 <View style={styles.chartBlock}>
                     <AreaChart/>
+                </View>
+                <View style={styles.chartBlock}>
+                    <AreaSmoothedChart/>
                 </View>
             </ScrollView>
         )
