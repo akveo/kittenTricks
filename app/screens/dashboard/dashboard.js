@@ -14,7 +14,8 @@ import {
 import {FontAwesome} from '../../assets/icons';
 import {
     LineChart,
-    PieChart
+    PieChart,
+    AreaChart
 } from '../../components/';
 import {GradientButton} from '../../components/';
 
@@ -86,6 +87,9 @@ export class Dashboard extends React.Component {
                 <View style={styles.chartBlock}>
                     <PieChart/>
                 </View>
+                <View style={styles.chartBlock}>
+                    <AreaChart/>
+                </View>
             </ScrollView>
         )
     }
@@ -112,7 +116,8 @@ let styles = RkStyleSheet.create(theme => ({
         justifyContent: 'space-around',
     },
     chartBlock: {
-        paddingVertical: 20
+        paddingVertical: 20,
+        justifyContent: 'center'
     },
     statItemIcon: {
         // TODO color
