@@ -12,7 +12,10 @@ import {
     RkTheme,
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
-import {LineChart} from '../../components/';
+import {
+    LineChart,
+    PieChart
+} from '../../components/';
 import {GradientButton} from '../../components/';
 
 
@@ -79,6 +82,9 @@ export class Dashboard extends React.Component {
                 </View>
                 <View style={styles.chartBlock}>
                     <LineChart/>
+                </View>
+                <View style={styles.chartBlock}>
+                    <PieChart/>
                 </View>
             </ScrollView>
         )
