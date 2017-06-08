@@ -193,7 +193,12 @@ export const MainRoutes = [
     title: 'Dashboards',
     icon: FontIcons.dashboard,
     screen: Screens.DashboardMenu,
-    children: []
+    children: [{
+      id: 'Dashboard',
+      title: 'Dashboard',
+      screen: Screens.Dashboard,
+      children: []
+    },]
   },
   {
     id: 'WalkthroughMenu',

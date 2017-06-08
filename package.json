@@ -22,7 +22,8 @@
     "react-native-switch-pro": "^0.4.2",
     "react-native-ui-kitten": "file:../react-native-ui-kitten/",
     "react-navigation": "^1.0.0-beta.11",
-    "rnpm": "^1.9.0"
+    "rnpm": "^1.9.0",
+    "victory-native": "^0.9.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

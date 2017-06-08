@@ -5,6 +5,7 @@ import {
 import {RkTheme} from 'react-native-ui-kitten';
 import {KittenTheme} from './theme';
 import {AvatarTypes} from '../components/avatar/types';
+import {StockChartTypes} from '../components/charts/types';
 import {GradientButtonTypes} from '../components/gradientButton/types';
 import {SwitchTypes} from '../components/switch/types';
 import {SocialBarTypes} from '../components/socialBar/types';
@@ -479,6 +480,7 @@ export let bootstrap = () => {
    */
 
   RkTheme.registerComponent('Avatar', AvatarTypes);
+  RkTheme.registerComponent('StockLineChart', StockChartTypes);
   RkTheme.registerComponent('GradientButton', GradientButtonTypes);
   RkTheme.registerComponent('RkSwitch', SwitchTypes);
   RkTheme.registerComponent('SocialBar', SocialBarTypes);
