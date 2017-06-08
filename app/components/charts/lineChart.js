@@ -17,7 +17,7 @@ import {
 
 
 
-export class StockLineChart extends RkComponent {
+export class LineChart extends RkComponent {
 
     componentName = 'Avatar';
     typeMapping = {

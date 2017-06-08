@@ -1,1 +1,1 @@
-export * from "./stockLineChart"
+export * from "./lineChart"

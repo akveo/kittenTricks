@@ -12,7 +12,7 @@ import {
     RkTheme,
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
-import {StockLineChart} from '../../components/';
+import {LineChart} from '../../components/';
 import {GradientButton} from '../../components/';
 
 
@@ -78,7 +78,7 @@ export class Dashboard extends React.Component {
                     {this.data.statItems.map(item => this.renderStatItem(item))}
                 </View>
                 <View style={styles.chartBlock}>
-                    <StockLineChart/>
+                    <LineChart/>
                 </View>
             </ScrollView>
         )
