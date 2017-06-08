@@ -30,7 +30,7 @@ export class LoginV2 extends React.Component {
     };
 
     return (
-      <RkAvoidKeyboard style={[{backgroundColor: RkTheme.current.colors.back.base}, styles.screen]}>
+      <RkAvoidKeyboard style={styles.screen}>
         <View style={styles.header}>
           {renderIcon()}
           <RkText rkType='light h1'>React Native</RkText>

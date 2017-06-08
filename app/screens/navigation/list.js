@@ -28,7 +28,6 @@ export class ListMenu extends React.Component {
     return (
       <TouchableHighlight
         style={styles.item}
-        underlayColor={RkTheme.current.colors.back.primaryActive}
         activeOpacity={1}
         onPress={() => {
           this.props.navigation.navigate(row.id)
