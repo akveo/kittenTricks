@@ -71,7 +71,7 @@ let styles = RkStyleSheet.create(theme => ({
     borderBottomWidth: 1,
     borderColor: theme.colors.border.base,
   },
-  list:{
+  list: {
     backgroundColor: theme.colors.screen.base
   },
   emptyContainer: {

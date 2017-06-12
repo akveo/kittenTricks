@@ -11,6 +11,7 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 export class SignUp extends React.Component {
   static navigationOptions = {
@@ -65,7 +66,9 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.screen.base
   },
   image: {
-    marginBottom: 10
+    marginBottom: 10,
+    height:scaleVertical(77),
+    resizeMode:'contain'
   },
   content: {
     justifyContent: 'space-between'

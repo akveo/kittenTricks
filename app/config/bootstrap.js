@@ -8,6 +8,7 @@ import {AvatarTypes} from '../components/avatar/types';
 import {GradientButtonTypes} from '../components/gradientButton/types';
 import {SwitchTypes} from '../components/switch/types';
 import {SocialBarTypes} from '../components/socialBar/types';
+import {scale, scaleModerate, scaleVertical} from '../utils/scale';
 
 export let bootstrap = () => {
 
@@ -43,7 +44,7 @@ export let bootstrap = () => {
   });
 
   RkTheme.setType('RkText', 'hero', {
-    fontSize: 33
+    fontSize: scale(33)
   });
 
   RkTheme.setType('RkText', 'menuIcon', {
@@ -190,8 +191,8 @@ export let bootstrap = () => {
   });
 
   RkTheme.setType('RkButton', 'icon', {
-    height: 56,
-    width: 56,
+    height: scale(56),
+    width: scale(56),
     borderColor: theme => theme.colors.border.base,
     backgroundColor: theme => theme.colors.control.background,
     borderWidth: 1
@@ -202,9 +203,9 @@ export let bootstrap = () => {
   });
 
   RkTheme.setType('RkButton', 'social', {
-    height: 62,
-    width: 62,
-    borderRadius: 31,
+    height: scale(62),
+    width: scale(62),
+    borderRadius: scale(31),
     borderColor: theme => theme.colors.border.accent,
     borderWidth: 1,
     backgroundColor: theme => theme.colors.control.background
@@ -250,8 +251,8 @@ export let bootstrap = () => {
     placeholderTextColor: theme => theme.colors.input.text,
     input: {
       marginVertical: {
-        ios: 15,
-        android: 4
+        ios: scaleVertical(15),
+        android: scaleVertical(4)
       },
     },
   });
@@ -261,8 +262,8 @@ export let bootstrap = () => {
     input: {
       textAlign: 'right',
       marginTop: {
-        ios: 18,
-        android: 11
+        ios: scaleVertical(18),
+        android: scaleVertical(11)
       }
     },
     label: {
@@ -306,7 +307,7 @@ export let bootstrap = () => {
       right: 0
     },
     input: {
-      marginRight: 46
+      marginRight: scale(46)
     },
   });
 
@@ -460,15 +461,15 @@ export let bootstrap = () => {
       justifyContent: 'space-between',
       paddingHorizontal: 14,
       alignItems: 'center',
-      paddingBottom: 46
+      paddingBottom: scaleVertical(46)
     },
     content: {
       alignItems: 'center',
       paddingVertical: 0
     },
     footer: {
-      paddingBottom: 14,
-      paddingTop: 16,
+      paddingBottom: scaleVertical(14),
+      paddingTop: scaleVertical(16),
       paddingHorizontal: 14,
       alignItems: 'flex-end'
     }

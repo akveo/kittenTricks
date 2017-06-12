@@ -10,6 +10,7 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 export class PasswordRecovery extends React.Component {
   static navigationOptions = {
@@ -51,7 +52,7 @@ let styles = RkStyleSheet.create(theme => ({
   screen: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingVertical: scaleVertical(24),
     justifyContent: 'space-between',
     backgroundColor: theme.colors.screen.base
   },
@@ -59,7 +60,9 @@ let styles = RkStyleSheet.create(theme => ({
     alignItems: 'center'
   },
   image: {
-    marginVertical: 27
+    marginVertical: scaleVertical(27),
+    height:scaleVertical(77),
+    resizeMode:'contain'
   },
   content: {
     alignItems: 'center'

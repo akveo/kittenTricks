@@ -8,6 +8,7 @@ import _ from 'lodash';
 import {RkText, RkButton, RkStyleSheet} from 'react-native-ui-kitten';
 import {FontAwesome} from '../assets/icons';
 import {UIConstants} from '../config/appConstants';
+import {scale, scaleModerate, scaleVertical} from '../utils/scale';
 
 export class NavBar extends React.Component {
   constructor(props) {

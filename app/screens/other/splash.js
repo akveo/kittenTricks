@@ -15,7 +15,7 @@ import {
   KittenTheme
 } from '../../config/theme';
 import {NavigationActions} from 'react-navigation';
-
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 let timeFrame = 500;
 
@@ -68,7 +68,7 @@ export class SplashScreen extends React.Component {
         <ProgressBar
           color={RkTheme.current.colors.accent}
           style={styles.progress}
-          progress={this.state.progress} width={320}/>
+          progress={this.state.progress} width={scale(320)}/>
       </View>
     )
   }
@@ -82,6 +82,7 @@ let styles = StyleSheet.create({
   },
   image: {
     resizeMode: 'cover',
+    height: scaleVertical(430),
   },
   text: {
     alignItems: 'center'

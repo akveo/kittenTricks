@@ -14,6 +14,7 @@ import {
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 export class LoginV1 extends React.Component {
   static navigationOptions = {
@@ -25,7 +26,7 @@ export class LoginV1 extends React.Component {
   }
 
   _renderImage(image) {
-    let contentHeight = 375;
+    let contentHeight = scaleModerate(375, 1);
     let height = Dimensions.get('window').height - contentHeight;
     let width = Dimensions.get('window').width;
 
@@ -60,7 +61,6 @@ export class LoginV1 extends React.Component {
           <GradientButton onPress={() => {
             this.props.navigation.goBack()
           }} rkType='large' style={styles.save} text='LOGIN'/>
-
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Don’t have an account?</RkText>
@@ -83,11 +83,11 @@ let styles = RkStyleSheet.create(theme => ({
   },
   image: {
     resizeMode: 'cover',
-    marginBottom: 10,
+    marginBottom: scaleVertical(10),
   },
   container: {
     paddingHorizontal: 17,
-    paddingBottom: 22,
+    paddingBottom: scaleVertical(22),
     alignItems: 'center',
     flex: -1
   },
@@ -97,10 +97,13 @@ let styles = RkStyleSheet.create(theme => ({
   },
   buttons: {
     flexDirection: 'row',
-    marginBottom: 24
+    marginBottom: scaleVertical(24)
   },
   button: {
     marginHorizontal: 14
+  },
+  save: {
+    marginVertical: 9
   },
   textRow: {
     justifyContent: 'center',

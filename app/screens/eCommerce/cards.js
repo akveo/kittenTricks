@@ -18,6 +18,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {Data} from '../../data';
 import {PasswordTextInput} from '../../components/passwordTextInput';
 import {UIConstants} from '../../config/appConstants';
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 export class Cards extends React.Component {
   static navigationOptions = {
@@ -186,11 +187,11 @@ let styles = RkStyleSheet.create(theme => ({
     paddingTop: 4,
   },
   date: {
-    marginTop: 20
+    marginTop: scaleVertical(20)
   },
   footer: {
     marginTop: 8,
-    marginBottom: 16,
+    marginBottom: scaleVertical(16),
     alignItems: 'center'
   },
   button: {
@@ -199,7 +200,7 @@ let styles = RkStyleSheet.create(theme => ({
   },
   popup: {
     backgroundColor: theme.colors.screen.base,
-    marginTop: 70,
+    marginTop: scaleVertical(70),
     marginHorizontal: 37,
     borderRadius: 7
   },
@@ -213,7 +214,7 @@ let styles = RkStyleSheet.create(theme => ({
     margin: 16
   },
   popupHeader: {
-    marginBottom: 45
+    marginBottom: scaleVertical(45)
   },
   popupButtons: {
     marginTop: 15,

@@ -13,6 +13,7 @@ import {
 import {DarkKittenTheme} from '../../config/darkTheme';
 import {KittenTheme} from '../../config/theme';
 import {GradientButton} from '../../components/';
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 export class Themes extends React.Component {
   static navigationOptions = {
@@ -28,7 +29,7 @@ export class Themes extends React.Component {
       <View style={styles.root}>
         <View style={styles.container}>
           <RkText>Light Theme</RkText>
-          <Image source={require('../../assets/images/lightThemeImage.png')}/>
+          <Image style={styles.image} source={require('../../assets/images/lightThemeImage.png')}/>
           <GradientButton
             text='APPLY'
             onPress={() => {
@@ -38,7 +39,7 @@ export class Themes extends React.Component {
         </View>
         <View style={styles.container}>
           <RkText>Dark Theme</RkText>
-          <Image source={require('../../assets/images/darkThemeImage.png')}/>
+          <Image style={styles.image} source={require('../../assets/images/darkThemeImage.png')}/>
           <GradientButton
             text='APPLY'
             onPress={() => {
@@ -57,13 +58,16 @@ let styles = RkStyleSheet.create(theme => ({
   root: {
     backgroundColor: theme.colors.screen.base,
     flex: 1,
-    paddingHorizontal: 72,
+    paddingHorizontal: scale(72),
 
+  },
+  image: {
+    height: scaleVertical(160)
   },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 20
+    paddingVertical: scaleVertical(20)
   }
 }));

@@ -12,6 +12,7 @@ import {
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
 import {RkTheme} from 'react-native-ui-kitten';
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
@@ -72,13 +73,17 @@ export class LoginV2 extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
   screen: {
-    padding: 16,
+    padding: scaleVertical(16),
     flex: 1,
     justifyContent: 'space-between',
     backgroundColor: theme.colors.screen.base
   },
+  image:{
+    height:scaleVertical(77),
+    resizeMode:'contain'
+  },
   header: {
-    paddingBottom: 10,
+    paddingBottom: scaleVertical(10),
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1
@@ -91,7 +96,7 @@ let styles = RkStyleSheet.create(theme => ({
   },
   buttons: {
     flexDirection: 'row',
-    marginBottom: 24,
+    marginBottom: scaleVertical(24),
     marginHorizontal: 24,
     justifyContent: 'space-around',
   },
