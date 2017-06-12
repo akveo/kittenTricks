@@ -95,7 +95,7 @@ export class LineChart extends RkComponent {
             }
             newState.lineUpdated = !this.state.lineUpdated;
             this.setState(newState);
-        }, 1000);
+        }, 5000);
     }
 
     componentWillUnmount() {
@@ -124,7 +124,7 @@ export class LineChart extends RkComponent {
             <VictoryChart padding={{bottom: 20}}
                           scale="time"
                           height={120}
-                          animate={{duration: 500, onLoad: {duration: 1000}}}
+                          animate={{duration: 500}}
                           easing="linear">
                 <VictoryAxis
                     tickValues={['', '2013', '2014', '2015', '2016', '2017', '']}

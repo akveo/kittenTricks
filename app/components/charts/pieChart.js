@@ -68,13 +68,9 @@ export class PieChart extends RkComponent {
 
     render() {
         return (
-            <Svg>
+            <Svg height={250}
+                       width={250}>
                 <VictoryPie
-                    height={250}
-                    width={250}
-                    padding={10}
-                    animate={{duration: 400}}
-                    innerRadius={80}
                     labels={[]}
                     colorScale={this.computeColors()}
                     data={this.state.data}
@@ -86,24 +82,7 @@ export class PieChart extends RkComponent {
                     }]}
                 >
                 </VictoryPie>
-                <VictoryLabel
-                    textAnchor="middle" verticalAnchor="middle"
-                    x={125} y={135}
-                    text={[this.state.data[this.state.selected].title, this.state.data[this.state.selected].subTitle]}
-                    style={[
-                        {
-                            fontSize: 45,
-                            fontFamily: RkTheme.current.fonts.family.logo,
-                            stroke: RkTheme.current.colors.disabled,
-                            fill: RkTheme.current.colors.disabled,
-                        },
-                        {
-                            fontSize: 20,
-                            stroke: RkTheme.current.colors.disabled,
-                            fill: RkTheme.current.colors.disabled,
-                            fontFamily: RkTheme.current.fonts.family.logo
-                        }]}
-                />
+                
             </Svg>
         )
     }
