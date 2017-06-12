@@ -72,10 +72,10 @@ export class Dashboard extends React.Component {
                     {this.data.statItems.map(item => this.renderStatItem(item))}
                 </View>
                 <View style={styles.chartBlock}>
-                    <LineChart/>
+                    <PieChart/>
                 </View>
                 <View style={styles.chartBlock}>
-                    <PieChart/>
+                    <LineChart/>
                 </View>
                 <View style={styles.chartBlock}>
                     <AreaChart/>
@@ -90,47 +90,41 @@ export class Dashboard extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
     screen: {
-        backgroundColor: theme.colors.screen.base
-    },
-    headBlock: {},
-    gradient: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 5,
-        marginHorizontal: 5
+        backgroundColor: theme.colors.screen.alter,
+        paddingHorizontal: 15,
     },
     statItems: {
         flexDirection: 'row',
-        marginTop: 10,
-        paddingHorizontal: 10
+        justifyContent: 'space-between',
+        marginVertical: 15,
     },
     statItemContainer: {
-        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         borderRadius: 3,
-        marginHorizontal: 10,
         paddingHorizontal: 10,
         paddingVertical: 10
     },
-    chartBlock: {
-        paddingVertical: 20,
-        justifyContent: 'center'
-    },
     statItemIcon: {
         alignSelf: 'center',
-        marginHorizontal: 10,
-        fontSize: 32,
+        marginLeft: 10,
+        fontSize: 30,
+        width: 30,
         color: 'white',
     },
     statItemValue: {
         color: 'white',
-        fontSize: 20
+        fontSize: 18
     },
     statItemName: {
         color: 'white',
         fontSize: 14,
+    },
+    chartBlock: {
+        padding: 15,
+        marginBottom: 15,
+        backgroundColor: 'white',
+        justifyContent: 'center'
     },
 }));
 

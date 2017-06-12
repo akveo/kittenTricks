@@ -6,17 +6,17 @@ import {
 } from 'react-native';
 import {
     RkComponent,
+    RkText,
     RkTheme
 } from 'react-native-ui-kitten';
 
 import {
     VictoryPie,
+    VictoryChart,
     VictoryLabel,
+    VictoryAxis
 } from "victory-native";
 
-import {
-    Svg
-} from 'react-native-svg';
 
 export class PieChart extends RkComponent {
 
@@ -28,27 +28,35 @@ export class PieChart extends RkComponent {
             data: [
                 {
                     x: 1,
-                    y: 120,
-                    title: '7000',
-                    subTitle: 'CATS',
+                    y: 240,
+                    title: '24%',
+                    name: 'Comments',
                     color: RkTheme.current.colors.primary,
                     selectedColor: RkTheme.current.colors.primaryActive,
                 },
                 {
                     x: 2,
-                    y: 150,
-                    title: '9500',
-                    subTitle: 'DOGS',
+                    y: 540,
+                    title: '54%',
+                    name: 'Likes',
                     color: RkTheme.current.colors.info,
                     selectedColor: RkTheme.current.colors.infoActive,
                 },
                 {
                     x: 3,
-                    y: 75,
-                    title: '4750',
-                    subTitle: 'LOSEY',
+                    y: 120,
+                    title: '12%',
+                    name: 'People',
                     color: RkTheme.current.colors.success,
                     selectedColor: RkTheme.current.colors.successActive,
+                },
+                {
+                    x: 4,
+                    y: 100,
+                    title: '10%',
+                    name: 'Shares',
+                    color: RkTheme.current.colors.warning,
+                    selectedColor: RkTheme.current.colors.warningActive,
                 }
             ]
         }
@@ -68,22 +76,62 @@ export class PieChart extends RkComponent {
 
     render() {
         return (
-            <Svg height={250}
-                       width={250}>
-                <VictoryPie
-                    labels={[]}
-                    colorScale={this.computeColors()}
-                    data={this.state.data}
-                    events={[{
-                        target: "data",
-                        eventHandlers: {
-                            onPressIn: (evt, props) => this.handlePress(evt, props)
-                        }
-                    }]}
-                >
-                </VictoryPie>
-                
-            </Svg>
+            <View>
+                <RkText rkType='header4'>AUDIENCE OVERVIEW</RkText>
+                <VictoryChart padding={{left: 25, top: 20, bottom: 20, right: 50}}>
+                    <VictoryAxis dependentAxis
+                                 style={{
+                                     axis: {stroke: "transparent"},
+                                     tickLabels: {
+                                         stroke: 'transparent',
+                                         fill: 'transparent'
+                                     }
+                                 }}
+                    />
+                    <VictoryAxis
+                        style={{
+                            axis: {stroke: "transparent"},
+                            tickLabels: {
+                                stroke: 'transparent',
+                                fill: 'transparent'
+                            }
+                        }}
+                    />
+                    <VictoryPie
+                        labels={[]}
+                        colorScale={this.computeColors()}
+                        data={this.state.data}
+                        innerRadius={80}
+                        events={[{
+                            target: "data",
+                            eventHandlers: {
+                                onPressIn: (evt, props) => this.handlePress(evt, props)
+                            }
+                        }]}>
+                    </VictoryPie>
+                    <VictoryLabel
+                        textAnchor="middle" verticalAnchor="middle"
+                        x={165} y={145}
+                        text={this.state.data[this.state.selected].title}
+                        style={{
+                            fontSize: 45,
+                            fontFamily: RkTheme.current.fonts.family.regular,
+                            stroke: RkTheme.current.colors.text.base,
+                            fill: RkTheme.current.colors.text.base,
+                        }}
+                    />
+                </VictoryChart>
+                <View>
+                    {this.state.data.map(item => {
+                        return (
+                            <View key={item.name} style={{flexDirection: 'row', alignItems: 'center'}}>
+                                <View style={{width: 10, height: 10, borderRadius: 5, backgroundColor: item.color, marginRight: 10}}/>
+                                <RkText>{item.name}</RkText>
+                            </View>
+                        )
+                    })}
+                </View>
+            </View>
         )
     }
 }
