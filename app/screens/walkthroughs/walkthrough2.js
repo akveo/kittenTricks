@@ -24,7 +24,7 @@ export class Walkthrough2 extends React.Component {
     return (
       <View style={styles.screen}>
         {image}
-        <RkText style={styles.text}>Explore different examples of frequently used pages</RkText>
+        <RkText rkType='header2' style={styles.text}>Explore different examples of frequently used pages</RkText>
       </View>
     )
   }

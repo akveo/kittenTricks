@@ -23,7 +23,7 @@ export class Walkthrough1 extends React.Component {
     return (
       <View style={styles.screen}>
         {image}
-        <RkText style={styles.text}>Welcome to Kitten Pads</RkText>
+        <RkText rkType='header2' style={styles.text}>Welcome to Kitten Pads</RkText>
       </View>
     )
   }
