@@ -7,7 +7,8 @@ import {
 import {
     RkComponent,
     RkButton,
-    RkTheme
+    RkTheme,
+    RkText
 } from 'react-native-ui-kitten';
 
 import {
@@ -55,6 +56,7 @@ export class AreaChart extends RkComponent {
     render() {
         return (
             <View>
+                <RkText rkType='header4'>VISITORS</RkText>
                 <VictoryChart padding={{top: 50, bottom: 50, left: 35, right: 10}} width={300}>
                     <VictoryAxis
                         tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}
@@ -62,8 +64,8 @@ export class AreaChart extends RkComponent {
                             axis: {stroke: "transparent"},
                             tickLabels: {
                                 fontSize: 14,
-                                stroke: RkTheme.current.colors.disabled,
-                                fill: RkTheme.current.colors.disabled,
+                                stroke: RkTheme.current.colors.text.secondary,
+                                fill: RkTheme.current.colors.text.secondary,
                                 strokeWidth: 0.5
                             }
                         }}
@@ -76,8 +78,8 @@ export class AreaChart extends RkComponent {
                             grid: {stroke: RkTheme.current.colors.disabled, strokeWidth: 0.5},
                             tickLabels: {
                                 fontSize: 14,
-                                stroke: RkTheme.current.colors.disabled,
-                                fill: RkTheme.current.colors.disabled,
+                                stroke: RkTheme.current.colors.text.secondary,
+                                fill: RkTheme.current.colors.text.secondary,
                                 strokeWidth: 0.5
                             }
                         }}
