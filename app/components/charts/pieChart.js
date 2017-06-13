@@ -126,7 +126,7 @@ export class PieChart extends RkComponent {
                         return (
                             <View key={item.name} style={{flexDirection: 'row', alignItems: 'center'}}>
                                 <View style={{width: 10, height: 10, borderRadius: 5, backgroundColor: item.color, marginRight: 10}}/>
-                                <RkText>{item.name}</RkText>
+                                <RkText rkType="primary3">{item.name}</RkText>
                             </View>
                         )
                     })}

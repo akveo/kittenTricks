@@ -15,14 +15,10 @@ import {
     VictoryChart,
     VictoryAxis,
     VictoryArea,
-    VictoryPortal,
-    VictoryScatter,
+    VictoryPortal, VictoryScatter,
     VictoryGroup
 } from "victory-native";
 
-import {
-    Svg
-} from 'react-native-svg';
 
 export class AreaChart extends RkComponent {
 
@@ -37,37 +33,47 @@ export class AreaChart extends RkComponent {
                 {x: 5, y: 3},
                 {x: 6, y: 3},
                 {x: 7, y: 4},
+                {x: 8, y: 3},
+                {x: 9, y: 2},
+                {x: 10, y: 4},
             ]
         }
     }
 
-    renderLabelButton(text, i) {
-        return (
-            <RkButton onPress={() => this.changeData(i)} rkType="clear link">{text}</RkButton>
-        )
+    componentDidMount() {
+        this.setStateInterval = setInterval(() => {
+            let positive = Math.random() > 0.5;
+            let newValue = this.state.data[this.state.data.length - 1].y;
+            if (newValue > 3) {
+                positive = false
+            } else if (newValue < 2) {
+                positive = true
+            }
+            newValue = positive ? newValue + 1 : newValue - 1;
+            let newData = this.state.data.map((d, i) => {
+                let x = d.x;
+                let y = i == this.state.data.length - 1 ? newValue : this.state.data[i + 1].y;
+                return {x, y}
+            });
+            this.setState({
+                data: newData
+            });
+        }, 3000);
     }
 
-    changeData(i) {
-        this.setState({
-            selected: i
-        })
+    componentWillUnmount() {
+        clearInterval(this.setStateInterval);
     }
 
     render() {
         return (
             <View>
-                <RkText rkType='header4'>VISITORS</RkText>
-                <VictoryChart padding={{top: 50, bottom: 50, left: 35, right: 10}} width={300}>
+                <RkText rkType='header4'>REAL TIME VISITORS</RkText>
+                <VictoryChart padding={{top: 50, bottom: 10, left: 35, right: 10}} width={300}>
                     <VictoryAxis
-                        tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}
+                        tickValues={[]}
                         style={{
-                            axis: {stroke: "transparent"},
-                            tickLabels: {
-                                fontSize: 14,
-                                stroke: RkTheme.current.colors.text.secondary,
-                                fill: RkTheme.current.colors.text.secondary,
-                                strokeWidth: 0.5
-                            }
+                            axis: {stroke: "transparent"}
                         }}
                     />
                     <VictoryAxis
@@ -97,12 +103,14 @@ export class AreaChart extends RkComponent {
                             }}
                         />
                         <VictoryScatter
-                            style={{data: {
-                                fill: "white",
-                                stroke: RkTheme.current.colors.infoActive,
-                                strokeOpacity: 0.8,
-                                strokeWidth: 1.5
-                            }}}
+                            style={{
+                                data: {
+                                    fill: "white",
+                                    stroke: RkTheme.current.colors.infoActive,
+                                    strokeOpacity: 0.8,
+                                    strokeWidth: 1.5
+                                }
+                            }}
                         />
                     </VictoryGroup>
                 </VictoryChart>

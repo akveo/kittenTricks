@@ -5,20 +5,21 @@ import {
     ScrollView,
     Dimensions
 } from 'react-native';
+
 import {
     RkText,
-    RkCard,
     RkStyleSheet,
     RkTheme,
 } from 'react-native-ui-kitten';
+
 import {FontAwesome} from '../../assets/icons';
+
 import {
     ProgressChart,
     PieChart,
     AreaChart,
     AreaSmoothedChart
 } from '../../components/';
-import {GradientButton} from '../../components/';
 
 
 export class Dashboard extends React.Component {
@@ -123,8 +124,8 @@ let styles = RkStyleSheet.create(theme => ({
     chartBlock: {
         padding: 15,
         marginBottom: 15,
-        backgroundColor: 'white',
-        justifyContent: 'center'
+        backgroundColor: theme.colors.screen.base,
+    justifyContent: 'center'
     },
 }));
 
