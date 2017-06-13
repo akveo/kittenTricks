@@ -24,7 +24,7 @@ export class AreaSmoothedChart extends RkComponent {
 
     constructor(props) {
         super(props);
-        this.opacity = [1, 0.5, 0.35, 0.2];
+        this.opacity = [0.5, 0.35, 0.2];
         this.data = [
             [
                 {x: 1, y: 1.0, key: 0},
@@ -44,24 +44,24 @@ export class AreaSmoothedChart extends RkComponent {
                 {x: 6, y: 2.6, key: 5},
                 {x: 7, y: 3.3, key: 6}
             ],
-            [
-                {x: 1, y: 2.0, key: 0},
-                {x: 2, y: 2.5, key: 1},
-                {x: 3, y: 2.0, key: 2},
-                {x: 4, y: 1.1, key: 3},
-                {x: 5, y: 2.0, key: 4},
-                {x: 6, y: 3.2, key: 5},
-                {x: 7, y: 4.0, key: 6}
-            ],
-            [
-                {x: 1, y: 2.5, key: 0},
-                {x: 2, y: 3.0, key: 1},
-                {x: 3, y: 2.5, key: 2},
-                {x: 4, y: 1.4, key: 3},
-                {x: 5, y: 2.5, key: 4},
-                {x: 6, y: 3.7, key: 5},
-                {x: 7, y: 4.7, key: 6}
-            ]
+            // [
+            //     {x: 1, y: 2.0, key: 0},
+            //     {x: 2, y: 2.5, key: 1},
+            //     {x: 3, y: 2.0, key: 2},
+            //     {x: 4, y: 1.1, key: 3},
+            //     {x: 5, y: 2.0, key: 4},
+            //     {x: 6, y: 3.2, key: 5},
+            //     {x: 7, y: 4.0, key: 6}
+            // ],
+            // [
+            //     {x: 1, y: 2.5, key: 0},
+            //     {x: 2, y: 3.0, key: 1},
+            //     {x: 3, y: 2.5, key: 2},
+            //     {x: 4, y: 1.4, key: 3},
+            //     {x: 5, y: 2.5, key: 4},
+            //     {x: 6, y: 3.7, key: 5},
+            //     {x: 7, y: 4.7, key: 6}
+            // ]
         ]
     }
 

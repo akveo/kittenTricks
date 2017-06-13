@@ -13,7 +13,7 @@ import {
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
 import {
-    LineChart,
+    ProgressChart,
     PieChart,
     AreaChart,
     AreaSmoothedChart
@@ -75,10 +75,10 @@ export class Dashboard extends React.Component {
                     <PieChart/>
                 </View>
                 <View style={styles.chartBlock}>
-                    <LineChart/>
+                    <AreaChart/>
                 </View>
                 <View style={styles.chartBlock}>
-                    <AreaChart/>
+                    <ProgressChart/>
                 </View>
                 <View style={styles.chartBlock}>
                     <AreaSmoothedChart/>
