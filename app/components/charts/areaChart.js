@@ -14,6 +14,9 @@ import {
     VictoryChart,
     VictoryAxis,
     VictoryArea,
+    VictoryPortal,
+    VictoryScatter,
+    VictoryGroup
 } from "victory-native";
 
 import {
@@ -25,180 +28,25 @@ export class AreaChart extends RkComponent {
     constructor(props) {
         super(props);
         this.state = {
-            selected: 0,
             data: [
-                [
-                    {x: 1, y: 2},
-                    {x: 2, y: 3},
-                    {x: 3, y: 5},
-                    {x: 4, y: 4},
-                    {x: 5, y: 7},
-                    {x: 6, y: 6},
-                    {x: 7, y: 5},
-                    {x: 8, y: 7},
-                    {x: 9, y: 3},
-                    {x: 10, y: 4},
-                    {x: 11, y: 3},
-                    {x: 12, y: 5}
-                ], [{
-                    "x": 1,
-                    "y": 3
-                }, {
-                    "x": 2,
-                    "y": 2
-                }, {
-                    "x": 3,
-                    "y": 2
-                }, {
-                    "x": 4,
-                    "y": 7
-                }, {
-                    "x": 5,
-                    "y": 3
-                }, {
-                    "x": 6,
-                    "y": 3
-                }, {
-                    "x": 7,
-                    "y": 3
-                }, {
-                    "x": 8,
-                    "y": 7
-                }, {
-                    "x": 9,
-                    "y": 2
-                }, {
-                    "x": 10,
-                    "y": 3
-                }, {
-                    "x": 11,
-                    "y": 8
-                }, {
-                    "x": 12,
-                    "y": 8
-                }],
-                [{
-                    "x": 1,
-                    "y": 2
-                }, {
-                    "x": 2,
-                    "y": 7
-                }, {
-                    "x": 3,
-                    "y": 3
-                }, {
-                    "x": 4,
-                    "y": 5
-                }, {
-                    "x": 5,
-                    "y": 3
-                }, {
-                    "x": 6,
-                    "y": 8
-                }, {
-                    "x": 7,
-                    "y": 6
-                }, {
-                    "x": 8,
-                    "y": 8
-                }, {
-                    "x": 9,
-                    "y": 5
-                }, {
-                    "x": 10,
-                    "y": 7
-                }, {
-                    "x": 11,
-                    "y": 5
-                }, {
-                    "x": 12,
-                    "y": 8
-                }],
-                [{
-                    "x": 1,
-                    "y": 2
-                }, {
-                    "x": 2,
-                    "y": 4
-                }, {
-                    "x": 3,
-                    "y": 6
-                }, {
-                    "x": 4,
-                    "y": 5
-                }, {
-                    "x": 5,
-                    "y": 8
-                }, {
-                    "x": 6,
-                    "y": 8
-                }, {
-                    "x": 7,
-                    "y": 8
-                }, {
-                    "x": 8,
-                    "y": 6
-                }, {
-                    "x": 9,
-                    "y": 6
-                }, {
-                    "x": 10,
-                    "y": 4
-                }, {
-                    "x": 11,
-                    "y": 2
-                }, {
-                    "x": 12,
-                    "y": 6
-                }],
-                [{
-                    "x": 1,
-                    "y": 4
-                }, {
-                    "x": 2,
-                    "y": 4
-                }, {
-                    "x": 3,
-                    "y": 5
-                }, {
-                    "x": 4,
-                    "y": 3
-                }, {
-                    "x": 5,
-                    "y": 8
-                }, {
-                    "x": 6,
-                    "y": 5
-                }, {
-                    "x": 7,
-                    "y": 7
-                }, {
-                    "x": 8,
-                    "y": 8
-                }, {
-                    "x": 9,
-                    "y": 6
-                }, {
-                    "x": 10,
-                    "y": 3
-                }, {
-                    "x": 11,
-                    "y": 4
-                }, {
-                    "x": 12,
-                    "y": 3
-                }]
+                {x: 1, y: 1},
+                {x: 2, y: 2},
+                {x: 3, y: 1},
+                {x: 4, y: 2},
+                {x: 5, y: 3},
+                {x: 6, y: 3},
+                {x: 7, y: 4},
             ]
         }
     }
 
-    renderLabelButton(text, i){
+    renderLabelButton(text, i) {
         return (
             <RkButton onPress={() => this.changeData(i)} rkType="clear link">{text}</RkButton>
         )
     }
 
-    changeData(i){
+    changeData(i) {
         this.setState({
             selected: i
         })
@@ -207,16 +55,22 @@ export class AreaChart extends RkComponent {
     render() {
         return (
             <View>
-                <VictoryChart padding={{left: 70, right: 50, top: 50}} animate={{duration: 400}}>
+                <VictoryChart padding={{top: 50, bottom: 50, left: 35, right: 10}} width={300}>
                     <VictoryAxis
-                        tickValues={[]}
+                        tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}
                         style={{
                             axis: {stroke: "transparent"},
+                            tickLabels: {
+                                fontSize: 14,
+                                stroke: RkTheme.current.colors.disabled,
+                                fill: RkTheme.current.colors.disabled,
+                                strokeWidth: 0.5
+                            }
                         }}
                     />
                     <VictoryAxis
                         dependentAxis
-                        tickValues={['$100', '$200', '$300', '$400', '$500', '$600', '$700', '$800']}
+                        tickValues={['50', '100', '150', '200']}
                         style={{
                             axis: {stroke: "transparent"},
                             grid: {stroke: RkTheme.current.colors.disabled, strokeWidth: 0.5},
@@ -228,26 +82,28 @@ export class AreaChart extends RkComponent {
                             }
                         }}
                     />
-                    <VictoryArea
-                        style={{
-                            data: {
-                                fill: RkTheme.current.colors.success,
-                                fillOpacity: 0.05,
-                                stroke: RkTheme.current.colors.successActive,
+                    <VictoryGroup data={this.state.data}>
+                        <VictoryArea
+                            style={{
+                                data: {
+                                    fill: RkTheme.current.colors.info,
+                                    fillOpacity: 0.05,
+                                    stroke: RkTheme.current.colors.infoActive,
+                                    strokeOpacity: 0.8,
+                                    strokeWidth: 1.5
+                                }
+                            }}
+                        />
+                        <VictoryScatter
+                            style={{data: {
+                                fill: "white",
+                                stroke: RkTheme.current.colors.infoActive,
                                 strokeOpacity: 0.8,
                                 strokeWidth: 1.5
-                            }
-                        }}
-                        data={this.state.data[this.state.selected]}
-                    />
+                            }}}
+                        />
+                    </VictoryGroup>
                 </VictoryChart>
-                <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-                    {this.renderLabelButton('MON', 0)}
-                    {this.renderLabelButton('TUE', 1)}
-                    {this.renderLabelButton('WED', 2)}
-                    {this.renderLabelButton('THU', 3)}
-                    {this.renderLabelButton('FRI', 4)}
-                </View>
             </View>
         )
     }
