@@ -34,9 +34,9 @@ export class ProgressChart extends RkComponent {
     componentDidMount() {
         this.setStateInterval = setInterval(() => {
             let positive = Math.random() > 0.5;
-            if(this.state.percents > 95){
+            if (this.state.percents > 95) {
                 positive = false
-            } else if(this.state.percents < 60){
+            } else if (this.state.percents < 60) {
                 positive = true
             }
             this.setState({
@@ -49,7 +49,7 @@ export class ProgressChart extends RkComponent {
         clearInterval(this.setStateInterval);
     }
 
-    getData(){
+    getData() {
         return [{x: 1, y: this.state.percents}, {x: 2, y: 100 - this.state.percents}]
     }
 
@@ -57,51 +57,58 @@ export class ProgressChart extends RkComponent {
         return (
             <View>
                 <RkText rkType='header4'>FOLLOWERS</RkText>
-                <VictoryChart animate={400} padding={{left: 25, top: 20, bottom: 20, right: 50}}>
-                    <VictoryAxis dependentAxis
-                                 style={{
-                                     axis: {stroke: "transparent"},
-                                     tickLabels: {
-                                         stroke: 'transparent',
-                                         fill: 'transparent'
-                                     }
-                                 }}
-                    />
-                    <VictoryAxis
-                        style={{
-                            axis: {stroke: "transparent"},
-                            tickLabels: {
-                                stroke: 'transparent',
-                                fill: 'transparent'
-                            }
-                        }}
-                    />
-                    <VictoryPie
-                        labels={[]}
-                        style={{
-                            data: {
-                                fill: (d) => {
-                                    const color = RkTheme.current.colors.successActive;
-                                    return d.x === 1 ? color : "transparent";
+                <View style={{flexDirection: 'row', justifyContent: 'space-around' ,alignItems: 'center', marginTop: 10}}>
+                    <VictoryChart animate={400} padding={0} width={150} height={150} viewBox={"0 0 100 100"}>
+                        <VictoryAxis dependentAxis
+                                     style={{
+                                         axis: {stroke: "transparent"},
+                                         tickLabels: {
+                                             stroke: 'transparent',
+                                             fill: 'transparent'
+                                         }
+                                     }}
+                        />
+                        <VictoryAxis
+                            style={{
+                                axis: {stroke: "transparent"},
+                                tickLabels: {
+                                    stroke: 'transparent',
+                                    fill: 'transparent'
                                 }
-                            }
-                        }}
-                        data={this.getData()}
-                        cornerRadius={25}
-                        innerRadius={80}>
-                    </VictoryPie>
-                    <VictoryLabel
-                        textAnchor="middle" verticalAnchor="middle"
-                        x={165} y={145}
-                        text={`+${this.state.percents}%` }
-                        style={{
-                            fontSize: 45,
-                            fontFamily: RkTheme.current.fonts.family.regular,
-                            stroke: RkTheme.current.colors.text.base,
-                            fill: RkTheme.current.colors.text.base,
-                        }}
-                    />
-                </VictoryChart>
+                            }}
+                        />
+                        <VictoryPie
+                            labels={[]}
+                            style={{
+                                data: {
+                                    fill: (d) => {
+                                        const color = RkTheme.current.colors.successActive;
+                                        return d.x === 1 ? color : "transparent";
+                                    }
+                                }
+                            }}
+                            data={this.getData()}
+                            cornerRadius={25}
+                            innerRadius={50}>
+                        </VictoryPie>
+                        <VictoryLabel
+                            textAnchor="middle" verticalAnchor="middle"
+                            x={75} y={75}
+                            text={`+${this.state.percents}%` }
+                            style={{
+                                fontSize: 25,
+                                fontFamily: RkTheme.current.fonts.family.regular,
+                                stroke: RkTheme.current.colors.text.base,
+                                fill: RkTheme.current.colors.text.base,
+                            }}
+                        />
+                    </VictoryChart>
+                    <View>
+                        <RkText rkType='header4'>REACH</RkText>
+                        <RkText rkType='header2'>1 500 356</RkText>
+                        <RkText rkType='secondary2'>+6 per day in average</RkText>
+                    </View>
+                </View>
             </View>
         )
     }
