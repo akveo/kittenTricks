@@ -82,7 +82,7 @@ export class ProgressChart extends RkComponent {
                             style={{
                                 data: {
                                     fill: (d) => {
-                                        const color = RkTheme.current.colors.successActive;
+                                        const color = RkTheme.current.colors.charts.followersProgress;
                                         return d.x === 1 ? color : "transparent";
                                     }
                                 }

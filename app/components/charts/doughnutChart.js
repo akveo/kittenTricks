@@ -30,42 +30,36 @@ export class DoughnutChart extends RkComponent {
                     x: 1,
                     y: 240,
                     title: '24%',
-                    name: 'Comments',
-                    color: RkTheme.current.colors.primary,
-                    selectedColor: RkTheme.current.colors.primaryActive,
+                    name: 'Likes',
+                    color: RkTheme.current.colors.charts.doughnut[0],
                 },
                 {
                     x: 2,
-                    y: 540,
-                    title: '54%',
-                    name: 'Likes',
-                    color: RkTheme.current.colors.info,
-                    selectedColor: RkTheme.current.colors.infoActive,
+                    y: 270,
+                    title: '27%',
+                    name: 'Comments',
+                    color: RkTheme.current.colors.charts.doughnut[1],
                 },
                 {
                     x: 3,
-                    y: 120,
-                    title: '12%',
-                    name: 'People',
-                    color: RkTheme.current.colors.success,
-                    selectedColor: RkTheme.current.colors.successActive,
+                    y: 170,
+                    title: '17%',
+                    name: 'Shares',
+                    color: RkTheme.current.colors.charts.doughnut[2],
                 },
                 {
                     x: 4,
-                    y: 100,
-                    title: '10%',
-                    name: 'Shares',
-                    color: RkTheme.current.colors.warning,
-                    selectedColor: RkTheme.current.colors.warningActive,
+                    y: 320,
+                    title: '32%',
+                    name: 'People',
+                    color: RkTheme.current.colors.charts.doughnut[3],
                 }
             ]
         }
     }
 
     computeColors() {
-        return this.state.data.map((item, i) => {
-            return i == this.state.selected ? item.selectedColor : item.color
-        })
+        return this.state.data.map(i => i.color)
     }
 
     handlePress(e, props) {
@@ -133,7 +127,7 @@ export class DoughnutChart extends RkComponent {
                                     width: 10,
                                     height: 10,
                                     borderRadius: 5,
-                                    backgroundColor: i == this.state.selected ? item.selectedColor : item.color,
+                                    backgroundColor: item.color,
                                     marginRight: 5
                                 }}/>
                                 <RkText rkType="primary3">{item.name}</RkText>

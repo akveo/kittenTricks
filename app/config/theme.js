@@ -40,6 +40,22 @@ const Colors = {
   info: '#19bfe5',
   warning: '#feb401',
   danger: '#ed1c4d',
+
+  starsStat: '#2ab5fa',
+  tweetsStat: '#ffc61c',
+  likesStat: '#5468ff',
+
+  doughnutFirst: '#8a98ff',
+  doughnutSecond: '#ffd146',
+  doughnutThird: '#c2d521',
+  doughnutFourth: '#ff6b5c',
+
+  followersProgress: '#c2d521',
+
+  followersFirst: '#b3e5fc',
+  followersSecond: '#81d4fa',
+  followersThird: '#4fc3f7',
+  followersFourth: '#42a5f5',
 };
 
 const Fonts = {
@@ -111,9 +127,14 @@ export const KittenTheme = {
       axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
     },
     dashboard: {
-      stars: Colors.info,
-      tweets: Colors.warning,
-      likes: Colors.primary,
+      stars: Colors.starsStat,
+      tweets: Colors.tweetsStat,
+      likes: Colors.likesStat,
+    },
+    charts:{
+      followersProgress: Colors.followersProgress,
+      doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
+      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth]
     }
   },
   fonts: {
