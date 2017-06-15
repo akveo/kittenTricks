@@ -36,19 +36,19 @@ export class Dashboard extends React.Component {
                     name: 'Stars',
                     value: '4,512',
                     icon: 'github',
-                    background: RkTheme.current.colors.info
+                    background: RkTheme.current.colors.dashboard.stars
                 },
                 {
                     name: 'Tweets',
                     value: '2,256',
                     icon: 'twitter',
-                    background: RkTheme.current.colors.warning
+                    background: RkTheme.current.colors.dashboard.tweets
                 },
                 {
                     name: 'Likes',
                     value: '1,124',
                     icon: 'facebook',
-                    background: RkTheme.current.colors.primary
+                    background: RkTheme.current.colors.dashboard.likes
                 },
             ]
         };
@@ -91,7 +91,7 @@ export class Dashboard extends React.Component {
 
 let styles = RkStyleSheet.create(theme => ({
     screen: {
-        backgroundColor: theme.colors.screen.alter,
+        backgroundColor: theme.colors.screen.scroll,
         paddingHorizontal: 15,
     },
     statItems: {
@@ -125,7 +125,7 @@ let styles = RkStyleSheet.create(theme => ({
         padding: 15,
         marginBottom: 15,
         backgroundColor: theme.colors.screen.base,
-    justifyContent: 'center'
+        justifyContent: 'center'
     },
 }));
 

@@ -113,6 +113,11 @@ export const DarkKittenTheme = {
       visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
       mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
       axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
+    },
+    dashboard: {
+      stars: Colors.alterBackground,
+      tweets: Colors.alterBackground,
+      likes: Colors.alterBackground,
     }
   },
   fonts: {
