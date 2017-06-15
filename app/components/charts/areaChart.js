@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 import {
     RkComponent,
-    RkButton,
     RkTheme,
     RkText
 } from 'react-native-ui-kitten';
@@ -15,7 +14,7 @@ import {
     VictoryChart,
     VictoryAxis,
     VictoryArea,
-    VictoryPortal, VictoryScatter,
+    VictoryScatter,
     VictoryGroup
 } from "victory-native";
 

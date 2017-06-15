@@ -7,7 +7,8 @@ import {
 import {
     RkComponent,
     RkText,
-    RkTheme
+    RkTheme,
+    RkStyleSheet
 } from 'react-native-ui-kitten';
 
 import {
@@ -74,7 +75,6 @@ export class DoughnutChart extends RkComponent {
                 <RkText rkType='header4'>AUDIENCE OVERVIEW</RkText>
                 <View style={{alignSelf: 'center'}}>
                     <VictoryChart padding={20} width={300} height={300}>
-
                         <VictoryAxis dependentAxis
                                      style={{
                                          axis: {stroke: "transparent"},
@@ -119,17 +119,11 @@ export class DoughnutChart extends RkComponent {
                         />
                     </VictoryChart>
                 </View>
-                <View style={{flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                    {this.state.data.map((item, i) => {
+                <View style={styles.legendContainer}>
+                    {this.state.data.map(item => {
                         return (
-                            <View key={item.name} style={{flexDirection: 'row', alignItems: 'center'}}>
-                                <View style={{
-                                    width: 10,
-                                    height: 10,
-                                    borderRadius: 5,
-                                    backgroundColor: item.color,
-                                    marginRight: 5
-                                }}/>
+                            <View key={item.name} style={styles.legendItem}>
+                                <View style={[styles.itemBadge, {backgroundColor: item.color}]}/>
                                 <RkText rkType="primary3">{item.name}</RkText>
                             </View>
                         )
@@ -139,3 +133,21 @@ export class DoughnutChart extends RkComponent {
         )
     }
 }
+
+let styles = RkStyleSheet.create(theme => ({
+    legendContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+    },
+    legendItem: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    itemBadge: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        marginRight: 5
+    }
+}));

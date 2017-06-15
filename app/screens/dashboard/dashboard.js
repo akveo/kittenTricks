@@ -67,21 +67,22 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+        let chartBlockStyles = [styles.chartBlock, {backgroundColor: RkTheme.current.colors.control.background}];
         return (
             <ScrollView style={styles.screen}>
                 <View style={styles.statItems}>
                     {this.data.statItems.map(item => this.renderStatItem(item))}
                 </View>
-                <View style={styles.chartBlock}>
+                <View style={chartBlockStyles}>
                     <DoughnutChart/>
                 </View>
-                <View style={styles.chartBlock}>
+                <View style={chartBlockStyles}>
                     <AreaChart/>
                 </View>
-                <View style={styles.chartBlock}>
+                <View style={chartBlockStyles}>
                     <ProgressChart/>
                 </View>
-                <View style={styles.chartBlock}>
+                <View style={chartBlockStyles}>
                     <AreaSmoothedChart/>
                 </View>
             </ScrollView>
@@ -124,7 +125,6 @@ let styles = RkStyleSheet.create(theme => ({
     chartBlock: {
         padding: 15,
         marginBottom: 15,
-        backgroundColor: theme.colors.screen.base,
         justifyContent: 'center'
     },
 }));

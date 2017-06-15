@@ -7,7 +7,8 @@ import {
 import {
     RkComponent,
     RkText,
-    RkTheme
+    RkTheme,
+    RkStyleSheet
 } from 'react-native-ui-kitten';
 
 import {
@@ -20,9 +21,6 @@ import {
 
 export class ProgressChart extends RkComponent {
 
-    typeMapping = {
-        options: {},
-    };
 
     constructor(props) {
         super(props);
@@ -57,7 +55,7 @@ export class ProgressChart extends RkComponent {
         return (
             <View>
                 <RkText rkType='header4'>FOLLOWERS</RkText>
-                <View style={{flexDirection: 'row', justifyContent: 'space-around' ,alignItems: 'center', marginTop: 10}}>
+                <View style={styles.chartContainer}>
                     <VictoryChart animate={400} padding={0} width={150} height={150}>
                         <VictoryAxis dependentAxis
                                      style={{
@@ -113,3 +111,12 @@ export class ProgressChart extends RkComponent {
         )
     }
 }
+
+let styles = RkStyleSheet.create(theme => ({
+    chartContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        marginTop: 10
+    }
+}));

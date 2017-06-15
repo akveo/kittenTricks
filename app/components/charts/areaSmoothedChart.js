@@ -16,10 +16,6 @@ import {
     VictoryArea,
 } from "victory-native";
 
-import {
-    Svg
-} from 'react-native-svg';
-
 export class AreaSmoothedChart extends RkComponent {
 
     constructor(props) {
