@@ -62,6 +62,10 @@ export class DoughnutChart extends RkComponent {
         }
     }
 
+    componentWillMount(){
+        this.size = Dimensions.get('window').width;
+    }
+
     computeColors() {
         return this.state.data.map((item, i) => {
             return i == this.state.selected ? item.selectedColor : item.color
@@ -78,54 +82,64 @@ export class DoughnutChart extends RkComponent {
         return (
             <View>
                 <RkText rkType='header4'>AUDIENCE OVERVIEW</RkText>
-                <VictoryChart padding={{left: 25, top: 20, bottom: 20, right: 50}}>
-                    <VictoryAxis dependentAxis
-                                 style={{
-                                     axis: {stroke: "transparent"},
-                                     tickLabels: {
-                                         stroke: 'transparent',
-                                         fill: 'transparent'
-                                     }
-                                 }}
-                    />
-                    <VictoryAxis
-                        style={{
-                            axis: {stroke: "transparent"},
-                            tickLabels: {
-                                stroke: 'transparent',
-                                fill: 'transparent'
-                            }
-                        }}
-                    />
-                    <VictoryPie
-                        labels={[]}
-                        colorScale={this.computeColors()}
-                        data={this.state.data}
-                        innerRadius={80}
-                        events={[{
-                            target: "data",
-                            eventHandlers: {
-                                onPressIn: (evt, props) => this.handlePress(evt, props)
-                            }
-                        }]}>
-                    </VictoryPie>
-                    <VictoryLabel
-                        textAnchor="middle" verticalAnchor="middle"
-                        x={165} y={145}
-                        text={this.state.data[this.state.selected].title}
-                        style={{
-                            fontSize: 45,
-                            fontFamily: RkTheme.current.fonts.family.regular,
-                            stroke: RkTheme.current.colors.text.base,
-                            fill: RkTheme.current.colors.text.base,
-                        }}
-                    />
-                </VictoryChart>
-                <View>
-                    {this.state.data.map(item => {
+                <View style={{alignSelf: 'center'}}>
+                    <VictoryChart padding={20} width={300} height={300}>
+
+                        <VictoryAxis dependentAxis
+                                     style={{
+                                         axis: {stroke: "transparent"},
+                                         tickLabels: {
+                                             stroke: 'transparent',
+                                             fill: 'transparent'
+                                         }
+                                     }}
+                        />
+                        <VictoryAxis
+                            style={{
+                                axis: {stroke: "transparent"},
+                                tickLabels: {
+                                    stroke: 'transparent',
+                                    fill: 'transparent'
+                                }
+                            }}
+                        />
+                        <VictoryPie
+                            viewBox={"0, 0, 100, 100"}
+                            labels={[]}
+                            colorScale={this.computeColors()}
+                            data={this.state.data}
+                            innerRadius={80}
+                            events={[{
+                                target: "data",
+                                eventHandlers: {
+                                    onPressIn: (evt, props) => this.handlePress(evt, props)
+                                }
+                            }]}>
+                        </VictoryPie>
+                        <VictoryLabel
+                            textAnchor="middle" verticalAnchor="middle"
+                            x={150} y={150}
+                            text={this.state.data[this.state.selected].title}
+                            style={{
+                                fontSize: 45,
+                                fontFamily: RkTheme.current.fonts.family.regular,
+                                stroke: RkTheme.current.colors.text.base,
+                                fill: RkTheme.current.colors.text.base,
+                            }}
+                        />
+                    </VictoryChart>
+                </View>
+                <View style={{flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around'}}>
+                    {this.state.data.map((item, i) => {
                         return (
                             <View key={item.name} style={{flexDirection: 'row', alignItems: 'center'}}>
-                                <View style={{width: 10, height: 10, borderRadius: 5, backgroundColor: item.color, marginRight: 10}}/>
+                                <View style={{
+                                    width: 10,
+                                    height: 10,
+                                    borderRadius: 5,
+                                    backgroundColor: i == this.state.selected ? item.selectedColor : item.color,
+                                    marginRight: 5
+                                }}/>
                                 <RkText rkType="primary3">{item.name}</RkText>
                             </View>
                         )

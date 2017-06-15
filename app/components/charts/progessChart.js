@@ -58,7 +58,7 @@ export class ProgressChart extends RkComponent {
             <View>
                 <RkText rkType='header4'>FOLLOWERS</RkText>
                 <View style={{flexDirection: 'row', justifyContent: 'space-around' ,alignItems: 'center', marginTop: 10}}>
-                    <VictoryChart animate={400} padding={0} width={150} height={150} viewBox={"0 0 100 100"}>
+                    <VictoryChart animate={400} padding={0} width={150} height={150}>
                         <VictoryAxis dependentAxis
                                      style={{
                                          axis: {stroke: "transparent"},
