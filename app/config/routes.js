@@ -188,13 +188,18 @@ export const MainRoutes = [
       },
     ]
   },
-  // {
-  //   id: 'DashboardsMenu',
-  //   title: 'Dashboards',
-  //   icon: FontIcons.dashboard,
-  //   screen: Screens.DashboardMenu,
-  //   children: []
-  // },
+  {
+    id: 'DashboardsMenu',
+    title: 'Dashboards',
+    icon: FontIcons.dashboard,
+    screen: Screens.DashboardMenu,
+    children: [{
+      id: 'Dashboard',
+      title: 'Dashboard',
+      screen: Screens.Dashboard,
+      children: []
+    },]
+  },
   {
     id: 'WalkthroughMenu',
     title: 'Walkthrough',

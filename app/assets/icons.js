@@ -25,4 +25,5 @@ export const FontAwesome = {
   chevronLeft: String.fromCharCode(61700),
   bars: String.fromCharCode(61641),
   slashEye: String.fromCharCode(61552),
+  github: String.fromCharCode(61595),
 };
