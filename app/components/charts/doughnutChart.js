@@ -18,6 +18,7 @@ import {
     VictoryAxis
 } from "victory-native";
 
+import Svg from 'react-native-svg';
 
 export class DoughnutChart extends RkComponent {
 
@@ -74,30 +75,12 @@ export class DoughnutChart extends RkComponent {
             <View>
                 <RkText rkType='header4'>AUDIENCE OVERVIEW</RkText>
                 <View style={{alignSelf: 'center'}}>
-                    <VictoryChart padding={20} width={300} height={300}>
-                        <VictoryAxis dependentAxis
-                                     style={{
-                                         axis: {stroke: "transparent"},
-                                         tickLabels: {
-                                             stroke: 'transparent',
-                                             fill: 'transparent'
-                                         }
-                                     }}
-                        />
-                        <VictoryAxis
-                            style={{
-                                axis: {stroke: "transparent"},
-                                tickLabels: {
-                                    stroke: 'transparent',
-                                    fill: 'transparent'
-                                }
-                            }}
-                        />
+                    <Svg width={300} height={300} viewBox="0 0 400 400" style={{ width: "100%", height: "auto" }}>
                         <VictoryPie
-                            viewBox={"0, 0, 100, 100"}
                             labels={[]}
                             colorScale={this.computeColors()}
                             data={this.state.data}
+                            standalone={false}
                             innerRadius={80}
                             events={[{
                                 target: "data",
@@ -108,7 +91,7 @@ export class DoughnutChart extends RkComponent {
                         </VictoryPie>
                         <VictoryLabel
                             textAnchor="middle" verticalAnchor="middle"
-                            x={150} y={150}
+                            x={200} y={200}
                             text={this.state.data[this.state.selected].title}
                             style={{
                                 fontSize: 45,
@@ -117,7 +100,7 @@ export class DoughnutChart extends RkComponent {
                                 fill: RkTheme.current.colors.text.base,
                             }}
                         />
-                    </VictoryChart>
+                    </Svg>
                 </View>
                 <View style={styles.legendContainer}>
                     {this.state.data.map(item => {
