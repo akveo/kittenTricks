@@ -16,7 +16,7 @@ import {FontAwesome} from '../../assets/icons';
 
 import {
     ProgressChart,
-    PieChart,
+    DoughnutChart,
     AreaChart,
     AreaSmoothedChart
 } from '../../components/';
@@ -73,7 +73,7 @@ export class Dashboard extends React.Component {
                     {this.data.statItems.map(item => this.renderStatItem(item))}
                 </View>
                 <View style={styles.chartBlock}>
-                    <PieChart/>
+                    <DoughnutChart/>
                 </View>
                 <View style={styles.chartBlock}>
                     <AreaChart/>

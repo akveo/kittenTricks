@@ -18,7 +18,7 @@ import {
 } from "victory-native";
 
 
-export class PieChart extends RkComponent {
+export class DoughnutChart extends RkComponent {
 
     constructor(props) {
         super(props);

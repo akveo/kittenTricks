@@ -1,4 +1,4 @@
 export * from "./progessChart"
-export * from "./pieChart"
+export * from "./doughnutChart"
 export * from "./areaChart"
 export * from "./areaSmoothedChart"
