@@ -62,10 +62,6 @@ export class DoughnutChart extends RkComponent {
         }
     }
 
-    componentWillMount(){
-        this.size = Dimensions.get('window').width;
-    }
-
     computeColors() {
         return this.state.data.map((item, i) => {
             return i == this.state.selected ? item.selectedColor : item.color

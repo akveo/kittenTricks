@@ -65,12 +65,15 @@ export class AreaSmoothedChart extends RkComponent {
         ]
     }
 
+    componentWillMount(){
+        this.size = Dimensions.get('window').width;
+    }
 
     render() {
         return (
             <View>
                 <RkText rkType='header4'>NEW FOLLOWERS</RkText>
-                <VictoryChart padding={{top: 50, bottom: 50, left: 35, right: 10}} width={300}>
+                <VictoryChart padding={{top: 20, left: 40, right: 15, bottom: 40}} width={this.size - 60}>
                     <VictoryAxis
                         tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}
                         style={{

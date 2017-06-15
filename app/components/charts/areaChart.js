@@ -40,6 +40,10 @@ export class AreaChart extends RkComponent {
         }
     }
 
+    componentWillMount(){
+        this.size = Dimensions.get('window').width;
+    }
+
     componentDidMount() {
         this.setStateInterval = setInterval(() => {
             let positive = Math.random() > 0.5;
@@ -69,7 +73,7 @@ export class AreaChart extends RkComponent {
         return (
             <View>
                 <RkText rkType='header4'>REAL TIME VISITORS</RkText>
-                <VictoryChart padding={{top: 50, bottom: 10, left: 35, right: 10}} width={300}>
+                <VictoryChart  padding={{top: 20, left: 40, right: 5, bottom: 5}} width={this.size - 60}>
                     <VictoryAxis
                         tickValues={[]}
                         style={{
