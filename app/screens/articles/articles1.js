@@ -2,7 +2,8 @@ import React from 'react';
 import {
   FlatList,
   Image,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import {
   RkText,
@@ -21,6 +22,7 @@ export class Articles1 extends React.Component {
     super(props);
 
     this.data = Data.getArticles();
+    this.renderItem = this._renderItem.bind(this);
   }
 
   _keyExtractor(post, index) {
@@ -28,17 +30,22 @@ export class Articles1 extends React.Component {
   }
 
   _renderItem(info) {
+    let nav = ()=>{
+      this.props.navigation.navigate('Article', {id: info.item.id});
+    };
     return (
-      <RkCard rkType='backImg'>
-        <Image rkCardImg source={info.item.photo}/>
-        <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-          <RkText rkType='header2 inverseColor'>{info.item.header}</RkText>
-          <RkText rkType='secondary2 inverseColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
-          <View rkCardFooter style={styles.footer}>
-            <SocialBar rkType='leftAligned'/>
-          </View >
-        </View>
-      </RkCard>
+      <TouchableOpacity onPress={nav}>
+        <RkCard rkType='backImg'>
+          <Image rkCardImg source={info.item.photo}/>
+          <View rkCardImgOverlay rkCardContent style={styles.overlay}>
+            <RkText rkType='header2 inverseColor'>{info.item.header}</RkText>
+            <RkText rkType='secondary2 inverseColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
+            <View rkCardFooter style={styles.footer}>
+              <SocialBar rkType='leftAligned'/>
+            </View >
+          </View>
+        </RkCard>
+      </TouchableOpacity>
     )
   }
 
@@ -47,7 +54,7 @@ export class Articles1 extends React.Component {
     info.item = this.data[0];
     return (
       <FlatList data={this.data}
-                renderItem={this._renderItem}
+                renderItem={this.renderItem}
                 keyExtractor={this._keyExtractor}
                 style={styles.root}/>
 

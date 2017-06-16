@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import * as appData from './appData'
+import realm from './realm'
+import populate from './dataGenerator'
 
 class DataProvider {
 
@@ -23,7 +25,11 @@ class DataProvider {
   }
 
   getArticles() {
-    return _.cloneDeep(appData.Articles);
+    return realm.objects('Article').filtered('type="article"');
+  }
+
+  getArticle(id) {
+    return realm.objects('Article').filtered(`type="article" AND id=${id}`)[0];
   }
 
   getFacts() {
@@ -79,6 +85,10 @@ class DataProvider {
   getCards() {
     return _.cloneDeep(appData.Cards);
   }
+
+  populateRealm() {
+    populate();
+  }
 }
 
-export let Data = new DataProvider();
+export let data = new DataProvider();

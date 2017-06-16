@@ -9,7 +9,7 @@ import {
   RkText,
   RkStyleSheet
 } from 'react-native-ui-kitten';
-import {Data} from '../../data';
+import {data} from '../../data';
 import {Avatar} from '../../components';
 import {SocialBar} from '../../components';
 let moment = require('moment');
@@ -22,8 +22,10 @@ export class Article extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.data = Data.getPosts()[0];
+    let {params} = this.props.navigation.state;
+    if (params.id) {
+      this.data = Data.getArticle(params.id);
+    }
   }
 
   render() {
