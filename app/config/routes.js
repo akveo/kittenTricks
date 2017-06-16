@@ -4,39 +4,6 @@ import _ from 'lodash';
 
 export const MainRoutes = [
   {
-    id: 'NavigationMenu',
-    icon: FontIcons.navigation,
-    title: 'Navigation',
-    screen: Screens.NavigationMenu,
-    children: [
-      {
-        id: 'GridV1',
-        title: 'Grid Menu V1',
-        screen: Screens.GridV1,
-        children: []
-      },
-      {
-        id: 'GridV2',
-        title: 'Grid Menu V2',
-        screen: Screens.GridV2,
-        children: []
-      },
-      {
-        id: 'List',
-        title: 'List Menu',
-        screen: Screens.ListMenu,
-        children: []
-      },
-      {
-        id: 'Side',
-        title: 'Side Menu',
-        action: 'DrawerOpen',
-        screen: Screens.SideMenu,
-        children: []
-      }
-    ]
-  },
-  {
     id: 'LoginMenu',
     title: 'Login',
     icon: FontIcons.login,
@@ -223,6 +190,39 @@ export const MainRoutes = [
     ]
   },
   {
+    id: 'NavigationMenu',
+    icon: FontIcons.navigation,
+    title: 'Navigation',
+    screen: Screens.NavigationMenu,
+    children: [
+      {
+        id: 'GridV1',
+        title: 'Grid Menu V1',
+        screen: Screens.GridV1,
+        children: []
+      },
+      {
+        id: 'GridV2',
+        title: 'Grid Menu V2',
+        screen: Screens.GridV2,
+        children: []
+      },
+      {
+        id: 'List',
+        title: 'List Menu',
+        screen: Screens.ListMenu,
+        children: []
+      },
+      {
+        id: 'Side',
+        title: 'Side Menu',
+        action: 'DrawerOpen',
+        screen: Screens.SideMenu,
+        children: []
+      }
+    ]
+  },
+  {
     id: 'OtherMenu',
     title: 'Other',
     icon: FontIcons.other,
@@ -242,7 +242,7 @@ export const MainRoutes = [
     icon: FontIcons.theme,
     screen: Screens.Themes,
     children: []
-  }
+  },
 ];
 
 let menuRoutes = _.cloneDeep(MainRoutes);
