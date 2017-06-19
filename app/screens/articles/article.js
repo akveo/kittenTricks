@@ -23,9 +23,8 @@ export class Article extends React.Component {
   constructor(props) {
     super(props);
     let {params} = this.props.navigation.state;
-    if (params.id) {
-      this.data = Data.getArticle(params.id);
-    }
+    let id = params ? params.id : 1;
+    this.data = data.getArticle(id);
   }
 
   render() {
@@ -35,10 +34,10 @@ export class Article extends React.Component {
           <Image rkCardImg source={this.data.photo}/>
           <View rkCardHeader>
             <View>
-              <RkText style={styles.title} rkType='header4'>{this.data.title}</RkText>
-              <RkText rkType='secondary2 alterColor'>{moment().add(this.data.time, 'seconds').fromNow()}</RkText>
+              <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
+              <RkText rkType='secondary2 hintColor'>{moment().add(this.data.time, 'seconds').fromNow()}</RkText>
             </View>
-            <Avatar rkType='circle' img={this.data.avatar}/>
+            <Avatar rkType='circle' img={this.data.user.photo}/>
           </View>
           <View rkCardContent>
             <View>

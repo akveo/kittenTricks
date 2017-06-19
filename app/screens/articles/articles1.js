@@ -10,7 +10,7 @@ import {
   RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
-import {Data} from '../../data';
+import {data} from '../../data';
 let moment = require('moment');
 
 export class Articles1 extends React.Component {
@@ -21,7 +21,7 @@ export class Articles1 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.data = Data.getArticles();
+    this.data = data.getArticles();
     this.renderItem = this._renderItem.bind(this);
   }
 
@@ -30,11 +30,8 @@ export class Articles1 extends React.Component {
   }
 
   _renderItem(info) {
-    let nav = ()=>{
-      this.props.navigation.navigate('Article', {id: info.item.id});
-    };
     return (
-      <TouchableOpacity onPress={nav}>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
         <RkCard rkType='backImg'>
           <Image rkCardImg source={info.item.photo}/>
           <View rkCardImgOverlay rkCardContent style={styles.overlay}>

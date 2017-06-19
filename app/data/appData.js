@@ -118,7 +118,7 @@ export const Facts =
     'time': -3519,
     'userId': 8,
     'title': 'Cold Water',
-    'text': 'Cold water weighs less than hot water.'
+    'text': 'Cold water weighs more than hot water.'
   }, {
     'id': 5,
     'photo': require('../data/img/photo49.png'),

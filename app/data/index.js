@@ -24,12 +24,12 @@ class DataProvider {
     return actions;
   }
 
-  getArticles() {
-    return realm.objects('Article').filtered('type="article"');
+  getArticles(type='article') {
+    return realm.objects('Article').filtered(`type="${type}"`);
   }
 
   getArticle(id) {
-    return realm.objects('Article').filtered(`type="article" AND id=${id}`)[0];
+    return realm.objects('Article').filtered(`id=${id}`)[0];
   }
 
   getFacts() {
