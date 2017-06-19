@@ -44,6 +44,18 @@ const Colors = {
   info: '#19bfe5',
   warning: '#feb401',
 
+  doughnutFirst: '#d500f9',
+  doughnutSecond: '#7c4dff',
+  doughnutThird: '#40c4ff',
+  doughnutFourth: '#2962ff',
+
+  followersProgress: '#d500f9',
+
+  followersFirst: '#2942ff',
+  followersSecond: '#1b2ba6',
+  followersThird: '#081c6e',
+  followersFourth: '#09103f',
+
 };
 
 const Fonts = {
@@ -113,6 +125,16 @@ export const DarkKittenTheme = {
       visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
       mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
       axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
+    },
+    dashboard: {
+      stars: Colors.alterBackground,
+      tweets: Colors.alterBackground,
+      likes: Colors.alterBackground,
+    },
+    charts:{
+      followersProgress: Colors.followersProgress,
+      doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
+      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth]
     }
   },
   fonts: {
