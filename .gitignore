@@ -51,3 +51,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 *.bak
+android/app/kittenTricks.jks

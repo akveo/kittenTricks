@@ -358,25 +358,33 @@ export const Conversations = [
     id: 0,
     type: 'out',
     date: -300,
-    text: 'When using Chrome debugging, it runs all the JavaScript code within Chrome itself and communicates with native code via WebSocket. So you are using V8.'
+    text: 'Hey, how’ve you been?'
   },
   {
     id: 1,
     date: -240,
     type: 'in',
-    text: 'When using React Native, you\'re going to be running your JavaScript code in two environments:'
+    text: 'Yeah, not bad, actually I finally got a call back from that job that I interviewed for, and guess what? I got it!'
   },
   {
     id: 2,
     date: -100,
     type: 'out',
-    text: 'Syntax transformers make writing code more enjoyable by allowing you to use new JavaScript syntax without having to wait for support on all interpreters.'
+    text: 'Well, uhm yes and no, I go in for training tomorrow, but I don’t really start until next week. ' +
+    'Do you have some time this weekend, maybe we could get together?'
   },
   {
     id: 3,
     date: -45,
     type: 'in',
-    text: 'Here\'s a full list of React Native\'s enabled transformations.'
+    text: 'I’ve got a lot planned this weekend, just running around, doing loads of stuff, but Friday’s pretty open.'
+  }
+  ,
+  {
+    id: 4,
+    date: -5,
+    type: 'in',
+    text: 'That works pretty well for me!'
   }
 ];
 

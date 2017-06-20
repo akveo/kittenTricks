@@ -84,15 +84,10 @@ export class Chat extends React.Component {
   }
 
   _scroll() {
-    let scroll = () => {
-      this.refs.list.scrollToIndex(
-        {viewPosition: 1, index: this.state.data.length - 1});
-    };
-
     if (Platform.OS === 'ios') {
-      scroll();
+      this.refs.list.scrollToEnd();
     } else {
-      _.delay(scroll, 100);
+      _.delay(() => this.refs.list.scrollToEnd(), 100);
     }
   }
 

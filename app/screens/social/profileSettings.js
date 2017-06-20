@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   ScrollView,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import {
   RkText,
@@ -149,7 +150,7 @@ let styles = RkStyleSheet.create(theme => ({
   row: {
     flexDirection: 'row',
     paddingHorizontal: 17.5,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
     alignItems: 'center'
   },

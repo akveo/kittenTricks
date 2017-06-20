@@ -105,6 +105,7 @@ export const DarkKittenTheme = {
     border: {
       base: Colors.border,
       accent: Colors.alterBackground,
+      secondary: Colors.secondaryForeground
     },
     control: {
       background: Colors.alterBackground
