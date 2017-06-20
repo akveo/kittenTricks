@@ -4,7 +4,8 @@ import {
   View,
   ScrollView,
   Image,
-  Platform
+  Platform,
+  StyleSheet
 } from 'react-native';
 import {NavigationActions} from 'react-navigation';
 import {
@@ -79,7 +80,7 @@ let styles = RkStyleSheet.create(theme => ({
   container: {
     height: 80,
     paddingHorizontal: 16,
-    borderTopWidth: 1,
+    borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base
   },
   root: {

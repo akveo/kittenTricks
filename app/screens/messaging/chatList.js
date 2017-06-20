@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   FlatList,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import _ from 'lodash';
 import {
@@ -122,7 +123,7 @@ let styles = RkStyleSheet.create(theme => ({
     marginBottom: 6
   },
   separator: {
-    height: 1,
+    height: StyleSheet.hairlineWidth,
     backgroundColor: theme.colors.border.base
   }
 }));

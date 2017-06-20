@@ -2,7 +2,8 @@ import React from 'react';
 import {
   ListView,
   TouchableHighlight,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import {
   RkText,
@@ -56,7 +57,7 @@ let styles = RkStyleSheet.create(theme => ({
   item: {
     height: 80,
     justifyContent: 'center',
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
     paddingHorizontal: 16
   },

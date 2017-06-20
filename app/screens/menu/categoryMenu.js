@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import {
   ListView,
   TouchableHighlight,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import {RkStyleSheet, RkTheme, RkText} from 'react-native-ui-kitten';
 
@@ -68,7 +69,7 @@ let styles = RkStyleSheet.create(theme => ({
   item: {
     paddingVertical: 32.5,
     paddingHorizontal: 16.5,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
   },
   list: {
