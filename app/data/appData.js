@@ -367,6 +367,12 @@ export const Conversations = [
     text: 'Yeah, not bad, actually I finally got a call back from that job that I interviewed for, and guess what? I got it!'
   },
   {
+    id: 1,
+    date: -230,
+    type: 'out',
+    text: 'Awesome! Yeah, well done, that’s really great to hear. Do you start right away?'
+  },
+  {
     id: 2,
     date: -100,
     type: 'out',
@@ -383,7 +389,7 @@ export const Conversations = [
   {
     id: 4,
     date: -5,
-    type: 'in',
+    type: 'out',
     text: 'That works pretty well for me!'
   }
 ];
