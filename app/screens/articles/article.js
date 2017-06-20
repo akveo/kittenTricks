@@ -2,7 +2,8 @@ import React from 'react';
 import {
   ScrollView,
   Image,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import {
   RkCard,
@@ -37,7 +38,9 @@ export class Article extends React.Component {
               <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
               <RkText rkType='secondary2 hintColor'>{moment().add(this.data.time, 'seconds').fromNow()}</RkText>
             </View>
-            <Avatar rkType='circle' img={this.data.user.photo}/>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: this.data.id})}>
+              <Avatar rkType='circle' img={this.data.user.photo}/>
+            </TouchableOpacity>
           </View>
           <View rkCardContent>
             <View>

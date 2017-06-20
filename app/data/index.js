@@ -6,7 +6,7 @@ import populate from './dataGenerator'
 class DataProvider {
 
   getUser(id = 1) {
-    return _.find(appData.Users, {id});
+    return realm.objects('User').filtered(`id=${id}`)[0];
   }
 
   getUsers() {
@@ -14,14 +14,7 @@ class DataProvider {
   }
 
   getNotifications() {
-    let actions = _.cloneDeep(appData.Actions);
-    for (let action of actions) {
-      let user = _.find(appData.Users, {id: action.id});
-      action.photo = user.photo;
-      action.username = `${user.firstName} ${user.lastName}`
-    }
-
-    return actions;
+    return realm.objects('Notification');
   }
 
   getArticles(type='article') {
@@ -30,16 +23,6 @@ class DataProvider {
 
   getArticle(id) {
     return realm.objects('Article').filtered(`id=${id}`)[0];
-  }
-
-  getFacts() {
-    let facts = _.cloneDeep(appData.Facts);
-    for (let fact of facts) {
-      let user = _.find(appData.Users, {id: fact.userId});
-      fact.username = `${user.firstName} ${user.lastName}`;
-    }
-
-    return facts;
   }
 
   getPosts() {

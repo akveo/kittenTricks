@@ -19,6 +19,7 @@ User.schema = {
     postCount: {type: 'int'},
     followersCount: {type: 'int'},
     followingCount: {type: 'int'},
+    images: {type: 'list', objectType: 'Photo'}
   }
 };
 
@@ -52,4 +53,29 @@ Comment.schema = {
   }
 };
 
-export default new Realm({schema: [User, Article, Comment]})
+class Notification extends Realm.Object {
+}
+Notification.schema = {
+  name: 'Notification',
+  primaryKey: 'id',
+  properties: {
+    id: 'int',
+    description: 'string',
+    time: 'int',
+    attach: {type: 'int', optional: true},
+    user: 'User',
+
+  }
+};
+
+class Photo extends Realm.Object {
+}
+Photo.schema = {
+  name: 'Photo',
+  properties: {
+    id: 'int'
+  }
+};
+
+
+export default new Realm({schema: [User, Article, Comment, Photo, Notification]})
