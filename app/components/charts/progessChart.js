@@ -53,7 +53,7 @@ export class ProgressChart extends RkComponent {
       <View>
         <RkText rkType='header4'>FOLLOWERS</RkText>
         <View style={styles.chartContainer}>
-          <VictoryChart animate={400} padding={0} width={scale(150)} height={scale(150)}>
+          <VictoryChart animate={400} padding={0} width={scale(120)} height={scale(120)}>
             <VictoryAxis dependentAxis
                          style={{
                            axis: {stroke: 'transparent'},
@@ -84,11 +84,11 @@ export class ProgressChart extends RkComponent {
               }}
               data={this.getData()}
               cornerRadius={scale(25)}
-              innerRadius={scale(50)}>
+              innerRadius={scale(40)}>
             </VictoryPie>
             <VictoryLabel
               textAnchor="middle" verticalAnchor="middle"
-              x={scale(75)} y={scale(75)}
+              x={scale(60)} y={scale(60)}
               text={`+${this.state.percents}%` }
               style={{
                 fontSize: 25,
