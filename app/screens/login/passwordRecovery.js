@@ -40,7 +40,7 @@ export class PasswordRecovery extends React.Component {
             Enter your email below to receive your password reset instructions
           </RkText>
         </View>
-        <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
+        <GradientButton style={styles.save} rkType='large' text='SEND' onPress={() => {
           this.props.navigation.goBack()
         }}/>
       </View>

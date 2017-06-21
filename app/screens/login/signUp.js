@@ -40,7 +40,7 @@ export class SignUp extends React.Component {
             <RkTextInput rkType='rounded' placeholder='Email'/>
             <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
             <RkTextInput rkType='rounded' placeholder='Confirm Password' secureTextEntry={true}/>
-            <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
+            <GradientButton style={styles.save} rkType='large' text='SIGN UP' onPress={() => {
               this.props.navigation.goBack()
             }}/>
           </View>

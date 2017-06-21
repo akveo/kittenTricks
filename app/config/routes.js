@@ -5,7 +5,7 @@ import _ from 'lodash';
 export const MainRoutes = [
   {
     id: 'LoginMenu',
-    title: 'Login',
+    title: 'Auth',
     icon: FontIcons.login,
     screen: Screens.LoginMenu,
     children: [
