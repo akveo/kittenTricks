@@ -2,7 +2,8 @@ import React from 'react';
 import {
   StyleSheet,
   Image,
-  View
+  View,
+  Dimensions
 } from 'react-native';
 import {
   RkText,
@@ -17,9 +18,10 @@ export class Walkthrough2 extends React.Component {
   }
 
   render() {
+    let {width} = Dimensions.get('window');
     let image = RkTheme.current.name === 'light'
-      ? <Image source={require('../../assets/images/screensImage.png')}/>
-      : <Image source={require('../../assets/images/screensImageDark.png')}/>;
+      ? <Image style={{width}} source={require('../../assets/images/screensImage.png')}/>
+      : <Image style={{width}} source={require('../../assets/images/screensImageDark.png')}/>;
 
     return (
       <View style={styles.screen}>
