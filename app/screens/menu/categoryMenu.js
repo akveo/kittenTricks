@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {
-  ListView,
   TouchableHighlight,
   View,
+  FlatList,
   StyleSheet
 } from 'react-native';
-import {RkStyleSheet, RkTheme, RkText} from 'react-native-ui-kitten';
+import {
+  RkStyleSheet,
+  RkTheme,
+  RkText
+} from 'react-native-ui-kitten';
 
 export class CategoryMenu extends React.Component {
 
@@ -14,8 +18,7 @@ export class CategoryMenu extends React.Component {
     super(props);
     this.isEmpty = this.props.items.length === 0;
     if (!this.isEmpty) {
-      let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      this.data = ds.cloneWithRows(this.props.items);
+      this.data = this.props.items;
       this.renderRow = this._renderRow.bind(this);
       this.navigate = this._navigate.bind(this);
     }
@@ -38,13 +41,17 @@ export class CategoryMenu extends React.Component {
         underlayColor={RkTheme.current.colors.button.underlay}
         activeOpacity={1}
         onPress={() => {
-          this.navigate(row);
+          this.navigate(row.item);
         }}>
         <View>
-          <RkText>{row.title}</RkText>
+          <RkText>{row.item.title}</RkText>
         </View>
       </TouchableHighlight>
     )
+  }
+
+  _keyExtractor(item, index) {
+    return item.id;
   }
 
   render() {
@@ -56,10 +63,11 @@ export class CategoryMenu extends React.Component {
       )
     } else {
       return (
-        <ListView
+        <FlatList
           style={styles.list}
-          dataSource={this.data}
-          renderRow={this.renderRow}/>
+          data={this.data}
+          keyExtractor={this._keyExtractor}
+          renderItem={this.renderRow}/>
       )
     }
   }
