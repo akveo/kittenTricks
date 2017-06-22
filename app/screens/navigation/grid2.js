@@ -9,7 +9,7 @@ import {
   RkButton,
   RkStyleSheet
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/routes';
+import {MainRoutes} from '../../config/navigation/routes';
 
 export class GridV2 extends React.Component {
   static navigationOptions = {

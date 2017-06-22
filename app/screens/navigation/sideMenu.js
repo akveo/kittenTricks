@@ -13,7 +13,7 @@ import {
   RkText,
   RkTheme
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/routes';
+import {MainRoutes} from '../../config/navigation/routes';
 import {FontAwesome} from '../../assets/icons';
 
 export class SideMenu extends React.Component {

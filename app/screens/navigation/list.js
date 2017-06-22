@@ -10,7 +10,7 @@ import {
   RkStyleSheet,
   RkTheme
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/routes';
+import {MainRoutes} from '../../config/navigation/routes';
 
 export class ListMenu extends React.Component {
   static navigationOptions = {

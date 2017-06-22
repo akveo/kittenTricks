@@ -4,7 +4,7 @@ import {
   StackNavigator
 } from 'react-navigation';
 import {withRkTheme} from 'react-native-ui-kitten';
-import {AppRoutes} from './config/routesBuilder';
+import {AppRoutes} from './config/navigation/routesBuilder';
 import * as Screens from './screens';
 import {bootstrap} from './config/bootstrap';
 import track from './config/analytics';
