@@ -10,17 +10,18 @@ import {
 } from 'react-native-ui-kitten';
 import {
   VictoryPie,
-  VictoryChart,
-  VictoryLabel,
-  VictoryAxis
-} from 'victory-native';
-import {scale, scaleVertical} from '../../utils/scale';
+} from "victory-native";
+
+import {Svg, Text as SvgText} from 'react-native-svg';
+import {scale} from '../../utils/scale';
 
 export class ProgressChart extends RkComponent {
 
 
   constructor(props) {
     super(props);
+    this.size = 120;
+    this.fontSize = 25;
     this.state = {
       percents: 72
     }
@@ -53,27 +54,12 @@ export class ProgressChart extends RkComponent {
       <View>
         <RkText rkType='header4'>FOLLOWERS</RkText>
         <View style={styles.chartContainer}>
-          <VictoryChart animate={400} padding={0} width={scale(120)} height={scale(120)}>
-            <VictoryAxis dependentAxis
-                         style={{
-                           axis: {stroke: 'transparent'},
-                           tickLabels: {
-                             stroke: 'transparent',
-                             fill: 'transparent'
-                           }
-                         }}
-            />
-            <VictoryAxis
-              style={{
-                axis: {stroke: 'transparent'},
-                tickLabels: {
-                  stroke: 'transparent',
-                  fill: 'transparent'
-                }
-              }}
-            />
+          <Svg width={scale(this.size)} height={scale(this.size)}>
             <VictoryPie
               labels={[]}
+              padding={0}
+              standalone={false}
+              width={scale(this.size)} height={scale(this.size)}
               style={{
                 data: {
                   fill: (d) => {
@@ -86,18 +72,19 @@ export class ProgressChart extends RkComponent {
               cornerRadius={scale(25)}
               innerRadius={scale(40)}>
             </VictoryPie>
-            <VictoryLabel
+            <SvgText
               textAnchor="middle" verticalAnchor="middle"
-              x={scale(60)} y={scale(60)}
-              text={`+${this.state.percents}%` }
-              style={{
-                fontSize: 25,
-                fontFamily: RkTheme.current.fonts.family.regular,
-                stroke: RkTheme.current.colors.text.base,
-                fill: RkTheme.current.colors.text.base,
-              }}
-            />
-          </VictoryChart>
+              x={scale(this.size / 2)}
+              y={scale(this.size / 2 - this.fontSize / 2)}
+              dy={scale(this.fontSize * -0.25)}
+              height={scale(this.fontSize)}
+              fontSize={scale(this.fontSize)}
+              fontFamily={RkTheme.current.fonts.family.regular}
+              stroke={RkTheme.current.colors.text.base}
+              fill={RkTheme.current.colors.text.base}>
+              {`${this.state.percents}%`}
+            </SvgText>
+          </Svg>
           <View>
             <RkText rkType='header4'>REACH</RkText>
             <RkText rkType='header2'>1 500 356</RkText>
