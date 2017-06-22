@@ -91,7 +91,9 @@ export class Cards extends React.Component {
 
     return (
       <RkCard rkType='credit' style={styles.card}>
-        <TouchableOpacity onPress={() => this._setModalVisible(true)}>
+        <TouchableOpacity delayPressIn={100}
+                          activeOpacity={0.8}
+                          onPress={() => this._setModalVisible(true)}>
           <LinearGradient colors={gradient}
                           start={{x: 0.0, y: 0.5}}
                           end={{x: 1, y: 0.5}}
