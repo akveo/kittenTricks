@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   FlatList,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import _ from 'lodash';
 import {
@@ -11,7 +12,7 @@ import {
 } from 'react-native-ui-kitten';
 import {Avatar} from '../../components';
 import {FontAwesome} from '../../assets/icons';
-import {Data} from '../../data';
+import {data} from '../../data';
 let moment = require('moment');
 
 export class ChatList extends React.Component {
@@ -21,8 +22,9 @@ export class ChatList extends React.Component {
 
   constructor(props) {
     super(props);
-    this.chats = Data.getChatList();
+    this.chats = data.getChatList();
     this.renderHeader = this._renderHeader.bind(this);
+    this.renderItem = this._renderItem.bind(this);
     this.state = {
       data: this.chats
     }
@@ -32,8 +34,8 @@ export class ChatList extends React.Component {
     let pattern = new RegExp(text, 'i');
     let chats = _.filter(this.chats, (chat) => {
 
-      if (chat.user.firstName.search(pattern) != -1
-        || chat.user.lastName.search(pattern) != -1)
+      if (chat.withUser.firstName.search(pattern) != -1
+        || chat.withUser.lastName.search(pattern) != -1)
         return chat;
     });
 
@@ -41,7 +43,7 @@ export class ChatList extends React.Component {
   }
 
   _keyExtractor(item, index) {
-    return item.user.id;
+    return item.withUser.id;
   }
 
   _renderSeparator() {
@@ -64,20 +66,23 @@ export class ChatList extends React.Component {
   }
 
   _renderItem(info) {
-    let name = `${info.item.user.firstName} ${info.item.user.lastName}`;
+    let name = `${info.item.withUser.firstName} ${info.item.withUser.lastName}`;
+    let last = info.item.messages[info.item.messages.length - 1];
     return (
-      <View style={styles.container}>
-        <Avatar rkType='circle' style={styles.avatar} img={info.item.user.photo}/>
-        <View style={styles.content}>
-          <View style={styles.contentHeader}>
-            <RkText rkType='header5'>{name}</RkText>
-            <RkText rkType='secondary4 secondaryColor'>
-              {moment().add(info.item.date, 'seconds').format('LT')}
-            </RkText>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Chat', {userId: info.item.withUser.id})}>
+        <View style={styles.container}>
+          <Avatar rkType='circle' style={styles.avatar} img={info.item.withUser.photo}/>
+          <View style={styles.content}>
+            <View style={styles.contentHeader}>
+              <RkText rkType='header5'>{name}</RkText>
+              <RkText rkType='secondary4 secondaryColor'>
+                {moment().add(last.time, 'seconds').format('LT')}
+              </RkText>
+            </View>
+            <RkText numberOfLines={2} rkType='primary3 mediumLine'>{last.text}</RkText>
           </View>
-          <RkText numberOfLines={2} rkType='primary3 mediumLine'>{info.item.lastMsg}</RkText>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 
@@ -90,7 +95,7 @@ export class ChatList extends React.Component {
         ListHeaderComponent={this.renderHeader}
         ItemSeparatorComponent={this._renderSeparator}
         keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}/>
+        renderItem={this.renderItem}/>
     )
   }
 }

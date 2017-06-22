@@ -2,7 +2,8 @@ import React from 'react';
 import {
   ListView,
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import _ from 'lodash';
 import {
@@ -10,7 +11,7 @@ import {
   RkText,
   RkTextInput
 } from 'react-native-ui-kitten';
-import {Data} from '../../data';
+import {data} from '../../data';
 import {Avatar} from '../../components/avatar';
 import {FontAwesome} from '../../assets/icons';
 
@@ -22,7 +23,7 @@ export class Contacts extends React.Component {
   constructor(props) {
     super(props);
 
-    this.users = Data.getUsers();
+    this.users = data.getUsers();
 
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
@@ -32,6 +33,7 @@ export class Contacts extends React.Component {
     this.filter = this._filter.bind(this);
     this.setData = this._setData.bind(this);
     this.renderHeader = this._renderHeader.bind(this);
+    this.renderRow = this._renderRow.bind(this);
   }
 
   _setData(data) {
@@ -41,13 +43,15 @@ export class Contacts extends React.Component {
     })
   }
 
-  renderRow(row) {
+  _renderRow(row) {
     let name = `${row.firstName} ${row.lastName}`;
     return (
-      <View style={styles.container}>
-        <Avatar rkType='circle' style={styles.avatar} img={row.photo}/>
-        <RkText>{name}</RkText>
-      </View>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: row.id})}>
+        <View style={styles.container}>
+          <Avatar rkType='circle' style={styles.avatar} img={row.photo}/>
+          <RkText>{name}</RkText>
+        </View>
+      </TouchableOpacity>
     )
   }
 

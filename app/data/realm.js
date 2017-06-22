@@ -64,7 +64,28 @@ Notification.schema = {
     time: 'int',
     attach: {type: 'int', optional: true},
     user: 'User',
+  }
+};
 
+class Conversation extends Realm.Object {
+}
+Conversation.schema = {
+  name: 'Conversation',
+  properties: {
+    withUser: 'User',
+    messages: {type: 'list', objectType: 'Message'}
+  }
+};
+
+class Message extends Realm.Object {
+}
+Message.schema = {
+  name: 'Message',
+  properties: {
+    id: 'int',
+    text: 'string',
+    time: 'int',
+    type: 'string'
   }
 };
 
@@ -78,4 +99,4 @@ Photo.schema = {
 };
 
 
-export default new Realm({schema: [User, Article, Comment, Photo, Notification]})
+export default new Realm({schema: [User, Article, Comment, Photo, Notification, Message, Conversation]})
