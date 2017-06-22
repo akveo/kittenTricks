@@ -98,5 +98,25 @@ Photo.schema = {
   }
 };
 
+class Card extends Realm.Object {
+}
+Card.schema = {
+  name: 'Card',
+  primaryKey: 'id',
+  properties: {
+    id: 'int',
+    name: 'string',
+    bank: 'string',
+    amount: 'int',
+    date: 'string',
+    cardNo: 'string',
+    type: 'string',
+    currency: 'string'
+  }
+};
 
-export default new Realm({schema: [User, Article, Comment, Photo, Notification, Message, Conversation]})
+
+export default new Realm({
+  schema: [User, Article, Comment, Photo,
+    Notification, Message, Card, Conversation]
+})

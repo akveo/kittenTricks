@@ -27,7 +27,6 @@ class DataProvider {
 
 
   getConversation(userId = 1) {
-    let asd = realm.objects('Conversation');
     return realm.objects('Conversation').filtered(`withUser.id=${userId}`)[0];
   }
 
@@ -40,7 +39,7 @@ class DataProvider {
   }
 
   getCards() {
-    return _.cloneDeep(appData.Cards);
+    return realm.objects('Card');
   }
 
   populateRealm() {

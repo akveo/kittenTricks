@@ -3,6 +3,7 @@ import users from './users'
 import articles from './articles'
 import notifications from './notifications'
 import conversations from './conversations'
+import cards from './cards'
 
 
 function truncate() {
@@ -14,6 +15,7 @@ function truncate() {
     realm.delete(realm.objects('Conversation'));
     realm.delete(realm.objects('Comment'));
     realm.delete(realm.objects('Message'));
+    realm.delete(realm.objects('Card'));
   });
   console.log('DB TRUNCATE => FINISH');
 }
@@ -78,6 +80,14 @@ function populateConversations() {
   }
 }
 
+function populateCards() {
+  for (let card of cards) {
+    realm.write(() => {
+      realm.create('Card', card)
+    })
+  }
+}
+
 let populate = () => {
   truncate();
   console.log('DB POPULATE => START');
@@ -85,6 +95,7 @@ let populate = () => {
   populateArticles();
   populateNotifications();
   populateConversations();
+  populateCards();
   console.log('DB POPULATE => FINISH');
 };
 
