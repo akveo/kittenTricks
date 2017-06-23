@@ -11,7 +11,7 @@ import track from './config/analytics';
 import {data} from './data'
 
 bootstrap();
-data.populateRealm();
+//data.populateRealm();
 
 function getCurrentRouteName(navigationState) {
   if (!navigationState) {

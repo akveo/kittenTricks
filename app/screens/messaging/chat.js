@@ -4,7 +4,8 @@ import {
   View,
   Platform,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Keyboard
 } from 'react-native';
 import {InteractionManager} from 'react-native';
 import {
@@ -136,7 +137,9 @@ export class Chat extends React.Component {
 
   render() {
     return (
-      <RkAvoidKeyboard style={styles.container}>
+      <RkAvoidKeyboard style={styles.container} onResponderRelease={(event) => {
+        Keyboard.dismiss();
+      }}>
         <FlatList ref='list'
                   extraData={this.state}
                   style={styles.list}

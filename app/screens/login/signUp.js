@@ -2,13 +2,15 @@ import React from 'react';
 import {
   View,
   Image,
+  Keyboard
 } from 'react-native';
 import {
   RkButton,
   RkText,
   RkTextInput,
   RkStyleSheet,
-  RkTheme
+  RkTheme,
+  RkAvoidKeyboard
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
@@ -29,7 +31,10 @@ export class SignUp extends React.Component {
       return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
     };
     return (
-      <View style={styles.screen}>
+      <RkAvoidKeyboard
+        style={styles.screen}
+        onStartShouldSetResponder={ (e) => true}
+        onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={{alignItems: 'center'}}>
           {renderIcon()}
           <RkText rkType='h1'>Registration</RkText>
@@ -53,7 +58,7 @@ export class SignUp extends React.Component {
             </View>
           </View>
         </View>
-      </View>
+      </RkAvoidKeyboard>
     )
   }
 }

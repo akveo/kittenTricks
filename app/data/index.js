@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import * as appData from './appData'
 import realm from './realm'
 import populate from './dataGenerator'
 

@@ -1,6 +1,6 @@
 const articles = [{
   'id': 1,
-  'photo': require('../data/img/photo1.png'),
+  'photo': require('../img/photo1.png'),
   'type': 'article',
   'time': -300,
   'header': 'Plants Of Our Nature',
@@ -40,7 +40,7 @@ const articles = [{
   }]
 }, {
   'id': 2,
-  'photo': require('../data/img/photo2.png'),
+  'photo': require('../img/photo2.png'),
   'type': 'article',
   'time': -1373,
   'header': 'Balloon Trip',
@@ -54,7 +54,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 3,
-  'photo': require('../data/img/photo3.png'),
+  'photo': require('../img/photo3.png'),
   'type': 'article',
   'time': -2446,
   'header': 'Sea World',
@@ -63,7 +63,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 4,
-  'photo': require('../data/img/photo4.png'),
+  'photo': require('../img/photo4.png'),
   'type': 'article',
   'time': -3519,
   'header': 'Flowers',
@@ -73,7 +73,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 5,
-  'photo': require('../data/img/photo5.png'),
+  'photo': require('../img/photo5.png'),
   'type': 'article',
   'time': -4592,
   'header': 'Birds Of Our Planet',
@@ -84,7 +84,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 6,
-  'photo': require('../data/img/photo6.png'),
+  'photo': require('../img/photo6.png'),
   'type': 'article',
   'time': -5665,
   'header': 'Mountains',
@@ -95,7 +95,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 7,
-  'photo': require('../data/img/photo45.png'),
+  'photo': require('../img/photo45.png'),
   'type': 'fact',
   'time': -5665,
   'header': 'Smile and Frown',
@@ -103,7 +103,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 8,
-  'photo': require('../data/img/photo46.png'),
+  'photo': require('../img/photo46.png'),
   'type': 'fact',
   'time': -8373,
   'header': 'Interesting Fact',
@@ -111,7 +111,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 9,
-  'photo': require('../data/img/photo47.png'),
+  'photo': require('../img/photo47.png'),
   'type': 'fact',
   'time': -565,
   'header': 'Elephant',
@@ -119,7 +119,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 10,
-  'photo': require('../data/img/photo48.png'),
+  'photo': require('../img/photo48.png'),
   'type': 'fact',
   'time': -52365,
   'header': 'Cold Water',
@@ -127,7 +127,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 11,
-  'photo': require('../data/img/photo49.png'),
+  'photo': require('../img/photo49.png'),
   'type': 'fact',
   'time': -1295,
   'header': 'Our Eyes',
@@ -135,7 +135,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 12,
-  'photo': require('../data/img/photo17.png'),
+  'photo': require('../img/photo17.png'),
   'type': 'post',
   'time': -300,
   'title': 'My Little Kitten',
@@ -145,7 +145,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 13,
-  'photo': require('../data/img/photo18.png'),
+  'photo': require('../img/photo18.png'),
   'type': 'post',
   'time': -1373,
   'header': 'Interesting Fact',
@@ -153,7 +153,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 14,
-  'photo': require('../data/img/photo19.png'),
+  'photo': require('../img/photo19.png'),
   'type': 'post',
   'time': -2446,
   'header': 'Music In Our Life',
@@ -161,7 +161,7 @@ const articles = [{
   'comments': []
 }, {
   'id': 15,
-  'photo': require('../data/img/photo20.png'),
+  'photo': require('../img/photo20.png'),
   'type': 'post',
   'time': -3519,
   'header': 'Exciting Adventure',

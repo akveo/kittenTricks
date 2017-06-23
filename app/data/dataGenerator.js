@@ -1,9 +1,9 @@
 import realm from './realm'
-import users from './users'
-import articles from './articles'
-import notifications from './notifications'
-import conversations from './conversations'
-import cards from './cards'
+import users from './raw/users'
+import articles from './raw/articles'
+import notifications from './raw/notifications'
+import conversations from './raw/conversations'
+import cards from './raw/cards'
 
 
 function truncate() {

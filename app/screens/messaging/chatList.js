@@ -34,7 +34,7 @@ export class ChatList extends React.Component {
     this.chats = data.getChatList();
     this.setState({
       data: this.chats
-    })
+    });
   }
 
   _filter(text) {
