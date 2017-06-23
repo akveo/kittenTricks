@@ -60,7 +60,7 @@ export class LoginV2 extends React.Component {
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Don’t have an account?</RkText>
-              <RkButton rkType='clear'>
+              <RkButton rkType='clear' onPress={() => this.props.navigation.navigate('SignUp')}>
                 <RkText rkType='header6'> Sign up now </RkText>
               </RkButton>
             </View>

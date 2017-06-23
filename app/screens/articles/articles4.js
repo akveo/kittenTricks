@@ -2,14 +2,15 @@ import React from 'react';
 import {
   FlatList,
   Image,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import {
   RkText,
   RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
-import {Data} from '../../data';
+import {data} from '../../data';
 let moment = require('moment');
 
 export class Articles4 extends React.Component {
@@ -20,7 +21,7 @@ export class Articles4 extends React.Component {
   constructor(props) {
     super(props);
 
-    this.data = Data.getFacts();
+    this.data = data.getArticles('fact');
   }
 
   _keyExtractor(post, index) {
@@ -33,7 +34,7 @@ export class Articles4 extends React.Component {
         <Image rkCardImg source={info.item.photo}/>
 
         <View rkCardContent>
-          <RkText numberOfLines={1} rkType='header6'>{info.item.title}</RkText>
+          <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
           <RkText rkType='secondary6 alterColor'>{info.item.username}</RkText>
           <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
         </View>

@@ -8,9 +8,10 @@ import {AppRoutes} from './config/navigation/routesBuilder';
 import * as Screens from './screens';
 import {bootstrap} from './config/bootstrap';
 import track from './config/analytics';
+import {data} from './data'
 
 bootstrap();
-
+data.populateRealm();
 
 function getCurrentRouteName(navigationState) {
   if (!navigationState) {

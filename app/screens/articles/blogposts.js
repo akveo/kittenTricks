@@ -2,14 +2,15 @@ import React from 'react';
 import {
   FlatList,
   View,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 import {
   RkCard, RkStyleSheet,
   RkText
 } from 'react-native-ui-kitten';
 import {Avatar} from '../../components';
-import {Data} from '../../data';
+import {data} from '../../data';
 let moment = require('moment');
 
 export class Blogposts extends React.Component {
@@ -20,8 +21,9 @@ export class Blogposts extends React.Component {
   constructor(props) {
     super(props);
 
+    this.renderItem = this._renderItem.bind(this);
     this.state = {
-      data: Data.getPosts()
+      data: data.getArticles('post')
     }
   }
 
@@ -31,24 +33,26 @@ export class Blogposts extends React.Component {
 
   _renderItem(info) {
     return (
-      <RkCard rkType='blog' style={styles.card}>
-        <Image rkCardImg source={info.item.photo}/>
-        <View rkCardHeader style={styles.content}>
-          <RkText style={styles.section} rkType='header4'>{info.item.title}</RkText>
-        </View>
-        <View rkCardContent>
-          <View>
-            <RkText rkType='primary3 mediumLine' numberOfLines={2}>{info.item.text}</RkText>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
+        <RkCard rkType='blog' style={styles.card}>
+          <Image rkCardImg source={info.item.photo}/>
+          <View rkCardHeader style={styles.content}>
+            <RkText style={styles.section} rkType='header4'>{info.item.title}</RkText>
           </View>
-        </View>
-        <View rkCardFooter>
-          <View style={styles.userInfo}>
-            <Avatar style={styles.avatar} rkType='circle small' img={info.item.avatar}/>
-            <RkText rkType='header6'>{info.item.username}</RkText>
+          <View rkCardContent>
+            <View>
+              <RkText rkType='primary3 mediumLine' numberOfLines={2}>{info.item.text}</RkText>
+            </View>
           </View>
-          <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
-        </View>
-      </RkCard>
+          <View rkCardFooter>
+            <View style={styles.userInfo}>
+              <Avatar style={styles.avatar} rkType='circle small' img={info.item.user.photo}/>
+              <RkText rkType='header6'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
+            </View>
+            <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
+          </View>
+        </RkCard>
+      </TouchableOpacity>
     )
   }
 
@@ -56,7 +60,7 @@ export class Blogposts extends React.Component {
     return (
       <FlatList
         data={this.state.data}
-        renderItem={this._renderItem}
+        renderItem={this.renderItem}
         keyExtractor={this._keyExtractor}
         style={styles.container}/>
     )

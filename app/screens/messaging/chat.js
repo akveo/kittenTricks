@@ -3,7 +3,8 @@ import {
   FlatList,
   View,
   Platform,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 import {
   RkButton,
@@ -14,29 +15,42 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import _ from 'lodash';
+import realm from '../../data/realm';
 import {FontAwesome} from '../../assets/icons';
-import {Data} from '../../data';
+import {data} from '../../data';
 import {Avatar} from '../../components/avatar';
 let moment = require('moment');
+
+
+let getUserId = (navigation) => {
+  return navigation.state.params ? navigation.state.params.userId : undefined;
+};
+
 
 export class Chat extends React.Component {
 
   static navigationOptions = ({navigation}) => {
     let renderAvatar = (user) => {
-      return (<Avatar style={styles.avatar} rkType='small' img={user.photo}/>);
+      return (
+        <TouchableOpacity onPress={() => navigation.navigate('ProfileV1', {id: user.id})}>
+          <Avatar style={styles.avatar} rkType='small' img={user.photo}/>
+        </TouchableOpacity>
+      );
     };
 
     let renderTitle = (user) => {
       return (
-        <View style={styles.header}>
-          <RkText rkType='header5'>{`${user.firstName} ${user.lastName}`}</RkText>
-          <RkText rkType='secondary3 secondaryColor'>Online</RkText>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('ProfileV1', {id: user.id})}>
+          <View style={styles.header}>
+            <RkText rkType='header5'>{`${user.firstName} ${user.lastName}`}</RkText>
+            <RkText rkType='secondary3 secondaryColor'>Online</RkText>
+          </View>
+        </TouchableOpacity>
       )
     };
 
-    let userId = 1;
-    let user = Data.getUser(userId);
+
+    let user = data.getUser(getUserId(navigation));
     let rightButton = renderAvatar(user);
     let title = renderTitle(user);
     return (
@@ -48,8 +62,7 @@ export class Chat extends React.Component {
 
   constructor(props) {
     super(props);
-    let userId = 1;
-    let conversation = Data.getConversation(userId);
+    let conversation = data.getConversation(getUserId(this.props.navigation));
 
     this.state = {
       data: conversation
@@ -95,14 +108,18 @@ export class Chat extends React.Component {
     if (!this.state.message)
       return;
     let msg = {
-      id: this.state.data.length,
-      date: new Date(),
+      id: this.state.data.messages.length,
+      time: 0,
       type: 'out',
       text: this.state.message
     };
 
+
     let data = this.state.data;
-    data.push(msg);
+    realm.write(() => {
+      data.messages.push(msg);
+    });
+
     this.setState({
       data,
       message: ''
@@ -116,7 +133,7 @@ export class Chat extends React.Component {
         <FlatList ref='list'
                   extraData={this.state}
                   style={styles.list}
-                  data={this.state.data}
+                  data={this.state.data.messages}
                   keyExtractor={this._keyExtractor}
                   renderItem={this._renderItem}/>
         <View style={styles.footer}>

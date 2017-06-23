@@ -2,14 +2,15 @@ import React from 'react';
 import {
   FlatList,
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import {
   RkStyleSheet,
   RkText
 } from 'react-native-ui-kitten';
 import {Avatar} from '../../components';
-import {Data} from '../../data';
+import {data} from '../../data';
 let moment = require('moment');
 
 export class Comments extends React.Component {
@@ -19,11 +20,12 @@ export class Comments extends React.Component {
 
   constructor(props) {
     super(props);
-    let postId = 0;
-    this.chats = Data.getComments(postId);
+    let postId = this.props.navigation.params ? this.props.navigation.params.postId : undefined;
+    this.chats = data.getComments(postId);
     this.state = {
       data: this.chats
-    }
+    };
+    this.renderItem = this._renderItem.bind(this);
   }
 
   _keyExtractor(item, index) {
@@ -40,7 +42,9 @@ export class Comments extends React.Component {
     let name = `${info.item.user.firstName} ${info.item.user.lastName}`;
     return (
       <View style={styles.container}>
-        <Avatar rkType='circle' style={styles.avatar} img={info.item.user.photo}/>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: info.item.user.id})}>
+          <Avatar rkType='circle' style={styles.avatar} img={info.item.user.photo}/>
+        </TouchableOpacity>
         <View style={styles.content}>
           <View style={styles.contentHeader}>
             <RkText rkType='header5'>{name}</RkText>
@@ -48,7 +52,7 @@ export class Comments extends React.Component {
               {moment().add(info.item.time, 'seconds').format('LT')}
             </RkText>
           </View>
-          <RkText rkType='primary3 mediumLine'>{info.item.message}</RkText>
+          <RkText rkType='primary3 mediumLine'>{info.item.text}</RkText>
         </View>
       </View>
     )
@@ -62,7 +66,7 @@ export class Comments extends React.Component {
         extraData={this.state}
         ItemSeparatorComponent={this._renderSeparator}
         keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}/>
+        renderItem={this.renderItem}/>
     )
   }
 }

@@ -15,7 +15,7 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import LinearGradient from 'react-native-linear-gradient';
-import {Data} from '../../data';
+import {data} from '../../data';
 import {PasswordTextInput} from '../../components/passwordTextInput';
 import {UIConstants} from '../../config/appConstants';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
@@ -27,7 +27,7 @@ export class Cards extends React.Component {
 
   constructor(props) {
     super(props);
-    this.data = Data.getCards();
+    this.data = data.getCards();
     this.state = {modalVisible: false}
   }
 
