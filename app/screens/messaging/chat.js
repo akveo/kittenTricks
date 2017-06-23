@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
+import {InteractionManager} from 'react-native';
 import {
   RkButton,
   RkText,
@@ -67,6 +68,12 @@ export class Chat extends React.Component {
     this.state = {
       data: conversation
     };
+  }
+
+  componentDidMount() {
+    InteractionManager.runAfterInteractions(() => {
+      this.refs.list.scrollToEnd();
+    });
   }
 
   _keyExtractor(post, index) {

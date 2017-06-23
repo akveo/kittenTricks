@@ -23,12 +23,18 @@ export class ChatList extends React.Component {
 
   constructor(props) {
     super(props);
-    this.chats = data.getChatList();
     this.renderHeader = this._renderHeader.bind(this);
     this.renderItem = this._renderItem.bind(this);
     this.state = {
-      data: this.chats
+      data: []
     }
+  }
+
+  componentDidMount() {
+    this.chats = data.getChatList();
+    this.setState({
+      data: this.chats
+    })
   }
 
   _filter(text) {

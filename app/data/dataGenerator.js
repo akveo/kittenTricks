@@ -7,7 +7,6 @@ import cards from './cards'
 
 
 function truncate() {
-  console.log('DB TRUNCATE => START');
   realm.write(() => {
     realm.delete(realm.objects('User'));
     realm.delete(realm.objects('Article'));
@@ -17,7 +16,6 @@ function truncate() {
     realm.delete(realm.objects('Message'));
     realm.delete(realm.objects('Card'));
   });
-  console.log('DB TRUNCATE => FINISH');
 }
 
 function populateUsers() {
@@ -73,7 +71,8 @@ function populateConversations() {
     }
 
     conversation.messages = messages;
-    conversation.withUser = realm.objects('User').filtered(`id="${conversation.withUserId}"`)[0];
+    conversation.withUser = realm.objects('User')
+      .filtered(`id="${conversation.withUserId}"`)[0];
     realm.write(() => {
       realm.create('Conversation', conversation)
     })
@@ -89,7 +88,9 @@ function populateCards() {
 }
 
 let populate = () => {
+  console.log('DB TRUNCATE => START');
   truncate();
+  console.log('DB TRUNCATE => FINISH');
   console.log('DB POPULATE => START');
   populateUsers();
   populateArticles();
