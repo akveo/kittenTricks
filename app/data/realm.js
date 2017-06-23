@@ -115,8 +115,17 @@ Card.schema = {
   }
 };
 
+class Version extends Realm.Object {
+}
+Version.schema = {
+  name: 'Version',
+  properties: {
+    id: 'int'
+  }
+};
+
 
 export default new Realm({
-  schema: [User, Article, Comment, Photo,
+  schema: [User, Article, Comment, Photo, Version,
     Notification, Message, Card, Conversation]
 })

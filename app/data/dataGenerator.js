@@ -15,6 +15,7 @@ function truncate() {
     realm.delete(realm.objects('Comment'));
     realm.delete(realm.objects('Message'));
     realm.delete(realm.objects('Card'));
+    realm.delete(realm.objects('Version'));
   });
 }
 
@@ -87,17 +88,24 @@ function populateCards() {
   }
 }
 
+function populateVersion() {
+  realm.write(() => {
+    realm.create('Version', {id: 0})
+  })
+}
+
 let populate = () => {
-  console.log('DB TRUNCATE => START');
-  truncate();
-  console.log('DB TRUNCATE => FINISH');
-  console.log('DB POPULATE => START');
+  let version = realm.objects('Version');
+  if (version && version.length > 0)
+    return;
+  
+  //truncate();
+  populateVersion();
   populateUsers();
   populateArticles();
   populateNotifications();
   populateConversations();
   populateCards();
-  console.log('DB POPULATE => FINISH');
 };
 
 export default populate
