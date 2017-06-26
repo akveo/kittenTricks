@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Modal,
+  StatusBar
 } from 'react-native';
 import {
   RkText,
@@ -91,7 +92,7 @@ export class Cards extends React.Component {
 
     return (
       <RkCard rkType='credit' style={styles.card}>
-        <TouchableOpacity delayPressIn={100}
+        <TouchableOpacity delayPressIn={70}
                           activeOpacity={0.8}
                           onPress={() => this._setModalVisible(true)}>
           <LinearGradient colors={gradient}
@@ -139,6 +140,7 @@ export class Cards extends React.Component {
           transparent={true}
           onRequestClose={() => this._setModalVisible(false)}
           visible={this.state.modalVisible}>
+          <StatusBar/>
           <View style={styles.popupOverlay}>
             <View style={styles.popup}>
               <View style={styles.popupContent}>

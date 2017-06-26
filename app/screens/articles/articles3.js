@@ -31,7 +31,10 @@ export class Articles3 extends React.Component {
 
   _renderItem(info) {
     return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
+      <TouchableOpacity
+        delayPressIn={70}
+        activeOpacity={0.8}
+        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
         <RkCard style={styles.card}>
           <View rkCardHeader>
             <View>

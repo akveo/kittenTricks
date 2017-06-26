@@ -98,7 +98,7 @@ let populate = () => {
   let version = realm.objects('Version');
   if (version && version.length > 0)
     return;
-  
+
   //truncate();
   populateVersion();
   populateUsers();
