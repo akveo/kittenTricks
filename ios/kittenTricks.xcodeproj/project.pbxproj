@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -144,6 +145,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = F60690131CA2766F0003FB26;
 			remoteInfo = RealmReact;
+		};
+		AA2FB0B91F01231800DF7969 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
+			remoteInfo = "third-party";
+		};
+		AA2FB0BB1F01231800DF7969 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
+			remoteInfo = "double-conversion";
 		};
 		AA429D2F1EEE951D00A8EAA3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -418,6 +433,8 @@
 				AA4672041EEE6DDF00100229 /* libcxxreact.a */,
 				3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */,
 				AA4672061EEE6DDF00100229 /* libjschelpers.a */,
+				AA2FB0BA1F01231800DF7969 /* libthird-party.a */,
+				AA2FB0BC1F01231800DF7969 /* libdouble-conversion.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -452,7 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */,
-				AA4671DC1EEE6DDF00100229 /* libRCTAnimation.a */,
+				AA4671DC1EEE6DDF00100229 /* libRCTAnimation-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -785,6 +802,20 @@
 			remoteRef = AA2CA47F1EF7B857007281C5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		AA2FB0BA1F01231800DF7969 /* libthird-party.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libthird-party.a";
+			remoteRef = AA2FB0B91F01231800DF7969 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA2FB0BC1F01231800DF7969 /* libdouble-conversion.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libdouble-conversion.a";
+			remoteRef = AA2FB0BB1F01231800DF7969 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		AA429D301EEE951D00A8EAA3 /* libRCTGoogleAnalyticsBridge.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -799,10 +830,10 @@
 			remoteRef = AA429D761EEEA09F00A8EAA3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AA4671DC1EEE6DDF00100229 /* libRCTAnimation.a */ = {
+		AA4671DC1EEE6DDF00100229 /* libRCTAnimation-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libRCTAnimation-tvOS.a";
+			path = libRCTAnimation.a;
 			remoteRef = AA4671DB1EEE6DDF00100229 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1037,8 +1068,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.akveo.kittentricks;
 				PRODUCT_NAME = kittenTricks;
-				PROVISIONING_PROFILE = "741958d8-f337-4ad3-b1f0-7aace3ae91c0";
-				PROVISIONING_PROFILE_SPECIFIER = kittenTricksAddHoc;
+				PROVISIONING_PROFILE = "9bffb4e8-468b-4197-bfa4-4b6242a2a230";
+				PROVISIONING_PROFILE_SPECIFIER = KittenTricksAddHoc;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
