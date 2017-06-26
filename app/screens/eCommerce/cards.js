@@ -83,6 +83,7 @@ export class Cards extends React.Component {
 
   _setModalVisible(visible) {
     this.setState({modalVisible: visible});
+    StatusBar.setHidden(false,'none');
   }
 
   _renderItem(info) {
@@ -140,7 +141,6 @@ export class Cards extends React.Component {
           transparent={true}
           onRequestClose={() => this._setModalVisible(false)}
           visible={this.state.modalVisible}>
-          <StatusBar/>
           <View style={styles.popupOverlay}>
             <View style={styles.popup}>
               <View style={styles.popupContent}>
