@@ -32,12 +32,13 @@ export class WalkthroughScreen extends React.Component {
           <Walkthrough2/>
         </Walkthrough>
         <PaginationIndicator length={2} current={this.state.index}/>
-        <GradientButton rkType='large'
-                        style={styles.button}
-                        text="GET STARTED"
-                        onPress={() => {
-                          this.props.navigation.goBack()
-                        }}/>
+        <GradientButton
+          rkType='large'
+          style={styles.button}
+          text="GET STARTED"
+          onPress={() => {
+            this.props.navigation.goBack()
+          }}/>
       </View>
     )
   }

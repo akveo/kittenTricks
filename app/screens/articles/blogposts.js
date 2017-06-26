@@ -49,7 +49,7 @@ export class Blogposts extends React.Component {
               <Avatar style={styles.avatar} rkType='circle small' img={info.item.user.photo}/>
               <RkText rkType='header6'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
             </View>
-            <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
+            <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
           </View>
         </RkCard>
       </TouchableOpacity>

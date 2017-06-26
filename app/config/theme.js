@@ -58,6 +58,10 @@ const Colors = {
   followersSecond: '#81d4fa',
   followersThird: '#4fc3f7',
   followersFourth: '#42a5f5',
+
+  chartsAreaStroke:'#097fe5',
+  chartsAreaFill: '#d6ecff'
+
 };
 
 const Fonts = {
@@ -137,7 +141,11 @@ export const KittenTheme = {
     charts:{
       followersProgress: Colors.followersProgress,
       doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
-      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth]
+      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      area: {
+        stroke: Colors.chartsAreaStroke,
+        fill: Colors.chartsAreaFill
+      }
     }
   },
   fonts: {

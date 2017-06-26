@@ -39,7 +39,7 @@ export class Articles3 extends React.Component {
           <View rkCardHeader>
             <View>
               <RkText rkType='header4'>{info.item.header}</RkText>
-              <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
+              <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
             </View>
           </View>
           <Image rkCardImg source={info.item.photo}/>

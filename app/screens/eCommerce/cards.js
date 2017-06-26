@@ -5,8 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Modal,
-  StatusBar
+  Modal
 } from 'react-native';
 import {
   RkText,
@@ -74,7 +73,7 @@ export class Cards extends React.Component {
   _renderFooter() {
     return (
       <View style={styles.footer}>
-        <RkButton style={styles.button} rkType='circle primary'>
+        <RkButton style={styles.button} rkType='circle highlight'>
           <Image source={require('../../assets/icons/iconPlus.png')}/>
         </RkButton>
       </View>
@@ -83,7 +82,6 @@ export class Cards extends React.Component {
 
   _setModalVisible(visible) {
     this.setState({modalVisible: visible});
-    StatusBar.setHidden(false,'none');
   }
 
   _renderItem(info) {
@@ -157,7 +155,7 @@ export class Cards extends React.Component {
                 <RkButton onPress={() => this._setModalVisible(false)}
                           style={styles.popupButton}
                           rkType='clear'>
-                  <RkText rkType=''>OK</RkText>
+                  <RkText>OK</RkText>
                 </RkButton>
               </View>
             </View>

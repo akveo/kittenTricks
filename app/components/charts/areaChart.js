@@ -16,7 +16,7 @@ import {
   VictoryArea,
   VictoryScatter,
   VictoryGroup
-} from "victory-native";
+} from 'victory-native';
 
 
 export class AreaChart extends RkComponent {
@@ -76,14 +76,14 @@ export class AreaChart extends RkComponent {
           <VictoryAxis
             tickValues={[]}
             style={{
-              axis: {stroke: "transparent"}
+              axis: {stroke: 'transparent'}
             }}
           />
           <VictoryAxis
             dependentAxis
             tickValues={['50', '100', '150', '200']}
             style={{
-              axis: {stroke: "transparent"},
+              axis: {stroke: 'transparent'},
               grid: {stroke: RkTheme.current.colors.disabled, strokeWidth: 0.5},
               tickLabels: {
                 fontSize: 14,
@@ -98,9 +98,9 @@ export class AreaChart extends RkComponent {
             <VictoryArea
               style={{
                 data: {
-                  fill: RkTheme.current.colors.info,
-                  fillOpacity: 0.05,
-                  stroke: RkTheme.current.colors.infoActive,
+                  fill: RkTheme.current.colors.charts.area.fill,
+                  fillOpacity: 0.5,
+                  stroke: RkTheme.current.colors.charts.area.stroke,
                   strokeOpacity: 0.8,
                   strokeWidth: 1.5
                 }
@@ -109,8 +109,8 @@ export class AreaChart extends RkComponent {
             <VictoryScatter
               style={{
                 data: {
-                  fill: "white",
-                  stroke: RkTheme.current.colors.infoActive,
+                  fill: 'white',
+                  stroke: RkTheme.current.colors.charts.area.stroke,
                   strokeOpacity: 0.8,
                   strokeWidth: 1.5
                 }

@@ -20,7 +20,7 @@ const Colors = {
   fadedBackground: '#28305a',
   brandBackground: '#6b35e4',
 
-  border: '#000000',
+  border: '#080e36',
 
   twitter: '#ffffff',
   google: '#ffffff',
@@ -28,12 +28,12 @@ const Colors = {
 
   gradientBaseBegin: '#6b35e4',
   gradientBaseEnd: '#6b35e4',
-  gradientVisaBegin:'#63e2ff',
-  gradientVisaEnd:'#712ec3',
-  gradientMasterBegin:'#febb5b',
-  gradientMasterEnd:'#f24645',
-  gradientAxpBegin:'#42e695',
-  gradientAxpEnd:'#3bb2bb',
+  gradientVisaBegin: '#63e2ff',
+  gradientVisaEnd: '#712ec3',
+  gradientMasterBegin: '#febb5b',
+  gradientMasterEnd: '#f24645',
+  gradientAxpBegin: '#42e695',
+  gradientAxpEnd: '#3bb2bb',
 
   // -----
   faded: '#e5e5e5',
@@ -41,7 +41,7 @@ const Colors = {
   neutral: '#f2f2f2',
 
 
-  info: '#19bfe5',
+  info: '#2942ff',
   warning: '#feb401',
 
   doughnutFirst: '#d500f9',
@@ -55,6 +55,9 @@ const Colors = {
   followersSecond: '#1b2ba6',
   followersThird: '#081c6e',
   followersFourth: '#09103f',
+
+  chartsAreaStroke:'#2942ff',
+  chartsAreaFill: '#0d1238'
 
 };
 
@@ -77,6 +80,8 @@ export const DarkKittenTheme = {
     google: Colors.google,
     facebook: Colors.facebook,
     brand: Colors.brandBackground,
+    info: Colors.info,
+    infoActive: Colors.info,
     text: {
       base: Colors.foreground,
       secondary: Colors.foreground,
@@ -132,10 +137,14 @@ export const DarkKittenTheme = {
       tweets: Colors.alterBackground,
       likes: Colors.alterBackground,
     },
-    charts:{
+    charts: {
       followersProgress: Colors.followersProgress,
       doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
-      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth]
+      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      area: {
+        stroke: Colors.chartsAreaStroke,
+        fill: Colors.chartsAreaFill
+      }
     }
   },
   fonts: {

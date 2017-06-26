@@ -49,7 +49,7 @@ export class Notifications extends React.Component {
                 <RkText rkType='primary2'> {row.description}</RkText>
               </RkText>
             </View>
-            <RkText rkType='secondary5 secondaryColor'>{moment().add(row.time, 'seconds').fromNow()}</RkText>
+            <RkText rkType='secondary5 hintColor'>{moment().add(row.time, 'seconds').fromNow()}</RkText>
           </View>
           {attachment}
         </View>

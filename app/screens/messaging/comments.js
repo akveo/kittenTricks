@@ -48,7 +48,7 @@ export class Comments extends React.Component {
         <View style={styles.content}>
           <View style={styles.contentHeader}>
             <RkText rkType='header5'>{name}</RkText>
-            <RkText rkType='secondary4 secondaryColor'>
+            <RkText rkType='secondary4 hintColor'>
               {moment().add(info.item.time, 'seconds').format('LT')}
             </RkText>
           </View>
