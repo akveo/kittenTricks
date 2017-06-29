@@ -15,7 +15,7 @@
     "moment": "^2.18.1",
     "prop-types": "^15.5.8",
     "react": "16.0.0-alpha.12",
-    "react-native": "0.45.0",
+    "react-native": "0.45.1",
     "react-native-google-analytics-bridge": "^5.0.1",
     "react-native-keyboard-spacer": "^0.3.1",
     "react-native-linear-gradient": "^2.0.0",
