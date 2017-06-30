@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   View,
-  Image,
   Dimensions
 } from 'react-native';
 import {
@@ -106,6 +105,7 @@ export class AreaSmoothedChart extends RkComponent {
                 style={{
                   data: {
                     fill: this.colors[i],
+                    stroke: this.colors[i],
                   }
                 }}
                 data={a}
