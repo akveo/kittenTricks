@@ -2,14 +2,15 @@ import React from 'react';
 import {
   FlatList,
   Image,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import {
   RkText,
   RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
-import {Data} from '../../data';
+import {data} from '../../data';
 let moment = require('moment');
 
 
@@ -20,7 +21,8 @@ export class Articles3 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.data = Data.getArticles();
+    this.data = data.getArticles();
+    this.renderItem = this._renderItem.bind(this);
   }
 
   _keyExtractor(post, index) {
@@ -29,18 +31,23 @@ export class Articles3 extends React.Component {
 
   _renderItem(info) {
     return (
-      <RkCard style={styles.card}>
-        <View rkCardHeader>
-          <View>
-            <RkText rkType='header4'>{info.item.header}</RkText>
-            <RkText rkType='secondary2 alterColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
+      <TouchableOpacity
+        delayPressIn={70}
+        activeOpacity={0.8}
+        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
+        <RkCard style={styles.card}>
+          <View rkCardHeader>
+            <View>
+              <RkText rkType='header4'>{info.item.header}</RkText>
+              <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
+            </View>
           </View>
-        </View>
-        <Image rkCardImg source={info.item.photo}/>
-        <View style={styles.footer} rkCardFooter>
-          <SocialBar/>
-        </View >
-      </RkCard>
+          <Image rkCardImg source={info.item.photo}/>
+          <View style={styles.footer} rkCardFooter>
+            <SocialBar/>
+          </View >
+        </RkCard>
+      </TouchableOpacity>
     )
   }
 
@@ -48,7 +55,7 @@ export class Articles3 extends React.Component {
     return (
       <FlatList
         data={this.data}
-        renderItem={this._renderItem}
+        renderItem={this.renderItem}
         keyExtractor={this._keyExtractor}
         style={styles.container}/>
     )

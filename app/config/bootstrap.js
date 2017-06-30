@@ -239,6 +239,7 @@ export let bootstrap = () => {
     input: {
       fontFamily: theme => theme.fonts.family.bold
     },
+    color: theme => theme.colors.text.base,
     backgroundColor: theme => theme.colors.control.background,
     labelColor: theme => theme.colors.input.label,
     placeholderTextColor: theme => theme.colors.input.placeholder,

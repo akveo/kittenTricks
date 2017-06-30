@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View,
   Image,
-  Dimensions
+  Dimensions,
+  Keyboard
 } from 'react-native';
 import {
   RkButton,
@@ -41,8 +42,12 @@ export class LoginV1 extends React.Component {
 
   render() {
     let image = this._renderImage();
+
     return (
-      <RkAvoidKeyboard style={styles.screen}>
+      <RkAvoidKeyboard
+        onStartShouldSetResponder={ (e) => true}
+        onResponderRelease={ (e) => Keyboard.dismiss()}
+        style={styles.screen}>
         {image}
         <View style={styles.container}>
           <View style={styles.buttons}>
@@ -65,7 +70,8 @@ export class LoginV1 extends React.Component {
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Don’t have an account?</RkText>
               <RkButton rkType='clear'>
-                <RkText rkType='header6'> Sign up now </RkText>
+                <RkText rkType='header6' onPress={() => this.props.navigation.navigate('SignUp')}> Sign up
+                  now </RkText>
               </RkButton>
             </View>
           </View>

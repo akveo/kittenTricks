@@ -2,13 +2,15 @@ import React from 'react';
 import {
   View,
   Image,
+  Keyboard
 } from 'react-native';
 import {
   RkButton,
   RkText,
   RkTextInput,
   RkStyleSheet,
-  RkTheme
+  RkTheme,
+  RkAvoidKeyboard
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
@@ -29,7 +31,10 @@ export class SignUp extends React.Component {
       return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
     };
     return (
-      <View style={styles.screen}>
+      <RkAvoidKeyboard
+        style={styles.screen}
+        onStartShouldSetResponder={ (e) => true}
+        onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={{alignItems: 'center'}}>
           {renderIcon()}
           <RkText rkType='h1'>Registration</RkText>
@@ -40,20 +45,20 @@ export class SignUp extends React.Component {
             <RkTextInput rkType='rounded' placeholder='Email'/>
             <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
             <RkTextInput rkType='rounded' placeholder='Confirm Password' secureTextEntry={true}/>
-            <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
+            <GradientButton style={styles.save} rkType='large' text='SIGN UP' onPress={() => {
               this.props.navigation.goBack()
             }}/>
           </View>
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Already have an account?</RkText>
-              <RkButton rkType='clear'>
+              <RkButton rkType='clear'  onPress={() => this.props.navigation.navigate('Login1')}>
                 <RkText rkType='header6'> Sign in now </RkText>
               </RkButton>
             </View>
           </View>
         </View>
-      </View>
+      </RkAvoidKeyboard>
     )
   }
 }

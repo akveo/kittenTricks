@@ -7,7 +7,7 @@ import {
   RkButton, RkStyleSheet,
   RkText
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/routes';
+import {MainRoutes} from '../../config/navigation/routes';
 const paddingValue = 8;
 
 export class GridV1 extends React.Component {

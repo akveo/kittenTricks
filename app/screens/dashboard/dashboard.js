@@ -110,7 +110,6 @@ let styles = RkStyleSheet.create(theme => ({
   statItemIcon: {
     alignSelf: 'center',
     marginLeft: 10,
-    width: 30,
     color: 'white',
   },
   statItemValue: {

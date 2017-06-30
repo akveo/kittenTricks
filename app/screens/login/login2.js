@@ -2,6 +2,7 @@ import React from 'react';
 import {
   View,
   Image,
+  Keyboard
 } from 'react-native';
 import {
   RkButton,
@@ -31,7 +32,10 @@ export class LoginV2 extends React.Component {
     };
 
     return (
-      <RkAvoidKeyboard style={styles.screen}>
+      <RkAvoidKeyboard
+        style={styles.screen}
+        onStartShouldSetResponder={ (e) => true}
+        onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={styles.header}>
           {renderIcon()}
           <RkText rkType='light h1'>React Native</RkText>
@@ -60,7 +64,7 @@ export class LoginV2 extends React.Component {
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Don’t have an account?</RkText>
-              <RkButton rkType='clear'>
+              <RkButton rkType='clear' onPress={() => this.props.navigation.navigate('SignUp')}>
                 <RkText rkType='header6'> Sign up now </RkText>
               </RkButton>
             </View>
@@ -78,9 +82,9 @@ let styles = RkStyleSheet.create(theme => ({
     justifyContent: 'space-between',
     backgroundColor: theme.colors.screen.base
   },
-  image:{
-    height:scaleVertical(77),
-    resizeMode:'contain'
+  image: {
+    height: scaleVertical(77),
+    resizeMode: 'contain'
   },
   header: {
     paddingBottom: scaleVertical(10),

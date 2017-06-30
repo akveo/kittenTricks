@@ -9,8 +9,9 @@ import {
 } from 'react-native-ui-kitten';
 import {Avatar} from '../../components';
 import {Gallery} from '../../components';
-import {Users} from '../../data/appData';
+import {data} from '../../data';
 import {FontIcons} from '../../assets/icons';
+import formatNumber from '../../utils/textUtils';
 
 export class ProfileV2 extends React.Component {
   static navigationOptions = {
@@ -19,11 +20,12 @@ export class ProfileV2 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.user = Users[0];
+    this.user = data.getUser();
   }
 
   render() {
     let name = `${this.user.firstName} ${this.user.lastName}`;
+    let images = this.user.images.map((image) => image.id);
     return (
       <ScrollView style={styles.root}>
         <View style={[styles.header, styles.bordered]}>
@@ -50,7 +52,7 @@ export class ProfileV2 extends React.Component {
             <RkText rkType='secondary1 hintColor'>Posts</RkText>
           </View>
           <View style={styles.section}>
-            <RkText rkType='header3' style={styles.space}>{this.user.followersCount}</RkText>
+            <RkText rkType='header3' style={styles.space}>{formatNumber(this.user.followersCount)}</RkText>
             <RkText rkType='secondary1 hintColor'>Followers</RkText>
           </View>
           <View style={styles.section}>
@@ -58,7 +60,7 @@ export class ProfileV2 extends React.Component {
             <RkText rkType='secondary1 hintColor'>Following</RkText>
           </View>
         </View>
-        <Gallery items={this.user.images}/>
+        <Gallery items={images}/>
       </ScrollView>
     )
   }

@@ -1,6 +1,6 @@
 {
   "name": "kittenTricks",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "private": true,
   "author": "akveo",
   "scripts": {
@@ -19,12 +19,13 @@
     "react-native-keyboard-spacer": "^0.3.1",
     "react-native-linear-gradient": "^2.0.0",
     "react-native-progress-bar": "^0.1.2",
+    "react-native-svg": "5.2.0",
     "react-native-switch-pro": "^0.4.2",
     "react-native-ui-kitten": "^2.0.1",
     "react-navigation": "^1.0.0-beta.11",
+    "realm": "^1.8.0",
     "rnpm": "^1.9.0",
-    "react-native-svg": "5.2.0",
-    "victory-native": "0.10.0"
+    "victory-native": "0.12.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

@@ -8,7 +8,7 @@ export const SwitchTypes = (theme) => {
         justifyContent: 'center',
         borderRadius: 16,
         borderWidth: 1,
-        borderColor: theme.colors.border.base,
+        borderColor: theme.colors.border.secondary,
         onColor: theme.colors.primary,
         offColor: {
           android: theme.colors.screen.base,
@@ -20,7 +20,7 @@ export const SwitchTypes = (theme) => {
         height: 32,
         width: 32,
         borderWidth: 1,
-        borderColor: theme.colors.border.hint,
+        borderColor: theme.colors.border.secondary,
         backgroundColor: theme.colors.screen.base,
         borderRadius: 16,
       }

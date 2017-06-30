@@ -9,7 +9,8 @@ import {
 } from 'react-native-ui-kitten';
 import {Avatar} from '../../components/avatar';
 import {Gallery} from '../../components/gallery';
-import {Data} from '../../data/';
+import {data} from '../../data/';
+import formatNumber from '../../utils/textUtils';
 
 export class ProfileV1 extends React.Component {
   static navigationOptions = {
@@ -18,11 +19,14 @@ export class ProfileV1 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.user = Data.getUser(1);
+    let {params} = this.props.navigation.state;
+    let id = params ? params.id : 1;
+    this.user = data.getUser(id);
   }
 
   render() {
     let name = `${this.user.firstName} ${this.user.lastName}`;
+    let images = this.user.images.map((image) => image.id);
     return (
       <ScrollView style={styles.root}>
         <View style={[styles.header, styles.bordered]}>
@@ -35,7 +39,7 @@ export class ProfileV1 extends React.Component {
             <RkText rkType='secondary1 hintColor'>Posts</RkText>
           </View>
           <View style={styles.section}>
-            <RkText rkType='header3' style={styles.space}>{this.user.followersCount}</RkText>
+            <RkText rkType='header3' style={styles.space}>{formatNumber(this.user.followersCount)}</RkText>
             <RkText rkType='secondary1 hintColor'>Followers</RkText>
           </View>
           <View style={styles.section}>
@@ -48,15 +52,15 @@ export class ProfileV1 extends React.Component {
           <View style={styles.separator}/>
           <RkButton style={styles.button} rkType='clear link'>MESSAGE</RkButton>
         </View>
-        <Gallery items={this.user.images}/>
+        <Gallery items={images}/>
       </ScrollView>
     )
   }
 }
 
 let styles = RkStyleSheet.create(theme => ({
-  root:{
-    backgroundColor:theme.colors.screen.base
+  root: {
+    backgroundColor: theme.colors.screen.base
   },
   header: {
     alignItems: 'center',

@@ -5,7 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Modal,
+  Modal
 } from 'react-native';
 import {
   RkText,
@@ -15,7 +15,7 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import LinearGradient from 'react-native-linear-gradient';
-import {Data} from '../../data';
+import {data} from '../../data';
 import {PasswordTextInput} from '../../components/passwordTextInput';
 import {UIConstants} from '../../config/appConstants';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
@@ -27,7 +27,7 @@ export class Cards extends React.Component {
 
   constructor(props) {
     super(props);
-    this.data = Data.getCards();
+    this.data = data.getCards();
     this.state = {modalVisible: false}
   }
 
@@ -73,7 +73,7 @@ export class Cards extends React.Component {
   _renderFooter() {
     return (
       <View style={styles.footer}>
-        <RkButton style={styles.button} rkType='circle primary'>
+        <RkButton style={styles.button} rkType='circle highlight'>
           <Image source={require('../../assets/icons/iconPlus.png')}/>
         </RkButton>
       </View>
@@ -91,7 +91,9 @@ export class Cards extends React.Component {
 
     return (
       <RkCard rkType='credit' style={styles.card}>
-        <TouchableOpacity onPress={() => this._setModalVisible(true)}>
+        <TouchableOpacity delayPressIn={70}
+                          activeOpacity={0.8}
+                          onPress={() => this._setModalVisible(true)}>
           <LinearGradient colors={gradient}
                           start={{x: 0.0, y: 0.5}}
                           end={{x: 1, y: 0.5}}
@@ -153,7 +155,7 @@ export class Cards extends React.Component {
                 <RkButton onPress={() => this._setModalVisible(false)}
                           style={styles.popupButton}
                           rkType='clear'>
-                  <RkText rkType=''>OK</RkText>
+                  <RkText>OK</RkText>
                 </RkButton>
               </View>
             </View>

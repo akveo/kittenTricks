@@ -2,7 +2,7 @@ import {scale, scaleVertical} from '../utils/scale'
 
 const Colors = {
   accent: '#ff2824',
-  primary: '#f53d56',
+  primary: '#f64e59',
   success: '#3bd555',
   disabled: '#cacaca',
 
@@ -58,6 +58,10 @@ const Colors = {
   followersSecond: '#81d4fa',
   followersThird: '#4fc3f7',
   followersFourth: '#42a5f5',
+
+  chartsAreaStroke:'#097fe5',
+  chartsAreaFill: '#d6ecff'
+
 };
 
 const Fonts = {
@@ -107,6 +111,7 @@ export const KittenTheme = {
     border: {
       base: Colors.border,
       accent: Colors.accent,
+      secondary: Colors.secondaryForeground
     },
     control: {
       background: Colors.background
@@ -136,7 +141,11 @@ export const KittenTheme = {
     charts:{
       followersProgress: Colors.followersProgress,
       doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
-      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth]
+      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      area: {
+        stroke: Colors.chartsAreaStroke,
+        fill: Colors.chartsAreaFill
+      }
     }
   },
   fonts: {
@@ -153,8 +162,8 @@ export const KittenTheme = {
       p3: scale(15),
       p4: scale(13),
       s1: scale(15),
-      s2: scale(14),
-      s3: scale(14),
+      s2: scale(13),
+      s3: scale(13),
       s4: scale(12),
       s5: scale(12),
       s6: scale(13),

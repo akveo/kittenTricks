@@ -4,7 +4,8 @@ import {
   View,
   ScrollView,
   Image,
-  Platform
+  Platform,
+  StyleSheet
 } from 'react-native';
 import {NavigationActions} from 'react-navigation';
 import {
@@ -12,7 +13,7 @@ import {
   RkText,
   RkTheme
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/routes';
+import {MainRoutes} from '../../config/navigation/routes';
 import {FontAwesome} from '../../assets/icons';
 
 export class SideMenu extends React.Component {
@@ -79,7 +80,7 @@ let styles = RkStyleSheet.create(theme => ({
   container: {
     height: 80,
     paddingHorizontal: 16,
-    borderTopWidth: 1,
+    borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base
   },
   root: {

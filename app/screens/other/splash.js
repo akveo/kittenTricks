@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Image,
   View,
-  Dimensions
+  Dimensions,
+  StatusBar
 } from 'react-native';
 import {
   RkText,
@@ -11,7 +12,6 @@ import {
 } from 'react-native-ui-kitten'
 import {ProgressBar} from '../../components';
 import {
-  Colors,
   KittenTheme
 } from '../../config/theme';
 import {NavigationActions} from 'react-navigation';
@@ -29,13 +29,14 @@ export class SplashScreen extends React.Component {
   }
 
   componentDidMount() {
-
+    StatusBar.setHidden(true, 'none');
     RkTheme.setTheme(KittenTheme);
 
     this.timer = setInterval(() => {
       if (this.state.progress == 1) {
         clearInterval(this.timer);
         setTimeout(() => {
+          StatusBar.setHidden(false, 'slide');
           let toHome = NavigationActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'Home'})]
@@ -76,7 +77,7 @@ export class SplashScreen extends React.Component {
 
 let styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffffff',
+    backgroundColor: KittenTheme.colors.screen.base,
     justifyContent: 'space-between',
     flex: 1
   },

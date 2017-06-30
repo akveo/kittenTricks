@@ -2,14 +2,15 @@ import React from 'react';
 import {
   ListView,
   TouchableHighlight,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import {
   RkText,
   RkStyleSheet,
   RkTheme
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/routes';
+import {MainRoutes} from '../../config/navigation/routes';
 
 export class ListMenu extends React.Component {
   static navigationOptions = {
@@ -56,7 +57,7 @@ let styles = RkStyleSheet.create(theme => ({
   item: {
     height: 80,
     justifyContent: 'center',
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
     paddingHorizontal: 16
   },

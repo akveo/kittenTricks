@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import {RkStyleSheet, RkText} from 'react-native-ui-kitten';
 import {Avatar} from '../../components';
-import {Data} from '../../data';
+import {data} from '../../data';
 let moment = require('moment');
 
 export class Notifications extends React.Component {
@@ -18,12 +18,13 @@ export class Notifications extends React.Component {
     super(props);
 
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.data = ds.cloneWithRows(Data.getNotifications());
+    this.data = ds.cloneWithRows(data.getNotifications());
   }
 
 
   renderRow(row) {
 
+    let username = `${row.user.firstName} ${row.user.lastName}`;
     let hasAttachment = row.attach !== undefined;
     let attachment = <View/>;
 
@@ -36,7 +37,7 @@ export class Notifications extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Avatar img={row.photo}
+        <Avatar img={row.user.photo}
                 rkType='circle'
                 style={styles.avatar}
                 badge={row.action}/>
@@ -44,11 +45,11 @@ export class Notifications extends React.Component {
           <View style={mainContentStyle}>
             <View style={styles.text}>
               <RkText>
-                <RkText rkType='header6'>{row.username}</RkText>
+                <RkText rkType='header6'>{username}</RkText>
                 <RkText rkType='primary2'> {row.description}</RkText>
               </RkText>
             </View>
-            <RkText rkType='secondary5 secondaryColor'>{moment().add(row.time, 'seconds').fromNow()}</RkText>
+            <RkText rkType='secondary5 hintColor'>{moment().add(row.time, 'seconds').fromNow()}</RkText>
           </View>
           {attachment}
         </View>

@@ -2,7 +2,8 @@ import React from 'react';
 import {
   ScrollView,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet
 } from 'react-native';
 import {
   RkText,
@@ -136,7 +137,7 @@ let styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 17.5,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
     alignItems: 'center'
   },

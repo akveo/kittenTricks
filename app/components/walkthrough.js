@@ -10,14 +10,14 @@ export class Walkthrough extends React.Component {
 
   constructor(props) {
     super(props);
-    let {width} = Dimensions.get('window');
-    this.itemWidth = width;
+
     this.onScrollEnd = this._onScrollEnd.bind(this);
   }
 
   _renderItem = ({item}) => {
+    let {width} = Dimensions.get('window');
     return (
-      <View style={[styles.item, {width: this.itemWidth}]}>
+      <View style={[styles.item, {width: width}]}>
         {item}
       </View>
     );
@@ -61,6 +61,6 @@ let styles = StyleSheet.create({
     flex: 1
   },
   item: {
-    flex: 1
+    flex: 1,
   }
 });

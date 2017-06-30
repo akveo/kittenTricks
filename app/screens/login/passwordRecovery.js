@@ -2,6 +2,7 @@ import React from 'react';
 import {
   View,
   Image,
+  Keyboard
 } from 'react-native';
 import {
   RkStyleSheet,
@@ -29,7 +30,10 @@ export class PasswordRecovery extends React.Component {
     };
 
     return (
-      <View behavior='position' style={styles.screen}>
+      <View behavior='position'
+            style={styles.screen}
+            onStartShouldSetResponder={ (e) => true}
+            onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={styles.header}>
           {renderIcon()}
           <RkText rkType='h1'>Password Recovery</RkText>
@@ -40,7 +44,7 @@ export class PasswordRecovery extends React.Component {
             Enter your email below to receive your password reset instructions
           </RkText>
         </View>
-        <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
+        <GradientButton style={styles.save} rkType='large' text='SEND' onPress={() => {
           this.props.navigation.goBack()
         }}/>
       </View>
@@ -61,8 +65,8 @@ let styles = RkStyleSheet.create(theme => ({
   },
   image: {
     marginVertical: scaleVertical(27),
-    height:scaleVertical(77),
-    resizeMode:'contain'
+    height: scaleVertical(77),
+    resizeMode: 'contain'
   },
   content: {
     alignItems: 'center'

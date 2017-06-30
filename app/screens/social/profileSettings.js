@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   ScrollView,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import {
   RkText,
@@ -10,7 +11,7 @@ import {
   RkTheme,
   RkStyleSheet
 } from 'react-native-ui-kitten';
-import {Users} from '../../data/appData';
+import {data} from '../../data';
 import {Avatar} from '../../components';
 import {SocialSetting} from '../../components';
 import {FontAwesome} from '../../assets/icons';
@@ -23,7 +24,7 @@ export class ProfileSettings extends React.Component {
 
   constructor(props) {
     super(props);
-    this.user = Users[0];
+    this.user = data.getUser();
 
     this.state = {
       firstName: this.user.firstName,
@@ -149,7 +150,7 @@ let styles = RkStyleSheet.create(theme => ({
   row: {
     flexDirection: 'row',
     paddingHorizontal: 17.5,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
     alignItems: 'center'
   },

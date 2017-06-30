@@ -2,17 +2,20 @@ import React from 'react';
 import _ from 'lodash';
 import {StackNavigator} from 'react-navigation'
 import {withRkTheme} from 'react-native-ui-kitten'
-import {NavBar} from '../components';
-import {MainRoutes, MenuRoutes} from './routes';
+import {NavBar} from '../../components/index';
+import transition from './transitions';
+import {
+  MainRoutes,
+  MenuRoutes
+} from './routes';
 
 let main = {};
 let flatRoutes = {};
-
 (MenuRoutes).map(function (route, index) {
 
   let wrapToRoute = (route) => {
     return {
-      screen:withRkTheme(route.screen),
+      screen: withRkTheme(route.screen),
       title: route.title
     }
   };
@@ -33,6 +36,8 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
     screen: StackNavigator(flatRoutes, {
       initialRouteName: name,
       headerMode: 'screen',
+      cardStyle: {backgroundColor: 'transparent'},
+      transitionConfig: transition,
       navigationOptions: ({navigation, screenProps}) => ({
         gesturesEnabled: false,
         header: (headerProps) => {
