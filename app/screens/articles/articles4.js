@@ -35,7 +35,7 @@ export class Articles4 extends React.Component {
 
         <View rkCardContent>
           <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
-          <RkText rkType='secondary6 alterColor'>{info.item.username}</RkText>
+          <RkText rkType='secondary6 hintColor'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
           <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
         </View>
         <View rkCardFooter>
