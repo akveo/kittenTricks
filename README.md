@@ -2,7 +2,7 @@
 
 A perfect starter kit for your next cross-platform React Native app. **FREE** and open-source! Check out live demo on [App Store](https://itunes.apple.com/us/app/kitten-tricks/id1246143230) or [Google Play](https://play.google.com/store/apps/details?id=com.akveo.kittenTricks).
 
-![Preview](http://i.imgur.com/wgod3bf.jpg)
+![Preview](http://i.imgur.com/w1CAPJF.jpg)
 
 <a href="https://itunes.apple.com/us/app/kitten-tricks/id1246143230" alt="App Store"><img src="http://i.imgur.com/7IxtMV0.png" width="200"/></a> <a href="https://play.google.com/store/apps/details?id=com.akveo.kittenTricks" alt="Google play"><img src="http://i.imgur.com/pxFfB0S.png" width="200"/></a>
 
