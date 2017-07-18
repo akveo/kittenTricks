@@ -64,6 +64,7 @@ Notification.schema = {
     time: 'int',
     attach: {type: 'int', optional: true},
     user: 'User',
+    type: 'string'
   }
 };
 
