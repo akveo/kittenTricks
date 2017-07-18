@@ -1,4 +1,4 @@
-import realm from './realm'
+import realm from './realm/realm'
 import users from './raw/users'
 import articles from './raw/articles'
 import notifications from './raw/notifications'
