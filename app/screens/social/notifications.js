@@ -40,7 +40,7 @@ export class Notifications extends React.Component {
         <Avatar img={row.user.photo}
                 rkType='circle'
                 style={styles.avatar}
-                badge={row.action}/>
+                badge={row.type}/>
         <View style={styles.content}>
           <View style={mainContentStyle}>
             <View style={styles.text}>
