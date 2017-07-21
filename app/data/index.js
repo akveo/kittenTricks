@@ -1,4 +1,4 @@
-import realm from './realm'
+import realm from './realm/realm'
 import populate from './dataGenerator'
 
 class DataProvider {
