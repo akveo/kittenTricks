@@ -11,6 +11,7 @@ import {
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {PasswordTextInput} from '../../components/passwordTextInput';
+import {CardInput} from '../../components/cardInput';
 
 export class AddToCardForm extends React.Component {
 	static navigationOptions = {
@@ -19,6 +20,13 @@ export class AddToCardForm extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			cardNumber: '',
+			expireMonth: '',
+			expireYear: '',
+			nameOnCard: '',
+			cardCode: ''
+		};
 	}
 
 	render() {
@@ -33,7 +41,7 @@ export class AddToCardForm extends React.Component {
 							<View style={[styles.textRow]}>
 								<RkText rkType='subtitle'>Card Number</RkText>
 							</View>
-							<PasswordTextInput/>
+							<CardInput/>
 						</View>
 
 						<View style={[styles.content]}>
@@ -41,9 +49,21 @@ export class AddToCardForm extends React.Component {
 								<RkText rkType='subtitle'>Expire date</RkText>
 							</View>
 							<View style={[styles.expireDateBlock]}>
-								<RkTextInput style={[styles.expireDateInput]} rkType='rounded'/>
+								<RkTextInput style={[styles.expireDateInput]}
+														 inputStyle={[styles.expireDateInnerInput]}
+														 rkType='rounded'
+														 maxLength = {2}
+														 keyboardType='numeric'
+														 onChangeText={(expireMonth) => this.setState({expireMonth})}
+														 value={this.state.expireMonth}/>
 								<View style={[styles.expireDateDelimiter]}/>
-								<RkTextInput style={[styles.expireDateInput]} rkType='rounded'/>
+								<RkTextInput style={[styles.expireDateInput]}
+														 inputStyle={[styles.expireDateInnerInput]}
+														 rkType='rounded'
+														 maxLength = {4}
+														 keyboardType='numeric'
+														 onChangeText={(expireYear) => this.setState({expireYear})}
+														 value={this.state.expireYear}/>
 							</View>
 						</View>
 
@@ -51,14 +71,19 @@ export class AddToCardForm extends React.Component {
 							<View style={[styles.textRow]}>
 								<RkText rkType='subtitle'>Name On Card</RkText>
 							</View>
-							<RkTextInput rkType='rounded'/>
+							<RkTextInput rkType='rounded'
+													 onChangeText={(nameOnCard) => this.setState({nameOnCard})}
+													 value={this.state.nameOnCard} />
 						</View>
 
 						<View style={[styles.content]}>
 							<View style={[styles.textRow]}>
 								<RkText rkType='subtitle'>Card Code</RkText>
 							</View>
-							<PasswordTextInput/>
+							<PasswordTextInput maxLength = {3}
+																 keyboardType='numeric'
+																 onChangeText={(cardCode) => this.setState({cardCode})}
+																 value={this.state.cardCode} />
 						</View>
 					</View>
 					<View>
@@ -95,6 +120,9 @@ let styles = RkStyleSheet.create(theme => ({
 	},
 	expireDateInput: {
 		flex: 0.48
+	},
+	expireDateInnerInput: {
+		textAlign: 'center'
 	},
 	expireDateDelimiter: {
 		flex: 0.04

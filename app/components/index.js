@@ -11,3 +11,4 @@ export * from './progressBar';
 export * from './navBar';
 export * from './paginationIndicator';
 export * from './passwordTextInput';
+export * from './cardInput';
