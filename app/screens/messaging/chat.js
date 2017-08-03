@@ -21,6 +21,7 @@ import realm from '../../data/realm';
 import {FontAwesome} from '../../assets/icons';
 import {data} from '../../data';
 import {Avatar} from '../../components/avatar';
+import {scale} from '../../utils/scale';
 let moment = require('moment');
 
 
@@ -199,7 +200,7 @@ let styles = RkStyleSheet.create(theme => ({
     alignSelf: 'flex-end'
   },
   balloon: {
-    maxWidth: 250,
+    maxWidth: scale(250),
     padding: 15,
     borderRadius: 20,
   },
