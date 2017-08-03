@@ -17,7 +17,7 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import _ from 'lodash';
-import realm from '../../data/realm';
+import realm from '../../data/realm/realm';
 import {FontAwesome} from '../../assets/icons';
 import {data} from '../../data';
 import {Avatar} from '../../components/avatar';
