@@ -187,13 +187,13 @@ export const MainRoutes = [
         screen: Screens.Cards,
         children: []
       },
-			{
-				id: 'AddToCardForm',
-				title: 'Add To Card Form',
-				icon: FontIcons.addToCardForm,
-				screen: Screens.AddToCardForm,
-				children: []
-       },
+      {
+        id: 'AddToCardForm',
+        title: 'Add To Card Form',
+        icon: FontIcons.addToCardForm,
+        screen: Screens.AddToCardForm,
+        children: []
+      },
 
     ]
   },

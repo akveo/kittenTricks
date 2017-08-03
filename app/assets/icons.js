@@ -9,7 +9,7 @@ export const FontIcons = {
   other: '',
   theme: '',
   card: '',
-	addToCardForm: '',
+  addToCardForm: '',
 };
 
 export const FontAwesome = {
