@@ -14,7 +14,7 @@ export class LoginMenu extends React.Component {
   }
 }
 
-  export class NavigationMenu extends React.Component {
+export class NavigationMenu extends React.Component {
   static navigationOptions = {
     title: 'Navigation'.toUpperCase()
   };

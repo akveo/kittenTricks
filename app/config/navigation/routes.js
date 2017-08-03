@@ -169,10 +169,15 @@ export const MainRoutes = [
   },
   {
     id: 'WalkthroughMenu',
-    title: 'Walkthrough',
+    title: 'Walkthroughs',
     icon: FontIcons.mobile,
-    screen: Screens.WalkthroughScreen,
-    children: []
+    screen: Screens.WalkthroughMenu,
+    children: [{
+      id: 'Walkthrough',
+      title: 'Walkthrough',
+      screen: Screens.WalkthroughScreen,
+      children: []
+    }]
   },
   {
     id: 'EcommerceMenu',
