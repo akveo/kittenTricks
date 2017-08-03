@@ -11,7 +11,7 @@ import {
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
 import {data} from '../../data';
-let moment = require('moment');
+
 
 export class Articles4 extends React.Component {
   static navigationOptions = {
@@ -20,28 +20,33 @@ export class Articles4 extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.data = data.getArticles('fact');
+    this.renderItem = this._renderItem.bind(this);
   }
 
-  _keyExtractor(post, index) {
+  _keyExtractor(post) {
     return post.id;
   }
 
   _renderItem(info) {
     return (
-      <RkCard rkType='horizontal' style={styles.card}>
-        <Image rkCardImg source={info.item.photo}/>
+      <TouchableOpacity
+        delayPressIn={70}
+        activeOpacity={0.8}
+        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
+      	<RkCard rkType='horizontal' style={styles.card}>
+        	<Image rkCardImg source={info.item.photo}/>
 
-        <View rkCardContent>
-          <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
-          <RkText rkType='secondary6 hintColor'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
-          <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
-        </View>
-        <View rkCardFooter>
-          <SocialBar rkType='space' showLabel={true}/>
-        </View >
-      </RkCard>
+          <View rkCardContent>
+            <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
+            <RkText rkType='secondary6 hintColor'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
+            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
+          </View>
+          <View rkCardFooter>
+            <SocialBar rkType='space' showLabel={true}/>
+          </View >
+        </RkCard>
+      </TouchableOpacity>
     )
   }
 
@@ -50,7 +55,7 @@ export class Articles4 extends React.Component {
       <View>
         <FlatList
           data={this.data}
-          renderItem={this._renderItem}
+          renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
           style={styles.container}/>
       </View>
