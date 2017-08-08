@@ -8,7 +8,8 @@ export const FontIcons = {
   mobile: '',
   other: '',
   theme: '',
-  card: ''
+  card: '',
+  addToCardForm: '',
 };
 
 export const FontAwesome = {
