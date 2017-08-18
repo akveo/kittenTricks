@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   View,
-  Keyboard
+  Keyboard,
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkText,
@@ -11,7 +12,9 @@ import {
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {PasswordTextInput} from '../../components/passwordTextInput';
+import {DatePicker} from '../../components/picker/datePicker';
 import {CardInput} from '../../components/cardInput';
+import {scale} from '../../utils/scale';
 
 export class AddToCardForm extends React.Component {
   static navigationOptions = {
@@ -22,11 +25,22 @@ export class AddToCardForm extends React.Component {
     super(props);
     this.state = {
       cardNumber: '',
-      expireMonth: '',
-      expireYear: '',
       nameOnCard: '',
-      cardCode: ''
+      cardCode: '',
+      expireYear: 2017,
+      expireMonth: 8,
+      pickerVisible: false,
     };
+  }
+
+  handlePickedDate(date) {
+    console.log(date);
+    this.setState({expireMonth: date.month.key, expireYear: date.year});
+    this.hidePicker()
+  }
+
+  hidePicker() {
+    this.setState({pickerVisible: false});
   }
 
   render() {
@@ -49,21 +63,27 @@ export class AddToCardForm extends React.Component {
                 <RkText rkType='subtitle'>Expire date</RkText>
               </View>
               <View style={[styles.expireDateBlock]}>
-                <RkTextInput style={[styles.expireDateInput]}
-                             inputStyle={[styles.expireDateInnerInput]}
-                             rkType='rounded'
-                             maxLength={2}
-                             keyboardType='numeric'
-                             onChangeText={(expireMonth) => this.setState({expireMonth})}
-                             value={this.state.expireMonth}/>
+                <DatePicker
+                  onConfirm={(date) => this.handlePickedDate(date)}
+                  onCancel={() => this.hidePicker()}
+                  selectedYear={this.state.expireYear}
+                  selectedMonth={this.state.expireMonth}
+                  visible={this.state.pickerVisible}/>
+                <View style={[styles.expireDateInput, styles.balloon]}>
+                  <TouchableOpacity onPress={() => this.setState({pickerVisible: true})}>
+                    <RkText rkType='medium' style={styles.expireDateInnerInput}>
+                      {this.state.expireMonth}
+                    </RkText>
+                  </TouchableOpacity>
+                </View>
                 <View style={[styles.expireDateDelimiter]}/>
-                <RkTextInput style={[styles.expireDateInput]}
-                             inputStyle={[styles.expireDateInnerInput]}
-                             rkType='rounded'
-                             maxLength={4}
-                             keyboardType='numeric'
-                             onChangeText={(expireYear) => this.setState({expireYear})}
-                             value={this.state.expireYear}/>
+                <View style={[styles.expireDateInput, styles.balloon]}>
+                  <TouchableOpacity onPress={() => this.setState({pickerVisible: true})}>
+                    <RkText rkType='medium' style={styles.expireDateInnerInput}>
+                      {this.state.expireYear}
+                    </RkText>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
 
@@ -119,12 +139,21 @@ let styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row'
   },
   expireDateInput: {
-    flex: 0.48
+    flex: 0.48,
+    marginVertical: 10,
   },
   expireDateInnerInput: {
     textAlign: 'center'
   },
   expireDateDelimiter: {
     flex: 0.04
+  },
+  balloon: {
+    maxWidth: scale(250),
+    padding: 15,
+    borderRadius: 100,
+    borderWidth: 0.5,
+    borderColor: theme.colors.border.solid,
+    backgroundColor: theme.colors.control.background
   },
 }));
