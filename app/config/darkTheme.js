@@ -34,6 +34,7 @@ const Colors = {
   gradientMasterEnd: '#f24645',
   gradientAxpBegin: '#42e695',
   gradientAxpEnd: '#3bb2bb',
+  highlight: '#acacd2',
 
   // -----
   faded: '#e5e5e5',
@@ -110,7 +111,8 @@ export const DarkKittenTheme = {
     border: {
       base: Colors.border,
       accent: Colors.alterBackground,
-      secondary: Colors.secondaryForeground
+      secondary: Colors.secondaryForeground,
+      highlight: Colors.highlight,
     },
     control: {
       background: Colors.alterBackground
