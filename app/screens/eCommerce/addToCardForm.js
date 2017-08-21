@@ -154,6 +154,5 @@ let styles = RkStyleSheet.create(theme => ({
     borderRadius: 100,
     borderWidth: 0.5,
     borderColor: theme.colors.border.solid,
-    backgroundColor: theme.colors.control.background
   },
 }));
