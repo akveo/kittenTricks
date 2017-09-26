@@ -175,10 +175,6 @@ export const KittenTheme = {
       xlarge: FontBaseValue / 0.75,
       xxlarge: FontBaseValue * 1.6,
     },
-    lineHeights: {
-      medium: 18,
-      big: 24
-    },
     family: {
       regular: Fonts.regular,
       light: Fonts.light,
