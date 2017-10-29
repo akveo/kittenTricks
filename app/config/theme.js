@@ -11,6 +11,7 @@ const Colors = {
   inverseForeground: '#ffffff',
   secondaryForeground: '#bcbcbc',
   hintForeground: '#969696',
+  highlight: '#bcbcbc',
 
   background: '#ffffff',
   alterBackground: '#f2f2f2',
@@ -111,7 +112,8 @@ export const KittenTheme = {
     border: {
       base: Colors.border,
       accent: Colors.accent,
-      secondary: Colors.secondaryForeground
+      secondary: Colors.secondaryForeground,
+      highlight: Colors.highlight,
     },
     control: {
       background: Colors.background

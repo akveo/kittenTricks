@@ -476,6 +476,12 @@ export let bootstrap = () => {
     }
   });
 
+  RkTheme.setType('RkPicker', 'highlight', {
+    highlightBorderTopColor: theme => theme.colors.border.highlight,
+    highlightBorderBottomColor: theme => theme.colors.border.highlight,
+    windowBorderColor: theme => theme.colors.border.highlight,
+  });
+
   /*
    Register components
    */
