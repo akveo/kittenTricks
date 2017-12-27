@@ -34,6 +34,9 @@ const KittenApp = StackNavigator({
         ...AppRoutes,
       },
       {
+        drawerOpenRoute: 'DrawerOpen',
+        drawerCloseRoute: 'DrawerClose',
+        drawerToggleRoute: 'DrawerToggle',
         contentComponent: (props) => <SideMenu {...props}/>
       })
   }
