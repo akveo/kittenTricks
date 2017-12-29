@@ -78,7 +78,6 @@ apply from: "../../node_modules/react-native/react.gradle"
  * the correct one based on the CPU architecture of their device.
  */
 def enableSeparateBuildPerCPUArchitecture = false
-def pass = getPassword("alexei","kittenTricks_keystore")
 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
@@ -98,14 +97,6 @@ android {
         }
     }
     signingConfigs {
-        release {
-            if (project.hasProperty('RELEASE_STORE_FILE')) {
-                storeFile file(RELEASE_STORE_FILE)
-                storePassword pass
-                keyAlias RELEASE_KEY_ALIAS
-                keyPassword pass
-            }
-        }
     }
     splits {
         abi {
@@ -119,7 +110,6 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
