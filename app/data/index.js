@@ -1,35 +1,40 @@
-import realm from './realm/realm'
 import populate from './dataGenerator'
+import users from './raw/users'
+import articles from './raw/articles'
+import notifications from './raw/notifications'
+import conversations from './raw/conversations'
+import cards from './raw/cards'
+import _ from 'lodash'
 
 class DataProvider {
 
   getUser(id = 1) {
-    return realm.objects('User').filtered(`id=${id}`)[0];
+    return _.find(users, x => x.id == id);
   }
 
   getUsers() {
-    return realm.objects('User');
+    return users;
   }
 
   getNotifications() {
-    return realm.objects('Notification');
+    return notifications;
   }
 
   getArticles(type = 'article') {
-    return realm.objects('Article').filtered(`type="${type}"`);
+    return _.filter(articles, x => x.type == type);
   }
 
   getArticle(id) {
-    return realm.objects('Article').filtered(`id=${id}`)[0];
+    return _.find(articles, x => x.id == id);
   }
 
 
   getConversation(userId = 1) {
-    return realm.objects('Conversation').filtered(`withUser.id=${userId}`)[0];
+    return _.find(conversations, x => x.withUser.id == userId);
   }
 
   getChatList() {
-    return realm.objects('Conversation');
+    return conversations;
   }
 
   getComments(postId = 1) {
@@ -37,10 +42,10 @@ class DataProvider {
   }
 
   getCards() {
-    return realm.objects('Card');
+    return cards;
   }
 
-  populateRealm() {
+  populateData() {
     populate();
   }
 }

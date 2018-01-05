@@ -23,7 +23,6 @@
     "react-native-switch-pro": "^0.4.2",
     "react-native-ui-kitten": "git://github.com/akveo/react-native-ui-kitten.git#dev",
     "react-navigation": "^1.0.0-beta.11",
-    "realm": "^1.8.0",
     "rnpm": "^1.9.0",
     "victory-native": "0.12.0"
   },

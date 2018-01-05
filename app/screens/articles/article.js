@@ -38,7 +38,7 @@ export class Article extends React.Component {
               <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
               <RkText rkType='secondary2 hintColor'>{moment().add(this.data.time, 'seconds').fromNow()}</RkText>
             </View>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: this.data.id})}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: this.data.user.id})}>
               <Avatar rkType='circle' img={this.data.user.photo}/>
             </TouchableOpacity>
           </View>

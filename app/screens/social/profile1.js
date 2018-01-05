@@ -26,7 +26,7 @@ export class ProfileV1 extends React.Component {
 
   render() {
     let name = `${this.user.firstName} ${this.user.lastName}`;
-    let images = this.user.images.map((image) => image.id);
+    let images = this.user.images;
     return (
       <ScrollView style={styles.root}>
         <View style={[styles.header, styles.bordered]}>

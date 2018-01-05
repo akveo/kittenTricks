@@ -11,7 +11,7 @@ import track from './config/analytics';
 import {data} from './data'
 
 bootstrap();
-data.populateRealm();
+data.populateData();
 
 function getCurrentRouteName(navigationState) {
   if (!navigationState) {
@@ -34,6 +34,9 @@ const KittenApp = StackNavigator({
         ...AppRoutes,
       },
       {
+        drawerOpenRoute: 'DrawerOpen',
+        drawerCloseRoute: 'DrawerClose',
+        drawerToggleRoute: 'DrawerToggle',
         contentComponent: (props) => <SideMenu {...props}/>
       })
   }

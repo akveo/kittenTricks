@@ -17,7 +17,6 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import _ from 'lodash';
-import realm from '../../data/realm/realm';
 import {FontAwesome} from '../../assets/icons';
 import {data} from '../../data';
 import {Avatar} from '../../components/avatar';
@@ -89,18 +88,18 @@ export class Chat extends React.Component {
       : RkTheme.current.colors.chat.messageOutBackground;
     let itemStyle = inMessage ? styles.itemIn : styles.itemOut;
 
-    let renderDate = (date) => (
+    let renderDate = (time) => (
       <RkText style={styles.time} rkType='secondary7 hintColor'>
-        {moment().add(date, 'seconds').format('LT')}
+        {moment().add(time, 'seconds').format('LT')}
       </RkText>);
 
     return (
       <View style={[styles.item, itemStyle]}>
-        {!inMessage && renderDate(info.item.date)}
+        {!inMessage && renderDate(info.item.time)}
         <View style={[styles.balloon, {backgroundColor}]}>
           <RkText rkType='primary2 mediumLine chat'>{info.item.text}</RkText>
         </View>
-        {inMessage && renderDate(info.item.date)}
+        {inMessage && renderDate(info.item.time)}
       </View>
     )
   }
@@ -116,23 +115,9 @@ export class Chat extends React.Component {
   _pushMessage() {
     if (!this.state.message)
       return;
-    let msg = {
-      id: this.state.data.messages.length,
-      time: 0,
-      type: 'out',
-      text: this.state.message
-    };
 
-
-    let data = this.state.data;
-    realm.write(() => {
-      data.messages.push(msg);
-    });
-
-    this.setState({
-      data,
-      message: ''
-    });
+    this.state.data.messages.push({id: this.state.data.messages.length, time: 0, type: 'out', text: this.state.message});
+    this.setState({message: ''});
     this._scroll(true);
   }
 
