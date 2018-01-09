@@ -9,13 +9,13 @@ const notifications = [
     type: 'like',
     description: 'liked a photo on your album',
     time: -271,
-    attach: require('../img/Image 8.png'),
+    attach: require('../img/Image8.png'),
   }, {
     id: 3,
     type: 'like',
     description: 'liked a photo on your album',
     time: -541,
-    attach: require('../img/Image 8.png'),
+    attach: require('../img/Image8.png'),
   }, {
     id: 4,
     type: 'like',
@@ -36,7 +36,7 @@ const notifications = [
     type: 'follow',
     description: 'liked a photo on your album',
     time: -1621,
-    attach: require('../img/Image 8.png'),
+    attach: require('../img/Image8.png'),
   }, {
     id: 8,
     type: 'follow',
@@ -52,7 +52,7 @@ const notifications = [
     type: 'like',
     description: 'liked a photo on your album',
     time: -2431,
-    attach: require('../img/Image 8.png'),
+    attach: require('../img/Image8.png'),
   }
 ];
 
