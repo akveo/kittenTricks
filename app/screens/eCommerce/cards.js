@@ -14,7 +14,7 @@ import {
   RkStyleSheet,
   RkTheme
 } from 'react-native-ui-kitten';
-import LinearGradient from 'react-native-linear-gradient';
+import {LinearGradient} from 'expo';
 import {data} from '../../data';
 import {PasswordTextInput} from '../../components/passwordTextInput';
 import {UIConstants} from '../../config/appConstants';

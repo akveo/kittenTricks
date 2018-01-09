@@ -11,7 +11,7 @@ import {
   RkAvoidKeyboard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {FontAwesome} from '../../assets/icons';
-import {GradientButton} from '../../components/';
+import {GradientButton} from '../../components/gradientButton';
 import {RkTheme} from 'react-native-ui-kitten';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 

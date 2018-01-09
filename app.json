@@ -1,4 +1,11 @@
 {
-  "name": "kittentricks",
-  "displayName": "Kitten Tricks"
+  "expo": {
+    "name": "Kitten Tricks",
+    "slug": "kitten-tricks",
+    "sdkVersion": "23.0.0",
+    "icon": "./icon.png",
+	"loading": {
+	  "icon": "./icon.png"
+    }
+  }
 }
