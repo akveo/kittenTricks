@@ -53,3 +53,5 @@ fastlane/screenshots
 *.bak
 android/app/kittenTricks.jks
 *.orig
+
+.expo
