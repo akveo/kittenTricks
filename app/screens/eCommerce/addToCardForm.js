@@ -18,7 +18,7 @@ import {scale} from '../../utils/scale';
 
 export class AddToCardForm extends React.Component {
   static navigationOptions = {
-    title: 'Add To Card'.toUpperCase()
+    title: 'Add Card'.toUpperCase()
   };
 
   constructor(props) {
@@ -68,7 +68,8 @@ export class AddToCardForm extends React.Component {
                   onCancel={() => this.hidePicker()}
                   selectedYear={this.state.expireYear}
                   selectedMonth={this.state.expireMonth}
-                  visible={this.state.pickerVisible}/>
+                  visible={this.state.pickerVisible}
+                  customDateParts={[DatePicker.DatePart.YEAR, DatePicker.DatePart.MONTH]}/>
                 <View style={[styles.expireDateInput, styles.balloon]}>
                   <TouchableOpacity onPress={() => this.setState({pickerVisible: true})}>
                     <RkText rkType='medium' style={styles.expireDateInnerInput}>

@@ -6,6 +6,8 @@ import {
 export class DatePicker extends React.Component {
   componentName = 'DatePicker';
 
+  static DatePart = Object.freeze({YEAR: 1, MONTH: 2, DAY: 3});
+
   constructor(props) {
     super(props);
     this.state = {pickerVisible: false};
@@ -22,11 +24,18 @@ export class DatePicker extends React.Component {
   }
 
   handlePickedValue(date) {
-    let resultDate = {
-      month: date[0],
-      day: date[1],
-      year: date[2],
-    };
+    let resultDate = {};
+    if (this.props.customDateParts) {
+      let i = 0;
+      if (this.props.customDateParts.includes(DatePicker.DatePart.MONTH))
+        resultDate['month'] = date[i++];
+      if (this.props.customDateParts.includes(DatePicker.DatePart.DAY))
+        resultDate['day'] = date[i++];
+      if (this.props.customDateParts.includes(DatePicker.DatePart.YEAR))
+        resultDate['year'] = date[i];
+    } else {
+      resultDate = { month: date[0], day: date[1], year: date[2] };
+    }
     this.props.onConfirm(resultDate);
   };
 
@@ -48,15 +57,36 @@ export class DatePicker extends React.Component {
       selectedYear,
       selectedMonth,
       selectedDay,
+      customDateParts,
       ...props
     } = this.props;
+
+    let data = [this.months, this.days, this.years];
+    let selectedOptions = [this.findElementByKey(selectedMonth, this.months), selectedDay || 1, selectedYear||2000];
+    if (customDateParts) {
+      selectedOptions = [];
+      data = [];
+      if (customDateParts.includes(DatePicker.DatePart.MONTH)) {
+        data.push(this.months);
+        selectedOptions.push(this.findElementByKey(selectedMonth, this.months));
+      }
+      if (customDateParts.includes(DatePicker.DatePart.DAY)) {
+        data.push(this.days);
+        selectedOptions.push(selectedDay || 1);
+      }
+      if (customDateParts.includes(DatePicker.DatePart.YEAR)) {
+        data.push(this.years);
+        selectedOptions.push(selectedYear||2000);
+      }
+    }
+
     return (
       <RkPicker
         rkType='highlight'
         title='Set Date'
-        data={[this.months, this.days, this.years]}
+        data={data}
         onConfirm={(date) => this.handlePickedValue(date)}
-        selectedOptions={[this.findElementByKey(selectedMonth, this.months), selectedDay || 1, selectedYear||2000]}
+        selectedOptions={selectedOptions}
         optionRkType='subtitle small'
         selectedOptionRkType='header4'
         titleTextRkType='header4'
