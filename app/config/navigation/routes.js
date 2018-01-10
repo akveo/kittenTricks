@@ -194,7 +194,7 @@ export const MainRoutes = [
       },
       {
         id: 'AddToCardForm',
-        title: 'Add To Card Form',
+        title: 'Add Card Form',
         icon: FontIcons.addToCardForm,
         screen: Screens.AddToCardForm,
         children: []
