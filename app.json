@@ -2,10 +2,24 @@
   "expo": {
     "name": "Kitten Tricks",
     "slug": "kitten-tricks",
-    "sdkVersion": "23.0.0",
+    "githubUrl": "https://github.com/akveo/kittenTricks",
+    "sdkVersion": "24.0.0",
     "icon": "./icon.png",
-	"loading": {
-	  "icon": "./icon.png"
-    }
+    "loading": {
+      "icon": "./icon_rounded.png"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "bundleIdentifier": "com.akveo.kittentricks",
+      "buildNumber": "1.0.10",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.akveo.kittentricks",
+      "versionCode": 16
+    },
+    "version": "1.0.10"
   }
 }
