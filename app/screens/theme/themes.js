@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View,
   Image,
-  StatusBar
+  StatusBar,
+  Platform
 } from 'react-native';
 import {
   RkText,
@@ -34,6 +35,7 @@ export class Themes extends React.Component {
             text='APPLY'
             onPress={() => {
               StatusBar.setBarStyle('dark-content', true);
+              Platform.OS == 'android' && StatusBar.setBackgroundColor(KittenTheme.colors.screen.base);
               RkTheme.setTheme(KittenTheme);
             }}/>
         </View>
@@ -45,6 +47,7 @@ export class Themes extends React.Component {
             onPress={() => {
               RkTheme.setTheme(DarkKittenTheme);
               StatusBar.setBarStyle('light-content', true);
+              Platform.OS == 'android' && StatusBar.setBackgroundColor(DarkKittenTheme.colors.screen.base);
             }}/>
 
         </View>
