@@ -5,6 +5,7 @@
     "githubUrl": "https://github.com/akveo/kittenTricks",
     "sdkVersion": "24.0.0",
     "icon": "./icon.png",
+    "orientation": "portrait",
     "loading": {
       "icon": "./icon_rounded.png"
     },
