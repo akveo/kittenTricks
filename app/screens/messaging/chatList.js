@@ -86,7 +86,7 @@ export class ChatList extends React.Component {
                 {moment().add(last.time, 'seconds').format('LT')}
               </RkText>
             </View>
-            <RkText numberOfLines={2} rkType='primary3 mediumLine'>{last.text}</RkText>
+            <RkText numberOfLines={2} rkType='primary3 mediumLine' style={{paddingTop: 5}}>{last.text}</RkText>
           </View>
         </View>
       </TouchableOpacity>
@@ -121,7 +121,8 @@ let styles = RkStyleSheet.create(theme => ({
   container: {
     paddingLeft: 19,
     paddingRight: 16,
-    paddingVertical: 12,
+    paddingBottom: 12,
+    paddingTop: 7,
     flexDirection: 'row'
   },
   content: {

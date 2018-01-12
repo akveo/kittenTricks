@@ -97,7 +97,7 @@ export class Chat extends React.Component {
       <View style={[styles.item, itemStyle]}>
         {!inMessage && renderDate(info.item.time)}
         <View style={[styles.balloon, {backgroundColor}]}>
-          <RkText rkType='primary2 mediumLine chat'>{info.item.text}</RkText>
+          <RkText rkType='primary2 mediumLine chat' style={{paddingTop: 5}}>{info.item.text}</RkText>
         </View>
         {inMessage && renderDate(info.item.time)}
       </View>
@@ -186,7 +186,9 @@ let styles = RkStyleSheet.create(theme => ({
   },
   balloon: {
     maxWidth: scale(250),
-    padding: 15,
+    paddingHorizontal: 15,
+    paddingTop: 10,
+    paddingBottom: 15,
     borderRadius: 20,
   },
   time: {
