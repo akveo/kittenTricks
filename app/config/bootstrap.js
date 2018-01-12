@@ -65,14 +65,6 @@ export let bootstrap = () => {
     });
   }
 
-  //all text line heights
-  for (let key in RkTheme.current.fonts.lineHeights) {
-    RkTheme.setType('RkText', `${key}Line`, {
-      text: {
-        lineHeight: theme => theme.fonts.lineHeights[key]
-      }
-    });
-  }
 
   //theme text styles
   RkTheme.setType('RkText', 'header1', {
