@@ -22,7 +22,7 @@
     "react-native-linear-gradient": "2.4.0",
     "react-native-progress-bar": "0.1.2",
     "react-native-switch-pro": "0.4.6",
-    "react-native-ui-kitten": "git://github.com/akveo/react-native-ui-kitten.git#master",
+    "react-native-ui-kitten": "3.0.0",
     "react-navigation": "1.0.0-beta.23",
     "victory-native": "0.15.0",
     "expo-analytics":"1.0.6"
