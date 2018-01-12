@@ -4756,9 +4756,9 @@ react-native-tab-view@^0.0.74:
   dependencies:
     prop-types "^15.6.0"
 
-"react-native-ui-kitten@git://github.com/akveo/react-native-ui-kitten.git#master":
+react-native-ui-kitten@3.0.0:
   version "3.0.0"
-  resolved "git://github.com/akveo/react-native-ui-kitten.git#3b42d7f62db94852f2f39b6d2055159c0bf18d56"
+  resolved "https://registry.yarnpkg.com/react-native-ui-kitten/-/react-native-ui-kitten-3.0.0.tgz#2265393b57c6e637e55d7b7b5e5a214816b90ed6"
   dependencies:
     hoist-non-react-statics "^2.0.0"
     prop-types "^15.5.10"
