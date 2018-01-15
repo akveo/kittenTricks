@@ -33,7 +33,8 @@ insert short code snippets here
 
 ### Other information:
 
-**OS, device**
+**OS, device, application version **
 ```
 insert information here
+
 ```
