@@ -32,7 +32,7 @@
     "babel-preset-react-native": "1.9.1",
     "jest": "19.0.2",
     "react-test-renderer": "16.0.0-alpha.6",
-    "react-native-scripts": "1.8.1"
+    "react-native-scripts": "1.9.0"
   },
   "jest": {
     "preset": "react-native"
