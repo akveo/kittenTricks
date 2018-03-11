@@ -14,6 +14,7 @@ import {View} from "react-native";
 
 bootstrap();
 data.populateData();
+console.ignoredYellowBox = ['Warning: Failed prop type: Invalid props.style key `fontSize` supplied to `View`'];
 
 function getCurrentRouteName(navigationState) {
   if (!navigationState) {
