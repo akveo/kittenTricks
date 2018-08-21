@@ -14,7 +14,7 @@ import {ProgressBar} from '../../components';
 import {
   KittenTheme
 } from '../../config/theme';
-import {NavigationActions} from 'react-navigation';
+import {StackActions, NavigationActions} from 'react-navigation';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
 let timeFrame = 500;
@@ -37,7 +37,7 @@ export class SplashScreen extends React.Component {
         clearInterval(this.timer);
         setTimeout(() => {
           StatusBar.setHidden(false, 'slide');
-          let toHome = NavigationActions.reset({
+          let toHome = StackActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'Home'})]
           });

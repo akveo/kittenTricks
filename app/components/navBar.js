@@ -71,12 +71,7 @@ export class NavBar extends React.Component {
     )
   }
 
-  _renderTitle(title, headerTitle) {
-    if (headerTitle) {
-      return (
-        <View style={styles.title} onLayout={onLayout}>{headerTitle}</View>);
-    }
-
+  _renderTitle(title) {
     const onLayout = (e) => {
       this.setState({
         width: e.nativeEvent.layout.width,
@@ -91,11 +86,11 @@ export class NavBar extends React.Component {
   }
 
   render() {
-    let options = this.props.headerProps.getScreenDetails(this.props.headerProps.scene).options;
+    const options = this.props.headerProps.scene.descriptor.options;
     return (
       <View style={styles.layout}>
         <View style={styles.container}>
-          {this._renderTitle(options.title, options.headerTitle)}
+          {this._renderTitle(options.title)}
           {this._renderLeft(options.headerLeft)}
           {this._renderRight(options.headerRight)}
         </View>
