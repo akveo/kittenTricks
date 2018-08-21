@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "expo": "24.0.2",
+    "expo-analytics": "1.0.6",
     "hoist-non-react-statics": "2.3.1",
     "lodash": "4.17.4",
     "moment": "2.20.1",
@@ -23,9 +24,8 @@
     "react-native-progress-bar": "0.1.2",
     "react-native-switch-pro": "0.4.6",
     "react-native-ui-kitten": "3.0.0",
-    "react-navigation": "1.0.0-beta.23",
-    "victory-native": "0.15.0",
-    "expo-analytics":"1.0.6"
+    "react-navigation": "^2.11.2",
+    "victory-native": "0.15.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
