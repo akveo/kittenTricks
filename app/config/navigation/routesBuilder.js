@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import {StackNavigator} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation'
 import {withRkTheme} from 'react-native-ui-kitten'
 import {NavBar} from '../../components/index';
 import transition from './transitions';
@@ -33,7 +33,7 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
   let stack_name = name;
   routes[stack_name] = {
     name: stack_name,
-    screen: StackNavigator(flatRoutes, {
+    screen: createStackNavigator(flatRoutes, {
       initialRouteName: name,
       headerMode: 'screen',
       cardStyle: {backgroundColor: 'transparent'},

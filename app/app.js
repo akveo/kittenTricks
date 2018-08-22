@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  DrawerNavigator,
-  StackNavigator
+  createDrawerNavigator,
+  createStackNavigator,
 } from 'react-navigation';
 import {withRkTheme} from 'react-native-ui-kitten';
 import {AppRoutes} from './config/navigation/routesBuilder';
@@ -27,12 +27,12 @@ function getCurrentRouteName(navigationState) {
 }
 
 let SideMenu = withRkTheme(Screens.SideMenu);
-const KittenApp = StackNavigator({
+const KittenApp = createStackNavigator({
   First: {
     screen: Screens.SplashScreen
   },
   Home: {
-    screen: DrawerNavigator({
+    screen: createDrawerNavigator({
         ...AppRoutes,
       },
       {
