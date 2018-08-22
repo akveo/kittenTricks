@@ -11,31 +11,31 @@
     "test": "jest"
   },
   "dependencies": {
-    "expo": "24.0.2",
+    "expo": "28.0.0",
     "expo-analytics": "1.0.6",
     "hoist-non-react-statics": "2.3.1",
     "lodash": "4.17.4",
     "moment": "2.20.1",
     "prop-types": "15.6.0",
-    "react": "16.0.0",
-    "react-native": "0.51.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-28.0.1.tar.gz",
     "react-native-keyboard-spacer": "0.4.1",
     "react-native-linear-gradient": "2.4.0",
     "react-native-progress-bar": "0.1.2",
     "react-native-switch-pro": "0.4.6",
-    "react-native-ui-kitten": "3.0.0",
-    "react-navigation": "^2.11.2",
+    "react-native-ui-kitten": "3.0.1",
+    "react-navigation": "2.11.2",
     "victory-native": "0.15.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
     "babel-preset-react-native": "1.9.1",
-    "jest": "19.0.2",
-    "react-test-renderer": "16.0.0-alpha.6",
-    "react-native-scripts": "1.9.0"
+    "jest-expo": "28.0.0",
+    "react-test-renderer": "16.3.1",
+    "react-native-scripts": "1.14.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "jest-expo"
   },
   "main": "./app/app.js"
 }
