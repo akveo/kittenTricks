@@ -8,23 +8,24 @@ import {
 import { FontAwesome } from '../assets/icons';
 
 export class PasswordTextInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hidden: true };
-  }
+  state = {
+    hidden: true,
+  };
+
+  onInputLabelPressed = () => {
+    this.setState({ hidden: !this.state.hidden });
+  };
+
+  renderInputLabel = () => (
+    <RkButton
+      style={styles.button}
+      rkType='clear'
+      onPress={this.onInputLabelPressed}>
+      <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
+    </RkButton>
+  );
 
   render() {
-    const button = (
-      <RkButton
-        style={styles.button}
-        rkType='clear'
-        onPress={() => {
-                  this.setState({ hidden: !this.state.hidden });
-                }}>
-        <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
-      </RkButton>
-    );
-
     const {
       ...inputProps
     } = this.props;
@@ -34,7 +35,7 @@ export class PasswordTextInput extends React.Component {
         autoCapitalize='none'
         rkType='bordered rounded iconRight'
         autoCorrect={false}
-        label={button}
+        label={this.renderInputLabel()}
         secureTextEntry={this.state.hidden}
         {...inputProps}
       />
@@ -42,11 +43,11 @@ export class PasswordTextInput extends React.Component {
   }
 }
 
-let styles = RkStyleSheet.create(theme => ({
+let styles = RkStyleSheet.create({
   icon: {
     fontSize: 24,
   },
   button: {
     right: 17,
   },
-}));
+});
