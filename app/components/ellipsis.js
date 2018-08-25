@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { RkStyleSheet } from 'react-native-ui-kitten';
 
 export class Ellipsis extends React.Component {
