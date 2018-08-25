@@ -1,42 +1,25 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import { RkStyleSheet } from 'react-native-ui-kitten';
 
 export class PaginationIndicator extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  renderIndicatorItem = (index, selected) => (
+    <View style={selected ? [styles.base, styles.selected] : styles.base} key={index} />
+  );
 
-  _renderItem(index, selected) {
-    const style = [styles.base];
-    if (selected) { style.push(styles.selected); }
-    return (
-      <View key={index} style={style} />
-    );
-  }
-
-  _renderIndicators() {
-    const length = this.props.length;
-    const current = this.props.current;
-
+  renderIndicators = () => {
     const indicators = [];
-    for (let i = 0; i < length; i++) {
-      indicators.push(this._renderItem(i, i === current));
+    for (let i = 0; i < this.props.length; i++) {
+      indicators.push(this.renderIndicatorItem(i, i === this.props.current));
     }
-
     return indicators;
-  }
+  };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        {this._renderIndicators()}
-      </View>
-    );
-  }
+  render = () => (
+    <View style={styles.container}>
+      {this.renderIndicators()}
+    </View>
+  );
 }
 
 let styles = RkStyleSheet.create(theme => ({
