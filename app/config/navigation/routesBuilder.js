@@ -11,33 +11,38 @@ import {
 
 const main = {};
 const flatRoutes = {};
-(MenuRoutes).map((route, index) => {
-  const wrapToRoute = (route) => ({
-    screen: withRkTheme(route.screen),
-    title: route.title,
-  });
 
-  flatRoutes[route.id] = wrapToRoute(route);
-  main[route.id] = wrapToRoute(route);
-  for (const child of route.children) {
-    flatRoutes[child.id] = wrapToRoute(child);
-  }
+const routeMapping = (route) => ({
+  screen: withRkTheme(route.screen),
+  title: route.title,
 });
 
-const ThemedNavigationBar = withRkTheme(NavBar);
+(MenuRoutes).forEach(route => {
+  flatRoutes[route.id] = routeMapping(route);
+  main[route.id] = routeMapping(route);
+  route.children.forEach(nestedRoute => {
+    flatRoutes[nestedRoute.id] = routeMapping(nestedRoute);
+  });
+});
+
+const renderHeader = (navigation, props) => {
+  const ThemedNavigationBar = withRkTheme(NavBar);
+  return (
+    <ThemedNavigationBar navigation={navigation} headerProps={props} />
+  );
+};
 
 const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
-  const stack_name = name;
-  routes[stack_name] = {
-    name: stack_name,
+  routes[name] = {
+    name,
     screen: createStackNavigator(flatRoutes, {
       initialRouteName: name,
       headerMode: 'screen',
       cardStyle: { backgroundColor: 'transparent' },
       transitionConfig: transition,
-      navigationOptions: ({ navigation, screenProps }) => ({
+      navigationOptions: ({ navigation }) => ({
         gesturesEnabled: false,
-        header: (headerProps) => <ThemedNavigationBar navigation={navigation} headerProps={headerProps} />,
+        header: (props) => renderHeader(navigation, props),
       }),
     }),
   };
