@@ -2,20 +2,20 @@ import React from 'react';
 import {
   View,
   Image,
-  Keyboard
+  Keyboard,
 } from 'react-native';
 import {
   RkStyleSheet,
   RkText,
   RkTextInput,
-  RkTheme
+  RkTheme,
 } from 'react-native-ui-kitten';
-import {GradientButton} from '../../components/';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import { GradientButton } from '../../components/';
+import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
 
 export class PasswordRecovery extends React.Component {
   static navigationOptions = {
-    header: null
+    header: null,
   };
 
   constructor(props) {
@@ -23,32 +23,37 @@ export class PasswordRecovery extends React.Component {
   }
 
   render() {
-    let renderIcon = () => {
-      if (RkTheme.current.name === 'light')
-        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
-      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
+    const renderIcon = () => {
+      if (RkTheme.current.name === 'light') { return <Image style={styles.image} source={require('../../assets/images/logo.png')} />; }
+      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')} />;
     };
 
     return (
-      <View behavior='position'
-            style={styles.screen}
-            onStartShouldSetResponder={ (e) => true}
-            onResponderRelease={ (e) => Keyboard.dismiss()}>
+      <View
+        behavior='position'
+        style={styles.screen}
+        onStartShouldSetResponder={(e) => true}
+        onResponderRelease={(e) => Keyboard.dismiss()}>
         <View style={styles.header}>
           {renderIcon()}
           <RkText rkType='h1'>Password Recovery</RkText>
         </View>
         <View style={styles.content}>
-          <RkTextInput rkType='rounded' placeholder='Email'/>
+          <RkTextInput rkType='rounded' placeholder='Email' />
           <RkText rkType='secondary5 secondaryColor center'>
             Enter your email below to receive your password reset instructions
           </RkText>
         </View>
-        <GradientButton style={styles.save} rkType='large' text='SEND' onPress={() => {
-          this.props.navigation.goBack()
-        }}/>
+        <GradientButton
+          style={styles.save}
+          rkType='large'
+          text='SEND'
+          onPress={() => {
+          this.props.navigation.goBack();
+        }}
+        />
       </View>
-    )
+    );
   }
 }
 
@@ -58,17 +63,17 @@ let styles = RkStyleSheet.create(theme => ({
     paddingHorizontal: 16,
     paddingVertical: scaleVertical(24),
     justifyContent: 'space-between',
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   header: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   image: {
     marginVertical: scaleVertical(27),
     height: scaleVertical(77),
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   content: {
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 }));

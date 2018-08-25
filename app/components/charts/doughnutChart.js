@@ -2,25 +2,22 @@ import React from 'react';
 import {
   View,
   Image,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 import {
   RkComponent,
   RkText,
   RkTheme,
-  RkStyleSheet
+  RkStyleSheet,
 } from 'react-native-ui-kitten';
 
-import {
-  VictoryPie,
-} from "victory-native";
+import { VictoryPie } from 'victory-native';
 
-import {Svg, Text as SvgText} from 'react-native-svg';
-import {scale} from '../../utils/scale';
+import { Svg, Text as SvgText } from 'react-native-svg';
+import { scale } from '../../utils/scale';
 
 
 export class DoughnutChart extends RkComponent {
-
   constructor(props) {
     super(props);
     this.size = 300;
@@ -55,44 +52,46 @@ export class DoughnutChart extends RkComponent {
           title: '32%',
           name: 'People',
           color: RkTheme.current.colors.charts.doughnut[3],
-        }
-      ]
-    }
+        },
+      ],
+    };
   }
 
   computeColors() {
-    return this.state.data.map(i => i.color)
+    return this.state.data.map(i => i.color);
   }
 
   handlePress(e, props) {
     this.setState({
-      selected: props.index
-    })
+      selected: props.index,
+    });
   }
 
   render() {
     return (
       <View>
         <RkText rkType='header4'>AUDIENCE OVERVIEW</RkText>
-        <View style={{alignSelf: 'center'}}>
+        <View style={{ alignSelf: 'center' }}>
           <Svg width={scale(this.size)} height={scale(this.size)}>
             <VictoryPie
               labels={[]}
-              width={scale(this.size)} height={scale(this.size)}
+              width={scale(this.size)}
+              height={scale(this.size)}
               colorScale={this.computeColors()}
               data={this.state.data}
               standalone={false}
               padding={scale(25)}
               innerRadius={scale(70)}
               events={[{
-                target: "data",
+                target: 'data',
                 eventHandlers: {
-                  onPressIn: (evt, props) => this.handlePress(evt, props)
-                }
-              }]}>
-            </VictoryPie>
+                  onPressIn: (evt, props) => this.handlePress(evt, props),
+                },
+              }]}
+            />
             <SvgText
-              textAnchor="middle" verticalAnchor="middle"
+              textAnchor="middle"
+              verticalAnchor="middle"
               x={scale(this.size / 2)}
               y={scale(this.size / 2 - this.fontSize / 2)}
               dy={scale(this.fontSize * -0.25)}
@@ -106,17 +105,15 @@ export class DoughnutChart extends RkComponent {
           </Svg>
         </View>
         <View style={styles.legendContainer}>
-          {this.state.data.map(item => {
-            return (
-              <View key={item.name} style={styles.legendItem}>
-                <View style={[styles.itemBadge, {backgroundColor: item.color}]}/>
-                <RkText rkType="primary3">{item.name}</RkText>
-              </View>
-            )
-          })}
+          {this.state.data.map(item => (
+            <View key={item.name} style={styles.legendItem}>
+              <View style={[styles.itemBadge, { backgroundColor: item.color }]} />
+              <RkText rkType="primary3">{item.name}</RkText>
+            </View>
+            ))}
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -124,16 +121,16 @@ let styles = RkStyleSheet.create(theme => ({
   legendContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   legendItem: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   itemBadge: {
     width: 10,
     height: 10,
     borderRadius: 5,
-    marginRight: 5
-  }
+    marginRight: 5,
+  },
 }));

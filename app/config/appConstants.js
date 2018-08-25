@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
 export class UIConstants {
   static AppbarHeight = Platform.OS === 'ios' ? 44 : 56;

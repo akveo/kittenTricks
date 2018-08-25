@@ -1,42 +1,36 @@
 import React from 'react';
-import {
-  View
-} from 'react-native';
+import { View } from 'react-native';
 import {
   RkComponent,
   RkText,
   RkTheme,
-  RkStyleSheet
+  RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {
-  VictoryPie,
-} from "victory-native";
+import { VictoryPie } from 'victory-native';
 
-import {Svg, Text as SvgText} from 'react-native-svg';
-import {scale} from '../../utils/scale';
+import { Svg, Text as SvgText } from 'react-native-svg';
+import { scale } from '../../utils/scale';
 
 export class ProgressChart extends RkComponent {
-
-
   constructor(props) {
     super(props);
     this.size = 120;
     this.fontSize = 25;
     this.state = {
-      percents: 72
-    }
+      percents: 72,
+    };
   }
 
   componentDidMount() {
     this.setStateInterval = setInterval(() => {
       let positive = Math.random() > 0.5;
       if (this.state.percents > 95) {
-        positive = false
+        positive = false;
       } else if (this.state.percents < 60) {
-        positive = true
+        positive = true;
       }
       this.setState({
-        percents: positive ? this.state.percents + 1 : this.state.percents - 1
+        percents: positive ? this.state.percents + 1 : this.state.percents - 1,
       });
     }, 1500);
   }
@@ -46,7 +40,7 @@ export class ProgressChart extends RkComponent {
   }
 
   getData() {
-    return [{x: 1, y: this.state.percents}, {x: 2, y: 100 - this.state.percents}]
+    return [{ x: 1, y: this.state.percents }, { x: 2, y: 100 - this.state.percents }];
   }
 
   render() {
@@ -59,21 +53,23 @@ export class ProgressChart extends RkComponent {
               labels={[]}
               padding={0}
               standalone={false}
-              width={scale(this.size)} height={scale(this.size)}
+              width={scale(this.size)}
+              height={scale(this.size)}
               style={{
                 data: {
                   fill: (d) => {
                     const color = RkTheme.current.colors.charts.followersProgress;
                     return d.x === 1 ? color : 'transparent';
-                  }
-                }
+                  },
+                },
               }}
               data={this.getData()}
               cornerRadius={scale(25)}
-              innerRadius={scale(40)}>
-            </VictoryPie>
+              innerRadius={scale(40)}
+            />
             <SvgText
-              textAnchor="middle" verticalAnchor="middle"
+              textAnchor="middle"
+              verticalAnchor="middle"
               x={scale(this.size / 2)}
               y={scale(this.size / 2 - this.fontSize / 2)}
               dy={scale(this.fontSize * -0.25)}
@@ -92,7 +88,7 @@ export class ProgressChart extends RkComponent {
           </View>
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -101,6 +97,6 @@ let styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 }));

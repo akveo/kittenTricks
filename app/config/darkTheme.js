@@ -57,8 +57,8 @@ const Colors = {
   followersThird: '#081c6e',
   followersFourth: '#09103f',
 
-  chartsAreaStroke:'#2942ff',
-  chartsAreaFill: '#0d1238'
+  chartsAreaStroke: '#2942ff',
+  chartsAreaFill: '#0d1238',
 
 };
 
@@ -88,19 +88,19 @@ export const DarkKittenTheme = {
       secondary: Colors.foreground,
       accent: Colors.accent,
       inverse: Colors.inverseForeground,
-      hint: Colors.alterForeground
+      hint: Colors.alterForeground,
     },
     screen: {
       base: Colors.background,
       alter: Colors.alterBackground,
       scroll: Colors.background,
       bold: Colors.boldBackground,
-      overlay: Colors.overlayBackground
+      overlay: Colors.overlayBackground,
     },
     button: {
       back: Colors.alterBackground,
       underlay: Colors.neutralBackground,
-      highlight: Colors.brandBackground
+      highlight: Colors.brandBackground,
     },
     input: {
       text: Colors.alterForeground,
@@ -115,7 +115,7 @@ export const DarkKittenTheme = {
       highlight: Colors.highlight,
     },
     control: {
-      background: Colors.alterBackground
+      background: Colors.alterBackground,
     },
     badge: {
       likeBackground: Colors.foreground,
@@ -126,7 +126,7 @@ export const DarkKittenTheme = {
     chat: {
       messageInBackground: Colors.fadedBackground,
       messageOutBackground: Colors.neutralBackground,
-      text: Colors.fadedForeground
+      text: Colors.fadedForeground,
     },
     gradients: {
       base: [Colors.gradientBaseBegin, Colors.gradientBaseEnd],
@@ -145,9 +145,9 @@ export const DarkKittenTheme = {
       followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
       area: {
         stroke: Colors.chartsAreaStroke,
-        fill: Colors.chartsAreaFill
-      }
-    }
+        fill: Colors.chartsAreaFill,
+      },
+    },
   },
   fonts: {
     sizes: {
@@ -170,7 +170,7 @@ export const DarkKittenTheme = {
       s6: 13,
       s7: 10,
       base: FontBaseValue,
-      small: FontBaseValue * .8,
+      small: FontBaseValue * 0.8,
       medium: FontBaseValue,
       large: FontBaseValue * 1.2,
       xlarge: FontBaseValue / 0.75,
@@ -178,13 +178,13 @@ export const DarkKittenTheme = {
     },
     lineHeights: {
       medium: 18,
-      big: 24
+      big: 24,
     },
     family: {
       regular: Fonts.regular,
       light: Fonts.light,
       bold: Fonts.bold,
-      logo: Fonts.logo
-    }
-  }
+      logo: Fonts.logo,
+    },
+  },
 };

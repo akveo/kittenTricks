@@ -1,1 +1,1 @@
-export * from './walkthroughScreen'
+export * from './walkthroughScreen';

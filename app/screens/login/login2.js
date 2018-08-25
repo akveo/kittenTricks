@@ -2,22 +2,22 @@ import React from 'react';
 import {
   View,
   Image,
-  Keyboard
+  Keyboard,
 } from 'react-native';
 import {
   RkButton,
   RkText,
   RkTextInput,
-  RkAvoidKeyboard, RkStyleSheet
+  RkAvoidKeyboard, RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../../assets/icons';
-import {GradientButton} from '../../components/gradientButton';
-import {RkTheme} from 'react-native-ui-kitten';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import { FontAwesome } from '../../assets/icons';
+import { GradientButton } from '../../components/gradientButton';
+import { RkTheme } from 'react-native-ui-kitten';
+import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
-    header: null
+    header: null,
   };
 
   constructor(props) {
@@ -25,17 +25,16 @@ export class LoginV2 extends React.Component {
   }
 
   render() {
-    let renderIcon = () => {
-      if (RkTheme.current.name === 'light')
-        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
-      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
+    const renderIcon = () => {
+      if (RkTheme.current.name === 'light') { return <Image style={styles.image} source={require('../../assets/images/logo.png')} />; }
+      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')} />;
     };
 
     return (
       <RkAvoidKeyboard
         style={styles.screen}
-        onStartShouldSetResponder={ (e) => true}
-        onResponderRelease={ (e) => Keyboard.dismiss()}>
+        onStartShouldSetResponder={(e) => true}
+        onResponderRelease={(e) => Keyboard.dismiss()}>
         <View style={styles.header}>
           {renderIcon()}
           <RkText rkType='light h1'>React Native</RkText>
@@ -43,11 +42,16 @@ export class LoginV2 extends React.Component {
         </View>
         <View style={styles.content}>
           <View>
-            <RkTextInput rkType='rounded' placeholder='Username'/>
-            <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
-            <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
-              this.props.navigation.goBack()
-            }}/>
+            <RkTextInput rkType='rounded' placeholder='Username' />
+            <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry />
+            <GradientButton
+              style={styles.save}
+              rkType='large'
+              text='LOGIN'
+              onPress={() => {
+              this.props.navigation.goBack();
+            }}
+            />
           </View>
           <View style={styles.buttons}>
             <RkButton style={styles.button} rkType='social'>
@@ -71,7 +75,7 @@ export class LoginV2 extends React.Component {
           </View>
         </View>
       </RkAvoidKeyboard>
-    )
+    );
   }
 }
 
@@ -80,23 +84,23 @@ let styles = RkStyleSheet.create(theme => ({
     padding: scaleVertical(16),
     flex: 1,
     justifyContent: 'space-between',
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   image: {
     height: scaleVertical(77),
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   header: {
     paddingBottom: scaleVertical(10),
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
   },
   content: {
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   save: {
-    marginVertical: 20
+    marginVertical: 20,
   },
   buttons: {
     flexDirection: 'row',
@@ -106,10 +110,10 @@ let styles = RkStyleSheet.create(theme => ({
   },
   textRow: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   button: {
-    borderColor: theme.colors.border.solid
+    borderColor: theme.colors.border.solid,
   },
-  footer: {}
+  footer: {},
 }));

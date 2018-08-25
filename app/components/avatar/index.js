@@ -1,14 +1,14 @@
 import React from 'react';
 import {
   Image,
-  View
+  View,
 } from 'react-native';
 import {
   RkComponent,
   RkText,
-  RkTheme
+  RkTheme,
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../../assets/icons';
+import { FontAwesome } from '../../assets/icons';
 
 export class Avatar extends RkComponent {
   componentName = 'Avatar';
@@ -16,7 +16,7 @@ export class Avatar extends RkComponent {
     container: {},
     image: {},
     badge: {},
-    badgeText: {}
+    badgeText: {},
   };
 
   constructor(props) {
@@ -24,13 +24,13 @@ export class Avatar extends RkComponent {
   }
 
   renderImg(styles) {
-    let {image, badge, badgeText} = styles;
+    const { image, badge, badgeText } = styles;
     return (
       <View>
-        <Image style={image} source={this.props.img}/>
+        <Image style={image} source={this.props.img} />
         { this.props.badge && this.renderBadge(badge, badgeText)}
       </View>
-    )
+    );
   }
 
   renderBadge(style, textStyle) {
@@ -52,20 +52,20 @@ export class Avatar extends RkComponent {
     }
 
     return (
-      <View style={[style, {backgroundColor}]}>
-        <RkText rkType='awesome' style={[textStyle, {color}]}>
+      <View style={[style, { backgroundColor }]}>
+        <RkText rkType='awesome' style={[textStyle, { color }]}>
           {symbol}
         </RkText>
       </View>
-    )
-  };
+    );
+  }
 
   render() {
-    let {container, ...other} = this.defineStyles();
+    const { container, ...other } = this.defineStyles();
     return (
       <View style={[container, this.props.style]}>
         {this.renderImg(other)}
       </View>
-    )
+    );
   }
 }

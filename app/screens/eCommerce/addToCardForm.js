@@ -8,17 +8,17 @@ import {
   RkText,
   RkTextInput,
   RkStyleSheet,
-  RkAvoidKeyboard
+  RkAvoidKeyboard,
 } from 'react-native-ui-kitten';
-import {GradientButton} from '../../components/';
-import {PasswordTextInput} from '../../components/passwordTextInput';
-import {DatePicker} from '../../components/picker/datePicker';
-import {CardInput} from '../../components/cardInput';
-import {scale} from '../../utils/scale';
+import { GradientButton } from '../../components/';
+import { PasswordTextInput } from '../../components/passwordTextInput';
+import { DatePicker } from '../../components/picker/datePicker';
+import { CardInput } from '../../components/cardInput';
+import { scale } from '../../utils/scale';
 
 export class AddToCardForm extends React.Component {
   static navigationOptions = {
-    title: 'Add Card'.toUpperCase()
+    title: 'Add Card'.toUpperCase(),
   };
 
   constructor(props) {
@@ -35,12 +35,12 @@ export class AddToCardForm extends React.Component {
 
   handlePickedDate(date) {
     console.log(date);
-    this.setState({expireMonth: date.month.key, expireYear: date.year});
-    this.hidePicker()
+    this.setState({ expireMonth: date.month.key, expireYear: date.year });
+    this.hidePicker();
   }
 
   hidePicker() {
-    this.setState({pickerVisible: false});
+    this.setState({ pickerVisible: false });
   }
 
   render() {
@@ -55,7 +55,7 @@ export class AddToCardForm extends React.Component {
               <View style={[styles.textRow]}>
                 <RkText rkType='subtitle'>Card Number</RkText>
               </View>
-              <CardInput/>
+              <CardInput />
             </View>
 
             <View style={[styles.content]}>
@@ -69,17 +69,18 @@ export class AddToCardForm extends React.Component {
                   selectedYear={this.state.expireYear}
                   selectedMonth={this.state.expireMonth}
                   visible={this.state.pickerVisible}
-                  customDateParts={[DatePicker.DatePart.YEAR, DatePicker.DatePart.MONTH]}/>
+                  customDateParts={[DatePicker.DatePart.YEAR, DatePicker.DatePart.MONTH]}
+                />
                 <View style={[styles.expireDateInput, styles.balloon]}>
-                  <TouchableOpacity onPress={() => this.setState({pickerVisible: true})}>
+                  <TouchableOpacity onPress={() => this.setState({ pickerVisible: true })}>
                     <RkText rkType='medium' style={styles.expireDateInnerInput}>
                       {this.state.expireMonth}
                     </RkText>
                   </TouchableOpacity>
                 </View>
-                <View style={[styles.expireDateDelimiter]}/>
+                <View style={[styles.expireDateDelimiter]} />
                 <View style={[styles.expireDateInput, styles.balloon]}>
-                  <TouchableOpacity onPress={() => this.setState({pickerVisible: true})}>
+                  <TouchableOpacity onPress={() => this.setState({ pickerVisible: true })}>
                     <RkText rkType='medium' style={styles.expireDateInnerInput}>
                       {this.state.expireYear}
                     </RkText>
@@ -92,29 +93,37 @@ export class AddToCardForm extends React.Component {
               <View style={[styles.textRow]}>
                 <RkText rkType='subtitle'>Name On Card</RkText>
               </View>
-              <RkTextInput rkType='rounded'
-                           onChangeText={(nameOnCard) => this.setState({nameOnCard})}
-                           value={this.state.nameOnCard}/>
+              <RkTextInput
+                rkType='rounded'
+                onChangeText={(nameOnCard) => this.setState({ nameOnCard })}
+                value={this.state.nameOnCard}
+              />
             </View>
 
             <View style={[styles.content]}>
               <View style={[styles.textRow]}>
                 <RkText rkType='subtitle'>Card Code</RkText>
               </View>
-              <PasswordTextInput maxLength={3}
-                                 keyboardType='numeric'
-                                 onChangeText={(cardCode) => this.setState({cardCode})}
-                                 value={this.state.cardCode}/>
+              <PasswordTextInput
+                maxLength={3}
+                keyboardType='numeric'
+                onChangeText={(cardCode) => this.setState({ cardCode })}
+                value={this.state.cardCode}
+              />
             </View>
           </View>
           <View>
-            <GradientButton rkType='large' text='ADD TO CARD' onPress={() => {
-              this.props.navigation.goBack()
-            }}/>
+            <GradientButton
+              rkType='large'
+              text='ADD TO CARD'
+              onPress={() => {
+              this.props.navigation.goBack();
+            }}
+            />
           </View>
         </View>
       </RkAvoidKeyboard>
-    )
+    );
   }
 }
 
@@ -122,32 +131,32 @@ let styles = RkStyleSheet.create(theme => ({
   screen: {
     padding: 15,
     flex: 1,
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   content: {
-    marginTop: 10
+    marginTop: 10,
   },
   formContent: {
     justifyContent: 'space-between',
     flexDirection: 'column',
-    flex: 1
+    flex: 1,
   },
   textRow: {
-    marginLeft: 20
+    marginLeft: 20,
   },
   expireDateBlock: {
     justifyContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   expireDateInput: {
     flex: 0.48,
     marginVertical: 10,
   },
   expireDateInnerInput: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   expireDateDelimiter: {
-    flex: 0.04
+    flex: 0.04,
   },
   balloon: {
     maxWidth: scale(250),

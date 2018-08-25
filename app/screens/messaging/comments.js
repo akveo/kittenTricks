@@ -3,27 +3,28 @@ import {
   FlatList,
   View,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkStyleSheet,
-  RkText
+  RkText,
 } from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+import { Avatar } from '../../components';
+import { data } from '../../data';
+
+const moment = require('moment');
 
 export class Comments extends React.Component {
   static navigationOptions = {
-    title: 'Comments'.toUpperCase()
+    title: 'Comments'.toUpperCase(),
   };
 
   constructor(props) {
     super(props);
-    let postId = this.props.navigation.params ? this.props.navigation.params.postId : undefined;
+    const postId = this.props.navigation.params ? this.props.navigation.params.postId : undefined;
     this.chats = data.getComments(postId);
     this.state = {
-      data: this.chats
+      data: this.chats,
     };
     this.renderItem = this._renderItem.bind(this);
   }
@@ -34,16 +35,16 @@ export class Comments extends React.Component {
 
   _renderSeparator() {
     return (
-      <View style={styles.separator}/>
-    )
+      <View style={styles.separator} />
+    );
   }
 
   _renderItem(info) {
-    let name = `${info.item.user.firstName} ${info.item.user.lastName}`;
+    const name = `${info.item.user.firstName} ${info.item.user.lastName}`;
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: info.item.user.id})}>
-          <Avatar rkType='circle' style={styles.avatar} img={info.item.user.photo}/>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', { id: info.item.user.id })}>
+          <Avatar rkType='circle' style={styles.avatar} img={info.item.user.photo} />
         </TouchableOpacity>
         <View style={styles.content}>
           <View style={styles.contentHeader}>
@@ -55,7 +56,7 @@ export class Comments extends React.Component {
           <RkText rkType='primary3 mediumLine'>{info.item.text}</RkText>
         </View>
       </View>
-    )
+    );
   }
 
   render() {
@@ -66,21 +67,22 @@ export class Comments extends React.Component {
         extraData={this.state}
         ItemSeparatorComponent={this._renderSeparator}
         keyExtractor={this._keyExtractor}
-        renderItem={this.renderItem}/>
-    )
+        renderItem={this.renderItem}
+      />
+    );
   }
 }
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   container: {
     paddingLeft: 19,
     paddingRight: 16,
     paddingVertical: 12,
     flexDirection: 'row',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   content: {
     marginLeft: 16,
@@ -89,10 +91,10 @@ let styles = RkStyleSheet.create(theme => ({
   contentHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 6
+    marginBottom: 6,
   },
   separator: {
     height: StyleSheet.hairlineWidth,
-    backgroundColor: theme.colors.border.base
-  }
+    backgroundColor: theme.colors.border.base,
+  },
 }));

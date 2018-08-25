@@ -3,28 +3,29 @@ import {
   ScrollView,
   Image,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkCard,
   RkText,
-  RkStyleSheet
+  RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {data} from '../../data';
-import {Avatar} from '../../components';
-import {SocialBar} from '../../components';
-let moment = require('moment');
+import { data } from '../../data';
+import { Avatar } from '../../components';
+import { SocialBar } from '../../components';
+
+const moment = require('moment');
 
 
 export class Article extends React.Component {
   static navigationOptions = {
-    title: 'Article View'.toUpperCase()
+    title: 'Article View'.toUpperCase(),
   };
 
   constructor(props) {
     super(props);
-    let {params} = this.props.navigation.state;
-    let id = params ? params.id : 1;
+    const { params } = this.props.navigation.state;
+    const id = params ? params.id : 1;
     this.data = data.getArticle(id);
   }
 
@@ -32,14 +33,14 @@ export class Article extends React.Component {
     return (
       <ScrollView style={styles.root}>
         <RkCard rkType='article'>
-          <Image rkCardImg source={this.data.photo}/>
+          <Image rkCardImg source={this.data.photo} />
           <View rkCardHeader>
             <View>
               <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
               <RkText rkType='secondary2 hintColor'>{moment().add(this.data.time, 'seconds').fromNow()}</RkText>
             </View>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: this.data.user.id})}>
-              <Avatar rkType='circle' img={this.data.user.photo}/>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', { id: this.data.user.id })}>
+              <Avatar rkType='circle' img={this.data.user.photo} />
             </TouchableOpacity>
           </View>
           <View rkCardContent>
@@ -48,19 +49,19 @@ export class Article extends React.Component {
             </View>
           </View>
           <View rkCardFooter>
-            <SocialBar/>
+            <SocialBar />
           </View>
         </RkCard>
       </ScrollView>
-    )
+    );
   }
 }
 
 let styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   title: {
-    marginBottom: 5
+    marginBottom: 5,
   },
 }));

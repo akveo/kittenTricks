@@ -3,18 +3,17 @@ import {
   RkButton,
   RkTextInput,
   RkText,
-  RkStyleSheet
+  RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
+import { FontAwesome } from '../assets/icons';
 
 export class CardInput extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       hidden: true,
-      cardNumber: ''
-    }
+      cardNumber: '',
+    };
   }
 
   formatCreditNumber(cardNumber, hiddenFlag) {
@@ -24,18 +23,19 @@ export class CardInput extends React.Component {
   }
 
   render() {
-
-    let button = (
-      <RkButton style={styles.button} rkType='clear'
-                onPress={() => {
-                  this.setState({hidden: !this.state.hidden});
-                  this.setState({cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden)})
+    const button = (
+      <RkButton
+        style={styles.button}
+        rkType='clear'
+        onPress={() => {
+                  this.setState({ hidden: !this.state.hidden });
+                  this.setState({ cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden) });
                 }}>
         <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
       </RkButton>
     );
 
-    let {
+    const {
       ...inputProps
     } = this.props;
 
@@ -47,22 +47,22 @@ export class CardInput extends React.Component {
         label={button}
         secureTextEntry={this.state.hidden}
         onChangeText={(cardNumber) => {
-          this.setState({cardNumber: this.formatCreditNumber(cardNumber, this.state.hidden)})
+          this.setState({ cardNumber: this.formatCreditNumber(cardNumber, this.state.hidden) });
         }}
         value={this.state.cardNumber}
         keyboardType='numeric'
         maxLength={19}
         {...inputProps}
       />
-    )
+    );
   }
 }
 
 let styles = RkStyleSheet.create(theme => ({
   icon: {
-    fontSize: 24
+    fontSize: 24,
   },
   button: {
-    right: 17
-  }
+    right: 17,
+  },
 }));

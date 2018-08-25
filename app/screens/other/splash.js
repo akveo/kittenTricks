@@ -4,28 +4,25 @@ import {
   Image,
   View,
   Dimensions,
-  StatusBar
+  StatusBar,
 } from 'react-native';
 import {
   RkText,
-  RkTheme
-} from 'react-native-ui-kitten'
-import {ProgressBar} from '../../components';
-import {
-  KittenTheme
-} from '../../config/theme';
-import {StackActions, NavigationActions} from 'react-navigation';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+  RkTheme,
+} from 'react-native-ui-kitten';
+import { ProgressBar } from '../../components';
+import { KittenTheme } from '../../config/theme';
+import { StackActions, NavigationActions } from 'react-navigation';
+import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
 
-let timeFrame = 500;
+const timeFrame = 500;
 
 export class SplashScreen extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      progress: 0
-    }
+      progress: 0,
+    };
   }
 
   componentDidMount() {
@@ -37,30 +34,29 @@ export class SplashScreen extends React.Component {
         clearInterval(this.timer);
         setTimeout(() => {
           StatusBar.setHidden(false, 'slide');
-          let toHome = StackActions.reset({
+          const toHome = StackActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({routeName: 'Home'})]
+            actions: [NavigationActions.navigate({ routeName: 'Home' })],
           });
-          this.props.navigation.dispatch(toHome)
+          this.props.navigation.dispatch(toHome);
         }, timeFrame);
       } else {
-        let random = Math.random() * 0.5;
+        const random = Math.random() * 0.5;
         let progress = this.state.progress + random;
         if (progress > 1) {
           progress = 1;
         }
-        this.setState({progress});
+        this.setState({ progress });
       }
-    }, timeFrame)
-
+    }, timeFrame);
   }
 
   render() {
-    let width = Dimensions.get('window').width;
+    const width = Dimensions.get('window').width;
     return (
       <View style={styles.container}>
         <View>
-          <Image style={[styles.image, {width}]} source={require('../../assets/images/splashBack.png')}/>
+          <Image style={[styles.image, { width }]} source={require('../../assets/images/splashBack.png')} />
           <View style={styles.text}>
             <RkText rkType='light' style={styles.hero}>React Native</RkText>
             <RkText rkType='logo' style={styles.appName}>UI Kitten</RkText>
@@ -69,9 +65,11 @@ export class SplashScreen extends React.Component {
         <ProgressBar
           color={RkTheme.current.colors.accent}
           style={styles.progress}
-          progress={this.state.progress} width={scale(320)}/>
+          progress={this.state.progress}
+          width={scale(320)}
+        />
       </View>
-    )
+    );
   }
 }
 
@@ -79,14 +77,14 @@ let styles = StyleSheet.create({
   container: {
     backgroundColor: KittenTheme.colors.screen.base,
     justifyContent: 'space-between',
-    flex: 1
+    flex: 1,
   },
   image: {
     resizeMode: 'cover',
     height: scaleVertical(430),
   },
   text: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   hero: {
     fontSize: 37,
@@ -97,6 +95,6 @@ let styles = StyleSheet.create({
   progress: {
     alignSelf: 'center',
     marginBottom: 35,
-    backgroundColor: '#e5e5e5'
-  }
+    backgroundColor: '#e5e5e5',
+  },
 });

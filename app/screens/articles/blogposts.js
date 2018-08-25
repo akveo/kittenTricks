@@ -3,19 +3,20 @@ import {
   FlatList,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkCard, RkStyleSheet,
-  RkText
+  RkText,
 } from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+import { Avatar } from '../../components';
+import { data } from '../../data';
+
+const moment = require('moment');
 
 export class Blogposts extends React.Component {
   static navigationOptions = {
-    title: 'Blogposts'.toUpperCase()
+    title: 'Blogposts'.toUpperCase(),
   };
 
   constructor(props) {
@@ -23,8 +24,8 @@ export class Blogposts extends React.Component {
 
     this.renderItem = this._renderItem.bind(this);
     this.state = {
-      data: data.getArticles('post')
-    }
+      data: data.getArticles('post'),
+    };
   }
 
   _keyExtractor(post, index) {
@@ -36,9 +37,9 @@ export class Blogposts extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
+        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
         <RkCard rkType='blog' style={styles.card}>
-          <Image rkCardImg source={info.item.photo}/>
+          <Image rkCardImg source={info.item.photo} />
           <View rkCardHeader style={styles.content}>
             <RkText style={styles.section} rkType='header4'>{info.item.title}</RkText>
           </View>
@@ -49,14 +50,14 @@ export class Blogposts extends React.Component {
           </View>
           <View rkCardFooter>
             <View style={styles.userInfo}>
-              <Avatar style={styles.avatar} rkType='circle small' img={info.item.user.photo}/>
+              <Avatar style={styles.avatar} rkType='circle small' img={info.item.user.photo} />
               <RkText rkType='header6'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
             </View>
             <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
           </View>
         </RkCard>
       </TouchableOpacity>
-    )
+    );
   }
 
   render() {
@@ -65,8 +66,9 @@ export class Blogposts extends React.Component {
         data={this.state.data}
         renderItem={this.renderItem}
         keyExtractor={this._keyExtractor}
-        style={styles.container}/>
-    )
+        style={styles.container}
+      />
+    );
   }
 }
 
@@ -74,16 +76,16 @@ let styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,
-    paddingHorizontal: 14
+    paddingHorizontal: 14,
   },
   card: {
     marginVertical: 8,
   },
   userInfo: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   avatar: {
-    marginRight: 17
-  }
+    marginRight: 17,
+  },
 }));

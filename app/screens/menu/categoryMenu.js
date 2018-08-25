@@ -1,19 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import {
   TouchableHighlight,
   View,
   FlatList,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 import {
   RkStyleSheet,
   RkTheme,
-  RkText
+  RkText,
 } from 'react-native-ui-kitten';
 
 export class CategoryMenu extends React.Component {
-
   constructor(props) {
     super(props);
     this.isEmpty = this.props.items.length === 0;
@@ -22,14 +21,14 @@ export class CategoryMenu extends React.Component {
       this.renderRow = this._renderRow.bind(this);
       this.navigate = this._navigate.bind(this);
     }
-    this.state = {selected: true};
+    this.state = { selected: true };
   }
 
   _navigate(row) {
     if (row.action) {
-      this.props.navigation.navigate(row.action)
+      this.props.navigation.navigate(row.action);
     } else {
-      this.props.navigation.navigate(row.id)
+      this.props.navigation.navigate(row.id);
     }
   }
 
@@ -47,7 +46,7 @@ export class CategoryMenu extends React.Component {
           <RkText>{row.item.title}</RkText>
         </View>
       </TouchableHighlight>
-    )
+    );
   }
 
   _keyExtractor(item, index) {
@@ -60,16 +59,16 @@ export class CategoryMenu extends React.Component {
         <View style={styles.emptyContainer}>
           <RkText rkType='light subtitle'>Coming Soon...</RkText>
         </View>
-      )
-    } else {
-      return (
-        <FlatList
-          style={styles.list}
-          data={this.data}
-          keyExtractor={this._keyExtractor}
-          renderItem={this.renderRow}/>
-      )
+      );
     }
+    return (
+      <FlatList
+        style={styles.list}
+        data={this.data}
+        keyExtractor={this._keyExtractor}
+        renderItem={this.renderRow}
+      />
+    );
   }
 }
 
@@ -81,17 +80,17 @@ let styles = RkStyleSheet.create(theme => ({
     borderColor: theme.colors.border.base,
   },
   list: {
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.screen.base
-  }
+    backgroundColor: theme.colors.screen.base,
+  },
 }));
 
 CategoryMenu.propTypes = {
   navigation: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
 };

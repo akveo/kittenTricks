@@ -2,13 +2,13 @@ import React from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
 import {
   RkText,
-  RkTheme
+  RkTheme,
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
+import { FontAwesome } from '../assets/icons';
 
 export class FindFriends extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export class FindFriends extends React.Component {
   }
 
   render() {
-    let color = {color: this.props.selected ? this.props.color : RkTheme.current.colors.disabled};
+    const color = { color: this.props.selected ? this.props.color : RkTheme.current.colors.disabled };
 
     return (
       <TouchableOpacity style={[styles.wrapper, this.props.style]} onPress={this.props.onPress}>
@@ -28,7 +28,7 @@ export class FindFriends extends React.Component {
           <RkText rkType='awesome small' style={color}>{FontAwesome.chevronRight}</RkText>
         </View>
       </TouchableOpacity>
-    )
+    );
   }
 }
 
@@ -41,12 +41,12 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 18
+    paddingVertical: 18,
   },
   text: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   icon: {
-    width: 35
-  }
+    width: 35,
+  },
 });

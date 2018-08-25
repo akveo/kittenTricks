@@ -2,73 +2,71 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 import _ from 'lodash';
-import {RkText, RkButton, RkStyleSheet} from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
-import {UIConstants} from '../config/appConstants';
-import {scale, scaleModerate, scaleVertical} from '../utils/scale';
+import { RkText, RkButton, RkStyleSheet } from 'react-native-ui-kitten';
+import { FontAwesome } from '../assets/icons';
+import { UIConstants } from '../config/appConstants';
+import { scale, scaleModerate, scaleVertical } from '../utils/scale';
 
 export class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {width: undefined};
-
+    this.state = { width: undefined };
   }
 
   _renderRight(headerRight) {
-    let windowWidth = Dimensions.get('window').width;
+    const windowWidth = Dimensions.get('window').width;
     const width = this.state.width
       ? (windowWidth - this.state.width) / 2
       : undefined;
 
     return headerRight && (
-        <View style={[{width}, styles.right]}>{headerRight}</View>
-      );
+    <View style={[{ width }, styles.right]}>{headerRight}</View>
+    );
   }
 
   _renderLeft(headerLeft) {
     if (headerLeft) {
       return (
         <View style={styles.left}>{headerLeft}</View>
-      )
+      );
     }
 
-    let windowWidth = Dimensions.get('window').width;
+    const windowWidth = Dimensions.get('window').width;
     const width = this.state.width
       ? (windowWidth - this.state.width) / 2
       : undefined;
 
-    let renderLeftContent = () => {
-      let index = _.findIndex(this.props.headerProps.scenes, {isActive: true});
+    const renderLeftContent = () => {
+      const index = _.findIndex(this.props.headerProps.scenes, { isActive: true });
       if (index > 0) {
-        return <RkButton
+        return (<RkButton
           rkType='clear'
           style={styles.menu}
           onPress={() => {
-            this.props.navigation.goBack()
+            this.props.navigation.goBack();
           }}>
           <RkText rkType='awesome hero'>{FontAwesome.chevronLeft}</RkText>
-        </RkButton>
+        </RkButton>);
       }
-      else {
-        return <RkButton
-          rkType='clear'
-          style={styles.menu}
-          onPress={() => {
-            this.props.navigation.navigate('DrawerOpen')
+
+      return (<RkButton
+        rkType='clear'
+        style={styles.menu}
+        onPress={() => {
+            this.props.navigation.navigate('DrawerOpen');
           }}>
-          <RkText rkType='awesome'>{FontAwesome.bars}</RkText>
-        </RkButton>
-      }
+        <RkText rkType='awesome'>{FontAwesome.bars}</RkText>
+              </RkButton>);
     };
 
     return (
-      <View style={[{width}, styles.left]}>
+      <View style={[{ width }, styles.left]}>
         {renderLeftContent()}
       </View>
-    )
+    );
   }
 
   _renderTitle(title) {
@@ -82,7 +80,7 @@ export class NavBar extends React.Component {
       <View style={styles.title} onLayout={onLayout}>
         <RkText>{title}</RkText>
       </View>
-    )
+    );
   }
 
   render() {
@@ -95,7 +93,7 @@ export class NavBar extends React.Component {
           {this._renderRight(options.headerRight)}
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -104,7 +102,7 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.screen.base,
     paddingTop: UIConstants.StatusbarHeight,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.border.base
+    borderBottomColor: theme.colors.border.base,
   },
   container: {
     flexDirection: 'row',
@@ -115,14 +113,14 @@ let styles = RkStyleSheet.create(theme => ({
     position: 'absolute',
     top: 0,
     bottom: 0,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   right: {
     position: 'absolute',
     right: 0,
     top: 0,
     bottom: 0,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   title: {
     ...StyleSheet.absoluteFillObject,
@@ -130,6 +128,6 @@ let styles = RkStyleSheet.create(theme => ({
     alignItems: 'center',
   },
   menu: {
-    width: 40
-  }
+    width: 40,
+  },
 }));

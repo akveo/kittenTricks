@@ -3,20 +3,21 @@ import {
   FlatList,
   Image,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkText,
-  RkCard, RkStyleSheet
+  RkCard, RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {SocialBar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+import { SocialBar } from '../../components';
+import { data } from '../../data';
+
+const moment = require('moment');
 
 
 export class Articles3 extends React.Component {
   static navigationOptions = {
-    title: 'Article List'.toUpperCase()
+    title: 'Article List'.toUpperCase(),
   };
 
   constructor(props) {
@@ -34,7 +35,7 @@ export class Articles3 extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
+        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
         <RkCard style={styles.card}>
           <View rkCardHeader>
             <View>
@@ -42,13 +43,13 @@ export class Articles3 extends React.Component {
               <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
             </View>
           </View>
-          <Image rkCardImg source={info.item.photo}/>
+          <Image rkCardImg source={info.item.photo} />
           <View style={styles.footer} rkCardFooter>
-            <SocialBar/>
+            <SocialBar />
           </View >
         </RkCard>
       </TouchableOpacity>
-    )
+    );
   }
 
   render() {
@@ -57,8 +58,9 @@ export class Articles3 extends React.Component {
         data={this.data}
         renderItem={this.renderItem}
         keyExtractor={this._keyExtractor}
-        style={styles.container}/>
-    )
+        style={styles.container}
+      />
+    );
   }
 }
 
@@ -66,15 +68,15 @@ let styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingHorizontal: 14,
-    paddingVertical: 8
+    paddingVertical: 8,
   },
   card: {
-    marginVertical: 8
+    marginVertical: 8,
   },
   footer: {
-    paddingTop: 16
+    paddingTop: 16,
   },
   time: {
-    marginTop: 5
-  }
+    marginTop: 5,
+  },
 }));

@@ -3,19 +3,19 @@ import {
   FlatList,
   Image,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkText,
-  RkCard, RkStyleSheet
+  RkCard, RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {SocialBar} from '../../components';
-import {data} from '../../data';
+import { SocialBar } from '../../components';
+import { data } from '../../data';
 
 
 export class Articles4 extends React.Component {
   static navigationOptions = {
-    title: 'Article List'.toUpperCase()
+    title: 'Article List'.toUpperCase(),
   };
 
   constructor(props) {
@@ -33,9 +33,9 @@ export class Articles4 extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
-      	<RkCard rkType='horizontal' style={styles.card}>
-        	<Image rkCardImg source={info.item.photo}/>
+        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
+        <RkCard rkType='horizontal' style={styles.card}>
+          <Image rkCardImg source={info.item.photo} />
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
@@ -43,11 +43,11 @@ export class Articles4 extends React.Component {
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
           </View>
           <View rkCardFooter>
-            <SocialBar rkType='space' showLabel={true}/>
+            <SocialBar rkType='space' showLabel />
           </View >
         </RkCard>
       </TouchableOpacity>
-    )
+    );
   }
 
   render() {
@@ -57,9 +57,10 @@ export class Articles4 extends React.Component {
           data={this.data}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
-          style={styles.container}/>
+          style={styles.container}
+        />
       </View>
-    )
+    );
   }
 }
 
@@ -68,12 +69,12 @@ let styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,
-    paddingHorizontal: 14
+    paddingHorizontal: 14,
   },
   card: {
     marginVertical: 8,
   },
   post: {
-    marginTop: 13
-  }
+    marginTop: 13,
+  },
 }));

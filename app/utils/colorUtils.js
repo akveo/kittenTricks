@@ -1,9 +1,9 @@
 hexToRGB = function (hex) {
-  hex = parseInt(hex.slice(1), 16);
-  let r = hex >> 16;
-  let g = hex >> 8 & 0xFF;
-  let b = hex & 0xFF;
-  return `rgb(${r},${g},${b})`
+  const rgbHex = parseInt(hex.slice(1), 16);
+  const r = rgbHex >> 16;
+  const g = rgbHex >> 8 & 0xFF;
+  const b = rgbHex & 0xFF;
+  return `rgb(${r},${g},${b})`;
 };
 
 export default hexToRGB;

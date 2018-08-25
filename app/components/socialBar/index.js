@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  View
-} from 'react-native';
+import { View } from 'react-native';
 import {
   RkText,
   RkButton,
-  RkComponent
+  RkComponent,
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../../assets/icons';
+import { FontAwesome } from '../../assets/icons';
 
 export class SocialBar extends RkComponent {
   componentName = 'SocialBar';
@@ -15,7 +13,7 @@ export class SocialBar extends RkComponent {
     container: {},
     section: {},
     icon: {},
-    label: {}
+    label: {},
   };
 
   constructor(props) {
@@ -28,35 +26,28 @@ export class SocialBar extends RkComponent {
       likes: this.likes,
       comments: this.comments,
       shares: this.shares,
-    }
+    };
   }
 
   render() {
-    let {container, section, icon, label} = this.defineStyles();
+    const {
+      container, section, icon, label,
+    } = this.defineStyles();
 
-    let likes = this.state.likes + (this.props.showLabel ? ' Likes' : '');
-    let comments = this.state.comments + (this.props.showLabel ? ' Comments' : '');
-    let shares = this.state.shares + (this.props.showLabel ? ' Shares' : '');
+    const likes = this.state.likes + (this.props.showLabel ? ' Likes' : '');
+    const comments = this.state.comments + (this.props.showLabel ? ' Comments' : '');
+    const shares = this.state.shares + (this.props.showLabel ? ' Shares' : '');
 
-    let updateLikes = () => {
-      if (this.state.likes === this.likes)
-        this.setState({likes: this.state.likes + 1});
-      else
-        this.setState({likes: this.likes});
+    const updateLikes = () => {
+      if (this.state.likes === this.likes) { this.setState({ likes: this.state.likes + 1 }); } else { this.setState({ likes: this.likes }); }
     };
 
-    let updateComments = () => {
-      if (this.state.comments === this.comments)
-        this.setState({comments: this.state.comments + 1});
-      else
-        this.setState({comments: this.comments});
+    const updateComments = () => {
+      if (this.state.comments === this.comments) { this.setState({ comments: this.state.comments + 1 }); } else { this.setState({ comments: this.comments }); }
     };
 
-    let updateShares = () => {
-      if (this.state.shares === this.shares)
-        this.setState({shares: this.state.shares + 1});
-      else
-        this.setState({shares: this.shares});
+    const updateShares = () => {
+      if (this.state.shares === this.shares) { this.setState({ shares: this.state.shares + 1 }); } else { this.setState({ shares: this.shares }); }
     };
 
 
@@ -81,6 +72,6 @@ export class SocialBar extends RkComponent {
           </RkButton>
         </View>
       </View>
-    )
+    );
   }
 }
