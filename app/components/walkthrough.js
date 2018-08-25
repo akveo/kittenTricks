@@ -9,47 +9,41 @@ import {
 export class Walkthrough extends React.Component {
   constructor(props) {
     super(props);
-
-    this.onScrollEnd = this._onScrollEnd.bind(this);
+    this.itemWidth = Dimensions.get('window').width;
   }
 
-  _renderItem = ({ item }) => {
-    const { width } = Dimensions.get('window');
-    return (
-      <View style={[styles.item, { width }]}>
-        {item}
-      </View>
-    );
-  };
+  extractItemKey = (item) => this.props.children.indexOf(item);
 
-  _onScrollEnd(e) {
-    const contentOffset = e.nativeEvent.contentOffset;
+  onScrollEnd = (e) => {
+    const { contentOffset } = e.nativeEvent;
     const viewSize = e.nativeEvent.layoutMeasurement;
     const pageNum = Math.floor(contentOffset.x / viewSize.width);
     if (this.props.onChanged) {
       this.props.onChanged(pageNum);
     }
-  }
+  };
 
-  render() {
-    const items = this.props.children;
+  renderItem = ({ item }) => (
+    <View style={[styles.item, { width: this.itemWidth }]}>
+      {item}
+    </View>
+  );
 
-    return (
-      <FlatList
-        style={styles.list}
-        data={items}
-        onMomentumScrollEnd={this.onScrollEnd}
-        keyExtractor={(item) => items.indexOf(item)}
-        pagingEnabled
-        horizontal
-        renderSeparator={() => null}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-        directionalLockEnabled
-        renderItem={this._renderItem}
-      />
-    );
-  }
+  render = () => (
+    <FlatList
+      style={styles.list}
+      data={this.props.children}
+      onMomentumScrollEnd={this.onScrollEnd}
+      keyExtractor={this.extractItemKey}
+      pagingEnabled
+      horizontal
+      renderSeparator={() => null}
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
+      directionalLockEnabled
+      renderItem={this.renderItem}
+    />
+  );
 }
 
 let styles = StyleSheet.create({
