@@ -8,9 +8,16 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint app/**/*"
   },
   "dependencies": {
+    "babel-eslint": "8.2.2",
+    "eslint": "4.19.1",
+    "eslint-config-akveo-react": "1.0.0",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "expo": "28.0.0",
     "expo-analytics": "1.0.6",
     "hoist-non-react-statics": "2.3.1",
@@ -33,6 +40,11 @@
     "jest-expo": "28.0.0",
     "react-test-renderer": "16.3.1",
     "react-native-scripts": "1.14.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run prepush"
+    }
   },
   "jest": {
     "preset": "jest-expo"
