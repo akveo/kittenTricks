@@ -7,33 +7,29 @@ import {
 } from 'react-native';
 
 export class ProgressBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      progress: new Animated.Value(0),
-    };
-  }
+  state = {
+    progress: new Animated.Value(0),
+  };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.progress >= 0 && this.props.progress != prevProps.progress) {
-      this.animate();
+  componentDidUpdate(prevProps) {
+    if (this.props.progress >= 0 && this.props.progress !== prevProps.progress) {
+      this.animate(this.props.progress);
     }
   }
 
-  animate() {
+  animate = (endValue) => {
     Animated.timing(this.state.progress, {
       easing: Easing.inOut(Easing.ease),
       duration: 500,
-      toValue: this.props.progress,
+      toValue: endValue,
     }).start();
-  }
+  };
 
   render() {
     const width = this.state.progress.interpolate({
       inputRange: [0, 1],
       outputRange: [0, this.props.width],
     });
-
     return (
       <View style={[styles.container, this.props.style, { width: this.props.width }]}>
         <Animated.View style={[styles.value, { width }, { backgroundColor: this.props.color }]} />
@@ -42,7 +38,7 @@ export class ProgressBar extends React.Component {
   }
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     height: 3,
   },
