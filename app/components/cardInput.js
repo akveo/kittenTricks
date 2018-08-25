@@ -8,47 +8,49 @@ import {
 import { FontAwesome } from '../assets/icons';
 
 export class CardInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hidden: true,
-      cardNumber: '',
-    };
-  }
+  state = {
+    hidden: true,
+    cardNumber: '',
+  };
 
-  formatCreditNumber(cardNumber, hiddenFlag) {
-    return hiddenFlag
-      ? cardNumber.replace(/\D/g, '')
-      : cardNumber.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
-  }
+  formatCreditNumber = (number, isHidden) => (
+    isHidden
+      ? number.replace(/\D/g, '')
+      : number.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim()
+  );
+
+  onInputLabelPressed = () => {
+    this.setState({
+      hidden: !this.state.hidden,
+      cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden),
+    });
+  };
+
+  onInputChanged = (text) => {
+    this.setState({
+      cardNumber: this.formatCreditNumber(text, this.state.hidden),
+    });
+  };
+
+  renderInputLabel = () => (
+    <RkButton
+      style={styles.button}
+      rkType='clear'
+      onPress={this.onInputLabelPressed}>
+      <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
+    </RkButton>
+  );
 
   render() {
-    const button = (
-      <RkButton
-        style={styles.button}
-        rkType='clear'
-        onPress={() => {
-                  this.setState({ hidden: !this.state.hidden });
-                  this.setState({ cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden) });
-                }}>
-        <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
-      </RkButton>
-    );
-
-    const {
-      ...inputProps
-    } = this.props;
-
+    const { ...inputProps } = this.props;
     return (
       <RkTextInput
         autoCapitalize='none'
         rkType='bordered rounded iconRight'
         autoCorrect={false}
-        label={button}
+        label={this.renderInputLabel()}
         secureTextEntry={this.state.hidden}
-        onChangeText={(cardNumber) => {
-          this.setState({ cardNumber: this.formatCreditNumber(cardNumber, this.state.hidden) });
-        }}
+        onChangeText={this.onInputChanged}
         value={this.state.cardNumber}
         keyboardType='numeric'
         maxLength={19}
@@ -58,11 +60,11 @@ export class CardInput extends React.Component {
   }
 }
 
-let styles = RkStyleSheet.create(theme => ({
+let styles = RkStyleSheet.create({
   icon: {
     fontSize: 24,
   },
   button: {
     right: 17,
   },
-}));
+});
