@@ -17,6 +17,10 @@ export class SocialSetting extends React.Component {
     };
   }
 
+  onSwitchValueChanged = (value) => {
+    this.setState({ selected: value });
+  };
+
   render() {
     const color = this.state.selected ? this.props.tintColor : RkTheme.current.colors.disabled;
 
@@ -26,13 +30,13 @@ export class SocialSetting extends React.Component {
           <RkText rkType='awesome large' style={[styles.icon, { color }]}>{this.props.icon}</RkText>
           <RkText rkType='small' style={{ color }}>{this.props.name}</RkText>
         </View>
-        <RkSwitch value={this.state.selected} onValueChange={(selected) => this.setState({ selected })} />
+        <RkSwitch value={this.state.selected} onValueChange={this.onSwitchValueChanged} />
       </View>
     );
   }
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
