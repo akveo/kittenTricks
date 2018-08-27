@@ -1,19 +1,14 @@
 import React from 'react';
 import {
   View,
-  Image,
   ScrollView,
-  Dimensions,
 } from 'react-native';
-
 import {
   RkText,
   RkStyleSheet,
   RkTheme,
 } from 'react-native-ui-kitten';
-
 import { FontAwesome } from '../../assets/icons';
-
 import {
   ProgressChart,
   DoughnutChart,
@@ -21,15 +16,13 @@ import {
   AreaSmoothedChart,
 } from '../../components/';
 
-
 export class Dashboard extends React.Component {
   static navigationOptions = {
     title: 'Dashboard'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
-    this.data = {
+  state = {
+    data: {
       statItems: [
         {
           name: 'Stars',
@@ -50,43 +43,41 @@ export class Dashboard extends React.Component {
           background: RkTheme.current.colors.dashboard.likes,
         },
       ],
-    };
-  }
+    },
+  };
 
-  renderStatItem(item) {
-    return (
-      <View style={[styles.statItemContainer, { backgroundColor: item.background }]} key={item.name}>
-        <View>
-          <RkText rkType='header6' style={styles.statItemValue}>{item.value}</RkText>
-          <RkText rkType='secondary7' style={styles.statItemName}>{item.name}</RkText>
-        </View>
-        <RkText rkType='awesome hero' style={styles.statItemIcon}>{FontAwesome[item.icon]}</RkText>
+  renderStatItem = (item) => (
+    <View style={[styles.statItemContainer, { backgroundColor: item.background }]} key={item.name}>
+      <View>
+        <RkText rkType='header6' style={styles.statItemValue}>{item.value}</RkText>
+        <RkText rkType='secondary7' style={styles.statItemName}>{item.name}</RkText>
       </View>
-    );
-  }
+      <RkText rkType='awesome hero' style={styles.statItemIcon}>{FontAwesome[item.icon]}</RkText>
+    </View>
+  );
 
-  render() {
-    const chartBlockStyles = [styles.chartBlock, { backgroundColor: RkTheme.current.colors.control.background }];
+  render = () => {
+    const chartBackgroundStyle = { backgroundColor: RkTheme.current.colors.control.background };
     return (
       <ScrollView style={styles.screen}>
         <View style={styles.statItems}>
-          {this.data.statItems.map(item => this.renderStatItem(item))}
+          {this.state.data.statItems.map(item => this.renderStatItem(item))}
         </View>
-        <View style={chartBlockStyles}>
+        <View style={[styles.chartBlock, chartBackgroundStyle]}>
           <DoughnutChart />
         </View>
-        <View style={chartBlockStyles}>
+        <View style={[styles.chartBlock, chartBackgroundStyle]}>
           <AreaChart />
         </View>
-        <View style={chartBlockStyles}>
+        <View style={[styles.chartBlock, chartBackgroundStyle]}>
           <ProgressChart />
         </View>
-        <View style={chartBlockStyles}>
+        <View style={[styles.chartBlock, chartBackgroundStyle]}>
           <AreaSmoothedChart />
         </View>
       </ScrollView>
     );
-  }
+  };
 }
 
 let styles = RkStyleSheet.create(theme => ({
