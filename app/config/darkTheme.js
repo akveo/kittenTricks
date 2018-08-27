@@ -36,11 +36,9 @@ const Colors = {
   gradientAxpEnd: '#3bb2bb',
   highlight: '#acacd2',
 
-  // -----
   faded: '#e5e5e5',
   icon: '#c2c2c2',
   neutral: '#f2f2f2',
-
 
   info: '#2942ff',
   warning: '#feb401',
@@ -59,7 +57,6 @@ const Colors = {
 
   chartsAreaStroke: '#2942ff',
   chartsAreaFill: '#0d1238',
-
 };
 
 const Fonts = {
@@ -129,10 +126,22 @@ export const DarkKittenTheme = {
       text: Colors.fadedForeground,
     },
     gradients: {
-      base: [Colors.gradientBaseBegin, Colors.gradientBaseEnd],
-      visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
-      mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
-      axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
+      base: [
+        Colors.gradientBaseBegin,
+        Colors.gradientBaseEnd,
+      ],
+      visa: [
+        Colors.gradientVisaBegin,
+        Colors.gradientVisaEnd,
+      ],
+      mastercard: [
+        Colors.gradientMasterBegin,
+        Colors.gradientMasterEnd,
+      ],
+      axp: [
+        Colors.gradientAxpBegin,
+        Colors.gradientAxpEnd,
+      ],
     },
     dashboard: {
       stars: Colors.alterBackground,
@@ -141,8 +150,18 @@ export const DarkKittenTheme = {
     },
     charts: {
       followersProgress: Colors.followersProgress,
-      doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
-      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      doughnut: [
+        Colors.doughnutFirst,
+        Colors.doughnutSecond,
+        Colors.doughnutThird,
+        Colors.doughnutFourth,
+      ],
+      followersArea: [
+        Colors.followersFirst,
+        Colors.followersSecond,
+        Colors.followersThird,
+        Colors.followersFourth,
+      ],
       area: {
         stroke: Colors.chartsAreaStroke,
         fill: Colors.chartsAreaFill,

@@ -4,29 +4,37 @@ import articles from './raw/articles';
 import notifications from './raw/notifications';
 import conversations from './raw/conversations';
 
-function populateArticles() {
+const populateArticles = () => {
   articles.forEach(article => {
-    const articleUserId = articles.indexOf(article) % users.length;
-    article.user = _.find(users, x => x.id === articleUserId) || users[0];
-    article.comments.forEach(comment => {
+    const userArticle = article;
+    const userId = articles.indexOf(article) % users.length;
+    userArticle.user = _.find(users, x => x.id === userId) || users[0];
+    userArticle.comments.map(comment => {
+      const userComment = comment;
       const commentUserId = article.comments.indexOf(comment) % users.length;
-      comment.user = _.find(users, x => x.id === commentUserId) || users[0];
+      userComment.user = _.find(users, x => x.id === commentUserId) || users[0];
+      return userComment;
     });
+    return userArticle;
   });
-}
+};
 
-function populateNotifications() {
-  notifications.forEach(notification => {
+const populateNotifications = () => {
+  notifications.map(notification => {
+    const userNotification = notification;
     const userId = notifications.indexOf(notification) % users.length;
-    notification.user = _.find(users, x => x.id === userId) || users[0];
+    userNotification.user = _.find(users, x => x.id === userId) || users[0];
+    return userNotification;
   });
-}
+};
 
-function populateConversations() {
-  conversations.forEach(conversation => {
-    conversation.withUser = _.find(users, x => x.id === conversation.withUserId) || users[0];
+const populateConversations = () => {
+  conversations.map(conversation => {
+    const userConversation = conversation;
+    userConversation.withUser = _.find(users, x => x.id === conversation.withUserId) || users[0];
+    return userConversation;
   });
-}
+};
 
 const populate = () => {
   populateArticles();

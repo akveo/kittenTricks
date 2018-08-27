@@ -18,18 +18,6 @@ import { data } from './data';
 bootstrap();
 data.populateData();
 
-function getCurrentRouteName(navigationState) {
-  if (!navigationState) {
-    return null;
-  }
-  const route = navigationState.routes[navigationState.index];
-  if (route.routes) {
-    return getCurrentRouteName(route);
-  }
-  return route.routeName;
-}
-
-const SideMenu = withRkTheme(Screens.SideMenu);
 const KittenApp = createStackNavigator({
   First: {
     screen: Screens.SplashScreen,
@@ -43,7 +31,10 @@ const KittenApp = createStackNavigator({
         drawerOpenRoute: 'DrawerOpen',
         drawerCloseRoute: 'DrawerClose',
         drawerToggleRoute: 'DrawerToggle',
-        contentComponent: (props) => <SideMenu {...props} />,
+        contentComponent: (props) => {
+          const SideMenu = withRkTheme(Screens.SideMenu);
+          return <SideMenu {...props} />;
+        },
       },
     ),
   },
@@ -53,7 +44,7 @@ const KittenApp = createStackNavigator({
 
 export default class App extends React.Component {
   state = {
-    loaded: false,
+    isLoaded: false,
   };
 
   componentWillMount() {
@@ -61,11 +52,18 @@ export default class App extends React.Component {
   }
 
   onNavigationStateChange = (previous, current) => {
-    const currentScreen = getCurrentRouteName(previous);
-    const prevScreen = getCurrentRouteName(current);
-    if (prevScreen !== currentScreen) {
-      track(currentScreen);
+    const screen = {
+      current: this.getCurrentRouteName(current),
+      previous: this.getCurrentRouteName(previous),
+    };
+    if (screen.previous !== screen.current) {
+      track(screen.current);
     }
+  };
+
+  getCurrentRouteName = (navigation) => {
+    const route = navigation.routes[navigation.index];
+    return route.routes ? this.getCurrentRouteName(route) : route.routeName;
   };
 
   loadAssets = async () => {
@@ -78,7 +76,7 @@ export default class App extends React.Component {
       'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
       'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
     });
-    this.setState({ loaded: true });
+    this.setState({ isLoaded: true });
   };
 
   renderLoading = () => (
@@ -91,7 +89,7 @@ export default class App extends React.Component {
     </View>
   );
 
-  render = () => (this.state.loaded ? this.renderApp() : this.renderLoading());
+  render = () => (this.state.isLoaded ? this.renderApp() : this.renderLoading());
 }
 
 Expo.registerRootComponent(App);

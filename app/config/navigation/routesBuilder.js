@@ -33,7 +33,8 @@ const renderHeader = (navigation, props) => {
 };
 
 const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
-  routes[name] = {
+  const rawRoutes = routes;
+  rawRoutes[name] = {
     name,
     screen: createStackNavigator(flatRoutes, {
       initialRouteName: name,
@@ -46,7 +47,7 @@ const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
       }),
     }),
   };
-  return routes;
+  return rawRoutes;
 }, {});
 
 export const AppRoutes = DrawerRoutes;

@@ -1,4 +1,4 @@
-import { scale, scaleVertical } from '../utils/scale';
+import { scale } from '../utils/scale';
 
 const Colors = {
   accent: '#ff2824',
@@ -34,11 +34,9 @@ const Colors = {
   gradientAxpBegin: '#42e695',
   gradientAxpEnd: '#3bb2bb',
 
-  // -----
   faded: '#e5e5e5',
   icon: '#c2c2c2',
   neutral: '#f2f2f2',
-
 
   info: '#19bfe5',
   warning: '#feb401',
@@ -62,7 +60,6 @@ const Colors = {
 
   chartsAreaStroke: '#097fe5',
   chartsAreaFill: '#d6ecff',
-
 };
 
 const Fonts = {
@@ -130,10 +127,22 @@ export const KittenTheme = {
       text: Colors.foreground,
     },
     gradients: {
-      base: [Colors.gradientBaseBegin, Colors.gradientBaseEnd],
-      visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
-      mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
-      axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
+      base: [
+        Colors.gradientBaseBegin,
+        Colors.gradientBaseEnd,
+      ],
+      visa: [
+        Colors.gradientVisaBegin,
+        Colors.gradientVisaEnd,
+      ],
+      mastercard: [
+        Colors.gradientMasterBegin,
+        Colors.gradientMasterEnd,
+      ],
+      axp: [
+        Colors.gradientAxpBegin,
+        Colors.gradientAxpEnd,
+      ],
     },
     dashboard: {
       stars: Colors.starsStat,
@@ -142,8 +151,18 @@ export const KittenTheme = {
     },
     charts: {
       followersProgress: Colors.followersProgress,
-      doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
-      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      doughnut: [
+        Colors.doughnutFirst,
+        Colors.doughnutSecond,
+        Colors.doughnutThird,
+        Colors.doughnutFourth,
+      ],
+      followersArea: [
+        Colors.followersFirst,
+        Colors.followersSecond,
+        Colors.followersThird,
+        Colors.followersFourth,
+      ],
       area: {
         stroke: Colors.chartsAreaStroke,
         fill: Colors.chartsAreaFill,

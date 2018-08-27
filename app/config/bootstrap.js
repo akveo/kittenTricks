@@ -8,7 +8,7 @@ import { AvatarTypes } from '../components/avatar/types';
 import { GradientButtonTypes } from '../components/gradientButton/types';
 import { SwitchTypes } from '../components/switch/types';
 import { SocialBarTypes } from '../components/socialBar/types';
-import { scale, scaleModerate, scaleVertical } from '../utils/scale';
+import { scale, scaleVertical } from '../utils/scale';
 
 export const bootstrap = () => {
   RkTheme.setTheme(KittenTheme, null);
@@ -51,27 +51,25 @@ export const bootstrap = () => {
   });
 
   // all font sizes
-  for (const key in RkTheme.current.fonts.sizes) {
+  Object.keys(RkTheme.current.fonts.sizes).forEach(key => {
     RkTheme.setType('RkText', key, {
       fontSize: theme => theme.fonts.sizes[key],
     });
-  }
+  });
 
   // all text colors
-  for (const key in RkTheme.current.colors.text) {
+  Object.keys(RkTheme.current.colors.text).forEach(key => {
     RkTheme.setType('RkText', `${key}Color`, {
       color: theme => theme.colors.text[key],
     });
-  }
+  });
 
   // all text line heights
-  for (const key in RkTheme.current.fonts.lineHeights) {
+  Object.keys(RkTheme.current.fonts.lineHeights).forEach(key => {
     RkTheme.setType('RkText', `${key}Line`, {
-      text: {
-        lineHeight: theme => theme.fonts.lineHeights[key],
-      },
+      text: { lineHeight: theme => theme.fonts.lineHeights[key] },
     });
-  }
+  });
 
   // theme text styles
   RkTheme.setType('RkText', 'header1', {
