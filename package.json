@@ -29,6 +29,7 @@
     "react-native-keyboard-spacer": "0.4.1",
     "react-native-linear-gradient": "2.4.0",
     "react-native-progress-bar": "0.1.2",
+    "react-native-svg": "^6.5.2",
     "react-native-switch-pro": "0.4.6",
     "react-native-ui-kitten": "3.0.1",
     "react-navigation": "2.11.2",
