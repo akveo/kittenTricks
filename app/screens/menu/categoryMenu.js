@@ -13,66 +13,49 @@ import {
 } from 'react-native-ui-kitten';
 
 export class CategoryMenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.isEmpty = this.props.items.length === 0;
-    if (!this.isEmpty) {
-      this.data = this.props.items;
-      this.renderRow = this._renderRow.bind(this);
-      this.navigate = this._navigate.bind(this);
-    }
-    this.state = { selected: true };
-  }
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
+  };
 
-  _navigate(row) {
-    if (row.action) {
-      this.props.navigation.navigate(row.action);
-    } else {
-      this.props.navigation.navigate(row.id);
-    }
-  }
+  onItemPressed = (item) => {
+    const url = item.item.action || item.item.id;
+    this.props.navigation.navigate(url);
+  };
 
+  extractItemKey = (item) => item.id;
 
-  _renderRow(row) {
-    return (
-      <TouchableHighlight
-        style={styles.item}
-        underlayColor={RkTheme.current.colors.button.underlay}
-        activeOpacity={1}
-        onPress={() => {
-          this.navigate(row.item);
-        }}>
-        <View>
-          <RkText>{row.item.title}</RkText>
-        </View>
-      </TouchableHighlight>
-    );
-  }
+  renderItem = (item) => (
+    <TouchableHighlight
+      style={styles.item}
+      underlayColor={RkTheme.current.colors.button.underlay}
+      activeOpacity={1}
+      onPress={() => this.onItemPressed(item)}>
+      <View>
+        <RkText>{item.item.title}</RkText>
+      </View>
+    </TouchableHighlight>
+  );
 
-  _keyExtractor(item, index) {
-    return item.id;
-  }
+  renderPlaceholder = () => (
+    <View style={styles.emptyContainer}>
+      <RkText rkType='light subtitle'>Coming Soon...</RkText>
+    </View>
+  );
 
-  render() {
-    if (this.isEmpty) {
-      return (
-        <View style={styles.emptyContainer}>
-          <RkText rkType='light subtitle'>Coming Soon...</RkText>
-        </View>
-      );
-    }
-    return (
-      <FlatList
-        style={styles.list}
-        data={this.data}
-        keyExtractor={this._keyExtractor}
-        renderItem={this.renderRow}
-      />
-    );
-  }
+  renderList = () => (
+    <FlatList
+      style={styles.list}
+      data={this.props.items}
+      keyExtractor={this.extractItemKey}
+      renderItem={this.renderItem}
+    />
+  );
+
+  render = () => (this.props.items.length === 0 ? this.renderPlaceholder() : this.renderList());
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   item: {
     paddingVertical: 32.5,
     paddingHorizontal: 16.5,
@@ -89,8 +72,3 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.screen.base,
   },
 }));
-
-CategoryMenu.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired,
-};
