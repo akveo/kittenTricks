@@ -12,53 +12,46 @@ import { MainRoutes } from '../../config/navigation/routes';
 const paddingValue = 8;
 
 export class GridV1 extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = () => ({
     title: 'Grid Menu'.toUpperCase(),
   });
 
   constructor(props) {
     super(props);
+    const screenWidth = Dimensions.get('window').width;
+    this.itemSize = {
+      width: (screenWidth - (paddingValue * 6)) / 2,
+      height: (screenWidth - (paddingValue * 6)) / 2,
+    };
   }
 
+  onItemPressed = (item) => {
+    this.props.navigation.navigate(item.id);
+  };
 
-  _calculateItemSize() {
-    const { height, width } = Dimensions.get('window');
-    return (width - paddingValue * 6) / 2;
-  }
+  renderItems = () => MainRoutes.map(route => (
+    <RkButton
+      rkType='square shadow'
+      style={{ ...this.itemSize }}
+      key={route.id}
+      onPress={() => this.onItemPressed(route)}>
+      <RkText style={styles.icon} rkType='primary moon menuIcon'>
+        {route.icon}
+      </RkText>
+      <RkText>{route.title}</RkText>
+    </RkButton>
+  ));
 
-  render() {
-    const size = this._calculateItemSize();
-    const navigate = this.props.navigation.navigate;
-
-    const items = MainRoutes.map((route, index) => (
-      <RkButton
-        rkType='square shadow'
-        style={{ width: size, height: size }}
-        key={index}
-        onPress={() => {
-            navigate(route.id);
-          }}>
-
-        <RkText style={styles.icon} rkType='primary moon menuIcon'>
-          {route.icon}
-        </RkText>
-        <RkText>{route.title}</RkText>
-
-      </RkButton>
-    ));
-
-
-    return (
-      <ScrollView
-        style={styles.root}
-        contentContainerStyle={styles.rootContainer}>
-        {items}
-      </ScrollView>
-    );
-  }
+  render = () => (
+    <ScrollView
+      style={styles.root}
+      contentContainerStyle={styles.rootContainer}>
+      {this.renderItems()}
+    </ScrollView>
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   root: {
     backgroundColor: theme.colors.screen.scroll,
     padding: paddingValue,
