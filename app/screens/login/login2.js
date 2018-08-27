@@ -8,78 +8,82 @@ import {
   RkButton,
   RkText,
   RkTextInput,
-  RkAvoidKeyboard, RkStyleSheet,
+  RkAvoidKeyboard,
+  RkTheme,
+  RkStyleSheet,
 } from 'react-native-ui-kitten';
 import { FontAwesome } from '../../assets/icons';
 import { GradientButton } from '../../components/gradientButton';
-import { RkTheme } from 'react-native-ui-kitten';
-import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
+import { scaleVertical } from '../../utils/scale';
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
-  constructor(props) {
-    super(props);
-  }
+  getThemeImageSource = (theme) => (
+    theme.name === 'light' ?
+      require('../../assets/images/logo.png') : require('../../assets/images/logoDark.png')
+  );
 
-  render() {
-    const renderIcon = () => {
-      if (RkTheme.current.name === 'light') { return <Image style={styles.image} source={require('../../assets/images/logo.png')} />; }
-      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')} />;
-    };
+  renderImage = () => (
+    <Image style={styles.image} source={this.getThemeImageSource(RkTheme.current)} />
+  );
 
-    return (
-      <RkAvoidKeyboard
-        style={styles.screen}
-        onStartShouldSetResponder={(e) => true}
-        onResponderRelease={(e) => Keyboard.dismiss()}>
-        <View style={styles.header}>
-          {renderIcon()}
-          <RkText rkType='light h1'>React Native</RkText>
-          <RkText rkType='logo h0'>UI Kitten</RkText>
+  onLoginButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
+
+  onSignUpButtonPressed = () => {
+    this.props.navigation.navigate('SignUp');
+  };
+
+  render = () => (
+    <RkAvoidKeyboard
+      style={styles.screen}
+      onStartShouldSetResponder={() => true}
+      onResponderRelease={() => Keyboard.dismiss()}>
+      <View style={styles.header}>
+        {this.renderImage()}
+        <RkText rkType='light h1'>React Native</RkText>
+        <RkText rkType='logo h0'>UI Kitten</RkText>
+      </View>
+      <View style={styles.content}>
+        <View>
+          <RkTextInput rkType='rounded' placeholder='Username' />
+          <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry />
+          <GradientButton
+            style={styles.save}
+            rkType='large'
+            text='LOGIN'
+            onPress={this.onLoginButtonPressed}
+          />
         </View>
-        <View style={styles.content}>
-          <View>
-            <RkTextInput rkType='rounded' placeholder='Username' />
-            <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry />
-            <GradientButton
-              style={styles.save}
-              rkType='large'
-              text='LOGIN'
-              onPress={() => {
-              this.props.navigation.goBack();
-            }}
-            />
-          </View>
-          <View style={styles.buttons}>
-            <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero'>{FontAwesome.twitter}</RkText>
+        <View style={styles.buttons}>
+          <RkButton style={styles.button} rkType='social'>
+            <RkText rkType='awesome hero'>{FontAwesome.twitter}</RkText>
+          </RkButton>
+          <RkButton style={styles.button} rkType='social'>
+            <RkText rkType='awesome hero'>{FontAwesome.google}</RkText>
+          </RkButton>
+          <RkButton style={styles.button} rkType='social'>
+            <RkText rkType='awesome hero'>{FontAwesome.facebook}</RkText>
+          </RkButton>
+        </View>
+        <View style={styles.footer}>
+          <View style={styles.textRow}>
+            <RkText rkType='primary3'>Don’t have an account?</RkText>
+            <RkButton rkType='clear' onPress={this.onSignUpButtonPressed}>
+              <RkText rkType='header6'>Sign up now</RkText>
             </RkButton>
-            <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero'>{FontAwesome.google}</RkText>
-            </RkButton>
-            <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero'>{FontAwesome.facebook}</RkText>
-            </RkButton>
-          </View>
-
-          <View style={styles.footer}>
-            <View style={styles.textRow}>
-              <RkText rkType='primary3'>Don’t have an account?</RkText>
-              <RkButton rkType='clear' onPress={() => this.props.navigation.navigate('SignUp')}>
-                <RkText rkType='header6'> Sign up now </RkText>
-              </RkButton>
-            </View>
           </View>
         </View>
-      </RkAvoidKeyboard>
-    );
-  }
+      </View>
+    </RkAvoidKeyboard>
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     padding: scaleVertical(16),
     flex: 1,

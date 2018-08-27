@@ -11,50 +11,50 @@ import {
   RkTheme,
 } from 'react-native-ui-kitten';
 import { GradientButton } from '../../components/';
-import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
+import { scaleVertical } from '../../utils/scale';
 
 export class PasswordRecovery extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
-  constructor(props) {
-    super(props);
-  }
+  getThemeImageSource = (theme) => (
+    theme.name === 'light' ?
+      require('../../assets/images/logo.png') : require('../../assets/images/logoDark.png')
+  );
 
-  render() {
-    const renderIcon = () => {
-      if (RkTheme.current.name === 'light') { return <Image style={styles.image} source={require('../../assets/images/logo.png')} />; }
-      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')} />;
-    };
+  renderImage = () => (
+    <Image style={styles.image} source={this.getThemeImageSource(RkTheme.current)} />
+  );
 
-    return (
-      <View
-        behavior='position'
-        style={styles.screen}
-        onStartShouldSetResponder={(e) => true}
-        onResponderRelease={(e) => Keyboard.dismiss()}>
-        <View style={styles.header}>
-          {renderIcon()}
-          <RkText rkType='h1'>Password Recovery</RkText>
-        </View>
-        <View style={styles.content}>
-          <RkTextInput rkType='rounded' placeholder='Email' />
-          <RkText rkType='secondary5 secondaryColor center'>
-            Enter your email below to receive your password reset instructions
-          </RkText>
-        </View>
-        <GradientButton
-          style={styles.save}
-          rkType='large'
-          text='SEND'
-          onPress={() => {
-          this.props.navigation.goBack();
-        }}
-        />
+  onSendButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
+
+  render = () => (
+    <View
+      behavior='position'
+      style={styles.screen}
+      onStartShouldSetResponder={() => true}
+      onResponderRelease={() => Keyboard.dismiss()}>
+      <View style={styles.header}>
+        {this.renderImage()}
+        <RkText rkType='h1'>Password Recovery</RkText>
       </View>
-    );
-  }
+      <View style={styles.content}>
+        <RkTextInput rkType='rounded' placeholder='Email' />
+        <RkText rkType='secondary5 secondaryColor center'>
+            Enter your email below to receive your password reset instructions
+        </RkText>
+      </View>
+      <GradientButton
+        style={styles.save}
+        rkType='large'
+        text='SEND'
+        onPress={this.onSendButtonPressed}
+      />
+    </View>
+  )
 }
 
 let styles = RkStyleSheet.create(theme => ({

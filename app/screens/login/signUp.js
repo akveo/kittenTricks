@@ -13,61 +13,66 @@ import {
   RkAvoidKeyboard,
 } from 'react-native-ui-kitten';
 import { GradientButton } from '../../components/';
-import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
+import { scaleVertical } from '../../utils/scale';
 
 export class SignUp extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
-  constructor(props) {
-    super(props);
-  }
+  getThemeImageSource = (theme) => (
+    theme.name === 'light' ?
+      require('../../assets/images/logo.png') : require('../../assets/images/logoDark.png')
+  );
 
-  render() {
-    const renderIcon = () => {
-      if (RkTheme.current.name === 'light') { return <Image style={styles.image} source={require('../../assets/images/logo.png')} />; }
-      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')} />;
-    };
-    return (
-      <RkAvoidKeyboard
-        style={styles.screen}
-        onStartShouldSetResponder={(e) => true}
-        onResponderRelease={(e) => Keyboard.dismiss()}>
-        <View style={{ alignItems: 'center' }}>
-          {renderIcon()}
-          <RkText rkType='h1'>Registration</RkText>
+  renderImage = () => (
+    <Image style={styles.image} source={this.getThemeImageSource(RkTheme.current)} />
+  );
+
+  onSignUpButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
+
+  onSignInButtonPressed = () => {
+    this.props.navigation.navigate('Login1');
+  };
+
+  render = () => (
+    <RkAvoidKeyboard
+      style={styles.screen}
+      onStartShouldSetResponder={() => true}
+      onResponderRelease={() => Keyboard.dismiss()}>
+      <View style={{ alignItems: 'center' }}>
+        {this.renderImage()}
+        <RkText rkType='h1'>Registration</RkText>
+      </View>
+      <View style={styles.content}>
+        <View>
+          <RkTextInput rkType='rounded' placeholder='Name' />
+          <RkTextInput rkType='rounded' placeholder='Email' />
+          <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry />
+          <RkTextInput rkType='rounded' placeholder='Confirm Password' secureTextEntry />
+          <GradientButton
+            style={styles.save}
+            rkType='large'
+            text='SIGN UP'
+            onPress={this.onSignUpButtonPressed}
+          />
         </View>
-        <View style={styles.content}>
-          <View>
-            <RkTextInput rkType='rounded' placeholder='Name' />
-            <RkTextInput rkType='rounded' placeholder='Email' />
-            <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry />
-            <RkTextInput rkType='rounded' placeholder='Confirm Password' secureTextEntry />
-            <GradientButton
-              style={styles.save}
-              rkType='large'
-              text='SIGN UP'
-              onPress={() => {
-              this.props.navigation.goBack();
-            }}
-            />
-          </View>
-          <View style={styles.footer}>
-            <View style={styles.textRow}>
-              <RkText rkType='primary3'>Already have an account?</RkText>
-              <RkButton rkType='clear' onPress={() => this.props.navigation.navigate('Login1')}>
-                <RkText rkType='header6'> Sign in now </RkText>
-              </RkButton>
-            </View>
+        <View style={styles.footer}>
+          <View style={styles.textRow}>
+            <RkText rkType='primary3'>Already have an account?</RkText>
+            <RkButton rkType='clear' onPress={this.onSignInButtonPressed}>
+              <RkText rkType='header6'>Sign in now</RkText>
+            </RkButton>
           </View>
         </View>
-      </RkAvoidKeyboard>
-    );
-  }
+      </View>
+    </RkAvoidKeyboard>
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     padding: 16,
     flex: 1,
