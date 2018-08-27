@@ -12,14 +12,22 @@ import {
 } from 'react-native-ui-kitten';
 import { GradientButton } from '../../components/';
 import { PasswordTextInput } from '../../components/passwordTextInput';
-import { DatePicker } from '../../components/picker/datePicker';
+import {
+  DatePicker,
+  DatePart,
+} from '../../components/picker/datePicker';
 import { CardInput } from '../../components/cardInput';
 import { scale } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class AddToCardForm extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Add Card'.toUpperCase(),
   };
+
   state = {
     nameOnCard: '',
     cardCode: '',
@@ -69,7 +77,7 @@ export class AddToCardForm extends React.Component {
                 selectedYear={this.state.expireYear}
                 selectedMonth={this.state.expireMonth}
                 visible={this.state.pickerVisible}
-                customDateParts={[DatePicker.DatePart.YEAR, DatePicker.DatePart.MONTH]}
+                customDateParts={[DatePart.YEAR, DatePart.MONTH]}
               />
               <View style={[styles.expireDateInput, styles.balloon]}>
                 <TouchableOpacity onPress={() => this.setState({ pickerVisible: true })}>

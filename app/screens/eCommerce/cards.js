@@ -87,9 +87,9 @@ export class Cards extends React.Component {
 
   extractItemKey = (item) => `${item.id}`;
 
-  renderItem = (item) => {
-    const { gradient, icon } = this.getCardStyle(item.item.type);
-    const { firstPart, lastPart } = this.prepareCardNo(item.item.cardNo);
+  renderItem = ({ item }) => {
+    const { gradient, icon } = this.getCardStyle(item.type);
+    const { firstPart, lastPart } = this.prepareCardNo(item.cardNo);
 
     return (
       <RkCard rkType='credit' style={styles.card}>
@@ -103,7 +103,7 @@ export class Cards extends React.Component {
             end={{ x: 1, y: 0.5 }}
             style={styles.background}>
             <View rkCardHeader>
-              <RkText rkType='header4 inverseColor'>{item.item.bank}</RkText>
+              <RkText rkType='header4 inverseColor'>{item.bank}</RkText>
               <Image source={icon} />
             </View>
             <View rkCardContent>
@@ -113,15 +113,15 @@ export class Cards extends React.Component {
                 <RkText style={[styles.cardNo, styles.cardPlaceholder]} rkType='header2 inverseColor'>* * * *</RkText>
                 <RkText style={styles.cardNo} rkType='header2 inverseColor'>{lastPart}</RkText>
               </View>
-              <RkText style={styles.date} rkType='header6 inverseColor'>{item.item.date}</RkText>
+              <RkText style={styles.date} rkType='header6 inverseColor'>{item.date}</RkText>
             </View>
             <View rkCardFooter>
               <View>
-                <RkText rkType='header4 inverseColor'>{item.item.currency.toUpperCase()}</RkText>
-                <RkText rkType='header6 inverseColor'>{item.item.name.toUpperCase()}</RkText>
+                <RkText rkType='header4 inverseColor'>{item.currency.toUpperCase()}</RkText>
+                <RkText rkType='header6 inverseColor'>{item.name.toUpperCase()}</RkText>
               </View>
               <RkText
-                rkType='header2 inverseColor'>{this.formatCurrency(item.item.amount, item.item.currency)}
+                rkType='header2 inverseColor'>{this.formatCurrency(item.amount, item.currency)}
               </RkText>
             </View>
           </LinearGradient>

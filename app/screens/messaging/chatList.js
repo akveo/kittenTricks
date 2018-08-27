@@ -14,10 +14,14 @@ import {
 import { Avatar } from '../../components';
 import { FontAwesome } from '../../assets/icons';
 import { data } from '../../data';
+import NavigationType from '../../config/navigation/propTypes';
 
 const moment = require('moment');
 
 export class ChatList extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Chats List'.toUpperCase(),
   };
@@ -29,7 +33,7 @@ export class ChatList extends React.Component {
     },
   };
 
-  extractItemKey = (item) => item.withUser.id;
+  extractItemKey = (item) => `${item.withUser.id}`;
 
   onInputChanged = (event) => {
     const pattern = new RegExp(event.nativeEvent.text, 'i');
@@ -49,7 +53,7 @@ export class ChatList extends React.Component {
   };
 
   onItemPressed = (item) => {
-    const navigationParams = { userId: item.item.withUser.id };
+    const navigationParams = { userId: item.withUser.id };
     this.props.navigation.navigate('Chat', navigationParams);
   };
 
@@ -74,16 +78,15 @@ export class ChatList extends React.Component {
     </View>
   );
 
-  renderItem = (item) => {
-    const name = `${item.item.withUser.firstName} ${item.item.withUser.lastName}`;
-    const last = item.item.messages[item.item.messages.length - 1];
+  renderItem = ({ item }) => {
+    const last = item.messages[item.messages.length - 1];
     return (
       <TouchableOpacity onPress={() => this.onItemPressed(item)}>
         <View style={styles.container}>
-          <Avatar rkType='circle' style={styles.avatar} img={item.item.withUser.photo} />
+          <Avatar rkType='circle' style={styles.avatar} img={item.withUser.photo} />
           <View style={styles.content}>
             <View style={styles.contentHeader}>
-              <RkText rkType='header5'>{name}</RkText>
+              <RkText rkType='header5'>{`${item.withUser.firstName} ${item.withUser.lastName}`}</RkText>
               <RkText rkType='secondary4 hintColor'>
                 {moment().add(last.time, 'seconds').format('LT')}
               </RkText>

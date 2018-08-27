@@ -15,10 +15,22 @@ import {
 import { FontAwesome } from '../../assets/icons';
 import { GradientButton } from '../../components/gradientButton';
 import { scaleVertical } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class LoginV2 extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     header: null,
+  };
+
+  onLoginButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
+
+  onSignUpButtonPressed = () => {
+    this.props.navigation.navigate('SignUp');
   };
 
   getThemeImageSource = (theme) => (
@@ -29,14 +41,6 @@ export class LoginV2 extends React.Component {
   renderImage = () => (
     <Image style={styles.image} source={this.getThemeImageSource(RkTheme.current)} />
   );
-
-  onLoginButtonPressed = () => {
-    this.props.navigation.goBack();
-  };
-
-  onSignUpButtonPressed = () => {
-    this.props.navigation.navigate('SignUp');
-  };
 
   render = () => (
     <RkAvoidKeyboard

@@ -7,7 +7,10 @@ import {
   Platform,
   StyleSheet,
 } from 'react-native';
-import { StackActions, NavigationActions } from 'react-navigation';
+import {
+  StackActions,
+  NavigationActions,
+} from 'react-navigation';
 import {
   RkStyleSheet,
   RkText,
@@ -15,14 +18,18 @@ import {
 } from 'react-native-ui-kitten';
 import { MainRoutes } from '../../config/navigation/routes';
 import { FontAwesome } from '../../assets/icons';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class SideMenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this._navigateAction = this._navigate.bind(this);
-  }
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
 
-  _navigate(route) {
+  onMenuItemPressed = (item) => {
+    this.navigate(item);
+  };
+
+  navigate = (route) => {
     const resetAction = StackActions.reset({
       index: 0,
       actions: [
@@ -30,50 +37,54 @@ export class SideMenu extends React.Component {
       ],
     });
     this.props.navigation.dispatch(resetAction);
-  }
+  };
 
-  _renderIcon() {
-    if (RkTheme.current.name === 'light') { return <Image style={styles.icon} source={require('../../assets/images/smallLogo.png')} />; }
-    return <Image style={styles.icon} source={require('../../assets/images/smallLogoDark.png')} />;
-  }
+  getThemeImageSource = (theme) => (
+    theme.name === 'light' ?
+      require('../../assets/images/smallLogo.png') : require('../../assets/images/smallLogoDark.png')
+  );
 
-  render() {
-    const menu = MainRoutes.map((route, index) => (
-      <TouchableHighlight
-        style={styles.container}
-        key={route.id}
-        underlayColor={RkTheme.current.colors.button.underlay}
-        activeOpacity={1}
-        onPress={() => this._navigateAction(route)}>
+  renderIcon = () => (
+    <Image style={styles.icon} source={this.getThemeImageSource(RkTheme.current)} />
+  );
+
+  renderMenu = () => MainRoutes.map(this.renderMenuItem);
+
+  renderMenuItem = (item) => (
+    <TouchableHighlight
+      style={styles.container}
+      key={item.id}
+      underlayColor={RkTheme.current.colors.button.underlay}
+      activeOpacity={1}
+      onPress={() => this.onMenuItemPressed(item)}>
+      <View style={styles.content}>
         <View style={styles.content}>
-          <View style={styles.content}>
-            <RkText
-              style={styles.icon}
-              rkType='moon primary xlarge'>{route.icon}
-            </RkText>
-            <RkText>{route.title}</RkText>
-          </View>
-          <RkText rkType='awesome secondaryColor small'>{FontAwesome.chevronRight}</RkText>
+          <RkText
+            style={styles.icon}
+            rkType='moon primary xlarge'>{item.icon}
+          </RkText>
+          <RkText>{item.title}</RkText>
         </View>
-      </TouchableHighlight>
-    ));
-
-    return (
-      <View style={styles.root}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}>
-          <View style={[styles.container, styles.content]}>
-            {this._renderIcon()}
-            <RkText rkType='logo'>UI Kitten</RkText>
-          </View>
-          {menu}
-        </ScrollView>
+        <RkText rkType='awesome secondaryColor small'>{FontAwesome.chevronRight}</RkText>
       </View>
-    );
-  }
+    </TouchableHighlight>
+  );
+
+  render = () => (
+    <View style={styles.root}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}>
+        <View style={[styles.container, styles.content]}>
+          {this.renderIcon()}
+          <RkText rkType='logo'>UI Kitten</RkText>
+        </View>
+        {this.renderMenu()}
+      </ScrollView>
+    </View>
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
     height: 80,
     paddingHorizontal: 16,

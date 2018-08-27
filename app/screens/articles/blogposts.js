@@ -11,10 +11,14 @@ import {
 } from 'react-native-ui-kitten';
 import { Avatar } from '../../components';
 import { data } from '../../data';
+import NavigationType from '../../config/navigation/propTypes';
 
 const moment = require('moment');
 
 export class Blogposts extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Blogposts'.toUpperCase(),
   };
@@ -23,33 +27,33 @@ export class Blogposts extends React.Component {
     data: data.getArticles('post'),
   };
 
-  extractItemKey = (item) => item.id;
+  extractItemKey = (item) => `${item.id}`;
 
   onItemPressed = (item) => {
-    this.props.navigation.navigate('Article', { id: item.item.id });
+    this.props.navigation.navigate('Article', { id: item.id });
   };
 
-  renderItem = (item) => (
+  renderItem = ({ item }) => (
     <TouchableOpacity
       delayPressIn={70}
       activeOpacity={0.8}
       onPress={() => this.onItemPressed(item)}>
       <RkCard rkType='blog' style={styles.card}>
-        <Image rkCardImg source={item.item.photo} />
+        <Image rkCardImg source={item.photo} />
         <View rkCardHeader style={styles.content}>
-          <RkText style={styles.section} rkType='header4'>{item.item.title}</RkText>
+          <RkText style={styles.section} rkType='header4'>{item.title}</RkText>
         </View>
         <View rkCardContent>
           <View>
-            <RkText rkType='primary3 mediumLine' numberOfLines={2}>{item.item.text}</RkText>
+            <RkText rkType='primary3 mediumLine' numberOfLines={2}>{item.text}</RkText>
           </View>
         </View>
         <View rkCardFooter>
           <View style={styles.userInfo}>
-            <Avatar style={styles.avatar} rkType='circle small' img={item.item.user.photo} />
-            <RkText rkType='header6'>{`${item.item.user.firstName} ${item.item.user.lastName}`}</RkText>
+            <Avatar style={styles.avatar} rkType='circle small' img={item.user.photo} />
+            <RkText rkType='header6'>{`${item.user.firstName} ${item.user.lastName}`}</RkText>
           </View>
-          <RkText rkType='secondary2 hintColor'>{moment().add(item.item.time, 'seconds').fromNow()}</RkText>
+          <RkText rkType='secondary2 hintColor'>{moment().add(item.time, 'seconds').fromNow()}</RkText>
         </View>
       </RkCard>
     </TouchableOpacity>
@@ -65,7 +69,7 @@ export class Blogposts extends React.Component {
   );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,

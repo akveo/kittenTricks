@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   ScrollView,
   Image,
@@ -15,19 +16,22 @@ import {
   Avatar,
   SocialBar,
 } from '../../components';
+import NavigationType from '../../config/navigation/propTypes';
 
 const moment = require('moment');
 
 export class Article extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Article View'.toUpperCase(),
   };
 
   constructor(props) {
     super(props);
-    const { params } = this.props.navigation.state;
-    const id = params ? params.id : 1;
-    this.data = data.getArticle(id);
+    const articleId = this.props.navigation.getParam('id', 1);
+    this.data = data.getArticle(articleId);
   }
 
   onAvatarPressed = () => {

@@ -11,8 +11,12 @@ import { Avatar } from '../../components/avatar';
 import { Gallery } from '../../components/gallery';
 import { data } from '../../data/';
 import formatNumber from '../../utils/textUtils';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class ProfileV1 extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'User Profile'.toUpperCase(),
   };
@@ -23,8 +27,7 @@ export class ProfileV1 extends React.Component {
 
   constructor(props) {
     super(props);
-    const navigationParams = this.props.navigation.state.params;
-    const id = navigationParams ? navigationParams.id : 1;
+    const id = this.props.navigation.getParam('id', 1);
     this.state.data = data.getUser(id);
   }
 

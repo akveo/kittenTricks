@@ -12,10 +12,18 @@ import {
 } from 'react-native-ui-kitten';
 import { GradientButton } from '../../components/';
 import { scaleVertical } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class PasswordRecovery extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     header: null,
+  };
+
+  onSendButtonPressed = () => {
+    this.props.navigation.goBack();
   };
 
   getThemeImageSource = (theme) => (
@@ -26,10 +34,6 @@ export class PasswordRecovery extends React.Component {
   renderImage = () => (
     <Image style={styles.image} source={this.getThemeImageSource(RkTheme.current)} />
   );
-
-  onSendButtonPressed = () => {
-    this.props.navigation.goBack();
-  };
 
   render = () => (
     <View
@@ -54,10 +58,10 @@ export class PasswordRecovery extends React.Component {
         onPress={this.onSendButtonPressed}
       />
     </View>
-  )
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     flex: 1,
     paddingHorizontal: 16,

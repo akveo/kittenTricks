@@ -3,8 +3,12 @@ import React from 'react';
 
 import { CategoryMenu } from './categoryMenu';
 import * as Routes from '../../config/navigation/routesBuilder';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class LoginMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Login'.toUpperCase(),
   };
@@ -14,6 +18,9 @@ export class LoginMenu extends React.Component {
 }
 
 export class NavigationMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Navigation'.toUpperCase(),
   };
@@ -23,6 +30,9 @@ export class NavigationMenu extends React.Component {
 }
 
 export class SocialMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Social'.toUpperCase(),
   };
@@ -32,6 +42,9 @@ export class SocialMenu extends React.Component {
 }
 
 export class ArticleMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Articles'.toUpperCase(),
   };
@@ -41,6 +54,9 @@ export class ArticleMenu extends React.Component {
 }
 
 export class MessagingMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Messaging'.toUpperCase(),
   };
@@ -50,6 +66,9 @@ export class MessagingMenu extends React.Component {
 }
 
 export class DashboardMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Dashboards'.toUpperCase(),
   };
@@ -59,6 +78,9 @@ export class DashboardMenu extends React.Component {
 }
 
 export class WalkthroughMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Walkthrough'.toUpperCase(),
   };
@@ -68,6 +90,9 @@ export class WalkthroughMenu extends React.Component {
 }
 
 export class EcommerceMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Ecommerce'.toUpperCase(),
   };
@@ -77,6 +102,9 @@ export class EcommerceMenu extends React.Component {
 }
 
 export class OtherMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Other'.toUpperCase(),
   };

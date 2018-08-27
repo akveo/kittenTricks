@@ -14,10 +14,14 @@ import {
 } from 'react-native-ui-kitten';
 import { GradientButton } from '../../components/';
 import { scaleVertical } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class SignUp extends React.Component {
   static navigationOptions = {
     header: null,
+  };
+  static propTypes = {
+    navigation: NavigationType.isRequired,
   };
 
   getThemeImageSource = (theme) => (

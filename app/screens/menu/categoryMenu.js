@@ -11,28 +11,31 @@ import {
   RkTheme,
   RkText,
 } from 'react-native-ui-kitten';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class CategoryMenu extends React.Component {
   static propTypes = {
-    navigation: PropTypes.object.isRequired,
-    items: PropTypes.array.isRequired,
+    navigation: NavigationType.isRequired,
+    items: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string.isRequired,
+    })).isRequired,
   };
 
   onItemPressed = (item) => {
-    const url = item.item.action || item.item.id;
+    const url = item.action || item.id;
     this.props.navigation.navigate(url);
   };
 
   extractItemKey = (item) => item.id;
 
-  renderItem = (item) => (
+  renderItem = ({ item }) => (
     <TouchableHighlight
       style={styles.item}
       underlayColor={RkTheme.current.colors.button.underlay}
       activeOpacity={1}
       onPress={() => this.onItemPressed(item)}>
       <View>
-        <RkText>{item.item.title}</RkText>
+        <RkText>{item.title}</RkText>
       </View>
     </TouchableHighlight>
   );

@@ -11,27 +11,30 @@ import {
 } from 'react-native-ui-kitten';
 import { Avatar } from '../../components';
 import { data } from '../../data';
+import NavigationType from '../../config/navigation/propTypes';
 
 const moment = require('moment');
 
 export class Comments extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Comments'.toUpperCase(),
   };
 
   constructor(props) {
     super(props);
-    const navigationParams = this.props.navigation.params;
-    const postId = navigationParams ? navigationParams.postId : undefined;
+    const postId = this.props.navigation.getParam('postId', undefined);
     this.state = {
       data: data.getComments(postId),
     };
   }
 
-  extractItemKey = (item) => item.id;
+  extractItemKey = (item) => `${item.id}`;
 
   onItemPressed = (item) => {
-    const navigationParams = { id: item.item.user.id };
+    const navigationParams = { id: item.user.id };
     this.props.navigation.navigate('ProfileV1', navigationParams);
   };
 
@@ -39,25 +42,22 @@ export class Comments extends React.Component {
     <View style={styles.separator} />
   );
 
-  renderItem = (item) => {
-    const name = `${item.item.user.firstName} ${item.item.user.lastName}`;
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.onItemPressed(item)}>
-          <Avatar rkType='circle' style={styles.avatar} img={item.item.user.photo} />
-        </TouchableOpacity>
-        <View style={styles.content}>
-          <View style={styles.contentHeader}>
-            <RkText rkType='header5'>{name}</RkText>
-            <RkText rkType='secondary4 hintColor'>
-              {moment().add(item.item.time, 'seconds').format('LT')}
-            </RkText>
-          </View>
-          <RkText rkType='primary3 mediumLine'>{item.item.text}</RkText>
+  renderItem = ({ item }) => (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => this.onItemPressed(item)}>
+        <Avatar rkType='circle' style={styles.avatar} img={item.user.photo} />
+      </TouchableOpacity>
+      <View style={styles.content}>
+        <View style={styles.contentHeader}>
+          <RkText rkType='header5'>{`${item.user.firstName} ${item.user.lastName}`}</RkText>
+          <RkText rkType='secondary4 hintColor'>
+            {moment().add(item.time, 'seconds').format('LT')}
+          </RkText>
         </View>
+        <RkText rkType='primary3 mediumLine'>{item.text}</RkText>
       </View>
-    );
-  };
+    </View>
+  );
 
   render = () => (
     <FlatList

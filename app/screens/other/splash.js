@@ -17,10 +17,14 @@ import {
 import { ProgressBar } from '../../components';
 import { KittenTheme } from '../../config/theme';
 import { scale, scaleVertical } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
 const delay = 500;
 
 export class SplashScreen extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   state = {
     progress: 0,
   };
@@ -28,20 +32,22 @@ export class SplashScreen extends React.Component {
   componentDidMount() {
     StatusBar.setHidden(true, 'none');
     RkTheme.setTheme(KittenTheme);
-    this.timer = setInterval(() => {
-      if (this.state.progress === 1) {
-        clearInterval(this.timer);
-        setTimeout(this.onLoaded, delay);
-      } else {
-        const randProgress = this.state.progress + (Math.random() * 0.5);
-        this.setState({ progress: randProgress > 1 ? 1 : randProgress });
-      }
-    }, delay);
+    this.timer = setInterval(this.updateProgress, delay);
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
   }
+
+  updateProgress = () => {
+    if (this.state.progress === 1) {
+      clearInterval(this.timer);
+      setTimeout(this.onLoaded, delay);
+    } else {
+      const randProgress = this.state.progress + (Math.random() * 0.5);
+      this.setState({ progress: randProgress > 1 ? 1 : randProgress });
+    }
+  };
 
   onLoaded = () => {
     StatusBar.setHidden(false, 'slide');

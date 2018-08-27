@@ -14,8 +14,12 @@ import {
 import { data } from '../../data';
 import { Avatar } from '../../components/avatar';
 import { FontAwesome } from '../../assets/icons';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class Contacts extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Contacts'.toUpperCase(),
   };
@@ -47,14 +51,14 @@ export class Contacts extends React.Component {
   };
 
   onItemPressed = (item) => {
-    this.props.navigation.navigate('ProfileV1', { id: item.item.id });
+    this.props.navigation.navigate('ProfileV1', { id: item.id });
   };
 
-  renderItem = (item) => (
+  renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => this.onItemPressed(item)}>
       <View style={styles.container}>
-        <Avatar rkType='circle' style={styles.avatar} img={item.item.photo} />
-        <RkText>{`${item.item.firstName} ${item.item.lastName}`}</RkText>
+        <Avatar rkType='circle' style={styles.avatar} img={item.photo} />
+        <RkText>{`${item.firstName} ${item.lastName}`}</RkText>
       </View>
     </TouchableOpacity>
   );

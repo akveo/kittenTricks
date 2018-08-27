@@ -21,10 +21,14 @@ import { FontAwesome } from '../../assets/icons';
 import { data } from '../../data';
 import { Avatar } from '../../components/avatar';
 import { scale } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
 const moment = require('moment');
 
 export class Chat extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = ({ navigation }) => {
     const userId = navigation.state.params ? navigation.state.params.userId : undefined;
     const user = data.getUser(userId);
@@ -36,8 +40,7 @@ export class Chat extends React.Component {
 
   constructor(props) {
     super(props);
-    const navigationParams = this.props.navigation.state.params;
-    const userId = navigationParams ? navigationParams.userId : undefined;
+    const userId = this.props.navigation.getParam('userId', undefined);
     this.state = {
       data: data.getConversation(userId),
     };
@@ -107,8 +110,8 @@ export class Chat extends React.Component {
     </RkText>
   );
 
-  renderItem = (item) => {
-    const isIncoming = item.item.type === 'in';
+  renderItem = ({ item }) => {
+    const isIncoming = item.type === 'in';
     const backgroundColor = isIncoming
       ? RkTheme.current.colors.chat.messageInBackground
       : RkTheme.current.colors.chat.messageOutBackground;
@@ -116,11 +119,11 @@ export class Chat extends React.Component {
 
     return (
       <View style={[styles.item, itemStyle]}>
-        {!isIncoming && this.renderDate(item.item.time)}
+        {!isIncoming && this.renderDate(item.time)}
         <View style={[styles.balloon, { backgroundColor }]}>
-          <RkText rkType='primary2 mediumLine chat' style={{ paddingTop: 5 }}>{item.item.text}</RkText>
+          <RkText rkType='primary2 mediumLine chat' style={{ paddingTop: 5 }}>{item.text}</RkText>
         </View>
-        {isIncoming && this.renderDate(item.item.time)}
+        {isIncoming && this.renderDate(item.time)}
       </View>
     );
   };

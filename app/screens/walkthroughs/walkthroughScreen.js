@@ -8,9 +8,12 @@ import {
 import { Walkthrough } from '../../components/walkthrough';
 import { Walkthrough1 } from './walkthrough1';
 import { Walkthrough2 } from './walkthrough2';
-
+import NavigationType from '../../config/navigation/propTypes';
 
 export class WalkthroughScreen extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     header: null,
   };
@@ -44,7 +47,7 @@ export class WalkthroughScreen extends React.Component {
   )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     backgroundColor: theme.colors.screen.base,
     paddingVertical: 28,

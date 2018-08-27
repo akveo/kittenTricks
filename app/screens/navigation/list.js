@@ -10,28 +10,32 @@ import {
   RkStyleSheet,
 } from 'react-native-ui-kitten';
 import { MainRoutes } from '../../config/navigation/routes';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class ListMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'List Menu'.toUpperCase(),
   };
 
-  extractItemKey = (item) => item.id;
-
   onItemPressed = (item) => {
-    this.props.navigation.navigate(item.item.id);
+    this.props.navigation.navigate(item.id);
   };
 
-  renderItem = (item) => (
+  extractItemKey = (item) => item.id;
+
+  renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.item}
       onPress={() => this.onItemPressed(item)}>
       <View style={styles.container}>
         <RkText
           style={styles.icon}
-          rkType='primary moon xxlarge'>{item.item.icon}
+          rkType='primary moon xxlarge'>{item.icon}
         </RkText>
-        <RkText>{item.item.title}</RkText>
+        <RkText>{item.title}</RkText>
       </View>
     </TouchableOpacity>
   );

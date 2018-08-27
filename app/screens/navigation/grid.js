@@ -8,13 +8,17 @@ import {
   RkText,
 } from 'react-native-ui-kitten';
 import { MainRoutes } from '../../config/navigation/routes';
+import NavigationType from '../../config/navigation/propTypes';
 
 const paddingValue = 8;
 
 export class GridV1 extends React.Component {
-  static navigationOptions = () => ({
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
+  static navigationOptions = {
     title: 'Grid Menu'.toUpperCase(),
-  });
+  };
 
   constructor(props) {
     super(props);

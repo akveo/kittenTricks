@@ -11,10 +11,14 @@ import {
 } from 'react-native-ui-kitten';
 import { SocialBar } from '../../components';
 import { data } from '../../data';
+import NavigationType from '../../config/navigation/propTypes';
 
 const moment = require('moment');
 
 export class Articles2 extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Article List'.toUpperCase(),
   };
@@ -23,24 +27,24 @@ export class Articles2 extends React.Component {
     data: data.getArticles(),
   };
 
-  extractItemKey = (item) => item.id;
+  extractItemKey = (item) => `${item.id}`;
 
   onItemPressed = (item) => {
-    this.props.navigation.navigate('Article', { id: item.item.id });
+    this.props.navigation.navigate('Article', { id: item.id });
   };
 
-  renderItem = (item) => (
+  renderItem = ({ item }) => (
     <TouchableOpacity
       delayPressIn={70}
       activeOpacity={0.8}
       onPress={() => this.onItemPressed(item)}>
       <RkCard rkType='imgBlock' style={styles.card}>
-        <Image rkCardImg source={item.item.photo} />
+        <Image rkCardImg source={item.photo} />
         <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-          <RkText rkType='header4 inverseColor'>{item.item.header}</RkText>
+          <RkText rkType='header4 inverseColor'>{item.header}</RkText>
           <RkText
             style={styles.time}
-            rkType='secondary2 inverseColor'>{moment().add(item.item.time, 'seconds').fromNow()}
+            rkType='secondary2 inverseColor'>{moment().add(item.time, 'seconds').fromNow()}
           </RkText>
         </View>
         <View rkCardFooter>

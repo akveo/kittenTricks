@@ -12,9 +12,13 @@ import {
 } from 'react-native-ui-kitten';
 import { SocialBar } from '../../components';
 import { data } from '../../data';
+import NavigationType from '../../config/navigation/propTypes';
 
 
 export class Articles4 extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     title: 'Article List'.toUpperCase(),
   };
@@ -23,22 +27,21 @@ export class Articles4 extends React.Component {
     data: data.getArticles(),
   };
 
-  extractItemKey = (item) => item.id;
+  extractItemKey = (item) => `${item.id}`;
 
-  renderItem = (item) => (
+  renderItem = ({ item }) => (
     <TouchableOpacity
       delayPressIn={70}
       activeOpacity={0.8}
-      onPress={() => this.props.navigation.navigate('Article', { id: item.item.id })}>
+      onPress={() => this.props.navigation.navigate('Article', { id: item.id })}>
       <RkCard rkType='horizontal' style={styles.card}>
-        <Image rkCardImg source={item.item.photo} />
-
+        <Image rkCardImg source={item.photo} />
         <View rkCardContent>
-          <RkText numberOfLines={1} rkType='header6'>{item.item.header}</RkText>
+          <RkText numberOfLines={1} rkType='header6'>{item.header}</RkText>
           <RkText rkType='secondary6 hintColor'>
-            {`${item.item.user.firstName} ${item.item.user.lastName}`}
+            {`${item.user.firstName} ${item.user.lastName}`}
           </RkText>
-          <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{item.item.text}</RkText>
+          <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{item.text}</RkText>
         </View>
         <View rkCardFooter>
           <SocialBar rkType='space' showLabel />

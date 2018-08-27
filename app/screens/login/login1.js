@@ -16,8 +16,12 @@ import {
 import { FontAwesome } from '../../assets/icons';
 import { GradientButton } from '../../components/gradientButton';
 import { scaleModerate, scaleVertical } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class LoginV1 extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     header: null,
   };

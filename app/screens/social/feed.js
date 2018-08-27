@@ -25,22 +25,22 @@ export class Feed extends React.Component {
 
   extractItemKey = (item) => `${item.id}`;
 
-  renderItem = (item) => (
+  renderItem = ({ item }) => (
     <RkCard style={styles.card}>
       <View rkCardHeader>
         <Avatar
           rkType='small'
           style={styles.avatar}
-          img={item.item.user.photo}
+          img={item.user.photo}
         />
         <View>
-          <RkText rkType='header4'>{`${item.item.user.firstName} ${item.item.user.lastName}`}</RkText>
-          <RkText rkType='secondary2 hintColor'>{moment().add(item.item.time, 'seconds').fromNow()}</RkText>
+          <RkText rkType='header4'>{`${item.user.firstName} ${item.user.lastName}`}</RkText>
+          <RkText rkType='secondary2 hintColor'>{moment().add(item.time, 'seconds').fromNow()}</RkText>
         </View>
       </View>
-      <Image rkCardImg source={item.item.photo} />
+      <Image rkCardImg source={item.photo} />
       <View rkCardContent>
-        <RkText rkType='primary3'>{item.item.text}</RkText>
+        <RkText rkType='primary3'>{item.text}</RkText>
       </View>
       <View rkCardFooter>
         <SocialBar />

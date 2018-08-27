@@ -61,7 +61,7 @@ export class Dashboard extends React.Component {
     return (
       <ScrollView style={styles.screen}>
         <View style={styles.statItems}>
-          {this.state.data.statItems.map(item => this.renderStatItem(item))}
+          {this.state.data.statItems.map(this.renderStatItem)}
         </View>
         <View style={[styles.chartBlock, chartBackgroundStyle]}>
           <DoughnutChart />
@@ -80,7 +80,7 @@ export class Dashboard extends React.Component {
   };
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     backgroundColor: theme.colors.screen.scroll,
     paddingHorizontal: 15,
