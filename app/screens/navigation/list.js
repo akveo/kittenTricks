@@ -1,14 +1,13 @@
 import React from 'react';
 import {
-  ListView,
-  TouchableHighlight,
+  FlatList,
+  TouchableOpacity,
   View,
   StyleSheet,
 } from 'react-native';
 import {
   RkText,
   RkStyleSheet,
-  RkTheme,
 } from 'react-native-ui-kitten';
 import { MainRoutes } from '../../config/navigation/routes';
 
@@ -17,45 +16,37 @@ export class ListMenu extends React.Component {
     title: 'List Menu'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+  extractItemKey = (item) => item.id;
 
-    this.data = ds.cloneWithRows(MainRoutes);
-    this.renderRow = this._renderRow.bind(this);
-  }
+  onItemPressed = (item) => {
+    this.props.navigation.navigate(item.item.id);
+  };
 
-  _renderRow(row) {
-    return (
-      <TouchableHighlight
-        style={styles.item}
-        activeOpacity={1}
-        onPress={() => {
-          this.props.navigation.navigate(row.id);
-        }}>
-        <View style={styles.container}>
-          <RkText
-            style={styles.icon}
-            rkType='primary moon xxlarge'>{row.icon}
-          </RkText>
-          <RkText>{row.title}</RkText>
-        </View>
-      </TouchableHighlight>
-    );
-  }
+  renderItem = (item) => (
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => this.onItemPressed(item)}>
+      <View style={styles.container}>
+        <RkText
+          style={styles.icon}
+          rkType='primary moon xxlarge'>{item.item.icon}
+        </RkText>
+        <RkText>{item.item.title}</RkText>
+      </View>
+    </TouchableOpacity>
+  );
 
-  render() {
-    return (
-      <ListView
-        style={styles.list}
-        dataSource={this.data}
-        renderRow={this.renderRow}
-      />
-    );
-  }
+  render = () => (
+    <FlatList
+      style={styles.list}
+      data={MainRoutes}
+      keyExtractor={this.extractItemKey}
+      renderItem={this.renderItem}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   item: {
     height: 80,
     justifyContent: 'center',
