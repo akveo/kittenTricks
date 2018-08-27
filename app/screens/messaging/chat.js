@@ -6,8 +6,8 @@ import {
   Image,
   TouchableOpacity,
   Keyboard,
+  InteractionManager,
 } from 'react-native';
-import { InteractionManager } from 'react-native';
 import {
   RkButton,
   RkText,
@@ -24,138 +24,141 @@ import { scale } from '../../utils/scale';
 
 const moment = require('moment');
 
-
-const getUserId = (navigation) => (navigation.state.params ? navigation.state.params.userId : undefined);
-
-
 export class Chat extends React.Component {
   static navigationOptions = ({ navigation }) => {
-    const renderAvatar = (user) => (
-      <TouchableOpacity onPress={() => navigation.navigate('ProfileV1', { id: user.id })}>
-        <Avatar style={styles.avatar} rkType='small' img={user.photo} />
-      </TouchableOpacity>
-    );
-
-    const renderTitle = (user) => (
-      <TouchableOpacity onPress={() => navigation.navigate('ProfileV1', { id: user.id })}>
-        <View style={styles.header}>
-          <RkText rkType='header5'>{`${user.firstName} ${user.lastName}`}</RkText>
-          <RkText rkType='secondary3 secondaryColor'>Online</RkText>
-        </View>
-      </TouchableOpacity>
-    );
-
-
-    const user = data.getUser(getUserId(navigation));
-    const rightButton = renderAvatar(user);
-    const title = renderTitle(user);
-    return (
-      {
-        headerTitle: title,
-        headerRight: rightButton,
-      });
+    const userId = navigation.state.params ? navigation.state.params.userId : undefined;
+    const user = data.getUser(userId);
+    return ({
+      headerTitle: Chat.renderNavigationTitle(navigation, user),
+      headerRight: Chat.renderNavigationAvatar(navigation, user),
+    });
   };
 
   constructor(props) {
     super(props);
-    const conversation = data.getConversation(getUserId(this.props.navigation));
-
+    const navigationParams = this.props.navigation.state.params;
+    const userId = navigationParams ? navigationParams.userId : undefined;
     this.state = {
-      data: conversation,
+      data: data.getConversation(userId),
     };
   }
 
   componentDidMount() {
     InteractionManager.runAfterInteractions(() => {
-      this.refs.list.scrollToEnd();
+      this.listRef.scrollToEnd();
     });
   }
 
-  _keyExtractor(post, index) {
-    return post.id;
-  }
+  setListRef = (ref) => {
+    this.listRef = ref;
+  };
 
-  _renderItem(info) {
-    const inMessage = info.item.type === 'in';
-    const backgroundColor = inMessage
-      ? RkTheme.current.colors.chat.messageInBackground
-      : RkTheme.current.colors.chat.messageOutBackground;
-    const itemStyle = inMessage ? styles.itemIn : styles.itemOut;
+  extractItemKey = (item) => `${item.id}`;
 
-    const renderDate = (time) => (
-      <RkText style={styles.time} rkType='secondary7 hintColor'>
-        {moment().add(time, 'seconds').format('LT')}
-      </RkText>);
-
-    return (
-      <View style={[styles.item, itemStyle]}>
-        {!inMessage && renderDate(info.item.time)}
-        <View style={[styles.balloon, { backgroundColor }]}>
-          <RkText rkType='primary2 mediumLine chat' style={{ paddingTop: 5 }}>{info.item.text}</RkText>
-        </View>
-        {inMessage && renderDate(info.item.time)}
-      </View>
-    );
-  }
-
-  _scroll() {
+  scrollToEnd = () => {
     if (Platform.OS === 'ios') {
-      this.refs.list.scrollToEnd();
+      this.listRef.scrollToEnd();
     } else {
-      _.delay(() => this.refs.list.scrollToEnd(), 100);
+      _.delay(this.listRef.scrollToEnd, 100);
     }
-  }
+  };
 
-  _pushMessage() {
-    if (!this.state.message) { return; }
+  onInputChanged = (text) => {
+    this.setState({ message: text });
+  };
 
+  onSendButtonPressed = () => {
+    if (!this.state.message) {
+      return;
+    }
     this.state.data.messages.push({
       id: this.state.data.messages.length, time: 0, type: 'out', text: this.state.message,
     });
     this.setState({ message: '' });
-    this._scroll(true);
-  }
+    this.scrollToEnd(true);
+  };
 
-  render() {
+  static onNavigationTitlePressed = (navigation, user) => {
+    navigation.navigate('ProfileV1', { id: user.id });
+  };
+
+  static onNavigationAvatarPressed = (navigation, user) => {
+    navigation.navigate('ProfileV1', { id: user.id });
+  };
+
+  static renderNavigationTitle = (navigation, user) => (
+    <TouchableOpacity onPress={() => Chat.onNavigationTitlePressed(navigation, user)}>
+      <View style={styles.header}>
+        <RkText rkType='header5'>{`${user.firstName} ${user.lastName}`}</RkText>
+        <RkText rkType='secondary3 secondaryColor'>Online</RkText>
+      </View>
+    </TouchableOpacity>
+  );
+
+  static renderNavigationAvatar = (navigation, user) => (
+    <TouchableOpacity onPress={() => Chat.onNavigationAvatarPressed(navigation, user)}>
+      <Avatar style={styles.avatar} rkType='small' img={user.photo} />
+    </TouchableOpacity>
+  );
+
+  renderDate = (date) => (
+    <RkText style={styles.time} rkType='secondary7 hintColor'>
+      {moment().add(date, 'seconds').format('LT')}
+    </RkText>
+  );
+
+  renderItem = (item) => {
+    const isIncoming = item.item.type === 'in';
+    const backgroundColor = isIncoming
+      ? RkTheme.current.colors.chat.messageInBackground
+      : RkTheme.current.colors.chat.messageOutBackground;
+    const itemStyle = isIncoming ? styles.itemIn : styles.itemOut;
+
     return (
-      <RkAvoidKeyboard
-        style={styles.container}
-        onResponderRelease={(event) => {
-        Keyboard.dismiss();
-      }}>
-        <FlatList
-          ref='list'
-          extraData={this.state}
-          style={styles.list}
-          data={this.state.data.messages}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
-        />
-        <View style={styles.footer}>
-          <RkButton style={styles.plus} rkType='clear'>
-            <RkText rkType='awesome secondaryColor'>{FontAwesome.plus}</RkText>
-          </RkButton>
-
-          <RkTextInput
-            onFocus={() => this._scroll(true)}
-            onBlur={() => this._scroll(true)}
-            onChangeText={(message) => this.setState({ message })}
-            value={this.state.message}
-            rkType='row sticker'
-            placeholder="Add a comment..."
-          />
-
-          <RkButton onPress={() => this._pushMessage()} style={styles.send} rkType='circle highlight'>
-            <Image source={require('../../assets/icons/sendIcon.png')} />
-          </RkButton>
+      <View style={[styles.item, itemStyle]}>
+        {!isIncoming && this.renderDate(item.item.time)}
+        <View style={[styles.balloon, { backgroundColor }]}>
+          <RkText rkType='primary2 mediumLine chat' style={{ paddingTop: 5 }}>{item.item.text}</RkText>
         </View>
-      </RkAvoidKeyboard>
-
+        {isIncoming && this.renderDate(item.item.time)}
+      </View>
     );
-  }
+  };
+
+  render = () => (
+    <RkAvoidKeyboard
+      style={styles.container}
+      onResponderRelease={Keyboard.dismiss}>
+      <FlatList
+        ref={this.setListRef}
+        extraData={this.state}
+        style={styles.list}
+        data={this.state.data.messages}
+        keyExtractor={this.extractItemKey}
+        renderItem={this.renderItem}
+      />
+      <View style={styles.footer}>
+        <RkButton style={styles.plus} rkType='clear'>
+          <RkText rkType='awesome secondaryColor'>{FontAwesome.plus}</RkText>
+        </RkButton>
+        <RkTextInput
+          onFocus={this.scrollToEnd}
+          onBlur={this.scrollToEnd}
+          onChangeText={this.onInputChanged}
+          value={this.state.message}
+          rkType='row sticker'
+          placeholder="Add a comment..."
+        />
+        <RkButton onPress={this.onSendButtonPressed} style={styles.send} rkType='circle highlight'>
+          <Image source={require('../../assets/icons/sendIcon.png')} />
+        </RkButton>
+      </View>
+    </RkAvoidKeyboard>
+
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   header: {
     alignItems: 'center',
   },

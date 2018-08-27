@@ -22,64 +22,65 @@ export class ChatList extends React.Component {
     title: 'Chats List'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
-    this.renderHeader = this._renderHeader.bind(this);
-    this.renderItem = this._renderItem.bind(this);
-    this.state = {
-      data: [],
-    };
-  }
+  state = {
+    data: {
+      original: data.getChatList(),
+      filtered: data.getChatList(),
+    },
+  };
 
-  componentDidMount() {
-    this.chats = data.getChatList();
+  extractItemKey = (item) => item.withUser.id;
+
+  onInputChanged = (event) => {
+    const pattern = new RegExp(event.nativeEvent.text, 'i');
+    const chats = _.filter(this.state.data.original, chat => {
+      const filterResult = {
+        firstName: chat.withUser.firstName.search(pattern),
+        lastName: chat.withUser.lastName.search(pattern),
+      };
+      return filterResult.firstName !== -1 || filterResult.lastName !== -1 ? chat : undefined;
+    });
     this.setState({
-      data: this.chats,
+      data: {
+        original: this.state.data.original,
+        filtered: chats,
+      },
     });
-  }
+  };
 
-  _filter(text) {
-    const pattern = new RegExp(text, 'i');
-    const chats = _.filter(this.chats, (chat) => {
-      if (chat.withUser.firstName.search(pattern) != -1
-        || chat.withUser.lastName.search(pattern) != -1) { return chat; }
-    });
+  onItemPressed = (item) => {
+    const navigationParams = { userId: item.item.withUser.id };
+    this.props.navigation.navigate('Chat', navigationParams);
+  };
 
-    this.setState({ data: chats });
-  }
+  renderSeparator = () => (
+    <View style={styles.separator} />
+  );
 
-  _keyExtractor(item, index) {
-    return item.withUser.id;
-  }
+  renderInputLabel = () => (
+    <RkText rkType='awesome'>{FontAwesome.search}</RkText>
+  );
 
-  _renderSeparator() {
+  renderHeader = () => (
+    <View style={styles.searchContainer}>
+      <RkTextInput
+        autoCapitalize='none'
+        autoCorrect={false}
+        onChange={this.onInputChanged}
+        label={this.renderInputLabel()}
+        rkType='row'
+        placeholder='Search'
+      />
+    </View>
+  );
+
+  renderItem = (item) => {
+    const name = `${item.item.withUser.firstName} ${item.item.withUser.lastName}`;
+    const last = item.item.messages[item.item.messages.length - 1];
     return (
-      <View style={styles.separator} />
-    );
-  }
-
-  _renderHeader() {
-    return (
-      <View style={styles.searchContainer}>
-        <RkTextInput
-          autoCapitalize='none'
-          autoCorrect={false}
-          onChange={(event) => this._filter(event.nativeEvent.text)}
-          label={<RkText rkType='awesome'>{FontAwesome.search}</RkText>}
-          rkType='row'
-          placeholder='Search'
-        />
-      </View>
-    );
-  }
-
-  _renderItem(info) {
-    const name = `${info.item.withUser.firstName} ${info.item.withUser.lastName}`;
-    const last = info.item.messages[info.item.messages.length - 1];
-    return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Chat', { userId: info.item.withUser.id })}>
+      <TouchableOpacity onPress={() => this.onItemPressed(item)}>
         <View style={styles.container}>
-          <Avatar rkType='circle' style={styles.avatar} img={info.item.withUser.photo} />
+          <Avatar rkType='circle' style={styles.avatar} img={item.item.withUser.photo} />
           <View style={styles.content}>
             <View style={styles.contentHeader}>
               <RkText rkType='header5'>{name}</RkText>
@@ -87,29 +88,29 @@ export class ChatList extends React.Component {
                 {moment().add(last.time, 'seconds').format('LT')}
               </RkText>
             </View>
-            <RkText numberOfLines={2} rkType='primary3 mediumLine' style={{ paddingTop: 5 }}>{last.text}</RkText>
+            <RkText numberOfLines={2} rkType='primary3 mediumLine' style={{ paddingTop: 5 }}>
+              {last.text}
+            </RkText>
           </View>
         </View>
       </TouchableOpacity>
     );
-  }
+  };
 
-  render() {
-    return (
-      <FlatList
-        style={styles.root}
-        data={this.state.data}
-        extraData={this.state}
-        ListHeaderComponent={this.renderHeader}
-        ItemSeparatorComponent={this._renderSeparator}
-        keyExtractor={this._keyExtractor}
-        renderItem={this.renderItem}
-      />
-    );
-  }
+  render = () => (
+    <FlatList
+      style={styles.root}
+      data={this.state.data.filtered}
+      extraData={this.state}
+      ListHeaderComponent={this.renderHeader}
+      ItemSeparatorComponent={this.renderSeparator}
+      keyExtractor={this.extractItemKey}
+      renderItem={this.renderItem}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   root: {
     backgroundColor: theme.colors.screen.base,
   },
