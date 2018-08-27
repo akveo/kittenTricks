@@ -10,70 +10,71 @@ import {
   RkText,
   RkTheme,
 } from 'react-native-ui-kitten';
+import {
+  StackActions,
+  NavigationActions,
+} from 'react-navigation';
 import { ProgressBar } from '../../components';
 import { KittenTheme } from '../../config/theme';
-import { StackActions, NavigationActions } from 'react-navigation';
-import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
+import { scale, scaleVertical } from '../../utils/scale';
 
-const timeFrame = 500;
+const delay = 500;
 
 export class SplashScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      progress: 0,
-    };
-  }
+  state = {
+    progress: 0,
+  };
 
   componentDidMount() {
     StatusBar.setHidden(true, 'none');
     RkTheme.setTheme(KittenTheme);
-
     this.timer = setInterval(() => {
-      if (this.state.progress == 1) {
+      if (this.state.progress === 1) {
         clearInterval(this.timer);
-        setTimeout(() => {
-          StatusBar.setHidden(false, 'slide');
-          const toHome = StackActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({ routeName: 'Home' })],
-          });
-          this.props.navigation.dispatch(toHome);
-        }, timeFrame);
+        setTimeout(this.onLoaded, delay);
       } else {
-        const random = Math.random() * 0.5;
-        let progress = this.state.progress + random;
-        if (progress > 1) {
-          progress = 1;
-        }
-        this.setState({ progress });
+        const randProgress = this.state.progress + (Math.random() * 0.5);
+        this.setState({ progress: randProgress > 1 ? 1 : randProgress });
       }
-    }, timeFrame);
+    }, delay);
   }
 
-  render() {
-    const width = Dimensions.get('window').width;
-    return (
-      <View style={styles.container}>
-        <View>
-          <Image style={[styles.image, { width }]} source={require('../../assets/images/splashBack.png')} />
-          <View style={styles.text}>
-            <RkText rkType='light' style={styles.hero}>React Native</RkText>
-            <RkText rkType='logo' style={styles.appName}>UI Kitten</RkText>
-          </View>
-        </View>
-        <ProgressBar
-          color={RkTheme.current.colors.accent}
-          style={styles.progress}
-          progress={this.state.progress}
-          width={scale(320)}
-        />
-      </View>
-    );
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
+
+  onLoaded = () => {
+    StatusBar.setHidden(false, 'slide');
+    const toHome = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Home' })],
+    });
+    this.props.navigation.dispatch(toHome);
+  };
+
+  render = () => (
+    <View style={styles.container}>
+      <View>
+        <Image
+          style={[styles.image, { width: Dimensions.get('window').width }]}
+          source={require('../../assets/images/splashBack.png')}
+        />
+        <View style={styles.text}>
+          <RkText rkType='light' style={styles.hero}>React Native</RkText>
+          <RkText rkType='logo' style={styles.appName}>UI Kitten</RkText>
+        </View>
+      </View>
+      <ProgressBar
+        color={RkTheme.current.colors.accent}
+        style={styles.progress}
+        progress={this.state.progress}
+        width={scale(320)}
+      />
+    </View>
+  );
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     backgroundColor: KittenTheme.colors.screen.base,
     justifyContent: 'space-between',
