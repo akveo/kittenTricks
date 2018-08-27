@@ -1,11 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
 import { RkStyleSheet } from 'react-native-ui-kitten';
-import { GradientButton } from '../../components/';
+import {
+  GradientButton,
+  PaginationIndicator,
+} from '../../components/';
 import { Walkthrough } from '../../components/walkthrough';
 import { Walkthrough1 } from './walkthrough1';
 import { Walkthrough2 } from './walkthrough2';
-import { PaginationIndicator } from '../../components';
 
 
 export class WalkthroughScreen extends React.Component {
@@ -13,34 +15,33 @@ export class WalkthroughScreen extends React.Component {
     header: null,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = { index: 0 };
-  }
+  state = {
+    index: 0,
+  };
 
-  changeIndex(index) {
+  onWalkThroughIndexChanged = (index) => {
     this.setState({ index });
-  }
+  };
 
-  render() {
-    return (
-      <View style={styles.screen}>
-        <Walkthrough onChanged={(index) => this.changeIndex(index)}>
-          <Walkthrough1 />
-          <Walkthrough2 />
-        </Walkthrough>
-        <PaginationIndicator length={2} current={this.state.index} />
-        <GradientButton
-          rkType='large'
-          style={styles.button}
-          text="GET STARTED"
-          onPress={() => {
-            this.props.navigation.goBack();
-          }}
-        />
-      </View>
-    );
-  }
+  onStartButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
+
+  render = () => (
+    <View style={styles.screen}>
+      <Walkthrough onChanged={this.onWalkThroughIndexChanged}>
+        <Walkthrough1 />
+        <Walkthrough2 />
+      </Walkthrough>
+      <PaginationIndicator length={2} current={this.state.index} />
+      <GradientButton
+        rkType='large'
+        style={styles.button}
+        text="GET STARTED"
+        onPress={this.onStartButtonPressed}
+      />
+    </View>
+  )
 }
 
 let styles = RkStyleSheet.create(theme => ({

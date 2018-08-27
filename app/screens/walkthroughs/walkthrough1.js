@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Image,
   View,
+  Image,
 } from 'react-native';
 import {
   RkText,
@@ -10,25 +10,24 @@ import {
 } from 'react-native-ui-kitten';
 
 export class Walkthrough1 extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  getThemeImageSource = (theme) => (
+    theme.name === 'light' ?
+      require('../../assets/images/kittenImage.png') : require('../../assets/images/kittenImageDark.png')
+  );
 
-  render() {
-    const image = RkTheme.current.name === 'light'
-      ? <Image source={require('../../assets/images/kittenImage.png')} />
-      : <Image source={require('../../assets/images/kittenImageDark.png')} />;
+  renderImage = () => (
+    <Image source={this.getThemeImageSource(RkTheme.current)} />
+  );
 
-    return (
-      <View style={styles.screen}>
-        {image}
-        <RkText rkType='header2' style={styles.text}>Welcome to Kitten Tricks</RkText>
-      </View>
-    );
-  }
+  render = () => (
+    <View style={styles.screen}>
+      {this.renderImage()}
+      <RkText rkType='header2' style={styles.text}>Welcome to Kitten Tricks</RkText>
+    </View>
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     backgroundColor: theme.colors.screen.base,
     alignItems: 'center',

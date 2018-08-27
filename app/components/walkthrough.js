@@ -12,7 +12,7 @@ export class Walkthrough extends React.Component {
     this.itemWidth = Dimensions.get('window').width;
   }
 
-  extractItemKey = (item) => this.props.children.indexOf(item);
+  extractItemKey = (item) => `${this.props.children.indexOf(item)}`;
 
   onScrollEnd = (e) => {
     const { contentOffset } = e.nativeEvent;
@@ -46,7 +46,7 @@ export class Walkthrough extends React.Component {
   );
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   list: {
     flex: 1,
   },
