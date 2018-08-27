@@ -19,55 +19,48 @@ export class Articles2 extends React.Component {
     title: 'Article List'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    data: data.getArticles(),
+  };
 
-    this.data = data.getArticles();
-    this.renderItem = this._renderItem.bind(this);
-  }
+  extractItemKey = (item) => item.id;
 
-  _keyExtractor(post, index) {
-    return post.id;
-  }
+  onItemPressed = (item) => {
+    this.props.navigation.navigate('Article', { id: item.item.id });
+  };
 
-  _renderItem(info) {
-    return (
-      <TouchableOpacity
-        delayPressIn={70}
-        activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
-        <RkCard rkType='imgBlock' style={styles.card}>
-          <Image rkCardImg source={info.item.photo} />
+  renderItem = (item) => (
+    <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      onPress={() => this.onItemPressed(item)}>
+      <RkCard rkType='imgBlock' style={styles.card}>
+        <Image rkCardImg source={item.item.photo} />
+        <View rkCardImgOverlay rkCardContent style={styles.overlay}>
+          <RkText rkType='header4 inverseColor'>{item.item.header}</RkText>
+          <RkText
+            style={styles.time}
+            rkType='secondary2 inverseColor'>{moment().add(item.item.time, 'seconds').fromNow()}
+          </RkText>
+        </View>
+        <View rkCardFooter>
+          <SocialBar rkType='space' showLabel />
+        </View >
+      </RkCard>
+    </TouchableOpacity>
+  );
 
-          <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-            <RkText rkType='header4 inverseColor'>{info.item.header}</RkText>
-            <RkText
-              style={styles.time}
-              rkType='secondary2 inverseColor'>{moment().add(info.item.time, 'seconds').fromNow()}
-            </RkText>
-          </View>
-          <View rkCardFooter>
-            <SocialBar rkType='space' showLabel />
-          </View >
-        </RkCard>
-      </TouchableOpacity>
-    );
-  }
-
-  render() {
-    return (
-      <FlatList
-        data={this.data}
-        renderItem={this.renderItem}
-        keyExtractor={this._keyExtractor}
-        style={styles.container}
-      />
-
-    );
-  }
+  render = () => (
+    <FlatList
+      data={this.state.data}
+      renderItem={this.renderItem}
+      keyExtractor={this.extractItemKey}
+      style={styles.container}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,

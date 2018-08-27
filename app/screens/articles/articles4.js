@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 import {
   RkText,
-  RkCard, RkStyleSheet,
+  RkCard,
+  RkStyleSheet,
 } from 'react-native-ui-kitten';
 import { SocialBar } from '../../components';
 import { data } from '../../data';
@@ -18,54 +19,48 @@ export class Articles4 extends React.Component {
     title: 'Article List'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
-    this.data = data.getArticles('fact');
-    this.renderItem = this._renderItem.bind(this);
-  }
+  state = {
+    data: data.getArticles(),
+  };
 
-  _keyExtractor(post) {
-    return post.id;
-  }
+  extractItemKey = (item) => item.id;
 
-  _renderItem(info) {
-    return (
-      <TouchableOpacity
-        delayPressIn={70}
-        activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
-        <RkCard rkType='horizontal' style={styles.card}>
-          <Image rkCardImg source={info.item.photo} />
+  renderItem = (item) => (
+    <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      onPress={() => this.props.navigation.navigate('Article', { id: item.item.id })}>
+      <RkCard rkType='horizontal' style={styles.card}>
+        <Image rkCardImg source={item.item.photo} />
 
-          <View rkCardContent>
-            <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
-            <RkText rkType='secondary6 hintColor'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
-            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
-          </View>
-          <View rkCardFooter>
-            <SocialBar rkType='space' showLabel />
-          </View >
-        </RkCard>
-      </TouchableOpacity>
-    );
-  }
+        <View rkCardContent>
+          <RkText numberOfLines={1} rkType='header6'>{item.item.header}</RkText>
+          <RkText rkType='secondary6 hintColor'>
+            {`${item.item.user.firstName} ${item.item.user.lastName}`}
+          </RkText>
+          <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{item.item.text}</RkText>
+        </View>
+        <View rkCardFooter>
+          <SocialBar rkType='space' showLabel />
+        </View >
+      </RkCard>
+    </TouchableOpacity>
+  );
 
-  render() {
-    return (
-      <View>
-        <FlatList
-          data={this.data}
-          renderItem={this.renderItem}
-          keyExtractor={this._keyExtractor}
-          style={styles.container}
-        />
-      </View>
-    );
-  }
+  render = () => (
+    <View>
+      <FlatList
+        data={this.state.data}
+        renderItem={this.renderItem}
+        keyExtractor={this.extractItemKey}
+        style={styles.container}
+      />
+    </View>
+  );
 }
 
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingVertical: 8,

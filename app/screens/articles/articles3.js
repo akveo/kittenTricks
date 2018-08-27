@@ -14,57 +14,52 @@ import { data } from '../../data';
 
 const moment = require('moment');
 
-
 export class Articles3 extends React.Component {
   static navigationOptions = {
     title: 'Article List'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
-    this.data = data.getArticles();
-    this.renderItem = this._renderItem.bind(this);
-  }
+  state = {
+    data: data.getArticles(),
+  };
 
-  _keyExtractor(post, index) {
-    return post.id;
-  }
+  extractItemKey = (item) => item.id;
 
-  _renderItem(info) {
-    return (
-      <TouchableOpacity
-        delayPressIn={70}
-        activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
-        <RkCard style={styles.card}>
-          <View rkCardHeader>
-            <View>
-              <RkText rkType='header4'>{info.item.header}</RkText>
-              <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
-            </View>
+  onItemPressed = (item) => {
+    this.props.navigation.navigate('Article', { id: item.item.id });
+  };
+
+  renderItem = (item) => (
+    <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      onPress={() => this.onItemPressed(item)}>
+      <RkCard style={styles.card}>
+        <View rkCardHeader>
+          <View>
+            <RkText rkType='header4'>{item.item.header}</RkText>
+            <RkText rkType='secondary2 hintColor'>{moment().add(item.item.time, 'seconds').fromNow()}</RkText>
           </View>
-          <Image rkCardImg source={info.item.photo} />
-          <View style={styles.footer} rkCardFooter>
-            <SocialBar />
-          </View >
-        </RkCard>
-      </TouchableOpacity>
-    );
-  }
+        </View>
+        <Image rkCardImg source={item.item.photo} />
+        <View style={styles.footer} rkCardFooter>
+          <SocialBar />
+        </View >
+      </RkCard>
+    </TouchableOpacity>
+  );
 
-  render() {
-    return (
-      <FlatList
-        data={this.data}
-        renderItem={this.renderItem}
-        keyExtractor={this._keyExtractor}
-        style={styles.container}
-      />
-    );
-  }
+  render = () => (
+    <FlatList
+      data={this.state.data}
+      renderItem={this.renderItem}
+      keyExtractor={this.extractItemKey}
+      style={styles.container}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingHorizontal: 14,

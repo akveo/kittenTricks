@@ -19,53 +19,45 @@ export class Articles1 extends React.Component {
     title: 'Article List'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    data: data.getArticles(),
+  };
 
-    this.data = data.getArticles();
-    this.renderItem = this._renderItem.bind(this);
-  }
+  extractItemKey = (item) => item.id;
 
-  _keyExtractor(post, index) {
-    return post.id;
-  }
+  onItemPressed = (item) => {
+    this.props.navigation.navigate('Article', { id: item.item.id });
+  };
 
-  _renderItem(info) {
-    return (
-      <TouchableOpacity
-        delayPressIn={70}
-        activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
-        <RkCard rkType='backImg'>
-          <Image rkCardImg source={info.item.photo} />
-          <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-            <RkText rkType='header2 inverseColor'>{info.item.header}</RkText>
-            <RkText rkType='secondary2 inverseColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
-            <View rkCardFooter style={styles.footer}>
-              <SocialBar rkType='leftAligned' />
-            </View >
-          </View>
-        </RkCard>
-      </TouchableOpacity>
-    );
-  }
+  renderItem = (item) => (
+    <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      onPress={() => this.onItemPressed(item)}>
+      <RkCard rkType='backImg'>
+        <Image rkCardImg source={item.item.photo} />
+        <View rkCardImgOverlay rkCardContent style={styles.overlay}>
+          <RkText rkType='header2 inverseColor'>{item.item.header}</RkText>
+          <RkText rkType='secondary2 inverseColor'>{moment().add(item.item.time, 'seconds').fromNow()}</RkText>
+          <View rkCardFooter style={styles.footer}>
+            <SocialBar rkType='leftAligned' />
+          </View >
+        </View>
+      </RkCard>
+    </TouchableOpacity>
+  );
 
-  render() {
-    const info = {};
-    info.item = this.data[0];
-    return (
-      <FlatList
-        data={this.data}
-        renderItem={this.renderItem}
-        keyExtractor={this._keyExtractor}
-        style={styles.root}
-      />
-
-    );
-  }
+  render = () => (
+    <FlatList
+      data={this.state.data}
+      renderItem={this.renderItem}
+      keyExtractor={this.extractItemKey}
+      style={styles.root}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   root: {
     backgroundColor: theme.colors.screen.base,
   },
