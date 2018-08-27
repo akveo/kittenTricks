@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ListView,
+  FlatList,
   View,
   Image,
 } from 'react-native';
@@ -15,63 +15,53 @@ export class Notifications extends React.Component {
     title: 'Notifications',
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    data: data.getNotifications(),
+  };
 
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    this.data = ds.cloneWithRows(data.getNotifications());
-  }
+  extractItemKey = (item) => `${item.id}`;
 
+  renderAttachment = (item) => {
+    const hasAttachment = item.attach !== undefined;
+    return hasAttachment ? <View /> : <Image style={styles.attachment} source={item.attach} />;
+  };
 
-  renderRow(row) {
-    const username = `${row.user.firstName} ${row.user.lastName}`;
-    const hasAttachment = row.attach !== undefined;
-    let attachment = <View />;
-
-    let mainContentStyle;
-    if (hasAttachment) {
-      mainContentStyle = styles.mainContent;
-      attachment =
-        <Image style={styles.attachment} source={row.attach} />;
-    }
-
-    return (
-      <View style={styles.container}>
-        <Avatar
-          img={row.user.photo}
-          rkType='circle'
-          style={styles.avatar}
-          badge={row.type}
-        />
-        <View style={styles.content}>
-          <View style={mainContentStyle}>
-            <View style={styles.text}>
-              <RkText>
-                <RkText rkType='header6'>{username}</RkText>
-                <RkText rkType='primary2'> {row.description}</RkText>
-              </RkText>
-            </View>
-            <RkText rkType='secondary5 hintColor'>{moment().add(row.time, 'seconds').fromNow()}</RkText>
-          </View>
-          {attachment}
-        </View>
-      </View>
-    );
-  }
-
-  render() {
-    return (
-      <ListView
-        style={styles.root}
-        dataSource={this.data}
-        renderRow={this.renderRow}
+  renderItem = ({ item }) => (
+    <View style={styles.container}>
+      <Avatar
+        img={item.user.photo}
+        rkType='circle'
+        style={styles.avatar}
+        badge={item.type}
       />
+      <View style={styles.content}>
+        <View style={styles.mainContent}>
+          <View style={styles.text}>
+            <RkText>
+              <RkText rkType='header6'>{`${item.user.firstName} ${item.user.lastName}`}</RkText>
+              <RkText rkType='primary2'> {item.description}</RkText>
+            </RkText>
+          </View>
+          <RkText
+            rkType='secondary5 hintColor'>{moment().add(item.time, 'seconds').fromNow()}
+          </RkText>
+        </View>
+        {this.renderAttachment(item)}
+      </View>
+    </View>
+  );
 
-    );
-  }
+  render = () => (
+    <FlatList
+      style={styles.root}
+      data={this.state.data}
+      renderItem={this.renderItem}
+      keyExtractor={this.extractItemKey}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   root: {
     backgroundColor: theme.colors.screen.base,
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ListView,
+  FlatList,
   View,
   StyleSheet,
   TouchableOpacity,
@@ -20,87 +20,80 @@ export class Contacts extends React.Component {
     title: 'Contacts'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    data: {
+      original: data.getUsers(),
+      filtered: data.getUsers(),
+    },
+  };
 
-    this.users = data.getUsers();
+  extractItemKey = (item) => `${item.id}`;
 
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    this.state = {
-      data: ds.cloneWithRows(this.users),
-    };
-
-    this.filter = this._filter.bind(this);
-    this.setData = this._setData.bind(this);
-    this.renderHeader = this._renderHeader.bind(this);
-    this.renderRow = this._renderRow.bind(this);
-  }
-
-  _setData(data) {
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+  onSearchInputChanged = (event) => {
+    const pattern = new RegExp(event.nativeEvent.text, 'i');
+    const contacts = _.filter(this.state.data.original, contact => {
+      const filterResult = {
+        firstName: contact.firstName.search(pattern),
+        lastName: contact.lastName.search(pattern),
+      };
+      return filterResult.firstName !== -1 || filterResult.lastName !== -1 ? contact : undefined;
+    });
     this.setState({
-      data: ds.cloneWithRows(data),
+      data: {
+        original: this.state.data.original,
+        filtered: contacts,
+      },
     });
-  }
+  };
 
-  _renderRow(row) {
-    const name = `${row.firstName} ${row.lastName}`;
-    return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', { id: row.id })}>
-        <View style={styles.container}>
-          <Avatar rkType='circle' style={styles.avatar} img={row.photo} />
-          <RkText>{name}</RkText>
-        </View>
-      </TouchableOpacity>
-    );
-  }
+  onItemPressed = (item) => {
+    this.props.navigation.navigate('ProfileV1', { id: item.item.id });
+  };
 
-  renderSeparator(sectionID, rowID) {
-    return (
-      <View style={styles.separator} />
-    );
-  }
-
-  _renderHeader() {
-    return (
-      <View style={styles.searchContainer}>
-        <RkTextInput
-          autoCapitalize='none'
-          autoCorrect={false}
-          onChange={(event) => this._filter(event.nativeEvent.text)}
-          label={<RkText rkType='awesome'>{FontAwesome.search}</RkText>}
-          rkType='row'
-          placeholder='Search'
-        />
+  renderItem = (item) => (
+    <TouchableOpacity onPress={() => this.onItemPressed(item)}>
+      <View style={styles.container}>
+        <Avatar rkType='circle' style={styles.avatar} img={item.item.photo} />
+        <RkText>{`${item.item.firstName} ${item.item.lastName}`}</RkText>
       </View>
-    );
-  }
+    </TouchableOpacity>
+  );
 
-  _filter(text) {
-    const pattern = new RegExp(text, 'i');
-    const users = _.filter(this.users, (user) => {
-      if (user.firstName.search(pattern) != -1
-        || user.lastName.search(pattern) != -1) { return user; }
-    });
+  renderSeparator = () => (
+    <View style={styles.separator} />
+  );
 
-    this.setData(users);
-  }
+  renderHeaderLabel = () => (
+    <RkText rkType='awesome'>{FontAwesome.search}</RkText>
+  );
 
-  render() {
-    return (
-      <ListView
-        style={styles.root}
-        dataSource={this.state.data}
-        renderRow={this.renderRow}
-        renderSeparator={this.renderSeparator}
-        renderHeader={this.renderHeader}
-        enableEmptySections
+  renderHeader = () => (
+    <View style={styles.searchContainer}>
+      <RkTextInput
+        autoCapitalize='none'
+        autoCorrect={false}
+        onChange={this.onSearchInputChanged}
+        label={this.renderHeaderLabel()}
+        rkType='row'
+        placeholder='Search'
       />
-    );
-  }
+    </View>
+  );
+
+  render = () => (
+    <FlatList
+      style={styles.root}
+      data={this.state.data.filtered}
+      renderItem={this.renderItem}
+      ListHeaderComponent={this.renderHeader}
+      ItemSeparatorComponent={this.renderSeparator}
+      keyExtractor={this.extractItemKey}
+      enableEmptySections
+    />
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   root: {
     backgroundColor: theme.colors.screen.base,
   },
