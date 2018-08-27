@@ -9,6 +9,7 @@
     "react/sort-comp": [1, {
       "order": [
         "prop-types",
+        "navigation",
         "platform-refs",
         "instance-variables",
         "lifecycle",
@@ -21,6 +22,9 @@
         "prop-types": [
           "propTypes",
           "defaultProps"
+        ],
+        "navigation": [
+          "navigationOptions"
         ],
         "platform-refs": [
           "displayName",
