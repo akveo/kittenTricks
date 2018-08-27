@@ -14,29 +14,24 @@ export class GradientButton extends RkComponent {
     text: {},
   };
 
-  renderContent(textStyle) {
-    if (this.props.text) {
-      return (
-        <RkText style={textStyle}>
-          {this.props.text}
-        </RkText>
-      );
-    }
-    return this.props.children;
-  }
+  renderContent = (textStyle) => {
+    const hasText = this.props.text === undefined;
+    return hasText ? this.props.children : this.renderText(textStyle);
+  };
+
+  renderText = (textStyle) => (
+    <RkText style={textStyle}>{this.props.text}</RkText>
+  );
 
   render() {
     const { button, gradient, text: textStyle } = this.defineStyles();
-    let colors = this.extractNonStyleValue(gradient, 'colors');
-    const { style, rkType, ...otherProps } = this.props;
-
-    colors = this.props.colors ? this.props.colors : colors;
-
+    const { style, rkType, ...restProps } = this.props;
+    const colors = this.props.colors || this.extractNonStyleValue(gradient, 'colors');
     return (
       <RkButton
         rkType='stretch'
         style={[button, style]}
-        {...otherProps}>
+        {...restProps}>
         <LinearGradient
           colors={colors}
           start={{ x: 0.0, y: 0.5 }}

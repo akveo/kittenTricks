@@ -25,25 +25,19 @@ export class PasswordTextInput extends React.Component {
     </RkButton>
   );
 
-  render() {
-    const {
-      ...inputProps
-    } = this.props;
-
-    return (
-      <RkTextInput
-        autoCapitalize='none'
-        rkType='bordered rounded iconRight'
-        autoCorrect={false}
-        label={this.renderInputLabel()}
-        secureTextEntry={this.state.hidden}
-        {...inputProps}
-      />
-    );
-  }
+  render = () => (
+    <RkTextInput
+      autoCapitalize='none'
+      rkType='bordered rounded iconRight'
+      autoCorrect={false}
+      label={this.renderInputLabel()}
+      secureTextEntry={this.state.hidden}
+      {...this.props}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create({
+const styles = RkStyleSheet.create({
   icon: {
     fontSize: 24,
   },

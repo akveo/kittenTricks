@@ -5,8 +5,17 @@ import {
   Dimensions,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 export class Walkthrough extends React.Component {
+  static propTypes = {
+    children: PropTypes.arrayOf(PropTypes.element).isRequired,
+    onChanged: PropTypes.func,
+  };
+  static defaultProps = {
+    onChanged: (() => null),
+  };
+
   constructor(props) {
     super(props);
     this.itemWidth = Dimensions.get('window').width;
@@ -18,9 +27,7 @@ export class Walkthrough extends React.Component {
     const { contentOffset } = e.nativeEvent;
     const viewSize = e.nativeEvent.layoutMeasurement;
     const pageNum = Math.floor(contentOffset.x / viewSize.width);
-    if (this.props.onChanged) {
-      this.props.onChanged(pageNum);
-    }
+    this.props.onChanged(pageNum);
   };
 
   renderItem = ({ item }) => (

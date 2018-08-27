@@ -1,4 +1,4 @@
-import { scale, scaleModerate, scaleVertical } from '../../utils/scale';
+import { scaleVertical } from '../../utils/scale';
 
 export const GradientButtonTypes = (theme) => ({
   _base: {

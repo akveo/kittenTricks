@@ -7,9 +7,21 @@ import {
   RkText,
   RkTheme,
 } from 'react-native-ui-kitten';
+import PropTypes from 'prop-types';
 import { RkSwitch } from './switch/index';
 
 export class SocialSetting extends React.Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+    selected: PropTypes.bool,
+    tintColor: PropTypes.string,
+  };
+  static defaultProps = {
+    selected: true,
+    tintColor: RkTheme.current.colors.accent,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +35,6 @@ export class SocialSetting extends React.Component {
 
   render() {
     const color = this.state.selected ? this.props.tintColor : RkTheme.current.colors.disabled;
-
     return (
       <View style={styles.container}>
         <View style={styles.left}>

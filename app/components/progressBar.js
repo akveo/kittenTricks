@@ -4,9 +4,24 @@ import {
   View,
   Animated,
   Easing,
+  ViewPropTypes,
 } from 'react-native';
+import PropTypes from 'prop-types';
+import { RkTheme } from 'react-native-ui-kitten';
 
 export class ProgressBar extends React.Component {
+  static propTypes = {
+    width: PropTypes.number.isRequired,
+    progress: PropTypes.number,
+    color: PropTypes.string,
+    style: ViewPropTypes.style,
+  };
+  static defaultProps = {
+    progress: 0,
+    color: RkTheme.current.colors.accent,
+    style: {},
+  };
+
   state = {
     progress: new Animated.Value(0),
   };

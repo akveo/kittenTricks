@@ -19,46 +19,41 @@ export class Avatar extends RkComponent {
     badgeText: {},
   };
 
-  constructor(props) {
-    super(props);
-  }
-
-  renderImg(styles) {
-    const { image, badge, badgeText } = styles;
-    return (
-      <View>
-        <Image style={image} source={this.props.img} />
-        { this.props.badge && this.renderBadge(badge, badgeText)}
-      </View>
-    );
-  }
-
-  renderBadge(style, textStyle) {
-    let symbol;
-    let backgroundColor;
-    let color;
-
-    switch (this.props.badge) {
+  getBadgeStyle = (badgeProps) => {
+    switch (badgeProps) {
       case 'like':
-        symbol = FontAwesome.heart;
-        backgroundColor = RkTheme.current.colors.badge.likeBackground;
-        color = RkTheme.current.colors.badge.likeForeground;
-        break;
+        return {
+          symbol: FontAwesome.heart,
+          backgroundColor: RkTheme.current.colors.badge.likeBackground,
+          color: RkTheme.current.colors.badge.likeForeground,
+        };
       case 'follow':
-        symbol = FontAwesome.plus;
-        backgroundColor = RkTheme.current.colors.badge.plusBackground;
-        color = RkTheme.current.colors.badge.plusForeground;
-        break;
+        return {
+          symbol: FontAwesome.plus,
+          backgroundColor: RkTheme.current.colors.badge.plusBackground,
+          color: RkTheme.current.colors.badge.plusForeground,
+        };
+      default: return {};
     }
+  };
 
+  renderImg = (styles) => (
+    <View>
+      <Image style={styles.image} source={this.props.img} />
+      { this.props.badge && this.renderBadge(styles.badge)}
+    </View>
+  );
+
+  renderBadge = (style, textStyle) => {
+    const badgeStyle = this.getBadgeStyle(this.props.badge);
     return (
-      <View style={[style, { backgroundColor }]}>
-        <RkText rkType='awesome' style={[textStyle, { color }]}>
-          {symbol}
+      <View style={[style, { backgroundColor: badgeStyle.backgroundColor }]}>
+        <RkText rkType='awesome' style={[textStyle, { color: badgeStyle.color }]}>
+          {badgeStyle.symbol}
         </RkText>
       </View>
     );
-  }
+  };
 
   render() {
     const { container, ...other } = this.defineStyles();

@@ -1,4 +1,4 @@
-export const AvatarTypes = (theme) => ({
+export const AvatarTypes = () => ({
   _base: {
     container: {
       alignItems: 'center',

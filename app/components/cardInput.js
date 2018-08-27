@@ -41,23 +41,20 @@ export class CardInput extends React.Component {
     </RkButton>
   );
 
-  render() {
-    const { ...inputProps } = this.props;
-    return (
-      <RkTextInput
-        autoCapitalize='none'
-        rkType='bordered rounded iconRight'
-        autoCorrect={false}
-        label={this.renderInputLabel()}
-        secureTextEntry={this.state.hidden}
-        onChangeText={this.onInputChanged}
-        value={this.state.cardNumber}
-        keyboardType='numeric'
-        maxLength={19}
-        {...inputProps}
-      />
-    );
-  }
+  render = () => (
+    <RkTextInput
+      autoCapitalize='none'
+      rkType='bordered rounded iconRight'
+      autoCorrect={false}
+      label={this.renderInputLabel()}
+      secureTextEntry={this.state.hidden}
+      onChangeText={this.onInputChanged}
+      value={this.state.cardNumber}
+      keyboardType='numeric'
+      maxLength={19}
+      {...this.props}
+    />
+  );
 }
 
 let styles = RkStyleSheet.create({

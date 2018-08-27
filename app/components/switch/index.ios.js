@@ -22,10 +22,8 @@ export class RkSwitch extends RkComponent {
   }
 
   render() {
-    const { main, container } = this.defineStyles();
+    const { container } = this.defineStyles();
     const onColor = this.extractNonStyleValue(container, 'onColor');
-    const offColor = this.extractNonStyleValue(container, 'offColor');
-
     return (
       <Switch
         style={this.props.style}

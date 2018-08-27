@@ -2,102 +2,113 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Dimensions,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { RkText, RkButton, RkStyleSheet } from 'react-native-ui-kitten';
 import { FontAwesome } from '../assets/icons';
 import { UIConstants } from '../config/appConstants';
-import { scale, scaleModerate, scaleVertical } from '../utils/scale';
+import NavigationType from '../config/navigation/propTypes';
 
 export class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { width: undefined };
-  }
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+    headerProps: PropTypes.shape().isRequired,
+  };
 
-  _renderRight(headerRight) {
-    const windowWidth = Dimensions.get('window').width;
-    const width = this.state.width
-      ? (windowWidth - this.state.width) / 2
-      : undefined;
+  onNavigationLeftMenuButtonPressed = () => {
+    this.props.navigation.navigate('DrawerOpen');
+  };
 
-    return headerRight && (
-    <View style={[{ width }, styles.right]}>{headerRight}</View>
-    );
-  }
+  onNavigationLeftBackButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
 
-  _renderLeft(headerLeft) {
-    if (headerLeft) {
-      return (
-        <View style={styles.left}>{headerLeft}</View>
-      );
-    }
+  renderTitleItem = (title, options) => {
+    const isCustom = options !== undefined;
+    return isCustom ? this.renderCustomTitleItem(options) : this.renderNavigationTitleItem(title);
+  };
 
-    const windowWidth = Dimensions.get('window').width;
-    const width = this.state.width
-      ? (windowWidth - this.state.width) / 2
-      : undefined;
+  renderLeftItem = (options) => {
+    const isCustom = options !== undefined;
+    return isCustom ? this.renderCustomLeftItem(options) : this.renderNavigationLeftItem();
+  };
 
-    const renderLeftContent = () => {
-      const index = _.findIndex(this.props.headerProps.scenes, { isActive: true });
-      if (index > 0) {
-        return (<RkButton
-          rkType='clear'
-          style={styles.menu}
-          onPress={() => {
-            this.props.navigation.goBack();
-          }}>
-          <RkText rkType='awesome hero'>{FontAwesome.chevronLeft}</RkText>
-        </RkButton>);
-      }
+  renderRightItem = (options) => {
+    const isCustom = options !== undefined;
+    return isCustom ? this.renderCustomRightItem(options) : this.renderNavigationRightItem();
+  };
 
-      return (<RkButton
-        rkType='clear'
-        style={styles.menu}
-        onPress={() => {
-            this.props.navigation.navigate('DrawerOpen');
-          }}>
-        <RkText rkType='awesome'>{FontAwesome.bars}</RkText>
-              </RkButton>);
-    };
+  renderNavigationTitleItem = (title) => (
+    <View style={styles.title}>
+      <RkText>{title}</RkText>
+    </View>
+  );
 
+  renderNavigationLeftBackItem = () => (
+    <RkButton
+      rkType='clear'
+      style={styles.menu}
+      onPress={this.onNavigationLeftBackButtonPressed}>
+      <RkText rkType='awesome hero'>{FontAwesome.chevronLeft}</RkText>
+    </RkButton>
+  );
+
+  renderNavigationLeftMenuItem = () => (
+    <RkButton
+      rkType='clear'
+      style={styles.menu}
+      onPress={this.onNavigationLeftMenuButtonPressed}>
+      <RkText rkType='awesome'>{FontAwesome.bars}</RkText>
+    </RkButton>
+  );
+
+  renderNavigationLeftItemContent = (sceneIndex) => {
+    const isFirstScene = sceneIndex === 0;
+    return isFirstScene ? this.renderNavigationLeftMenuItem() : this.renderNavigationLeftBackItem();
+  };
+
+  renderNavigationLeftItem = () => {
+    const sceneIndex = _.findIndex(this.props.headerProps.scenes, { isActive: true });
     return (
-      <View style={[{ width }, styles.left]}>
-        {renderLeftContent()}
+      <View style={styles.left}>
+        {this.renderNavigationLeftItemContent(sceneIndex)}
       </View>
     );
-  }
+  };
 
-  _renderTitle(title) {
-    const onLayout = (e) => {
-      this.setState({
-        width: e.nativeEvent.layout.width,
-      });
-    };
+  renderNavigationRightItem = () => undefined;
 
-    return (
-      <View style={styles.title} onLayout={onLayout}>
-        <RkText>{title}</RkText>
-      </View>
-    );
-  }
+  renderCustomTitleItem = (options) => (
+    <View
+      style={styles.title}>
+      {options}
+    </View>
+  );
+
+  renderCustomLeftItem = (options) => (
+    <View style={styles.left}>{options}</View>
+  );
+
+  renderCustomRightItem = (options) => (
+    <View style={styles.right}>{options}</View>
+  );
 
   render() {
-    const options = this.props.headerProps.scene.descriptor.options;
+    const { options } = this.props.headerProps.scene.descriptor;
     return (
       <View style={styles.layout}>
         <View style={styles.container}>
-          {this._renderTitle(options.title)}
-          {this._renderLeft(options.headerLeft)}
-          {this._renderRight(options.headerRight)}
+          {this.renderTitleItem(options.title, options.headerTitle)}
+          {this.renderLeftItem(options.headerLeft)}
+          {this.renderRightItem(options.headerRight)}
         </View>
       </View>
     );
   }
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   layout: {
     backgroundColor: theme.colors.screen.base,
     paddingTop: UIConstants.StatusbarHeight,

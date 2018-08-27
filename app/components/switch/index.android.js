@@ -29,21 +29,18 @@ export class RkSwitch extends RkComponent {
   };
   selectedType = 'selected';
 
-  constructor(props, context) {
-    super(props, context);
-
+  constructor(props) {
+    super(props);
     this.offset = width - height;
     this.handlerSize = height;
-
-    const value = props.value;
     this.state = {
       name: this.props.name,
-      value,
+      value: this.props.value,
       toggleable: true,
-      alignItems: value ? 'flex-end' : 'flex-start',
-      left: value ? onLeftValue : offLeftValue,
+      alignItems: this.props.value ? 'flex-end' : 'flex-start',
+      left: this.props.value ? onLeftValue : offLeftValue,
       handlerAnimation: new Animated.Value(this.handlerSize),
-      switchAnimation: new Animated.Value(value ? -1 : 1),
+      switchAnimation: new Animated.Value(this.props.value ? -1 : 1),
     };
   }
 
@@ -52,38 +49,37 @@ export class RkSwitch extends RkComponent {
     if (nextProps === this.props) {
       return;
     }
-
     if (typeof nextProps.value !== 'undefined' && nextProps.value !== value) {
       this.toggleSwitch(true);
     }
   }
 
   componentWillMount() {
-    this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: (evt, gestureState) => true,
-      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-      onMoveShouldSetPanResponder: (evt, gestureState) => true,
-      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-      onPanResponderTerminationRequest: (evt, gestureState) => true,
-      onPanResponderGrant: this._onPanResponderGrant,
-      onPanResponderMove: this._onPanResponderMove,
-      onPanResponderRelease: this._onPanResponderRelease,
+    this.panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponderCapture: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponderCapture: () => true,
+      onPanResponderTerminationRequest: () => true,
+      onPanResponderGrant: this.onPanResponderGrant,
+      onPanResponderMove: this.onPanResponderMove,
+      onPanResponderRelease: this.onPanResponderRelease,
     });
   }
 
-  _onPanResponderGrant = (evt, gestureState) => {
+  onPanResponderGrant = () => {
     this.animateHandler(height * 0.9);
   };
 
-  _onPanResponderMove = (evt, gestureState) => {
-    const { value, toggleable } = this.state;
+  onPanResponderMove = (evt, gestureState) => {
+    const { value } = this.state;
 
     this.setState({
       toggleable: value ? (gestureState.dx < 10) : (gestureState.dx > -10),
     });
   };
 
-  _onPanResponderRelease = (evt, gestureState) => {
+  onPanResponderRelease = () => {
     const { toggleable } = this.state;
     const { disabled, onValueChange } = this.props;
 
@@ -158,7 +154,7 @@ export class RkSwitch extends RkComponent {
     return (
       <Animated.View
         {...rest}
-        {...this._panResponder.panHandlers}
+        {...this.panResponder.panHandlers}
         style={[style, container, {
           backgroundColor: interpolatedBackgroundColor,
         }]}>
