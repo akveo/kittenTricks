@@ -57,10 +57,18 @@ export default class App extends React.Component {
   };
 
   componentWillMount() {
-    this._loadAssets();
+    this.loadAssets();
   }
 
-  _loadAssets = async () => {
+  onNavigationStateChange = (previous, current) => {
+    const currentScreen = getCurrentRouteName(previous);
+    const prevScreen = getCurrentRouteName(current);
+    if (prevScreen !== currentScreen) {
+      track(currentScreen);
+    }
+  };
+
+  loadAssets = async () => {
     await Font.loadAsync({
       fontawesome: require('./assets/fonts/fontawesome.ttf'),
       icomoon: require('./assets/fonts/icomoon.ttf'),
@@ -73,25 +81,17 @@ export default class App extends React.Component {
     this.setState({ loaded: true });
   };
 
-  render() {
-    if (!this.state.loaded) {
-      return <AppLoading />;
-    }
-    return (
-      <View style={{ flex: 1 }}>
-        <KittenApp
-          onNavigationStateChange={(prevState, currentState) => {
-            const currentScreen = getCurrentRouteName(currentState);
-            const prevScreen = getCurrentRouteName(prevState);
+  renderLoading = () => (
+    <AppLoading />
+  );
 
-            if (prevScreen !== currentScreen) {
-              track(currentScreen);
-            }
-          }}
-        />
-      </View>
-    );
-  }
+  renderApp = () => (
+    <View style={{ flex: 1 }}>
+      <KittenApp onNavigationStateChange={this.onNavigationStateChange} />
+    </View>
+  );
+
+  render = () => (this.state.loaded ? this.renderApp() : this.renderLoading());
 }
 
 Expo.registerRootComponent(App);
