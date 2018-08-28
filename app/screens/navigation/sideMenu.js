@@ -8,10 +8,6 @@ import {
   StyleSheet,
 } from 'react-native';
 import {
-  StackActions,
-  NavigationActions,
-} from 'react-navigation';
-import {
   RkStyleSheet,
   RkText,
   RkTheme,
@@ -26,17 +22,7 @@ export class SideMenu extends React.Component {
   };
 
   onMenuItemPressed = (item) => {
-    this.navigate(item);
-  };
-
-  navigate = (route) => {
-    const resetAction = StackActions.reset({
-      index: 0,
-      actions: [
-        NavigationActions.navigate({ routeName: route.id }),
-      ],
-    });
-    this.props.navigation.dispatch(resetAction);
+    this.props.navigation.navigate(item.id);
   };
 
   getThemeImageSource = (theme) => (
