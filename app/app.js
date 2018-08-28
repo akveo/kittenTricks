@@ -28,9 +28,6 @@ const KittenApp = createStackNavigator({
         ...AppRoutes,
       },
       {
-        drawerOpenRoute: 'DrawerOpen',
-        drawerCloseRoute: 'DrawerClose',
-        drawerToggleRoute: 'DrawerToggle',
         contentComponent: (props) => {
           const SideMenu = withRkTheme(Screens.SideMenu);
           return <SideMenu {...props} />;

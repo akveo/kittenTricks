@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { DrawerActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { RkText, RkButton, RkStyleSheet } from 'react-native-ui-kitten';
@@ -17,7 +18,7 @@ export class NavBar extends React.Component {
   };
 
   onNavigationLeftMenuButtonPressed = () => {
-    this.props.navigation.navigate('DrawerOpen');
+    this.props.navigation.dispatch(DrawerActions.openDrawer());
   };
 
   onNavigationLeftBackButtonPressed = () => {
