@@ -1,4 +1,4 @@
-let images = [
+const images = [
   require('../img/Image10.png'),
   require('../img/Image11.png'),
   require('../img/Image2.png'),
@@ -27,7 +27,7 @@ const users = [{
   postCount: 86,
   followersCount: 22102,
   followingCount: 536,
-  images: images
+  images,
 
 },
 {
@@ -43,7 +43,7 @@ const users = [{
   phone: '86-(261)670-4133',
   followingCount: 975,
   followersCount: 1703,
-  images: images,
+  images,
   photo: require('../img/avatars/Image1.png'),
 },
 {
@@ -59,7 +59,7 @@ const users = [{
   phone: '30-(524)246-5851',
   followingCount: 736,
   followersCount: 1534,
-  images: images,
+  images,
   photo: require('../img/avatars/Image3.png'),
 },
 {
@@ -75,7 +75,7 @@ const users = [{
   phone: '86-(499)721-5796',
   followingCount: 86,
   followersCount: 3303,
-  images: images,
+  images,
   photo: require('../img/avatars/Image4.png'),
 },
 {
@@ -91,7 +91,7 @@ const users = [{
   phone: '63-(210)188-9126',
   followingCount: 745,
   followersCount: 2703,
-  images: images,
+  images,
   photo: require('../img/avatars/Image5.png'),
 },
 {
@@ -107,7 +107,7 @@ const users = [{
   phone: '86-(939)186-9659',
   followingCount: 444,
   followersCount: 8432,
-  images: images,
+  images,
   photo: require('../img/avatars/Image6.png'),
 },
 {
@@ -123,7 +123,7 @@ const users = [{
   phone: '62-(373)613-7229',
   followingCount: 731,
   followersCount: 18230,
-  images: images,
+  images,
   photo: require('../img/avatars/Image7.png'),
 },
 {
@@ -139,7 +139,7 @@ const users = [{
   phone: '234-(135)610-8989',
   followingCount: 667,
   followersCount: 4234,
-  images: images,
+  images,
   photo: require('../img/avatars/Image8.png'),
 },
 {
@@ -155,7 +155,7 @@ const users = [{
   phone: '1-(913)904-8423',
   followingCount: 750,
   followersCount: 1032,
-  images: images,
+  images,
   photo: require('../img/avatars/Image10.png'),
 },
 {
@@ -171,7 +171,7 @@ const users = [{
   phone: '62-(688)911-5487',
   followingCount: 343,
   followersCount: 3721,
-  images: images,
+  images,
   photo: require('../img/avatars/Image11.png'),
 },
 {
@@ -187,8 +187,8 @@ const users = [{
   phone: '7-(121)282-0448',
   followingCount: 165,
   followersCount: 5433,
-  images: images,
+  images,
   photo: require('../img/avatars/Image12.png'),
 }];
 
-export default users
+export default users;

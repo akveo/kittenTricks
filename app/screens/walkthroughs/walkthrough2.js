@@ -1,47 +1,46 @@
 import React from 'react';
 import {
-  StyleSheet,
-  Image,
   View,
-  Dimensions
+  Image,
+  Dimensions,
 } from 'react-native';
 import {
   RkText,
   RkStyleSheet,
-  RkTheme
+  RkTheme,
 } from 'react-native-ui-kitten';
 
 export class Walkthrough2 extends React.Component {
+  getThemeImageSource = (theme) => (
+    theme.name === 'light' ?
+      require('../../assets/images/screensImage.png') : require('../../assets/images/screensImageDark.png')
+  );
 
-  constructor(props) {
-    super(props);
-  }
+  renderImage = () => (
+    <Image
+      style={{ width: Dimensions.get('window').width }}
+      source={this.getThemeImageSource(RkTheme.current)}
+    />
+  );
 
-  render() {
-    let {width} = Dimensions.get('window');
-    let image = RkTheme.current.name === 'light'
-      ? <Image style={{width}} source={require('../../assets/images/screensImage.png')}/>
-      : <Image style={{width}} source={require('../../assets/images/screensImageDark.png')}/>;
-
-    return (
-      <View style={styles.screen}>
-        {image}
-        <RkText rkType='header2' style={styles.text}>Explore different examples of frequently used pages</RkText>
-      </View>
-    )
-  }
+  render = () => (
+    <View style={styles.screen}>
+      {this.renderImage()}
+      <RkText rkType='header2' style={styles.text}>Explore different examples of frequently used pages</RkText>
+    </View>
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     backgroundColor: theme.colors.screen.base,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
   },
   text: {
     textAlign: 'center',
     marginTop: 20,
-    marginHorizontal: 30
-  }
+    marginHorizontal: 30,
+  },
 }));

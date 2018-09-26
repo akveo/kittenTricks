@@ -1,83 +1,76 @@
 import React from 'react';
 import {
-  ListView,
+  FlatList,
   View,
-  Image
+  Image,
 } from 'react-native';
-import {RkStyleSheet, RkText} from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+import { RkStyleSheet, RkText } from 'react-native-ui-kitten';
+import { Avatar } from '../../components';
+import { data } from '../../data';
+
+const moment = require('moment');
 
 export class Notifications extends React.Component {
   static navigationOptions = {
-    title: 'Notifications'
+    title: 'Notifications',
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    data: data.getNotifications(),
+  };
 
-    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.data = ds.cloneWithRows(data.getNotifications());
-  }
+  extractItemKey = (item) => `${item.id}`;
 
+  renderAttachment = (item) => {
+    const hasAttachment = item.attach !== undefined;
+    return hasAttachment ? <View /> : <Image style={styles.attachment} source={item.attach} />;
+  };
 
-  renderRow(row) {
-
-    let username = `${row.user.firstName} ${row.user.lastName}`;
-    let hasAttachment = row.attach !== undefined;
-    let attachment = <View/>;
-
-    let mainContentStyle;
-    if (hasAttachment) {
-      mainContentStyle = styles.mainContent;
-      attachment =
-        <Image style={styles.attachment} source={row.attach}/>
-    }
-
-    return (
-      <View style={styles.container}>
-        <Avatar img={row.user.photo}
-                rkType='circle'
-                style={styles.avatar}
-                badge={row.type}/>
-        <View style={styles.content}>
-          <View style={mainContentStyle}>
-            <View style={styles.text}>
-              <RkText>
-                <RkText rkType='header6'>{username}</RkText>
-                <RkText rkType='primary2'> {row.description}</RkText>
-              </RkText>
-            </View>
-            <RkText rkType='secondary5 hintColor'>{moment().add(row.time, 'seconds').fromNow()}</RkText>
+  renderItem = ({ item }) => (
+    <View style={styles.container}>
+      <Avatar
+        img={item.user.photo}
+        rkType='circle'
+        style={styles.avatar}
+        badge={item.type}
+      />
+      <View style={styles.content}>
+        <View style={styles.mainContent}>
+          <View style={styles.text}>
+            <RkText>
+              <RkText rkType='header6'>{`${item.user.firstName} ${item.user.lastName}`}</RkText>
+              <RkText rkType='primary2'> {item.description}</RkText>
+            </RkText>
           </View>
-          {attachment}
+          <RkText
+            rkType='secondary5 hintColor'>{moment().add(item.time, 'seconds').fromNow()}
+          </RkText>
         </View>
+        {this.renderAttachment(item)}
       </View>
-    )
-  }
+    </View>
+  );
 
-  render() {
-    return (
-      <ListView
-        style={styles.root}
-        dataSource={this.data}
-        renderRow={this.renderRow}/>
-
-    )
-  }
+  render = () => (
+    <FlatList
+      style={styles.root}
+      data={this.state.data}
+      renderItem={this.renderItem}
+      keyExtractor={this.extractItemKey}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   container: {
     padding: 16,
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderColor: theme.colors.border.base,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   avatar: {},
   text: {
@@ -86,20 +79,20 @@ let styles = RkStyleSheet.create(theme => ({
   content: {
     flex: 1,
     marginLeft: 16,
-    marginRight: 0
+    marginRight: 0,
   },
   mainContent: {
-    marginRight: 60
+    marginRight: 60,
   },
   img: {
     height: 50,
     width: 50,
-    margin: 0
+    margin: 0,
   },
   attachment: {
     position: 'absolute',
     right: 0,
     height: 50,
-    width: 50
-  }
+    width: 50,
+  },
 }));

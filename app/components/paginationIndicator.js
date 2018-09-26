@@ -1,48 +1,39 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View
-} from 'react-native';
-import {RkStyleSheet} from 'react-native-ui-kitten';
+import { View } from 'react-native';
+import { RkStyleSheet } from 'react-native-ui-kitten';
+import PropTypes from 'prop-types';
 
 export class PaginationIndicator extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  static propTypes = {
+    current: PropTypes.number,
+    length: PropTypes.number.isRequired,
+  };
+  static defaultProps = {
+    current: 0,
+  };
 
-  _renderItem(index, selected) {
-    let style = [styles.base];
-    if (selected)
-      style.push(styles.selected);
-    return (
-      <View key={index} style={style}/>
-    )
-  }
+  renderIndicatorItem = (index, selected) => (
+    <View style={selected ? [styles.base, styles.selected] : styles.base} key={index} />
+  );
 
-  _renderIndicators() {
-    let length = this.props.length;
-    let current = this.props.current;
-
-    let indicators = [];
-    for (let i = 0; i < length; i++) {
-      indicators.push(this._renderItem(i, i === current))
+  renderIndicators = () => {
+    const indicators = [];
+    for (let i = 0; i < this.props.length; i += 1) {
+      indicators.push(this.renderIndicatorItem(i, i === this.props.current));
     }
+    return indicators;
+  };
 
-    return indicators
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        {this._renderIndicators()}
-      </View>
-    )
-  }
+  render = () => (
+    <View style={styles.container}>
+      {this.renderIndicators()}
+    </View>
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   base: {
     width: 8,
@@ -50,9 +41,9 @@ let styles = RkStyleSheet.create(theme => ({
     borderRadius: 5,
     borderColor: theme.colors.brand,
     borderWidth: 1,
-    marginHorizontal: 5
+    marginHorizontal: 5,
   },
   selected: {
-    backgroundColor: theme.colors.brand
-  }
+    backgroundColor: theme.colors.brand,
+  },
 }));

@@ -1,11 +1,11 @@
 import {
   Dimensions,
-  Platform
+  Platform,
 } from 'react-native';
 
-let {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-let IosTransition = (index, position) => {
+const IosTransition = (index, position) => {
   const inputRange = [index - 1, index, index + 0.99, index + 1];
   const outputRange = [width, 0, -10, -10];
 
@@ -21,11 +21,11 @@ let IosTransition = (index, position) => {
   });
   return {
     opacity,
-    transform: [{translateX}, {translateY}],
+    transform: [{ translateX }, { translateY }],
   };
 };
 
-let DroidTransition = (index, position) => {
+const DroidTransition = (index, position) => {
   const inputRange = [index - 1, index, index + 0.99, index + 1];
 
   const opacity = position.interpolate({
@@ -41,20 +41,19 @@ let DroidTransition = (index, position) => {
 
   return {
     opacity,
-    transform: [{translateX}, {translateY}],
+    transform: [{ translateX }, { translateY }],
   };
 };
 
 function transition() {
   return {
     screenInterpolator: (sceneProps) => {
-      const {position, scene} = sceneProps;
-      const {index} = scene;
-      if (Platform.OS === 'ios')
-        return IosTransition(index, position);
+      const { position, scene } = sceneProps;
+      const { index } = scene;
+      if (Platform.OS === 'ios') { return IosTransition(index, position); }
       return DroidTransition(index, position);
-    }
-  }
+    },
+  };
 }
 
 export default transition;

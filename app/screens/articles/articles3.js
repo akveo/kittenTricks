@@ -3,78 +3,79 @@ import {
   FlatList,
   Image,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkText,
-  RkCard, RkStyleSheet
+  RkCard, RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {SocialBar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+import { SocialBar } from '../../components';
+import { data } from '../../data';
+import NavigationType from '../../config/navigation/propTypes';
 
+const moment = require('moment');
 
 export class Articles3 extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
-    title: 'Article List'.toUpperCase()
+    title: 'Article List'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
-    this.data = data.getArticles();
-    this.renderItem = this._renderItem.bind(this);
-  }
+  state = {
+    data: data.getArticles(),
+  };
 
-  _keyExtractor(post, index) {
-    return post.id;
-  }
+  extractItemKey = (item) => `${item.id}`;
 
-  _renderItem(info) {
-    return (
-      <TouchableOpacity
-        delayPressIn={70}
-        activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
-        <RkCard style={styles.card}>
-          <View rkCardHeader>
-            <View>
-              <RkText rkType='header4'>{info.item.header}</RkText>
-              <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
-            </View>
+  onItemPressed = ({ item }) => {
+    this.props.navigation.navigate('Article', { id: item.id });
+  };
+
+  renderItem = ({ item }) => (
+    <TouchableOpacity
+      delayPressIn={70}
+      activeOpacity={0.8}
+      onPress={() => this.onItemPressed(item)}>
+      <RkCard style={styles.card}>
+        <View rkCardHeader>
+          <View>
+            <RkText rkType='header4'>{item.header}</RkText>
+            <RkText rkType='secondary2 hintColor'>{moment().add(item.time, 'seconds').fromNow()}</RkText>
           </View>
-          <Image rkCardImg source={info.item.photo}/>
-          <View style={styles.footer} rkCardFooter>
-            <SocialBar/>
-          </View >
-        </RkCard>
-      </TouchableOpacity>
-    )
-  }
+        </View>
+        <Image rkCardImg source={item.photo} />
+        <View style={styles.footer} rkCardFooter>
+          <SocialBar />
+        </View >
+      </RkCard>
+    </TouchableOpacity>
+  );
 
-  render() {
-    return (
-      <FlatList
-        data={this.data}
-        renderItem={this.renderItem}
-        keyExtractor={this._keyExtractor}
-        style={styles.container}/>
-    )
-  }
+  render = () => (
+    <FlatList
+      data={this.state.data}
+      renderItem={this.renderItem}
+      keyExtractor={this.extractItemKey}
+      style={styles.container}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.scroll,
     paddingHorizontal: 14,
-    paddingVertical: 8
+    paddingVertical: 8,
   },
   card: {
-    marginVertical: 8
+    marginVertical: 8,
   },
   footer: {
-    paddingTop: 16
+    paddingTop: 16,
   },
   time: {
-    marginTop: 5
-  }
+    marginTop: 5,
+  },
 }));

@@ -3,135 +3,160 @@ import {
   ScrollView,
   View,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 import {
   RkText,
   RkStyleSheet,
-  RkTheme
+  RkTheme,
 } from 'react-native-ui-kitten';
 import {
   RkSwitch,
-  FindFriends
+  FindFriends,
 } from '../../components';
-import {FontAwesome} from '../../assets/icons';
+import { FontAwesome } from '../../assets/icons';
 
 export class Settings extends React.Component {
   static navigationOptions = {
-    title: 'Settings'.toUpperCase()
+    title: 'Settings'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    sendPush: true,
+    shouldRefresh: false,
+    twitterEnabled: true,
+    googleEnabled: false,
+    facebookEnabled: true,
+  };
 
-    this.state = {
-      sendPush: true,
-      shouldRefresh: false,
-      twitterEnabled: true,
-      googleEnabled: false,
-      facebookEnabled: true
-    }
-  }
+  onPushNotificationsSettingChanged = (value) => {
+    this.setState({ sendPush: value });
+  };
 
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        <View style={styles.section}>
-          <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary header6'>PROFILE SETTINGS</RkText>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Edit Profile</RkText>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Change Password</RkText>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-            <RkText rkType='header6'>Send Push Notifications</RkText>
-            <RkSwitch style={styles.switch}
-                      value={this.state.sendPush}
-                      name="Push"
-                      onValueChange={(sendPush) => this.setState({sendPush})}/>
-          </View>
-          <View style={styles.row}>
-            <RkText rkType='header6'>Refresh Automatically</RkText>
-            <RkSwitch style={styles.switch}
-                      value={this.state.shouldRefresh}
-                      name="Refresh"
-                      onValueChange={(shouldRefresh) => this.setState({shouldRefresh})}/>
-          </View>
-        </View>
-        <View style={styles.section}>
-          <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary header6'>FIND FRIENDS</RkText>
-          </View>
-          <View style={styles.row}>
-            <FindFriends color={RkTheme.current.colors.twitter} text='Twitter' icon={FontAwesome.twitter}
-                         selected={this.state.twitterEnabled}
-                         onPress={() => {
-                           this.setState({twitterEnabled: !this.state.twitterEnabled})
-                         }}/>
-          </View>
-          <View style={styles.row}>
-            <FindFriends color={RkTheme.current.colors.google} text='Google' icon={FontAwesome.google}
-                         selected={this.state.googleEnabled} onPress={() => {
-              this.setState({googleEnabled: !this.state.googleEnabled})
-            }}/>
-          </View>
-          <View style={styles.row}>
-            <FindFriends color={RkTheme.current.colors.facebook} text='Facebook' icon={FontAwesome.facebook}
-                         selected={this.state.facebookEnabled} onPress={() => {
-              this.setState({facebookEnabled: !this.state.facebookEnabled})
-            }}/>
-          </View>
-        </View>
+  onRefreshAutomaticallySettingChanged = (value) => {
+    this.setState({ shouldRefresh: value });
+  };
 
-        <View style={styles.section}>
-          <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary header6'>SUPPORT</RkText>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Help</RkText>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Privacy Policy</RkText>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Terms & Conditions</RkText>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>Logout</RkText>
-            </TouchableOpacity>
-          </View>
+  onFindFriendsTwitterButtonPressed = () => {
+    this.setState({ twitterEnabled: !this.state.twitterEnabled });
+  };
+
+  onFindFriendsGoogleButtonPressed = () => {
+    this.setState({ googleEnabled: !this.state.googleEnabled });
+  };
+
+  onFindFriendsFacebookButtonPressed = () => {
+    this.setState({ facebookEnabled: !this.state.facebookEnabled });
+  };
+
+  render = () => (
+    <ScrollView style={styles.container}>
+      <View style={styles.section}>
+        <View style={[styles.row, styles.heading]}>
+          <RkText rkType='primary header6'>PROFILE SETTINGS</RkText>
         </View>
-      </ScrollView>
-    )
-  }
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.rowButton}>
+            <RkText rkType='header6'>Edit Profile</RkText>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.rowButton}>
+            <RkText rkType='header6'>Change Password</RkText>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row}>
+          <RkText rkType='header6'>Send Push Notifications</RkText>
+          <RkSwitch
+            style={styles.switch}
+            value={this.state.sendPush}
+            name="Push"
+            onValueChange={this.onPushNotificationsSettingChanged}
+          />
+        </View>
+        <View style={styles.row}>
+          <RkText rkType='header6'>Refresh Automatically</RkText>
+          <RkSwitch
+            style={styles.switch}
+            value={this.state.shouldRefresh}
+            name="Refresh"
+            onValueChange={this.onRefreshAutomaticallySettingChanged}
+          />
+        </View>
+      </View>
+      <View style={styles.section}>
+        <View style={[styles.row, styles.heading]}>
+          <RkText rkType='primary header6'>FIND FRIENDS</RkText>
+        </View>
+        <View style={styles.row}>
+          <FindFriends
+            color={RkTheme.current.colors.twitter}
+            text='Twitter'
+            icon={FontAwesome.twitter}
+            selected={this.state.twitterEnabled}
+            onPress={this.onFindFriendsTwitterButtonPressed}
+          />
+        </View>
+        <View style={styles.row}>
+          <FindFriends
+            color={RkTheme.current.colors.google}
+            text='Google'
+            icon={FontAwesome.google}
+            selected={this.state.googleEnabled}
+            onPress={this.onFindFriendsGoogleButtonPressed}
+          />
+        </View>
+        <View style={styles.row}>
+          <FindFriends
+            color={RkTheme.current.colors.facebook}
+            text='Facebook'
+            icon={FontAwesome.facebook}
+            selected={this.state.facebookEnabled}
+            onPress={this.onFindFriendsFacebookButtonPressed}
+          />
+        </View>
+      </View>
+      <View style={styles.section}>
+        <View style={[styles.row, styles.heading]}>
+          <RkText rkType='primary header6'>SUPPORT</RkText>
+        </View>
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.rowButton}>
+            <RkText rkType='header6'>Help</RkText>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.rowButton}>
+            <RkText rkType='header6'>Privacy Policy</RkText>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.rowButton}>
+            <RkText rkType='header6'>Terms & Conditions</RkText>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.rowButton}>
+            <RkText rkType='header6'>Logout</RkText>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.colors.screen.base,
   },
   header: {
-    paddingVertical: 25
+    paddingVertical: 25,
   },
   section: {
-    marginVertical: 25
+    marginVertical: 25,
   },
   heading: {
-    paddingBottom: 12.5
+    paddingBottom: 12.5,
   },
   row: {
     flexDirection: 'row',
@@ -139,13 +164,13 @@ let styles = RkStyleSheet.create(theme => ({
     paddingHorizontal: 17.5,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   rowButton: {
     flex: 1,
-    paddingVertical: 24
+    paddingVertical: 24,
   },
   switch: {
-    marginVertical: 14
+    marginVertical: 14,
   },
 }));

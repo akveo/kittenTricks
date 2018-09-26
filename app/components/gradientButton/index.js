@@ -1,9 +1,9 @@
 import React from 'react';
-import {LinearGradient} from 'expo';
+import { LinearGradient } from 'expo';
 import {
   RkButton,
   RkText,
-  RkComponent
+  RkComponent,
 } from 'react-native-ui-kitten';
 
 export class GradientButton extends RkComponent {
@@ -11,39 +11,35 @@ export class GradientButton extends RkComponent {
   typeMapping = {
     button: {},
     gradient: {},
-    text: {}
+    text: {},
   };
 
-  renderContent(textStyle){
-    if(this.props.text){
-      return (
-          <RkText style={textStyle}>
-            {this.props.text}
-          </RkText>
-      )
-    } else {
-      return this.props.children
-    }
-  }
+  renderContent = (textStyle) => {
+    const hasText = this.props.text === undefined;
+    return hasText ? this.props.children : this.renderText(textStyle);
+  };
+
+  renderText = (textStyle) => (
+    <RkText style={textStyle}>{this.props.text}</RkText>
+  );
 
   render() {
-    let {button, gradient, text: textStyle} = this.defineStyles();
-    let colors = this.extractNonStyleValue(gradient, 'colors');
-    let {style, rkType, ...otherProps} = this.props;
-
-    colors = this.props.colors ? this.props.colors : colors;
-
+    const { button, gradient, text: textStyle } = this.defineStyles();
+    const { style, rkType, ...restProps } = this.props;
+    const colors = this.props.colors || this.extractNonStyleValue(gradient, 'colors');
     return (
-      <RkButton rkType='stretch'
-                style={[button, style]}
-                {...otherProps}>
-        <LinearGradient colors={colors}
-                        start={{x: 0.0, y: 0.5}}
-                        end={{x: 1, y: 0.5}}
-                        style={[gradient]}>
+      <RkButton
+        rkType='stretch'
+        style={[button, style]}
+        {...restProps}>
+        <LinearGradient
+          colors={colors}
+          start={{ x: 0.0, y: 0.5 }}
+          end={{ x: 1, y: 0.5 }}
+          style={[gradient]}>
           {this.renderContent(textStyle)}
         </LinearGradient>
       </RkButton>
-    )
+    );
   }
 }

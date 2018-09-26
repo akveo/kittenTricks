@@ -4,89 +4,94 @@ import {
   Image,
   View,
   Dimensions,
-  StatusBar
+  StatusBar,
 } from 'react-native';
 import {
   RkText,
-  RkTheme
-} from 'react-native-ui-kitten'
-import {ProgressBar} from '../../components';
+  RkTheme,
+} from 'react-native-ui-kitten';
 import {
-  KittenTheme
-} from '../../config/theme';
-import {NavigationActions} from 'react-navigation';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+  StackActions,
+  NavigationActions,
+} from 'react-navigation';
+import { ProgressBar } from '../../components';
+import { KittenTheme } from '../../config/theme';
+import { scale, scaleVertical } from '../../utils/scale';
+import NavigationType from '../../config/navigation/propTypes';
 
-let timeFrame = 500;
+const delay = 500;
 
 export class SplashScreen extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      progress: 0
-    }
-  }
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
+  state = {
+    progress: 0,
+  };
 
   componentDidMount() {
     StatusBar.setHidden(true, 'none');
     RkTheme.setTheme(KittenTheme);
-
-    this.timer = setInterval(() => {
-      if (this.state.progress == 1) {
-        clearInterval(this.timer);
-        setTimeout(() => {
-          StatusBar.setHidden(false, 'slide');
-          let toHome = NavigationActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({routeName: 'Home'})]
-          });
-          this.props.navigation.dispatch(toHome)
-        }, timeFrame);
-      } else {
-        let random = Math.random() * 0.5;
-        let progress = this.state.progress + random;
-        if (progress > 1) {
-          progress = 1;
-        }
-        this.setState({progress});
-      }
-    }, timeFrame)
-
+    this.timer = setInterval(this.updateProgress, delay);
   }
 
-  render() {
-    let width = Dimensions.get('window').width;
-    return (
-      <View style={styles.container}>
-        <View>
-          <Image style={[styles.image, {width}]} source={require('../../assets/images/splashBack.png')}/>
-          <View style={styles.text}>
-            <RkText rkType='light' style={styles.hero}>React Native</RkText>
-            <RkText rkType='logo' style={styles.appName}>UI Kitten</RkText>
-          </View>
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  updateProgress = () => {
+    if (this.state.progress === 1) {
+      clearInterval(this.timer);
+      setTimeout(this.onLoaded, delay);
+    } else {
+      const randProgress = this.state.progress + (Math.random() * 0.5);
+      this.setState({ progress: randProgress > 1 ? 1 : randProgress });
+    }
+  };
+
+  onLoaded = () => {
+    StatusBar.setHidden(false, 'slide');
+    const toHome = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Home' })],
+    });
+    this.props.navigation.dispatch(toHome);
+  };
+
+  render = () => (
+    <View style={styles.container}>
+      <View>
+        <Image
+          style={[styles.image, { width: Dimensions.get('window').width }]}
+          source={require('../../assets/images/splashBack.png')}
+        />
+        <View style={styles.text}>
+          <RkText rkType='light' style={styles.hero}>React Native</RkText>
+          <RkText rkType='logo' style={styles.appName}>UI Kitten</RkText>
         </View>
-        <ProgressBar
-          color={RkTheme.current.colors.accent}
-          style={styles.progress}
-          progress={this.state.progress} width={scale(320)}/>
       </View>
-    )
-  }
+      <ProgressBar
+        color={RkTheme.current.colors.accent}
+        style={styles.progress}
+        progress={this.state.progress}
+        width={scale(320)}
+      />
+    </View>
+  );
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     backgroundColor: KittenTheme.colors.screen.base,
     justifyContent: 'space-between',
-    flex: 1
+    flex: 1,
   },
   image: {
     resizeMode: 'cover',
     height: scaleVertical(430),
   },
   text: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   hero: {
     fontSize: 37,
@@ -97,6 +102,6 @@ let styles = StyleSheet.create({
   progress: {
     alignSelf: 'center',
     marginBottom: 35,
-    backgroundColor: '#e5e5e5'
-  }
+    backgroundColor: '#e5e5e5',
+  },
 });

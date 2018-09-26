@@ -3,51 +3,61 @@ import {
   StyleSheet,
   View,
   Animated,
-  Easing
+  Easing,
+  ViewPropTypes,
 } from 'react-native';
+import PropTypes from 'prop-types';
+import { RkTheme } from 'react-native-ui-kitten';
 
 export class ProgressBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      progress: new Animated.Value(0)
+  static propTypes = {
+    width: PropTypes.number.isRequired,
+    progress: PropTypes.number,
+    color: PropTypes.string,
+    style: ViewPropTypes.style,
+  };
+  static defaultProps = {
+    progress: 0,
+    color: RkTheme.current.colors.accent,
+    style: {},
+  };
+
+  state = {
+    progress: new Animated.Value(0),
+  };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.progress >= 0 && this.props.progress !== prevProps.progress) {
+      this.animate(this.props.progress);
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.progress >= 0 && this.props.progress != prevProps.progress) {
-      this.animate();
-    }
-  }
-
-  animate() {
+  animate = (endValue) => {
     Animated.timing(this.state.progress, {
       easing: Easing.inOut(Easing.ease),
       duration: 500,
-      toValue: this.props.progress
+      toValue: endValue,
     }).start();
-  }
+  };
 
   render() {
-
-    let width = this.state.progress.interpolate({
+    const width = this.state.progress.interpolate({
       inputRange: [0, 1],
       outputRange: [0, this.props.width],
     });
-
     return (
-      <View style={[styles.container, this.props.style, {width: this.props.width}]}>
-        <Animated.View style={[styles.value, {width: width}, {backgroundColor: this.props.color}]}/>
+      <View style={[styles.container, this.props.style, { width: this.props.width }]}>
+        <Animated.View style={[styles.value, { width }, { backgroundColor: this.props.color }]} />
       </View>
-    )
+    );
   }
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    height: 3
+    height: 3,
   },
   value: {
-    height: 3
-  }
+    height: 3,
+  },
 });

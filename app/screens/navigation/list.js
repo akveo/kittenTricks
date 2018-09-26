@@ -1,76 +1,73 @@
 import React from 'react';
 import {
-  ListView,
-  TouchableHighlight,
+  FlatList,
+  TouchableOpacity,
   View,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 import {
   RkText,
   RkStyleSheet,
-  RkTheme
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/navigation/routes';
+import { MainRoutes } from '../../config/navigation/routes';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class ListMenu extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
-    title: 'List Menu'.toUpperCase()
+    title: 'List Menu'.toUpperCase(),
   };
 
-  constructor(props) {
-    super(props);
-    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  onItemPressed = (item) => {
+    this.props.navigation.navigate(item.id);
+  };
 
-    this.data = ds.cloneWithRows(MainRoutes);
-    this.renderRow = this._renderRow.bind(this);
-  }
+  extractItemKey = (item) => item.id;
 
-  _renderRow(row) {
-    return (
-      <TouchableHighlight
-        style={styles.item}
-        activeOpacity={1}
-        onPress={() => {
-          this.props.navigation.navigate(row.id)
-        }}>
-        <View style={styles.container}>
-          <RkText style={styles.icon}
-                  rkType='primary moon xxlarge'>{row.icon}</RkText>
-          <RkText>{row.title}</RkText>
-        </View>
-      </TouchableHighlight>
-    )
-  }
+  renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => this.onItemPressed(item)}>
+      <View style={styles.container}>
+        <RkText
+          style={styles.icon}
+          rkType='primary moon xxlarge'>{item.icon}
+        </RkText>
+        <RkText>{item.title}</RkText>
+      </View>
+    </TouchableOpacity>
+  );
 
-  render() {
-    return (
-      <ListView
-        style={styles.list}
-        dataSource={this.data}
-        renderRow={this.renderRow}
-      />
-    )
-  }
+  render = () => (
+    <FlatList
+      style={styles.list}
+      data={MainRoutes}
+      keyExtractor={this.extractItemKey}
+      renderItem={this.renderItem}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   item: {
     height: 80,
     justifyContent: 'center',
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: theme.colors.border.base,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
   },
   list: {
     backgroundColor: theme.colors.screen.base,
   },
   container: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   icon: {
     width: 34,
     textAlign: 'center',
-    marginRight: 16
-  }
+    marginRight: 16,
+  },
 }));

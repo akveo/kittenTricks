@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-  Switch,
-} from 'react-native';
-import {RkComponent} from 'react-native-ui-kitten'
+import { Switch } from 'react-native';
+import { RkComponent } from 'react-native-ui-kitten';
 
 
 export class RkSwitch extends RkComponent {
@@ -10,9 +8,9 @@ export class RkSwitch extends RkComponent {
   typeMapping = {
     container: {
       onColor: 'onColor',
-      offColor: 'offColor'
+      offColor: 'offColor',
     },
-    main: {}
+    main: {},
   };
   selectedType = 'selected';
 
@@ -24,15 +22,15 @@ export class RkSwitch extends RkComponent {
   }
 
   render() {
-    let {main, container} = this.defineStyles();
-    let onColor = this.extractNonStyleValue(container, 'onColor');
-    let offColor = this.extractNonStyleValue(container, 'offColor');
-
+    const { container } = this.defineStyles();
+    const onColor = this.extractNonStyleValue(container, 'onColor');
     return (
-      <Switch style={this.props.style}
-              value={this.props.value}
-              onValueChange={(value) => this.onChange(value)}
-              onTintColor={onColor}/>
-    )
+      <Switch
+        style={this.props.style}
+        value={this.props.value}
+        onValueChange={(value) => this.onChange(value)}
+        onTintColor={onColor}
+      />
+    );
   }
 }

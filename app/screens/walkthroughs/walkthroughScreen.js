@@ -1,50 +1,53 @@
 import React from 'react';
+import { View } from 'react-native';
+import { RkStyleSheet } from 'react-native-ui-kitten';
 import {
-  View
-} from 'react-native';
-import {RkStyleSheet} from 'react-native-ui-kitten';
-import {GradientButton} from '../../components/';
-import {Walkthrough} from '../../components/walkthrough';
-import {Walkthrough1} from './walkthrough1';
-import {Walkthrough2} from './walkthrough2';
-import {PaginationIndicator} from '../../components';
-
+  GradientButton,
+  PaginationIndicator,
+} from '../../components/';
+import { Walkthrough } from '../../components/walkthrough';
+import { Walkthrough1 } from './walkthrough1';
+import { Walkthrough2 } from './walkthrough2';
+import NavigationType from '../../config/navigation/propTypes';
 
 export class WalkthroughScreen extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
     header: null,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {index: 0};
-  }
+  state = {
+    index: 0,
+  };
 
-  changeIndex(index) {
-    this.setState({index})
-  }
+  onWalkThroughIndexChanged = (index) => {
+    this.setState({ index });
+  };
 
-  render() {
-    return (
-      <View style={styles.screen}>
-        <Walkthrough onChanged={(index) => this.changeIndex(index)}>
-          <Walkthrough1/>
-          <Walkthrough2/>
-        </Walkthrough>
-        <PaginationIndicator length={2} current={this.state.index}/>
-        <GradientButton
-          rkType='large'
-          style={styles.button}
-          text="GET STARTED"
-          onPress={() => {
-            this.props.navigation.goBack()
-          }}/>
-      </View>
-    )
-  }
+  onStartButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
+
+  render = () => (
+    <View style={styles.screen}>
+      <Walkthrough onChanged={this.onWalkThroughIndexChanged}>
+        <Walkthrough1 />
+        <Walkthrough2 />
+      </Walkthrough>
+      <PaginationIndicator length={2} current={this.state.index} />
+      <GradientButton
+        rkType='large'
+        style={styles.button}
+        text="GET STARTED"
+        onPress={this.onStartButtonPressed}
+      />
+    </View>
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     backgroundColor: theme.colors.screen.base,
     paddingVertical: 28,
@@ -54,5 +57,5 @@ let styles = RkStyleSheet.create(theme => ({
   button: {
     marginTop: 25,
     marginHorizontal: 16,
-  }
+  },
 }));

@@ -3,66 +3,65 @@ import {
   RkButton,
   RkTextInput,
   RkText,
-  RkStyleSheet
+  RkStyleSheet,
 } from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
+import { FontAwesome } from '../assets/icons';
 
 export class CardInput extends React.Component {
+  state = {
+    hidden: true,
+    cardNumber: '',
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      hidden: true,
-      cardNumber: ''
-    }
-  }
+  formatCreditNumber = (number, isHidden) => (
+    isHidden
+      ? number.replace(/\D/g, '')
+      : number.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim()
+  );
 
-  formatCreditNumber(cardNumber, hiddenFlag) {
-    return hiddenFlag
-      ? cardNumber.replace(/\D/g, '')
-      : cardNumber.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
-  }
+  onInputLabelPressed = () => {
+    this.setState({
+      hidden: !this.state.hidden,
+      cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden),
+    });
+  };
 
-  render() {
+  onInputChanged = (text) => {
+    this.setState({
+      cardNumber: this.formatCreditNumber(text, this.state.hidden),
+    });
+  };
 
-    let button = (
-      <RkButton style={styles.button} rkType='clear'
-                onPress={() => {
-                  this.setState({hidden: !this.state.hidden});
-                  this.setState({cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden)})
-                }}>
-        <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
-      </RkButton>
-    );
+  renderInputLabel = () => (
+    <RkButton
+      style={styles.button}
+      rkType='clear'
+      onPress={this.onInputLabelPressed}>
+      <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
+    </RkButton>
+  );
 
-    let {
-      ...inputProps
-    } = this.props;
-
-    return (
-      <RkTextInput
-        autoCapitalize='none'
-        rkType='bordered rounded iconRight'
-        autoCorrect={false}
-        label={button}
-        secureTextEntry={this.state.hidden}
-        onChangeText={(cardNumber) => {
-          this.setState({cardNumber: this.formatCreditNumber(cardNumber, this.state.hidden)})
-        }}
-        value={this.state.cardNumber}
-        keyboardType='numeric'
-        maxLength={19}
-        {...inputProps}
-      />
-    )
-  }
+  render = () => (
+    <RkTextInput
+      autoCapitalize='none'
+      rkType='bordered rounded iconRight'
+      autoCorrect={false}
+      label={this.renderInputLabel()}
+      secureTextEntry={this.state.hidden}
+      onChangeText={this.onInputChanged}
+      value={this.state.cardNumber}
+      keyboardType='numeric'
+      maxLength={19}
+      {...this.props}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+let styles = RkStyleSheet.create({
   icon: {
-    fontSize: 24
+    fontSize: 24,
   },
   button: {
-    right: 17
-  }
-}));
+    right: 17,
+  },
+});

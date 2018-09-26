@@ -3,7 +3,7 @@
     "name": "Kitten Tricks",
     "slug": "kitten-tricks",
     "githubUrl": "https://github.com/akveo/kittenTricks",
-    "sdkVersion": "24.0.0",
+    "sdkVersion": "28.0.0",
     "icon": "./icon.png",
     "orientation": "portrait",
     "loading": {

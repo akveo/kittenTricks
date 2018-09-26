@@ -1,17 +1,16 @@
 import {
   StatusBar,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
-import {RkTheme} from 'react-native-ui-kitten';
-import {KittenTheme} from './theme';
-import {AvatarTypes} from '../components/avatar/types';
-import {GradientButtonTypes} from '../components/gradientButton/types';
-import {SwitchTypes} from '../components/switch/types';
-import {SocialBarTypes} from '../components/socialBar/types';
-import {scale, scaleModerate, scaleVertical} from '../utils/scale';
+import { RkTheme } from 'react-native-ui-kitten';
+import { KittenTheme } from './theme';
+import { AvatarTypes } from '../components/avatar/types';
+import { GradientButtonTypes } from '../components/gradientButton/types';
+import { SwitchTypes } from '../components/switch/types';
+import { SocialBarTypes } from '../components/socialBar/types';
+import { scale, scaleVertical } from '../utils/scale';
 
-export let bootstrap = () => {
-
+export const bootstrap = () => {
   RkTheme.setTheme(KittenTheme, null);
 
   /*
@@ -20,7 +19,7 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkText', 'basic', {
     fontFamily: theme => theme.fonts.family.bold,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   });
 
   RkTheme.setType('RkText', 'regular', {
@@ -44,114 +43,112 @@ export let bootstrap = () => {
   });
 
   RkTheme.setType('RkText', 'hero', {
-    fontSize: scale(33)
+    fontSize: scale(33),
   });
 
   RkTheme.setType('RkText', 'menuIcon', {
-    fontSize: 44
+    fontSize: 44,
   });
 
-  //all font sizes
-  for (let key in RkTheme.current.fonts.sizes) {
+  // all font sizes
+  Object.keys(RkTheme.current.fonts.sizes).forEach(key => {
     RkTheme.setType('RkText', key, {
-      fontSize: theme => theme.fonts.sizes[key]
+      fontSize: theme => theme.fonts.sizes[key],
     });
-  }
+  });
 
-  //all text colors
-  for (let key in RkTheme.current.colors.text) {
+  // all text colors
+  Object.keys(RkTheme.current.colors.text).forEach(key => {
     RkTheme.setType('RkText', `${key}Color`, {
-      color: theme => theme.colors.text[key]
+      color: theme => theme.colors.text[key],
     });
-  }
+  });
 
-  //all text line heights
-  for (let key in RkTheme.current.fonts.lineHeights) {
+  // all text line heights
+  Object.keys(RkTheme.current.fonts.lineHeights).forEach(key => {
     RkTheme.setType('RkText', `${key}Line`, {
-      text: {
-        lineHeight: theme => theme.fonts.lineHeights[key]
-      }
+      text: { lineHeight: theme => theme.fonts.lineHeights[key] },
     });
-  }
+  });
 
-  //theme text styles
+  // theme text styles
   RkTheme.setType('RkText', 'header1', {
     fontSize: theme => theme.fonts.sizes.h1,
-    fontFamily: theme => theme.fonts.family.bold
+    fontFamily: theme => theme.fonts.family.bold,
   });
   RkTheme.setType('RkText', 'header2', {
     fontSize: theme => theme.fonts.sizes.h2,
-    fontFamily: theme => theme.fonts.family.bold
+    fontFamily: theme => theme.fonts.family.bold,
   });
   RkTheme.setType('RkText', 'header3', {
     fontSize: theme => theme.fonts.sizes.h3,
-    fontFamily: theme => theme.fonts.family.bold
+    fontFamily: theme => theme.fonts.family.bold,
   });
   RkTheme.setType('RkText', 'header4', {
     fontSize: theme => theme.fonts.sizes.h4,
-    fontFamily: theme => theme.fonts.family.bold
+    fontFamily: theme => theme.fonts.family.bold,
   });
   RkTheme.setType('RkText', 'header5', {
     fontSize: theme => theme.fonts.sizes.h5,
-    fontFamily: theme => theme.fonts.family.bold
+    fontFamily: theme => theme.fonts.family.bold,
   });
   RkTheme.setType('RkText', 'header6', {
     fontSize: theme => theme.fonts.sizes.h6,
-    fontFamily: theme => theme.fonts.family.bold
+    fontFamily: theme => theme.fonts.family.bold,
   });
   RkTheme.setType('RkText', 'secondary1', {
     fontSize: theme => theme.fonts.sizes.s1,
-    fontFamily: theme => theme.fonts.family.light
+    fontFamily: theme => theme.fonts.family.light,
   });
   RkTheme.setType('RkText', 'secondary2', {
     fontSize: theme => theme.fonts.sizes.s2,
-    fontFamily: theme => theme.fonts.family.light
+    fontFamily: theme => theme.fonts.family.light,
   });
   RkTheme.setType('RkText', 'secondary3', {
     fontSize: theme => theme.fonts.sizes.s3,
-    fontFamily: theme => theme.fonts.family.regular
+    fontFamily: theme => theme.fonts.family.regular,
   });
   RkTheme.setType('RkText', 'secondary4', {
     fontSize: theme => theme.fonts.sizes.s4,
-    fontFamily: theme => theme.fonts.family.regular
+    fontFamily: theme => theme.fonts.family.regular,
   });
   RkTheme.setType('RkText', 'secondary5', {
     fontSize: theme => theme.fonts.sizes.s5,
-    fontFamily: theme => theme.fonts.family.light
+    fontFamily: theme => theme.fonts.family.light,
   });
   RkTheme.setType('RkText', 'secondary6', {
     fontSize: theme => theme.fonts.sizes.s6,
-    fontFamily: theme => theme.fonts.family.light
+    fontFamily: theme => theme.fonts.family.light,
   });
   RkTheme.setType('RkText', 'secondary7', {
     fontSize: theme => theme.fonts.sizes.s7,
-    fontFamily: theme => theme.fonts.family.regular
+    fontFamily: theme => theme.fonts.family.regular,
   });
   RkTheme.setType('RkText', 'primary1', {
     fontSize: theme => theme.fonts.sizes.p1,
-    fontFamily: theme => theme.fonts.family.light
+    fontFamily: theme => theme.fonts.family.light,
   });
   RkTheme.setType('RkText', 'primary2', {
     fontSize: theme => theme.fonts.sizes.p2,
-    fontFamily: theme => theme.fonts.family.regular
+    fontFamily: theme => theme.fonts.family.regular,
   });
   RkTheme.setType('RkText', 'primary3', {
     fontSize: theme => theme.fonts.sizes.p3,
-    fontFamily: theme => theme.fonts.family.light
+    fontFamily: theme => theme.fonts.family.light,
   });
   RkTheme.setType('RkText', 'primary4', {
     fontSize: theme => theme.fonts.sizes.p4,
-    fontFamily: theme => theme.fonts.family.regular
+    fontFamily: theme => theme.fonts.family.regular,
   });
 
   RkTheme.setType('RkText', 'center', {
     text: {
-      textAlign: 'center'
-    }
+      textAlign: 'center',
+    },
   });
 
   RkTheme.setType('RkText', 'chat', {
-    color: theme => theme.colors.chat.text
+    color: theme => theme.colors.chat.text,
   });
   /*
    RkButton types
@@ -160,7 +157,7 @@ export let bootstrap = () => {
   RkTheme.setType('RkButton', 'basic', {
     container: {
       alignSelf: 'auto',
-    }
+    },
   });
 
   RkTheme.setType('RkButton', 'square', {
@@ -168,7 +165,7 @@ export let bootstrap = () => {
     backgroundColor: theme => theme.colors.button.back,
     container: {
       flexDirection: 'column',
-      margin: 8
+      margin: 8,
     },
   });
 
@@ -178,8 +175,8 @@ export let bootstrap = () => {
     borderWidth: 0.5,
     borderColor: theme => theme.colors.border.base,
     container: {
-      flexDirection: 'column'
-    }
+      flexDirection: 'column',
+    },
   });
 
   RkTheme.setType('RkButton', 'link', {
@@ -195,11 +192,11 @@ export let bootstrap = () => {
     width: scale(56),
     borderColor: theme => theme.colors.border.base,
     backgroundColor: theme => theme.colors.control.background,
-    borderWidth: 1
+    borderWidth: 1,
   });
 
   RkTheme.setType('RkButton', 'highlight', {
-    backgroundColor: theme => theme.colors.button.highlight
+    backgroundColor: theme => theme.colors.button.highlight,
   });
 
   RkTheme.setType('RkButton', 'social', {
@@ -208,7 +205,7 @@ export let bootstrap = () => {
     borderRadius: scale(31),
     borderColor: theme => theme.colors.border.accent,
     borderWidth: 1,
-    backgroundColor: theme => theme.colors.control.background
+    backgroundColor: theme => theme.colors.control.background,
   });
   /*
    RkModalImg types
@@ -219,15 +216,15 @@ export let bootstrap = () => {
       margin: 1.5,
     },
     modal: {
-      backgroundColor: theme => theme.colors.screen.base
+      backgroundColor: theme => theme.colors.screen.base,
     },
     footer: {
       backgroundColor: theme => theme.colors.screen.base,
-      height: 50
+      height: 50,
     },
     header: {
       backgroundColor: theme => theme.colors.screen.base,
-      paddingBottom: 6
+      paddingBottom: 6,
     },
   });
 
@@ -237,7 +234,7 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkTextInput', 'basic', {
     input: {
-      fontFamily: theme => theme.fonts.family.bold
+      fontFamily: theme => theme.fonts.family.bold,
     },
     color: theme => theme.colors.text.base,
     backgroundColor: theme => theme.colors.control.background,
@@ -253,7 +250,7 @@ export let bootstrap = () => {
     input: {
       marginVertical: {
         ios: scaleVertical(15),
-        android: scaleVertical(4)
+        android: scaleVertical(4),
       },
     },
   });
@@ -264,14 +261,14 @@ export let bootstrap = () => {
       textAlign: 'right',
       marginTop: {
         ios: scaleVertical(18),
-        android: scaleVertical(11)
-      }
+        android: scaleVertical(11),
+      },
     },
     label: {
       fontFamily: theme => theme.fonts.family.light,
     },
     container: {
-      marginVertical: 4
+      marginVertical: 4,
     },
     backgroundColor: 'transparent',
     labelFontSize: theme => theme.fonts.sizes.small,
@@ -284,7 +281,7 @@ export let bootstrap = () => {
       marginTop: 0,
       paddingTop: {
         ios: 2,
-        android: 0
+        android: 0,
       },
       paddingBottom: 0,
       textAlignVertical: 'center',
@@ -297,7 +294,7 @@ export let bootstrap = () => {
       backgroundColor: theme => theme.colors.input.background,
       marginVertical: 0,
       borderRadius: 20,
-      paddingHorizontal: 16
+      paddingHorizontal: 16,
     },
 
   });
@@ -305,25 +302,25 @@ export let bootstrap = () => {
   RkTheme.setType('RkTextInput', 'iconRight', {
     label: {
       position: 'absolute',
-      right: 0
+      right: 0,
     },
     input: {
-      marginRight: scale(46)
+      marginRight: scale(46),
     },
   });
 
   RkTheme.setType('RkTextInput', 'sticker', {
     input: {
-      marginHorizontal: 14
+      marginHorizontal: 14,
     },
     container: {
       justifyContent: 'center',
-      paddingHorizontal: 0
+      paddingHorizontal: 0,
     },
     label: {
       position: 'absolute',
-      right: 0
-    }
+      right: 0,
+    },
   });
 
   /*
@@ -333,54 +330,54 @@ export let bootstrap = () => {
   RkTheme.setType('RkCard', 'basic', {
     container: {
       borderRadius: 3,
-      backgroundColor: theme => theme.colors.control.background
+      backgroundColor: theme => theme.colors.control.background,
     },
     header: {
       justifyContent: 'flex-start',
-      paddingVertical: 14
+      paddingVertical: 14,
     },
     content: {
-      padding: 16
+      padding: 16,
     },
     footer: {
       paddingBottom: 20,
       paddingTop: 7.5,
-      paddingHorizontal: 0
-    }
+      paddingHorizontal: 0,
+    },
   });
 
   RkTheme.setType('RkCard', 'backImg', {
     container: {
       borderWidth: 0,
-      borderRadius: 0
+      borderRadius: 0,
     },
     img: {
-      height: 225
+      height: 225,
     },
     imgOverlay: {
       height: 225,
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
     },
     content: {
-      paddingHorizontal: 14
+      paddingHorizontal: 14,
     },
     footer: {
       paddingTop: 15,
       paddingBottom: 0,
       paddingVertical: 7.5,
-      paddingHorizontal: 0
-    }
+      paddingHorizontal: 0,
+    },
   });
 
 
   RkTheme.setType('RkCard', 'imgBlock', {
     img: {
-      height: 235
+      height: 235,
     },
     header: {
       padding: 0,
       paddingVertical: 13,
-      paddingHorizontal: 16
+      paddingHorizontal: 16,
     },
     imgOverlay: {
       height: -1,
@@ -389,14 +386,14 @@ export let bootstrap = () => {
       paddingTop: 18,
       paddingBottom: 15,
       paddingVertical: 0,
-      paddingHorizontal: 0
-    }
+      paddingHorizontal: 0,
+    },
   });
 
   RkTheme.setType('RkCard', 'horizontal', {
     container: {
       flexDirection: 'row',
-      height: 110
+      height: 110,
     },
     content: {
       flex: 1,
@@ -404,8 +401,8 @@ export let bootstrap = () => {
     img: {
       height: null,
       flex: -1,
-      width: 120
-    }
+      width: 120,
+    },
   });
 
   RkTheme.setType('RkCard', 'blog', {
@@ -417,20 +414,20 @@ export let bootstrap = () => {
     content: {
       padding: 0,
       paddingVertical: 0,
-      paddingTop: 12
+      paddingTop: 12,
     },
     footer: {
       paddingHorizontal: 16,
       paddingTop: 15,
       paddingBottom: 16,
-      alignItems: 'center'
-    }
+      alignItems: 'center',
+    },
   });
 
   RkTheme.setType('RkCard', 'article', {
     container: {
       borderWidth: 0,
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
     },
     header: {
       paddingVertical: 0,
@@ -438,42 +435,42 @@ export let bootstrap = () => {
       paddingBottom: 16,
       justifyContent: 'space-between',
       borderBottomWidth: StyleSheet.hairlineWidth,
-      borderColor: theme => theme.colors.border.base
+      borderColor: theme => theme.colors.border.base,
     },
     content: {
       padding: 16,
       borderBottomWidth: 1,
-      borderColor: theme => theme.colors.border.base
+      borderColor: theme => theme.colors.border.base,
     },
     footer: {
       paddingHorizontal: 14,
       paddingTop: 15,
       paddingBottom: 16,
-      alignItems: 'center'
-    }
+      alignItems: 'center',
+    },
   });
 
   RkTheme.setType('RkCard', 'credit', {
     container: {
       borderWidth: 0,
-      borderRadius: 7
+      borderRadius: 7,
     },
     header: {
       justifyContent: 'space-between',
       paddingHorizontal: 14,
       alignItems: 'center',
-      paddingBottom: scaleVertical(46)
+      paddingBottom: scaleVertical(46),
     },
     content: {
       alignItems: 'center',
-      paddingVertical: 0
+      paddingVertical: 0,
     },
     footer: {
       paddingBottom: scaleVertical(14),
       paddingTop: scaleVertical(16),
       paddingHorizontal: 14,
-      alignItems: 'flex-end'
-    }
+      alignItems: 'flex-end',
+    },
   });
 
   RkTheme.setType('RkPicker', 'highlight', {

@@ -1,2 +1,2 @@
-export * from './categoryMenu'
-export * from './menus'
+export * from './categoryMenu';
+export * from './menus';

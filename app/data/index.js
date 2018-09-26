@@ -1,15 +1,14 @@
-import populate from './dataGenerator'
-import users from './raw/users'
-import articles from './raw/articles'
-import notifications from './raw/notifications'
-import conversations from './raw/conversations'
-import cards from './raw/cards'
-import _ from 'lodash'
+import _ from 'lodash';
+import populate from './dataGenerator';
+import users from './raw/users';
+import articles from './raw/articles';
+import notifications from './raw/notifications';
+import conversations from './raw/conversations';
+import cards from './raw/cards';
 
 class DataProvider {
-
   getUser(id = 1) {
-    return _.find(users, x => x.id == id);
+    return _.find(users, x => x.id === id);
   }
 
   getUsers() {
@@ -21,16 +20,16 @@ class DataProvider {
   }
 
   getArticles(type = 'article') {
-    return _.filter(articles, x => x.type == type);
+    return _.filter(articles, x => x.type === type);
   }
 
   getArticle(id) {
-    return _.find(articles, x => x.id == id);
+    return _.find(articles, x => x.id === id);
   }
 
 
   getConversation(userId = 1) {
-    return _.find(conversations, x => x.withUser.id == userId);
+    return _.find(conversations, x => x.withUser.id === userId);
   }
 
   getChatList() {
@@ -50,4 +49,4 @@ class DataProvider {
   }
 }
 
-export let data = new DataProvider();
+export const data = new DataProvider();

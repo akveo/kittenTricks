@@ -1,37 +1,45 @@
-import users from './raw/users'
-import articles from './raw/articles'
-import notifications from './raw/notifications'
-import conversations from './raw/conversations'
-import _ from 'lodash'
+import _ from 'lodash';
+import users from './raw/users';
+import articles from './raw/articles';
+import notifications from './raw/notifications';
+import conversations from './raw/conversations';
 
-function populateArticles() {
-  for (let article of articles) {
-    let userId = articles.indexOf(article) % users.length;
-    article.user = _.find(users, x => x.id == userId) || users[0];
-    for (let comment of article.comments) {
-      let userId = article.comments.indexOf(comment) % users.length;
-      comment.user = _.find(users, x => x.id == userId) || users[0];
-    }
-  }
-}
+const populateArticles = () => {
+  articles.forEach(article => {
+    const userArticle = article;
+    const userId = articles.indexOf(article) % users.length;
+    userArticle.user = _.find(users, x => x.id === userId) || users[0];
+    userArticle.comments.map(comment => {
+      const userComment = comment;
+      const commentUserId = article.comments.indexOf(comment) % users.length;
+      userComment.user = _.find(users, x => x.id === commentUserId) || users[0];
+      return userComment;
+    });
+    return userArticle;
+  });
+};
 
-function populateNotifications() {
-  for (let notification of notifications) {
-    let userId = notifications.indexOf(notification) % users.length;
-    notification.user = _.find(users, x => x.id == userId) || users[0];
-  }
-}
+const populateNotifications = () => {
+  notifications.map(notification => {
+    const userNotification = notification;
+    const userId = notifications.indexOf(notification) % users.length;
+    userNotification.user = _.find(users, x => x.id === userId) || users[0];
+    return userNotification;
+  });
+};
 
-function populateConversations() {
-  for (let conversation of conversations) {
-    conversation.withUser = _.find(users, x => x.id == conversation.withUserId) || users[0];
-  }
-}
+const populateConversations = () => {
+  conversations.map(conversation => {
+    const userConversation = conversation;
+    userConversation.withUser = _.find(users, x => x.id === conversation.withUserId) || users[0];
+    return userConversation;
+  });
+};
 
-let populate = () => {
+const populate = () => {
   populateArticles();
   populateNotifications();
   populateConversations();
 };
 
-export default populate
+export default populate;

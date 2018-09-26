@@ -36,11 +36,9 @@ const Colors = {
   gradientAxpEnd: '#3bb2bb',
   highlight: '#acacd2',
 
-  // -----
   faded: '#e5e5e5',
   icon: '#c2c2c2',
   neutral: '#f2f2f2',
-
 
   info: '#2942ff',
   warning: '#feb401',
@@ -57,9 +55,8 @@ const Colors = {
   followersThird: '#081c6e',
   followersFourth: '#09103f',
 
-  chartsAreaStroke:'#2942ff',
-  chartsAreaFill: '#0d1238'
-
+  chartsAreaStroke: '#2942ff',
+  chartsAreaFill: '#0d1238',
 };
 
 const Fonts = {
@@ -88,19 +85,19 @@ export const DarkKittenTheme = {
       secondary: Colors.foreground,
       accent: Colors.accent,
       inverse: Colors.inverseForeground,
-      hint: Colors.alterForeground
+      hint: Colors.alterForeground,
     },
     screen: {
       base: Colors.background,
       alter: Colors.alterBackground,
       scroll: Colors.background,
       bold: Colors.boldBackground,
-      overlay: Colors.overlayBackground
+      overlay: Colors.overlayBackground,
     },
     button: {
       back: Colors.alterBackground,
       underlay: Colors.neutralBackground,
-      highlight: Colors.brandBackground
+      highlight: Colors.brandBackground,
     },
     input: {
       text: Colors.alterForeground,
@@ -115,7 +112,7 @@ export const DarkKittenTheme = {
       highlight: Colors.highlight,
     },
     control: {
-      background: Colors.alterBackground
+      background: Colors.alterBackground,
     },
     badge: {
       likeBackground: Colors.foreground,
@@ -126,13 +123,25 @@ export const DarkKittenTheme = {
     chat: {
       messageInBackground: Colors.fadedBackground,
       messageOutBackground: Colors.neutralBackground,
-      text: Colors.fadedForeground
+      text: Colors.fadedForeground,
     },
     gradients: {
-      base: [Colors.gradientBaseBegin, Colors.gradientBaseEnd],
-      visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
-      mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
-      axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
+      base: [
+        Colors.gradientBaseBegin,
+        Colors.gradientBaseEnd,
+      ],
+      visa: [
+        Colors.gradientVisaBegin,
+        Colors.gradientVisaEnd,
+      ],
+      mastercard: [
+        Colors.gradientMasterBegin,
+        Colors.gradientMasterEnd,
+      ],
+      axp: [
+        Colors.gradientAxpBegin,
+        Colors.gradientAxpEnd,
+      ],
     },
     dashboard: {
       stars: Colors.alterBackground,
@@ -141,13 +150,23 @@ export const DarkKittenTheme = {
     },
     charts: {
       followersProgress: Colors.followersProgress,
-      doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
-      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      doughnut: [
+        Colors.doughnutFirst,
+        Colors.doughnutSecond,
+        Colors.doughnutThird,
+        Colors.doughnutFourth,
+      ],
+      followersArea: [
+        Colors.followersFirst,
+        Colors.followersSecond,
+        Colors.followersThird,
+        Colors.followersFourth,
+      ],
       area: {
         stroke: Colors.chartsAreaStroke,
-        fill: Colors.chartsAreaFill
-      }
-    }
+        fill: Colors.chartsAreaFill,
+      },
+    },
   },
   fonts: {
     sizes: {
@@ -170,7 +189,7 @@ export const DarkKittenTheme = {
       s6: 13,
       s7: 10,
       base: FontBaseValue,
-      small: FontBaseValue * .8,
+      small: FontBaseValue * 0.8,
       medium: FontBaseValue,
       large: FontBaseValue * 1.2,
       xlarge: FontBaseValue / 0.75,
@@ -178,13 +197,13 @@ export const DarkKittenTheme = {
     },
     lineHeights: {
       medium: 18,
-      big: 24
+      big: 24,
     },
     family: {
       regular: Fonts.regular,
       light: Fonts.light,
       bold: Fonts.bold,
-      logo: Fonts.logo
-    }
-  }
+      logo: Fonts.logo,
+    },
+  },
 };

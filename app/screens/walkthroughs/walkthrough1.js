@@ -1,42 +1,40 @@
 import React from 'react';
 import {
+  View,
   Image,
-  View
 } from 'react-native';
 import {
   RkText,
   RkStyleSheet,
-  RkTheme
+  RkTheme,
 } from 'react-native-ui-kitten';
 
 export class Walkthrough1 extends React.Component {
+  getThemeImageSource = (theme) => (
+    theme.name === 'light' ?
+      require('../../assets/images/kittenImage.png') : require('../../assets/images/kittenImageDark.png')
+  );
 
-  constructor(props) {
-    super(props);
-  }
+  renderImage = () => (
+    <Image source={this.getThemeImageSource(RkTheme.current)} />
+  );
 
-  render() {
-    let image = RkTheme.current.name === 'light'
-      ? <Image source={require('../../assets/images/kittenImage.png')}/>
-      : <Image source={require('../../assets/images/kittenImageDark.png')}/>;
-
-    return (
-      <View style={styles.screen}>
-        {image}
-        <RkText rkType='header2' style={styles.text}>Welcome to Kitten Tricks</RkText>
-      </View>
-    )
-  }
+  render = () => (
+    <View style={styles.screen}>
+      {this.renderImage()}
+      <RkText rkType='header2' style={styles.text}>Welcome to Kitten Tricks</RkText>
+    </View>
+  )
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   screen: {
     backgroundColor: theme.colors.screen.base,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
   },
   text: {
-    marginTop: 20
-  }
+    marginTop: 20,
+  },
 }));

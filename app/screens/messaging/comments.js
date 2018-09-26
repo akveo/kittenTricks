@@ -3,84 +3,84 @@ import {
   FlatList,
   View,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import {
   RkStyleSheet,
-  RkText
+  RkText,
 } from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+import { Avatar } from '../../components';
+import { data } from '../../data';
+import NavigationType from '../../config/navigation/propTypes';
+
+const moment = require('moment');
 
 export class Comments extends React.Component {
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+  };
   static navigationOptions = {
-    title: 'Comments'.toUpperCase()
+    title: 'Comments'.toUpperCase(),
   };
 
   constructor(props) {
     super(props);
-    let postId = this.props.navigation.params ? this.props.navigation.params.postId : undefined;
-    this.chats = data.getComments(postId);
+    const postId = this.props.navigation.getParam('postId', undefined);
     this.state = {
-      data: this.chats
+      data: data.getComments(postId),
     };
-    this.renderItem = this._renderItem.bind(this);
   }
 
-  _keyExtractor(item, index) {
-    return item.id;
-  }
+  extractItemKey = (item) => `${item.id}`;
 
-  _renderSeparator() {
-    return (
-      <View style={styles.separator}/>
-    )
-  }
+  onItemPressed = (item) => {
+    const navigationParams = { id: item.user.id };
+    this.props.navigation.navigate('ProfileV1', navigationParams);
+  };
 
-  _renderItem(info) {
-    let name = `${info.item.user.firstName} ${info.item.user.lastName}`;
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: info.item.user.id})}>
-          <Avatar rkType='circle' style={styles.avatar} img={info.item.user.photo}/>
-        </TouchableOpacity>
-        <View style={styles.content}>
-          <View style={styles.contentHeader}>
-            <RkText rkType='header5'>{name}</RkText>
-            <RkText rkType='secondary4 hintColor'>
-              {moment().add(info.item.time, 'seconds').format('LT')}
-            </RkText>
-          </View>
-          <RkText rkType='primary3 mediumLine'>{info.item.text}</RkText>
+  renderSeparator = () => (
+    <View style={styles.separator} />
+  );
+
+  renderItem = ({ item }) => (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => this.onItemPressed(item)}>
+        <Avatar rkType='circle' style={styles.avatar} img={item.user.photo} />
+      </TouchableOpacity>
+      <View style={styles.content}>
+        <View style={styles.contentHeader}>
+          <RkText rkType='header5'>{`${item.user.firstName} ${item.user.lastName}`}</RkText>
+          <RkText rkType='secondary4 hintColor'>
+            {moment().add(item.time, 'seconds').format('LT')}
+          </RkText>
         </View>
+        <RkText rkType='primary3 mediumLine'>{item.text}</RkText>
       </View>
-    )
-  }
+    </View>
+  );
 
-  render() {
-    return (
-      <FlatList
-        style={styles.root}
-        data={this.state.data}
-        extraData={this.state}
-        ItemSeparatorComponent={this._renderSeparator}
-        keyExtractor={this._keyExtractor}
-        renderItem={this.renderItem}/>
-    )
-  }
+  render = () => (
+    <FlatList
+      style={styles.root}
+      data={this.state.data}
+      extraData={this.state}
+      ItemSeparatorComponent={this.renderSeparator}
+      keyExtractor={this.extractItemKey}
+      renderItem={this.renderItem}
+    />
+  );
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   root: {
-    backgroundColor: theme.colors.screen.base
+    backgroundColor: theme.colors.screen.base,
   },
   container: {
     paddingLeft: 19,
     paddingRight: 16,
     paddingVertical: 12,
     flexDirection: 'row',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   content: {
     marginLeft: 16,
@@ -89,10 +89,10 @@ let styles = RkStyleSheet.create(theme => ({
   contentHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 6
+    marginBottom: 6,
   },
   separator: {
     height: StyleSheet.hairlineWidth,
-    backgroundColor: theme.colors.border.base
-  }
+    backgroundColor: theme.colors.border.base,
+  },
 }));

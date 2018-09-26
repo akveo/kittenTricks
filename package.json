@@ -8,34 +8,49 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint app/**/*",
+    "prepush": "npm run lint"
   },
   "dependencies": {
-    "expo": "24.0.2",
+    "expo": "28.0.0",
+    "expo-analytics": "1.0.6",
     "hoist-non-react-statics": "2.3.1",
     "lodash": "4.17.4",
     "moment": "2.20.1",
     "prop-types": "15.6.0",
-    "react": "16.0.0",
-    "react-native": "0.51.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-28.0.1.tar.gz",
     "react-native-keyboard-spacer": "0.4.1",
     "react-native-linear-gradient": "2.4.0",
     "react-native-progress-bar": "0.1.2",
+    "react-native-svg": "^6.5.2",
     "react-native-switch-pro": "0.4.6",
-    "react-native-ui-kitten": "3.0.0",
-    "react-navigation": "1.0.0-beta.23",
-    "victory-native": "0.15.0",
-    "expo-analytics":"1.0.6"
+    "react-native-ui-kitten": "3.0.1",
+    "react-navigation": "2.11.2",
+    "victory-native": "0.15.0"
   },
   "devDependencies": {
+    "babel-eslint": "8.2.2",
     "babel-jest": "19.0.0",
     "babel-preset-react-native": "1.9.1",
-    "jest": "19.0.2",
-    "react-test-renderer": "16.0.0-alpha.6",
-    "react-native-scripts": "1.9.0"
+    "eslint": "4.19.1",
+    "eslint-config-akveo-react": "1.0.0",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "jest-expo": "28.0.0",
+    "husky": "0.14.3",
+    "react-test-renderer": "16.3.1",
+    "react-native-scripts": "1.14.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run prepush"
+    }
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "jest-expo"
   },
   "main": "./app/app.js"
 }

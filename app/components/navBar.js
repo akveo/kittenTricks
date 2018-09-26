@@ -2,114 +2,119 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Dimensions
 } from 'react-native';
+import { DrawerActions } from 'react-navigation';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {RkText, RkButton, RkStyleSheet} from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
-import {UIConstants} from '../config/appConstants';
-import {scale, scaleModerate, scaleVertical} from '../utils/scale';
+import { RkText, RkButton, RkStyleSheet } from 'react-native-ui-kitten';
+import { FontAwesome } from '../assets/icons';
+import { UIConstants } from '../config/appConstants';
+import NavigationType from '../config/navigation/propTypes';
 
 export class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {width: undefined};
+  static propTypes = {
+    navigation: NavigationType.isRequired,
+    headerProps: PropTypes.shape().isRequired,
+  };
 
-  }
+  onNavigationLeftMenuButtonPressed = () => {
+    this.props.navigation.dispatch(DrawerActions.openDrawer());
+  };
 
-  _renderRight(headerRight) {
-    let windowWidth = Dimensions.get('window').width;
-    const width = this.state.width
-      ? (windowWidth - this.state.width) / 2
-      : undefined;
+  onNavigationLeftBackButtonPressed = () => {
+    this.props.navigation.goBack();
+  };
 
-    return headerRight && (
-        <View style={[{width}, styles.right]}>{headerRight}</View>
-      );
-  }
+  renderTitleItem = (title, options) => {
+    const isCustom = options !== undefined;
+    return isCustom ? this.renderCustomTitleItem(options) : this.renderNavigationTitleItem(title);
+  };
 
-  _renderLeft(headerLeft) {
-    if (headerLeft) {
-      return (
-        <View style={styles.left}>{headerLeft}</View>
-      )
-    }
+  renderLeftItem = (options) => {
+    const isCustom = options !== undefined;
+    return isCustom ? this.renderCustomLeftItem(options) : this.renderNavigationLeftItem();
+  };
 
-    let windowWidth = Dimensions.get('window').width;
-    const width = this.state.width
-      ? (windowWidth - this.state.width) / 2
-      : undefined;
+  renderRightItem = (options) => {
+    const isCustom = options !== undefined;
+    return isCustom ? this.renderCustomRightItem(options) : this.renderNavigationRightItem();
+  };
 
-    let renderLeftContent = () => {
-      let index = _.findIndex(this.props.headerProps.scenes, {isActive: true});
-      if (index > 0) {
-        return <RkButton
-          rkType='clear'
-          style={styles.menu}
-          onPress={() => {
-            this.props.navigation.goBack()
-          }}>
-          <RkText rkType='awesome hero'>{FontAwesome.chevronLeft}</RkText>
-        </RkButton>
-      }
-      else {
-        return <RkButton
-          rkType='clear'
-          style={styles.menu}
-          onPress={() => {
-            this.props.navigation.navigate('DrawerOpen')
-          }}>
-          <RkText rkType='awesome'>{FontAwesome.bars}</RkText>
-        </RkButton>
-      }
-    };
+  renderNavigationTitleItem = (title) => (
+    <View style={styles.title}>
+      <RkText>{title}</RkText>
+    </View>
+  );
 
+  renderNavigationLeftBackItem = () => (
+    <RkButton
+      rkType='clear'
+      style={styles.menu}
+      onPress={this.onNavigationLeftBackButtonPressed}>
+      <RkText rkType='awesome hero'>{FontAwesome.chevronLeft}</RkText>
+    </RkButton>
+  );
+
+  renderNavigationLeftMenuItem = () => (
+    <RkButton
+      rkType='clear'
+      style={styles.menu}
+      onPress={this.onNavigationLeftMenuButtonPressed}>
+      <RkText rkType='awesome'>{FontAwesome.bars}</RkText>
+    </RkButton>
+  );
+
+  renderNavigationLeftItemContent = (sceneIndex) => {
+    const isFirstScene = sceneIndex === 0;
+    return isFirstScene ? this.renderNavigationLeftMenuItem() : this.renderNavigationLeftBackItem();
+  };
+
+  renderNavigationLeftItem = () => {
+    const sceneIndex = _.findIndex(this.props.headerProps.scenes, { isActive: true });
     return (
-      <View style={[{width}, styles.left]}>
-        {renderLeftContent()}
+      <View style={styles.left}>
+        {this.renderNavigationLeftItemContent(sceneIndex)}
       </View>
-    )
-  }
+    );
+  };
 
-  _renderTitle(title, headerTitle) {
-    if (headerTitle) {
-      return (
-        <View style={styles.title} onLayout={onLayout}>{headerTitle}</View>);
-    }
+  renderNavigationRightItem = () => undefined;
 
-    const onLayout = (e) => {
-      this.setState({
-        width: e.nativeEvent.layout.width,
-      });
-    };
+  renderCustomTitleItem = (options) => (
+    <View
+      style={styles.title}>
+      {options}
+    </View>
+  );
 
-    return (
-      <View style={styles.title} onLayout={onLayout}>
-        <RkText>{title}</RkText>
-      </View>
-    )
-  }
+  renderCustomLeftItem = (options) => (
+    <View style={styles.left}>{options}</View>
+  );
+
+  renderCustomRightItem = (options) => (
+    <View style={styles.right}>{options}</View>
+  );
 
   render() {
-    let options = this.props.headerProps.getScreenDetails(this.props.headerProps.scene).options;
+    const { options } = this.props.headerProps.scene.descriptor;
     return (
       <View style={styles.layout}>
         <View style={styles.container}>
-          {this._renderTitle(options.title, options.headerTitle)}
-          {this._renderLeft(options.headerLeft)}
-          {this._renderRight(options.headerRight)}
+          {this.renderTitleItem(options.title, options.headerTitle)}
+          {this.renderLeftItem(options.headerLeft)}
+          {this.renderRightItem(options.headerRight)}
         </View>
       </View>
-    )
+    );
   }
 }
 
-let styles = RkStyleSheet.create(theme => ({
+const styles = RkStyleSheet.create(theme => ({
   layout: {
     backgroundColor: theme.colors.screen.base,
     paddingTop: UIConstants.StatusbarHeight,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.border.base
+    borderBottomColor: theme.colors.border.base,
   },
   container: {
     flexDirection: 'row',
@@ -120,14 +125,14 @@ let styles = RkStyleSheet.create(theme => ({
     position: 'absolute',
     top: 0,
     bottom: 0,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   right: {
     position: 'absolute',
     right: 0,
     top: 0,
     bottom: 0,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   title: {
     ...StyleSheet.absoluteFillObject,
@@ -135,6 +140,6 @@ let styles = RkStyleSheet.create(theme => ({
     alignItems: 'center',
   },
   menu: {
-    width: 40
-  }
+    width: 40,
+  },
 }));
