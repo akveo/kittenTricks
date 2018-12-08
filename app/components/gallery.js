@@ -28,6 +28,10 @@ export class Gallery extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({data: nextProps.items});
+  }
+
   extractItemKey = (index) => `${index}`;
 
   renderHeader = (options) => (
