@@ -62,7 +62,7 @@ export class Chat extends React.Component {
     if (Platform.OS === 'ios') {
       this.listRef.scrollToEnd();
     } else {
-      _.delay(this.listRef.scrollToEnd, 100);
+      _.delay(() => this.listRef.scrollToEnd, 100);
     }
   };
 
