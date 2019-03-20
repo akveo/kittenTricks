@@ -1,26 +1,29 @@
 {
   "expo": {
-    "name": "Kitten Tricks",
-    "slug": "kitten-tricks",
-    "githubUrl": "https://github.com/akveo/kittenTricks",
-    "sdkVersion": "28.0.0",
-    "icon": "./icon.png",
+    "name": "kittenTricks",
+    "slug": "kittenTricks",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
     "orientation": "portrait",
-    "loading": {
-      "icon": "./icon_rounded.png"
-    },
-    "androidStatusBar": {
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "bundleIdentifier": "com.akveo.kittentricks",
-      "buildNumber": "1.0.10",
       "supportsTablet": true
-    },
-    "android": {
-      "package": "com.akveo.kittentricks",
-      "versionCode": 16
-    },
-    "version": "1.0.10"
+    }
   }
 }
