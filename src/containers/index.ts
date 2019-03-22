@@ -4,4 +4,7 @@ export { AuthContainer } from './auth/auth.container';
 export { DashboardsContainer } from './dashboards/dashboards.container';
 export { MessagingContainer } from './messaging/messaging.container';
 export { OtherContainer } from './other/other.container';
-export { SocialContainer } from './social/social.container';
+export {
+  SocialContainer,
+  FollowersContainer,
+} from './social';

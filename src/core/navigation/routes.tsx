@@ -23,11 +23,27 @@ import {
   MessagingContainer,
   OtherContainer,
   SocialContainer,
+  FollowersContainer,
 } from '../../containers';
 import {
   StyleSheet,
   Image,
 } from 'react-native';
+
+const SocialNavigator: NavigationContainer = createStackNavigator(
+  {
+    Social: SocialContainer,
+    Followers: FollowersContainer,
+  },
+  {
+    initialRouteName: 'Social',
+    headerMode: 'none',
+    navigationOptions: ({ navigation }) => ({
+      ...navigation,
+      header: (props: HeaderProps) => renderAppBar(props, navigation),
+    }),
+  },
+);
 
 const HomeNavigator: NavigationContainer = createStackNavigator(
   {
@@ -37,7 +53,7 @@ const HomeNavigator: NavigationContainer = createStackNavigator(
     Dashboards: DashboardsContainer,
     Messaging: MessagingContainer,
     Other: OtherContainer,
-    Social: SocialContainer,
+    Social: SocialNavigator,
   },
   {
     initialRouteName: 'Home',
