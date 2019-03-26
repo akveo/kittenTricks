@@ -19,28 +19,28 @@ export class FollowersContainer extends React.Component<NavigationScreenProps, S
 
   public state: State = {
     followers: [],
-    loading: false,
+    loading: true,
   };
 
-  public componentWillMount(): void {
-    this.setLoading(true);
+  private onFollowersLoaded = (data) => {
+    this.setState({
+      followers: data.results,
+      loading: false,
+    });
+  };
+
+  public componentWillMount() {
     fetch(usersApi)
       .then(data => data.json())
-      .then(data => {
-        this.setState({ followers: data.results });
-        this.setLoading(false);
-      });
-  }
-
-  private setLoading(loading: boolean): void {
-    this.setState({ loading: loading });
+      .then(this.onFollowersLoaded);
   }
 
   public render(): React.ReactNode {
     return (
       <FollowersComponent
         followers={this.state.followers}
-        loading={this.state.loading}/>
+        loading={this.state.loading}
+      />
     );
   }
 }

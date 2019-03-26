@@ -1,43 +1,16 @@
-// TODO: now @kitten/... linked to the local react-native-ui-kitten project
 import React from 'react';
-import {
-  ThemeMappingType,
-  ThemeStyleType,
-} from 'eva/packages/types';
-import {
-  ApplicationProvider,
-  ThemeType,
-} from '@kitten/theme';
-import {
-  Button,
-} from '@kitten/ui';
-import {
-  mapping,
-  style,
-} from 'eva/packages/mapping-kitten/eva';
-import { theme } from 'eva/packages/theme/eva';
+import { default as mapping } from '@eva/eva';
+import { theme } from '@eva/theme-eva';
+import { ApplicationProvider } from '@kitten/theme';
 import { Router } from './core/navigation/routes';
 
-interface State {
-  mapping: ThemeMappingType;
-  styles: ThemeStyleType;
-  theme: ThemeType;
-}
-
-export default class App extends React.Component<{}, State> {
-
-  public state: State = {
-    mapping: mapping,
-    styles: style,
-    theme: theme,
-  };
+export default class App extends React.Component {
 
   public render(): React.ReactNode {
     return (
       <ApplicationProvider
-        styles={this.state.styles}
-        theme={this.state.theme}
-        mapping={this.state.mapping}>
+        mapping={mapping}
+        theme={theme}>
         <Router/>
       </ApplicationProvider>
     );

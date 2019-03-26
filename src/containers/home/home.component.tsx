@@ -17,7 +17,7 @@ import {
 
 interface HomeComponentProps {
   routes: ListItemProps[];
-  onPress?: (route: string) => void;
+  onCategorySelect?: (category: string) => void;
 }
 
 type Props = ThemedComponentProps & HomeComponentProps;
@@ -25,13 +25,15 @@ type Props = ThemedComponentProps & HomeComponentProps;
 class Home extends React.Component<Props> {
 
   private onPress = (event: GestureResponderEvent, index: number): void => {
-    if (this.props.onPress) {
-      this.props.onPress(this.props.routes[index].title);
+    if (this.props.onCategorySelect) {
+      const { routes } = this.props;
+
+      this.props.onCategorySelect(routes[index].title);
     }
   };
 
   private renderItem = (info: ListRenderItemInfo<ListItemProps>): React.ReactElement<ListItemProps> => {
-    const { item, index } = info;
+    const { item } = info;
 
     return (
       <ListItem
@@ -39,17 +41,20 @@ class Home extends React.Component<Props> {
         description={item.description}
         icon={item.icon}
         accessory={item.accessory}
-        onPress={this.onPress}>
-      </ListItem>
+        onPress={this.onPress}
+      />
     );
   };
 
   public render(): React.ReactNode {
+    const { routes, themedStyle } = this.props;
+
     return (
-      <View style={this.props.themedStyle.container}>
+      <View style={themedStyle.container}>
         <List
-          data={this.props.routes}
-          renderItem={this.renderItem}/>
+          data={routes}
+          renderItem={this.renderItem}
+        />
       </View>
     );
   }

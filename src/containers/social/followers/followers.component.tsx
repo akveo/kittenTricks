@@ -9,7 +9,6 @@ import {
   withStyles,
   ThemeType,
   ThemedComponentProps,
-  StyleType,
 } from '@kitten/theme';
 import {
   List,
@@ -32,6 +31,20 @@ type Props = & FollowersComponentProps & ThemedComponentProps;
 
 class Followers extends React.Component<Props> {
 
+  private renderAccessory = (): React.ReactElement<ButtonProps> => {
+    const { themedStyle } = this.props;
+
+    return (
+      <Button
+        style={themedStyle.button}
+        size='medium'
+        status='primary'
+        alignment='right'>
+        BUTTON
+      </Button>
+    );
+  };
+
   private renderAvatar = (source: string): React.ReactElement<AvatarProps> => {
     return (
       <Avatar
@@ -42,34 +55,25 @@ class Followers extends React.Component<Props> {
     );
   };
 
-  private renderAccessory = (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button
-        style={this.props.themedStyle.button}
-        size='medium'
-        status='primary'
-        alignment='right'
-        onPress={() => 1}>
-        Test
-      </Button>
-    );
-  };
-
   private renderFollower = (follower: ListRenderItemInfo<Follower>): React.ReactElement<ListItemProps> => {
-    const { item, index } = follower;
-    const avatar = (i: number, style: StyleType): React.ReactElement<AvatarProps> =>
-      this.renderAvatar(item.picture.large);
-    const accessory = (i: number, style: StyleType): React.ReactElement<ButtonProps> =>
-      this.renderAccessory();
+    const { item } = follower;
+
+    const avatar = (): React.ReactElement<AvatarProps> => {
+      return this.renderAvatar(item.picture.large);
+    };
+
+    const button = (): React.ReactElement<ButtonProps> => {
+      return this.renderAccessory();
+    };
 
     return (
       <ListItem
         title={`${item.name.first} ${item.name.last}`}
         description={`${item.location.city}, ${item.location.state}`}
         icon={avatar}
-        accessory={accessory}
-        onPress={() => 1}>
-      </ListItem>
+        accessory={button}
+        onPress={() => 1}
+      />
     );
   };
 
@@ -77,20 +81,28 @@ class Followers extends React.Component<Props> {
     return (
       <List
         data={this.props.followers}
-        renderItem={this.renderFollower}/>
+        renderItem={this.renderFollower}
+      />
     );
   };
 
   private renderLoading = (): React.ReactElement<ActivityIndicatorProps> => {
+    const { themedStyle } = this.props;
+
     return (
-      <ActivityIndicator size='large' color={this.props.themedStyle.loader.color}/>
+      <ActivityIndicator
+        size='large'
+        color={themedStyle.loader.color}
+      />
     );
   };
 
   public render(): React.ReactNode {
+    const { themedStyle, loading } = this.props;
+
     return (
-      <View style={this.props.themedStyle.container}>
-        {this.props.loading ? this.renderLoading() : this.renderFollowers()}
+      <View style={themedStyle.container}>
+        {loading ? this.renderLoading() : this.renderFollowers()}
       </View>
     );
   }

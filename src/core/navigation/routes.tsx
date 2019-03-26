@@ -4,17 +4,13 @@ import {
   createAppContainer,
   NavigationContainer,
   HeaderProps,
-  SafeAreaView,
-  NavigationScreenProp,
-  NavigationRoute,
+  NavigationScreenConfig,
+  NavigationScreenOptions,
 } from 'react-navigation';
-import { StyleType } from '@kitten/theme';
 import {
-  TopNavigationBar,
-  TopNavigationBarProps,
-  TopNavigationBarAction,
-  TopNavigationBarActionProps,
-} from '@kitten/ui';
+  AppBar,
+  AppBarProps,
+} from './appBar.component';
 import {
   HomeContainer,
   ArticlesContainer,
@@ -25,10 +21,23 @@ import {
   SocialContainer,
   FollowersContainer,
 } from '../../containers';
-import {
-  StyleSheet,
-  Image,
-} from 'react-native';
+
+const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<NavigationScreenOptions> => {
+
+  const backIconUri: string = 'https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png';
+
+  const header = (props: HeaderProps): React.ReactElement<AppBarProps> => {
+    return (
+      <AppBar
+        {...props}
+        backIcon={{uri: backIconUri}}
+        navigation={navigation}
+      />
+    );
+  };
+
+  return { ...navigation, header };
+};
 
 const SocialNavigator: NavigationContainer = createStackNavigator(
   {
@@ -38,10 +47,7 @@ const SocialNavigator: NavigationContainer = createStackNavigator(
   {
     initialRouteName: 'Social',
     headerMode: 'none',
-    navigationOptions: ({ navigation }) => ({
-      ...navigation,
-      header: (props: HeaderProps) => renderAppBar(props, navigation),
-    }),
+    navigationOptions: HeadingNavigationOptions,
   },
 );
 
@@ -58,10 +64,7 @@ const HomeNavigator: NavigationContainer = createStackNavigator(
   {
     initialRouteName: 'Home',
     headerMode: 'none',
-    navigationOptions: ({ navigation }) => ({
-      ...navigation,
-      header: (props: HeaderProps) => renderAppBar(props, navigation),
-    }),
+    navigationOptions: HeadingNavigationOptions,
   },
 );
 
@@ -74,37 +77,5 @@ const AppNavigator: NavigationContainer = createStackNavigator(
   },
 );
 
-const leftUri: string = 'https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png';
-
-function renderAppBar(props: HeaderProps,
-                      navigation: NavigationScreenProp<any>): React.ReactElement<TopNavigationBarProps> {
-
-  const leftControl: React.ReactElement<TopNavigationBarActionProps> | null =
-    navigation.state.index !== 0 ?
-      (<TopNavigationBarAction
-        icon={(style: StyleType) => <Image source={{ uri: leftUri }} style={style}/>}
-        onPress={() => props.navigation.goBack(null)}/>) : null;
-
-  const title: string = navigation.state.routes
-    .find((route: NavigationRoute, i: number) => i === navigation.state.index)
-    .routeName;
-  return (
-    <SafeAreaView style={styles.header}>
-      <TopNavigationBar
-        appearance='titleCentered'
-        title={title}
-        subtitle={navigation.state.index !== 0 ? title : null}
-        leftControl={leftControl}
-        rightControls={[]}
-      />
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: '#3366FF',
-  },
-});
 
 export const Router: NavigationContainer = createAppContainer(AppNavigator);
