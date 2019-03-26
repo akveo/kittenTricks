@@ -20,6 +20,7 @@ import {
   OtherContainer,
   SocialContainer,
   FollowersContainer,
+  SettingsContainer,
 } from '../../containers';
 
 const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<NavigationScreenOptions> => {
@@ -38,6 +39,16 @@ const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<Naviga
 
   return { ...navigation, header };
 };
+
+const SettingsNavigator: NavigationContainer = createStackNavigator(
+  {
+    Settings: SettingsContainer,
+  }, {
+    initialRouteName: 'Settings',
+    headerMode: 'none',
+    navigationOptions: HeadingNavigationOptions,
+  },
+);
 
 const SocialNavigator: NavigationContainer = createStackNavigator(
   {
@@ -60,6 +71,7 @@ const HomeNavigator: NavigationContainer = createStackNavigator(
     Messaging: MessagingContainer,
     Other: OtherContainer,
     Social: SocialNavigator,
+    Settings: SettingsNavigator,
   },
   {
     initialRouteName: 'Home',
@@ -71,9 +83,6 @@ const HomeNavigator: NavigationContainer = createStackNavigator(
 const AppNavigator: NavigationContainer = createStackNavigator(
   {
     Home: HomeNavigator,
-  },
-  {
-    initialRouteName: 'Home',
   },
 );
 

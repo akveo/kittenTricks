@@ -47,6 +47,12 @@ export class HomeContainer extends React.Component<NavigationScreenProps> {
       icon: OtherIcon,
       accessory: SelectIcon,
     },
+    {
+      title: 'Settings',
+      description: 'Settings',
+      icon: SettingsIcon,
+      accessory: SelectIcon,
+    },
   ];
 
 
@@ -92,6 +98,10 @@ const OtherIcon = (index: number, style: StyleType): React.ReactElement<ImagePro
 
 const SelectIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png', index, style);
+};
+
+const SettingsIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/settings.png', index, style);
 };
 
 const Icon = (source: string, index: number, style: StyleType): React.ReactElement<ImageProps> => {
