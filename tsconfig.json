@@ -15,6 +15,9 @@
       "es2015",
       "es2016"
     ],
+    "paths": {
+      "@kitten/*": ["../react-native-ui-kitten/src/framework/*"]
+    },
     "typeRoots": [
       "./node_modules/@types"
     ]

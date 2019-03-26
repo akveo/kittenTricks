@@ -1,56 +1,32 @@
-// TODO: now @kitten/... linked to the local react-native-ui-kitten project
 import React from 'react';
 import {
-  StyleSheet,
-  Text,
   View,
-  Button as ReactButton,
   Alert,
+  StyleSheet,
 } from 'react-native';
-import {
-  ThemeMappingType,
-  ThemeStyleType,
-} from 'eva/packages/types';
-import {
-  ApplicationProvider,
-  ThemeType,
-} from '@kitten/theme';
-import {
-  Button,
-} from '@kitten/ui';
-import {
-  mapping,
-  style,
-} from 'eva/packages/mapping-kitten/eva';
-import { theme } from 'eva/packages/theme/eva';
+import { ApplicationProvider } from '@kitten/theme';
+import { Button } from '@kitten/ui';
+import { default as mapping } from '@eva/eva';
+import { theme } from '@eva/theme-eva';
 
-interface State {
-  mapping: ThemeMappingType;
-  styles: ThemeStyleType;
-  theme: ThemeType;
-}
+export default class App extends React.Component {
 
-export default class App extends React.Component<{}, State> {
-
-  public state: State = {
-    mapping: mapping,
-    styles: style,
-    theme: theme,
+  private onKittenButtonPress = () => {
+    Alert.alert('Kitten on press');
   };
 
   public render(): React.ReactNode {
     return (
       <ApplicationProvider
-        styles={this.state.styles}
-        theme={this.state.theme}
-        mapping={this.state.mapping}>
+        theme={theme}
+        mapping={mapping}>
         <View style={styles.container}>
           <Button
-            onPress={() => Alert.alert('Kitten on press')}>Kitten Button</Button>
-          <ReactButton
-            title={'Test'}
-            onPress={() => Alert.alert('React on press')}/>
-          <Text>Hello Kitten!</Text>
+            size='giant'
+            status='success'
+            onPress={this.onKittenButtonPress}>
+            Kitten Button
+          </Button>
         </View>
       </ApplicationProvider>
     );
@@ -60,7 +36,6 @@ export default class App extends React.Component<{}, State> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
