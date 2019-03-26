@@ -15,26 +15,33 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "eva": "github:akveo/eva",
+    "@eva/eva": "github:akveo/eva#package/mapping-eva",
+    "@eva/processor-kitten": "github:akveo/eva#package/processor-kitten",
+    "@eva/theme-eva": "github:akveo/eva#package/theme-eva",
     "expo": "^32.0.0",
+    "hoist-non-react-statics": "^3.2.1",
+    "lodash.merge": "^4.6.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-navigation": "^3.5.1",
-    "hoist-non-react-statics": "^3.2.1"
+    "react-navigation": "^3.5.1"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
-    "react-native-typescript-transformer": "^1.2.10",
     "@babel/core": "^7.1.2",
     "@babel/runtime": "^7.1.2",
     "@types/react": "^16.4.18",
     "@types/react-native": "^0.57.7",
     "@types/react-navigation": "^2.13.7",
     "babel-core": "^7.0.0-bridge.0",
+    "babel-preset-expo": "^5.0.0",
+    "husky": "^1.1.2",
     "metro-react-native-babel-preset": "^0.49.0",
+    "react-native-typescript-transformer": "^1.2.10",
     "rimraf": "^2.6.2",
     "tslint": "^5.12.1",
-    "typescript": "^3.1.6",
-    "husky": "^1.1.2"
+    "typescript": "^3.1.6"
+  },
+  "peerDependencies": {
+    "@kitten/ui": "*",
+    "@kitten/theme": "*"
   }
 }
