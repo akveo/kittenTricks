@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { StyleType } from '@kitten/theme';
 
-export const Icon = (source: string, index: number, style: StyleType): React.ReactElement<ImageProps> => {
+export const Icon = (source: string, style: StyleType): React.ReactElement<ImageProps> => {
   return (
     <Image
       style={style}

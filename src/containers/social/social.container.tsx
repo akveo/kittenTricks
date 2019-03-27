@@ -5,7 +5,7 @@ import { SocialComponent } from './social.component';
 import {
   PersonIcon,
   ArrowIcon,
-} from '../../icons';
+} from '@src/icons';
 
 export class SocialContainer extends React.Component<NavigationScreenProps> {
 

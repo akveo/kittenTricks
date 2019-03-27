@@ -1,59 +1,46 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
+import { ListItemProps } from '@kitten/ui';
+import {
+  ArrowIcon,
+  EditIcon,
+} from '../../../icons';
 import { EditProfileComponent } from './editProfile.component';
 
-export enum Gender {
-  MALE = 'Male',
-  FEMALE = 'Female',
-}
+export class EditProfileContainer extends React.Component<NavigationScreenProps> {
 
-export interface Profile {
-  photo: string;
-  firstName: string;
-  lastName: string;
-  gender: Gender;
-  age: number;
-  weight: number;
-  height: number;
-  email: string;
-  phoneNumber: string;
-}
+  private routes: ListItemProps[] = [
+    {
+      title: 'Edit Profile 1',
+      description: 'Edit Profile 1',
+      icon: EditIcon,
+      accessory: ArrowIcon,
+    },
+    {
+      title: 'Edit Profile 2',
+      description: 'Edit Profile 2',
+      icon: EditIcon,
+      accessory: ArrowIcon,
+    },
 
-interface State {
-  profile: Profile;
-}
+    {
+      title: 'Edit Profile 3',
+      description: 'Edit Profile 3',
+      icon: EditIcon,
+      accessory: ArrowIcon,
+    },
+  ];
 
-export class EditProfileContainer extends React.Component<NavigationScreenProps, State> {
-
-  public state: State = {
-    profile: initialProfile,
-  };
-
-  private onUploadPhotoButtonPress = () => {
-  };
-
-  private onButtonPress = () => {
+  private onCategorySelect = (route: string): void => {
+    this.props.navigation.navigate(route);
   };
 
   public render(): React.ReactNode {
     return (
       <EditProfileComponent
-        profile={this.state.profile}
-        onUploadPhotoButtonPress={this.onUploadPhotoButtonPress}
-        onButtonPress={this.onButtonPress}
+        routes={this.routes}
+        onCategorySelect={this.onCategorySelect}
       />
     );
   }
 }
-
-const initialProfile: Profile = {
-  photo: 'https://randomuser.me/api/portraits/women/28.jpg',
-  firstName: 'Jennifer',
-  lastName: 'Austion',
-  gender: Gender.FEMALE,
-  age: 25,
-  weight: 75,
-  height: 174,
-  email: 'jen.austion@gmail.com',
-  phoneNumber: '+375 44 846 97 68',
-};

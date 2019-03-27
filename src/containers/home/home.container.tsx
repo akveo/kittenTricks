@@ -11,7 +11,7 @@ import {
   MessageIcon,
   MoreIcon,
   SettingsIcon,
-} from '../../icons';
+} from '@src/icons';
 
 export class HomeContainer extends React.Component<NavigationScreenProps> {
 

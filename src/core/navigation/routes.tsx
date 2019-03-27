@@ -21,8 +21,11 @@ import {
   SocialContainer,
   FollowersContainer,
   SettingsContainer,
+  EditProfileContainer,
+  EditProfile1Container,
+  EditProfile2Container,
+  EditProfile3Container,
 } from '../../containers';
-import { EditProfileContainer } from '../../containers/settings';
 
 const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<NavigationScreenOptions> => {
 
@@ -41,10 +44,23 @@ const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<Naviga
   return { ...navigation, header };
 };
 
+const EditProfileNavigator: NavigationContainer = createStackNavigator(
+  {
+    ['Edit Profile']: EditProfileContainer,
+    ['Edit Profile 1']: EditProfile1Container,
+    ['Edit Profile 2']: EditProfile2Container,
+    ['Edit Profile 3']: EditProfile3Container,
+  }, {
+    headerMode: 'none',
+    initialRouteName: 'Edit Profile',
+    navigationOptions: HeadingNavigationOptions,
+  },
+);
+
 const SettingsNavigator: NavigationContainer = createStackNavigator(
   {
-    Settings: SettingsContainer,
-    EditProfile: EditProfileContainer,
+    ['Settings']: SettingsContainer,
+    ['Edit Profile']: EditProfileNavigator,
   }, {
     initialRouteName: 'Settings',
     headerMode: 'none',
@@ -54,8 +70,8 @@ const SettingsNavigator: NavigationContainer = createStackNavigator(
 
 const SocialNavigator: NavigationContainer = createStackNavigator(
   {
-    Social: SocialContainer,
-    Followers: FollowersContainer,
+    ['Social']: SocialContainer,
+    ['Followers']: FollowersContainer,
   },
   {
     initialRouteName: 'Social',
@@ -66,14 +82,14 @@ const SocialNavigator: NavigationContainer = createStackNavigator(
 
 const HomeNavigator: NavigationContainer = createStackNavigator(
   {
-    Home: HomeContainer,
-    Articles: ArticlesContainer,
-    Auth: AuthContainer,
-    Dashboards: DashboardsContainer,
-    Messaging: MessagingContainer,
-    Other: OtherContainer,
-    Social: SocialNavigator,
-    Settings: SettingsNavigator,
+    ['Home']: HomeContainer,
+    ['Articles']: ArticlesContainer,
+    ['Auth']: AuthContainer,
+    ['Dashboards']: DashboardsContainer,
+    ['Messaging']: MessagingContainer,
+    ['Other']: OtherContainer,
+    ['Social']: SocialNavigator,
+    ['Settings']: SettingsNavigator,
   },
   {
     initialRouteName: 'Home',
@@ -84,7 +100,7 @@ const HomeNavigator: NavigationContainer = createStackNavigator(
 
 const AppNavigator: NavigationContainer = createStackNavigator(
   {
-    Home: HomeNavigator,
+    ['Home']: HomeNavigator,
   },
 );
 
