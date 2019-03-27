@@ -22,6 +22,7 @@ import {
   FollowersContainer,
   SettingsContainer,
 } from '../../containers';
+import { EditProfileContainer } from '../../containers/settings';
 
 const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<NavigationScreenOptions> => {
 
@@ -43,8 +44,9 @@ const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<Naviga
 const SettingsNavigator: NavigationContainer = createStackNavigator(
   {
     Settings: SettingsContainer,
+    EditProfile: EditProfileContainer,
   }, {
-    initialRouteName: 'Settings',
+    initialRouteName: 'EditProfile',
     headerMode: 'none',
     navigationOptions: HeadingNavigationOptions,
   },
@@ -82,7 +84,7 @@ const HomeNavigator: NavigationContainer = createStackNavigator(
 
 const AppNavigator: NavigationContainer = createStackNavigator(
   {
-    Home: HomeNavigator,
+    Home: SettingsNavigator,
   },
 );
 
