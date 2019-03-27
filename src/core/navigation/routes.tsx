@@ -46,7 +46,7 @@ const SettingsNavigator: NavigationContainer = createStackNavigator(
     Settings: SettingsContainer,
     EditProfile: EditProfileContainer,
   }, {
-    initialRouteName: 'EditProfile',
+    initialRouteName: 'Settings',
     headerMode: 'none',
     navigationOptions: HeadingNavigationOptions,
   },
@@ -84,7 +84,7 @@ const HomeNavigator: NavigationContainer = createStackNavigator(
 
 const AppNavigator: NavigationContainer = createStackNavigator(
   {
-    Home: SettingsNavigator,
+    Home: HomeNavigator,
   },
 );
 

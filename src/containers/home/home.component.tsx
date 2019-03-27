@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   ListRenderItemInfo,
   GestureResponderEvent,
 } from 'react-native';
@@ -50,12 +49,11 @@ class Home extends React.Component<Props> {
     const { routes, themedStyle } = this.props;
 
     return (
-      <View style={themedStyle.container}>
-        <List
-          data={routes}
-          renderItem={this.renderItem}
-        />
-      </View>
+      <List
+        style={themedStyle.container}
+        data={routes}
+        renderItem={this.renderItem}
+      />
     );
   }
 }
