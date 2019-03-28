@@ -1,12 +1,17 @@
 import React from 'react';
-import {
-  Image,
-  ImageProps,
-} from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
-import { StyleType } from '@kitten/theme';
 import { ListItemProps } from '@kitten/ui';
 import { HomeComponent } from './home.component';
+import {
+  ArrowIcon,
+  EditIcon,
+  HeartIcon,
+  LockIcon,
+  ListIcon,
+  MessageIcon,
+  MoreIcon,
+  SettingsIcon,
+} from '@src/icons';
 
 export class HomeContainer extends React.Component<NavigationScreenProps> {
 
@@ -14,38 +19,44 @@ export class HomeContainer extends React.Component<NavigationScreenProps> {
     {
       title: 'Auth',
       description: 'Auth',
-      icon: AuthIcon,
-      accessory: SelectIcon,
+      icon: LockIcon,
+      accessory: ArrowIcon,
     },
     {
       title: 'Social',
       description: 'Social',
-      icon: SocialIcon,
-      accessory: SelectIcon,
+      icon: HeartIcon,
+      accessory: ArrowIcon,
     },
     {
       title: 'Articles',
       description: 'Articles',
-      icon: ArticlesIcon,
-      accessory: SelectIcon,
+      icon: EditIcon,
+      accessory: ArrowIcon,
     },
     {
       title: 'Messaging',
       description: 'Messaging',
-      icon: MessagingIcon,
-      accessory: SelectIcon,
+      icon: MessageIcon,
+      accessory: ArrowIcon,
     },
     {
       title: 'Dashboards',
       description: 'Dashboards',
-      icon: DashboardsIcon,
-      accessory: SelectIcon,
+      icon: ListIcon,
+      accessory: ArrowIcon,
     },
     {
       title: 'Other',
       description: 'Other',
-      icon: OtherIcon,
-      accessory: SelectIcon,
+      icon: MoreIcon,
+      accessory: ArrowIcon,
+    },
+    {
+      title: 'Settings',
+      description: 'Settings',
+      icon: SettingsIcon,
+      accessory: ArrowIcon,
     },
   ];
 
@@ -65,40 +76,3 @@ export class HomeContainer extends React.Component<NavigationScreenProps> {
     );
   }
 }
-
-const AuthIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/lock.png', index, style);
-};
-
-const SocialIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/heart.png', index, style);
-};
-
-const ArticlesIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/edit-2.png', index, style);
-};
-
-const MessagingIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/message-circle.png', index, style);
-};
-
-const DashboardsIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/list.png', index, style);
-};
-
-const OtherIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/more-horizontal.png', index, style);
-};
-
-const SelectIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png', index, style);
-};
-
-const Icon = (source: string, index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return (
-    <Image
-      style={style}
-      source={{ uri: source }}
-    />
-  );
-};
