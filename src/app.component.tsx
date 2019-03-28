@@ -8,6 +8,7 @@ import { Router } from './core/navigation/routes';
 
 const fonts: Font.FontMap = {
   'anton-regular': require('./assets/fonts/anton-regular.ttf'),
+  'opensans-semibold': require('./assets/fonts/opensans-semibold.ttf'),
   'opensans-bold': require('./assets/fonts/opensans-bold.ttf'),
   'opensans-light': require('./assets/fonts/opensans-light.ttf'),
   'opensans-regular': require('./assets/fonts/opensans-regular.ttf'),

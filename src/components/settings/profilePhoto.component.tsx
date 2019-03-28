@@ -28,7 +28,6 @@ class ProfilePhotoComponent extends React.Component<ProfilePhotoProps> {
   };
 
   public render(): React.ReactNode {
-    // @ts-ignore: optional props
     const { style, themedStyle, button, ...restProps } = this.props;
 
     return (

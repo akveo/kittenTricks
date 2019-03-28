@@ -3,17 +3,14 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   View,
-  ViewProps,
 } from 'react-native';
 import {
   ThemeType,
   withStyles,
   ThemedComponentProps,
 } from '@kitten/theme';
-import {
-  Text,
-  Toggle,
-} from '@kitten/ui';
+import { Toggle } from '@kitten/ui';
+import { Text } from '@src/components/common';
 
 interface SettingsComponentProps {
   soundEnabled: boolean;
@@ -126,7 +123,9 @@ export const SettingsComponent = withStyles(Settings, (theme: ThemeType) => ({
     paddingTop: 40,
   },
   sectionText: {
-    fontWeight: '500',
+    fontSize: 13,
+    fontFamily: 'opensans-semibold',
+    color: '#0D1C2E',
   },
   divider: {
     height: 1,

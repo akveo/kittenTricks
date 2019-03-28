@@ -9,16 +9,14 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Button,
-  Text,
-} from '@kitten/ui';
-import { CameraIcon } from '@src/assets/icons';
+import { Button } from '@kitten/ui';
 import {
   ProfileParameter,
   ProfilePhoto,
-  ProfileType,
-} from '../common';
+} from '@src/components/settings';
+import { Text } from '@src/components/common';
+import { CameraIcon } from '@src/assets/icons';
+import { ProfileType } from '../common';
 
 interface EditProfileProps {
   profile: ProfileType;
@@ -44,6 +42,7 @@ class EditProfile3 extends React.Component<Props> {
     return (
       <Button
         style={themedStyle.photoButton}
+        activeOpacity={0.95}
         icon={CameraIcon}
         onPress={this.onPhotoButtonPress}
       />
@@ -138,7 +137,7 @@ export const EditProfile3Component = withStyles(EditProfile3, (theme: ThemeType)
     paddingVertical: 8,
   },
   description: {
-    color: 'gray',
+    color: '#8992A3',
   },
   photo: {
     width: 76,
@@ -149,6 +148,7 @@ export const EditProfile3Component = withStyles(EditProfile3, (theme: ThemeType)
     height: 32,
     borderRadius: 16,
     transform: [{ translateY: 60 }],
+    backgroundColor: '#6A7385',
   },
   button: {
     height: 40,

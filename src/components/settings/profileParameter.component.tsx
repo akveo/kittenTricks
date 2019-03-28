@@ -56,10 +56,11 @@ export const ProfileParameter = withStyles(ProfileParameterComponent, (theme: Th
     borderBottomColor: theme['gray-light'],
   },
   hint: {
-    fontWeight: '500',
-    color: 'gray',
+    color: '#8992A3',
+    fontFamily: 'opensans-semibold',
   },
   value: {
-    fontWeight: '500',
+    color: '#0D1C2E',
+    fontFamily: 'opensans-semibold',
   },
 }));
