@@ -4,8 +4,6 @@ import {
   createAppContainer,
   NavigationContainer,
   HeaderProps,
-  NavigationScreenConfig,
-  NavigationScreenOptions,
 } from 'react-navigation';
 import {
   AppBar,
@@ -25,9 +23,11 @@ import {
   EditProfile1Container,
   EditProfile2Container,
   EditProfile3Container,
+  LoginContainer,
+  Login1Container,
 } from '../../containers';
 
-const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<NavigationScreenOptions> => {
+const HeadingNavigationOptions = ({ navigation }) => {
 
   const backIconUri: string = 'https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png';
 
@@ -51,8 +51,8 @@ const EditProfileNavigator: NavigationContainer = createStackNavigator(
     ['Edit Profile 2']: EditProfile2Container,
     ['Edit Profile 3']: EditProfile3Container,
   }, {
-    headerMode: 'none',
     initialRouteName: 'Edit Profile',
+    headerMode: 'none',
     navigationOptions: HeadingNavigationOptions,
   },
 );
@@ -80,11 +80,33 @@ const SocialNavigator: NavigationContainer = createStackNavigator(
   },
 );
 
+const LoginNavigator: NavigationContainer = createStackNavigator(
+  {
+    ['Login']: LoginContainer,
+    ['Login 1']: Login1Container,
+  },
+  {
+    initialRouteName: 'Login',
+    headerMode: 'none',
+  },
+);
+
+const AuthNavigator: NavigationContainer = createStackNavigator(
+  {
+    ['Auth']: AuthContainer,
+    ['Login']: LoginNavigator,
+  },
+  {
+    initialRouteName: 'Auth',
+    headerMode: 'none',
+  },
+);
+
 const HomeNavigator: NavigationContainer = createStackNavigator(
   {
     ['Home']: HomeContainer,
     ['Articles']: ArticlesContainer,
-    ['Auth']: AuthContainer,
+    ['Auth']: AuthNavigator,
     ['Dashboards']: DashboardsContainer,
     ['Messaging']: MessagingContainer,
     ['Other']: OtherContainer,
