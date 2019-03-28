@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { ListItemProps } from '@kitten/ui';
-import { HomeComponent } from './home.component';
 import {
   ArrowIcon,
   EditIcon,
@@ -11,7 +10,8 @@ import {
   MessageIcon,
   MoreIcon,
   SettingsIcon,
-} from '@src/icons';
+} from '@src/assets/icons';
+import { HomeComponent } from './home.component';
 
 export class HomeContainer extends React.Component<NavigationScreenProps> {
 

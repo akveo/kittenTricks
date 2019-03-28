@@ -11,6 +11,18 @@ export const CameraIcon = (style: StyleType): React.ReactElement<ImageProps> => 
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/camera.png', style);
 };
 
+export const FacebookIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/facebook.png', style);
+};
+
+export const ForwardIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/arrow-forward-outline.png', style);
+};
+
+export const GoogleIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/google.png', style);
+};
+
 export const HeartIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/heart.png', style);
 };
@@ -41,4 +53,8 @@ export const PersonIcon = (style: StyleType): React.ReactElement<ImageProps> => 
 
 export const SettingsIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/settings.png', style);
+};
+
+export const TwitterIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/twitter.png', style);
 };

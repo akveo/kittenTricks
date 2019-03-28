@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { ListItemProps } from '@kitten/ui';
-import { SocialComponent } from './social.component';
 import {
   PersonIcon,
   ArrowIcon,
-} from '@src/icons';
+} from '@src/assets/icons';
+import { SocialComponent } from './social.component';
 
 export class SocialContainer extends React.Component<NavigationScreenProps> {
 

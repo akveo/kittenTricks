@@ -4,7 +4,7 @@ import { ListItemProps } from '@kitten/ui';
 import {
   ArrowIcon,
   EditIcon,
-} from '../../../icons';
+} from '@src/assets/icons';
 import { EditProfileComponent } from './editProfile.component';
 
 export class EditProfileContainer extends React.Component<NavigationScreenProps> {

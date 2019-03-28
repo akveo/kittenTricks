@@ -10,7 +10,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Button } from '@kitten/ui';
-import { CameraIcon } from '@src/icons';
+import { CameraIcon } from '@src/assets/icons';
 import {
   ProfileParameter,
   ProfilePhoto,
