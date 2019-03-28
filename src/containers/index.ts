@@ -8,3 +8,11 @@ export {
   SocialContainer,
   FollowersContainer,
 } from './social';
+export {
+  SettingsContainer,
+  EditProfileContainer,
+  EditProfile1Container,
+  EditProfile2Container,
+  EditProfile3Container,
+} from './settings';
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  View,
   ListRenderItemInfo,
   GestureResponderEvent,
 } from 'react-native';
@@ -14,14 +15,14 @@ import {
   ListItemProps,
 } from '@kitten/ui';
 
-interface HomeComponentProps {
+interface SocialComponentProps {
   routes: ListItemProps[];
   onCategorySelect?: (category: string) => void;
 }
 
-type Props = ThemedComponentProps & HomeComponentProps;
+type Props = ThemedComponentProps & SocialComponentProps;
 
-class Home extends React.Component<Props> {
+class EditProfile extends React.Component<Props> {
 
   private onPress = (event: GestureResponderEvent, index: number): void => {
     if (this.props.onCategorySelect) {
@@ -46,7 +47,7 @@ class Home extends React.Component<Props> {
   };
 
   public render(): React.ReactNode {
-    const { routes, themedStyle } = this.props;
+    const { themedStyle, routes } = this.props;
 
     return (
       <List
@@ -58,7 +59,7 @@ class Home extends React.Component<Props> {
   }
 }
 
-export const HomeComponent = withStyles(Home, (theme: ThemeType) => ({
+export const EditProfileComponent = withStyles(EditProfile, (theme: ThemeType) => ({
   container: {
     flex: 1,
   },

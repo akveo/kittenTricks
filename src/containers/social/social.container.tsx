@@ -1,12 +1,11 @@
 import React from 'react';
-import {
-  Image,
-  ImageProps,
-} from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { ListItemProps } from '@kitten/ui';
-import { StyleType } from '@kitten/theme';
 import { SocialComponent } from './social.component';
+import {
+  PersonIcon,
+  ArrowIcon,
+} from '@src/icons';
 
 export class SocialContainer extends React.Component<NavigationScreenProps> {
 
@@ -14,8 +13,8 @@ export class SocialContainer extends React.Component<NavigationScreenProps> {
     {
       title: 'Followers',
       description: 'Followers',
-      icon: FollowersIcon,
-      accessory: SelectIcon,
+      icon: PersonIcon,
+      accessory: ArrowIcon,
     },
   ];
 
@@ -32,21 +31,3 @@ export class SocialContainer extends React.Component<NavigationScreenProps> {
     );
   }
 }
-
-const FollowersIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/person-done.png', index, style);
-};
-
-const SelectIcon = (index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png', index, style);
-};
-
-const Icon = (source: string, index: number, style: StyleType): React.ReactElement<ImageProps> => {
-  return (
-    <Image
-      style={style}
-      source={{ uri: source }}
-    />
-  );
-};
-
