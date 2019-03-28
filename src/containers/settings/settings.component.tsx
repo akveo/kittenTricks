@@ -57,7 +57,6 @@ class Settings extends React.Component<Props> {
             Edit Profile
           </Text>
         </Section>
-        <Divider style={themedStyle.divider}/>
         <Section
           style={themedStyle.section}
           onPress={this.onChangePasswordPress}>
@@ -65,15 +64,13 @@ class Settings extends React.Component<Props> {
             Change Password
           </Text>
         </Section>
-        <Divider style={themedStyle.divider}/>
         <Section
-          style={themedStyle.notificationSection}
+          style={[themedStyle.section, themedStyle.notificationSection]}
           onPress={this.onChangePasswordPress}>
           <Text style={themedStyle.sectionText}>
             Notification
           </Text>
         </Section>
-        <Divider style={themedStyle.divider}/>
         <Section
           style={themedStyle.section}
           onPress={this.onChangePasswordPress}>
@@ -81,9 +78,8 @@ class Settings extends React.Component<Props> {
             Privacy
           </Text>
         </Section>
-        <Divider style={themedStyle.divider}/>
         <Section
-          style={themedStyle.soundEnabledSection}
+          style={[themedStyle.section, themedStyle.soundEnabledSection]}
           onPress={this.onSoundEnabledPress}>
           <Text style={themedStyle.sectionText}>
             Sound Enabled
@@ -93,7 +89,6 @@ class Settings extends React.Component<Props> {
             onValueChange={this.onSoundEnabledValueChange}
           />
         </Section>
-        <Divider style={themedStyle.divider}/>
       </View>
     );
   }
@@ -106,15 +101,9 @@ interface SectionProps extends TouchableOpacityProps {
 const Section = (props?: SectionProps): React.ReactElement<TouchableOpacityProps> => {
   return (
     <TouchableOpacity
-      {...props}
       activeOpacity={1.0}
+      {...props}
     />
-  );
-};
-
-const Divider = (props?: ViewProps): React.ReactElement<ViewProps> => {
-  return (
-    <View {...props}/>
   );
 };
 
@@ -124,16 +113,16 @@ export const SettingsComponent = withStyles(Settings, (theme: ThemeType) => ({
   },
   section: {
     padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: theme['gray-light'],
   },
   notificationSection: {
-    padding: 16,
     paddingTop: 40,
   },
   soundEnabledSection: {
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    padding: 16,
     paddingTop: 40,
   },
   sectionText: {
