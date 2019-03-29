@@ -11,8 +11,14 @@ export class AuthContainer extends React.Component<NavigationScreenProps> {
 
   private routes: ListItemProps[] = [
     {
-      title: 'Login',
-      description: 'Login',
+      title: 'Sign In',
+      description: 'Sign In',
+      icon: LockIcon,
+      accessory: ArrowIcon,
+    },
+    {
+      title: 'Sign Up',
+      description: 'Sign Up',
       icon: LockIcon,
       accessory: ArrowIcon,
     },

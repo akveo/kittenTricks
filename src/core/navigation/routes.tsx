@@ -23,8 +23,8 @@ import {
   EditProfile1Container,
   EditProfile2Container,
   EditProfile3Container,
-  LoginContainer,
-  Login1Container,
+  SignInContainer,
+  SignUpContainer,
 } from '../../containers';
 
 const HeadingNavigationOptions = ({ navigation }) => {
@@ -80,21 +80,11 @@ const SocialNavigator: NavigationContainer = createStackNavigator(
   },
 );
 
-const LoginNavigator: NavigationContainer = createStackNavigator(
-  {
-    ['Login']: LoginContainer,
-    ['Login 1']: Login1Container,
-  },
-  {
-    initialRouteName: 'Login',
-    headerMode: 'none',
-  },
-);
-
 const AuthNavigator: NavigationContainer = createStackNavigator(
   {
     ['Auth']: AuthContainer,
-    ['Login']: LoginNavigator,
+    ['Sign In']: SignInContainer,
+    ['Sign Up']: SignUpContainer,
   },
   {
     initialRouteName: 'Auth',

@@ -13,36 +13,47 @@ import {
   ButtonAlignments,
 } from '@kitten/ui';
 import {
+  SignInForm,
+  SignInFormType,
+} from '@src/components/auth';
+import {
   AvoidKeyboard,
-  Input,
   Text,
 } from '@src/components/common';
 import { SocialAuth } from '@src/components/auth';
 import { overlayLogin1 } from '@src/assets/images';
 import { ForwardIcon } from '@src/assets/icons';
 
-interface Login1ComponentProps {
-  onButtonPress: (email: string, password: string) => void;
-  onGoogleButtonPress: () => void;
-  onFacebookButtonPress: () => void;
-  onTwitterButtonPress: () => void;
-  onForgotPasswordPress: () => void;
+interface SignInComponentProps {
+  onLoginPress: () => void;
+  onGooglePress: () => void;
+  onFacebookPress: () => void;
+  onTwitterPress: () => void;
+  onSignInPress: (value: SignInFormType) => void;
 }
 
-type Props = ThemedComponentProps & Login1ComponentProps;
+type Props = ThemedComponentProps & SignInComponentProps;
 
-class Login1Component extends React.Component<Props> {
+class SignInComponent extends React.Component<Props> {
 
-  private onGooglePress = () => {
-    this.props.onGoogleButtonPress();
+  private onLoginButtonPress = () => {
+    this.props.onLoginPress();
   };
 
-  private onFacebookPress = () => {
-    this.props.onFacebookButtonPress();
+  private onGoogleButtonPress = () => {
+    this.props.onGooglePress();
   };
 
-  private onTwitterPress = () => {
-    this.props.onTwitterButtonPress();
+  private onFacebookButtonPress = () => {
+    this.props.onFacebookPress();
+  };
+
+  private onTwitterButtonPress = () => {
+    this.props.onTwitterPress();
+  };
+
+  private onSignInButtonPress = (value: SignInFormType) => {
+    this.props.onSignInPress(value);
   };
 
   public render(): React.ReactNode {
@@ -54,36 +65,27 @@ class Login1Component extends React.Component<Props> {
           style={themedStyle.container}
           source={overlayLogin1}>
           <View style={themedStyle.loginContainer}>
-            <Text
-              style={themedStyle.loginLabel}
-              category='h2'>
-              Login
-            </Text>
+            <Text style={themedStyle.loginLabel}>Login</Text>
             <Button
               style={themedStyle.forwardButton}
               activeOpacity={0.5}
               size='giant'
               icon={ForwardIcon}
-              alignment={ButtonAlignments.RIGHT}>
+              alignment={ButtonAlignments.RIGHT}
+              onPress={this.onLoginButtonPress}>
               Button
             </Button>
           </View>
-          <Input
-            style={[themedStyle.input, themedStyle.emailInput]}
-            defaultValue='ally.watsan@gmail.com'
+          <SignInForm
+            style={themedStyle.signInForm}
+            onSubmit={this.onSignInButtonPress}
           />
-          <Input
-            style={[themedStyle.input, themedStyle.passwordInput]}
-            secureTextEntry={true}
-            defaultValue='qw3rty123'
-          />
-          <Button style={themedStyle.button}>BUTTON</Button>
           <SocialAuth
             style={themedStyle.socialAuth}
             hint='Sign with a social account'
-            onGooglePress={this.onGooglePress}
-            onFacebookPress={this.onFacebookPress}
-            onTwitterPress={this.onTwitterPress}
+            onGooglePress={this.onGoogleButtonPress}
+            onFacebookPress={this.onFacebookButtonPress}
+            onTwitterPress={this.onTwitterButtonPress}
           />
         </ImageBackground>
       </AvoidKeyboard>
@@ -91,7 +93,7 @@ class Login1Component extends React.Component<Props> {
   }
 }
 
-export const Login1 = withStyles(Login1Component, (theme: ThemeType) => ({
+export const SignIn = withStyles(SignInComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -112,15 +114,8 @@ export const Login1 = withStyles(Login1Component, (theme: ThemeType) => ({
   input: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
   },
-  emailInput: {
+  signInForm: {
     marginTop: 96,
-  },
-  passwordInput: {
-    marginTop: 40,
-  },
-  button: {
-    height: 48,
-    marginTop: 86,
   },
   socialAuth: {
     marginHorizontal: 8,

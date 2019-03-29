@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Input as KittenInput,
+  Input as InputComponent,
   InputProps,
 } from '@kitten/ui';
 import {
@@ -8,13 +8,13 @@ import {
   withStyles,
 } from '@kitten/theme';
 
-class InputComponent extends React.Component<InputProps> {
+class StyledInput extends React.Component<InputProps> {
 
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
 
     return (
-      <KittenInput
+      <InputComponent
         {...restProps}
         style={[themedStyle, style]}
       />
@@ -22,7 +22,7 @@ class InputComponent extends React.Component<InputProps> {
   }
 }
 
-export const Input = withStyles(InputComponent, (theme: ThemeType) => ({
+export const Input = withStyles(StyledInput, (theme: ThemeType) => ({
   fontFamily: 'opensans-regular',
   color: 'white',
 }));

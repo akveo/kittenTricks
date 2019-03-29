@@ -5,8 +5,8 @@ export { MessagingContainer } from './messaging/messaging.container';
 export { OtherContainer } from './other/other.container';
 export {
   AuthContainer,
-  LoginContainer,
-  Login1Container,
+  SignInContainer,
+  SignUpContainer,
 } from './auth';
 export {
   SocialContainer,
