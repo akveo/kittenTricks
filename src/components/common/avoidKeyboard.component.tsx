@@ -3,8 +3,6 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   TouchableWithoutFeedbackProps,
-  View,
-  ViewProps,
 } from 'react-native';
 
 interface ComponentProps {

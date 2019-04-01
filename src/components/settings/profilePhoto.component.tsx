@@ -1,7 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
 import {
-  StyleType,
   ThemeType,
   withStyles,
 } from '@kitten/theme';

@@ -7,8 +7,16 @@ export const ArrowIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png', style);
 };
 
+export const BulbIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/bulb.png', style);
+};
+
 export const CameraIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/camera.png', style);
+};
+
+export const MessageCircleIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/message-circle-outline.png', style);
 };
 
 export const FacebookIcon = (style: StyleType): React.ReactElement<ImageProps> => {

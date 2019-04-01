@@ -20,7 +20,7 @@ import {
   Button,
   ButtonProps,
 } from '@kitten/ui';
-import { Follower } from './followers.container';
+import { Follower } from '@src/core/model';
 
 interface FollowersComponentProps {
   loading: boolean;

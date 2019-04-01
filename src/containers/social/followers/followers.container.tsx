@@ -1,14 +1,9 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
+import { Follower } from '@src/core/model';
 import { FollowersComponent } from './followers.component';
 
 const usersApi: string = 'https://randomuser.me/api/?results=30';
-
-export interface Follower {
-  name: any;
-  location: any;
-  picture: any;
-}
 
 interface State {
   loading: boolean;

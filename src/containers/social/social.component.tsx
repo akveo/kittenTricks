@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   ListRenderItemInfo,
   GestureResponderEvent,
 } from 'react-native';

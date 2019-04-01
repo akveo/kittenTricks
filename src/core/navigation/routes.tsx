@@ -12,6 +12,9 @@ import {
 import {
   HomeContainer,
   ArticlesContainer,
+  ArticleList1Container,
+  ArticleList2Container,
+  ArticleList3Container,
   AuthContainer,
   DashboardsContainer,
   MessagingContainer,
@@ -92,10 +95,24 @@ const AuthNavigator: NavigationContainer = createStackNavigator(
   },
 );
 
+const ArticlesNavigator: NavigationContainer = createStackNavigator(
+  {
+    ['Articles']: ArticlesContainer,
+    ['Article List 1']: ArticleList1Container,
+    ['Article List 2']: ArticleList2Container,
+    ['Article List 3']: ArticleList3Container,
+  },
+  {
+    initialRouteName: 'Articles',
+    headerMode: 'none',
+    navigationOptions: HeadingNavigationOptions,
+  },
+);
+
 const HomeNavigator: NavigationContainer = createStackNavigator(
   {
     ['Home']: HomeContainer,
-    ['Articles']: ArticlesContainer,
+    ['Articles']: ArticlesNavigator,
     ['Auth']: AuthNavigator,
     ['Dashboards']: DashboardsContainer,
     ['Messaging']: MessagingContainer,

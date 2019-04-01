@@ -15,10 +15,10 @@ import {
   ProfilePhoto,
 } from '@src/components/settings';
 import { CameraIcon } from '@src/assets/icons';
-import { ProfileType } from '../common';
+import { Profile } from '@src/core/model';
 
 interface EditProfileProps {
-  profile: ProfileType;
+  profile: Profile;
   onUploadPhotoButtonPress: () => void;
   onButtonPress: () => void;
 }

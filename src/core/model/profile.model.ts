@@ -1,14 +1,14 @@
-export enum GenderType {
+export enum Gender {
   MALE = 'Male',
   FEMALE = 'Female',
 }
 
-export interface ProfileType {
+export interface Profile {
   photo: string;
   about: string;
   firstName: string;
   lastName: string;
-  gender: GenderType;
+  gender: Gender;
   age: number;
   weight: number;
   height: number;

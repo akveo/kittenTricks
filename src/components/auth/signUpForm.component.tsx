@@ -12,10 +12,7 @@ import {
   Button,
   CheckBox,
 } from '@kitten/ui';
-import {
-  Text,
-  ValidationInput,
-} from '@src/components/common';
+import { ValidationInput } from '@src/components/common';
 
 export interface SignUpFormType {
   firstName: string;
@@ -174,13 +171,12 @@ class SignUpFormComponent extends React.Component<Props, State> {
         />
         <View style={themedStyle.termsContainer}>
           <CheckBox
+            style={themedStyle.termsCheckBox}
             size='small'
             checked={this.state.isTermsAccept}
             onChange={this.onTermsAcceptChange}
+            text={'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
           />
-          <Text style={themedStyle.termsText}>
-            {'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
-          </Text>
         </View>
         <Button
           style={themedStyle.button}
@@ -205,8 +201,8 @@ export const SignUpForm = withStyles(SignUpFormComponent, (theme: ThemeType) => 
     marginTop: 20,
     flexDirection: 'row',
   },
-  termsText: {
-    marginLeft: 12,
+  termsCheckBox: {
+    fontFamily: 'opensans-regular',
     fontSize: 11,
     color: '#8992A3',
   },

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ImageBackground,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -13,14 +10,15 @@ import {
   ButtonAlignments,
 } from '@kitten/ui';
 import {
+  SocialAuth,
   SignInForm,
   SignInFormType,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   Text,
 } from '@src/components/common';
-import { SocialAuth } from '@src/components/auth';
 import { overlayLogin1 } from '@src/assets/images';
 import { ForwardIcon } from '@src/assets/icons';
 
@@ -61,7 +59,7 @@ class SignInComponent extends React.Component<Props> {
 
     return (
       <AvoidKeyboard>
-        <ImageBackground
+        <ImageOverlay
           style={themedStyle.container}
           source={overlayLogin1}>
           <View style={themedStyle.loginContainer}>
@@ -87,7 +85,7 @@ class SignInComponent extends React.Component<Props> {
             onFacebookPress={this.onFacebookButtonPress}
             onTwitterPress={this.onTwitterButtonPress}
           />
-        </ImageBackground>
+        </ImageOverlay>
       </AvoidKeyboard>
     );
   }

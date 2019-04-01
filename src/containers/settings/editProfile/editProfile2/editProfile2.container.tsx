@@ -1,19 +1,17 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { EditProfile2Component } from './editProfile2.component';
-import {
-  Profile1,
-  ProfileType,
-} from '../common';
+import { Profile } from '@src/core/model';
+import { profile1 } from '@src/core/data/profile';
 
 interface State {
-  profile: ProfileType;
+  profile: Profile;
 }
 
 export class EditProfile2Container extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
-    profile: Profile1,
+    profile: profile1,
   };
 
   private onUploadPhotoButtonPress = () => {

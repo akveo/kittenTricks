@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageBackground,
   ScrollView,
   View,
 } from 'react-native';
@@ -20,6 +19,7 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   Text,
 } from '@src/components/common';
 import { overlayLogin1 } from '@src/assets/images';
@@ -63,7 +63,7 @@ class SignUpComponent extends React.Component<Props> {
     return (
       <AvoidKeyboard>
         <ScrollView style={themedStyle.container}>
-          <ImageBackground
+          <ImageOverlay
             style={themedStyle.header}
             source={overlayLogin1}>
             <View style={themedStyle.loginContainer}>
@@ -78,7 +78,7 @@ class SignUpComponent extends React.Component<Props> {
                 Button
               </Button>
             </View>
-          </ImageBackground>
+          </ImageOverlay>
           <View style={themedStyle.signContainer}>
             <SocialAuth
               hintStyle={themedStyle.socialAuthHint}
