@@ -36,7 +36,7 @@ interface ComponentProps {
 
 type Props = ThemedComponentProps & ComponentProps;
 
-class Profile2Component extends React.Component<Props> {
+class Profile3Component extends React.Component<Props> {
 
   private onFollowButtonPress = () => {
     this.props.onFollowPress();
@@ -80,40 +80,40 @@ class Profile2Component extends React.Component<Props> {
             onPress={this.onFollowButtonPress}>
             FOLLOW
           </Button>
-          <Text style={themedStyle.descriptionLabel}>{profile.about}</Text>
-        </View>
-        <View style={themedStyle.detailsContainer}>
-          <ProfileSocials
-            style={themedStyle.profileSocials}
-            followers={socials.followers}
-            following={socials.following}
-            posts={socials.posts}
-            onFollowersPress={this.onFollowersButtonPress}
-            onFollowingPress={this.onFollowingButtonPress}
-            onPostsPress={this.onPostsButtonPress}
-          />
-          <View style={themedStyle.divider}/>
-          <View style={themedStyle.parameterContainer}>
-            <ProfileParameter
-              style={themedStyle.profileParameter}
-              hint='Height'
-              value={`${profile.height} cm`}
-              icon={ArrowHeadUpIcon}
+          <View style={themedStyle.detailsContainer}>
+            <ProfileSocials
+              style={themedStyle.profileSocials}
+              followers={socials.followers}
+              following={socials.following}
+              posts={socials.posts}
+              onFollowersPress={this.onFollowersButtonPress}
+              onFollowingPress={this.onFollowingButtonPress}
+              onPostsPress={this.onPostsButtonPress}
             />
-            <ProfileParameter
-              style={themedStyle.profileParameter}
-              hint='Weight'
-              value={`${profile.weight} kg`}
-              icon={ArrowHeadDownIcon}
-            />
+            <View style={themedStyle.divider}/>
+            <Text style={themedStyle.descriptionLabel}>{profile.about}</Text>
           </View>
+        </View>
+        <View style={themedStyle.parameterContainer}>
+          <ProfileParameter
+            style={themedStyle.profileParameter}
+            hint='Height'
+            value={`${profile.height} cm`}
+            icon={ArrowHeadUpIcon}
+          />
+          <ProfileParameter
+            style={themedStyle.profileParameter}
+            hint='Weight'
+            value={`${profile.weight} kg`}
+            icon={ArrowHeadDownIcon}
+          />
         </View>
       </View>
     );
   }
 }
 
-export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
+export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
     backgroundColor: '#F7F8FA',
@@ -124,11 +124,12 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   },
   detailsContainer: {
     flexDirection: 'row',
-    paddingVertical: 24,
-    paddingHorizontal: 24,
+    marginVertical: 24,
   },
   parameterContainer: {
-    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 12,
+    paddingVertical: 24,
   },
   rateBar: {
     marginTop: 24,
@@ -139,22 +140,22 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
     fontSize: 14,
     fontFamily: 'opensans-extrabold',
   },
-  descriptionLabel: {
-    fontSize: 15,
-    marginVertical: 24,
-    color: '#8992A3',
-  },
   profileSocials: {
-    maxHeight: 256,
-    paddingVertical: 24,
     flexDirection: 'column',
+    minHeight: 176,
   },
   divider: {
     borderWidth: 0.5,
     borderColor: '#A6AEBD',
     marginHorizontal: 24,
   },
+  descriptionLabel: {
+    flex: 1,
+    fontSize: 15,
+    color: '#8992A3',
+  },
   profileParameter: {
-    marginVertical: 8,
+    flex: 1,
+    marginHorizontal: 12,
   },
 }));

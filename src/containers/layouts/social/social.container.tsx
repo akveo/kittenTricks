@@ -21,6 +21,11 @@ export class SocialContainer extends React.Component<NavigationScreenProps> {
       route: 'Profile 2',
     },
     {
+      title: 'Layout - V3',
+      description: 'Profile',
+      route: 'Profile 3',
+    },
+    {
       title: 'Layout',
       description: 'Profile Settings',
       route: 'Profile Settings 1',
