@@ -2,44 +2,48 @@ import React from 'react';
 import {
   createStackNavigator,
   createAppContainer,
-  NavigationContainer,
+  NavigationContainer as ReactNavigationContainer,
   HeaderProps,
+  createBottomTabNavigator,
 } from 'react-navigation';
 import {
-  AppBar,
-  AppBarProps,
-} from './appBar.component';
+  MenuContainer,
+  LayoutsContainer,
+  ComponentsContainer,
+  ThemesContainer,
+} from '@src/containers/menu';
 import {
-  HomeContainer,
+  AuthContainer,
+  SignInContainer,
+  SignUpContainer,
+  SocialContainer,
+  ProfileSettings1Container,
+  ProfileSettings2Container,
+  ProfileSettings3Container,
   ArticlesContainer,
   ArticleList1Container,
   ArticleList2Container,
   ArticleList3Container,
-  AuthContainer,
-  DashboardsContainer,
   MessagingContainer,
-  OtherContainer,
-  SocialContainer,
-  FollowersContainer,
-  SettingsContainer,
-  EditProfileContainer,
-  EditProfile1Container,
-  EditProfile2Container,
-  EditProfile3Container,
-  SignInContainer,
-  SignUpContainer,
-} from '../../containers';
+  DashboardsContainer,
+  WalkthroughContainer,
+  EcommerceContainer,
+  NavigationContainer,
+} from '@src/containers/layouts';
+import {
+  AppBar,
+  AppBarProps,
+} from './appBar.component';
+import { BackArrowIcon } from '@src/assets/icons';
 
 const HeadingNavigationOptions = ({ navigation }) => {
-
-  const backIconUri: string = 'https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png';
 
   const header = (props: HeaderProps): React.ReactElement<AppBarProps> => {
     return (
       <AppBar
         {...props}
-        backIcon={{uri: backIconUri}}
         navigation={navigation}
+        backIcon={BackArrowIcon}
       />
     );
   };
@@ -47,55 +51,52 @@ const HeadingNavigationOptions = ({ navigation }) => {
   return { ...navigation, header };
 };
 
-const EditProfileNavigator: NavigationContainer = createStackNavigator(
+const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Edit Profile']: EditProfileContainer,
-    ['Edit Profile 1']: EditProfile1Container,
-    ['Edit Profile 2']: EditProfile2Container,
-    ['Edit Profile 3']: EditProfile3Container,
-  }, {
-    initialRouteName: 'Edit Profile',
-    headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
-  },
-);
-
-const SettingsNavigator: NavigationContainer = createStackNavigator(
-  {
-    ['Settings']: SettingsContainer,
-    ['Edit Profile']: EditProfileNavigator,
-  }, {
-    initialRouteName: 'Settings',
-    headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
-  },
-);
-
-const SocialNavigator: NavigationContainer = createStackNavigator(
-  {
-    ['Social']: SocialContainer,
-    ['Followers']: FollowersContainer,
+    ['Navigation']: NavigationContainer,
   },
   {
-    initialRouteName: 'Social',
-    headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
-  },
-);
-
-const AuthNavigator: NavigationContainer = createStackNavigator(
-  {
-    ['Auth']: AuthContainer,
-    ['Sign In']: SignInContainer,
-    ['Sign Up']: SignUpContainer,
-  },
-  {
-    initialRouteName: 'Auth',
     headerMode: 'none',
   },
 );
 
-const ArticlesNavigator: NavigationContainer = createStackNavigator(
+const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Ecommerce']: EcommerceContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Walkthrough']: WalkthroughContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Dashboards']: DashboardsContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Messaging']: MessagingContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Articles']: ArticlesContainer,
     ['Article List 1']: ArticleList1Container,
@@ -103,35 +104,73 @@ const ArticlesNavigator: NavigationContainer = createStackNavigator(
     ['Article List 3']: ArticleList3Container,
   },
   {
-    initialRouteName: 'Articles',
     headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
   },
 );
 
-const HomeNavigator: NavigationContainer = createStackNavigator(
+const SocialNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Home']: HomeContainer,
-    ['Articles']: ArticlesNavigator,
+    ['Social']: SocialContainer,
+    ['Profile Settings 1']: ProfileSettings1Container,
+    ['Profile Settings 2']: ProfileSettings2Container,
+    ['Profile Settings 3']: ProfileSettings3Container,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const AuthNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Auth']: AuthContainer,
+    ['Sign In']: SignInContainer,
+    ['Sign Up']: SignUpContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Themes']: ThemesContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Components']: ComponentsContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const LayoutsNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Layouts']: LayoutsContainer,
     ['Auth']: AuthNavigator,
-    ['Dashboards']: DashboardsContainer,
-    ['Messaging']: MessagingContainer,
-    ['Other']: OtherContainer,
     ['Social']: SocialNavigator,
-    ['Settings']: SettingsNavigator,
-  },
-  {
-    initialRouteName: 'Home',
+    ['Articles']: ArticlesNavigator,
+    ['Messaging']: MessagingNavigator,
+    ['Dashboards']: DashboardsNavigator,
+    ['Walkthrough']: WalkthroughNavigator,
+    ['Ecommerce']: EcommerceNavigator,
+    ['Navigation']: NavigationNavigator,
+  }, {
     headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
   },
 );
 
-const AppNavigator: NavigationContainer = createStackNavigator(
-  {
-    ['Home']: HomeNavigator,
-  },
-);
+const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
+  ['Layouts']: LayoutsNavigator,
+  ['Components']: ComponentsNavigator,
+  ['Themes']: ThemesNavigator,
+}, {
+  tabBarComponent: MenuContainer,
+});
 
-
-export const Router: NavigationContainer = createAppContainer(AppNavigator);
+export const Router: ReactNavigationContainer = createAppContainer(HomeNavigator);
