@@ -16,8 +16,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
 import { StarIcon } from '@src/assets/icons';
+import { Text } from './text.component';
 
 interface ComponentProps {
   hint?: React.ReactText;

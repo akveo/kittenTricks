@@ -8,7 +8,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '../text.component';
 
 interface ListDerivedProps {
   index: number;

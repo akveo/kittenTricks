@@ -11,7 +11,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { ButtonProps } from '@kitten/ui';
-import { Button } from '@src/components/common';
+import { Button } from './button.component';
 
 interface ComponentProps {
   iconStyle?: StyleProp<ImageStyle>;
