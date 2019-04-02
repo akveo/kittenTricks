@@ -22,4 +22,5 @@ export const profile1: Profile = {
 export const profileSocials1: ProfileSocials = {
   followers: 1500,
   following: 86,
+  posts: 116,
 };

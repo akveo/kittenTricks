@@ -11,7 +11,7 @@ import {
 } from '@kitten/theme';
 import { Button } from '@kitten/ui';
 import {
-  ProfileParameter,
+  ProfileSetting,
   ProfilePhoto,
 } from '@src/components/social';
 import { Text } from '@src/components/common';
@@ -61,11 +61,11 @@ class ProfileSettings2Component extends React.Component<Props> {
             button={this.renderPhotoButton}
           />
           <View style={themedStyle.nameSection}>
-            <ProfileParameter
+            <ProfileSetting
               style={themedStyle.nameParameter}
               value={profile.firstName}
             />
-            <ProfileParameter
+            <ProfileSetting
               style={themedStyle.nameParameter}
               value={profile.lastName}
             />
@@ -75,23 +75,23 @@ class ProfileSettings2Component extends React.Component<Props> {
           <Text style={themedStyle.description}>{profile.about}</Text>
         </View>
         <View style={themedStyle.infoSection}>
-          <ProfileParameter
+          <ProfileSetting
             hint='Email'
             value={profile.email}
           />
-          <ProfileParameter
+          <ProfileSetting
             hint='Gender'
             value={profile.gender}
           />
-          <ProfileParameter
+          <ProfileSetting
             hint='Age'
             value={profile.age}
           />
-          <ProfileParameter
+          <ProfileSetting
             hint='Weight'
             value={`${profile.weight} kg`}
           />
-          <ProfileParameter
+          <ProfileSetting
             hint='Height'
             value={`${profile.height} cm`}
           />

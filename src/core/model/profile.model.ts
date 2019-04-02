@@ -20,4 +20,5 @@ export interface Profile {
 export interface ProfileSocials {
   followers: number;
   following: number;
+  posts: number;
 }

@@ -96,6 +96,7 @@ class Profile1Component extends React.Component<Props> {
     return (
       <View style={themedStyle.container}>
         <ProfileInfo
+          style={themedStyle.profileInfo}
           photo={{ uri: profile.photo }}
           name={`${profile.firstName} ${profile.lastName}`}
           location={profile.location}>
@@ -103,13 +104,13 @@ class Profile1Component extends React.Component<Props> {
             <ProfileSocials
               followers={socials.followers}
               following={socials.following}
-              posts={posts.length}
+              posts={socials.posts}
               onFollowersPress={this.onFollowersButtonPress}
               onFollowingPress={this.onFollowingButtonPress}
               onPostsPress={this.onPostsButtonPress}
             />
             <Button
-              style={themedStyle.button}
+              style={themedStyle.followButton}
               onPress={this.onFollowButtonPress}>
               FOLLOW
             </Button>
@@ -132,7 +133,11 @@ export const Profile1 = withStyles(Profile1Component, (theme: ThemeType) => ({
   parametersContainer: {
     marginTop: 24,
   },
-  button: {
+  profileInfo: {
+    paddingHorizontal: 24,
+    paddingVertical: 24,
+  },
+  followButton: {
     height: 40,
     marginTop: 16,
     fontSize: 14,

@@ -46,8 +46,6 @@ class ProfileInfoComponent extends React.Component<Props> {
 export const ProfileInfo = withStyles(ProfileInfoComponent, (theme: ThemeType) => ({
   container: {
     flexDirection: 'row',
-    paddingHorizontal: 24,
-    paddingVertical: 24,
   },
   detailsContainer: {
     flex: 1,
@@ -64,6 +62,7 @@ export const ProfileInfo = withStyles(ProfileInfoComponent, (theme: ThemeType) =
     color: '#0D1C2E',
   },
   locationLabel: {
+    marginTop: 4,
     fontSize: 13,
     fontFamily: 'opensans-semibold',
     color: '#8992A3',

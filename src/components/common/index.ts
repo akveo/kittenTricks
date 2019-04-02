@@ -8,6 +8,7 @@ export {
   LayoutList,
   ListItem,
 } from './layoutList/layoutList.component';
+export { RateBar } from './rateBar.component';
 export { ReactionButton } from './reactionButton.component';
 export { LikeButton } from './likeButton.component';
 export { ValidationInput } from './validationInput.component';

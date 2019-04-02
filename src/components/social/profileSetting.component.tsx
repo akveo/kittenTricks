@@ -20,7 +20,7 @@ interface ComponentProps {
 
 export type ProfileParameterProps = ComponentProps & ViewProps & ThemedComponentProps;
 
-class ProfileParameterComponent extends React.Component<ProfileParameterProps> {
+class ProfileSettingComponent extends React.Component<ProfileParameterProps> {
 
   private renderTextElement = (text: React.ReactText, style: StyleProp<TextStyle>): React.ReactElement<TextProps> => {
     return (
@@ -45,7 +45,7 @@ class ProfileParameterComponent extends React.Component<ProfileParameterProps> {
   }
 }
 
-export const ProfileParameter = withStyles(ProfileParameterComponent, (theme: ThemeType) => ({
+export const ProfileSetting = withStyles(ProfileSettingComponent, (theme: ThemeType) => ({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
