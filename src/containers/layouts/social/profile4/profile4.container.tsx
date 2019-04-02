@@ -8,14 +8,14 @@ import {
   profile1,
   profileSocials1,
 } from '@src/core/data/profile';
-import { Profile2 } from './profile2.component';
+import { Profile4 } from './profile4.component';
 
 interface State {
   profile: Profile;
   socials: ProfileSocials;
 }
 
-export class Profile2Container extends React.Component<NavigationScreenProps, State> {
+export class Profile4Container extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
     profile: profile1,
@@ -39,7 +39,7 @@ export class Profile2Container extends React.Component<NavigationScreenProps, St
 
   public render(): React.ReactNode {
     return (
-      <Profile2
+      <Profile4
         profile={this.state.profile}
         socials={this.state.socials}
         onFollowPress={this.onFollowPress}

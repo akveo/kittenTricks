@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { Profile3 } from './profile3.component';
 import {
   Profile,
   ProfileSocials,
@@ -9,6 +8,7 @@ import {
   profile1,
   profileSocials1,
 } from '@src/core/data/profile';
+import { Profile3 } from './profile3.component';
 
 interface State {
   profile: Profile;
