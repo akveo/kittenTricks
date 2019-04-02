@@ -4,6 +4,7 @@ import {
   ImageStyle,
   StyleProp,
   TextProps,
+  TextStyle,
   TouchableOpacity,
   TouchableOpacityProps,
   View,
@@ -24,6 +25,7 @@ interface ComponentProps {
   max?: number;
   icon?: (style: StyleType) => React.ReactElement<ImageProps>;
   iconStyle?: StyleProp<ImageStyle>;
+  hintStyle?: StyleProp<TextStyle>;
   iconDisabledStyle?: StyleProp<ImageStyle>;
   onChange?: (value: number) => void;
 }
@@ -45,10 +47,12 @@ class RateBarComponent extends React.Component<Props> {
   };
 
   private renderHintElement = (style: StyleType): React.ReactElement<TextProps> => {
+    const { hintStyle } = this.props;
+
     return (
       <Text
         key={0}
-        style={style}>
+        style={[style, hintStyle]}>
         {this.props.hint}
       </Text>
     );

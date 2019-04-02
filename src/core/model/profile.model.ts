@@ -12,6 +12,7 @@ export interface Profile {
   age: number;
   weight: number;
   height: number;
+  inseam: number;
   email: string;
   phoneNumber: string;
   location: string;

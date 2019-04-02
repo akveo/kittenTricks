@@ -14,6 +14,7 @@ export const profile1: Profile = {
   age: 41,
   weight: 114,
   height: 184,
+  inseam: 45,
   email: 'john.cena@gmail.com',
   phoneNumber: '+375 44 846 97 68',
   location: 'Florida, USA',
