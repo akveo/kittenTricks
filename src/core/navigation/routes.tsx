@@ -17,6 +17,7 @@ import {
   SignInContainer,
   SignUpContainer,
   SocialContainer,
+  Profile1Container,
   ProfileSettings1Container,
   ProfileSettings2Container,
   ProfileSettings3Container,
@@ -111,6 +112,7 @@ const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
 const SocialNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Social']: SocialContainer,
+    ['Profile 1']: Profile1Container,
     ['Profile Settings 1']: ProfileSettings1Container,
     ['Profile Settings 2']: ProfileSettings2Container,
     ['Profile Settings 3']: ProfileSettings3Container,

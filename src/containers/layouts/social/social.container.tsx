@@ -12,6 +12,11 @@ export class SocialContainer extends React.Component<NavigationScreenProps> {
   private items: RouteListItem[] = [
     {
       title: 'Layout',
+      description: 'Profile',
+      route: 'Profile 1',
+    },
+    {
+      title: 'Layout',
       description: 'Profile Settings',
       route: 'Profile Settings 1',
     },

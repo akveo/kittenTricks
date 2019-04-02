@@ -2,6 +2,7 @@ export { AuthContainer } from './auth/auth.container';
 export { SignInContainer } from './auth/signIn/signIn.container';
 export { SignUpContainer } from './auth/signUp/signUp.container';
 export { SocialContainer } from './social/social.container';
+export { Profile1Container } from './social/profile1/profile1.container';
 export { ProfileSettings1Container } from './social/profileSettings1/profileSettings1.container';
 export { ProfileSettings2Container } from './social/profileSettings2/profileSettings2.container';
 export { ProfileSettings3Container } from './social/profileSettings3/profileSettings3.container';

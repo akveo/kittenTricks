@@ -14,4 +14,10 @@ export interface Profile {
   height: number;
   email: string;
   phoneNumber: string;
+  location: string;
+}
+
+export interface ProfileSocials {
+  followers: number;
+  following: number;
 }
