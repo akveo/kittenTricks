@@ -7,7 +7,7 @@ import {
 } from '@kitten/theme';
 import {
   ProfileInfo,
-  ProfileParameter,
+  ProfileParameterCard,
   ProfileSocials,
 } from '@src/components/social';
 import {
@@ -34,9 +34,9 @@ interface ComponentProps {
   onRateChange: (value: number) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type Profile2Props = ThemedComponentProps & ComponentProps;
 
-class Profile2Component extends React.Component<Props> {
+class Profile2Component extends React.Component<Profile2Props> {
 
   private onFollowButtonPress = () => {
     this.props.onFollowPress();
@@ -94,13 +94,13 @@ class Profile2Component extends React.Component<Props> {
           />
           <View style={themedStyle.divider}/>
           <View style={themedStyle.parameterContainer}>
-            <ProfileParameter
+            <ProfileParameterCard
               style={themedStyle.profileParameter}
               hint='Height'
               value={`${profile.height} cm`}
               icon={ArrowHeadUpIcon}
             />
-            <ProfileParameter
+            <ProfileParameterCard
               style={themedStyle.profileParameter}
               hint='Weight'
               value={`${profile.weight} kg`}

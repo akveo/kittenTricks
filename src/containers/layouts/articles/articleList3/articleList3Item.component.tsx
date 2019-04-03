@@ -1,21 +1,20 @@
 import React from 'react';
 import {
   TouchableOpacity,
+  TouchableOpacityProps,
   View,
-  ViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  ArticleTips,
-  ReactionButton,
-} from '@src/components/articles';
+import { ArticleTips } from '@src/components/articles';
 import {
   ImageOverlay,
   Text,
+  CommentsButton,
+  LikeButton,
 } from '@src/components/common';
 import {
   HeartIcon,
@@ -23,16 +22,17 @@ import {
 } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
-interface ComponentProps {
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps {
   article: Article;
   onPress: (article: Article) => void;
   onCommentPress: (article: Article) => void;
   onLikePress: (article: Article) => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type ArticleList3ItemProps = ThemedComponentProps & ComponentProps;
 
-class ArticleList3ItemComponent extends React.Component<Props> {
+class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
 
   private onPress = () => {
     this.props.onPress(this.props.article);
@@ -47,12 +47,13 @@ class ArticleList3ItemComponent extends React.Component<Props> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, article } = this.props;
+    const { style, themedStyle, article, ...restProps } = this.props;
 
     return (
       <TouchableOpacity
-        style={[themedStyle.container, style]}
         activeOpacity={0.9}
+        {...restProps}
+        style={[themedStyle.container, style]}
         onPress={this.onPress}>
         <ImageOverlay
           style={themedStyle.image}
@@ -62,18 +63,18 @@ class ArticleList3ItemComponent extends React.Component<Props> {
             {`${article.tips} Useful Tips`}
           </ArticleTips>
           <View style={themedStyle.reactionsContainer}>
-            <ReactionButton
+            <CommentsButton
               style={themedStyle.reactionButton}
               icon={MessageCircleIcon}
               onPress={this.onCommentsButtonPress}>
               {article.comments}
-            </ReactionButton>
-            <ReactionButton
+            </CommentsButton>
+            <LikeButton
               style={themedStyle.reactionButton}
               icon={HeartIcon}
               onPress={this.onLikeButtonPress}>
               {article.likes}
-            </ReactionButton>
+            </LikeButton>
           </View>
         </ImageOverlay>
       </TouchableOpacity>

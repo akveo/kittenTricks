@@ -21,10 +21,11 @@ import {
 } from '@src/components/common';
 
 interface ListDerivedProps {
-  index: number;
+  index?: number;
 }
 
-interface ComponentProps extends ListDerivedProps {
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
   profilePhoto: ImageSourcePropType;
   authorName: React.ReactText;
@@ -34,7 +35,7 @@ interface ComponentProps extends ListDerivedProps {
   onLikePress: (index: number) => void;
 }
 
-export type Profile1ListItemProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;
+export type Profile1ListItemProps = ThemedComponentProps & ComponentProps;
 
 class Profile1ListItemComponent extends React.Component<Profile1ListItemProps> {
 

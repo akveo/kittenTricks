@@ -7,7 +7,6 @@ import {
 } from '@kitten/theme';
 import {
   List,
-  ListItemProps,
   ListProps,
 } from '@kitten/ui';
 import {
@@ -20,19 +19,21 @@ export interface ListItem {
   description: string;
 }
 
-interface ComponentProps {
+// @ts-ignore (override `renderItem` prop)
+interface ComponentProps extends ListProps {
+  renderItem?: () => void;
   onItemSelect: (index: number) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps & ListProps;
+export type LayoutListProps = ThemedComponentProps & ComponentProps;
 
-class LayoutListComponent extends React.Component<Props> {
+class LayoutListComponent extends React.Component<LayoutListProps> {
 
   private onItemPress = (index: number): void => {
     this.props.onItemSelect(index);
   };
 
-  private renderListItemElement = (item: ListItem): React.ReactElement<ListItemProps> => {
+  private renderListItemElement = (item: ListItem): React.ReactElement<LayoutListItemProps> => {
     return (
       <LayoutListItem
         style={this.props.themedStyle.item}
@@ -43,7 +44,7 @@ class LayoutListComponent extends React.Component<Props> {
     );
   };
 
-  private renderItem = (info: ListRenderItemInfo<ListItemModel>): React.ReactElement<ListItemProps> => {
+  private renderItem = (info: ListRenderItemInfo<ListItem>): React.ReactElement<LayoutListItemProps> => {
     const { item, index } = info;
 
     const listItemElement: React.ReactElement<LayoutListItemProps> = this.renderListItemElement(item);
@@ -52,13 +53,12 @@ class LayoutListComponent extends React.Component<Props> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, items, ...restProps } = this.props;
+    const { style, themedStyle, ...restProps } = this.props;
 
     return (
       <List
-        {...restProps}
         style={[themedStyle.container, style]}
-        data={items}
+        {...restProps}
         renderItem={this.renderItem}
       />
     );

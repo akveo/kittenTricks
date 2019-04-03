@@ -24,9 +24,9 @@ interface ComponentProps {
   onTwitterPress: () => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type SocialAuthProps = ThemedComponentProps & ViewProps & ComponentProps;
 
-class SocialAuthComponent extends React.Component<Props> {
+class SocialAuthComponent extends React.Component<SocialAuthProps> {
 
   private renderCaptionElement = (style: StyleProp<TextStyle>): React.ReactElement<TextProps> => {
     const { hint } = this.props;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   TouchableOpacity,
-  ViewProps,
+  TouchableOpacityProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -19,16 +19,17 @@ import {
 import { BulbIcon } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
-interface ComponentProps {
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps {
   article: Article;
   onPress: (article: Article) => void;
   onCommentPress: (article: Article) => void;
   onLikePress: (article: Article) => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type ArticleList2ItemProps = ThemedComponentProps & ComponentProps;
 
-class ArticleList2ItemComponent extends React.Component<Props> {
+class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
 
   private onPress = () => {
     this.props.onPress(this.props.article);
@@ -43,12 +44,13 @@ class ArticleList2ItemComponent extends React.Component<Props> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, article } = this.props;
+    const { style, themedStyle, article, ...restProps } = this.props;
 
     return (
       <TouchableOpacity
-        style={[themedStyle.container, style]}
         activeOpacity={0.9}
+        {...restProps}
+        style={[themedStyle.container, style]}
         onPress={this.onPress}>
         <ImageOverlay
           style={themedStyle.image}

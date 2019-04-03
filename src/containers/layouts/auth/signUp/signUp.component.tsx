@@ -33,9 +33,9 @@ interface ComponentProps {
   onSignUpPress: (value: SignUpFormType) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type SignUpProps = ThemedComponentProps & ComponentProps;
 
-class SignUpComponent extends React.Component<Props> {
+class SignUpComponent extends React.Component<SignUpProps> {
 
   private onLoginButtonPress = () => {
      this.props.onLoginPress();

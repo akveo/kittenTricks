@@ -1,2 +1,8 @@
-export { ArticleDetails } from './articleDetails.component';
-export { ArticleTips } from './articleTips.component';
+export {
+  ArticleDetails,
+  ArticleDetailsProps,
+} from './articleDetails.component';
+export {
+  ArticleTips,
+  ArticleTipsProps,
+} from './articleTips.component';

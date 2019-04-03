@@ -9,9 +9,9 @@ interface ComponentProps {
   children: React.ReactNode;
 }
 
-type Props = TouchableWithoutFeedbackProps & ComponentProps;
+export type AvoidKeyboardProps = TouchableWithoutFeedbackProps & ComponentProps;
 
-export const AvoidKeyboard = (props?: Props): React.ReactElement<TouchableWithoutFeedbackProps> => {
+export const AvoidKeyboard = (props?: AvoidKeyboardProps): React.ReactElement<TouchableWithoutFeedbackProps> => {
   return (
     <TouchableWithoutFeedback
       onPress={Keyboard.dismiss}

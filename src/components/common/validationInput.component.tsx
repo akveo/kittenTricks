@@ -1,16 +1,18 @@
 import React from 'react';
 import { ThemedComponentProps } from '@kitten/theme';
-import { InputProps } from '@kitten/ui';
-import { Input } from './input.component';
+import {
+  Input,
+  InputProps,
+} from './input.component';
 
 interface ComponentProps {
   pattern: RegExp;
   onResult?: (valid: boolean, value: string) => void;
 }
 
-type Props = ThemedComponentProps & InputProps & ComponentProps;
+export type ValidationInputProps = ThemedComponentProps & InputProps & ComponentProps;
 
-export class ValidationInput extends React.Component<Props> {
+export class ValidationInput extends React.Component<ValidationInputProps> {
 
   private onChangeText = (value: string) => {
     if (this.props.onResult) {
@@ -24,7 +26,7 @@ export class ValidationInput extends React.Component<Props> {
   private status = (): string => {
     const { value, status } = this.props;
 
-    return value.length === 0 ? undefined : this.props.status;
+    return value.length === 0 ? undefined : status;
   };
 
   public render(): React.ReactNode {

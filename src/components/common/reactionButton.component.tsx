@@ -10,16 +10,18 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ButtonProps } from '@kitten/ui';
-import { Button } from './button.component';
+import {
+  Button,
+  ButtonProps,
+} from './button.component';
 
 interface ComponentProps {
   iconStyle?: StyleProp<ImageStyle>;
 }
 
-type Props = ThemedComponentProps & ButtonProps & ComponentProps;
+export type ReactionButtonProps = ThemedComponentProps & ButtonProps & ComponentProps;
 
-class ReactionButtonComponent extends React.Component<Props> {
+class ReactionButtonComponent extends React.Component<ReactionButtonProps> {
 
   private renderIconElement = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle, iconStyle } = this.props;

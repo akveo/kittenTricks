@@ -22,9 +22,9 @@ interface ComponentProps {
   children?: React.ReactNode;
 }
 
-type Props = ThemedComponentProps & ImageBackgroundProps & ComponentProps;
+export type ImageOverlayProps = ThemedComponentProps & ImageBackgroundProps & ComponentProps;
 
-class ImageOverlayComponent extends React.Component<Props> {
+class ImageOverlayComponent extends React.Component<ImageOverlayProps> {
 
   private getOverlayColor = (source: string): string => {
     const { themedStyle } = this.props;

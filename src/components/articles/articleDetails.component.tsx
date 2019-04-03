@@ -26,9 +26,9 @@ interface ComponentProps {
   onLikePress: () => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type ArticleDetailsProps = ThemedComponentProps & ViewProps & ComponentProps;
 
-class ArticleDetailsComponent extends React.Component<Props> {
+class ArticleDetailsComponent extends React.Component<ArticleDetailsProps> {
 
   private onCommentsButtonPress = () => {
     this.props.onCommentPress();

@@ -14,9 +14,9 @@ interface ComponentProps {
   onItemSelect: (index: number) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type MessagingProps = ThemedComponentProps & ComponentProps;
 
-class MessagingComponent extends React.Component<Props> {
+class MessagingComponent extends React.Component<MessagingProps> {
 
   private onItemSelect = (index: number) => {
     this.props.onItemSelect(index);
@@ -28,7 +28,7 @@ class MessagingComponent extends React.Component<Props> {
     return (
       <LayoutList
         style={themedStyle.container}
-        items={items}
+        data={items}
         onItemSelect={this.onItemSelect}
       />
     );

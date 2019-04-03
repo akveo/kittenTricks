@@ -26,7 +26,7 @@ interface ComponentProps {
   onSubmit: (value: SignUpFormType) => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type SignUpFormProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
   isFirstNameValid: boolean;
@@ -42,7 +42,7 @@ interface State {
   password: string;
 }
 
-class SignUpFormComponent extends React.Component<Props, State> {
+class SignUpFormComponent extends React.Component<SignUpFormProps, State> {
 
   public state: State = {
     isFirstNameValid: false,

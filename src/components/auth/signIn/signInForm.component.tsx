@@ -20,7 +20,7 @@ interface ComponentProps {
   onSubmit: (value: SignInFormType) => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type SignInFormProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
   isEmailValid: boolean;
@@ -29,7 +29,7 @@ interface State {
   password: string;
 }
 
-class SignUpFormComponent extends React.Component<Props, State> {
+class SignInFormComponent extends React.Component<SignInFormProps, State> {
 
   public state: State = {
     isEmailValid: false,
@@ -98,7 +98,7 @@ class SignUpFormComponent extends React.Component<Props, State> {
   }
 }
 
-export const SignInForm = withStyles(SignUpFormComponent, (theme: ThemeType) => ({
+export const SignInForm = withStyles(SignInFormComponent, (theme: ThemeType) => ({
   input: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
     color: 'white',
