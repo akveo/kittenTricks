@@ -2,41 +2,48 @@ import React from 'react';
 import {
   createStackNavigator,
   createAppContainer,
-  NavigationContainer,
+  NavigationContainer as ReactNavigationContainer,
   HeaderProps,
-  NavigationScreenConfig,
-  NavigationScreenOptions,
+  createBottomTabNavigator,
 } from 'react-navigation';
+import {
+  MenuContainer,
+  LayoutsContainer,
+  ComponentsContainer,
+  ThemesContainer,
+} from '@src/containers/menu';
+import {
+  AuthContainer,
+  SignInContainer,
+  SignUpContainer,
+  SocialContainer,
+  ProfileSettings1Container,
+  ProfileSettings2Container,
+  ProfileSettings3Container,
+  ArticlesContainer,
+  ArticleList1Container,
+  ArticleList2Container,
+  ArticleList3Container,
+  MessagingContainer,
+  DashboardsContainer,
+  WalkthroughContainer,
+  EcommerceContainer,
+  NavigationContainer,
+} from '@src/containers/layouts';
 import {
   AppBar,
   AppBarProps,
 } from './appBar.component';
-import {
-  HomeContainer,
-  ArticlesContainer,
-  AuthContainer,
-  DashboardsContainer,
-  MessagingContainer,
-  OtherContainer,
-  SocialContainer,
-  FollowersContainer,
-  SettingsContainer,
-  EditProfileContainer,
-  EditProfile1Container,
-  EditProfile2Container,
-  EditProfile3Container,
-} from '../../containers';
+import { BackArrowIcon } from '@src/assets/icons';
 
-const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<NavigationScreenOptions> => {
-
-  const backIconUri: string = 'https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png';
+const HeadingNavigationOptions = ({ navigation }) => {
 
   const header = (props: HeaderProps): React.ReactElement<AppBarProps> => {
     return (
       <AppBar
         {...props}
-        backIcon={{uri: backIconUri}}
         navigation={navigation}
+        backIcon={BackArrowIcon}
       />
     );
   };
@@ -44,65 +51,126 @@ const HeadingNavigationOptions = ({ navigation }): NavigationScreenConfig<Naviga
   return { ...navigation, header };
 };
 
-const EditProfileNavigator: NavigationContainer = createStackNavigator(
+const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Edit Profile']: EditProfileContainer,
-    ['Edit Profile 1']: EditProfile1Container,
-    ['Edit Profile 2']: EditProfile2Container,
-    ['Edit Profile 3']: EditProfile3Container,
-  }, {
+    ['Navigation']: NavigationContainer,
+  },
+  {
     headerMode: 'none',
-    initialRouteName: 'Edit Profile',
-    navigationOptions: HeadingNavigationOptions,
   },
 );
 
-const SettingsNavigator: NavigationContainer = createStackNavigator(
+const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Settings']: SettingsContainer,
-    ['Edit Profile']: EditProfileNavigator,
-  }, {
-    initialRouteName: 'Settings',
+    ['Ecommerce']: EcommerceContainer,
+  },
+  {
     headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
   },
 );
 
-const SocialNavigator: NavigationContainer = createStackNavigator(
+const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Walkthrough']: WalkthroughContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Dashboards']: DashboardsContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Messaging']: MessagingContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Articles']: ArticlesContainer,
+    ['Article List 1']: ArticleList1Container,
+    ['Article List 2']: ArticleList2Container,
+    ['Article List 3']: ArticleList3Container,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+
+const SocialNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Social']: SocialContainer,
-    ['Followers']: FollowersContainer,
+    ['Profile Settings 1']: ProfileSettings1Container,
+    ['Profile Settings 2']: ProfileSettings2Container,
+    ['Profile Settings 3']: ProfileSettings3Container,
   },
   {
-    initialRouteName: 'Social',
     headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
   },
 );
 
-const HomeNavigator: NavigationContainer = createStackNavigator(
+const AuthNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Home']: HomeContainer,
-    ['Articles']: ArticlesContainer,
     ['Auth']: AuthContainer,
-    ['Dashboards']: DashboardsContainer,
-    ['Messaging']: MessagingContainer,
-    ['Other']: OtherContainer,
-    ['Social']: SocialNavigator,
-    ['Settings']: SettingsNavigator,
+    ['Sign In']: SignInContainer,
+    ['Sign Up']: SignUpContainer,
   },
   {
-    initialRouteName: 'Home',
     headerMode: 'none',
-    navigationOptions: HeadingNavigationOptions,
   },
 );
 
-const AppNavigator: NavigationContainer = createStackNavigator(
+const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Home']: HomeNavigator,
+    ['Themes']: ThemesContainer,
+  },
+  {
+    headerMode: 'none',
   },
 );
 
+const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Components']: ComponentsContainer,
+  },
+  {
+    headerMode: 'none',
+  },
+);
 
-export const Router: NavigationContainer = createAppContainer(AppNavigator);
+const LayoutsNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Layouts']: LayoutsContainer,
+    ['Auth']: AuthNavigator,
+    ['Social']: SocialNavigator,
+    ['Articles']: ArticlesNavigator,
+    ['Messaging']: MessagingNavigator,
+    ['Dashboards']: DashboardsNavigator,
+    ['Walkthrough']: WalkthroughNavigator,
+    ['Ecommerce']: EcommerceNavigator,
+    ['Navigation']: NavigationNavigator,
+  }, {
+    headerMode: 'none',
+  },
+);
+
+const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
+  ['Layouts']: LayoutsNavigator,
+  ['Components']: ComponentsNavigator,
+  ['Themes']: ThemesNavigator,
+}, {
+  tabBarComponent: MenuContainer,
+});
+
+export const Router: ReactNavigationContainer = createAppContainer(HomeNavigator);

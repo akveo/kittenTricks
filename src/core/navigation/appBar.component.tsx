@@ -5,9 +5,7 @@ import {
   SafeAreaView,
 } from 'react-navigation';
 import {
-  Image,
   ImageProps,
-  ImageSourcePropType,
   StyleSheet,
 } from 'react-native';
 import { StyleType } from '@kitten/theme';
@@ -18,8 +16,8 @@ import {
 } from '@kitten/ui';
 
 export interface AppBarProps {
-  backIcon: ImageSourcePropType;
   navigation: NavigationScreenProp<NavigationRoute>;
+  backIcon?: (style: StyleType) => React.ReactElement<ImageProps>;
 }
 
 export class AppBar extends React.Component<AppBarProps> {
@@ -33,22 +31,17 @@ export class AppBar extends React.Component<AppBarProps> {
   };
 
   private getCurrentRoute = (): NavigationRoute => {
-    return this.props.navigation.state.routes.find(this.isCurrentRoute);
-  };
+    if (this.props.navigation.state.routes) {
+      return this.props.navigation.state.routes.find(this.isCurrentRoute);
+    }
 
-  private renderBackButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    return (
-      <Image
-        style={style}
-        source={this.props.backIcon}
-      />
-    );
+    return this.props.navigation.state;
   };
 
   private renderBackButton = (): React.ReactElement<TopNavigationBarActionProps> => {
     return (
       <TopNavigationBarAction
-        icon={this.renderBackButtonIcon}
+        icon={this.props.backIcon}
         onPress={this.onBackButtonPress}
       />
     );
@@ -57,7 +50,7 @@ export class AppBar extends React.Component<AppBarProps> {
   private renderBackButtonIfNeeded = (): React.ReactElement<TopNavigationBarActionProps> | null => {
     const { index: currentNavigationIndex } = this.props.navigation.state;
 
-    return currentNavigationIndex === 0 ? null : this.renderBackButton();
+    return currentNavigationIndex ? this.renderBackButton() : null;
   };
 
   public render(): React.ReactNode {
