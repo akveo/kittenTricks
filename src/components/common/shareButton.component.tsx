@@ -4,15 +4,17 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { HeartIcon } from '@src/assets/icons';
+import {
+  ShareIcon,
+} from '@src/assets/icons';
 import {
   ReactionButton,
   ReactionButtonProps,
 } from './reactionButton.component';
 
-export type LikeButtonProps = ThemedComponentProps & ReactionButtonProps;
+export type ShareButtonProps = ThemedComponentProps & ReactionButtonProps;
 
-class LikeButtonComponent extends React.Component<LikeButtonProps> {
+class ShareButtonComponent extends React.Component<ShareButtonProps> {
 
   public render(): React.ReactNode {
     const { themedStyle, iconStyle, ...restProps } = this.props;
@@ -20,15 +22,15 @@ class LikeButtonComponent extends React.Component<LikeButtonProps> {
     return (
       <ReactionButton
         iconStyle={[themedStyle.icon, iconStyle]}
-        icon={HeartIcon}
+        icon={ShareIcon}
         {...restProps}
       />
     );
   }
 }
 
-export const LikeButton = withStyles(LikeButtonComponent, (theme: ThemeType) => ({
+export const ShareButton = withStyles(ShareButtonComponent, (theme: ThemeType) => ({
   icon: {
-    tintColor: '#FF3D71',
+    tintColor: '#A6AEBD',
   },
 }));

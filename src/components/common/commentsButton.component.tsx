@@ -15,13 +15,13 @@ export type CommentsButtonProps = ThemedComponentProps & ReactionButtonProps;
 class CommentsButtonComponent extends React.Component<CommentsButtonProps> {
 
   public render(): React.ReactNode {
-    const { themedStyle, ...restProps } = this.props;
+    const { themedStyle, iconStyle, ...restProps } = this.props;
 
     return (
       <ReactionButton
-        {...restProps}
-        iconStyle={themedStyle.icon}
+        iconStyle={[themedStyle.icon, iconStyle]}
         icon={MessageCircleIcon}
+        {...restProps}
       />
     );
   }

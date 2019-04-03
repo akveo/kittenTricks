@@ -22,3 +22,7 @@ export {
   ProfileSocials,
   ProfileSocialsProps,
 } from './profile/profileSocials.component';
+export {
+  Styx,
+  StyxProps,
+} from './feed/styx.component';

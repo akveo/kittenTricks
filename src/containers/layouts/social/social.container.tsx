@@ -52,6 +52,11 @@ export class SocialContainer extends React.Component<NavigationScreenProps> {
     },
     {
       title: 'Layout',
+      description: 'Feed',
+      route: 'Feed 1',
+    },
+    {
+      title: 'Layout',
       description: 'Settings',
       route: 'Settings',
     },
