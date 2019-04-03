@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  ImageProps,
-  View,
-  ViewProps,
-} from 'react-native';
+import { ImageProps } from 'react-native';
 import {
   StyleType,
   ThemedComponentProps,
@@ -12,8 +8,11 @@ import {
 } from '@kitten/theme';
 import { ButtonAlignments } from '@kitten/ui';
 import {
+  ActivityBar,
+  ActivityBarProps,
   Button,
   LikeButton,
+  ReactionBar,
   ShareButton,
 } from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
@@ -24,9 +23,9 @@ interface ComponentProps {
   onAddPress: () => void;
 }
 
-export type FeedItemBarProps = ThemedComponentProps & ViewProps & ComponentProps;
+export type FeedActivityBarProps = ThemedComponentProps & ActivityBarProps & ComponentProps;
 
-class FeedItemBarComponent extends React.Component<FeedItemBarProps> {
+class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
 
   private onShareButtonPress = () => {
     this.props.onSharePress();
@@ -51,22 +50,14 @@ class FeedItemBarComponent extends React.Component<FeedItemBarProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, ...restProps } = this.props;
+    const { themedStyle, ...restProps } = this.props;
 
     return (
-      <View
-        {...restProps}
-        style={[themedStyle.container, style]}>
-        <View style={themedStyle.reactionContainer}>
-          <ShareButton
-            iconStyle={themedStyle.reactionButtonIcon}
-            onPress={this.onShareButtonPress}
-          />
-          <LikeButton
-            iconStyle={themedStyle.reactionButtonIcon}
-            onPress={this.onLikeButtonPress}
-          />
-        </View>
+      <ActivityBar {...restProps}>
+        <ReactionBar>
+          <ShareButton onPress={this.onShareButtonPress}/>
+          <LikeButton onPress={this.onLikeButtonPress}/>
+        </ReactionBar>
         <Button
           style={themedStyle.addButton}
           activeOpacity={0.65}
@@ -76,26 +67,12 @@ class FeedItemBarComponent extends React.Component<FeedItemBarProps> {
           onPress={this.onAddButtonPress}>
           Add Training
         </Button>
-      </View>
+      </ActivityBar>
     );
   }
 }
 
-export const FeedItemBar = withStyles(FeedItemBarComponent, (theme: ThemeType) => ({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-  },
-  reactionContainer: {
-    flexDirection: 'row',
-  },
-  reactionButtonIcon: {
-    width: 24,
-    height: 24,
-  },
+export const FeedActivityBar = withStyles(FeedActivityBarComponent, (theme: ThemeType) => ({
   addButton: {
     backgroundColor: 'transparent',
     fontFamily: 'opensans-extrabold',

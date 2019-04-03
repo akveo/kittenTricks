@@ -11,10 +11,7 @@ import {
 } from '@kitten/theme';
 import { List } from '@kitten/ui';
 import { ArticleHeader } from '@src/components/articles';
-import {
-  Button,
-  ButtonProps,
-} from '@src/components/common';
+import { Button } from '@src/components/common';
 import { Article } from '@src/core/model';
 import {
   ArticleList4Item,
@@ -32,7 +29,7 @@ export type ArticleList4Props = ThemedComponentProps & ComponentProps;
 
 class ArticleList4Component extends React.Component<ArticleList4Props> {
 
-  private onHeaderItemPress = () => {
+  private onReadButtonPress = () => {
     this.props.onItemPress(0);
   };
 
@@ -46,16 +43,6 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
 
   private onItemLikePress = (index: number) => {
     this.props.onItemLikePress(index + 1);
-  };
-
-  private renderHeadingArticleButton = (style: StyleType): React.ReactElement<ButtonProps> => {
-    return (
-      <Button
-        activeOpacity={0.95}
-        onPress={this.onHeaderItemPress}>
-        READ
-      </Button>
-    );
   };
 
   private renderArticleItemElement = (item: Article, index: number): React.ReactElement<ArticleList4ItemProps> => {
@@ -93,11 +80,16 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
     return (
       <View style={themedStyle.container}>
         <ArticleHeader
-          source={{uri: headingArticle.image}}
+          source={{ uri: headingArticle.image }}
           title={headingArticle.title}
-          description={`${headingArticle.tips} Useful Tips`}
-          button={this.renderHeadingArticleButton}
-        />
+          description={`${headingArticle.tips} Useful Tips`}>
+          <Button
+            style={themedStyle.readButton}
+            activeOpacity={0.95}
+            onPress={this.onReadButtonPress}>
+            READ
+          </Button>
+        </ArticleHeader>
         <List
           data={restArticles}
           renderItem={this.renderArticleItem}
@@ -117,5 +109,14 @@ export const ArticleList4 = withStyles(ArticleList4Component, (theme: ThemeType)
   itemReverse: {
     flex: 1,
     flexDirection: 'row-reverse',
+  },
+  readButton: {
+    height: 40,
+    width: 200,
+    marginTop: 32,
+    fontFamily: 'opensans-extrabold',
+    fontSize: 16,
+    backgroundColor: 'white',
+    color: '#3366FF',
   },
 }));

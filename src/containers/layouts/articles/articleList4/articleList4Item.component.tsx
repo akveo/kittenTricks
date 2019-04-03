@@ -10,10 +10,9 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { ArticleActivityBar } from '@src/components/articles';
 import {
-  CommentsButton,
   ImageOverlay,
-  LikeButton,
   Text,
 } from '@src/components/common';
 
@@ -63,16 +62,14 @@ class ArticleList4ItemComponent extends React.Component<ArticleList4ItemProps> {
         />
         <View style={themedStyle.infoContainer}>
           <Text style={themedStyle.titleLabel}>{title}</Text>
-          <View style={themedStyle.reactionContainer}>
-            <CommentsButton
-              onPress={this.onCommentButtonPress}>
-              {comments}
-            </CommentsButton>
-            <LikeButton
-              onPress={this.onLikeButtonPress}>
-              {likes}
-            </LikeButton>
-          </View>
+          <ArticleActivityBar
+            style={themedStyle.activityContainer}
+            buttonStyle={themedStyle.reactionButton}
+            comments={comments}
+            likes={likes}
+            onCommentPress={this.onCommentButtonPress}
+            onLikePress={this.onLikeButtonPress}
+          />
         </View>
       </TouchableOpacity>
     );
@@ -89,8 +86,7 @@ export const ArticleList4Item = withStyles(ArticleList4ItemComponent, (theme: Th
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
-  reactionContainer: {
-    flexDirection: 'row',
+  activityContainer: {
     marginTop: 24,
   },
   photo: {

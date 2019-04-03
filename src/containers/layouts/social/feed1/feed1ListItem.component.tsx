@@ -1,31 +1,24 @@
 import React from 'react';
 import {
   Image,
-  ImageProps,
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
   View,
 } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ButtonAlignments } from '@kitten/ui';
 import {
-  FeedItemBar,
+  FeedActivityBar,
   Styx,
 } from '@src/components/social';
 import {
-  Button,
   ImageOverlay,
-  LikeButton,
-  ShareButton,
   Text,
 } from '@src/components/common';
-import { PlusIcon } from '@src/assets/icons';
 
 interface ListDerivedProps {
   index?: number;
@@ -107,8 +100,8 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
           />
           <Text style={themedStyle.descriptionLabel}>{description}</Text>
         </View>
-        <FeedItemBar
-          style={themedStyle.detailsBar}
+        <FeedActivityBar
+          style={themedStyle.activityContainer}
           onSharePress={this.onSharePress}
           onLikePress={this.onLikePress}
           onAddPress={this.onAddPress}
@@ -135,6 +128,12 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     paddingHorizontal: 24,
     paddingVertical: 24,
   },
+  activityContainer: {
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#EDF0F5',
+  },
   photo: {
     minHeight: 220,
     paddingHorizontal: 24,
@@ -158,10 +157,6 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     marginTop: 16,
     fontFamily: 'opensans-semibold',
     color: '#0D1C2E',
-  },
-  detailsBar: {
-    borderTopWidth: 1,
-    borderTopColor: '#EDF0F5',
   },
 }));
 

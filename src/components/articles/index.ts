@@ -1,7 +1,7 @@
 export {
-  ArticleDetails,
-  ArticleDetailsProps,
-} from './articleDetails.component';
+  ArticleActivityBar,
+  ArticleActivityBarProps,
+} from './articleActivityBar.component';
 export {
   ArticleHeader,
   ArticleHeaderProps,

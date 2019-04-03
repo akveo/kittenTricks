@@ -4,19 +4,17 @@ import {
   View,
 } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
 import {
-  ArticleDetails,
+  ArticleActivityBar,
   ArticleHeader,
 } from '@src/components/articles';
 import {
-  Button,
   Text,
-  ButtonProps,
+  ActivityAuthoring,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
 
@@ -31,26 +29,12 @@ export type Article1Props = ThemedComponentProps & ComponentProps;
 
 class Article1Component extends React.Component<Article1Props> {
 
-  private onHeaderButtonPress = () => {
-    this.props.onButtonPress();
-  };
-
   private onCommentButtonPress = () => {
     this.props.onCommentPress();
   };
 
   private onLikeButtonPress = () => {
     this.props.onLikePress();
-  };
-
-  private renderHeaderButton = (style: StyleType): React.ReactElement<ButtonProps> => {
-    return (
-      <Button
-        activeOpacity={0.95}
-        onPress={this.onHeaderButtonPress}>
-        READ
-      </Button>
-    );
   };
 
   public render(): React.ReactNode {
@@ -62,22 +46,23 @@ class Article1Component extends React.Component<Article1Props> {
           source={{ uri: article.image }}
           title={article.title}
           description={`${article.tips} Useful Tips`}
-          button={this.renderHeaderButton}
         />
-        <ScrollView>
+        <ScrollView contentContainerStyle={themedStyle.contentContainer}>
           <Text style={themedStyle.contentLabel}>
-            {`${article.content} ${article.content}`}
+            {article.content}
           </Text>
-          <ArticleDetails
-            style={themedStyle.detailsContainer}
-            authorPhoto={{ uri: article.author.photo }}
-            authorName={`${article.author.firstName} ${article.author.lastName}`}
-            date={article.date}
+          <ArticleActivityBar
+            style={themedStyle.activityContainer}
             comments={article.comments}
             likes={article.likes}
             onCommentPress={this.onCommentButtonPress}
-            onLikePress={this.onLikeButtonPress}
-          />
+            onLikePress={this.onLikeButtonPress}>
+            <ActivityAuthoring
+              photo={{ uri: article.author.photo }}
+              name={`${article.author.firstName} ${article.author.lastName}`}
+              date={article.date}
+            />
+          </ArticleActivityBar>
         </ScrollView>
       </View>
     );
@@ -88,7 +73,10 @@ export const Article1 = withStyles(Article1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
   },
-  detailsContainer: {
+  contentContainer: {
+    flex: 1,
+  },
+  activityContainer: {
     paddingHorizontal: 16,
     paddingVertical: 16,
     borderTopWidth: 1,

@@ -9,10 +9,11 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  ArticleDetails,
+  ArticleActivityBar,
   ArticleTips,
 } from '@src/components/articles';
 import {
+  ActivityAuthoring,
   ImageOverlay,
   Text,
 } from '@src/components/common';
@@ -48,7 +49,7 @@ class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
 
     return (
       <TouchableOpacity
-        activeOpacity={0.9}
+        activeOpacity={0.95}
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
@@ -62,15 +63,18 @@ class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
             {`${article.tips} Useful Tips`}
           </ArticleTips>
         </ImageOverlay>
-        <ArticleDetails
-          authorPhoto={{ uri: article.author.photo }}
-          authorName={`${article.author.firstName} ${article.author.lastName}`}
-          date={article.date}
+        <ArticleActivityBar
+          style={themedStyle.activityContainer}
           comments={article.comments}
           likes={article.likes}
           onCommentPress={this.onCommentsButtonPress}
-          onLikePress={this.onLikeButtonPress}
-        />
+          onLikePress={this.onLikeButtonPress}>
+          <ActivityAuthoring
+            photo={{ uri: article.author.photo }}
+            name={`${article.author.firstName} ${article.author.lastName}`}
+            date={article.date}
+          />
+        </ArticleActivityBar>
       </TouchableOpacity>
     );
   }
@@ -78,7 +82,7 @@ class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
 
 export const ArticleList2Item = withStyles(ArticleList2ItemComponent, (theme: ThemeType) => ({
   container: {
-    borderRadius: 8,
+    borderRadius: 12,
     overflow: 'hidden',
   },
   infoContainer: {
@@ -87,6 +91,10 @@ export const ArticleList2Item = withStyles(ArticleList2ItemComponent, (theme: Th
     borderBottomWidth: 1,
     borderBottomColor: '#EDF0F5',
   },
+  activityContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+  },
   tipsContainer: {
     marginTop: 16,
   },
@@ -94,7 +102,6 @@ export const ArticleList2Item = withStyles(ArticleList2ItemComponent, (theme: Th
     minHeight: 220,
     paddingHorizontal: 16,
     paddingVertical: 24,
-    tintColor: 'rgba(0, 0, 0, 0.25)',
   },
   titleLabel: {
     maxWidth: 192,

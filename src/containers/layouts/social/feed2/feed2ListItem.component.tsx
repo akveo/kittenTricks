@@ -1,27 +1,19 @@
 import React from 'react';
 import {
-  ImageProps,
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
-  View,
 } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ButtonAlignments } from '@kitten/ui';
+import { FeedActivityBar } from '@src/components/social';
 import {
-  Button,
   ImageOverlay,
-  LikeButton,
-  ShareButton,
   Text,
 } from '@src/components/common';
-import { PlusIcon } from '@src/assets/icons';
-import { FeedItemBar } from '@src/components/social';
 
 interface ListDerivedProps {
   index?: number;
@@ -46,27 +38,20 @@ class Feed2ListItemComponent extends React.Component<Feed2ListItemProps> {
     this.props.onPress(this.props.index);
   };
 
-  private onAddPress = () => {
+  private onAddButtonPress = () => {
     this.props.onPress(this.props.index);
   };
 
-  private onSharePress = () => {
+  private onShareButtonPress = () => {
     this.props.onPress(this.props.index);
   };
 
-  private onLikePress = () => {
+  private onLikeButtonPress = () => {
     this.props.onPress(this.props.index);
   };
 
   public render(): React.ReactNode {
-    const {
-      style,
-      themedStyle,
-      photo,
-      category,
-      description,
-      ...restProps
-    } = this.props;
+    const { style, themedStyle, photo, category, description, ...restProps } = this.props;
 
     return (
       <TouchableOpacity
@@ -80,11 +65,11 @@ class Feed2ListItemComponent extends React.Component<Feed2ListItemProps> {
           <Text style={themedStyle.categoryLabel}>{category}</Text>
         </ImageOverlay>
         <Text style={themedStyle.descriptionLabel}>{description}</Text>
-        <FeedItemBar
-          style={themedStyle.detailsBar}
-          onSharePress={this.onSharePress}
-          onLikePress={this.onLikePress}
-          onAddPress={this.onAddPress}
+        <FeedActivityBar
+          style={themedStyle.activityContainer}
+          onSharePress={this.onShareButtonPress}
+          onLikePress={this.onLikeButtonPress}
+          onAddPress={this.onAddButtonPress}
         />
       </TouchableOpacity>
     );
@@ -118,7 +103,9 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
     fontFamily: 'opensans-semibold',
     color: '#0D1C2E',
   },
-  detailsBar: {
+  activityContainer: {
+    paddingVertical: 16,
+    paddingHorizontal: 16,
     borderTopWidth: 1,
     borderTopColor: '#EDF0F5',
   },

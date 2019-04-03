@@ -2,24 +2,20 @@ import React from 'react';
 import {
   TouchableOpacity,
   TouchableOpacityProps,
-  View,
 } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ArticleTips } from '@src/components/articles';
+import {
+  ArticleActivityBar,
+  ArticleTips,
+} from '@src/components/articles';
 import {
   ImageOverlay,
   Text,
-  CommentsButton,
-  LikeButton,
 } from '@src/components/common';
-import {
-  HeartIcon,
-  MessageCircleIcon,
-} from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
 // @ts-ignore (override `onPress` prop)
@@ -62,20 +58,14 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
           <ArticleTips style={themedStyle.tipsContainer}>
             {`${article.tips} Useful Tips`}
           </ArticleTips>
-          <View style={themedStyle.reactionsContainer}>
-            <CommentsButton
-              style={themedStyle.reactionButton}
-              icon={MessageCircleIcon}
-              onPress={this.onCommentsButtonPress}>
-              {article.comments}
-            </CommentsButton>
-            <LikeButton
-              style={themedStyle.reactionButton}
-              icon={HeartIcon}
-              onPress={this.onLikeButtonPress}>
-              {article.likes}
-            </LikeButton>
-          </View>
+          <ArticleActivityBar
+            style={themedStyle.activityContainer}
+            buttonStyle={themedStyle.activityButton}
+            comments={article.comments}
+            likes={article.likes}
+            onCommentPress={this.onCommentsButtonPress}
+            onLikePress={this.onLikeButtonPress}
+          />
         </ImageOverlay>
       </TouchableOpacity>
     );
@@ -85,14 +75,13 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
 export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: ThemeType) => ({
   container: {
     minHeight: 220,
-    borderRadius: 8,
+    borderRadius: 12,
     overflow: 'hidden',
   },
   tipsContainer: {
     marginTop: 16,
   },
-  reactionsContainer: {
-    flexDirection: 'row',
+  activityContainer: {
     marginTop: 48,
   },
   image: {
@@ -105,7 +94,7 @@ export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: Th
     fontFamily: 'anton-regular',
     fontSize: 32,
   },
-  reactionButton: {
+  activityButton: {
     color: 'white',
   },
 }));

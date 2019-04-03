@@ -1,4 +1,8 @@
 export {
+  ActivityAuthoring,
+  ActivitiAuthoringProps,
+} from './activityAuthoring.component';
+export {
   AvoidKeyboard,
   AvoidKeyboardProps,
 } from './avoidKeyboard.component';
@@ -10,6 +14,10 @@ export {
   CommentsButton,
   CommentsButtonProps,
 } from './commentsButton.component';
+export {
+  ActivityBar,
+  ActivityBarProps,
+} from './activityBar.component';
 export {
   Input,
   InputProps,
@@ -26,6 +34,10 @@ export {
   RateBar,
   RateBarProps,
 } from './rateBar.component';
+export {
+  ReactionBar,
+  ReactionBarProps,
+} from './reactionBar.component';
 export {
   ReactionButton,
   ReactionButtonProps,

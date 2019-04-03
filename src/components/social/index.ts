@@ -1,4 +1,8 @@
 export {
+  ProfileActivityBar,
+  ProfileActivityBarProps,
+} from './profile/profileActivityBar.component';
+export {
   ProfilePhoto,
   ProfilePhotoProps,
 } from './profileSettings/profilePhoto.component';
@@ -23,9 +27,9 @@ export {
   ProfileSocialsProps,
 } from './profile/profileSocials.component';
 export {
-  FeedItemBar,
-  FeedItemBarProps,
-} from './feed/feedItemBar.component';
+  FeedActivityBar,
+  FeedActivityBarProps,
+} from './feed/feedActivityBar.component';
 export {
   Styx,
   StyxProps,
