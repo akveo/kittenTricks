@@ -55,8 +55,14 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
     return (
       <ActivityBar {...restProps}>
         <ReactionBar>
-          <ShareButton onPress={this.onShareButtonPress}/>
-          <LikeButton onPress={this.onLikeButtonPress}/>
+          <ShareButton
+            style={themedStyle.reactionButton}
+            onPress={this.onShareButtonPress}
+          />
+          <LikeButton
+            style={themedStyle.reactionButton}
+            onPress={this.onLikeButtonPress}
+          />
         </ReactionBar>
         <Button
           style={themedStyle.addButton}
@@ -73,6 +79,9 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
 }
 
 export const FeedActivityBar = withStyles(FeedActivityBarComponent, (theme: ThemeType) => ({
+  reactionButton: {
+    marginHorizontal: 8,
+  },
   addButton: {
     backgroundColor: 'transparent',
     fontFamily: 'opensans-extrabold',
