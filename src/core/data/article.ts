@@ -3,7 +3,7 @@ import { profile1 } from './profile';
 
 export const articles: Article[] = [
   {
-    image: 'https://media.self.com/photos/586540bc733664ae3e5ee9f8/4:3/w_728,c_limit/eat-healthy_feature.png',
+    image: 'https://images.unsplash.com/photo-1494597564530-871f2b93ac55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80',
     title: 'How To Eat Healthy',
     description: 'The easiest way to make sure your inter meal nibbling stays on track is to have...',
     content: 'There\'s a lot of advice out there on how to eat healthy, and if we\'re being honest, it can sometimes feel like too much to think about. Especially when you\'re hungry. Remember when you were a kid and eating was as simple as open, chew, enjoy? Yes, those were simpler times. Now, knowing how to eat healthy doesn\'t seem quite as straightforward. Between the diet fads, gourmet trends, and a rotating roster of superfoods, eating well has gotten, well, complicated.',
