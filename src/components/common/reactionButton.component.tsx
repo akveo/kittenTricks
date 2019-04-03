@@ -51,11 +51,11 @@ export const ReactionButton = withStyles(ReactionButtonComponent, (theme: ThemeT
   button: {
     padding: 0,
     backgroundColor: 'transparent',
-    fontSize: 13,
+    fontSize: 15,
     color: '#0D1C2E',
   },
   icon: {
-    width: 20,
-    height: 20,
+    width: 24,
+    height: 24,
   },
 }));

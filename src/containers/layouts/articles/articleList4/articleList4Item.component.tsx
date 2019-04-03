@@ -65,14 +65,10 @@ class ArticleList4ItemComponent extends React.Component<ArticleList4ItemProps> {
           <Text style={themedStyle.titleLabel}>{title}</Text>
           <View style={themedStyle.reactionContainer}>
             <CommentsButton
-              style={themedStyle.reactionButton}
-              iconStyle={themedStyle.reactionButtonIcon}
               onPress={this.onCommentButtonPress}>
               {comments}
             </CommentsButton>
             <LikeButton
-              style={themedStyle.reactionButton}
-              iconStyle={themedStyle.reactionButtonIcon}
               onPress={this.onLikeButtonPress}>
               {likes}
             </LikeButton>
@@ -106,13 +102,6 @@ export const ArticleList4Item = withStyles(ArticleList4ItemComponent, (theme: Th
     fontFamily: 'anton-regular',
     fontSize: 24,
     color: '#0D1C2E',
-  },
-  reactionButton: {
-    fontSize: 15,
-  },
-  reactionButtonIcon: {
-    width: 32,
-    height: 32,
   },
 }));
 

@@ -10,10 +10,10 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { List } from '@kitten/ui';
+import { ArticleHeader } from '@src/components/articles';
 import {
   Button,
-  ImageOverlay,
-  Text,
+  ButtonProps,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
 import {
@@ -46,6 +46,16 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
 
   private onItemLikePress = (index: number) => {
     this.props.onItemLikePress(index + 1);
+  };
+
+  private renderHeadingArticleButton = (style: StyleType): React.ReactElement<ButtonProps> => {
+    return (
+      <Button
+        activeOpacity={0.95}
+        onPress={this.onHeaderItemPress}>
+        READ
+      </Button>
+    );
   };
 
   private renderArticleItemElement = (item: Article, index: number): React.ReactElement<ArticleList4ItemProps> => {
@@ -82,20 +92,12 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
 
     return (
       <View style={themedStyle.container}>
-        <ImageOverlay
-          style={themedStyle.headerItem}
-          source={{ uri: headingArticle.image }}>
-          <Text style={themedStyle.headerItemTitleLabel}>{headingArticle.title}</Text>
-          <Text style={themedStyle.headerItemTipsLabel}>
-            {`${headingArticle.tips} Useful Tips`}
-          </Text>
-          <Button
-            style={themedStyle.headerItemButton}
-            activeOpacity={0.95}
-            onPress={this.onHeaderItemPress}>
-            READ
-          </Button>
-        </ImageOverlay>
+        <ArticleHeader
+          source={{uri: headingArticle.image}}
+          title={headingArticle.title}
+          description={`${headingArticle.tips} Useful Tips`}
+          button={this.renderHeadingArticleButton}
+        />
         <List
           data={restArticles}
           renderItem={this.renderArticleItem}
@@ -109,35 +111,11 @@ export const ArticleList4 = withStyles(ArticleList4Component, (theme: ThemeType)
   container: {
     flex: 1,
   },
-  headerItem: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 64,
-    paddingVertical: 64,
-  },
   item: {
     flex: 1,
   },
   itemReverse: {
     flex: 1,
     flexDirection: 'row-reverse',
-  },
-  headerItemTitleLabel: {
-    fontFamily: 'anton-regular',
-    fontSize: 48,
-    textAlign: 'center',
-  },
-  headerItemTipsLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 18,
-  },
-  headerItemButton: {
-    height: 40,
-    width: 200,
-    marginTop: 32,
-    fontFamily: 'opensans-extrabold',
-    fontSize: 16,
-    backgroundColor: 'white',
-    color: '#3366FF',
   },
 }));

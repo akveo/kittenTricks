@@ -15,6 +15,7 @@ import {
   LikeButton,
   CommentsButton,
 } from '@src/components/common';
+import { Avatar } from '@kitten/ui';
 
 interface ComponentProps {
   authorPhoto: ImageSourcePropType;
@@ -46,7 +47,7 @@ class ArticleDetailsComponent extends React.Component<ArticleDetailsProps> {
         style={[themedStyle.detailsContainer, style]}
         {...restProps}>
         <View style={themedStyle.authorContainer}>
-          <Image
+          <Avatar
             style={themedStyle.authorPhoto}
             source={authorPhoto}
           />
@@ -73,8 +74,6 @@ export const ArticleDetails = withStyles(ArticleDetailsComponent, (theme: ThemeT
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
   },
   authorContainer: {
     flexDirection: 'row',
@@ -87,17 +86,16 @@ export const ArticleDetails = withStyles(ArticleDetailsComponent, (theme: ThemeT
     flexDirection: 'row',
   },
   authorPhoto: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    margin: 0,
   },
   authorNameLabel: {
-    fontSize: 13,
+    fontFamily: 'opensans-semibold',
+    fontSize: 15,
     color: '#0D1C2E',
   },
   dateLabel: {
     color: '#8992A3',
-    fontSize: 11,
+    fontSize: 13,
   },
   reactionButton: {
     backgroundColor: 'transparent',
