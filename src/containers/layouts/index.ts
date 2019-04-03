@@ -2,6 +2,7 @@ export { ArticlesContainer } from './articles/articles.container';
 export { ArticleList1Container } from './articles/articleList1/articleList1.container';
 export { ArticleList2Container } from './articles/articleList2/articleList2.container';
 export { ArticleList3Container } from './articles/articleList3/articleList3.container';
+export { ArticleList4Container } from './articles/articleList4/articleList4.container';
 export { AuthContainer } from './auth/auth.container';
 export { SignInContainer } from './auth/signIn/signIn.container';
 export { SignUpContainer } from './auth/signUp/signUp.container';

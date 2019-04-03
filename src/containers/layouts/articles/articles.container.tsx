@@ -25,6 +25,11 @@ export class ArticlesContainer extends React.Component<NavigationScreenProps> {
       description: 'Article List',
       route: 'Article List 3',
     },
+    {
+      title: 'Layout - V4',
+      description: 'Article List',
+      route: 'Article List 4',
+    },
   ];
 
   private onItemSelect = (index: number): void => {

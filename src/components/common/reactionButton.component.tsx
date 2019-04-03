@@ -49,6 +49,7 @@ class ReactionButtonComponent extends React.Component<ReactionButtonProps> {
 
 export const ReactionButton = withStyles(ReactionButtonComponent, (theme: ThemeType) => ({
   button: {
+    padding: 0,
     backgroundColor: 'transparent',
     fontSize: 13,
     color: '#0D1C2E',

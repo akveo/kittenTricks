@@ -32,6 +32,7 @@ import {
   ArticleList1Container,
   ArticleList2Container,
   ArticleList3Container,
+  ArticleList4Container,
   MessagingContainer,
   DashboardsContainer,
   WalkthroughContainer,
@@ -110,6 +111,7 @@ const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
     ['Article List 1']: ArticleList1Container,
     ['Article List 2']: ArticleList2Container,
     ['Article List 3']: ArticleList3Container,
+    ['Article List 4']: ArticleList4Container,
   },
   {
     headerMode: 'none',
