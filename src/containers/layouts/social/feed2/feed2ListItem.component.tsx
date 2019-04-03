@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Image,
   ImageProps,
   ImageSourcePropType,
   TouchableOpacity,
@@ -15,10 +14,6 @@ import {
 } from '@kitten/theme';
 import { ButtonAlignments } from '@kitten/ui';
 import {
-  FeedItemBar,
-  Styx,
-} from '@src/components/social';
-import {
   Button,
   ImageOverlay,
   LikeButton,
@@ -26,6 +21,7 @@ import {
   Text,
 } from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
+import { FeedItemBar } from '@src/components/social';
 
 interface ListDerivedProps {
   index?: number;
@@ -34,21 +30,17 @@ interface ListDerivedProps {
 // @ts-ignore (override `onPress` prop)
 interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
-  icon: ImageSourcePropType;
   category: React.ReactText;
-  time: React.ReactText;
   description: React.ReactText;
-  styx?: React.ReactText;
   onPress: (index: number) => void;
   onAddPress: (index: number) => void;
   onSharePress: (index: number) => void;
   onLikePress: (index: number) => void;
-  onStyxPress: (index: number) => void;
 }
 
-export type Feed1ListItemProps = ThemedComponentProps & ComponentProps;
+export type Feed2ListItemProps = ThemedComponentProps & ComponentProps;
 
-class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
+class Feed2ListItemComponent extends React.Component<Feed2ListItemProps> {
 
   private onPress = () => {
     this.props.onPress(this.props.index);
@@ -66,20 +58,13 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
     this.props.onPress(this.props.index);
   };
 
-  private onStyxPress = () => {
-    this.props.onStyxPress(this.props.index);
-  };
-
   public render(): React.ReactNode {
     const {
       style,
       themedStyle,
       photo,
-      icon,
       category,
-      time,
       description,
-      styx,
       ...restProps
     } = this.props;
 
@@ -92,21 +77,9 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
         <ImageOverlay
           style={themedStyle.photo}
           source={photo}>
-          <View style={themedStyle.categoryContainer}>
-            <View style={themedStyle.categoryInfoContainer}>
-              <Image style={themedStyle.categoryIcon} source={icon}/>
-              <Text style={themedStyle.categoryLabel}>{category}</Text>
-            </View>
-            <Text style={themedStyle.timeLabel}>{time}</Text>
-          </View>
+          <Text style={themedStyle.categoryLabel}>{category}</Text>
         </ImageOverlay>
-        <View style={themedStyle.infoContainer}>
-          <Styx
-            value={styx}
-            onPress={this.onStyxPress}
-          />
-          <Text style={themedStyle.descriptionLabel}>{description}</Text>
-        </View>
+        <Text style={themedStyle.descriptionLabel}>{description}</Text>
         <FeedItemBar
           style={themedStyle.detailsBar}
           onSharePress={this.onSharePress}
@@ -118,27 +91,13 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
   }
 }
 
-export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeType) => ({
+export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeType) => ({
   container: {
     overflow: 'hidden',
     borderRadius: 12,
   },
-  categoryContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  categoryInfoContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  infoContainer: {
-    paddingHorizontal: 24,
-    paddingVertical: 24,
-  },
   photo: {
     minHeight: 220,
-    paddingHorizontal: 24,
-    paddingVertical: 24,
   },
   categoryIcon: {
     width: 32,
@@ -146,16 +105,16 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     tintColor: '#FFFFFF',
   },
   categoryLabel: {
-    marginHorizontal: 8,
+    position: 'absolute',
+    bottom: 0,
+    marginHorizontal: 24,
+    marginVertical: 24,
     fontFamily: 'anton-regular',
-    fontSize: 20,
-  },
-  timeLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
+    fontSize: 32,
   },
   descriptionLabel: {
-    marginTop: 16,
+    marginHorizontal: 24,
+    marginVertical: 24,
     fontFamily: 'opensans-semibold',
     color: '#0D1C2E',
   },
@@ -164,4 +123,3 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     borderTopColor: '#EDF0F5',
   },
 }));
-

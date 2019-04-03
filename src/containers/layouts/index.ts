@@ -19,5 +19,6 @@ export { ProfileSettings1Container } from './social/profileSettings1/profileSett
 export { ProfileSettings2Container } from './social/profileSettings2/profileSettings2.container';
 export { ProfileSettings3Container } from './social/profileSettings3/profileSettings3.container';
 export { Feed1Container } from './social/feed1/feed1.container';
+export { Feed2Container } from './social/feed2/feed2.container';
 export { SettingsContainer } from './social/settings/settings.container';
 export { WalkthroughContainer } from './walkthrough/walkthrough.container';

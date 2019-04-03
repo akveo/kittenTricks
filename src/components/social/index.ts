@@ -23,6 +23,10 @@ export {
   ProfileSocialsProps,
 } from './profile/profileSocials.component';
 export {
+  FeedItemBar,
+  FeedItemBarProps,
+} from './feed/feedItemBar.component';
+export {
   Styx,
   StyxProps,
 } from './feed/styx.component';
