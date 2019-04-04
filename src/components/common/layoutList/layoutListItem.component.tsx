@@ -8,19 +8,23 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '../text.component';
 
 interface ListDerivedProps {
-  index: number;
+  index?: number;
 }
 
-interface ComponentProps extends ListDerivedProps {
-  title: string;
-  description: string;
+// @ts-ignore
+interface TouchableProps extends TouchableOpacityProps {
   onPress: (index: number) => void;
 }
 
-export type LayoutListItemProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;
+interface ComponentProps extends ListDerivedProps, TouchableProps {
+  title: string;
+  description: string;
+}
+
+export type LayoutListItemProps = ThemedComponentProps & TouchableProps & ComponentProps;
 
 class LayoutListItemComponent extends React.Component<LayoutListItemProps> {
 

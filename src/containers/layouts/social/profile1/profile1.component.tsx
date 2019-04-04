@@ -36,9 +36,9 @@ interface ComponentProps {
   onPostLikePress: (index: number) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type Profile1Props = ThemedComponentProps & ComponentProps;
 
-class Profile1Component extends React.Component<Props> {
+class Profile1Component extends React.Component<Profile1Props> {
 
   private onFollowersButtonPress = () => {
     this.props.onFollowersPress();

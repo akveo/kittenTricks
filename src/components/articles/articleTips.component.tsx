@@ -17,9 +17,9 @@ interface ComponentProps {
   children: React.ReactText;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type ArticleTipsProps = ThemedComponentProps & ViewProps & ComponentProps;
 
-class ArticleTipsComponent extends React.Component<Props> {
+class ArticleTipsComponent extends React.Component<ArticleTipsProps> {
 
   private renderIconElement = (style: StyleType): React.ReactElement<ImageProps> => {
     return this.props.icon(style);

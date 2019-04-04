@@ -21,9 +21,9 @@ interface ComponentProps  {
   onSoundEnabledValueChange: (value: boolean) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type SettingsProps = ThemedComponentProps & ComponentProps;
 
-class SettingsComponent extends React.Component<Props> {
+class SettingsComponent extends React.Component<SettingsProps> {
 
   private onEditProfilePress = () => {
     this.props.onEditProfilePress();

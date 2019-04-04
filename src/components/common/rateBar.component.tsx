@@ -16,8 +16,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
 import { StarIcon } from '@src/assets/icons';
+import { Text } from './text.component';
 
 interface ComponentProps {
   hint?: React.ReactText;
@@ -30,11 +30,11 @@ interface ComponentProps {
   onChange?: (value: number) => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type RateBarProps = ThemedComponentProps & ViewProps & ComponentProps;
 
-class RateBarComponent extends React.Component<Props> {
+class RateBarComponent extends React.Component<RateBarProps> {
 
-  static defaultProps: Partial<Props> = {
+  static defaultProps: Partial<RateBarProps> = {
     icon: StarIcon,
     value: 0,
     max: 5,

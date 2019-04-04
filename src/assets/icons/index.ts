@@ -27,6 +27,10 @@ export const CartIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/shopping-cart-outline.png', style);
 };
 
+export const ClockIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/clock-outline.png', style);
+};
+
 export const EditIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/edit-2-outline.png', style);
 };
@@ -57,6 +61,10 @@ export const GridIcon = (style: StyleType): React.ReactElement<ImageProps> => {
 
 export const HeartIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/heart.png', style);
+};
+
+export const HeartIconOutline = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/heart-outline.png', style);
 };
 
 export const LayoutIcon = (style: StyleType): React.ReactElement<ImageProps> => {
@@ -91,8 +99,16 @@ export const PinIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/pin-outline.png', style);
 };
 
+export const PlusIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/plus-outline.png', style);
+};
+
 export const SettingsIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/settings.png', style);
+};
+
+export const ShareIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/share-outline.png', style);
 };
 
 export const SmartphoneIcon = (style: StyleType): React.ReactElement<ImageProps> => {

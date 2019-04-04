@@ -1,12 +1,15 @@
 import React from 'react';
 import {
   Button as ButtonComponent,
-  ButtonProps,
+  ButtonProps as ButtonComponentProps,
 } from '@kitten/ui';
 import {
+  ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+
+export type ButtonProps = ThemedComponentProps & ButtonComponentProps;
 
 class StyledButton extends React.Component<ButtonProps> {
 

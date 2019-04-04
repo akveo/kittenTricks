@@ -1,12 +1,15 @@
 import React from 'react';
 import {
   Input as InputComponent,
-  InputProps,
+  InputProps as InputComponentProps,
 } from '@kitten/ui';
 import {
+  ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+
+export type InputProps = ThemedComponentProps & InputComponentProps;
 
 class StyledInput extends React.Component<InputProps> {
 

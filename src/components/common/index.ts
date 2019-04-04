@@ -1,14 +1,65 @@
-export { AvoidKeyboard } from './avoidKeyboard.component';
-export { Button } from './button.component';
-export { CommentsButton } from './commentsButton.component';
-export { Input } from './input.component';
-export { Text } from './text.component';
-export { ImageOverlay } from './imageOverlay.component';
+export {
+  ActivityAuthoring,
+  ActivitiAuthoringProps,
+} from './activityAuthoring.component';
+export {
+  AvoidKeyboard,
+  AvoidKeyboardProps,
+} from './avoidKeyboard.component';
+export {
+  Button,
+  ButtonProps,
+} from './button.component';
+export {
+  CommentsButton,
+  CommentsButtonProps,
+} from './commentsButton.component';
+export {
+  ActivityBar,
+  ActivityBarProps,
+} from './activityBar.component';
+export {
+  Input,
+  InputProps,
+} from './input.component';
+export {
+  ImageOverlay,
+  ImageOverlayProps,
+} from './imageOverlay.component';
+export {
+  LikeButton,
+  LikeButtonProps,
+} from './likeButton.component';
+export {
+  RateBar,
+  RateBarProps,
+} from './rateBar.component';
+export {
+  ReactionBar,
+  ReactionBarProps,
+} from './reactionBar.component';
+export {
+  ReactionButton,
+  ReactionButtonProps,
+} from './reactionButton.component';
+export {
+  ShareButton,
+  ShareButtonProps,
+} from './shareButton.component';
+export {
+  Text,
+  TextProps,
+} from './text.component';
+export {
+  ValidationInput,
+  ValidationInputProps,
+} from './validationInput.component';
 export {
   LayoutList,
+  LayoutListProps,
   ListItem,
 } from './layoutList/layoutList.component';
-export { RateBar } from './rateBar.component';
-export { ReactionButton } from './reactionButton.component';
-export { LikeButton } from './likeButton.component';
-export { ValidationInput } from './validationInput.component';
+export {
+  LayoutListItem,
+  LayoutListItemProps,
+} from './layoutList/layoutListItem.component';

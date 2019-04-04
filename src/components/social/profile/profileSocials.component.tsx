@@ -20,9 +20,9 @@ interface ComponentProps {
   onPostsPress: () => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type ProfileSocialsProps = ThemedComponentProps & ViewProps & ComponentProps;
 
-class ProfileSocialsComponent extends React.Component<Props> {
+class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
 
   private onFollowersButtonPress = () => {
     this.props.onFollowersPress();

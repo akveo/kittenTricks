@@ -50,6 +50,21 @@ export class SocialContainer extends React.Component<NavigationScreenProps> {
       description: 'Profile Settings',
       route: 'Profile Settings 3',
     },
+    {
+      title: 'Layout',
+      description: 'Feed',
+      route: 'Feed 1',
+    },
+    {
+      title: 'Layout - V2',
+      description: 'Feed',
+      route: 'Feed 2',
+    },
+    {
+      title: 'Layout',
+      description: 'Settings',
+      route: 'Settings',
+    },
   ];
 
   private onItemSelect = (index: number): void => {

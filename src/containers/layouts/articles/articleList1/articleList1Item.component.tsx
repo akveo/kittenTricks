@@ -1,31 +1,33 @@
 import React from 'react';
 import {
   TouchableOpacity,
+  TouchableOpacityProps,
   View,
-  ViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ArticleDetails } from '@src/components/articles';
+import { ArticleActivityBar } from '@src/components/articles';
 import {
+  ActivityAuthoring,
   ImageOverlay,
   Text,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
 
-interface ComponentProps {
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps {
   article: Article;
   onPress: (article: Article) => void;
   onCommentPress: (article: Article) => void;
   onLikePress: (article: Article) => void;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type ArticleList1ItemProps = ThemedComponentProps & ComponentProps;
 
-class ArticleList1ItemComponent extends React.Component<Props> {
+class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
 
   private onPress = () => {
     this.props.onPress(this.props.article);
@@ -40,12 +42,13 @@ class ArticleList1ItemComponent extends React.Component<Props> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, article } = this.props;
+    const { style, themedStyle, article, ...restProps } = this.props;
 
     return (
       <TouchableOpacity
+        activeOpacity={0.95}
+        {...restProps}
         style={[themedStyle.container, style]}
-        activeOpacity={0.9}
         onPress={this.onPress}>
         <ImageOverlay
           style={themedStyle.image}
@@ -55,15 +58,18 @@ class ArticleList1ItemComponent extends React.Component<Props> {
           <Text style={themedStyle.titleLabel}>{article.title}</Text>
           <Text style={themedStyle.descriptionLabel}>{article.description}</Text>
         </View>
-        <ArticleDetails
-          authorPhoto={{ uri: article.author.photo }}
-          authorName={`${article.author.firstName} ${article.author.lastName}`}
-          date={article.date}
+        <ArticleActivityBar
+          style={themedStyle.activityContainer}
           comments={article.comments}
           likes={article.likes}
           onCommentPress={this.onCommentsButtonPress}
-          onLikePress={this.onLikeButtonPress}
-        />
+          onLikePress={this.onLikeButtonPress}>
+          <ActivityAuthoring
+            photo={{ uri: article.author.photo }}
+            name={`${article.author.firstName} ${article.author.lastName}`}
+            date={article.date}
+          />
+        </ArticleActivityBar>
       </TouchableOpacity>
     );
   }
@@ -71,7 +77,7 @@ class ArticleList1ItemComponent extends React.Component<Props> {
 
 export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: ThemeType) => ({
   container: {
-    borderRadius: 8,
+    borderRadius: 12,
     overflow: 'hidden',
   },
   infoContainer: {
@@ -79,6 +85,10 @@ export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: Th
     paddingVertical: 24,
     borderBottomWidth: 1,
     borderBottomColor: '#EDF0F5',
+  },
+  activityContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
   },
   image: {
     height: 220,
@@ -89,6 +99,7 @@ export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: Th
     color: '#0D1C2E',
   },
   descriptionLabel: {
+    marginTop: 16,
     fontSize: 15,
     fontFamily: 'opensans-semibold',
     color: '#8992A3',
