@@ -1,6 +1,7 @@
 import {
   Gender,
   Profile,
+  ProfileSocials,
 } from '@src/core/model';
 
 export const profile1: Profile = {
@@ -13,6 +14,14 @@ export const profile1: Profile = {
   age: 41,
   weight: 114,
   height: 184,
+  inseam: 45,
   email: 'john.cena@gmail.com',
   phoneNumber: '+375 44 846 97 68',
+  location: 'Florida, USA',
+};
+
+export const profileSocials1: ProfileSocials = {
+  followers: 1500,
+  following: 86,
+  posts: 116,
 };

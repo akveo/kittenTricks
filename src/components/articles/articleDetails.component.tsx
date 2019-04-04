@@ -10,12 +10,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
 import {
-  HeartIcon,
-  MessageCircleIcon,
-} from '@src/assets/icons';
-import { ReactionButton } from './reactionButton.component';
+  Text,
+  LikeButton,
+  CommentsButton,
+} from '@src/components/common';
 
 interface ComponentProps {
   authorPhoto: ImageSourcePropType;
@@ -57,18 +56,12 @@ class ArticleDetailsComponent extends React.Component<Props> {
           </View>
         </View>
         <View style={themedStyle.reactionsContainer}>
-          <ReactionButton
-            iconStyle={themedStyle.commentsIcon}
-            icon={MessageCircleIcon}
-            onPress={this.onCommentsButtonPress}>
+          <CommentsButton onPress={this.onCommentsButtonPress}>
             {comments}
-          </ReactionButton>
-          <ReactionButton
-            iconStyle={themedStyle.likeIcon}
-            icon={HeartIcon}
-            onPress={this.onLikeButtonPress}>
+          </CommentsButton>
+          <LikeButton onPress={this.onLikeButtonPress}>
             {likes}
-          </ReactionButton>
+          </LikeButton>
         </View>
       </View>
     );
@@ -108,15 +101,5 @@ export const ArticleDetails = withStyles(ArticleDetailsComponent, (theme: ThemeT
   },
   reactionButton: {
     backgroundColor: 'transparent',
-  },
-  reactionIcon: {
-    width: 20,
-    height: 20,
-  },
-  commentsIcon: {
-    tintColor: '#A6AEBD',
-  },
-  likeIcon: {
-    tintColor: '#FF3D71',
   },
 }));
