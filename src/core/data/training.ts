@@ -1,5 +1,7 @@
 import { Training } from '@src/core/model';
 
+/* tslint:disable */
+
 export const trainings: Training[] = [
   {
     photo: 'https://images.unsplash.com/photo-1467809941367-bbf259d44dd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2980&q=80',

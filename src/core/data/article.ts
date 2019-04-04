@@ -1,6 +1,8 @@
 import { Article } from '@src/core/model';
 import { profile1 } from './profile';
 
+/* tslint:disable */
+
 export const articles: Article[] = [
   {
     image: 'https://images.unsplash.com/photo-1494597564530-871f2b93ac55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80',
