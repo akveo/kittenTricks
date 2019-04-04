@@ -195,4 +195,11 @@ const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
   tabBarComponent: MenuContainer,
 });
 
-export const Router: ReactNavigationContainer = createAppContainer(HomeNavigator);
+const AppNavigator: ReactNavigationContainer = createStackNavigator({
+  Home: {
+    screen: HomeNavigator,
+    navigationOptions: HeadingNavigationOptions
+  },
+});
+
+export const Router: ReactNavigationContainer = createAppContainer(AppNavigator);
