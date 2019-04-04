@@ -3,6 +3,14 @@ import { ImageProps } from 'react-native';
 import { StyleType } from '@kitten/theme';
 import { Icon } from './icon.component';
 
+export const ArrowHeadDownIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/arrowhead-down-outline.png', style);
+};
+
+export const ArrowHeadUpIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/arrowhead-up-outline.png', style);
+};
+
 export const BackArrowIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png', style);
 };
@@ -89,6 +97,10 @@ export const SettingsIcon = (style: StyleType): React.ReactElement<ImageProps> =
 
 export const SmartphoneIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/smartphone-outline.png', style);
+};
+
+export const StarIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/star.png', style);
 };
 
 export const TwitterIcon = (style: StyleType): React.ReactElement<ImageProps> => {
