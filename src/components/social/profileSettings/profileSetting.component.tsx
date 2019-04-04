@@ -18,9 +18,9 @@ interface ComponentProps {
   value: React.ReactText;
 }
 
-export type ProfileParameterProps = ComponentProps & ViewProps & ThemedComponentProps;
+export type ProfileSettingProps = ComponentProps & ViewProps & ThemedComponentProps;
 
-class ProfileSettingComponent extends React.Component<ProfileParameterProps> {
+class ProfileSettingComponent extends React.Component<ProfileSettingProps> {
 
   private renderTextElement = (text: React.ReactText, style: StyleProp<TextStyle>): React.ReactElement<TextProps> => {
     return (

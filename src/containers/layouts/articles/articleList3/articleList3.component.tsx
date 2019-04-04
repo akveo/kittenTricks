@@ -7,7 +7,10 @@ import {
 } from '@kitten/theme';
 import { List } from '@kitten/ui';
 import { Article } from '@src/core/model';
-import { ArticleList3Item } from './articleList3Item.component';
+import {
+  ArticleList3Item,
+  ArticleList3ItemProps,
+} from './articleList3Item.component';
 
 interface ComponentProps {
   articles: Article[];
@@ -16,9 +19,9 @@ interface ComponentProps {
   onItemCommentPress: (article: Article) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type ArticleList3Props = ThemedComponentProps & ComponentProps;
 
-class ArticleList3Component extends React.Component<Props> {
+class ArticleList3Component extends React.Component<ArticleList3Props> {
 
   private onItemPress = (article: Article) => {
     this.props.onItemPress(article);
@@ -32,7 +35,7 @@ class ArticleList3Component extends React.Component<Props> {
     this.props.onItemCommentPress(article);
   };
 
-  private renderItem = (info: ListRenderItemInfo<Article>): React.ReactElement<any> => {
+  private renderItem = (info: ListRenderItemInfo<Article>): React.ReactElement<ArticleList3ItemProps> => {
     const { themedStyle } = this.props;
 
     return (
@@ -47,12 +50,12 @@ class ArticleList3Component extends React.Component<Props> {
   };
 
   public render(): React.ReactNode {
-    const { themedStyle } = this.props;
+    const { themedStyle, articles } = this.props;
 
     return (
       <List
         style={themedStyle.container}
-        data={this.props.articles}
+        data={articles}
         renderItem={this.renderItem}
       />
     );

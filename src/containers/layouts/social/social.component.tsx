@@ -14,9 +14,9 @@ interface ComponentProps {
   onItemSelect: (index: number) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type SocialProps = ThemedComponentProps & ComponentProps;
 
-class SocialComponent extends React.Component<Props> {
+class SocialComponent extends React.Component<SocialProps> {
 
   private onItemSelect = (index: number) => {
     this.props.onItemSelect(index);
@@ -28,7 +28,7 @@ class SocialComponent extends React.Component<Props> {
     return (
       <LayoutList
         style={themedStyle.container}
-        items={items}
+        data={items}
         onItemSelect={this.onItemSelect}
       />
     );

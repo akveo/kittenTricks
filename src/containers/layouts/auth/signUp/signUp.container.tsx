@@ -3,9 +3,7 @@ import { NavigationScreenProps } from 'react-navigation';
 import { SignUpFormType } from '@src/components/auth';
 import { SignUp } from './signUp.component';
 
-type Props = NavigationScreenProps;
-
-export class SignUpContainer extends React.Component<Props> {
+export class SignUpContainer extends React.Component<NavigationScreenProps> {
 
   private onLoginPress = () => {
     this.props.navigation.navigate('Sign In');

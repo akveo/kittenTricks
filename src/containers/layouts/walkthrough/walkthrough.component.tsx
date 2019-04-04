@@ -14,9 +14,9 @@ interface ComponentProps {
   onItemSelect: (index: number) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type WalkThroughProps = ThemedComponentProps & ComponentProps;
 
-class WalkthroughComponent extends React.Component<Props> {
+class WalkthroughComponent extends React.Component<WalkThroughProps> {
 
   private onItemSelect = (index: number) => {
     this.props.onItemSelect(index);
@@ -28,7 +28,7 @@ class WalkthroughComponent extends React.Component<Props> {
     return (
       <LayoutList
         style={themedStyle.container}
-        items={items}
+        data={items}
         onItemSelect={this.onItemSelect}
       />
     );

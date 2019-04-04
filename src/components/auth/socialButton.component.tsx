@@ -22,9 +22,9 @@ interface ComponentProps {
   iconStyle?: StyleProp<ImageStyle>;
 }
 
-type Props = ThemedComponentProps & ButtonProps & ComponentProps;
+export type SocialButtonProps = ThemedComponentProps & ButtonProps & ComponentProps;
 
-class SocialButtonComponent extends React.Component<Props> {
+class SocialButtonComponent extends React.Component<SocialButtonProps> {
 
   private getIconSource = (): ImageSourcePropType => {
     const { type } = this.props;

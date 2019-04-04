@@ -16,11 +16,12 @@ interface ComponentProps {
   photo: ImageSourcePropType;
   name: React.ReactText;
   location: React.ReactText;
+  children?: React.ReactNode;
 }
 
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type ProfileInfoProps = ThemedComponentProps & ViewProps & ComponentProps;
 
-class ProfileInfoComponent extends React.Component<Props> {
+class ProfileInfoComponent extends React.Component<ProfileInfoProps> {
 
   public render(): React.ReactNode {
     const { style, themedStyle, photo, name, location, children, ...restProps } = this.props;

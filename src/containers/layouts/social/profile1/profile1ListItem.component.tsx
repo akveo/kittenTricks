@@ -1,30 +1,26 @@
 import React from 'react';
 import {
-  Image,
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
-  View,
 } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { ProfileActivityBar } from '@src/components/social';
 import {
-  Avatar,
-  ButtonAlignments,
-} from '@kitten/ui';
-import {
-  LikeButton,
-  Text,
+  ActivityAuthoring,
+  ImageOverlay,
 } from '@src/components/common';
 
 interface ListDerivedProps {
-  index: number;
+  index?: number;
 }
 
-interface ComponentProps extends ListDerivedProps {
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
   profilePhoto: ImageSourcePropType;
   authorName: React.ReactText;
@@ -34,7 +30,7 @@ interface ComponentProps extends ListDerivedProps {
   onLikePress: (index: number) => void;
 }
 
-export type Profile1ListItemProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;
+export type Profile1ListItemProps = ThemedComponentProps & ComponentProps;
 
 class Profile1ListItemComponent extends React.Component<Profile1ListItemProps> {
 
@@ -61,32 +57,24 @@ class Profile1ListItemComponent extends React.Component<Profile1ListItemProps> {
 
     return (
       <TouchableOpacity
-        activeOpacity={0.65}
+        activeOpacity={0.95}
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
-        <Image
+        <ImageOverlay
           style={themedStyle.photo}
           source={photo}
         />
-        <View style={themedStyle.infoContainer}>
-          <View style={themedStyle.authorContainer}>
-            <Avatar
-              style={themedStyle.authorPhoto}
-              source={profilePhoto}
-            />
-            <View style={themedStyle.detailsContainer}>
-              <Text style={themedStyle.authorNameLabel}>{authorName}</Text>
-              <Text style={themedStyle.dateLabel}>{date}</Text>
-            </View>
-          </View>
-          <LikeButton
-            style={themedStyle.likeButton}
-            alignment={ButtonAlignments.RIGHT}
-            onPress={this.onLikeButtonPress}>
-            {likes}
-          </LikeButton>
-        </View>
+        <ProfileActivityBar
+          style={themedStyle.detailsContainer}
+          likes={likes}
+          onLikePress={this.onLikeButtonPress}>
+          <ActivityAuthoring
+            photo={profilePhoto}
+            name={authorName}
+            date={date}
+          />
+        </ProfileActivityBar>
       </TouchableOpacity>
     );
   }
@@ -98,37 +86,11 @@ export const Profile1ListItem = withStyles(Profile1ListItemComponent, (theme: Th
     borderRadius: 12,
     backgroundColor: '#FFFFFF',
   },
-  infoContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 8,
-    paddingVertical: 8,
-  },
-  authorContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   detailsContainer: {
-    marginLeft: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
   },
   photo: {
     minHeight: 220,
-  },
-  authorPhoto: {
-    width: 40,
-    height: 40,
-  },
-  authorNameLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 13,
-    color: '#0D1C2E',
-  },
-  dateLabel: {
-    fontSize: 11,
-    color: '#8992A3',
-  },
-  likeButton: {
-    fontSize: 13,
-    color: '#0D1C2E',
   },
 }));

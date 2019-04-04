@@ -18,7 +18,7 @@ export class AuthContainer extends React.Component<NavigationScreenProps> {
     {
       title: 'Layout',
       description: 'Sign Up',
-      route: 'Sign Out',
+      route: 'Sign Up',
     },
   ];
 

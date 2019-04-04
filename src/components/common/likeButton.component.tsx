@@ -1,32 +1,27 @@
 import React from 'react';
 import {
-  View,
-  ViewProps,
-} from 'react-native';
-import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ReactionButton } from './reactionButton.component';
 import { HeartIcon } from '@src/assets/icons';
+import {
+  ReactionButton,
+  ReactionButtonProps,
+} from './reactionButton.component';
 
-interface ComponentProps {
+export type LikeButtonProps = ThemedComponentProps & ReactionButtonProps;
 
-}
-
-type Props = ThemedComponentProps & ViewProps & ComponentProps;
-
-class LikeButtonComponent extends React.Component<Props> {
+class LikeButtonComponent extends React.Component<LikeButtonProps> {
 
   public render(): React.ReactNode {
-    const { themedStyle, ...restProps } = this.props;
+    const { themedStyle, iconStyle, ...restProps } = this.props;
 
     return (
       <ReactionButton
-        {...restProps}
-        iconStyle={themedStyle.icon}
+        iconStyle={[themedStyle.icon, iconStyle]}
         icon={HeartIcon}
+        {...restProps}
       />
     );
   }

@@ -5,7 +5,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ProfileParameter1 } from '@src/components/social';
+import { ProfileParameter } from '@src/components/social';
 import {
   ImageOverlay,
   RateBar,
@@ -13,15 +13,14 @@ import {
 } from '@src/components/common';
 import { Profile } from '@src/core/model';
 
-
 interface ComponentProps {
   profile: Profile;
   onRateChange: (value: number) => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type Profile5Props = ThemedComponentProps & ComponentProps;
 
-class Profile5Component extends React.Component<Props> {
+class Profile5Component extends React.Component<Profile5Props> {
 
   private onRateBarValueChange = (value: number) => {
     this.props.onRateChange(value);
@@ -46,19 +45,19 @@ class Profile5Component extends React.Component<Props> {
             onChange={this.onRateBarValueChange}
           />
           <View style={themedStyle.parametersContainer}>
-            <ProfileParameter1
+            <ProfileParameter
               hint='Height'
               value={`${profile.height} cm`}
             />
-            <ProfileParameter1
+            <ProfileParameter
               hint='Age'
               value={`${profile.age}`}
             />
-            <ProfileParameter1
+            <ProfileParameter
               hint='Inseam'
               value={`${profile.inseam} cm`}
             />
-            <ProfileParameter1
+            <ProfileParameter
               hint='Weight'
               value={`${profile.weight} kg`}
             />

@@ -24,9 +24,9 @@ interface ComponentProps {
   onButtonPress: () => void;
 }
 
-type Props = ThemedComponentProps & ComponentProps;
+export type ProfileSettings3Props = ThemedComponentProps & ComponentProps;
 
-class ProfileSettings3Component extends React.Component<Props> {
+class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
 
   private onButtonPress = () => {
     this.props.onButtonPress();
