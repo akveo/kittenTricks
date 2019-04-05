@@ -200,7 +200,7 @@ const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
 const AppNavigator: ReactNavigationContainer = createStackNavigator({
   Home: {
     screen: HomeNavigator,
-    navigationOptions: HeadingNavigationOptions
+    navigationOptions: HeadingNavigationOptions,
   },
 });
 

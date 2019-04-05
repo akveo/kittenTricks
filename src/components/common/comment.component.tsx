@@ -22,7 +22,7 @@ interface ComponentProps {
   comment: string;
   likes: number;
   commentsCount: number;
-  date: string
+  date: string;
   onLikePress: () => void;
   onCommentPress: () => void;
   onProfilePress: () => void;
