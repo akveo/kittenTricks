@@ -3,7 +3,7 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { Profile } from '@src/core/model';
+import { Comment as CommentModel } from '@src/core/model';
 import {
   Avatar,
   Button,
@@ -18,11 +18,7 @@ import { ArticleActivityBar } from '@src/components/articles';
 import { Text } from '@src/components/common';
 
 interface ComponentProps {
-  author: Profile;
-  comment: string;
-  likes: number;
-  commentsCount: number;
-  date: string;
+  comment: CommentModel;
   onLikePress: () => void;
   onCommentPress: () => void;
   onProfilePress: () => void;
@@ -45,14 +41,7 @@ class CommentComponent extends React.Component<CommentProps> {
   };
 
   public render(): React.ReactNode {
-    const {
-      themedStyle,
-      author,
-      date,
-      comment,
-      commentsCount,
-      likes,
-    } = this.props;
+    const { themedStyle, comment } = this.props;
 
     return (
       <View>
@@ -60,14 +49,14 @@ class CommentComponent extends React.Component<CommentProps> {
           <View style={themedStyle.authorInfoContainer}>
             <Avatar
               size='medium'
-              source={{ uri: author.photo }}
+              source={{ uri: comment.author.photo }}
             />
             <View>
               <Text style={themedStyle.articleAuthorLabel}>
-                {`${author.firstName} ${author.lastName}`}
+                {`${comment.author.firstName} ${comment.author.lastName}`}
               </Text>
               <Text style={themedStyle.articleDateLabel}>
-                {date}
+                {comment.date}
               </Text>
             </View>
           </View>
@@ -80,11 +69,11 @@ class CommentComponent extends React.Component<CommentProps> {
           </View>
         </View>
         <Text style={themedStyle.comment}>
-          {comment}
+          {comment.text}
         </Text>
         <ArticleActivityBar
-          comments={commentsCount}
-          likes={likes}
+          comments={comment.comments ? comment.comments.length : 0}
+          likes={comment.likesCount}
           onCommentPress={this.onCommentPress}
           onLikePress={this.onLikePress}/>
       </View>

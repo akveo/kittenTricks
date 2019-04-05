@@ -12,32 +12,39 @@ import {
 } from '@kitten/theme';
 import {
   Text,
-  Comment,
+  Comment as CommentComponent,
   CommentProps,
 } from '@src/components/common';
 import { Input } from '@kitten/ui';
-import { Article } from '@src/core/model';
+import {
+  Article,
+  Comment,
+} from '@src/core/model';
 
 interface ComponentProps {
   article: Article;
-  comments: string[];
-  comment: string;
+  currentCommentText: string;
   onCommentSubmit: () => void;
   onCommentTextChange: (text: string) => void;
-  onCommentPress: () => void;
-  onLikePress: () => void;
+  onCommentItemPress: (index: number) => void;
+  onCommentPress: (index: number) => void;
+  onLikePress: (index: number) => void;
 }
 
 export type Article3Props = ThemedComponentProps & ComponentProps;
 
 class Article3Component extends React.Component<Article3Props> {
 
-  private onCommentButtonPress = () => {
-    this.props.onCommentPress();
+  private onCommentButtonPress = (index: number) => {
+    this.props.onCommentPress(index);
   };
 
-  private onLikeButtonPress = () => {
-    this.props.onLikePress();
+  private onLikeButtonPress = (index: number) => {
+    this.props.onLikePress(index);
+  };
+
+  private onMoreButtonPress = (index: number) => {
+    this.props.onCommentItemPress(index);
   };
 
   private onCommentTextChange = (text: string): void => {
@@ -48,38 +55,29 @@ class Article3Component extends React.Component<Article3Props> {
     this.props.onCommentSubmit();
   };
 
-  private renderComment = (comment: string, key: number): React.ReactElement<CommentProps> => {
-    const { article } = this.props;
-
+  private renderComment = (comment: Comment, key: number): React.ReactElement<CommentProps> => {
     return (
-      <Comment
+      <CommentComponent
         key={key}
-        author={article.author}
         comment={comment}
-        date={article.date}
-        commentsCount={45}
-        likes={22}
-        onLikePress={() => {
-        }}
-        onCommentPress={() => {
-        }}
-        onProfilePress={() => {
-        }}/>
+        onLikePress={() => this.onLikeButtonPress(key)}
+        onCommentPress={() => this.onCommentButtonPress(key)}
+        onProfilePress={() => this.onMoreButtonPress(key)}/>
     );
   };
 
   private renderComments = (): React.ReactElement<ViewProps> => {
-    const { comments, themedStyle } = this.props;
+    const { article } = this.props;
 
     return (
       <View>
-        {comments.map(this.renderComment)}
+        {article.comments.map(this.renderComment)}
       </View>
     );
   };
 
   public render(): React.ReactNode {
-    const { themedStyle, article, comment } = this.props;
+    const { themedStyle, article, currentCommentText } = this.props;
 
     return (
       <ScrollView contentContainerStyle={themedStyle.contentContainer}>
@@ -110,7 +108,7 @@ class Article3Component extends React.Component<Article3Props> {
           </Text>
           <Input
             placeholder='Write your comment'
-            value={comment}
+            value={currentCommentText}
             onChangeText={this.onCommentTextChange}
             onSubmitEditing={this.handleTextSubmit}
           />

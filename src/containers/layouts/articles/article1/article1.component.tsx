@@ -53,7 +53,7 @@ class Article1Component extends React.Component<Article1Props> {
           </Text>
           <ArticleActivityBar
             style={themedStyle.activityContainer}
-            comments={article.comments}
+            comments={article.comments ? article.comments.length : 0}
             likes={article.likes}
             onCommentPress={this.onCommentButtonPress}
             onLikePress={this.onLikeButtonPress}>

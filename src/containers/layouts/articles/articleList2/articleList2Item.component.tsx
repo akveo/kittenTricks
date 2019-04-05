@@ -65,7 +65,7 @@ class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
         </ImageOverlay>
         <ArticleActivityBar
           style={themedStyle.activityContainer}
-          comments={article.comments}
+          comments={article.comments ? article.comments.length : 0}
           likes={article.likes}
           onCommentPress={this.onCommentsButtonPress}
           onLikePress={this.onLikeButtonPress}>
