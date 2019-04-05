@@ -5,6 +5,7 @@ export { ArticleList3Container } from './articles/articleList3/articleList3.cont
 export { ArticleList4Container } from './articles/articleList4/articleList4.container';
 export { Article1Container } from './articles/article1/article1.container';
 export { Article2Container } from './articles/article2/article2.container';
+export { Article3Container } from './articles/article3/article3.container';
 export { AuthContainer } from './auth/auth.container';
 export { SignInContainer } from './auth/signIn/signIn.container';
 export { SignUpContainer } from './auth/signUp/signUp.container';

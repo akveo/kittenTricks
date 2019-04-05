@@ -15,6 +15,14 @@ import {
   TopNavigationBarActionProps,
 } from '@kitten/ui';
 
+interface NavigationState {
+  index: number;
+  routes: any[];
+  routeName: string;
+
+  [key: string]: any;
+}
+
 export interface AppBarProps {
   navigation: NavigationScreenProp<NavigationRoute>;
   backIcon?: (style: StyleType) => React.ReactElement<ImageProps>;
@@ -26,16 +34,14 @@ export class AppBar extends React.Component<AppBarProps> {
     this.props.navigation.goBack(null);
   };
 
-  private isCurrentRoute = (route: NavigationRoute, index: number): boolean => {
-    return this.props.navigation.state.index === index;
-  };
-
-  private getCurrentRoute = (): NavigationRoute => {
-    if (this.props.navigation.state.routes) {
-      return this.props.navigation.state.routes.find(this.isCurrentRoute);
-    }
-
-    return this.props.navigation.state;
+  private getRouteName = (): string => {
+    const findCurrentRoute = (state: NavigationState) => {
+      if (state.routes && state.routes.length !== 0) {
+        return findCurrentRoute(state.routes[state.index]);
+      }
+      return state.routeName;
+    };
+    return findCurrentRoute(this.props.navigation.state);
   };
 
   private renderBackButton = (): React.ReactElement<TopNavigationBarActionProps> => {
@@ -47,14 +53,18 @@ export class AppBar extends React.Component<AppBarProps> {
     );
   };
 
-  private renderBackButtonIfNeeded = (): React.ReactElement<TopNavigationBarActionProps> | null => {
-    const { index: currentNavigationIndex } = this.props.navigation.state;
+  private isHomeScreen = (): boolean => {
+    const homeRoutes: string[] = this.props.navigation.state.routes
+      .map(route => route.key);
+    return homeRoutes.some((route: string) => route === this.getRouteName());
+  };
 
-    return currentNavigationIndex ? this.renderBackButton() : null;
+  private renderBackButtonIfNeeded = (): React.ReactElement<TopNavigationBarActionProps> | null => {
+    return !this.isHomeScreen() ? this.renderBackButton() : null;
   };
 
   public render(): React.ReactNode {
-    const { routeName } = this.getCurrentRoute();
+    const routeName: string = this.getRouteName();
 
     return (
       <SafeAreaView style={styles.safeArea}>

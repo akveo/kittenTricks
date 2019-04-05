@@ -63,3 +63,7 @@ export {
   LayoutListItem,
   LayoutListItemProps,
 } from './layoutList/layoutListItem.component';
+export {
+  Comment,
+  CommentProps,
+} from './comment.component';

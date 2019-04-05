@@ -1,7 +1,7 @@
 import React from 'react';
 import { Font } from 'expo';
-import { default as mapping } from '@eva/eva';
-import { theme } from '@eva/theme-eva';
+import { default as mapping } from 'eva/packages/mapping/eva';
+import { theme } from 'eva/packages/theme/eva';
 import { ApplicationProvider } from '@kitten/theme';
 import { ApplicationLoader } from './core/applicationLoader.component';
 import { Router } from './core/navigation/routes';
