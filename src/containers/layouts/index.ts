@@ -12,6 +12,7 @@ export { SignUpContainer } from './auth/signUp/signUp.container';
 export { DashboardsContainer } from './dashboards/dashboards.container';
 export { EcommerceContainer } from './ecommerce/ecommerce.container';
 export { MessagingContainer } from './messaging/messaging.container';
+export { CommentsList1Container } from './messaging/commentsList1/commentsList1.container';
 export { NavigationContainer } from './navigation/navigation.container';
 export { SocialContainer } from './social/social.container';
 export { Profile1Container } from './social/profile1/profile1.container';

@@ -25,7 +25,7 @@ export const comments: Comment[] = [
   {
     author: profile3,
     text: 'This is very useful information for me. Thanks for your article!',
-    likesCount: 2,
+    likesCount: 10,
     date: 'Today 10:36 pm',
     comments: [],
   },

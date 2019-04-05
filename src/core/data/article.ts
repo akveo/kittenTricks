@@ -35,7 +35,7 @@ export const articles: Article[] = [
     author: profile1,
     date: 'Today 11:10 am',
     tips: 5,
-    comments: comments.splice(0, 1),
+    comments: [comments[0], comments[1]],
     likes: 245,
   },
   {
@@ -46,7 +46,7 @@ export const articles: Article[] = [
     author: profile1,
     date: 'Today 11:10 am',
     tips: 5,
-    comments: comments.splice(1, 1),
+    comments: [comments[1], comments[2]],
     likes: 125,
   },
 ];

@@ -37,6 +37,7 @@ import {
   Article2Container,
   Article3Container,
   MessagingContainer,
+  CommentsList1Container,
   DashboardsContainer,
   WalkthroughContainer,
   EcommerceContainer,
@@ -102,6 +103,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
 const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Messaging']: MessagingContainer,
+    ['Comments List 1']: CommentsList1Container,
   },
   {
     headerMode: 'none',
