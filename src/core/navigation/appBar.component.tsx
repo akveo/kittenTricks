@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { StyleType } from '@kitten/theme';
 import {
-  TopNavigationBar,
-  TopNavigationBarAction,
+  TopNavigation,
+  TopNavigationAction,
   TopNavigationBarActionProps,
 } from '@kitten/ui';
 
@@ -46,7 +46,7 @@ export class AppBar extends React.Component<AppBarProps> {
 
   private renderBackButton = (): React.ReactElement<TopNavigationBarActionProps> => {
     return (
-      <TopNavigationBarAction
+      <TopNavigationAction
         icon={this.props.backIcon}
         onPress={this.onBackButtonPress}
       />
@@ -74,8 +74,8 @@ export class AppBar extends React.Component<AppBarProps> {
 
     return (
       <SafeAreaView style={styles.safeArea}>
-        <TopNavigationBar
-          appearance='titleCentered'
+        <TopNavigation
+          alignment='center'
           title={routeName}
           leftControl={this.renderBackButtonIfNeeded()}
         />
@@ -86,6 +86,6 @@ export class AppBar extends React.Component<AppBarProps> {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#3366FF',
+    backgroundColor: '#FFFFFF',
   },
 });
