@@ -1,5 +1,6 @@
 import { Article } from '@src/core/model';
 import { profile1 } from './profile';
+import { comments } from './comment';
 
 /* tslint:disable */
 
@@ -12,7 +13,7 @@ export const articles: Article[] = [
     author: profile1,
     date: 'Today 12:35 pm',
     tips: 10,
-    comments: 45,
+    comments: comments,
     likes: 320,
   },
   {
@@ -23,7 +24,7 @@ export const articles: Article[] = [
     author: profile1,
     date: 'Today 12:35 pm',
     tips: 10,
-    comments: 45,
+    comments: [],
     likes: 320,
   },
   {
@@ -34,7 +35,7 @@ export const articles: Article[] = [
     author: profile1,
     date: 'Today 11:10 am',
     tips: 5,
-    comments: 26,
+    comments: [comments[0], comments[1]],
     likes: 245,
   },
   {
@@ -45,7 +46,7 @@ export const articles: Article[] = [
     author: profile1,
     date: 'Today 11:10 am',
     tips: 5,
-    comments: 14,
+    comments: [comments[1], comments[2]],
     likes: 125,
   },
 ];

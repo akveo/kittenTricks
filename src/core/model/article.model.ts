@@ -1,4 +1,5 @@
 import { Profile } from './profile.model';
+import { Comment } from '@src/core/model/comment.model';
 
 export interface Article {
   title: string;
@@ -8,6 +9,6 @@ export interface Article {
   author: Profile;
   date: string;
   tips: number;
-  comments: number;
+  comments: Comment[];
   likes: number;
 }

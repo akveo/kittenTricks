@@ -1,43 +1,64 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { Article } from '@src/core/model';
+import {
+  Article,
+  Profile,
+} from '@src/core/model';
 import { articles } from '@src/core/data/article';
+import {
+  profile1,
+  profile2,
+  profile3,
+  profile4,
+} from '@src/core/data/profile';
 import { Article3 } from './article3.component';
+
+const profiles: Profile[] = [
+  profile1,
+  profile2,
+  profile3,
+  profile4,
+];
 
 interface State {
   article: Article;
-  comments: string[];
-  currentComment: string;
+  currentCommentText: string;
 }
 
 export class Article3Container extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
     article: articles[0],
-    comments: [
-      'This is very useful information for me. Thanks for your article!',
-    ],
-    currentComment: '',
+    currentCommentText: '',
   };
 
-  private onCommentPress = () => {
+  private onCommentPress = (index: number) => {
 
   };
 
-  private onLikePress = () => {
+  private onLikePress = (index: number) => {
+
+  };
+
+  private onCommentItemPress = (index: number) => {
 
   };
 
   private onCommentTextChange = (text: string) => {
-    this.setState({ currentComment: text });
+    this.setState({ currentCommentText: text });
   };
 
   private onCommentSubmit = () => {
-    const comments: string[] = this.state.comments;
-    comments.push(this.state.currentComment);
+    const articleCopy: Article = this.state.article;
+    articleCopy.comments.push({
+      author: profiles[Math.floor(Math.random() * profiles.length)],
+      text: this.state.currentCommentText,
+      likesCount: 1,
+      date: 'Today 10:36 pm',
+    });
     this.setState({
-      currentComment: '',
-      comments: comments,
+      article: articleCopy,
+      currentCommentText: '',
     });
   };
 
@@ -45,12 +66,12 @@ export class Article3Container extends React.Component<NavigationScreenProps, St
     return (
       <Article3
         article={this.state.article}
-        comments={this.state.comments}
-        comment={this.state.currentComment}
+        currentCommentText={this.state.currentCommentText}
         onCommentTextChange={this.onCommentTextChange}
         onCommentSubmit={this.onCommentSubmit}
         onCommentPress={this.onCommentPress}
         onLikePress={this.onLikePress}
+        onCommentItemPress={this.onCommentItemPress}
       />
     );
   }

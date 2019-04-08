@@ -39,6 +39,7 @@ class Article1Component extends React.Component<Article1Props> {
 
   public render(): React.ReactNode {
     const { themedStyle, article } = this.props;
+    const commentsCount: number = article.comments ? article.comments.length : 0;
 
     return (
       <View style={themedStyle.container}>
@@ -53,7 +54,7 @@ class Article1Component extends React.Component<Article1Props> {
           </Text>
           <ArticleActivityBar
             style={themedStyle.activityContainer}
-            comments={article.comments}
+            comments={commentsCount}
             likes={article.likes}
             onCommentPress={this.onCommentButtonPress}
             onLikePress={this.onLikeButtonPress}>
