@@ -23,9 +23,10 @@ import { Text } from '@src/components/common';
 
 interface ComponentProps {
   comment: CommentModel;
-  onLikePress: () => void;
-  onCommentPress: () => void;
-  onProfilePress: () => void;
+  index?: number | null;
+  onLikePress: (index: number | null) => void;
+  onCommentPress: (index: number | null) => void;
+  onProfilePress: (index: number | null) => void;
 }
 
 interface State {
@@ -41,16 +42,16 @@ class CommentComponent extends React.Component<CommentProps, State> {
   };
 
   private onLikePress = (): void => {
-    this.props.onLikePress();
+    this.props.onLikePress(this.props.index);
   };
 
   private onCommentPress = (): void => {
     this.setState({ subCommentsVisible: !this.state.subCommentsVisible },
-      () => this.props.onCommentPress());
+      () => this.props.onCommentPress(this.props.index));
   };
 
   private onProfilePress = (): void => {
-    this.props.onProfilePress();
+    this.props.onProfilePress(this.props.index);
   };
 
   private renderCommentContent = (comment: CommentModel)

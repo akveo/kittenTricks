@@ -39,9 +39,10 @@ class CommentsList1Component extends React.Component<CommentsList1Props> {
       <CommentComponent
         style={themedStyle.item}
         comment={info.item}
-        onLikePress={() => this.onLikePress(info.index)}
-        onCommentPress={() => this.onCommentPress(info.index)}
-        onProfilePress={() => this.onMorePress(info.index)}/>
+        index={info.index}
+        onLikePress={this.onLikePress}
+        onCommentPress={this.onCommentPress}
+        onProfilePress={this.onMorePress}/>
     );
   };
 
