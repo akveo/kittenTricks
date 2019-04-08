@@ -11,7 +11,7 @@ import {
 } from '@kitten/ui';
 import {
   SocialAuth,
-  SignInForm,
+  SignInForm1,
   SignInFormType,
 } from '@src/components/auth';
 import {
@@ -74,7 +74,7 @@ class SignIn1Component extends React.Component<SignIn1Props> {
               Button
             </Button>
           </View>
-          <SignInForm
+          <SignInForm1
             style={themedStyle.signInForm}
             onSubmit={this.onSignInButtonPress}
           />

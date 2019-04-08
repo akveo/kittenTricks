@@ -29,7 +29,7 @@ interface State {
   password: string;
 }
 
-class SignInFormComponent extends React.Component<SignInFormProps, State> {
+class SignInForm1Component extends React.Component<SignInFormProps, State> {
 
   public state: State = {
     isEmailValid: false,
@@ -98,7 +98,7 @@ class SignInFormComponent extends React.Component<SignInFormProps, State> {
   }
 }
 
-export const SignInForm = withStyles(SignInFormComponent, (theme: ThemeType) => ({
+export const SignInForm1 = withStyles(SignInForm1Component, (theme: ThemeType) => ({
   input: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
     color: 'white',

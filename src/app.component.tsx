@@ -8,6 +8,9 @@ import { Router } from './core/navigation/routes';
 
 const fonts: Font.FontMap = {
   'anton-regular': require('./assets/fonts/anton-regular.ttf'),
+  'raleway-regular': require('./assets/fonts/raleway-regular.ttf'),
+  'raleway-bold': require('./assets/fonts/raleway-bold.ttf'),
+  'raleway-extra-bold': require('./assets/fonts/raleway-extra-bold.ttf'),
   'opensans-semibold': require('./assets/fonts/opensans-semibold.ttf'),
   'opensans-bold': require('./assets/fonts/opensans-bold.ttf'),
   'opensans-extrabold': require('./assets/fonts/opensans-extra-bold.ttf'),

@@ -7,10 +7,15 @@ export {
   SocialButtonProps,
 } from './socialButton.component';
 export {
-  SignInForm,
+  SignInForm1,
   SignInFormProps,
   SignInFormType,
-} from './signIn/signInForm.component';
+} from './signIn/signInForm1.component';
+export {
+  SignInForm2,
+  SignInForm2Props,
+  SignIn2FormType,
+} from './signIn/signInForm2.component';
 export {
   SignUpForm,
   SignUpFormProps,
