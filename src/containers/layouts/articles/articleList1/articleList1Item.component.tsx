@@ -43,6 +43,7 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
 
   public render(): React.ReactNode {
     const { style, themedStyle, article, ...restProps } = this.props;
+    const commentsCount: number = article.comments ? article.comments.length : 0;
 
     return (
       <TouchableOpacity
@@ -60,7 +61,7 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
         </View>
         <ArticleActivityBar
           style={themedStyle.activityContainer}
-          comments={article.comments}
+          comments={commentsCount}
           likes={article.likes}
           onCommentPress={this.onCommentsButtonPress}
           onLikePress={this.onLikeButtonPress}>

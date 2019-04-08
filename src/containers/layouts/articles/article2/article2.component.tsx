@@ -56,7 +56,7 @@ class Article2Component extends React.Component<Article2Props> {
           </Text>
           <ArticleActivityBar
             style={themedStyle.detailsContainer}
-            comments={article.comments}
+            comments={article.comments ? article.comments.length : 0}
             likes={article.likes}
             onCommentPress={this.onCommentButtonPress}
             onLikePress={this.onLikeButtonPress}>

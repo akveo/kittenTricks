@@ -9,7 +9,13 @@ interface RouteListItem extends ListItem {
 
 export class MessagingContainer extends React.Component<NavigationScreenProps> {
 
-  private items: RouteListItem[] = [];
+  private items: RouteListItem[] = [
+    {
+      title: 'Layout',
+      description: 'Comments List',
+      route: 'Comments List 1',
+    },
+  ];
 
   private onItemSelect = (index: number): void => {
     const { [index]: selectedItem } = this.items;

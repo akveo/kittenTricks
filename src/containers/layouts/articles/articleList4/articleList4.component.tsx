@@ -56,7 +56,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
         style={style}
         photo={{ uri: item.image }}
         title={item.title}
-        comments={item.comments}
+        comments={item.comments ? item.comments.length : 0}
         likes={item.likes}
         onPress={this.onItemPress}
         onCommentPress={this.onItemCommentPress}

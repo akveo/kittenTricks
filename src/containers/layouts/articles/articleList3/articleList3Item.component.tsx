@@ -61,7 +61,7 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
           <ArticleActivityBar
             style={themedStyle.activityContainer}
             buttonStyle={themedStyle.activityButton}
-            comments={article.comments}
+            comments={article.comments ? article.comments.length : 0}
             likes={article.likes}
             onCommentPress={this.onCommentsButtonPress}
             onLikePress={this.onLikeButtonPress}
