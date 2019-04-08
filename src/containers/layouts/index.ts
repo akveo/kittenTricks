@@ -7,7 +7,7 @@ export { Article1Container } from './articles/article1/article1.container';
 export { Article2Container } from './articles/article2/article2.container';
 export { Article3Container } from './articles/article3/article3.container';
 export { AuthContainer } from './auth/auth.container';
-export { SignInContainer } from './auth/signIn/signIn.container';
+export { SignIn1Container } from './auth/signIn1/signIn1.container';
 export { SignUpContainer } from './auth/signUp/signUp.container';
 export { DashboardsContainer } from './dashboards/dashboards.container';
 export { EcommerceContainer } from './ecommerce/ecommerce.container';

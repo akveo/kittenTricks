@@ -30,9 +30,9 @@ interface ComponentProps {
   onSignInPress: (value: SignInFormType) => void;
 }
 
-export type SignInProps = ThemedComponentProps & ComponentProps;
+export type SignIn1Props = ThemedComponentProps & ComponentProps;
 
-class SignInComponent extends React.Component<SignInProps> {
+class SignIn1Component extends React.Component<SignIn1Props> {
 
   private onLoginButtonPress = () => {
     this.props.onLoginPress();
@@ -91,7 +91,7 @@ class SignInComponent extends React.Component<SignInProps> {
   }
 }
 
-export const SignIn = withStyles(SignInComponent, (theme: ThemeType) => ({
+export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
     justifyContent: 'center',

@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { SignInFormType } from '@src/components/auth';
-import { SignIn } from './signIn.component';
+import { SignIn1 } from './signIn1.component';
 
-export class SignInContainer extends React.Component<NavigationScreenProps> {
+export class SignIn1Container extends React.Component<NavigationScreenProps> {
 
   private onLoginPress = () => {
     this.props.navigation.navigate('Sign Up');
@@ -26,7 +26,7 @@ export class SignInContainer extends React.Component<NavigationScreenProps> {
 
   public render(): React.ReactNode {
     return (
-      <SignIn
+      <SignIn1
         onLoginPress={this.onLoginPress}
         onGooglePress={this.onGooglePress}
         onFacebookPress={this.onFacebookPress}

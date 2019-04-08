@@ -14,7 +14,7 @@ import {
 } from '@src/containers/menu';
 import {
   AuthContainer,
-  SignInContainer,
+  SignIn1Container,
   SignUpContainer,
   SocialContainer,
   Profile1Container,
@@ -149,7 +149,7 @@ const SocialNavigator: ReactNavigationContainer = createStackNavigator(
 const AuthNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Auth']: AuthContainer,
-    ['Sign In']: SignInContainer,
+    ['Sign In']: SignIn1Container,
     ['Sign Up']: SignUpContainer,
   },
   {
