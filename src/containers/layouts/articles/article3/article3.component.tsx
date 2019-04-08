@@ -3,7 +3,6 @@ import {
   ImageBackground,
   ScrollView,
   View,
-  ViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -12,13 +11,13 @@ import {
 } from '@kitten/theme';
 import {
   Text,
-  Comment as CommentComponent,
+  Comment,
   CommentProps,
 } from '@src/components/common';
 import { Input } from '@kitten/ui';
 import {
   Article,
-  Comment,
+  Comment as CommentModel,
 } from '@src/core/model';
 
 interface ComponentProps {
@@ -55,25 +54,21 @@ class Article3Component extends React.Component<Article3Props> {
     this.props.onCommentSubmit();
   };
 
-  private renderComment = (comment: Comment, key: number): React.ReactElement<CommentProps> => {
+  private renderComment = (comment: CommentModel, key: number): React.ReactElement<CommentProps> => {
     return (
-      <CommentComponent
+      <Comment
         key={key}
         comment={comment}
-        onLikePress={() => this.onLikeButtonPress(key)}
-        onCommentPress={() => this.onCommentButtonPress(key)}
-        onProfilePress={() => this.onMoreButtonPress(key)}/>
+        onLikePress={this.onLikeButtonPress}
+        onCommentPress={this.onCommentButtonPress}
+        onProfilePress={this.onMoreButtonPress}/>
     );
   };
 
-  private renderComments = (): React.ReactElement<ViewProps> => {
+  private renderComments = (): React.ReactElement<CommentProps>[] => {
     const { article } = this.props;
 
-    return (
-      <View>
-        {article.comments.map(this.renderComment)}
-      </View>
-    );
+    return article.comments.map(this.renderComment);
   };
 
   public render(): React.ReactNode {

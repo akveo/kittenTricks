@@ -23,10 +23,10 @@ import { Text } from '@src/components/common';
 
 interface ComponentProps {
   comment: CommentModel;
-  index?: number | null;
-  onLikePress: (index: number | null) => void;
-  onCommentPress: (index: number | null) => void;
-  onProfilePress: (index: number | null) => void;
+  index?: number;
+  onLikePress: (index: number | undefined) => void;
+  onCommentPress: (index: number | undefined) => void;
+  onProfilePress: (index: number | undefined) => void;
 }
 
 interface State {

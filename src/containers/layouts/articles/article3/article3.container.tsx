@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import {
   Article,
-  Comment, Profile,
+  Profile,
 } from '@src/core/model';
 import { articles } from '@src/core/data/article';
 import {

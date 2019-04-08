@@ -54,9 +54,15 @@ export class AppBar extends React.Component<AppBarProps> {
   };
 
   private isHomeScreen = (): boolean => {
-    const homeRoutes: string[] = this.props.navigation.state.routes
-      .map(route => route.key);
-    return homeRoutes.some((route: string) => route === this.getRouteName());
+    const { navigation } = this.props;
+
+    if (navigation.state.routes) {
+      return navigation.state.routes.some((route: NavigationRoute): boolean => {
+        return route.key === this.getRouteName();
+      });
+    }
+
+    return true;
   };
 
   private renderBackButtonIfNeeded = (): React.ReactElement<TopNavigationBarActionProps> | null => {
