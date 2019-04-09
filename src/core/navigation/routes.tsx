@@ -5,7 +5,6 @@ import {
   NavigationContainer as ReactNavigationContainer,
   HeaderProps,
   createBottomTabNavigator,
-  createMaterialTopTabNavigator,
 } from 'react-navigation';
 import {
   MenuContainer,
@@ -39,6 +38,7 @@ import {
   Article3Container,
   MessagingContainer,
   CommentsList1Container,
+  ConversationsListContainer,
   DashboardsContainer,
   WalkthroughContainer,
   EcommerceContainer,
@@ -109,6 +109,7 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Messaging']: MessagingContainer,
     ['Comments List']: CommentsList1Container,
+    ['Conversations List']: ConversationsListContainer,
   },
   {
     headerMode: 'none',

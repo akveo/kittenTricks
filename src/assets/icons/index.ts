@@ -126,3 +126,7 @@ export const TwitterIcon = (style: StyleType): React.ReactElement<ImageProps> =>
 export const FlashIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/flash-outline.png', style);
 };
+
+export const DoneAllIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/done-all.png', style);
+};

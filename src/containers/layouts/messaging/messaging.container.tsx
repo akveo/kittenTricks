@@ -15,6 +15,11 @@ export class MessagingContainer extends React.Component<NavigationScreenProps> {
       description: 'Comments List',
       route: 'Comments List',
     },
+    {
+      title: 'Layout',
+      description: 'Conversations List',
+      route: 'Conversations List',
+    },
   ];
 
   private onItemSelect = (index: number): void => {
