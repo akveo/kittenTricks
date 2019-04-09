@@ -57,7 +57,9 @@ class Trainings1Component extends React.Component<Trainings1ComponentProps> {
             onTrainingDuration={this.onTrainingDuration}/>
         </Tab>
         <Tab title={levels[1]}>
-          <Medium1/>
+          <Medium1
+            exercises={exercises}
+            onTrainingDuration={this.onTrainingDuration}/>
         </Tab>
         <Tab title={levels[2]}>
           <Hard1/>
