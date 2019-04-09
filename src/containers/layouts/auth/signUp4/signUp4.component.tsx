@@ -13,20 +13,20 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  SignIn4FormType,
-  SignUpForm4,
   SocialAuth,
+  SignUpForm2,
+  SignUpForm2Type,
 } from '@src/components/auth';
+import { ProfilePhoto } from '@src/components/social';
 import {
   AvoidKeyboard,
   Button,
   Text,
 } from '@src/components/common';
-import { ProfilePhoto } from '@src/components/social';
 import { PlusIcon } from '@src/assets/icons';
 
 interface ComponentProps {
-  onSignUpPress: (formValue: SignIn4FormType) => void;
+  onSignUpPress: (formValue: SignUpForm2Type) => void;
   onSignInPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
@@ -42,7 +42,7 @@ class SignUp4Component extends React.Component<SignUp4Props> {
     uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80`,
   };
 
-  private onSignUpButtonPress = (formValue: SignIn4FormType) => {
+  private onSignUpButtonPress = (formValue: SignUpForm2Type) => {
     this.props.onSignUpPress(formValue);
   };
 
@@ -100,19 +100,18 @@ class SignUp4Component extends React.Component<SignUp4Props> {
               button={this.renderPhotoButton}
             />
           </View>
-          <SignUpForm4
+          <SignUpForm2
             style={themedStyle.formContainer}
             onSubmit={this.onSignUpButtonPress}
           />
           <SocialAuth
-            style={themedStyle.socialAuthContainer}
             iconStyle={themedStyle.socialAuthIcon}
             hint='Or Sign In using Social Media'
             onGooglePress={this.onGoogleButtonPress}
             onFacebookPress={this.onFacebookButtonPress}
             onTwitterPress={this.onTwitterButtonPress}
           />
-          <View style={themedStyle.signUpContainer}>
+          <View style={themedStyle.signInContainer}>
             <Text>Already have account?</Text>
             <Button
               style={themedStyle.signInButton}
@@ -134,20 +133,21 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
     backgroundColor: ['color-white'],
   },
   headerContainer: {
-    minHeight: 216,
     justifyContent: 'center',
     alignItems: 'center',
+    minHeight: 216,
   },
   formContainer: {
     flex: 1,
+    paddingBottom: 24,
+    justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
-  signUpContainer: {
-    marginTop: 24,
-    marginBottom: 32,
+  signInContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 32,
   },
   photo: {
     width: 116,

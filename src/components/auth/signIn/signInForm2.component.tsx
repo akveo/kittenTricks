@@ -5,7 +5,6 @@ import {
   ViewProps,
 } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -57,42 +56,21 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
   private onSubmitButtonPress = () => {
     const { username, password } = this.state;
 
-    this.props.onSubmit({
-      username,
-      password,
-    });
+    this.props.onSubmit({ username, password });
   };
 
   private onUsernameValidationResult = (usernameValid: boolean, username: string) => {
-    this.setState({
-      usernameValid,
-      username,
-    });
+    this.setState({ usernameValid, username });
   };
 
   private onPasswordValidationResult = (passwordValid: boolean, password: string) => {
-    this.setState({
-      passwordValid,
-      password,
-    });
+    this.setState({ passwordValid, password });
   };
 
   private isFormValid = (): boolean => {
     const { usernameValid, passwordValid } = this.state;
 
     return usernameValid && passwordValid;
-  };
-
-  private renderUsernameInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return PersonIconFill({ ...style, ...themedStyle.inputIcon });
-  };
-
-  private renderPasswordInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return EyeOffIconFill({ ...style, ...themedStyle.inputIcon });
   };
 
   public render(): React.ReactNode {
@@ -114,7 +92,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
             status={usernameInputStatus}
             placeholder='User Name'
             value={username}
-            icon={this.renderUsernameInputIcon}
+            icon={PersonIconFill}
             onResult={this.onUsernameValidationResult}
           />
           <ValidationInput
@@ -124,7 +102,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
             secureTextEntry={true}
             placeholder='Password'
             value={password}
-            icon={this.renderPasswordInputIcon}
+            icon={EyeOffIconFill}
             onResult={this.onPasswordValidationResult}
           />
           <View style={themedStyle.forgotPasswordContainer}>
@@ -151,7 +129,6 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
 
 export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) => ({
   container: {
-    justifyContent: 'space-between',
   },
   forgotPasswordContainer: {
     flexDirection: 'row',
@@ -163,9 +140,6 @@ export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) =
   passwordInput: {
     marginTop: 16,
     color: theme['color-basic-600'],
-  },
-  inputIcon: {
-    tintColor: theme['color-primary-500'],
   },
   forgotPasswordButton: {
     paddingHorizontal: 0,

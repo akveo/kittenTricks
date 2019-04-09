@@ -1,12 +1,16 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { SignUpFormType } from '@src/components/auth';
-import { SignUp } from './signUp1.component';
+import { SignUpForm1Type } from '@src/components/auth';
+import { SignUp1 } from './signUp1.component';
 
 export class SignUp1Container extends React.Component<NavigationScreenProps> {
 
-  private onLoginPress = () => {
-    this.props.navigation.navigate('Sign In');
+  private onSignUpPress = (value: SignUpForm1Type) => {
+
+  };
+
+  private onSignInPress = () => {
+    this.props.navigation.navigate('Sign In 1');
   };
 
   private onGooglePress = () => {
@@ -21,18 +25,19 @@ export class SignUp1Container extends React.Component<NavigationScreenProps> {
 
   };
 
-  private onSignUpPress = (value: SignUpFormType) => {
+  private onEwaPress = () => {
 
   };
 
   public render(): React.ReactNode {
     return (
-      <SignUp
-        onLoginPress={this.onLoginPress}
+      <SignUp1
+        onSignUpPress={this.onSignUpPress}
+        onSignInPress={this.onSignInPress}
         onGooglePress={this.onGooglePress}
         onFacebookPress={this.onFacebookPress}
         onTwitterPress={this.onTwitterPress}
-        onSignUpPress={this.onSignUpPress}
+        onEwaPress={this.onEwaPress}
       />
     );
   }

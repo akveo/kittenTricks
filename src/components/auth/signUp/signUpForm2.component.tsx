@@ -21,14 +21,14 @@ import {
   PersonIconFill,
 } from '@src/assets/icons';
 
-export interface SignUp2FormType {
+export interface SignUpForm2Type {
   username: string;
   email: string;
   password: string;
 }
 
 interface ComponentProps {
-  onSubmit: (value: SignUp2FormType) => void;
+  onSubmit: (value: SignUpForm2Type) => void;
 }
 
 export type SignUpForm2Props = ThemedComponentProps & ViewProps & ComponentProps;
@@ -100,24 +100,6 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
     return usernameValid && passwordValid && termsAccepted;
   };
 
-  private renderUsernameInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return PersonIconFill({ ...style, ...themedStyle.inputIcon });
-  };
-
-  private renderEmailInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return EmailIconFill({ ...style, ...themedStyle.inputIcon });
-  };
-
-  private renderPasswordInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return EyeOffIconFill({ ...style, ...themedStyle.inputIcon });
-  };
-
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
     const {
@@ -148,7 +130,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
             autoCapitalize='none'
             placeholder='User Name'
             value={username}
-            icon={this.renderUsernameInputIcon}
+            icon={PersonIconFill}
             onResult={this.onUsernameValidationResult}
           />
           <ValidationInput
@@ -158,7 +140,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
             autoCapitalize='none'
             placeholder='Email'
             value={email}
-            icon={this.renderEmailInputIcon}
+            icon={EmailIconFill}
             onResult={this.onEmailValidationResult}
           />
           <ValidationInput
@@ -169,7 +151,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
             secureTextEntry={true}
             placeholder='Password'
             value={password}
-            icon={this.renderPasswordInputIcon}
+            icon={EyeOffIconFill}
             onResult={this.onPasswordValidationResult}
           />
           <CheckBox
@@ -193,7 +175,6 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
 
 export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) => ({
   container: {
-    justifyContent: 'space-between',
   },
   forgotPasswordContainer: {
     flexDirection: 'row',
@@ -209,9 +190,6 @@ export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) =
   passwordInput: {
     marginTop: 16,
     color: theme['color-basic-600'],
-  },
-  inputIcon: {
-    tintColor: theme['color-primary-500'],
   },
   termsCheckBox: {
     marginTop: 28,

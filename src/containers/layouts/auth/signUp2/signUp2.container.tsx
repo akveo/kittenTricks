@@ -1,27 +1,29 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { SignUp2FormType } from '@src/components/auth';
+import { SignUpForm2Type } from '@src/components/auth';
 import { SignUp2 } from './signUp2.component';
 
 export class SignUp2Container extends React.Component<NavigationScreenProps> {
 
-  private onPhotoPress = () => {
 
-  };
-
-  private onSignUpPress = (formValue: SignUp2FormType) => {
+  private onSignUpPress = (formValue: SignUpForm2Type) => {
   };
 
   private onSignInPress = () => {
     this.props.navigation.navigate('Sign In 2');
   };
 
+
+  private onPhotoPress = () => {
+
+  };
+
   public render(): React.ReactNode {
     return (
       <SignUp2
-        onPhotoPress={this.onPhotoPress}
         onSignUpPress={this.onSignUpPress}
         onSignInPress={this.onSignInPress}
+        onPhotoPress={this.onPhotoPress}
       />
     );
   }

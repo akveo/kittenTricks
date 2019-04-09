@@ -13,8 +13,8 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  SignUp2FormType,
-  SignUpForm3,
+  SignUpForm2,
+  SignUpForm2Type,
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
 import {
@@ -25,9 +25,9 @@ import {
 import { PlusIcon } from '@src/assets/icons';
 
 interface ComponentProps {
-  onPhotoPress: () => void;
-  onSignUpPress: (formValue: SignUp2FormType) => void;
+  onSignUpPress: (formValue: SignUpForm2Type) => void;
   onSignInPress: () => void;
+  onPhotoPress: () => void;
 }
 
 export type SignUp3Props = ThemedComponentProps & ComponentProps;
@@ -47,7 +47,7 @@ class SignUp3Component extends React.Component<SignUp3Props> {
     this.props.onSignInPress();
   };
 
-  private onSignUpButtonPress = (formValue: SignUp2FormType) => {
+  private onSignUpButtonPress = (formValue: SignUpForm2Type) => {
     this.props.onSignUpPress(formValue);
   };
 
@@ -85,11 +85,11 @@ class SignUp3Component extends React.Component<SignUp3Props> {
               button={this.renderPhotoButton}
             />
           </View>
-          <SignUpForm3
+          <SignUpForm2
             style={themedStyle.formContainer}
             onSubmit={this.onSignUpButtonPress}
           />
-          <View style={themedStyle.haveAccountContainer}>
+          <View style={themedStyle.signInContainer}>
             <Text>Already have an account?</Text>
             <Button
               style={themedStyle.signInButton}
@@ -117,14 +117,15 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
+    justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
-  haveAccountContainer: {
-    marginTop: 24,
-    marginBottom: 32,
+  signInContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 24,
+    marginBottom: 32,
   },
   photo: {
     width: 116,

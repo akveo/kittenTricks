@@ -5,10 +5,6 @@ import { SignIn2 } from './signIn2.component';
 
 export class SignIn2Container extends React.Component<NavigationScreenProps> {
 
-  private onForgotPasswordPress = () => {
-
-  };
-
   private onSignInPress = (formValue: SignIn2FormType) => {
 
   };
@@ -17,12 +13,16 @@ export class SignIn2Container extends React.Component<NavigationScreenProps> {
     this.props.navigation.navigate('Sign Up 2');
   };
 
+  private onForgotPasswordPress = () => {
+
+  };
+
   public render(): React.ReactNode {
     return (
       <SignIn2
-        onForgotPasswordPress={this.onForgotPasswordPress}
         onSignInPress={this.onSignInPress}
         onSignUpPress={this.onSignUpPress}
+        onForgotPasswordPress={this.onForgotPasswordPress}
       />
     );
   }

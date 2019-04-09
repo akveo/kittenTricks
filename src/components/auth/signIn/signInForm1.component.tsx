@@ -23,75 +23,82 @@ interface ComponentProps {
 export type SignInFormProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
-  isEmailValid: boolean;
-  isPasswordValid: boolean;
   email: string;
   password: string;
+  emailValid: boolean;
+  passwordValid: boolean;
 }
 
 class SignInForm1Component extends React.Component<SignInFormProps, State> {
 
   public state: State = {
-    isEmailValid: false,
-    isPasswordValid: false,
     email: '',
     password: '',
+    passwordValid: false,
+    emailValid: false,
   };
 
   private emailValidator: RegExp = /\S+@\S+\.\S+/;
   private passwordValidator: RegExp = /[a-z0-9]{8,}/;
 
-  private onEmailValidationResult = (valid: boolean, value: string) => {
-    this.setState({
-      isEmailValid: valid,
-      email: value,
-    });
+  private onEmailValidationResult = (emailValid: boolean, email: string) => {
+    this.setState({ emailValid, email });
   };
 
-  private onPasswordValidationResult = (valid: boolean, value: string) => {
-    this.setState({
-      isPasswordValid: valid,
-      password: value,
-    });
+  private onPasswordValidationResult = (passwordValid: boolean, password: string) => {
+    this.setState({ passwordValid, password });
   };
 
   private isFormValid = (): boolean => {
-    return this.state.isEmailValid && this.state.isPasswordValid;
+    const { emailValid, passwordValid } = this.state;
+
+    return emailValid && passwordValid;
   };
 
   private onSubmitPress = () => {
-    this.props.onSubmit({
-      email: this.state.email,
-      password: this.state.password,
-    });
+    const { email, password } = this.state;
+
+    this.props.onSubmit({ email, password });
   };
 
   public render(): React.ReactNode {
-    const { themedStyle, ...restProps } = this.props;
+    const { style, themedStyle, ...restProps } = this.props;
+    const { email, password, emailValid, passwordValid } = this.state;
+
+    const emailInputStatus: string = emailValid ? 'success' : 'danger';
+    const passwordInputStatus: string = passwordValid ? 'success' : 'danger';
+    const submitButtonEnabled: boolean = this.isFormValid();
 
     return (
-      <View {...restProps}>
+      <View
+        style={[themedStyle.container, style]}
+        {...restProps}>
         <ValidationInput
-          style={themedStyle.input}
+          style={themedStyle.emailInput}
           pattern={this.emailValidator}
-          status={this.state.isEmailValid ? 'success' : 'error'}
+          placeholderTextColor='#FFFFFF'
+          autoCapitalize='none'
+          status={emailInputStatus}
           placeholder='Email'
-          value={this.state.email}
+          value={email}
           onResult={this.onEmailValidationResult}
         />
         <ValidationInput
-          style={[themedStyle.input, themedStyle.passwordInput]}
+          style={themedStyle.passwordInput}
           pattern={this.passwordValidator}
-          status={this.state.isPasswordValid ? 'success' : 'error'}
+          placeholderTextColor='#FFFFFF'
+          autoCapitalize='none'
+          status={passwordInputStatus}
           placeholder='Password'
-          value={this.state.password}
+          value={password}
           onResult={this.onPasswordValidationResult}
         />
         <Button
-          style={themedStyle.button}
-          onPress={this.onSubmitPress}
-          disabled={!this.isFormValid()}>
-          SIGN IN
+          style={themedStyle.submitButton}
+          size='giant'
+          disabled={!submitButtonEnabled}
+          onPress={this.onSubmitPress}>
+          Sign In
         </Button>
       </View>
     );
@@ -99,15 +106,17 @@ class SignInForm1Component extends React.Component<SignInFormProps, State> {
 }
 
 export const SignInForm1 = withStyles(SignInForm1Component, (theme: ThemeType) => ({
-  input: {
+  container: {},
+  emailInput: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
-    color: 'white',
   },
   passwordInput: {
     marginTop: 40,
+    backgroundColor: 'rgba(0, 0, 0, 0.35)',
   },
-  button: {
-    height: 48,
+  submitButton: {
     marginTop: 86,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
 }));

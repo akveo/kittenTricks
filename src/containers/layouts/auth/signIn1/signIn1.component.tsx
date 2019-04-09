@@ -1,6 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
 import {
+  ImageProps,
+  ImageSourcePropType,
+  View,
+} from 'react-native';
+import {
+  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -19,23 +24,35 @@ import {
   ImageOverlay,
   Text,
 } from '@src/components/common';
-import { overlayLogin1 } from '@src/assets/images';
-import { ForwardIcon } from '@src/assets/icons';
+import {
+  ForwardIcon,
+  HeartIcon,
+} from '@src/assets/icons';
 
 interface ComponentProps {
-  onLoginPress: () => void;
+  onSignInPress: (value: SignInFormType) => void;
+  onSignUpPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
   onTwitterPress: () => void;
-  onSignInPress: (value: SignInFormType) => void;
+  onEwaPress: () => void;
 }
 
 export type SignIn1Props = ThemedComponentProps & ComponentProps;
 
 class SignIn1Component extends React.Component<SignIn1Props> {
 
-  private onLoginButtonPress = () => {
-    this.props.onLoginPress();
+  private backgroundImage: ImageSourcePropType = {
+    uri: `https://images.unsplash.com/photo-1517438984742-1262db08379e?ixlib=rb-1.2
+    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=928&q=80`,
+  };
+
+  private onSignInButtonPress = (formValue: SignInFormType) => {
+    this.props.onSignInPress(formValue);
+  };
+
+  private onSignUpButtonPress = () => {
+    this.props.onSignUpPress();
   };
 
   private onGoogleButtonPress = () => {
@@ -50,8 +67,20 @@ class SignIn1Component extends React.Component<SignIn1Props> {
     this.props.onTwitterPress();
   };
 
-  private onSignInButtonPress = (value: SignInFormType) => {
-    this.props.onSignInPress(value);
+  private onEwaButtonPress = () => {
+    this.props.onEwaPress();
+  };
+
+  private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+    const { themedStyle } = this.props;
+
+    return HeartIcon({ ...style, ...themedStyle.ewaButtonIcon });
+  };
+
+  private renderSignUpButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+    const { themedStyle } = this.props;
+
+    return ForwardIcon({ ...style, ...themedStyle.signUpButtonIcon });
   };
 
   public render(): React.ReactNode {
@@ -61,25 +90,34 @@ class SignIn1Component extends React.Component<SignIn1Props> {
       <AvoidKeyboard>
         <ImageOverlay
           style={themedStyle.container}
-          source={overlayLogin1}>
-          <View style={themedStyle.loginContainer}>
-            <Text style={themedStyle.loginLabel}>Login</Text>
+          source={this.backgroundImage}>
+          <Button
+            style={themedStyle.ewaButton}
+            size='giant'
+            activeOpacity={0.75}
+            icon={this.renderEwaButtonIcon}
+            onPress={this.onEwaButtonPress}>
+            EWA
+          </Button>
+          <View style={themedStyle.signInContainer}>
+            <Text style={themedStyle.signInLabel}>Sign In</Text>
             <Button
-              style={themedStyle.forwardButton}
-              activeOpacity={0.5}
+              style={themedStyle.signUpButton}
               size='giant'
-              icon={ForwardIcon}
+              activeOpacity={0.75}
               alignment={ButtonAlignments.RIGHT}
-              onPress={this.onLoginButtonPress}>
-              Button
+              icon={this.renderSignUpButtonIcon}
+              onPress={this.onSignUpButtonPress}>
+              Sign Up
             </Button>
           </View>
           <SignInForm1
-            style={themedStyle.signInForm}
+            style={themedStyle.formContainer}
             onSubmit={this.onSignInButtonPress}
           />
           <SocialAuth
-            style={themedStyle.socialAuth}
+            style={themedStyle.socialAuthContainer}
+            iconStyle={themedStyle.socialAuthIcon}
             hint='Sign with a social account'
             onGooglePress={this.onGoogleButtonPress}
             onFacebookPress={this.onFacebookButtonPress}
@@ -95,30 +133,48 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'black',
     paddingHorizontal: 16,
   },
-  loginContainer: {
+  signInContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 48,
   },
-  loginLabel: {
-    fontFamily: 'anton-regular',
+  socialAuthContainer: {
+    marginTop: 48,
+    marginBottom: 36,
+  },
+  ewaButton: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 0,
+    fontFamily: 'opensans-regular',
+    backgroundColor: theme['opacity-transparent'],
+  },
+  ewaButtonIcon: {
+    marginHorizontal: 0,
+  },
+  formContainer: {
+    flex: 1,
+    marginTop: 96,
+  },
+  signInLabel: {
+    fontFamily: 'raleway-extra-bold',
+    textTransform: 'uppercase',
     fontSize: 32,
   },
-  forwardButton: {
-    backgroundColor: 'transparent',
+  signUpButton: {
+    paddingHorizontal: 0,
+    backgroundColor: theme['opacity-transparent'],
+  },
+  signUpButtonIcon: {
+    marginHorizontal: 0,
   },
   input: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
   },
-  signInForm: {
-    marginTop: 96,
-  },
-  socialAuth: {
-    marginHorizontal: 8,
-    marginTop: 48,
-    marginBottom: 36,
+  socialAuthIcon: {
+    tintColor: theme['color-white'],
   },
 }));
 

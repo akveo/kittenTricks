@@ -213,7 +213,7 @@ const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
 
 const AppNavigator: ReactNavigationContainer = createStackNavigator({
   Home: {
-    screen: AuthNavigator,
+    screen: SignUp4Container,
     navigationOptions: HeadingNavigationOptions,
   },
 });

@@ -5,8 +5,11 @@ import { SignIn1 } from './signIn1.component';
 
 export class SignIn1Container extends React.Component<NavigationScreenProps> {
 
-  private onLoginPress = () => {
-    this.props.navigation.navigate('Sign Up');
+  private onSignInPress = (value: SignInFormType) => {
+  };
+
+  private onSignUpPress = () => {
+    this.props.navigation.navigate('Sign Up 1');
   };
 
   private onGooglePress = () => {
@@ -21,17 +24,19 @@ export class SignIn1Container extends React.Component<NavigationScreenProps> {
 
   };
 
-  private onSignInPress = (value: SignInFormType) => {
+  private onEwaPress = () => {
+
   };
 
   public render(): React.ReactNode {
     return (
       <SignIn1
-        onLoginPress={this.onLoginPress}
+        onSignInPress={this.onSignInPress}
+        onSignUpPress={this.onSignUpPress}
         onGooglePress={this.onGooglePress}
         onFacebookPress={this.onFacebookPress}
         onTwitterPress={this.onTwitterPress}
-        onSignInPress={this.onSignInPress}
+        onEwaPress={this.onEwaPress}
       />
     );
   }

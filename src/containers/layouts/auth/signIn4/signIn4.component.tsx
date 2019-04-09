@@ -10,9 +10,9 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  SignInForm4,
-  SignIn4FormType,
   SocialAuth,
+  SignInForm2,
+  SignIn2FormType,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -22,7 +22,7 @@ import {
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSignInPress: (formValue: SignIn4FormType) => void;
+  onSignInPress: (formValue: SignIn2FormType) => void;
   onSignUpPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
@@ -41,7 +41,7 @@ class SignIn4Component extends React.Component<SignIn4Props> {
     this.props.onForgotPasswordPress();
   };
 
-  private onSignInButtonPress = (formValue: SignIn4FormType) => {
+  private onSignInButtonPress = (formValue: SignIn2FormType) => {
     this.props.onSignInPress(formValue);
   };
 
@@ -73,7 +73,7 @@ class SignIn4Component extends React.Component<SignIn4Props> {
             <Text style={themedStyle.helloLabel}>Hello</Text>
             <Text style={themedStyle.signInLabel}>Sign in to your account</Text>
           </View>
-          <SignInForm4
+          <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
             onSubmit={this.onSignInButtonPress}
@@ -112,14 +112,14 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
     alignItems: 'center',
   },
   formContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
     paddingHorizontal: 16,
   },
   socialAuthContainer: {
     marginTop: 32,
   },
   signUpContainer: {
-    position: 'absolute',
-    bottom: 0,
     marginVertical: 32,
     flexDirection: 'row',
     alignSelf: 'center',

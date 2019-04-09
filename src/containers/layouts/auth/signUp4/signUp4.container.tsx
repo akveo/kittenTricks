@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
+import { SignUpForm2Type } from '@src/components/auth';
 import { SignUp4 } from './signUp4.component';
-import { SignUp4FormType } from '@src/components/auth';
 
 export class SignUp4Container extends React.Component<NavigationScreenProps> {
 
@@ -21,7 +21,7 @@ export class SignUp4Container extends React.Component<NavigationScreenProps> {
     this.props.navigation.navigate('Sign In 4');
   };
 
-  private onSignUpPress = (formValue: SignUp4FormType) => {
+  private onSignUpPress = (formValue: SignUpForm2Type) => {
 
   };
 

@@ -12,7 +12,7 @@ import {
 } from '@kitten/theme';
 import {
   SignUpForm2,
-  SignUp2FormType,
+  SignUpForm2Type,
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
 import {
@@ -23,9 +23,9 @@ import {
 import { PlusIcon } from '@src/assets/icons';
 
 interface ComponentProps {
-  onPhotoPress: () => void;
-  onSignUpPress: (formValue: SignUp2FormType) => void;
+  onSignUpPress: (formValue: SignUpForm2Type) => void;
   onSignInPress: () => void;
+  onPhotoPress: () => void;
 }
 
 export type SignUp2Props = ThemedComponentProps & ComponentProps;
@@ -40,7 +40,7 @@ class SignUp2Component extends React.Component<SignUp2Props> {
     this.props.onSignInPress();
   };
 
-  private onSignUpButtonPress = (formValue: SignUp2FormType) => {
+  private onSignUpButtonPress = (formValue: SignUpForm2Type) => {
     this.props.onSignUpPress(formValue);
   };
 
@@ -81,8 +81,8 @@ class SignUp2Component extends React.Component<SignUp2Props> {
             style={themedStyle.formContainer}
             onSubmit={this.onSignUpButtonPress}
           />
-          <View style={themedStyle.haveAccountContainer}>
-            <Text style={themedStyle.haveAccountLabel}>Already have an account?</Text>
+          <View style={themedStyle.signInContainer}>
+            <Text style={themedStyle.signInLabel}>Already have an account?</Text>
             <Button
               style={themedStyle.signInButton}
               appearance='ghost'
@@ -110,15 +110,16 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
+    justifyContent: 'space-between',
     marginTop: 32,
     paddingHorizontal: 16,
   },
-  haveAccountContainer: {
-    marginTop: 24,
-    marginBottom: 32,
+  signInContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 24,
+    marginBottom: 32,
   },
   photo: {
     width: 116,
@@ -140,7 +141,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     height: 24,
     tintColor: theme['blue-primary'],
   },
-  haveAccountLabel: {
+  signInLabel: {
     color: theme['color-basic-600'],
   },
   signInButton: {

@@ -1,9 +1,12 @@
 import React from 'react';
 import {
+  ImageProps,
+  ImageSourcePropType,
   ScrollView,
   View,
 } from 'react-native';
 import {
+  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -14,31 +17,42 @@ import {
 } from '@kitten/ui';
 import {
   SocialAuth,
-  SignUpForm,
-  SignUpFormType,
+  SignUpForm1,
+  SignUpForm1Type,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
   ImageOverlay,
   Text,
 } from '@src/components/common';
-import { overlayLogin1 } from '@src/assets/images';
-import { ForwardIcon } from '@src/assets/icons';
+import {
+  ForwardIcon,
+  HeartIcon,
+} from '@src/assets/icons';
 
 interface ComponentProps {
-  onLoginPress: () => void;
+  onSignUpPress: (value: SignUpForm1Type) => void;
+  onSignInPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
   onTwitterPress: () => void;
-  onSignUpPress: (value: SignUpFormType) => void;
+  onEwaPress: () => void;
 }
 
-export type SignUpProps = ThemedComponentProps & ComponentProps;
+export type SignUp1Props = ThemedComponentProps & ComponentProps;
 
-class SignUp1Component extends React.Component<SignUpProps> {
+class SignUp1Component extends React.Component<SignUp1Props> {
 
-  private onLoginButtonPress = () => {
-     this.props.onLoginPress();
+  private headerImage: ImageSourcePropType = {
+    uri: `https://images.unsplash.com/photo-1480264104733-84fb0b925be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
+  };
+
+  private onSignUpButtonPress = (value: SignUpForm1Type) => {
+    this.props.onSignUpPress(value);
+  };
+
+  private onSignInButtonPress = () => {
+    this.props.onSignInPress();
   };
 
   private onGoogleButtonPress = () => {
@@ -53,8 +67,20 @@ class SignUp1Component extends React.Component<SignUpProps> {
     this.props.onTwitterPress();
   };
 
-  private onSignUpButtonPress = (value: SignUpFormType) => {
-    this.props.onSignUpPress(value);
+  private onEwaButtonPress = () => {
+    this.props.onEwaPress();
+  };
+
+  private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+    const { themedStyle } = this.props;
+
+    return HeartIcon({ ...style, ...themedStyle.ewaButtonIcon });
+  };
+
+  private renderSignInButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+    const { themedStyle } = this.props;
+
+    return ForwardIcon({ ...style, ...themedStyle.signUpButtonIcon });
   };
 
   public render(): React.ReactNode {
@@ -64,39 +90,46 @@ class SignUp1Component extends React.Component<SignUpProps> {
       <AvoidKeyboard>
         <ScrollView style={themedStyle.container}>
           <ImageOverlay
-            style={themedStyle.header}
-            source={overlayLogin1}>
-            <View style={themedStyle.loginContainer}>
-              <Text style={themedStyle.loginLabel}>Login</Text>
+            style={themedStyle.headerContainer}
+            source={this.headerImage}>
+            <Button
+              style={themedStyle.ewaButton}
+              size='giant'
+              activeOpacity={0.75}
+              icon={this.renderEwaButtonIcon}
+              onPress={this.onEwaButtonPress}>
+              EWA
+            </Button>
+            <View style={themedStyle.signUpContainer}>
+              <Text style={themedStyle.signInLabel}>Sign Up</Text>
               <Button
-                style={themedStyle.forwardButton}
+                style={themedStyle.signInButton}
                 activeOpacity={0.5}
                 size='giant'
-                icon={ForwardIcon}
                 alignment={ButtonAlignments.RIGHT}
-                onPress={this.onLoginButtonPress}>
-                Button
+                icon={this.renderSignInButtonIcon}
+                onPress={this.onSignInButtonPress}>
+                Sign In
               </Button>
             </View>
           </ImageOverlay>
-          <View style={themedStyle.signContainer}>
-            <SocialAuth
-              hintStyle={themedStyle.socialAuthHint}
-              iconStyle={themedStyle.socialAuthIcon}
-              hint='Sign with a social account'
-              onGooglePress={this.onGoogleButtonPress}
-              onFacebookPress={this.onFacebookButtonPress}
-              onTwitterPress={this.onTwitterButtonPress}
-            />
-            <View style={themedStyle.orContainer}>
-              <View style={themedStyle.divider}/>
-              <Text style={themedStyle.orLabel}>OR</Text>
-              <View style={themedStyle.divider}/>
-            </View>
-            <Text style={themedStyle.emailSignLabel}>Sign up with Email</Text>
+          <SocialAuth
+            style={themedStyle.socialAuthContainer}
+            hintStyle={themedStyle.socialAuthHint}
+            iconStyle={themedStyle.socialAuthIcon}
+            hint='Sign with a social account'
+            onGooglePress={this.onGoogleButtonPress}
+            onFacebookPress={this.onFacebookButtonPress}
+            onTwitterPress={this.onTwitterButtonPress}
+          />
+          <View style={themedStyle.orContainer}>
+            <View style={themedStyle.divider}/>
+            <Text style={themedStyle.orLabel}>OR</Text>
+            <View style={themedStyle.divider}/>
           </View>
-          <SignUpForm
-            style={themedStyle.signUpForm}
+          <Text style={themedStyle.emailSignLabel}>Sign up with Email</Text>
+          <SignUpForm1
+            style={themedStyle.formContainer}
             onSubmit={this.onSignUpButtonPress}
           />
         </ScrollView>
@@ -105,34 +138,53 @@ class SignUp1Component extends React.Component<SignUpProps> {
   }
 }
 
-export const SignUp = withStyles(SignUp1Component, (theme: ThemeType) => ({
+export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
   },
-  header: {
-    justifyContent: 'center',
-    height: 192,
+  headerContainer: {
+    minHeight: 200,
     paddingHorizontal: 16,
   },
-  loginContainer: {
+  signUpContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 48,
   },
-  loginLabel: {
-    fontFamily: 'anton-regular',
-    fontSize: 32,
-  },
-  forwardButton: {
-    backgroundColor: 'transparent',
-  },
-  signContainer: {
+  socialAuthContainer: {
     marginTop: 24,
   },
+  formContainer: {
+    marginTop: 72,
+    paddingHorizontal: 16,
+  },
+  ewaButton: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 0,
+    fontFamily: 'opensans-regular',
+    backgroundColor: theme['opacity-transparent'],
+  },
+  ewaButtonIcon: {
+    marginHorizontal: 0,
+  },
+  signInLabel: {
+    fontFamily: 'raleway-extra-bold',
+    fontSize: 32,
+    textTransform: 'uppercase',
+  },
+  signInButton: {
+    paddingHorizontal: 0,
+    backgroundColor: theme['opacity-transparent'],
+  },
+  signUpButtonIcon: {
+    marginHorizontal: 0,
+  },
   socialAuthHint: {
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   socialAuthIcon: {
-    tintColor: '#0D1C2E',
+    tintColor: theme['font-primary-color'],
   },
   orContainer: {
     flexDirection: 'row',
@@ -141,23 +193,20 @@ export const SignUp = withStyles(SignUp1Component, (theme: ThemeType) => ({
     marginTop: 52,
   },
   orLabel: {
-    fontFamily: 'anton-regular',
-    color: '#0D1C2E',
-    fontSize: 24,
     marginHorizontal: 8,
+    fontFamily: 'raleway-extra-bold',
+    fontSize: 24,
+    color: theme['font-primary-color'],
   },
   emailSignLabel: {
     alignSelf: 'center',
-    color: '#0D1C2E',
+    marginTop: 8,
+    color: theme['font-primary-color'],
   },
   divider: {
     flex: 1,
     height: 1,
-    backgroundColor: '#EDF0F5',
-  },
-  signUpForm: {
-    marginTop: 72,
-    paddingHorizontal: 16,
+    backgroundColor: theme['color-basic-200'],
   },
 }));
 

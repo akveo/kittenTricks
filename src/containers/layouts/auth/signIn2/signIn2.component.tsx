@@ -16,18 +16,14 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  onForgotPasswordPress: () => void;
   onSignInPress: (formValue: SignIn2FormType) => void;
   onSignUpPress: () => void;
+  onForgotPasswordPress: () => void;
 }
 
 export type SignIn2Props = ThemedComponentProps & ComponentProps;
 
 class SignIn2Component extends React.Component<SignIn2Props> {
-
-  private onForgotPasswordButtonPress = () => {
-    this.props.onForgotPasswordPress();
-  };
 
   private onSignInButtonPress = (formValue: SignIn2FormType) => {
     this.props.onSignInPress(formValue);
@@ -35,6 +31,10 @@ class SignIn2Component extends React.Component<SignIn2Props> {
 
   private onSignUpButtonPress = () => {
     this.props.onSignUpPress();
+  };
+
+  private onForgotPasswordButtonPress = () => {
+    this.props.onForgotPasswordPress();
   };
 
   public render(): React.ReactNode {
@@ -52,14 +52,14 @@ class SignIn2Component extends React.Component<SignIn2Props> {
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
             onSubmit={this.onSignInButtonPress}
           />
-          <View style={themedStyle.createAccountContainer}>
+          <View style={themedStyle.signUpContainer}>
             <Text style={themedStyle.haveAccountLabel}>Don't have an account?</Text>
             <Button
               style={themedStyle.signUpButton}
               appearance='ghost'
               activeOpacity={0.75}
               onPress={this.onSignUpButtonPress}>
-              Create
+              Sign Up
             </Button>
           </View>
         </View>
@@ -81,10 +81,11 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
+    justifyContent: 'space-between',
     marginTop: 32,
     paddingHorizontal: 16,
   },
-  createAccountContainer: {
+  signUpContainer: {
     marginTop: 24,
     marginBottom: 32,
     flexDirection: 'row',

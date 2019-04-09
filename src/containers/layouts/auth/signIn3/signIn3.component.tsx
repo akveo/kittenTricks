@@ -10,8 +10,8 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  SignIn3FormType,
-  SignInForm3,
+  SignIn2FormType,
+  SignInForm2,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -21,7 +21,7 @@ import {
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSignInPress: (formValue: SignIn3FormType) => void;
+  onSignInPress: (formValue: SignIn2FormType) => void;
   onSignUpPress: () => void;
 }
 
@@ -34,16 +34,16 @@ class SignIn3Component extends React.Component<SignIn3Props> {
     .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80`,
   };
 
-  private onForgotPasswordButtonPress = () => {
-    this.props.onForgotPasswordPress();
-  };
-
-  private onSignInButtonPress = (formValue: SignIn3FormType) => {
+  private onSignInButtonPress = (formValue: SignIn2FormType) => {
     this.props.onSignInPress(formValue);
   };
 
   private onSignUpButtonPress = () => {
     this.props.onSignUpPress();
+  };
+
+  private onForgotPasswordButtonPress = () => {
+    this.props.onForgotPasswordPress();
   };
 
   public render(): React.ReactNode {
@@ -58,7 +58,7 @@ class SignIn3Component extends React.Component<SignIn3Props> {
             <Text style={themedStyle.helloLabel}>Hello</Text>
             <Text style={themedStyle.signInLabel}>Sign in to your account</Text>
           </View>
-          <SignInForm3
+          <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
             onSubmit={this.onSignInButtonPress}
@@ -91,6 +91,7 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
+    justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
   signUpContainer: {
