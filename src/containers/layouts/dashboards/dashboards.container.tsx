@@ -9,7 +9,13 @@ interface RouteListItem extends ListItem {
 
 export class DashboardsContainer extends React.Component<NavigationScreenProps> {
 
-  private items: RouteListItem[] = [];
+  private items: RouteListItem[] = [
+    {
+      title: 'Layout',
+      description: 'Trainings 1',
+      route: 'Trainings 1',
+    },
+  ];
 
   private onItemSelect = (index: number): void => {
     const { [index]: selectedItem } = this.items;
