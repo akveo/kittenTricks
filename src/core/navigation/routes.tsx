@@ -108,7 +108,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
 const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Messaging']: MessagingContainer,
-    ['Comments List 1']: CommentsList1Container,
+    ['Comments List']: CommentsList1Container,
   },
   {
     headerMode: 'none',

@@ -63,6 +63,7 @@ class CommentComponent extends React.Component<CommentProps, State> {
       <View style={themedStyle.container} key={0}>
         <View style={themedStyle.authorInfoContainer}>
           <Avatar
+            style={themedStyle.avatar}
             size='medium'
             source={{ uri: comment.author.photo }}
           />
@@ -137,6 +138,8 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginLeft: 16,
+    marginBottom: 14,
   },
   authorInfoContainer: {
     flexDirection: 'row',
@@ -170,5 +173,8 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     marginHorizontal: 24,
     borderRadius: 10,
     paddingBottom: 16,
+  },
+  avatar: {
+    marginRight: 16,
   },
 }));

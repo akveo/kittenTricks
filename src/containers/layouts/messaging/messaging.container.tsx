@@ -13,7 +13,7 @@ export class MessagingContainer extends React.Component<NavigationScreenProps> {
     {
       title: 'Layout',
       description: 'Comments List',
-      route: 'Comments List 1',
+      route: 'Comments List',
     },
   ];
 
