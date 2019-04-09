@@ -34,7 +34,8 @@ export type SignIn4Props = ThemedComponentProps & ComponentProps;
 class SignIn4Component extends React.Component<SignIn4Props> {
 
   private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80`,
+    uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2
+    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80`,
   };
 
   private onForgotPasswordButtonPress = () => {

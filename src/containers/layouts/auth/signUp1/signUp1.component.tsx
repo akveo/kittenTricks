@@ -44,7 +44,8 @@ export type SignUp1Props = ThemedComponentProps & ComponentProps;
 class SignUp1Component extends React.Component<SignUp1Props> {
 
   private headerImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1480264104733-84fb0b925be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
+    uri: `https://images.unsplash.com/photo-1480264104733-84fb0b925be3?ixlib=rb-1.2
+    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
   };
 
   private onSignUpButtonPress = (value: SignUpForm1Type) => {
