@@ -44,6 +44,7 @@ import {
   EcommerceContainer,
   NavigationContainer,
   Trainings1Container,
+  Trainings2Container,
 } from '@src/containers/layouts';
 import {
   AppBar,
@@ -97,6 +98,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Dashboards']: DashboardsContainer,
     ['Trainings 1']: Trainings1Container,
+    ['Trainings 2']: Trainings2Container,
   },
   {
     headerMode: 'none',

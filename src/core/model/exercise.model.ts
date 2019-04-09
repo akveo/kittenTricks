@@ -3,4 +3,5 @@ export interface Exercise {
   image: string;
   duration: string;
   level: 'Easy' | 'Medium' | 'Hard';
+  energy: string;
 }

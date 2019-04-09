@@ -15,6 +15,11 @@ export class DashboardsContainer extends React.Component<NavigationScreenProps> 
       description: 'Trainings 1',
       route: 'Trainings 1',
     },
+    {
+      title: 'Layout - V2',
+      description: 'Trainings 2',
+      route: 'Trainings 2',
+    },
   ];
 
   private onItemSelect = (index: number): void => {

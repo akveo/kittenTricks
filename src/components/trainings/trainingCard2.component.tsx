@@ -31,10 +31,6 @@ export type TrainingCardProps = ThemedComponentProps & ComponentProps & Touchabl
 
 class TrainingCardComponent extends React.Component<TrainingCardProps> {
 
-  private onDuration = (): void => {
-    this.props.onDetails(this.props.index);
-  };
-
   private onDetails = (): void => {
     this.props.onDetails(this.props.index);
   };
