@@ -22,6 +22,11 @@ export {
   SignIn3FormType,
 } from './signIn/signInForm3.component';
 export {
+  SignInForm4,
+  SignInForm4Props,
+  SignIn4FormType,
+} from './signIn/signInForm4.component';
+export {
   SignUpForm,
   SignUpFormProps,
   SignUpFormType,
@@ -36,4 +41,9 @@ export {
   SignUpForm3Props,
   SignUp3FormType,
 } from './signUp/signUpForm3.component';
+export {
+  SignUpForm4,
+  SignUpForm4Props,
+  SignUp4FormType,
+} from './signUp/signUpForm4.component';
 
