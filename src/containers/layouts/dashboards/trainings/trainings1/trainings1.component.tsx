@@ -17,7 +17,7 @@ interface ComponentProps {
   levels: string[];
   exercises: Exercise[];
   selectedLevelIndex: number;
-  onTrainingDuration: (index: number) => void;
+  onTrainingDetails: (index: number) => void;
   onSelectLevel: (index: number) => void;
 }
 
@@ -25,8 +25,8 @@ export type Trainings1ComponentProps = ThemedComponentProps & ComponentProps;
 
 class Trainings1Component extends React.Component<Trainings1ComponentProps> {
 
-  private onTrainingDuration = (index: number): void => {
-    this.props.onTrainingDuration(index);
+  private onTrainingDetails = (index: number): void => {
+    this.props.onTrainingDetails(index);
   };
 
   private onSelectLevel = (index: number): void => {
@@ -54,15 +54,17 @@ class Trainings1Component extends React.Component<Trainings1ComponentProps> {
         <Tab title={levels[0]}>
           <Easy1
             exercises={exercises}
-            onTrainingDuration={this.onTrainingDuration}/>
+            onTrainingDetails={this.onTrainingDetails}/>
         </Tab>
         <Tab title={levels[1]}>
           <Medium1
             exercises={exercises}
-            onTrainingDuration={this.onTrainingDuration}/>
+            onTrainingDetails={this.onTrainingDetails}/>
         </Tab>
         <Tab title={levels[2]}>
-          <Hard1/>
+          <Hard1
+            exercises={exercises}
+            onTrainingDetails={this.onTrainingDetails}/>
         </Tab>
       </TabView>
     );

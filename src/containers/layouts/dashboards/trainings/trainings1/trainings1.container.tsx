@@ -22,7 +22,7 @@ export class Trainings1Container extends React.Component<NavigationScreenProps, 
     this.setState({ selectedLevelIndex: index });
   };
 
-  private onTrainingDuration = (index: number): void => {
+  private onTrainingDetails = (index: number): void => {
 
   };
 
@@ -32,7 +32,7 @@ export class Trainings1Container extends React.Component<NavigationScreenProps, 
         levels={this.levels}
         exercises={this.state.exercises}
         selectedLevelIndex={this.state.selectedLevelIndex}
-        onTrainingDuration={this.onTrainingDuration}
+        onTrainingDetails={this.onTrainingDetails}
         onSelectLevel={this.onSelectLevel}
       />
     );

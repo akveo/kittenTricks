@@ -5,6 +5,7 @@ import {
   NavigationContainer as ReactNavigationContainer,
   HeaderProps,
   createBottomTabNavigator,
+  createMaterialTopTabNavigator,
 } from 'react-navigation';
 import {
   MenuContainer,
@@ -42,6 +43,7 @@ import {
   WalkthroughContainer,
   EcommerceContainer,
   NavigationContainer,
+  Trainings1Container,
 } from '@src/containers/layouts';
 import {
   AppBar,
@@ -94,6 +96,7 @@ const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
 const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Dashboards']: DashboardsContainer,
+    ['Trainings 1']: Trainings1Container,
   },
   {
     headerMode: 'none',

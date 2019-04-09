@@ -14,15 +14,15 @@ import {
 
 interface ComponentProps {
   exercises: Exercise[];
-  onTrainingDuration: (index: number) => void;
+  onTrainingDetails: (index: number) => void;
 }
 
 export type Medium1ComponentProps = ThemedComponentProps & ComponentProps;
 
 class Medium1Component extends React.Component<Medium1ComponentProps> {
 
-  private onTrainingDuration = (index: number): void => {
-    this.props.onTrainingDuration(index);
+  private onTrainingDetails = (index: number): void => {
+    this.props.onTrainingDetails(index);
   };
 
   private renderCard = (info: ListRenderItemInfo<Exercise>): React.ReactElement<TrainingCardProps> => {
@@ -30,7 +30,8 @@ class Medium1Component extends React.Component<Medium1ComponentProps> {
       <TrainingCard1
         style={this.props.themedStyle.card}
         training={info.item}
-        onDuration={this.onTrainingDuration}
+        index={info.index}
+        onDetails={this.onTrainingDetails}
       />
     );
   };

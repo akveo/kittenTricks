@@ -24,7 +24,7 @@ import { Text } from '@src/components/common';
 
 interface ComponentProps {
   exercises: Exercise[];
-  onTrainingDuration: (index: number) => void;
+  onTrainingDetails: (index: number) => void;
 }
 
 interface State {
@@ -43,8 +43,8 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
     this.setState({ selectedPagerIndex: index });
   };
 
-  private onTrainingDuration = (index: number): void => {
-    this.props.onTrainingDuration(index);
+  private onTrainingDetails = (index: number): void => {
+    this.props.onTrainingDetails(index);
   };
 
   private renderPagerIndicator = (index: number): React.ReactElement<ViewProps> => {
@@ -73,7 +73,7 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
         index={i}
         style={[themedStyle.pagerCard, marginStyle]}
         training={exercise}
-        onDuration={this.onTrainingDuration}
+        onDetails={this.onTrainingDetails}
       />
     );
   };
@@ -102,7 +102,8 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
       <TrainingCard1
         style={this.props.themedStyle.listCard}
         training={info.item}
-        onDuration={this.onTrainingDuration}
+        index={info.index}
+        onDetails={this.onTrainingDetails}
       />
     );
   };

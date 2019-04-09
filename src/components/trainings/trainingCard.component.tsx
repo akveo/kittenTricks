@@ -1,8 +1,9 @@
 import React from 'react';
 import {
   ImageBackground,
-  ImageBackgroundProps,
   View,
+  TouchableOpacity,
+  TouchableOpacityProps,
 } from 'react-native';
 import { Exercise } from '@src/core/model/exercise.model';
 import {
@@ -12,44 +13,45 @@ import {
 } from '@kitten/theme';
 import {
   Text,
-  Button,
+  Chips,
 } from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
 
 interface ComponentProps {
   training: Exercise;
   index?: number;
-  onDuration: (index: number) => void;
+  onDetails: (index: number) => void;
 }
 
-export type TrainingCardProps = ThemedComponentProps & ComponentProps & Partial<ImageBackgroundProps>;
+export type TrainingCardProps = ThemedComponentProps & ComponentProps & TouchableOpacityProps;
 
 class TrainingCardComponent extends React.Component<TrainingCardProps> {
 
-  private onDuration = (): void => {
-    this.props.onDuration(this.props.index);
+  private onDetails = (): void => {
+    this.props.onDetails(this.props.index);
   };
 
   public render(): React.ReactNode {
     const { themedStyle, training, style } = this.props;
 
     return (
-      <ImageBackground
-        style={[themedStyle.container, style]}
-        imageStyle={themedStyle.containerImageStyle}
-        source={{ uri: training.image }}>
-        <View>
-          <Text style={themedStyle.levelLabel}>{`${training.level} Level`}</Text>
-          <Text style={themedStyle.titleLabel}>{training.name}</Text>
-        </View>
-        <Button
-          size='small'
-          style={themedStyle.durationButton}
-          icon={ClockIcon}
-          onPress={this.onDuration}>
-          {training.duration}
-        </Button>
-      </ImageBackground>
+      <TouchableOpacity
+        activeOpacity={0.95}
+        onPress={this.onDetails}>
+        <ImageBackground
+          style={[themedStyle.container, style]}
+          imageStyle={themedStyle.containerImageStyle}
+          source={{ uri: training.image }}>
+          <View>
+            <Text style={themedStyle.levelLabel}>{`${training.level} Level`}</Text>
+            <Text style={themedStyle.titleLabel}>{training.name}</Text>
+          </View>
+          <Chips style={themedStyle.chips}>
+            {ClockIcon(themedStyle.chipsIcon)}
+            <Text style={themedStyle.chipsText}>{training.duration}</Text>
+          </Chips>
+        </ImageBackground>
+      </TouchableOpacity>
     );
   }
 }
@@ -72,10 +74,15 @@ export const TrainingCard1 = withStyles(TrainingCardComponent, (theme: ThemeType
     fontSize: 32,
     fontFamily: 'anton-regular',
   },
-  durationButton: {
+  chips: {
     width: 80,
-    height: 24,
-    borderRadius: 100,
+  },
+  chipsIcon: {
+    width: 13,
+    height: 13,
+    tintColor: '#ffffff',
+  },
+  chipsText: {
     fontSize: 11,
     fontWeight: '600',
   },
