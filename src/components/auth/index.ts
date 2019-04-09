@@ -21,3 +21,9 @@ export {
   SignUpFormProps,
   SignUpFormType,
 } from './signUp/signUpForm.component';
+export {
+  SignUpForm2,
+  SignUpForm2Props,
+  SignUp2FormType,
+} from './signUp/signUpForm2.component';
+

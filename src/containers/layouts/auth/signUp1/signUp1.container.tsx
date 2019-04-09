@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { SignUpFormType } from '@src/components/auth';
-import { SignUp } from './signUp.component';
+import { SignUp } from './signUp1.component';
 
-export class SignUpContainer extends React.Component<NavigationScreenProps> {
+export class SignUp1Container extends React.Component<NavigationScreenProps> {
 
   private onLoginPress = () => {
     this.props.navigation.navigate('Sign In');

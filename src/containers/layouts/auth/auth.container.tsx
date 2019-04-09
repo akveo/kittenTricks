@@ -25,6 +25,11 @@ export class AuthContainer extends React.Component<NavigationScreenProps> {
       description: 'Sign Up',
       route: 'Sign Up',
     },
+    {
+      title: 'Layout - V2',
+      description: 'Sign Up',
+      route: 'Sign Up 2',
+    },
   ];
 
   private onItemSelect = (index: number): void => {

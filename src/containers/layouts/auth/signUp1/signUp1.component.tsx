@@ -35,7 +35,7 @@ interface ComponentProps {
 
 export type SignUpProps = ThemedComponentProps & ComponentProps;
 
-class SignUpComponent extends React.Component<SignUpProps> {
+class SignUp1Component extends React.Component<SignUpProps> {
 
   private onLoginButtonPress = () => {
      this.props.onLoginPress();
@@ -105,7 +105,7 @@ class SignUpComponent extends React.Component<SignUpProps> {
   }
 }
 
-export const SignUp = withStyles(SignUpComponent, (theme: ThemeType) => ({
+export const SignUp = withStyles(SignUp1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
   },

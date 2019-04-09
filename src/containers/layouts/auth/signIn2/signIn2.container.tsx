@@ -13,7 +13,7 @@ export class SignIn2Container extends React.Component<NavigationScreenProps> {
   };
 
   private onCreateAccountPress = () => {
-
+    this.props.navigation.navigate('Sign Up 2');
   };
 
   public render(): React.ReactNode {

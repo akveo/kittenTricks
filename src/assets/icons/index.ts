@@ -35,6 +35,10 @@ export const EditIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/edit-2-outline.png', style);
 };
 
+export const EmailIconFill = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/email.png', style);
+};
+
 export const EyeOffIconFill = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/eye-off.png', style);
 };

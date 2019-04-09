@@ -17,7 +17,7 @@ import {
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSignInPress: (value: SignIn2FormType) => void;
+  onSignInPress: (formValue: SignIn2FormType) => void;
   onCreateAccountPress: () => void;
 }
 
@@ -29,8 +29,8 @@ class SignIn2Component extends React.Component<SignIn2Props> {
     this.props.onForgotPasswordPress();
   };
 
-  private onSignInButtonPress = (value: SignIn2FormType) => {
-    this.props.onSignInPress(value);
+  private onSignInButtonPress = (formValue: SignIn2FormType) => {
+    this.props.onSignInPress(formValue);
   };
 
   private onCreateAccountButtonPress = () => {
