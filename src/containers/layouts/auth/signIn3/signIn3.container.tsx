@@ -6,7 +6,7 @@ import { SignIn2FormType } from '@src/components/auth';
 export class SignIn3Container extends React.Component<NavigationScreenProps> {
 
   private onSignInPress = (formValue: SignIn2FormType) => {
-
+    this.props.navigation.goBack();
   };
 
   private onSignUpPress = () => {
@@ -14,7 +14,7 @@ export class SignIn3Container extends React.Component<NavigationScreenProps> {
   };
 
   private onForgotPasswordPress = () => {
-
+    this.props.navigation.navigate('Forgot Password');
   };
 
   public render(): React.ReactNode {

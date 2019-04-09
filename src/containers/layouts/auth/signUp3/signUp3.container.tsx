@@ -6,6 +6,7 @@ import { SignUp3 } from './signUp3.component';
 export class SignUp3Container extends React.Component<NavigationScreenProps> {
 
   private onSignUpPress = (formValue: SignUpForm2Type) => {
+    this.props.navigation.goBack();
   };
 
   private onSignInPress = () => {

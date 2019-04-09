@@ -6,7 +6,7 @@ import { SignIn4 } from './signIn4.component';
 export class SignIn4Container extends React.Component<NavigationScreenProps> {
 
   private onSignInPress = (formValue: SignIn2FormType) => {
-
+    this.props.navigation.goBack();
   };
 
   private onSignUpPress = () => {
@@ -14,7 +14,7 @@ export class SignIn4Container extends React.Component<NavigationScreenProps> {
   };
 
   private onForgotPasswordPress = () => {
-
+    this.props.navigation.navigate('Forgot Password');
   };
 
   private onGooglePress = () => {

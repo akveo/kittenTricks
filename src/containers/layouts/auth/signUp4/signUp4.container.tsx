@@ -5,6 +5,14 @@ import { SignUp4 } from './signUp4.component';
 
 export class SignUp4Container extends React.Component<NavigationScreenProps> {
 
+  private onSignUpPress = (formValue: SignUpForm2Type) => {
+    this.props.navigation.goBack();
+  };
+
+  private onSignInPress = () => {
+    this.props.navigation.navigate('Sign In 4');
+  };
+
   private onGooglePress = () => {
 
   };
@@ -14,14 +22,6 @@ export class SignUp4Container extends React.Component<NavigationScreenProps> {
   };
 
   private onTwitterPress = () => {
-
-  };
-
-  private onSignInPress = () => {
-    this.props.navigation.navigate('Sign In 4');
-  };
-
-  private onSignUpPress = (formValue: SignUpForm2Type) => {
 
   };
 

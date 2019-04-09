@@ -89,6 +89,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
           <ValidationInput
             style={themedStyle.usernameInput}
             pattern={this.nameValidator}
+            autoCapitalize='none'
             status={usernameInputStatus}
             placeholder='User Name'
             value={username}
@@ -98,6 +99,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
           <ValidationInput
             style={themedStyle.passwordInput}
             pattern={this.passwordValidator}
+            autoCapitalize='none'
             status={passwordInputStatus}
             secureTextEntry={true}
             placeholder='Password'

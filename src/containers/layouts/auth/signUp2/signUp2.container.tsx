@@ -7,6 +7,7 @@ export class SignUp2Container extends React.Component<NavigationScreenProps> {
 
 
   private onSignUpPress = (formValue: SignUpForm2Type) => {
+    this.props.navigation.goBack();
   };
 
   private onSignInPress = () => {
