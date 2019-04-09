@@ -116,7 +116,7 @@ export const ArticleList4 = withStyles(ArticleList4Component, (theme: ThemeType)
     marginTop: 32,
     fontFamily: 'opensans-extrabold',
     fontSize: 16,
-    backgroundColor: 'white',
-    color: '#3366FF',
+    backgroundColor: theme['color-white'],
+    color: theme['color-primary-500'],
   },
 }));

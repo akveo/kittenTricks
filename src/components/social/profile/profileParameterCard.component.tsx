@@ -51,7 +51,7 @@ export const ProfileParameterCard = withStyles(ProfileParameterCardComponent, (t
   container: {
     padding: 24,
     borderRadius: 12,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
   topContainer: {
     flexDirection: 'row',
@@ -60,17 +60,17 @@ export const ProfileParameterCard = withStyles(ProfileParameterCardComponent, (t
   hintLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 15,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   valueLabel: {
     marginTop: 20,
     fontFamily: 'anton-regular',
     fontSize: 32,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   icon: {
     width: 20,
     height: 20,
-    tintColor: '#3366FF',
+    tintColor: theme['color-primary-500'],
   },
 }));

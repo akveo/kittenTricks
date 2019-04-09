@@ -128,7 +128,7 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     bottom: -32,
     margin: 0,
     borderWidth: 2,
-    borderColor: '#FFFFFF',
+    borderColor: theme['color-white'],
   },
   titleLabel: {
     marginHorizontal: 24,
@@ -136,20 +136,20 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     marginBottom: 16,
     fontFamily: 'anton-regular',
     fontSize: 32,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   descriptionLabel: {
     marginHorizontal: 24,
     marginBottom: 24,
     fontSize: 15,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   contentLabel: {
     marginHorizontal: 24,
     marginTop: 24,
     marginBottom: 16,
     fontSize: 17,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   articleAuthorContainer: {
     marginHorizontal: 24,
@@ -158,11 +158,11 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
   articleAuthorLabel: {
     fontSize: 13,
     marginRight: 16,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   articleDateLabel: {
     fontSize: 13,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   inputContainer: {
     marginHorizontal: 24,
@@ -171,7 +171,7 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
   },
   inputLabel: {
     fontSize: 17,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
     marginBottom: 8,
   },
 }));

@@ -113,11 +113,11 @@ class Profile4Component extends React.Component<Profile4Props> {
 export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: '#F7F8FA',
+    backgroundColor: theme['color-basic-100'],
   },
   infoContainer: {
     paddingHorizontal: 24,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
   parameterContainer: {
     flexDirection: 'row',
@@ -139,13 +139,13 @@ export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
   },
   divider: {
     borderWidth: 0.5,
-    borderColor: '#A6AEBD',
+    borderColor: theme['color-basic-500'],
     marginHorizontal: 24,
   },
   descriptionLabel: {
     marginVertical: 24,
     fontSize: 15,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   profileParameter: {
     flex: 1,

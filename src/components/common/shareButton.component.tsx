@@ -31,6 +31,6 @@ class ShareButtonComponent extends React.Component<ShareButtonProps> {
 
 export const ShareButton = withStyles(ShareButtonComponent, (theme: ThemeType) => ({
   icon: {
-    tintColor: '#A6AEBD',
+    tintColor: theme['color-basic-500'],
   },
 }));

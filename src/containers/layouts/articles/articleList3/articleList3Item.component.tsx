@@ -95,6 +95,6 @@ export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: Th
     fontSize: 32,
   },
   activityButton: {
-    color: 'white',
+    color: theme['color-white'],
   },
 }));

@@ -130,7 +130,7 @@ export const RateBar = withStyles(RateBarComponent, (theme: ThemeType) => ({
   hint: {
     fontFamily: 'opensans-semibold',
     fontSize: 15,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
     marginRight: 8,
   },
   icon: {
@@ -138,9 +138,9 @@ export const RateBar = withStyles(RateBarComponent, (theme: ThemeType) => ({
     height: 16,
   },
   iconEnabled: {
-    tintColor: '#FFAA00',
+    tintColor: theme['color-warning-500'],
   },
   iconDisabled: {
-    tintColor: '#A6AEBD',
+    tintColor: theme['color-basic-500'],
   },
 }));

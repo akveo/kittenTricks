@@ -64,11 +64,11 @@ export const CommentsList1 = withStyles(CommentsList1Component, (theme: ThemeTyp
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
   item: {
     marginVertical: 8,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
 }));
 

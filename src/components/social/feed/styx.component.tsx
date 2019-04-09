@@ -64,7 +64,7 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
     marginVertical: 14,
     fontFamily: 'anton-regular',
     fontSize: 20,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   valueButton: {
     height: 24,

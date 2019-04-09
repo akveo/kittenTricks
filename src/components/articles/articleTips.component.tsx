@@ -45,7 +45,7 @@ export const ArticleTips = withStyles(ArticleTipsComponent, (theme: ThemeType) =
     width: 20,
     height: 20,
     marginRight: 18,
-    tintColor: 'white',
+    tintColor: theme['color-white'],
   },
   text: {
     fontFamily: 'opensans-semibold',

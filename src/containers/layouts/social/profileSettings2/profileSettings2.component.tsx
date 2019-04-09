@@ -116,7 +116,7 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
     flexDirection: 'row',
     paddingHorizontal: 32,
     paddingVertical: 32,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   nameSection: {
     flex: 1,
@@ -125,11 +125,11 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
   descriptionSection: {
     paddingHorizontal: 24,
     paddingBottom: 24,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   nameParameter: {
     marginVertical: 8,
@@ -137,7 +137,7 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
     paddingVertical: 8,
   },
   description: {
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   photo: {
     width: 76,
@@ -148,7 +148,7 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
     height: 32,
     borderRadius: 16,
     transform: [{ translateY: 60 }],
-    backgroundColor: '#6A7385',
+    backgroundColor: theme['color-basic-700'],
   },
   button: {
     height: 40,

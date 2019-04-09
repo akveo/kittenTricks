@@ -80,11 +80,11 @@ export const ProfileSocials = withStyles(ProfileSocialsComponent, (theme: ThemeT
   valueLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 15,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   hintLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 13,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
 }));

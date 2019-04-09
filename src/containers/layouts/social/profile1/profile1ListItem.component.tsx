@@ -84,7 +84,7 @@ export const Profile1ListItem = withStyles(Profile1ListItemComponent, (theme: Th
   container: {
     overflow: 'hidden',
     borderRadius: 12,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
   detailsContainer: {
     paddingHorizontal: 16,

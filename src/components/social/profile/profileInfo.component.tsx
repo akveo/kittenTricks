@@ -60,12 +60,12 @@ export const ProfileInfo = withStyles(ProfileInfoComponent, (theme: ThemeType) =
   nameLabel: {
     fontFamily: 'anton-regular',
     fontSize: 24,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   locationLabel: {
     marginTop: 4,
     fontSize: 13,
     fontFamily: 'opensans-semibold',
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
 }));

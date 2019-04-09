@@ -27,6 +27,6 @@ class StyledInput extends React.Component<InputProps> {
 
 export const Input = withStyles(StyledInput, (theme: ThemeType) => ({
   fontFamily: 'opensans-regular',
-  color: 'white',
+  color: theme['color-white'],
 }));
 
