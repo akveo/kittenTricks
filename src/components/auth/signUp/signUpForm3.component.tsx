@@ -21,17 +21,17 @@ import {
   PersonIconFill,
 } from '@src/assets/icons';
 
-export interface SignUp2FormType {
+export interface SignUp3FormType {
   username: string;
   email: string;
   password: string;
 }
 
 interface ComponentProps {
-  onSubmit: (value: SignUp2FormType) => void;
+  onSubmit: (value: SignUp3FormType) => void;
 }
 
-export type SignUpForm2Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type SignUpForm3Props = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
   username: string;
@@ -43,7 +43,7 @@ interface State {
   termsAccepted: boolean;
 }
 
-class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
+class SignUpForm3Component extends React.Component<SignUpForm3Props, State> {
 
   public state: State = {
     username: '',
@@ -66,56 +66,25 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
   private onSubmitButtonPress = () => {
     const { username, email, password } = this.state;
 
-    this.props.onSubmit({
-      username,
-      email,
-      password,
-    });
+    this.props.onSubmit({ username, email, password });
   };
 
   private onUsernameValidationResult = (usernameValid: boolean, username: string) => {
-    this.setState({
-      usernameValid,
-      username,
-    });
+    this.setState({ usernameValid, username });
   };
 
   private onEmailValidationResult = (emailValid: boolean, email: string) => {
-    this.setState({
-      emailValid,
-      email,
-    });
+    this.setState({ emailValid, email });
   };
 
   private onPasswordValidationResult = (passwordValid: boolean, password: string) => {
-    this.setState({
-      passwordValid,
-      password,
-    });
+    this.setState({ passwordValid, password });
   };
 
   private isFormValid = (): boolean => {
     const { usernameValid, passwordValid, termsAccepted } = this.state;
 
     return usernameValid && passwordValid && termsAccepted;
-  };
-
-  private renderUsernameInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return PersonIconFill({ ...style, ...themedStyle.inputIcon });
-  };
-
-  private renderEmailInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return EmailIconFill({ ...style, ...themedStyle.inputIcon });
-  };
-
-  private renderPasswordInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return EyeOffIconFill({ ...style, ...themedStyle.inputIcon });
   };
 
   public render(): React.ReactNode {
@@ -148,7 +117,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
             autoCapitalize='none'
             placeholder='User Name'
             value={username}
-            icon={this.renderUsernameInputIcon}
+            icon={PersonIconFill}
             onResult={this.onUsernameValidationResult}
           />
           <ValidationInput
@@ -158,7 +127,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
             autoCapitalize='none'
             placeholder='Email'
             value={email}
-            icon={this.renderEmailInputIcon}
+            icon={EmailIconFill}
             onResult={this.onEmailValidationResult}
           />
           <ValidationInput
@@ -169,7 +138,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
             secureTextEntry={true}
             placeholder='Password'
             value={password}
-            icon={this.renderPasswordInputIcon}
+            icon={EyeOffIconFill}
             onResult={this.onPasswordValidationResult}
           />
           <CheckBox
@@ -191,7 +160,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
   }
 }
 
-export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) => ({
+export const SignUpForm3 = withStyles(SignUpForm3Component, (theme: ThemeType) => ({
   container: {
     justifyContent: 'space-between',
   },
@@ -210,13 +179,11 @@ export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) =
     marginTop: 16,
     color: theme['color-basic-600'],
   },
-  inputIcon: {
-    tintColor: theme['color-primary-500'],
-  },
   termsCheckBox: {
     marginTop: 28,
     fontFamily: 'opensans-semibold',
-    color: theme['color-basic-600'],
+    fontSize: 15,
+    color: theme['color-white'],
   },
   submitButton: {
     fontFamily: 'opensans-extrabold',
