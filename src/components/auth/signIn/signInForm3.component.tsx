@@ -19,17 +19,17 @@ import {
   PersonIconFill,
 } from '@src/assets/icons';
 
-export interface SignIn2FormType {
+export interface SignIn3FormType {
   username: string;
   password: string;
 }
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSubmit: (value: SignIn2FormType) => void;
+  onSubmit: (value: SignIn3FormType) => void;
 }
 
-export type SignInForm2Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type SignInForm3Props = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
   username: string;
@@ -38,7 +38,7 @@ interface State {
   passwordValid: boolean;
 }
 
-class SignInForm2Component extends React.Component<SignInForm2Props, State> {
+class SignInForm3Component extends React.Component<SignInForm3Props, State> {
 
   public state: State = {
     username: '',
@@ -57,42 +57,21 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
   private onSubmitButtonPress = () => {
     const { username, password } = this.state;
 
-    this.props.onSubmit({
-      username,
-      password,
-    });
+    this.props.onSubmit({ username, password });
   };
 
   private onUsernameValidationResult = (usernameValid: boolean, username: string) => {
-    this.setState({
-      usernameValid,
-      username,
-    });
+    this.setState({ usernameValid, username });
   };
 
   private onPasswordValidationResult = (passwordValid: boolean, password: string) => {
-    this.setState({
-      passwordValid,
-      password,
-    });
+    this.setState({ passwordValid, password });
   };
 
   private isFormValid = (): boolean => {
     const { usernameValid, passwordValid } = this.state;
 
     return usernameValid && passwordValid;
-  };
-
-  private renderUsernameInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return PersonIconFill({ ...style, ...themedStyle.inputIcon });
-  };
-
-  private renderPasswordInputIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle } = this.props;
-
-    return EyeOffIconFill({ ...style, ...themedStyle.inputIcon });
   };
 
   public render(): React.ReactNode {
@@ -112,19 +91,21 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
             style={themedStyle.usernameInput}
             pattern={this.nameValidator}
             status={usernameInputStatus}
+            autoCapitalize='none'
             placeholder='User Name'
             value={username}
-            icon={this.renderUsernameInputIcon}
+            icon={PersonIconFill}
             onResult={this.onUsernameValidationResult}
           />
           <ValidationInput
             style={themedStyle.passwordInput}
             pattern={this.passwordValidator}
             status={passwordInputStatus}
+            autoCapitalize='none'
             secureTextEntry={true}
             placeholder='Password'
             value={password}
-            icon={this.renderPasswordInputIcon}
+            icon={EyeOffIconFill}
             onResult={this.onPasswordValidationResult}
           />
           <View style={themedStyle.forgotPasswordContainer}>
@@ -149,7 +130,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
   }
 }
 
-export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) => ({
+export const SignInForm3 = withStyles(SignInForm3Component, (theme: ThemeType) => ({
   container: {
     justifyContent: 'space-between',
   },
@@ -164,14 +145,10 @@ export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) =
     marginTop: 16,
     color: theme['color-basic-600'],
   },
-  inputIcon: {
-    tintColor: theme['color-primary-500'],
-  },
   forgotPasswordButton: {
     paddingHorizontal: 0,
     fontSize: 15,
     fontWeight: 'normal',
-    color: theme['color-basic-600'],
   },
   submitButton: {
     fontFamily: 'opensans-extrabold',
