@@ -22,6 +22,7 @@ import {
   SignUp2Container,
   SignUp3Container,
   SignUp4Container,
+  ForgotPasswordContainer,
   SocialContainer,
   Profile1Container,
   Profile2Container,
@@ -163,6 +164,7 @@ const AuthNavigator: ReactNavigationContainer = createStackNavigator(
     ['Sign Up 2']: SignUp2Container,
     ['Sign Up 3']: SignUp3Container,
     ['Sign Up 4']: SignUp4Container,
+    ['Forgot Password']: ForgotPasswordContainer,
   },
   {
     headerMode: 'none',
@@ -213,7 +215,7 @@ const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
 
 const AppNavigator: ReactNavigationContainer = createStackNavigator({
   Home: {
-    screen: SignUp4Container,
+    screen: AuthNavigator,
     navigationOptions: HeadingNavigationOptions,
   },
 });

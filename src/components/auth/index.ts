@@ -7,6 +7,11 @@ export {
   SocialButtonProps,
 } from './socialButton.component';
 export {
+  ForgotPasswordForm,
+  ForgotPasswordFormProps,
+  ForgotPasswordFormType,
+} from './forgotPassword/forgotPasswordForm.component';
+export {
   SignInForm1,
   SignInFormProps,
   SignInFormType,

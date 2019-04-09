@@ -15,6 +15,7 @@ export { SignUp1Container } from './auth/signUp1/signUp1.container';
 export { SignUp2Container } from './auth/signUp2/signUp2.container';
 export { SignUp3Container } from './auth/signUp3/signUp3.container';
 export { SignUp4Container } from './auth/signUp4/signUp4.container';
+export { ForgotPasswordContainer } from './auth/forgotPassword/forgotPassword.container';
 export { DashboardsContainer } from './dashboards/dashboards.container';
 export { EcommerceContainer } from './ecommerce/ecommerce.container';
 export { MessagingContainer } from './messaging/messaging.container';
