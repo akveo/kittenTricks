@@ -11,3 +11,8 @@ export {
   ChatMessageProps,
   ChatMessageAlignment,
 } from './chatMessage.component';
+export {
+  ChatFileMessage,
+  ChatFileMessageAppearance,
+  ChatFileMessageProps,
+} from './chatFileMessage.component';

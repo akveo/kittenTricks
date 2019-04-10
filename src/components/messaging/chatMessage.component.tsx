@@ -21,10 +21,11 @@ export enum ChatMessageAlignment {
   right = 'right',
 }
 
-interface ComponentProps {
+export interface ComponentProps {
   index?: number;
-  message: MessageModel;
+  message?: MessageModel;
   alignment: ChatMessageAlignment;
+  children?: React.ReactElement<any>[];
 }
 
 export type ChatMessageProps = & ThemedComponentProps & ViewProps & ComponentProps;
@@ -45,6 +46,22 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
     }
   };
 
+  private renderMessageContent = (): React.ReactElement<any> | React.ReactElement<any>[] | null => {
+    const { message, children, themedStyle } = this.props;
+
+    if (message.text) {
+      return (
+        <Text style={themedStyle.messageLabel}>{message.text}</Text>
+      );
+    } else if (children) {
+      return children;
+    } else {
+      return (
+        <Text style={themedStyle.messageLabel}>Empty Message</Text>
+      );
+    }
+  };
+
   private renderRightMessage = (): [React.ReactElement<TextProps>, React.ReactElement<ViewProps>] => {
     const { themedStyle, message } = this.props;
 
@@ -52,7 +69,7 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
       <Text style={themedStyle.dateLabel} key={0}>{message.date}</Text>,
       <View style={themedStyle.cloudContainer} key={1}>
         <View style={[themedStyle.cloud, themedStyle.cloudRight]}>
-          <Text style={themedStyle.messageLabel}>{message.text}</Text>
+          {this.renderMessageContent()}
         </View>
         <View style={[themedStyle.triangle, themedStyle.triangleRight]}/>
       </View>,
@@ -66,7 +83,7 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
       <View style={themedStyle.cloudContainer} key={0}>
         <View style={[themedStyle.triangle, themedStyle.triangleLeft]}/>
         <View style={[themedStyle.cloud, themedStyle.cloudLeft]}>
-          <Text style={themedStyle.messageLabel}>{message.text}</Text>
+          {this.renderMessageContent()}
         </View>
       </View>,
       <Text style={themedStyle.dateLabel} key={1}>{message.date}</Text>,
@@ -126,6 +143,7 @@ export const ChatMessage = withStyles(ChatMessageComponent, (theme: ThemeType) =
     fontSize: 15,
   },
   cloud: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,

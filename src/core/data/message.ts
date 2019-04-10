@@ -5,6 +5,10 @@ import {
   profile4,
 } from './profile';
 import { Message } from '@src/core/model';
+import {
+  file1,
+  file2,
+} from '@src/core/data/file';
 
 export const message1: Message = {
   author: profile1,
@@ -91,6 +95,38 @@ export const message17: Message = {
   author: profile2,
   text: 'OK! See you then)',
   date: '4:30 PM',
+  read: true,
+  delivered: true,
+};
+
+export const message21: Message = {
+  author: profile1,
+  text: 'I\'m walking with my dogs',
+  date: '4:31 PM',
+  read: true,
+  delivered: true,
+};
+
+export const message22: Message = {
+  author: profile2,
+  date: '4:32 PM',
+  file: file1,
+  read: true,
+  delivered: true,
+};
+
+export const message23: Message = {
+  author: profile1,
+  date: '4:33 PM',
+  file: file2,
+  read: true,
+  delivered: true,
+};
+
+export const message24: Message = {
+  author: profile2,
+  date: '4:34 PM',
+  text: 'Oh they\'re so sweet! Can I join you and walk together?',
   read: true,
   delivered: true,
 };

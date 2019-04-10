@@ -41,6 +41,7 @@ import {
   CommentsList1Container,
   ConversationsListContainer,
   Chat1Container,
+  Chat2Container,
   DashboardsContainer,
   WalkthroughContainer,
   EcommerceContainer,
@@ -113,6 +114,7 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
     ['Comments List']: CommentsList1Container,
     ['Conversations List']: ConversationsListContainer,
     ['Chat 1']: Chat1Container, // TODO: add custom header
+    ['Chat 2']: Chat2Container, // TODO: add custom header
   },
   {
     headerMode: 'none',

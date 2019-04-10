@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Dimensions, FlatList,
+  Dimensions,
+  FlatList,
   ListRenderItemInfo,
   View,
 } from 'react-native';
@@ -31,12 +32,7 @@ import {
   PlusIcon,
   MicIcon,
 } from '@src/assets/icons';
-
-interface UiMessage {
-  alignment: ChatMessageAlignment;
-}
-
-type UiMessageModel = UiMessage & MessageModel;
+import { UiMessageModel } from '../uiMessage.model';
 
 interface ComponentProps {
   conversation: ConversationModel;

@@ -17,6 +17,10 @@ import {
   message15,
   message16,
   message17,
+  message21,
+  message22,
+  message23,
+  message24,
 } from './message';
 
 export const conversation1: Conversation = {
@@ -50,5 +54,20 @@ export const conversation5: Conversation = {
     message15,
     message16,
     message17,
+  ],
+};
+
+export const conversation6: Conversation = {
+  interlocutor: profile2,
+  lastSeen: 'just now',
+  messages: [
+    message11,
+    message12,
+    message13,
+    message21,
+    message22,
+    message23,
+    message24,
+    message16,
   ],
 };

@@ -10,3 +10,7 @@ export { Comment } from './comment.model';
 export { Exercise } from './exercise.model';
 export { Message } from './message.model';
 export { Conversation } from './conversation.model';
+export {
+  FileType,
+  File,
+} from './file.model';
