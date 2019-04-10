@@ -53,8 +53,9 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
           <View style={[themedStyle.subContainer, themedStyle.rightSection]}>
             <Text style={themedStyle.titleLabel}>{training.name}</Text>
             <View style={themedStyle.controlsContainer}>
-              <Chips style={themedStyle.chips}>
-                {ClockIcon(themedStyle.chipsIcon)}
+              <Chips
+                style={themedStyle.chips}
+                icon={ClockIcon}>
                 <Text style={themedStyle.chipsText}>{training.duration}</Text>
               </Chips>
               {this.renderDetailsIcon()}
@@ -79,7 +80,7 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   rightSection: {
     padding: 16,
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
   leftSection: {
     padding: 16,
@@ -87,7 +88,7 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   titleLabel: {
     fontSize: 24,
     fontFamily: 'anton-regular',
-    color: '#0D1C2E',
+    color: theme['color-black'],
   },
   controlsContainer: {
     flexDirection: 'row',
@@ -97,18 +98,12 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   chips: {
     width: 80,
   },
-  chipsIcon: {
-    width: 13,
-    height: 13,
-    tintColor: '#ffffff',
-  },
   chipsText: {
     fontSize: 11,
-    fontWeight: '600',
   },
   detailsIcon: {
     width: 22,
     height: 22,
-    tintColor: '#0D1C2E',
+    tintColor: theme['color-black'],
   },
 }));

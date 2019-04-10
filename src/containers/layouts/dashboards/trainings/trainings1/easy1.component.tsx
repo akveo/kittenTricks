@@ -39,8 +39,8 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
     selectedPagerIndex: 0,
   };
 
-  private onChangePager = (index: number): void => {
-    this.setState({ selectedPagerIndex: index });
+  private onChangePager = (selectedPagerIndex: number): void => {
+    this.setState({ selectedPagerIndex });
   };
 
   private onTrainingDetails = (index: number): void => {
@@ -62,15 +62,15 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
     );
   };
 
-  private renderPagerCard = (exercise: Exercise, i: number): React.ReactElement<TrainingCardProps> => {
+  private renderPagerCard = (exercise: Exercise, index: number): React.ReactElement<TrainingCardProps> => {
     const { themedStyle, exercises } = this.props;
-    const marginStyle: StyleType = i === exercises.length - 1 ?
+    const marginStyle: StyleType = index === exercises.length - 1 ?
       null : themedStyle.pagerCardMargin;
 
     return (
       <TrainingCard1
-        key={i}
-        index={i}
+        key={index}
+        index={index}
         style={[themedStyle.pagerCard, marginStyle]}
         training={exercise}
         onDetails={this.onTrainingDetails}
@@ -131,8 +131,7 @@ export const Easy1 = withStyles(Easy1Component, (theme: ThemeType) => ({
   },
   pagerLabel: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#8992A3',
+    color: theme['color-basic-600'],
     marginBottom: 16,
   },
   pagerCard: {
@@ -154,10 +153,10 @@ export const Easy1 = withStyles(Easy1Component, (theme: ThemeType) => ({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#DDE1EB',
+    backgroundColor: theme['color-basic-300'],
   },
   pagerIndicatorSelected: {
-    backgroundColor: '#0D1C2E',
+    backgroundColor: theme['color-black'],
   },
   indicatorMarginRight: {
     marginRight: 12,
