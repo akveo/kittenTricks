@@ -41,56 +41,56 @@ export const message4: Message = {
 
 export const message11: Message = {
   author: profile1,
-  text: '',
-  date: '',
+  text: 'Hello! How are you?',
+  date: '4:00 PM',
   read: true,
   delivered: true,
 };
 
 export const message12: Message = {
   author: profile2,
-  text: '',
-  date: '',
+  text: 'Hey! I\'m fine. Thanks! And you?',
+  date: '4:15 PM',
   read: true,
   delivered: true,
 };
 
 export const message13: Message = {
   author: profile1,
-  text: '',
-  date: '',
+  text: 'I\'m fine too! Thanks!',
+  date: '4:19 PM',
   read: true,
   delivered: true,
 };
 
 export const message14: Message = {
   author: profile1,
-  text: '',
-  date: '',
+  text: 'Do you have any plans today?',
+  date: '4:20 PM',
   read: true,
   delivered: true,
 };
 
 export const message15: Message = {
   author: profile2,
-  text: '',
-  date: '',
+  text: 'Yes. I\'m gonna go to the cinema. Do you wanna come with me?',
+  date: '4:25 PM',
   read: true,
   delivered: true,
 };
 
 export const message16: Message = {
   author: profile1,
-  text: '',
-  date: '',
+  text: 'Yes, sure.',
+  date: '4:28 PM',
   read: true,
   delivered: true,
 };
 
 export const message17: Message = {
   author: profile2,
-  text: '',
-  date: '',
+  text: 'OK! See you then)',
+  date: '4:30 PM',
   read: true,
   delivered: true,
 };

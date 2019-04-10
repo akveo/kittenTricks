@@ -130,3 +130,7 @@ export const FlashIcon = (style: StyleType): React.ReactElement<ImageProps> => {
 export const DoneAllIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/done-all.png', style);
 };
+
+export const MicIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/mic.png', style);
+};

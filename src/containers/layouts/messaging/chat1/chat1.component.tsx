@@ -1,31 +1,147 @@
 import React from 'react';
-import { ListRenderItemInfo, View, Text } from 'react-native';
+import {
+  Dimensions, FlatList,
+  ListRenderItemInfo,
+  View,
+} from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { List } from '@kitten/ui';
-import { Conversation as ConversationModel } from '@src/core/model';
+import {
+  List,
+  Input,
+  Button,
+} from '@kitten/ui';
+import {
+  Conversation as ConversationModel,
+  Message as MessageModel,
+} from '@src/core/model';
+import {
+  ChatMessage,
+  ChatMessageProps,
+  ChatMessageAlignment,
+} from '@src/components/messaging';
+import {
+  profile1,
+  profile2,
+} from '@src/core/data/profile';
+import {
+  PlusIcon,
+  MicIcon,
+} from '@src/assets/icons';
+
+interface UiMessage {
+  alignment: ChatMessageAlignment;
+}
+
+type UiMessageModel = UiMessage & MessageModel;
 
 interface ComponentProps {
   conversation: ConversationModel;
+  newMessage: string;
+  onNewMessageChange: (text: string) => void;
+  onMessageAdd: () => void;
 }
 
 export type Chat1ComponentProps = ThemedComponentProps & ComponentProps;
 
 class Chat1Component extends React.Component<Chat1ComponentProps> {
 
-  public render(): React.ReactNode {
-    const { themedStyle, conversation } = this.props;
+  private listRef: React.RefObject<FlatList<any>> = React.createRef();
+
+  private onNewMessageChange = (text: string): void => {
+    this.props.onNewMessageChange(text);
+  };
+
+  private onMessageAdd = (): void => {
+    this.props.onMessageAdd();
+    this.listRef.current.scrollToEnd();
+  };
+
+  private createUiMessages = (): UiMessageModel[] => {
+    const { conversation } = this.props;
+
+    return conversation.messages.map((message: MessageModel) => {
+      if (message.author === profile1) {
+        return { ...message, alignment: ChatMessageAlignment.left };
+      } else if (message.author === profile2) {
+        return { ...message, alignment: ChatMessageAlignment.right };
+      }
+    });
+  };
+
+  private renderMessage = (info: ListRenderItemInfo<UiMessageModel>): React.ReactElement<ChatMessageProps> => {
+    const { themedStyle } = this.props;
 
     return (
-      <View/>
+      <ChatMessage
+        style={themedStyle.message}
+        index={info.index}
+        message={info.item}
+        alignment={info.item.alignment}
+      />
+    );
+  };
+
+  public render(): React.ReactNode {
+    const { themedStyle, newMessage } = this.props;
+
+    return (
+      <View style={themedStyle.container}>
+        <List
+          ref={this.listRef}
+          style={themedStyle.chatContainer}
+          data={this.createUiMessages()}
+          renderItem={this.renderMessage}
+        />
+        <View style={themedStyle.inputContainer}>
+          <Button
+            style={themedStyle.addMessageButton}
+            icon={PlusIcon}
+            onPress={this.onMessageAdd}
+          />
+          <Input
+            style={themedStyle.inputComponent}
+            icon={MicIcon}
+            value={newMessage}
+            placeholder='Message...'
+            onChangeText={this.onNewMessageChange}
+          />
+        </View>
+      </View>
     );
   }
 }
 
 export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
-
+  container: {
+    flex: 1,
+    backgroundColor: theme['color-white'],
+  },
+  chatContainer: {
+    flex: 1,
+    backgroundColor: theme['color-basic-100'],
+    paddingHorizontal: 16,
+    paddingVertical: 28,
+  },
+  message: {
+    marginBottom: 28,
+  },
+  inputContainer: {
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  addMessageButton: {
+    width: 26,
+    borderRadius: 26,
+  },
+  inputComponent: {
+    // TODO: fix input width in RNUK
+    width: Dimensions.get('window').width - 86,
+  },
 }));
 

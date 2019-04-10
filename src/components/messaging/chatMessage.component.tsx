@@ -1,14 +1,10 @@
 import React from 'react';
 import {
-  ImageProps,
   View,
-  TouchableOpacity,
-  TouchableOpacityProps, ViewProps,
+  ViewProps,
+  Dimensions,
 } from 'react-native';
-import {
-  Conversation as ConversationModel,
-  Message as MessageModel,
-} from '@src/core/model';
+import { Message as MessageModel } from '@src/core/model';
 import {
   StyleType,
   ThemedComponentProps,
@@ -20,20 +16,29 @@ import {
   TextProps,
 } from '@src/components/common';
 
+export enum ChatMessageAlignment {
+  left = 'left',
+  right = 'right',
+}
+
 interface ComponentProps {
   index?: number;
   message: MessageModel;
-  alignment: 'left' | 'right';
+  alignment: ChatMessageAlignment;
 }
 
 export type ChatMessageProps = & ThemedComponentProps & ViewProps & ComponentProps;
 
 class ChatMessageComponent extends React.Component<ChatMessageProps> {
 
+  static defaultProps: Partial<ChatMessageProps> = {
+    alignment: ChatMessageAlignment.left,
+  };
+
   private getAlignmentContainerStyle = (): StyleType => {
     const { themedStyle, alignment } = this.props;
 
-    if (alignment === 'left') {
+    if (alignment === ChatMessageAlignment.left) {
       return themedStyle.containerLeft;
     } else {
       return themedStyle.containerRight;
@@ -44,12 +49,12 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
     const { themedStyle, message } = this.props;
 
     return [
-      <Text style={themedStyle.dateLabel}>{message.date}</Text>,
-      <View style={themedStyle.cloudContainer}>
+      <Text style={themedStyle.dateLabel} key={0}>{message.date}</Text>,
+      <View style={themedStyle.cloudContainer} key={1}>
         <View style={[themedStyle.cloud, themedStyle.cloudRight]}>
           <Text style={themedStyle.messageLabel}>{message.text}</Text>
-          <View style={[themedStyle.triangle, themedStyle.triangleRight]}/>
         </View>
+        <View style={[themedStyle.triangle, themedStyle.triangleRight]}/>
       </View>,
     ];
   };
@@ -58,13 +63,13 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
     const { themedStyle, message } = this.props;
 
     return [
-      <View style={themedStyle.cloudContainer}>
+      <View style={themedStyle.cloudContainer} key={0}>
         <View style={[themedStyle.triangle, themedStyle.triangleLeft]}/>
         <View style={[themedStyle.cloud, themedStyle.cloudLeft]}>
           <Text style={themedStyle.messageLabel}>{message.text}</Text>
         </View>
       </View>,
-      <Text style={themedStyle.dateLabel}>{message.date}</Text>,
+      <Text style={themedStyle.dateLabel} key={1}>{message.date}</Text>,
     ];
   };
 
@@ -73,8 +78,8 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
 
     return (
       <View style={[themedStyle.container, this.getAlignmentContainerStyle(), style]}>
-        {alignment === 'left' && this.renderLeftMessage()}
-        {alignment === 'right' && this.renderRightMessage()}
+        {alignment === ChatMessageAlignment.left && this.renderLeftMessage()}
+        {alignment === ChatMessageAlignment.right && this.renderRightMessage()}
       </View>
     );
   }
@@ -92,24 +97,20 @@ export const ChatMessage = withStyles(ChatMessageComponent, (theme: ThemeType) =
     justifyContent: 'flex-end',
   },
   triangle: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderTopWidth: 0,
+    borderLeftWidth: 10,
     borderRightWidth: 10,
     borderBottomWidth: 15,
-    borderLeftWidth: 10,
-    borderTopColor: 'transparent',
-    borderRightColor: 'transparent',
     borderLeftColor: 'transparent',
-    transform: [{ rotate: '-90deg' }],
+    borderRightColor: 'transparent',
+    backgroundColor: 'transparent',
   },
   triangleLeft: {
-    borderBottomColor: '#598BFF',
+    transform: [{ rotate: '-90deg' }],
+    borderBottomColor: theme['color-primary-400'],
   },
   triangleRight: {
-    borderBottomColor: '#A6AEBD',
+    transform: [{ rotate: '90deg' }],
+    borderBottomColor: theme['color-basic-500'],
   },
   cloudContainer: {
     flexDirection: 'row',
@@ -117,7 +118,7 @@ export const ChatMessage = withStyles(ChatMessageComponent, (theme: ThemeType) =
   },
   dateLabel: {
     fontWeight: 'normal',
-    color: '#8992A3',
+    color: theme['color-basic-600'],
     fontSize: 11,
   },
   messageLabel: {
@@ -128,11 +129,17 @@ export const ChatMessage = withStyles(ChatMessageComponent, (theme: ThemeType) =
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
+    borderRadius: 8,
+    maxWidth: Dimensions.get('window').width - 120,
   },
   cloudLeft: {
-    backgroundColor: '#598BFF',
+    left: -3,
+    backgroundColor: theme['color-primary-400'],
+    marginRight: 16,
   },
   cloudRight: {
-    backgroundColor: '#A6AEBD',
+    left: 3,
+    backgroundColor: theme['color-basic-500'],
+    marginLeft: 16,
   },
 }));

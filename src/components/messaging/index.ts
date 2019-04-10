@@ -9,4 +9,5 @@ export {
 export {
   ChatMessage,
   ChatMessageProps,
+  ChatMessageAlignment,
 } from './chatMessage.component';
