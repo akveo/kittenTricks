@@ -122,3 +122,7 @@ export const StarIcon = (style: StyleType): React.ReactElement<ImageProps> => {
 export const TwitterIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/twitter.png', style);
 };
+
+export const FlashIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/flash-outline.png', style);
+};

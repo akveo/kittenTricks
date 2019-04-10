@@ -15,8 +15,9 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "eva": "github:akveo/eva",
     "@eva/processor-kitten": "github:akveo/eva#package/processor-kitten",
+    "create-react-context": "^0.2.3",
+    "eva": "github:akveo/eva",
     "expo": "^32.0.0",
     "hoist-non-react-statics": "^3.2.1",
     "lodash.merge": "^4.6.1",
