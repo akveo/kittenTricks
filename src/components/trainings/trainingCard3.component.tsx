@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { Exercise } from '@src/core/model/exercise.model';
 import {
+  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -43,12 +44,12 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
     this.props.onEnergy(this.props.index);
   };
 
-  private renderTimingIcon = (): React.ReactElement<ImageProps> => {
-    return ClockIcon(this.props.themedStyle.timingIcon);
+  private renderTimingIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+    return ClockIcon([ this.props.themedStyle.timingIcon]);
   };
 
-  private renderEnergyIcon = (): React.ReactElement<ImageProps> => {
-    return FlashIcon(this.props.themedStyle.energyIcon);
+  private renderEnergyIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+    return FlashIcon([ this.props.themedStyle.energyIcon]);
   };
 
   public render(): React.ReactNode {
@@ -95,19 +96,19 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
   infoContainer: {
     paddingVertical: 16,
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
   titleLabel: {
     fontSize: 24,
     marginHorizontal: 18,
-    color: '#0D1C2E',
+    color: theme['color-black'],
   },
   controlsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   controlButton: {
-    color: '#8992A3',
+    color: theme['color-basic-600'],
     fontSize: 13,
     fontWeight: 'normal',
   },
@@ -118,11 +119,11 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
   timingIcon: {
     width: 20,
     height: 20,
-    tintColor: '#3366FF',
+    tintColor: theme['color-primary-500'],
   },
   energyIcon: {
     width: 20,
     height: 20,
-    tintColor: '#FF3D71',
+    tintColor: theme['color-danger-500'],
   },
 }));

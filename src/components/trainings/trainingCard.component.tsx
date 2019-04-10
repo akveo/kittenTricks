@@ -46,8 +46,9 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
             <Text style={themedStyle.levelLabel}>{`${training.level} Level`}</Text>
             <Text style={themedStyle.titleLabel}>{training.name}</Text>
           </View>
-          <Chips style={themedStyle.chips}>
-            {ClockIcon(themedStyle.chipsIcon)}
+          <Chips
+            style={themedStyle.chips}
+            icon={ClockIcon}>
             <Text style={themedStyle.chipsText}>{training.duration}</Text>
           </Chips>
         </ImageBackground>
@@ -68,7 +69,6 @@ export const TrainingCard1 = withStyles(TrainingCardComponent, (theme: ThemeType
   },
   levelLabel: {
     fontSize: 15,
-    fontWeight: '600',
   },
   titleLabel: {
     fontSize: 32,
@@ -77,13 +77,7 @@ export const TrainingCard1 = withStyles(TrainingCardComponent, (theme: ThemeType
   chips: {
     width: 80,
   },
-  chipsIcon: {
-    width: 13,
-    height: 13,
-    tintColor: '#ffffff',
-  },
   chipsText: {
     fontSize: 11,
-    fontWeight: '600',
   },
 }));

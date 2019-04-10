@@ -57,7 +57,7 @@ class Hard1Component extends React.Component<Hard1ComponentProps> {
 export const Hard1 = withStyles(Hard1Component, (theme: ThemeType) => ({
   wrapper: {
     flex: 1,
-    backgroundColor: '#F7F8FA',
+    backgroundColor: theme['color-basic-100'],
   },
   container: {
     padding: 16,

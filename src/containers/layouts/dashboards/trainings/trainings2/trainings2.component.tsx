@@ -68,7 +68,7 @@ class Trainings2Component extends React.Component<Trainings2ComponentProps> {
 export const Trainings2 = withStyles(Trainings2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: '#F7F8FA',
+    backgroundColor: theme['color-basic-100'],
     paddingTop: 16,
   },
   listCard: {

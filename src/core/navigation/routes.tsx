@@ -5,6 +5,7 @@ import {
   NavigationContainer as ReactNavigationContainer,
   HeaderProps,
   createBottomTabNavigator,
+  createMaterialTopTabNavigator,
 } from 'react-navigation';
 import {
   MenuContainer,
