@@ -6,4 +6,5 @@ import {
 export interface Conversation {
   interlocutor: Profile;
   messages: Message[];
+  lastSeen?: string;
 }

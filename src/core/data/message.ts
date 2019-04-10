@@ -37,3 +37,60 @@ export const message4: Message = {
   read: false,
   delivered: true,
 };
+
+
+export const message11: Message = {
+  author: profile1,
+  text: '',
+  date: '',
+  read: true,
+  delivered: true,
+};
+
+export const message12: Message = {
+  author: profile2,
+  text: '',
+  date: '',
+  read: true,
+  delivered: true,
+};
+
+export const message13: Message = {
+  author: profile1,
+  text: '',
+  date: '',
+  read: true,
+  delivered: true,
+};
+
+export const message14: Message = {
+  author: profile1,
+  text: '',
+  date: '',
+  read: true,
+  delivered: true,
+};
+
+export const message15: Message = {
+  author: profile2,
+  text: '',
+  date: '',
+  read: true,
+  delivered: true,
+};
+
+export const message16: Message = {
+  author: profile1,
+  text: '',
+  date: '',
+  read: true,
+  delivered: true,
+};
+
+export const message17: Message = {
+  author: profile2,
+  text: '',
+  date: '',
+  read: true,
+  delivered: true,
+};

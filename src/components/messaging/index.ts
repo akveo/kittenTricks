@@ -6,3 +6,7 @@ export {
   ConversationInterlocutor,
   ConversationInterlocutorProps,
 } from './conversationInterlocutor.component';
+export {
+  ChatMessage,
+  ChatMessageProps,
+} from './chatMessage.component';
