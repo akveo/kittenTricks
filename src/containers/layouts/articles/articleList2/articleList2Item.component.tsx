@@ -89,7 +89,7 @@ export const ArticleList2Item = withStyles(ArticleList2ItemComponent, (theme: Th
     paddingHorizontal: 16,
     paddingVertical: 24,
     borderBottomWidth: 1,
-    borderBottomColor: '#EDF0F5',
+    borderBottomColor: theme['color-basic-200'],
   },
   activityContainer: {
     paddingHorizontal: 16,

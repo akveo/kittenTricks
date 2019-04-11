@@ -17,6 +17,8 @@ export { SignUp3Container } from './auth/signUp3/signUp3.container';
 export { SignUp4Container } from './auth/signUp4/signUp4.container';
 export { ForgotPasswordContainer } from './auth/forgotPassword/forgotPassword.container';
 export { DashboardsContainer } from './dashboards/dashboards.container';
+export { Trainings1Container } from './dashboards/trainings/trainings1/trainings1.container';
+export { Trainings2Container } from './dashboards/trainings/trainings2/trainings2.container';
 export { EcommerceContainer } from './ecommerce/ecommerce.container';
 export { MessagingContainer } from './messaging/messaging.container';
 export { CommentsList1Container } from './messaging/commentsList1/commentsList1.container';

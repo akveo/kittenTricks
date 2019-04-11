@@ -7,6 +7,8 @@ import {
 import {
   ImageProps,
   StyleSheet,
+  View,
+  Text,
 } from 'react-native';
 import { StyleType } from '@kitten/theme';
 import {

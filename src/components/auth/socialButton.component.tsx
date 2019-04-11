@@ -60,4 +60,11 @@ class SocialButtonComponent extends React.Component<SocialButtonProps> {
 }
 
 export const SocialButton = withStyles(SocialButtonComponent, (theme: ThemeType) => ({
+  button: {
+    backgroundColor: theme['opacity-transparent'],
+  },
+  icon: {
+    width: 24,
+    height: 24,
+  },
 }));

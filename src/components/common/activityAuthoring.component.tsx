@@ -56,10 +56,10 @@ export const ActivityAuthoring = withStyles(ActivityAuthoringComponent, (theme: 
   authorNameLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 15,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   dateLabel: {
-    color: '#8992A3',
+    color: theme['color-basic-600'],
     fontSize: 13,
   },
 }));

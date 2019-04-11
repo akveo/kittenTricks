@@ -29,6 +29,6 @@ class LikeButtonComponent extends React.Component<LikeButtonProps> {
 
 export const LikeButton = withStyles(LikeButtonComponent, (theme: ThemeType) => ({
   icon: {
-    tintColor: '#FF3D71',
+    tintColor: theme['color-danger-500'],
   },
 }));

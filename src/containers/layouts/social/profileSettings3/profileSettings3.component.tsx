@@ -120,23 +120,23 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
   photoSection: {
     marginHorizontal: 32,
     marginVertical: 32,
-    backgroundColor: 'transparent',
+    backgroundColor: theme['opacity-transparent'],
   },
   descriptionSection: {
     paddingHorizontal: 24,
     paddingVertical: 24,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   contactSection: {
     marginTop: 24,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   description: {
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   photo: {
     width: 320,
@@ -148,7 +148,7 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
     height: 48,
     borderRadius: 24,
     transform: [{ translateY: 32 }, { translateX: -16 }],
-    backgroundColor: '#6A7385',
+    backgroundColor: theme['color-basic-700'],
   },
   button: {
     height: 40,
