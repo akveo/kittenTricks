@@ -14,3 +14,7 @@ export {
   CvvFormatter,
   CardholderNameFormatter,
 } from './formatters';
+export {
+  PaymentCard,
+  PaymentCardProps,
+} from './paymentCard.component';
