@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageProps,
   View,
   ViewProps,
 } from 'react-native';
@@ -17,6 +16,10 @@ import {
   EyeOffIconFill,
   PersonIconFill,
 } from '@src/assets/icons';
+import {
+  PATTERN_NAME,
+  PATTERN_PASSWORD,
+} from '@src/core/validators';
 
 export interface SignIn2FormType {
   username: string;
@@ -46,9 +49,6 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
     passwordValid: false,
   };
 
-  private nameValidator: RegExp = /[a-z ,.'-]+/;
-  private passwordValidator: RegExp = /[a-z0-9]{8,}/;
-
   private onForgotPasswordButtonPress = () => {
     this.props.onForgotPasswordPress();
   };
@@ -73,12 +73,16 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
     return usernameValid && passwordValid;
   };
 
+  private getInputStatus = (valid: boolean): string => {
+    return valid ? 'success' : 'danger';
+  };
+
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
     const { username, password, usernameValid, passwordValid } = this.state;
 
-    const usernameInputStatus: string = usernameValid ? 'success' : 'danger';
-    const passwordInputStatus: string = passwordValid ? 'success' : 'danger';
+    const usernameInputStatus: string = this.getInputStatus(usernameValid);
+    const passwordInputStatus: string = this.getInputStatus(passwordValid);
     const submitButtonEnabled: boolean = this.isFormValid();
 
     return (
@@ -88,7 +92,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
         <View style={themedStyle.formContainer}>
           <ValidationInput
             style={themedStyle.usernameInput}
-            pattern={this.nameValidator}
+            pattern={PATTERN_NAME}
             autoCapitalize='none'
             status={usernameInputStatus}
             placeholder='User Name'
@@ -98,7 +102,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
           />
           <ValidationInput
             style={themedStyle.passwordInput}
-            pattern={this.passwordValidator}
+            pattern={PATTERN_PASSWORD}
             autoCapitalize='none'
             status={passwordInputStatus}
             secureTextEntry={true}

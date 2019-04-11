@@ -39,6 +39,10 @@ class SignUp3Component extends React.Component<SignUp3Props> {
     .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80`,
   };
 
+  private profileImage: ImageSourcePropType = {
+    uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png',
+  };
+
   private onPhotoButtonPress = () => {
     this.props.onPhotoPress();
   };
@@ -81,7 +85,7 @@ class SignUp3Component extends React.Component<SignUp3Props> {
             <ProfilePhoto
               style={themedStyle.photo}
               resizeMode='center'
-              source={{ uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png' }}
+              source={this.profileImage}
               button={this.renderPhotoButton}
             />
           </View>

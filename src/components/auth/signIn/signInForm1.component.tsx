@@ -10,6 +10,10 @@ import {
 } from '@kitten/theme';
 import { Button } from '@kitten/ui';
 import { ValidationInput } from '@src/components/common';
+import {
+  PATTERN_EMAIL,
+  PATTERN_PASSWORD,
+} from '@src/core/validators';
 
 export interface SignInFormType {
   email: string;
@@ -38,8 +42,11 @@ class SignInForm1Component extends React.Component<SignInFormProps, State> {
     emailValid: false,
   };
 
-  private emailValidator: RegExp = /\S+@\S+\.\S+/;
-  private passwordValidator: RegExp = /[a-z0-9]{8,}/;
+  private onSubmitPress = () => {
+    const { email, password } = this.state;
+
+    this.props.onSubmit({ email, password });
+  };
 
   private onEmailValidationResult = (emailValid: boolean, email: string) => {
     this.setState({ emailValid, email });
@@ -55,18 +62,16 @@ class SignInForm1Component extends React.Component<SignInFormProps, State> {
     return emailValid && passwordValid;
   };
 
-  private onSubmitPress = () => {
-    const { email, password } = this.state;
-
-    this.props.onSubmit({ email, password });
+  private getInputStatus = (valid: boolean): string => {
+    return valid ? 'success' : 'danger';
   };
 
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
     const { email, password, emailValid, passwordValid } = this.state;
 
-    const emailInputStatus: string = emailValid ? 'success' : 'danger';
-    const passwordInputStatus: string = passwordValid ? 'success' : 'danger';
+    const emailInputStatus: string = this.getInputStatus(emailValid);
+    const passwordInputStatus: string = this.getInputStatus(passwordValid);
     const submitButtonEnabled: boolean = this.isFormValid();
 
     return (
@@ -75,7 +80,7 @@ class SignInForm1Component extends React.Component<SignInFormProps, State> {
         {...restProps}>
         <ValidationInput
           style={themedStyle.emailInput}
-          pattern={this.emailValidator}
+          pattern={PATTERN_EMAIL}
           placeholderTextColor='#FFFFFF'
           autoCapitalize='none'
           status={emailInputStatus}
@@ -85,7 +90,7 @@ class SignInForm1Component extends React.Component<SignInFormProps, State> {
         />
         <ValidationInput
           style={themedStyle.passwordInput}
-          pattern={this.passwordValidator}
+          pattern={PATTERN_PASSWORD}
           placeholderTextColor='#FFFFFF'
           autoCapitalize='none'
           status={passwordInputStatus}

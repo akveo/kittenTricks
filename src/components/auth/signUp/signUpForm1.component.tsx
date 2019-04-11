@@ -13,6 +13,12 @@ import {
   CheckBox,
 } from '@kitten/ui';
 import { ValidationInput } from '@src/components/common';
+import {
+  PATTERN_DOB,
+  PATTERN_EMAIL,
+  PATTERN_NAME,
+  PATTERN_PASSWORD,
+} from '@src/core/validators';
 
 export interface SignUpForm1Type {
   firstName: string;
@@ -58,11 +64,6 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
     termsAccepted: false,
   };
 
-  private nameValidator: RegExp = /[a-z ,.'-]+/;
-  private dateValidator: RegExp = /\d{1,2}\/\d{1,2}\/\d{4}/;
-  private emailValidator: RegExp = /\S+@\S+\.\S+/;
-  private passwordValidator: RegExp = /[a-z0-9]{8,}/;
-
   private onFirstNameValidationResult = (firstNameValid: boolean, firstName: string) => {
     this.setState({ firstNameValid, firstName });
   };
@@ -106,6 +107,10 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
     this.props.onSubmit({ firstName, lastName, date, email, password });
   };
 
+  private getInputStatus = (valid: boolean): string => {
+    return valid ? 'success' : 'danger';
+  };
+
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
     const { firstName, lastName, date, email, password } = this.state;
@@ -118,11 +123,11 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
       termsAccepted,
     } = this.state;
 
-    const firstNameInputStatus: string = firstNameValid ? 'success' : 'danger';
-    const lastNameInputStatus: string = lastNameValid ? 'success' : 'danger';
-    const dateInputStatus: string = dateValid ? 'success' : 'danger';
-    const emailInputStatus: string = emailValid ? 'success' : 'danger';
-    const passwordInputStatus: string = passwordValid ? 'success' : 'danger';
+    const firstNameInputStatus: string = this.getInputStatus(firstNameValid);
+    const lastNameInputStatus: string = this.getInputStatus(lastNameValid);
+    const dateInputStatus: string = this.getInputStatus(dateValid);
+    const emailInputStatus: string = this.getInputStatus(emailValid);
+    const passwordInputStatus: string = this.getInputStatus(passwordValid);
     const signUpButtonEnabled: boolean = this.isFormValid();
 
     return (
@@ -131,7 +136,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         {...restProps}>
         <ValidationInput
           style={[themedStyle.input, themedStyle.firstNameInput]}
-          pattern={this.nameValidator}
+          pattern={PATTERN_NAME}
           autoCapitalize='none'
           status={firstNameInputStatus}
           placeholder='First Name'
@@ -140,7 +145,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
-          pattern={this.nameValidator}
+          pattern={PATTERN_NAME}
           autoCapitalize='none'
           status={lastNameInputStatus}
           placeholder='Last Name'
@@ -149,7 +154,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
-          pattern={this.dateValidator}
+          pattern={PATTERN_DOB}
           autoCapitalize='none'
           status={dateInputStatus}
           placeholder='Date of Birth'
@@ -158,7 +163,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
-          pattern={this.emailValidator}
+          pattern={PATTERN_EMAIL}
           autoCapitalize='none'
           status={emailInputStatus}
           placeholder='Email'
@@ -167,7 +172,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
-          pattern={this.passwordValidator}
+          pattern={PATTERN_PASSWORD}
           status={passwordInputStatus}
           autoCapitalize='none'
           secureTextEntry={true}

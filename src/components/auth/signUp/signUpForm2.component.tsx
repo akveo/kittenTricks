@@ -1,11 +1,9 @@
 import React from 'react';
 import {
-  ImageProps,
   View,
   ViewProps,
 } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -20,6 +18,11 @@ import {
   EyeOffIconFill,
   PersonIconFill,
 } from '@src/assets/icons';
+import {
+  PATTERN_EMAIL,
+  PATTERN_NAME,
+  PATTERN_PASSWORD,
+} from '@src/core/validators';
 
 export interface SignUpForm2Type {
   username: string;
@@ -55,10 +58,6 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
     termsAccepted: false,
   };
 
-  private nameValidator: RegExp = /[a-z ,.'-]+/;
-  private emailValidator: RegExp = /\S+@\S+\.\S+/;
-  private passwordValidator: RegExp = /[a-z0-9]{8,}/;
-
   private onTermsValueChange = (termsAccepted: boolean) => {
     this.setState({ termsAccepted });
   };
@@ -66,38 +65,29 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
   private onSubmitButtonPress = () => {
     const { username, email, password } = this.state;
 
-    this.props.onSubmit({
-      username,
-      email,
-      password,
-    });
+    this.props.onSubmit({ username, email, password });
   };
 
   private onUsernameValidationResult = (usernameValid: boolean, username: string) => {
-    this.setState({
-      usernameValid,
-      username,
-    });
+    this.setState({ usernameValid, username });
   };
 
   private onEmailValidationResult = (emailValid: boolean, email: string) => {
-    this.setState({
-      emailValid,
-      email,
-    });
+    this.setState({ emailValid, email });
   };
 
   private onPasswordValidationResult = (passwordValid: boolean, password: string) => {
-    this.setState({
-      passwordValid,
-      password,
-    });
+    this.setState({ passwordValid, password });
   };
 
   private isFormValid = (): boolean => {
     const { usernameValid, passwordValid, termsAccepted } = this.state;
 
     return usernameValid && passwordValid && termsAccepted;
+  };
+
+  private getInputStatus = (valid: boolean): string => {
+    return valid ? 'success' : 'danger';
   };
 
   public render(): React.ReactNode {
@@ -113,9 +103,9 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
     } = this.state;
 
 
-    const usernameInputStatus: string = usernameValid ? 'success' : 'danger';
-    const emailInputStatus: string = emailValid ? 'success' : 'danger';
-    const passwordInputStatus: string = passwordValid ? 'success' : 'danger';
+    const usernameInputStatus: string = this.getInputStatus(usernameValid);
+    const emailInputStatus: string = this.getInputStatus(emailValid);
+    const passwordInputStatus: string = this.getInputStatus(passwordValid);
     const submitButtonEnabled: boolean = this.isFormValid();
 
     return (
@@ -125,7 +115,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
         <View style={themedStyle.formContainer}>
           <ValidationInput
             style={themedStyle.usernameInput}
-            pattern={this.nameValidator}
+            pattern={PATTERN_NAME}
             status={usernameInputStatus}
             autoCapitalize='none'
             placeholder='User Name'
@@ -135,7 +125,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
           />
           <ValidationInput
             style={themedStyle.emailInput}
-            pattern={this.emailValidator}
+            pattern={PATTERN_EMAIL}
             status={emailInputStatus}
             autoCapitalize='none'
             placeholder='Email'
@@ -145,7 +135,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
           />
           <ValidationInput
             style={themedStyle.passwordInput}
-            pattern={this.passwordValidator}
+            pattern={PATTERN_PASSWORD}
             status={passwordInputStatus}
             autoCapitalize='none'
             secureTextEntry={true}
