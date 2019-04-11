@@ -33,11 +33,11 @@ class SocialButtonComponent extends React.Component<SocialButtonProps> {
   };
 
   private renderIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { themedStyle, iconStyle } = this.props;
+    const { iconStyle } = this.props;
 
     return (
       <Image
-        style={[style, themedStyle.icon, iconStyle]}
+        style={[style, iconStyle]}
         source={this.getIconSource()}
       />
     );
@@ -48,7 +48,8 @@ class SocialButtonComponent extends React.Component<SocialButtonProps> {
 
     return (
       <Button
-        style={[themedStyle.button, style]}
+        style={style}
+        appearance='ghost'
         size='giant'
         activeOpacity={0.5}
         icon={this.renderIcon}

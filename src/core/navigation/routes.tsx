@@ -15,8 +15,15 @@ import {
 } from '@src/containers/menu';
 import {
   AuthContainer,
-  SignInContainer,
-  SignUpContainer,
+  SignIn1Container,
+  SignIn2Container,
+  SignIn3Container,
+  SignIn4Container,
+  SignUp1Container,
+  SignUp2Container,
+  SignUp3Container,
+  SignUp4Container,
+  ForgotPasswordContainer,
   SocialContainer,
   Profile1Container,
   Profile2Container,
@@ -154,8 +161,15 @@ const SocialNavigator: ReactNavigationContainer = createStackNavigator(
 const AuthNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Auth']: AuthContainer,
-    ['Sign In']: SignInContainer,
-    ['Sign Up']: SignUpContainer,
+    ['Sign In 1']: SignIn1Container,
+    ['Sign In 2']: SignIn2Container,
+    ['Sign In 3']: SignIn3Container,
+    ['Sign In 4']: SignIn4Container,
+    ['Sign Up 1']: SignUp1Container,
+    ['Sign Up 2']: SignUp2Container,
+    ['Sign Up 3']: SignUp3Container,
+    ['Sign Up 4']: SignUp4Container,
+    ['Forgot Password']: ForgotPasswordContainer,
   },
   {
     headerMode: 'none',

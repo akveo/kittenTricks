@@ -75,6 +75,7 @@ export const SocialAuth = withStyles(SocialAuthComponent, (theme: ThemeType) => 
   hint: {
     marginBottom: 24,
     alignSelf: 'center',
+    fontFamily: 'opensans-semibold',
   },
 }));
 
