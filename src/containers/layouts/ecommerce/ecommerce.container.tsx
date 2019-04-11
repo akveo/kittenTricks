@@ -9,7 +9,13 @@ interface RouteListItem extends ListItem {
 
 export class EcommerceContainer extends React.Component<NavigationScreenProps> {
 
-  private items: RouteListItem[] = [];
+  private items: RouteListItem[] = [
+    {
+      title: 'Layout',
+      description: 'Add New Card',
+      route: 'Add New Card',
+    },
+  ];
 
   private onItemSelect = (index: number): void => {
     const { [index]: selectedItem } = this.items;
