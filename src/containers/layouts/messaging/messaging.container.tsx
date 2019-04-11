@@ -30,6 +30,11 @@ export class MessagingContainer extends React.Component<NavigationScreenProps> {
       description: 'Chat - V2',
       route: 'Chat 2',
     },
+    {
+      title: 'Layout',
+      description: 'Chat - V3',
+      route: 'Chat 3',
+    },
   ];
 
   private onItemSelect = (index: number): void => {

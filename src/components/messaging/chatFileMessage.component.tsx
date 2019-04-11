@@ -170,7 +170,7 @@ export const ChatFileMessage = withStyles(ChatFileMessageComponent, (theme: Them
   fullMessageVideoPreviewIcon: {
     width: 30,
     height: 30,
-    tintColor: '#ffffff',
+    tintColor: theme['color-white'],
   },
   preViewAppearanceImage: {
     width: 124,
@@ -182,6 +182,6 @@ export const ChatFileMessage = withStyles(ChatFileMessageComponent, (theme: Them
   previewVideoPreviewIcon: {
     width: 50,
     height: 50,
-    tintColor: '#ffffff',
+    tintColor: theme['color-white'],
   },
 }));

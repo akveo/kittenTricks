@@ -28,8 +28,10 @@ import {
   PeopleIcon,
 } from '@src/assets/icons';
 import { Text } from '@src/components/common';
-import { MediaLibrary } from 'expo';
-import { Camera } from 'expo';
+import {
+  MediaLibrary,
+  Camera,
+} from 'expo';
 
 interface ComponentProps {
   galleryFiles: MediaLibrary.Asset[];
@@ -158,7 +160,7 @@ class Chat2FileSectionComponent extends React.Component<Chat2FileSectionComponen
     );
   };
 
-  private renderPagerContent = (): React.ReactElement<any>[] => {
+  private renderPagerContent = (): React.ReactElement<ViewProps>[] => {
     const { galleryFiles } = this.props;
 
     return [
@@ -252,7 +254,7 @@ export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: Th
   actionIcon: {
     width: 20,
     height: 20,
-    tintColor: '#A6AEBD',
+    tintColor: theme['color-basic-500'],
   },
   actionItemContainer: {
     flexDirection: 'row',
@@ -261,15 +263,15 @@ export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: Th
     paddingVertical: 18,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#EDF0F5',
+    borderBottomColor: theme['color-basic-200'],
   },
   addActionLabel: {
-    color: '#0D1C2E',
+    color: theme['color-black'],
     fontSize: 13,
     fontWeight: '600',
   },
   cancelButton: {
-    color: '#3366FF',
+    color: theme['color-primary-500'],
     fontSize: 18,
     fontWeight: 'bold',
     lineHeight: 24,

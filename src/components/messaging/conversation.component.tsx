@@ -110,19 +110,19 @@ export const Conversation = withStyles(ConversationComponent, (theme: ThemeType)
   },
   userLabel: {
     fontWeight: '600',
-    color: '#0D1C2E',
+    color: theme['color-black'],
     fontSize: 13,
     lineHeight: 24,
   },
   lastMessageLabel: {
     fontWeight: 'normal',
-    color: '#8992A3',
+    color: theme['color-basic-600'],
     fontSize: 11,
     lineHeight: 16,
   },
   dateLabel: {
     fontWeight: 'normal',
-    color: '#0D1C2E',
+    color: theme['color-black'],
     fontSize: 13,
     lineHeight: 16,
   },
@@ -137,9 +137,9 @@ export const Conversation = withStyles(ConversationComponent, (theme: ThemeType)
     marginRight: 4,
   },
   messageIndicatorIconRead: {
-    tintColor: '#3366FF',
+    tintColor: theme['color-primary-500'],
   },
   messageIndicatorIconDelivered: {
-    tintColor: '#8992A3',
+    tintColor: theme['color-basic-600'],
   },
 }));
