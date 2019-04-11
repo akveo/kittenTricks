@@ -69,10 +69,10 @@ export const LayoutList = withStyles(LayoutListComponent, (theme: ThemeType) => 
   container: {
     paddingHorizontal: 24,
     paddingTop: 12,
-    backgroundColor: '#F7F8FA',
+    backgroundColor: theme['color-basic-100'],
   },
   item: {
     marginVertical: 12,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
 }));

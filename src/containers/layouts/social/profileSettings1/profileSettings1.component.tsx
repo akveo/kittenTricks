@@ -114,15 +114,15 @@ export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: Th
   },
   photoSection: {
     marginVertical: 40,
-    backgroundColor: 'transparent',
+    backgroundColor: theme['opacity-transparent'],
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   contactSection: {
     marginTop: 24,
-    backgroundColor: 'white',
+    backgroundColor: theme['color-white'],
   },
   photo: {
     width: 124,
@@ -134,7 +134,7 @@ export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: Th
     height: 48,
     borderRadius: 24,
     transform: [{ translateY: 96 }],
-    backgroundColor: '#6A7385',
+    backgroundColor: theme['color-basic-700'],
   },
   button: {
     height: 40,

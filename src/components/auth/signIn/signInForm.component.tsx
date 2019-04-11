@@ -101,7 +101,7 @@ class SignInFormComponent extends React.Component<SignInFormProps, State> {
 export const SignInForm = withStyles(SignInFormComponent, (theme: ThemeType) => ({
   input: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
-    color: 'white',
+    color: theme['color-white'],
   },
   passwordInput: {
     marginTop: 40,

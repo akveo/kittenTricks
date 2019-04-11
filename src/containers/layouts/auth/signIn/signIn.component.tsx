@@ -107,7 +107,7 @@ export const SignIn = withStyles(SignInComponent, (theme: ThemeType) => ({
     fontSize: 32,
   },
   forwardButton: {
-    backgroundColor: 'transparent',
+    backgroundColor: theme['opacity-transparent'],
   },
   input: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',

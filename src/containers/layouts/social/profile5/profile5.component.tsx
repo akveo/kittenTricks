@@ -94,6 +94,6 @@ export const Profile5 = withStyles(Profile5Component, (theme: ThemeType) => ({
     fontSize: 20,
   },
   rateHintLabel: {
-    color: '#FFFFFF',
+    color: theme['color-white'],
   },
 }));

@@ -27,5 +27,5 @@ class StyledButton extends React.Component<ButtonProps> {
 
 export const Button = withStyles(StyledButton, (theme: ThemeType) => ({
   fontFamily: 'opensans-regular',
-  color: 'white',
+  color: theme['color-white'],
 }));

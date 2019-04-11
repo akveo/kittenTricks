@@ -123,16 +123,16 @@ export const SignUp = withStyles(SignUpComponent, (theme: ThemeType) => ({
     fontSize: 32,
   },
   forwardButton: {
-    backgroundColor: 'transparent',
+    backgroundColor: theme['opacity-transparent'],
   },
   signContainer: {
     marginTop: 24,
   },
   socialAuthHint: {
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   socialAuthIcon: {
-    tintColor: '#0D1C2E',
+    tintColor: theme['font-primary-color'],
   },
   orContainer: {
     flexDirection: 'row',
@@ -142,18 +142,18 @@ export const SignUp = withStyles(SignUpComponent, (theme: ThemeType) => ({
   },
   orLabel: {
     fontFamily: 'anton-regular',
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
     fontSize: 24,
     marginHorizontal: 8,
   },
   emailSignLabel: {
     alignSelf: 'center',
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   divider: {
     flex: 1,
     height: 1,
-    backgroundColor: '#EDF0F5',
+    backgroundColor: theme['color-basic-200'],
   },
   signUpForm: {
     marginTop: 72,

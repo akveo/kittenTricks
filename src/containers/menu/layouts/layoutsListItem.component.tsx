@@ -48,16 +48,16 @@ export const LayoutsListItem = withStyles(LayoutsListItemComponent, (theme: Them
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: '#DDE1EB',
+    borderColor: theme['color-basic-300'],
   },
   icon: {
     width: 48,
     height: 48,
-    tintColor: '#3366FF',
+    tintColor: theme['color-primary-500'],
   },
   title: {
     marginTop: 20,
     fontFamily: 'opensans-semibold',
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
 }));
