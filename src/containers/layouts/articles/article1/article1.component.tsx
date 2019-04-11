@@ -81,14 +81,14 @@ export const Article1 = withStyles(Article1Component, (theme: ThemeType) => ({
     paddingHorizontal: 16,
     paddingVertical: 16,
     borderTopWidth: 1,
-    borderTopColor: '#EDF0F5',
+    borderTopColor: theme['color-basic-200'],
   },
   contentLabel: {
     marginHorizontal: 24,
     marginVertical: 24,
     flex: 1,
     fontSize: 17,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
 }));
 

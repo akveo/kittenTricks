@@ -87,6 +87,6 @@ export const Feed2 = withStyles(Feed2Component, (theme: ThemeType) => ({
   },
   item: {
     marginVertical: 8,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
 }));

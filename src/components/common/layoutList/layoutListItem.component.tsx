@@ -54,16 +54,16 @@ export const LayoutListItem = withStyles(LayoutListItemComponent, (theme: ThemeT
     paddingVertical: 16,
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: '#DDE1EB',
+    borderColor: theme['color-basic-300'],
   },
   title: {
     fontSize: 15,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   description: {
     marginTop: 8,
     fontFamily: 'opensans-semibold',
     fontSize: 15,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
 }));

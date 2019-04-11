@@ -85,7 +85,7 @@ export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: Th
     paddingHorizontal: 16,
     paddingVertical: 24,
     borderBottomWidth: 1,
-    borderBottomColor: '#EDF0F5',
+    borderBottomColor: theme['color-basic-200'],
   },
   activityContainer: {
     paddingHorizontal: 16,
@@ -97,12 +97,12 @@ export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: Th
   titleLabel: {
     fontFamily: 'anton-regular',
     fontSize: 24,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   descriptionLabel: {
     marginTop: 16,
     fontSize: 15,
     fontFamily: 'opensans-semibold',
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
 }));

@@ -29,6 +29,6 @@ class CommentsButtonComponent extends React.Component<CommentsButtonProps> {
 
 export const CommentsButton = withStyles(CommentsButtonComponent, (theme: ThemeType) => ({
   icon: {
-    tintColor: '#A6AEBD',
+    tintColor: theme['color-basic-500'],
   },
 }));

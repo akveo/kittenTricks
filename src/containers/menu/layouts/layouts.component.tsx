@@ -54,7 +54,7 @@ class LayoutsComponent extends React.Component<Props> {
 
 export const Layouts = withStyles(LayoutsComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: '#F7F8FA',
+    backgroundColor: theme['color-basic-100'],
   },
   contentContainer: {
     paddingHorizontal: 16,

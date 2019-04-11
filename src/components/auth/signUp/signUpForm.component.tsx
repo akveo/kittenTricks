@@ -192,7 +192,7 @@ class SignUpFormComponent extends React.Component<SignUpFormProps, State> {
 export const SignUpForm = withStyles(SignUpFormComponent, (theme: ThemeType) => ({
   input: {
     marginTop: 16,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   firstNameInput: {
     marginTop: 0,
@@ -204,7 +204,7 @@ export const SignUpForm = withStyles(SignUpFormComponent, (theme: ThemeType) => 
   termsCheckBox: {
     fontFamily: 'opensans-regular',
     fontSize: 11,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   button: {
     height: 40,

@@ -132,7 +132,7 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     paddingVertical: 16,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderTopColor: '#EDF0F5',
+    borderTopColor: theme['color-basic-200'],
   },
   photo: {
     minHeight: 220,
@@ -142,7 +142,7 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
   categoryIcon: {
     width: 32,
     height: 32,
-    tintColor: '#FFFFFF',
+    tintColor: theme['color-white'],
   },
   categoryLabel: {
     marginHorizontal: 8,
@@ -156,7 +156,7 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
   descriptionLabel: {
     marginTop: 16,
     fontFamily: 'opensans-semibold',
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
 }));
 

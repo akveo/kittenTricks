@@ -144,29 +144,29 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
   },
   articleAuthorLabel: {
     fontSize: 13,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   articleDateLabel: {
     fontSize: 11,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   comment: {
     marginHorizontal: 24,
     fontSize: 15,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   moreIcon: {
     width: 18,
     height: 4,
-    tintColor: '#0D1C2E',
+    tintColor: theme['font-primary-color'],
   },
   commentContainer: {
     borderBottomWidth: 1,
-    borderBottomColor: '#EDF0F5',
+    borderBottomColor: theme['color-basic-200'],
     paddingBottom: 16,
   },
   subCommentsContainer: {
-    backgroundColor: '#F7F8FA',
+    backgroundColor: theme['color-basic-100'],
     marginHorizontal: 24,
     borderRadius: 10,
     paddingBottom: 16,
