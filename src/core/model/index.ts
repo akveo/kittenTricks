@@ -8,3 +8,4 @@ export { Post } from './post.model';
 export { Training } from './training.model';
 export { Comment } from './comment.model';
 export { PaymentCard } from './paymentCard.model';
+export { Product } from './product.model';

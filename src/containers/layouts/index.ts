@@ -15,6 +15,7 @@ export { Trainings2Container } from './dashboards/trainings/trainings2/trainings
 export { EcommerceContainer } from './ecommerce/ecommerce.container';
 export { AddNewCardContainer } from './ecommerce/addNewCard/addNewCard.container';
 export { PaymentContainer } from './ecommerce/payment/payment.container';
+export { ProductsListContainer } from './ecommerce/productsList/productsList.container';
 export { MessagingContainer } from './messaging/messaging.container';
 export { CommentsList1Container } from './messaging/commentsList1/commentsList1.container';
 export { NavigationContainer } from './navigation/navigation.container';

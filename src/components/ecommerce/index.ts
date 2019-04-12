@@ -18,3 +18,7 @@ export {
   PaymentCard,
   PaymentCardProps,
 } from './paymentCard.component';
+export {
+  Product,
+  ProductProps,
+} from './product.component';
