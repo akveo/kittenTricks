@@ -24,10 +24,10 @@ import {
 import {
   ChatMessage,
   ChatMessageProps,
-  ChatMessageAlignment,
   ChatFileMessageProps,
   ChatFileMessage,
   ChatFileMessageAppearance,
+  Alignments,
 } from '@src/components/messaging';
 import {
   profile1,
@@ -86,9 +86,9 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
     return conversation.messages.map((message: MessageModel) => {
       if (message.author === profile1) {
-        return { ...message, alignment: ChatMessageAlignment.left };
+        return { ...message, alignment: Alignments['ROW-LEFT'] };
       } else if (message.author === profile2) {
-        return { ...message, alignment: ChatMessageAlignment.right };
+        return { ...message, alignment: Alignments['ROW-RIGHT'] };
       }
     });
   };
@@ -98,20 +98,21 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
     const { themedStyle, fileMessageAppearance } = this.props;
 
-    return info.item.text ? (
-      <ChatMessage
-        style={themedStyle.message}
-        index={info.index}
-        message={info.item}
-        alignment={info.item.alignment}
-      />
-    ) : (
+    return info.item.file ? (
+
       <ChatFileMessage
         style={themedStyle.message}
         index={info.index}
         message={info.item}
         alignment={info.item.alignment}
         appearance={fileMessageAppearance}
+      />
+    ) : (
+      <ChatMessage
+        style={themedStyle.message}
+        index={info.index}
+        message={info.item}
+        alignment={info.item.alignment}
       />
     );
   };
@@ -129,9 +130,8 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
     ) : null;
   };
 
-  private renderFileSection = (): React.ReactElement<ViewProps> | null => {
+  private renderFileSection = (): React.ReactElement<ViewProps> => {
     const {
-      fileSectionOpened,
       galleryFiles,
       onCancelButtonPress,
       onPhotoOrVideoButtonPress,
@@ -142,7 +142,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
       onGalleryItemPress,
     } = this.props;
 
-    return fileSectionOpened ? (
+    return (
       <Chat2FileSection
         galleryFiles={galleryFiles}
         onCancelButtonPress={onCancelButtonPress}
@@ -153,11 +153,15 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
         onTakePhotoButtonPress={onTakePhotoButtonPress}
         onGalleryItemPress={onGalleryItemPress}
       />
-    ) : null;
+    );
   };
 
   public render(): React.ReactNode {
-    const { themedStyle, newMessage } = this.props;
+    const {
+      themedStyle,
+      newMessage,
+      fileSectionOpened,
+    } = this.props;
     const isMessageEmpty: boolean = newMessage.length === 0;
 
     return (
@@ -183,7 +187,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
           />
           {this.renderSendMessageButton()}
         </View>
-        {this.renderFileSection()}
+        {fileSectionOpened && this.renderFileSection()}
       </View>
     );
   }

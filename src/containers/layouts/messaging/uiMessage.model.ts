@@ -1,8 +1,8 @@
-import { ChatMessageAlignment } from '@src/components/messaging';
 import { Message as MessageModel } from '@src/core/model';
+import { Alignments } from '@src/components/messaging/messageAlignment.type';
 
 interface UiMessage {
-  alignment: ChatMessageAlignment;
+  alignment: Alignments;
 }
 
 export type UiMessageModel = UiMessage & MessageModel;

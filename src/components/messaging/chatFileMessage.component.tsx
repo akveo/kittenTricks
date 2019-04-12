@@ -1,13 +1,8 @@
 import React from 'react';
 import {
-  ImageProps,
-  ImageBackgroundProps,
-  ImageBackground,
   View,
-  Image,
   ViewProps,
 } from 'react-native';
-import { FileType } from '@src/core/model';
 import {
   StyleType,
   ThemedComponentProps,
@@ -17,10 +12,13 @@ import {
 import { Text } from '@src/components/common';
 import {
   ChatMessage,
-  ChatMessageAlignment,
   ComponentProps,
 } from './chatMessage.component';
-import { PlayCircleIcon } from '@src/assets/icons';
+import {
+  Alignments,
+  getContentAlignment,
+} from '@src/components/messaging';
+import { getFileComponent } from '@src/components/messaging/file.component';
 
 export enum ChatFileMessageAppearance {
   full = 'full',
@@ -36,35 +34,13 @@ export type ChatFileMessageProps = ComponentProps & FileComponentProps & ThemedC
 class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
 
   static defaultProps: Partial<ChatFileMessageProps> = {
-    alignment: ChatMessageAlignment.left,
+    appearance: ChatFileMessageAppearance.full,
   };
 
-  private getAlignmentContainerStyle = (): StyleType => {
-    const { themedStyle, alignment } = this.props;
+  private renderPreviewImage = (): React.ReactElement<any> => {
+    const { message, appearance } = this.props;
 
-    if (alignment === ChatMessageAlignment.left) {
-      return themedStyle.containerLeft;
-    } else {
-      return themedStyle.containerRight;
-    }
-  };
-
-  private renderFullMessageAppearanceImage = (): React.ReactElement<ImageProps | ImageBackgroundProps> => {
-    const { message, themedStyle } = this.props;
-
-    return message.file.type === FileType.photo ? (
-      <Image
-        style={themedStyle.fullMessageImage}
-        source={{ uri: message.file.preview }}
-      />
-    ) : (
-      <ImageBackground
-        style={themedStyle.fullMessageVideo}
-        imageStyle={themedStyle.fullMessageVideoPreview}
-        source={{ uri: message.file.preview }}>
-        {PlayCircleIcon(themedStyle.fullMessageVideoPreviewIcon)}
-      </ImageBackground>
-    );
+    return getFileComponent(message.file.type).view(message, appearance);
   };
 
   private renderFullMessageAppearance = (): React.ReactElement<ViewProps> => {
@@ -81,107 +57,59 @@ class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
         alignment={alignment}
         message={message}>
         <Text style={themedStyle.fileNameLabel}>{message.file.name}</Text>
-        {this.renderFullMessageAppearanceImage()}
+        {this.renderPreviewImage()}
       </ChatMessage>
     );
   };
 
-  private renderPreviewMessageAppearanceImage = (): React.ReactElement<ImageBackgroundProps | ImageProps> => {
-    const { message, themedStyle } = this.props;
-
-    return message.file.type === FileType.photo ? (
-      <Image
-        style={themedStyle.preViewAppearanceImage}
-        source={{ uri: message.file.preview }}
-      />
-    ) : (
-      <ImageBackground
-        style={themedStyle.preViewAppearanceImage}
-        imageStyle={themedStyle.preViewAppearanceImage}
-        source={{ uri: message.file.preview }}>
-        {PlayCircleIcon(themedStyle.previewVideoPreviewIcon)}
-      </ImageBackground>
-    );
-  };
-
   private renderPreviewMessageAppearance = (): React.ReactElement<ViewProps> => {
-    const { message, themedStyle, alignment } = this.props;
+    const { themedStyle, alignment, message } = this.props;
+    const style: StyleType = themedStyle
+      .previewAppearanceSubContainer(alignment === Alignments['ROW-LEFT']);
 
     return (
-      <View style={themedStyle.previewAppearanceSubContainer}>
-        {alignment === ChatMessageAlignment.right && <Text style={themedStyle.dateLabel}>{message.date}</Text>}
-        {this.renderPreviewMessageAppearanceImage()}
-        {alignment === ChatMessageAlignment.left && <Text style={themedStyle.dateLabel}>{message.date}</Text>}
+      <View style={style}>
+        {this.renderPreviewImage()}
+        <Text key={0} style={themedStyle.dateLabel}>{message.date}</Text>
       </View>
     );
   };
 
+  private renderContent = (): React.ReactElement<ViewProps> => {
+    const { appearance } = this.props;
+
+    if (appearance === ChatFileMessageAppearance.full) {
+      return this.renderFullMessageAppearance();
+    } else {
+      return this.renderPreviewMessageAppearance();
+    }
+  };
+
   public render(): React.ReactNode {
-    const { themedStyle, style, appearance } = this.props;
+    const { style, alignment } = this.props;
+    const flexStyle: StyleType = getContentAlignment(alignment).style();
 
     return (
-      <View style={[themedStyle.container, this.getAlignmentContainerStyle(), style]}>
-        {appearance === ChatFileMessageAppearance.full && this.renderFullMessageAppearance()}
-        {appearance === ChatFileMessageAppearance.preview && this.renderPreviewMessageAppearance()}
+      <View style={[flexStyle, style]}>
+        {this.renderContent()}
       </View>
     );
   }
 }
 
 export const ChatFileMessage = withStyles(ChatFileMessageComponent, (theme: ThemeType) => ({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  containerLeft: {
-    justifyContent: 'flex-start',
-  },
   dateLabel: {
     fontWeight: 'normal',
     color: theme['color-basic-600'],
     fontSize: 11,
     marginHorizontal: 26,
   },
-  previewAppearanceSubContainer: {
-    flexDirection: 'row',
-  },
-  containerRight: {
-    justifyContent: 'flex-end',
-  },
+  previewAppearanceSubContainer: (isLeft: boolean) => ({
+    flexDirection: isLeft ? 'row' : 'row-reverse',
+  }),
   fileNameLabel: {
     fontSize: 11,
     lineHeight: 16,
     marginRight: 16,
-  },
-  fullMessageImage: {
-    width: 64,
-    height: 64,
-    borderRadius: 20,
-  },
-  fullMessageVideo: {
-    width: 64,
-    height: 64,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  fullMessageVideoPreview: {
-    borderRadius: 20,
-  },
-  fullMessageVideoPreviewIcon: {
-    width: 30,
-    height: 30,
-    tintColor: theme['color-white'],
-  },
-  preViewAppearanceImage: {
-    width: 124,
-    height: 124,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  previewVideoPreviewIcon: {
-    width: 50,
-    height: 50,
-    tintColor: theme['color-white'],
   },
 }));

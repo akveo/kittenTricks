@@ -61,13 +61,15 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
     });
   };
 
+  private onCameraPermissionResponse = (result: Permissions.PermissionResponse): void => {
+    if (result.status === 'granted') {
+      this.setState({ fileSectionOpened: true });
+    }
+  };
+
   private onAddButtonPress = (): void => {
     Permissions.askAsync(Permissions.CAMERA_ROLL)
-      .then((result: Permissions.PermissionResponse) => {
-        if (result.status === 'granted') {
-          this.setState({ fileSectionOpened: true });
-        }
-      });
+      .then(this.onCameraPermissionResponse);
   };
 
   private onCancelButtonPress = (): void => {

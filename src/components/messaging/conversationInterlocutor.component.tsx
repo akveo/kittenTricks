@@ -19,12 +19,14 @@ export type ConversationInterlocutorProps = & ThemedComponentProps & ViewProps &
 
 class ConversationInterlocutorComponent extends React.Component<ConversationInterlocutorProps> {
 
-  private renderOnlineIndicator = (): React.ReactElement<ViewProps> => {
+  private renderOnlineIndicator = (): React.ReactElement<ViewProps> | null => {
     const { themedStyle, profile } = this.props;
 
-    return profile.onLine ? (
-      <View style={themedStyle.onlineIndicator}/>
-    ) : null;
+    if (profile.onLine !== null) {
+      return profile.onLine ? (
+        <View style={themedStyle.onlineIndicator}/>
+      ) : null;
+    }
   };
 
   public render(): React.ReactNode {

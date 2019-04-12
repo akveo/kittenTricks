@@ -36,9 +36,12 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
 
   public componentWillMount(): void {
     MediaLibrary.getAssetsAsync({ first: 6 })
-      .then((data: MediaLibrary.GetAssetsResult) =>
-        this.setState({ galleryFiles: data.assets }));
+      .then(this.onMediaResponse);
   }
+
+  private onMediaResponse = (data: MediaLibrary.GetAssetsResult): void => {
+    this.setState({ galleryFiles: data.assets });
+  };
 
   private onNewMessageChange = (newMessageText: string): void => {
     this.setState({ newMessageText });
@@ -61,13 +64,15 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
     });
   };
 
+  private onCameraPermissionResponse = (result: Permissions.PermissionResponse): void => {
+    if (result.status === 'granted') {
+      this.setState({ fileSectionOpened: true });
+    }
+  };
+
   private onAddButtonPress = (): void => {
     Permissions.askAsync(Permissions.CAMERA_ROLL)
-      .then((result: Permissions.PermissionResponse) => {
-        if (result.status === 'granted') {
-          this.setState({ fileSectionOpened: true });
-        }
-      });
+      .then(this.onCameraPermissionResponse);
   };
 
   private onCancelButtonPress = (): void => {

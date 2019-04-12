@@ -14,9 +14,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { DoneAllIcon } from '@src/assets/icons';
 import { Text } from '@src/components/common';
-import { ConversationInterlocutor } from './';
+import {
+  ConversationInterlocutor,
+  getMessageIcon,
+} from '@src/components/messaging';
 
 interface ComponentProps {
   index?: number;
@@ -51,13 +53,7 @@ class ConversationComponent extends React.Component<ConversationProps> {
     const lastMessageRead: boolean = lastMessage.read;
     const lastMessageDelivered: boolean = lastMessage.delivered;
 
-    if (lastMessageRead) {
-      return DoneAllIcon([themedStyle.messageIndicatorIcon, themedStyle.messageIndicatorIconRead]);
-    } else if (lastMessageDelivered && !lastMessageRead) {
-      return DoneAllIcon([themedStyle.messageIndicatorIcon, themedStyle.messageIndicatorIconDelivered]);
-    } else {
-      return null;
-    }
+    return getMessageIcon(lastMessageRead, lastMessageDelivered);
   };
 
   public render(): React.ReactNode {
@@ -76,7 +72,7 @@ class ConversationComponent extends React.Component<ConversationProps> {
             <Text style={themedStyle.userLabel}>
               {`${conversation.interlocutor.firstName} ${conversation.interlocutor.lastName}`}
             </Text>
-            <Text style={themedStyle.lastMessageLabel}>
+            <Text style={themedStyle.lastMessageLabel} adjustsFontSizeToFit={true}>
               {this.getLastMessageText()}
             </Text>
           </View>
@@ -130,16 +126,5 @@ export const Conversation = withStyles(ConversationComponent, (theme: ThemeType)
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
-  },
-  messageIndicatorIcon: {
-    width: 13,
-    height: 8,
-    marginRight: 4,
-  },
-  messageIndicatorIconRead: {
-    tintColor: theme['color-primary-500'],
-  },
-  messageIndicatorIconDelivered: {
-    tintColor: theme['color-basic-600'],
   },
 }));

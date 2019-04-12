@@ -15,36 +15,24 @@ import {
   Text,
   TextProps,
 } from '@src/components/common';
-
-export enum ChatMessageAlignment {
-  left = 'left',
-  right = 'right',
-}
+import {
+  Alignments,
+  getContentAlignment,
+} from '@src/components/messaging';
 
 export interface ComponentProps {
   index?: number;
   message?: MessageModel;
-  alignment: ChatMessageAlignment;
+  alignment: Alignments;
   children?: React.ReactElement<any>[];
 }
+
+type MessageRightElement = [React.ReactElement<TextProps>, React.ReactElement<ViewProps>];
+type MessageLeftElement = [React.ReactElement<ViewProps>, React.ReactElement<TextProps>];
 
 export type ChatMessageProps = & ThemedComponentProps & ViewProps & ComponentProps;
 
 class ChatMessageComponent extends React.Component<ChatMessageProps> {
-
-  static defaultProps: Partial<ChatMessageProps> = {
-    alignment: ChatMessageAlignment.left,
-  };
-
-  private getAlignmentContainerStyle = (): StyleType => {
-    const { themedStyle, alignment } = this.props;
-
-    if (alignment === ChatMessageAlignment.left) {
-      return themedStyle.containerLeft;
-    } else {
-      return themedStyle.containerRight;
-    }
-  };
 
   private renderMessageContent = (): React.ReactElement<any> | React.ReactElement<any>[] | null => {
     const { message, children, themedStyle } = this.props;
@@ -56,9 +44,7 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
     } else if (children) {
       return children;
     } else {
-      return (
-        <Text style={themedStyle.messageLabel}>Empty Message</Text>
-      );
+      return null;
     }
   };
 
@@ -90,29 +76,31 @@ class ChatMessageComponent extends React.Component<ChatMessageProps> {
     ];
   };
 
+  private renderContent = (): MessageRightElement | MessageLeftElement | null => {
+    const { alignment } = this.props;
+
+    if (alignment === Alignments['ROW-LEFT']) {
+      return this.renderLeftMessage();
+    } else if (alignment === Alignments['ROW-RIGHT']) {
+      return this.renderRightMessage();
+    } else {
+      return null;
+    }
+  };
+
   public render(): React.ReactNode {
-    const { themedStyle, alignment, style } = this.props;
+    const { alignment, style } = this.props;
+    const flexStyle: StyleType = getContentAlignment(alignment).style();
 
     return (
-      <View style={[themedStyle.container, this.getAlignmentContainerStyle(), style]}>
-        {alignment === ChatMessageAlignment.left && this.renderLeftMessage()}
-        {alignment === ChatMessageAlignment.right && this.renderRightMessage()}
+      <View style={[flexStyle, style]}>
+        {this.renderContent()}
       </View>
     );
   }
 }
 
 export const ChatMessage = withStyles(ChatMessageComponent, (theme: ThemeType) => ({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  containerLeft: {
-    justifyContent: 'flex-start',
-  },
-  containerRight: {
-    justifyContent: 'flex-end',
-  },
   triangle: {
     borderLeftWidth: 10,
     borderRightWidth: 10,

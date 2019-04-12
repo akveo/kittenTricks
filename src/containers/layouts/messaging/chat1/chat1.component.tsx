@@ -22,7 +22,7 @@ import {
 import {
   ChatMessage,
   ChatMessageProps,
-  ChatMessageAlignment,
+  Alignments,
 } from '@src/components/messaging';
 import {
   profile1,
@@ -61,9 +61,9 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
     return conversation.messages.map((message: MessageModel) => {
       if (message.author === profile1) {
-        return { ...message, alignment: ChatMessageAlignment.left };
+        return { ...message, alignment: Alignments['ROW-LEFT'] };
       } else if (message.author === profile2) {
-        return { ...message, alignment: ChatMessageAlignment.right };
+        return { ...message, alignment: Alignments['ROW-RIGHT'] };
       }
     });
   };
@@ -83,6 +83,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
   public render(): React.ReactNode {
     const { themedStyle, newMessage } = this.props;
+    const isMessageEmpty: boolean = newMessage.length === 0;
 
     return (
       <View style={themedStyle.container}>
@@ -96,6 +97,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
           <Button
             style={themedStyle.addMessageButton}
             icon={PlusIcon}
+            disabled={isMessageEmpty}
             onPress={this.onMessageAdd}
           />
           <Input

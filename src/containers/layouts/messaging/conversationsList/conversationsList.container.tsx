@@ -19,7 +19,7 @@ export class ConversationsListContainer extends React.Component<NavigationScreen
     conversations: [conversation1, conversation2, conversation3, conversation4],
   };
 
-  private onConversation = (index: number): void => {
+  private onOneOfConversationsItemsFromListPress = (index: number): void => {
 
   };
 
@@ -27,7 +27,7 @@ export class ConversationsListContainer extends React.Component<NavigationScreen
     return (
       <ConversationsList
         conversations={this.state.conversations}
-        onConversation={this.onConversation}
+        onConversation={this.onOneOfConversationsItemsFromListPress}
       />
     );
   }
