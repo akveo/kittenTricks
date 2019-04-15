@@ -10,7 +10,7 @@ import {
 } from '@kitten/theme';
 import { List } from '@kitten/ui';
 import {
-  ProfileInfo,
+  ProfileInfo1,
   ProfileSocials,
 } from '@src/components/social';
 import { Button } from '@src/components/common';
@@ -95,7 +95,7 @@ class Profile1Component extends React.Component<Profile1Props> {
 
     return (
       <View style={themedStyle.container}>
-        <ProfileInfo
+        <ProfileInfo1
           style={themedStyle.profileInfo}
           photo={{ uri: profile.photo }}
           name={`${profile.firstName} ${profile.lastName}`}
@@ -115,7 +115,7 @@ class Profile1Component extends React.Component<Profile1Props> {
               FOLLOW
             </Button>
           </View>
-        </ProfileInfo>
+        </ProfileInfo1>
         <List
           style={themedStyle.feed}
           data={posts}

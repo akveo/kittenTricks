@@ -19,9 +19,9 @@ interface ComponentProps {
   children?: React.ReactNode;
 }
 
-export type ProfileInfoProps = ThemedComponentProps & ViewProps & ComponentProps;
+export type ProfileInfo1Props = ThemedComponentProps & ViewProps & ComponentProps;
 
-class ProfileInfoComponent extends React.Component<ProfileInfoProps> {
+class ProfileInfo1Component extends React.Component<ProfileInfo1Props> {
 
   public render(): React.ReactNode {
     const { style, themedStyle, photo, name, location, children, ...restProps } = this.props;
@@ -44,7 +44,7 @@ class ProfileInfoComponent extends React.Component<ProfileInfoProps> {
   }
 }
 
-export const ProfileInfo = withStyles(ProfileInfoComponent, (theme: ThemeType) => ({
+export const ProfileInfo1 = withStyles(ProfileInfo1Component, (theme: ThemeType) => ({
   container: {
     flexDirection: 'row',
   },

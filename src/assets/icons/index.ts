@@ -87,11 +87,11 @@ export const LockIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/lock-outline.png', style);
 };
 
-export const MessageCircleIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-  return Icon('https://akveo.github.io/eva-icons/outline/png/128/message-circle-outline.png', style);
+export const MessageCircleIconFill = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/message-circle.png', style);
 };
 
-export const MessageIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+export const MessageCircleIconOutline = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/message-circle-outline.png', style);
 };
 
@@ -107,8 +107,16 @@ export const PersonIconFill = (style: StyleType): React.ReactElement<ImageProps>
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/person.png', style);
 };
 
+export const PersonAddIconFill = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/person-add.png', style);
+};
+
 export const PinIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/pin-outline.png', style);
+};
+
+export const PinIconFill = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/pin.png', style);
 };
 
 export const PlusIcon = (style: StyleType): React.ReactElement<ImageProps> => {
