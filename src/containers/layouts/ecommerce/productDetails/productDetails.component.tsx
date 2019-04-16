@@ -100,7 +100,7 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
             </Text>
             <Text style={themedStyle.typeLabel}>{product.type}</Text>
           </View>
-          <Text style={themedStyle.costLabel}>{product.cost}</Text>
+          <Text style={themedStyle.costLabel}>{`${product.cost} ${product.currency}`}</Text>
         </View>
         <Text style={[themedStyle.descriptionText, themedStyle.bottomSpace]}>
           {product.description}

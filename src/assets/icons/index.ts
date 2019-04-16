@@ -103,6 +103,10 @@ export const PlusIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/plus-outline.png', style);
 };
 
+export const MinusIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/minus-outline.png', style);
+};
+
 export const SettingsIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/settings.png', style);
 };
@@ -133,4 +137,8 @@ export const MoreVerticalIcon = (style: StyleType): React.ReactElement<ImageProp
 
 export const CreditCardIcon = (style: StyleType): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/credit-card.png', style);
+};
+
+export const CloseIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/close.png', style);
 };

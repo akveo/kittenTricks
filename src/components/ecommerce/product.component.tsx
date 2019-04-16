@@ -42,7 +42,7 @@ class ProductComponent extends React.Component<ProductProps> {
             <Text style={themedStyle.typeLabel}>{product.type}</Text>
           </View>
           <View style={themedStyle.priceContainer}>
-            <Text style={themedStyle.costLabel}>{product.cost}</Text>
+            <Text style={themedStyle.costLabel}>{`${product.cost} ${product.currency}`}</Text>
             <Button
               style={themedStyle.buyButton}
               icon={CartIcon}
