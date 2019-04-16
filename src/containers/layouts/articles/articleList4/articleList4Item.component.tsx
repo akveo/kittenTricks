@@ -97,7 +97,7 @@ export const ArticleList4Item = withStyles(ArticleList4ItemComponent, (theme: Th
   titleLabel: {
     fontFamily: 'anton-regular',
     fontSize: 24,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
 }));
 

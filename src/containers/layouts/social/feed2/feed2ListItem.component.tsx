@@ -87,7 +87,7 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
   categoryIcon: {
     width: 32,
     height: 32,
-    tintColor: '#FFFFFF',
+    tintColor: theme['color-white'],
   },
   categoryLabel: {
     position: 'absolute',
@@ -101,12 +101,12 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
     marginHorizontal: 24,
     marginVertical: 24,
     fontFamily: 'opensans-semibold',
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   activityContainer: {
     paddingVertical: 16,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderTopColor: '#EDF0F5',
+    borderTopColor: theme['color-basic-200'],
   },
 }));

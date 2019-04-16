@@ -116,11 +116,11 @@ class Profile2Component extends React.Component<Profile2Props> {
 export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: '#F7F8FA',
+    backgroundColor: theme['color-basic-100'],
   },
   infoContainer: {
     paddingHorizontal: 24,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
   detailsContainer: {
     flexDirection: 'row',
@@ -142,7 +142,7 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   descriptionLabel: {
     fontSize: 15,
     marginVertical: 24,
-    color: '#8992A3',
+    color: theme['color-basic-600'],
   },
   profileSocials: {
     maxHeight: 256,
@@ -151,7 +151,7 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   },
   divider: {
     borderWidth: 0.5,
-    borderColor: '#A6AEBD',
+    borderColor: theme['color-basic-500'],
     marginHorizontal: 24,
   },
   profileParameter: {

@@ -96,6 +96,6 @@ export const Feed1 = withStyles(Feed1Component, (theme: ThemeType) => ({
   },
   item: {
     marginVertical: 8,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
 }));

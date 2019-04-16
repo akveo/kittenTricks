@@ -23,10 +23,14 @@ export class ValidationInput extends React.Component<ValidationInputProps> {
     }
   };
 
-  private status = (): string => {
+  private status = (): string | undefined => {
     const { value, status } = this.props;
 
-    return value.length === 0 ? undefined : status;
+    if (value === undefined || value.length === 0) {
+      return undefined;
+    }
+
+    return status;
   };
 
   public render(): React.ReactNode {

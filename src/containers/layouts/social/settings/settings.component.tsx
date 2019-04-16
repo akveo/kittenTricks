@@ -125,7 +125,7 @@ export const Settings = withStyles(SettingsComponent, (theme: ThemeType) => ({
   sectionText: {
     fontSize: 13,
     fontFamily: 'opensans-semibold',
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   divider: {
     height: 1,

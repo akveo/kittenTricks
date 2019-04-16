@@ -83,13 +83,13 @@ export const FeedActivityBar = withStyles(FeedActivityBarComponent, (theme: Them
     marginHorizontal: 8,
   },
   addButton: {
-    backgroundColor: 'transparent',
+    backgroundColor: theme['opacity-transparent'],
     fontFamily: 'opensans-extrabold',
-    color: '#3366FF',
+    color: theme['color-primary-500'],
   },
   addButtonIcon: {
     width: 24,
     height: 24,
-    tintColor: '#3366FF',
+    tintColor: theme['color-primary-500'],
   },
 }));

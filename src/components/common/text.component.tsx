@@ -26,5 +26,5 @@ class StyledText extends React.Component<TextProps> {
 
 export const Text = withStyles(StyledText, (theme: ThemeType) => ({
   fontFamily: 'opensans-regular',
-  color: 'white',
+  color: theme['color-white'],
 }));

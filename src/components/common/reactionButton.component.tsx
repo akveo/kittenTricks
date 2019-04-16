@@ -50,9 +50,9 @@ class ReactionButtonComponent extends React.Component<ReactionButtonProps> {
 export const ReactionButton = withStyles(ReactionButtonComponent, (theme: ThemeType) => ({
   button: {
     padding: 0,
-    backgroundColor: 'transparent',
+    backgroundColor: theme['opacity-transparent'],
     fontSize: 15,
-    color: '#0D1C2E',
+    color: theme['font-primary-color'],
   },
   icon: {
     width: 24,
