@@ -4,7 +4,7 @@ export const products: Product[] = [
   {
     name: 'White Chair',
     type: 'Furniture',
-    colors: ['black', 'red', 'white'],
+    colors: ['Black', 'Red', 'White'],
     cost: '150$',
     photo: 'https://images-na.ssl-images-amazon.com/images/I/31-3e0Ug1gL._SX425_.jpg',
     description: 'The Vitra Plastic Side Chairs are undoubtedly an absolute classic when it comes to the living area.' +

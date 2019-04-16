@@ -25,6 +25,11 @@ export class EcommerceContainer extends React.Component<NavigationScreenProps> {
       description: 'Products List',
       route: 'Products List',
     },
+    {
+      title: 'Layout',
+      description: 'Product Details',
+      route: 'Product Details',
+    },
   ];
 
   private onItemSelect = (index: number): void => {

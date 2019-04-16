@@ -43,6 +43,7 @@ import {
   WalkthroughContainer,
   EcommerceContainer,
   ProductsListContainer,
+  ProductDetailsContainer,
   AddNewCardContainer,
   PaymentContainer,
   NavigationContainer,
@@ -85,6 +86,7 @@ const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
     ['Add New Card']: AddNewCardContainer,
     ['Payment']: PaymentContainer,
     ['Products List']: ProductsListContainer,
+    ['Product Details']: ProductDetailsContainer,
   },
   {
     headerMode: 'none',
