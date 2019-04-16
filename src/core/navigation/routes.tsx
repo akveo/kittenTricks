@@ -5,7 +5,6 @@ import {
   NavigationContainer as ReactNavigationContainer,
   HeaderProps,
   createBottomTabNavigator,
-  createMaterialTopTabNavigator,
 } from 'react-navigation';
 import {
   MenuContainer,
@@ -49,6 +48,7 @@ import {
   DashboardsContainer,
   WalkthroughContainer,
   EcommerceContainer,
+  RentApartmentContainer,
   NavigationContainer,
   Trainings1Container,
   Trainings2Container,
@@ -86,6 +86,7 @@ const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
 const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Ecommerce']: EcommerceContainer,
+    ['Rent Apartment']: RentApartmentContainer,
   },
   {
     headerMode: 'none',

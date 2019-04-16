@@ -1,3 +1,7 @@
+export {
+  Apartment,
+  ApartmentFacility,
+} from './apartment.model';
 export { Article } from './article.model';
 export {
   Gender,
