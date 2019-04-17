@@ -20,3 +20,7 @@ export {
   getContentAlignment,
 } from './messageAlignment.type';
 export { getMessageIcon } from './message.icon';
+export {
+  getMessageContent,
+  MessageElement,
+} from './message.content';

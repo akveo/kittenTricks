@@ -47,13 +47,16 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
   private listRef: React.RefObject<FlatList<any>> = React.createRef();
 
+  private onListContentSizeChange = (): void => {
+    setTimeout(() => this.listRef.current.scrollToEnd({ animated: true }), 0);
+  };
+
   private onNewMessageChange = (text: string): void => {
     this.props.onNewMessageChange(text);
   };
 
   private onMessageAdd = (): void => {
     this.props.onMessageAdd();
-    this.listRef.current.scrollToEnd();
   };
 
   private createUiMessages = (): UiMessageModel[] => {
@@ -91,6 +94,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
           ref={this.listRef}
           style={themedStyle.chatContainer}
           data={this.createUiMessages()}
+          onContentSizeChange={this.onListContentSizeChange}
           renderItem={this.renderMessage}
         />
         <View style={themedStyle.inputContainer}>
@@ -119,7 +123,6 @@ export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
     backgroundColor: theme['color-white'],
   },
   chatContainer: {
-    flex: 1,
     backgroundColor: theme['color-basic-100'],
     paddingHorizontal: 16,
     paddingVertical: 28,

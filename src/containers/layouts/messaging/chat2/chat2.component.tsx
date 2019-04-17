@@ -68,13 +68,16 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
   private listRef: React.RefObject<FlatList<any>> = React.createRef();
 
+  private onListContentSizeChange = (): void => {
+    setTimeout(() => this.listRef.current.scrollToEnd({ animated: true }), 0);
+  };
+
   private onNewMessageChange = (text: string): void => {
     this.props.onNewMessageChange(text);
   };
 
   private onMessageAdd = (): void => {
     this.props.onMessageAdd();
-    this.listRef.current.scrollToEnd();
   };
 
   private onAddButtonPress = (): void => {
@@ -170,6 +173,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
           ref={this.listRef}
           style={themedStyle.chatContainer}
           data={this.createUiMessages()}
+          onContentSizeChange={this.onListContentSizeChange}
           renderItem={this.renderMessage}
         />
         <View style={themedStyle.inputContainer}>
@@ -199,7 +203,6 @@ export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
     backgroundColor: theme['color-white'],
   },
   chatContainer: {
-    flex: 1,
     backgroundColor: theme['color-basic-100'],
     paddingHorizontal: 16,
     paddingVertical: 28,
