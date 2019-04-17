@@ -47,6 +47,7 @@ import {
   MessagingContainer,
   CommentsList1Container,
   DashboardsContainer,
+  BookDetailsContainer,
   MovieContainer,
   WalkthroughContainer,
   EcommerceContainer,
@@ -108,6 +109,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Trainings 1']: Trainings1Container,
     ['Trainings 2']: Trainings2Container,
     ['Movie']: MovieContainer,
+    ['Book Details']: BookDetailsContainer,
   },
   {
     headerMode: 'none',
