@@ -3,7 +3,6 @@ import {
   View,
   TouchableOpacity,
   ListRenderItemInfo,
-  ViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -13,6 +12,7 @@ import {
 import {
   TabProps,
   List,
+  ListProps,
 } from '@kitten/ui';
 import { Text } from '@src/components/common';
 import { Product as ProductModel } from '@src/core/model';
@@ -100,17 +100,17 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
     );
   };
 
-  private renderProducts = (): React.ReactElement<ViewProps> => {
+  private renderProducts = (): React.ReactElement<ListProps> => {
     const { themedStyle } = this.props;
 
     return (
-      <View style={themedStyle.productsList}>
-        <List
-          contentContainerStyle={themedStyle.productsListContent}
-          data={this.state.currentProducts}
-          renderItem={this.renderProduct}
-          numColumns={2}/>
-      </View>
+      <List
+        style={themedStyle.productsList}
+        contentContainerStyle={themedStyle.productsListContent}
+        data={this.state.currentProducts}
+        renderItem={this.renderProduct}
+        numColumns={2}
+      />
     );
   };
 
@@ -121,6 +121,7 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
     return (
       <View style={themedStyle.container}>
         <List
+          style={themedStyle.headerList}
           keyExtractor={this.extractKey}
           contentContainerStyle={themedStyle.tabsList}
           horizontal={true}
@@ -135,7 +136,10 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
 
 export const ProductsList = withStyles(ProductsListComponent, (theme: ThemeType) => ({
   container: {
-    flex: 1,
+    flexGrow: 1,
+  },
+  headerList: {
+    height: 48,
   },
   tabsList: {
     paddingHorizontal: 38,
@@ -143,7 +147,6 @@ export const ProductsList = withStyles(ProductsListComponent, (theme: ThemeType)
   },
   tabContainer: {
     width: 125,
-    height: 48,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -162,11 +165,12 @@ export const ProductsList = withStyles(ProductsListComponent, (theme: ThemeType)
     bottom: 0,
   },
   productsList: {
-    flex: 100,
-    backgroundColor: theme['color-basic-100'],
+    height: '100%',
   },
   productsListContent: {
+    flex: 1,
     padding: 8,
+    backgroundColor: theme['color-basic-100'],
   },
   productItem: {
     flex: 1,

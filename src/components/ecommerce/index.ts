@@ -22,7 +22,7 @@ export {
   Product,
   ProductProps,
 } from './product.component';
-import {
+export {
   CartProduct,
   CartProductProps,
 } from './cartProduct.component';

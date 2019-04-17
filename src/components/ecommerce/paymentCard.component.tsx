@@ -90,7 +90,6 @@ export const PaymentCard = withStyles(PaymentCardComponent, (theme: ThemeType) =
     marginBottom: 26,
   },
   bottomLabel: {
-    fontWeight: 'normal',
     fontSize: 11,
     lineHeight: 16,
   },

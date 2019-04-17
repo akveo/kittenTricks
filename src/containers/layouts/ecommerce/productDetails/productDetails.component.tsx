@@ -22,7 +22,7 @@ import {
   Product as ProductModel,
   Comment as CommentModel,
 } from '@src/core/model';
-import { CommentsList1 } from '@src/containers/layouts/messaging/commentsList1/commentsList1.component';
+import { CommentsList1 } from '@src/containers/layouts/messaging';
 
 interface ComponentProps {
   product: ProductModel;

@@ -78,7 +78,8 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
             placeholder='0000 0000 0000 0000'
             maxLength={19}
             keyboardType='numeric'
-            onChangeText={this.onCardNumberChange}/>
+            onChangeText={this.onCardNumberChange}
+          />
           <View style={[themedStyle.middleContainer, themedStyle.commonMargin]}>
             <View>
               <Text style={themedStyle.inputLabel}>EXPIRE DATE</Text>
@@ -90,7 +91,8 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
                 placeholder='MM/YY'
                 maxLength={5}
                 keyboardType='numeric'
-                onChangeText={this.onExpirationDateChange}/>
+                onChangeText={this.onExpirationDateChange}
+              />
             </View>
             <View style={themedStyle.cvvContainer}>
               <Text style={themedStyle.inputLabel}>CVV</Text>
@@ -102,7 +104,8 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
                 placeholder='CVV'
                 maxLength={3}
                 keyboardType='numeric'
-                onChangeText={this.onCvvChange}/>
+                onChangeText={this.onCvvChange}
+              />
             </View>
           </View>
           <Text style={themedStyle.inputLabel}>CARDHOLDER NAME</Text>
@@ -112,7 +115,8 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
             validator={CardholderNameValidator}
             formatter={CardholderNameFormatter}
             placeholder='Enter Name'
-            onChangeText={this.onCardHolderNameChange}/>
+            onChangeText={this.onCardHolderNameChange}
+          />
         </View>
         <Button
           disabled={!isFormValid}

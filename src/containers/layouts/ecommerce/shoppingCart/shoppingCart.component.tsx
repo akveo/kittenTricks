@@ -18,7 +18,7 @@ import { CartProduct as CartProductModel } from './cartProduct.model';
 import {
   CartProduct,
   CartProductProps,
-} from '@src/components/ecommerce/cartProduct.component';
+} from '@src/components/ecommerce';
 
 interface ComponentProps {
   products: CartProductModel[];
@@ -42,7 +42,9 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
     const { products } = this.props;
 
     return products
-      .reduce((acc: number, item: CartProductModel) => acc + item.count * item.cost, 0);
+      .reduce((acc: number, item: CartProductModel) => {
+        return acc + item.count * item.cost;
+      }, 0);
   };
 
   private onCheckout = (): void => {

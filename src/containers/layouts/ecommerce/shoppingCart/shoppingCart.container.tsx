@@ -13,10 +13,12 @@ export class ShoppingCartContainer extends React.Component<NavigationScreenProps
 
   private prepareProducts = (): CartProduct[] => {
     return [products[0], products[1]]
-      .map((item: Product) => ({
-        ...item,
-        count: 1,
-      }));
+      .map((item: Product) => {
+        return {
+          ...item,
+          count: 1,
+        };
+      });
   };
 
   public state: State = {
