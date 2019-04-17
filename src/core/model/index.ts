@@ -7,3 +7,4 @@ export {
 export { Post } from './post.model';
 export { Training } from './training.model';
 export { Comment } from './comment.model';
+export { Movie } from './movie.model';
