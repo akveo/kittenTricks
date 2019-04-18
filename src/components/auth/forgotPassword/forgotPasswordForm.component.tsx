@@ -8,61 +8,61 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Button,
-  ValidationInput,
-} from '@src/components/common';
+import { ValidationInput } from '@src/components/common';
 import { EmailIconFill } from '@src/assets/icons';
+import { EmailValidator } from '@src/core/validators';
 
 export interface ForgotPasswordFormType {
   email: string;
 }
 
 interface ComponentProps {
-  onSubmit: (value: ForgotPasswordFormType) => void;
+  /**
+   * Will emit changes depending on validation:
+   * Will be called with form value if it is valid, otherwise will be called with undefined
+   */
+  onFormValueChange: (value: ForgotPasswordFormType | undefined) => void;
 }
+
 
 export type ForgotPasswordFormProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
-  email: string;
-  emailValid: boolean;
+  email: string | undefined;
 }
 
 class ForgotPasswordFormComponent extends React.Component<ForgotPasswordFormProps, State> {
 
   public state: State = {
-    email: '',
-    emailValid: false,
+    email: undefined,
   };
 
-  private emailValidator: RegExp = /\S+@\S+\.\S+/;
+  public componentDidUpdate(prevProps: ForgotPasswordFormProps, prevState: State) {
+    const oldFormValid: boolean = this.isValid(prevState);
+    const newFormValid: boolean = this.isValid(this.state);
 
-  private onSubmitButtonPress = () => {
-    const { email } = this.state;
+    const becomeValid: boolean = !oldFormValid && newFormValid;
+    const becomeInvalid: boolean = oldFormValid && !newFormValid;
 
-    this.props.onSubmit({ email });
+    if (becomeValid) {
+      this.props.onFormValueChange(this.state);
+    } else if (becomeInvalid) {
+      this.props.onFormValueChange(undefined);
+    }
+  }
+
+  private onEmailInputTextChange = (email: string) => {
+    this.setState({ email });
   };
 
-  private onEmailValidationResult = (emailValid: boolean, email: string) => {
-    this.setState({
-      emailValid,
-      email,
-    });
-  };
+  private isValid = (value: ForgotPasswordFormType): boolean => {
+    const { email } = value;
 
-  private isFormValid = (): boolean => {
-    const { emailValid } = this.state;
-
-    return emailValid;
+    return email !== undefined;
   };
 
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
-    const { email, emailValid } = this.state;
-
-    const emailInputStatus: string = emailValid ? 'success' : 'danger';
-    const submitButtonEnabled: boolean = this.isFormValid();
 
     return (
       <View
@@ -70,21 +70,11 @@ class ForgotPasswordFormComponent extends React.Component<ForgotPasswordFormProp
         {...restProps}>
         <ValidationInput
           style={themedStyle.emailInput}
-          pattern={this.emailValidator}
-          autoCapitalize='none'
-          status={emailInputStatus}
           placeholder='Email'
-          value={email}
           icon={EmailIconFill}
-          onResult={this.onEmailValidationResult}
+          validator={EmailValidator}
+          onChangeText={this.onEmailInputTextChange}
         />
-        <Button
-          style={themedStyle.submitButton}
-          size='giant'
-          disabled={!submitButtonEnabled}
-          onPress={this.onSubmitButtonPress}>
-          Reset Password
-        </Button>
       </View>
     );
   }

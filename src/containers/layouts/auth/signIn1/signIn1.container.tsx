@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { SignInFormType } from '@src/components/auth';
+import { SignInForm1Type } from '@src/components/auth';
 import { SignIn1 } from './signIn1.component';
 
 export class SignIn1Container extends React.Component<NavigationScreenProps> {
 
-  private onSignInPress = (value: SignInFormType) => {
+  private onSignInPress = (value: SignInForm1Type) => {
     this.props.navigation.goBack();
   };
 

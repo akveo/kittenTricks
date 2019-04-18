@@ -19,6 +19,7 @@ import {
   SignIn2Container,
   SignIn3Container,
   SignIn4Container,
+  SignIn5Container,
   SignUp1Container,
   SignUp2Container,
   SignUp3Container,
@@ -58,6 +59,7 @@ import {
   AppBarProps,
 } from './appBar.component';
 import { BackArrowIcon } from '@src/assets/icons';
+import { SignIn2 } from '@src/containers/layouts/auth/signIn2/signIn2.component';
 
 const HeadingNavigationOptions = ({ navigation }) => {
 
@@ -165,6 +167,7 @@ const AuthNavigator: ReactNavigationContainer = createStackNavigator(
     ['Sign In 2']: SignIn2Container,
     ['Sign In 3']: SignIn3Container,
     ['Sign In 4']: SignIn4Container,
+    ['Sign In 5']: SignIn5Container,
     ['Sign Up 1']: SignUp1Container,
     ['Sign Up 2']: SignUp2Container,
     ['Sign Up 3']: SignUp3Container,

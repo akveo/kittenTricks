@@ -41,15 +41,27 @@ interface ComponentProps {
 
 export type SignUp1Props = ThemedComponentProps & ComponentProps;
 
-class SignUp1Component extends React.Component<SignUp1Props> {
+interface State {
+  formValue: SignUpForm1Type;
+}
+
+class SignUp1Component extends React.Component<SignUp1Props, State> {
+
+  public state: State = {
+    formValue: undefined,
+  };
 
   private headerImage: ImageSourcePropType = {
     uri: `https://images.unsplash.com/photo-1480264104733-84fb0b925be3?ixlib=rb-1.2
     .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
   };
 
-  private onSignUpButtonPress = (value: SignUpForm1Type) => {
-    this.props.onSignUpPress(value);
+  private onFormValueChange = (formValue: SignUpForm1Type) => {
+    this.setState({ formValue });
+  };
+
+  private onSignUpButtonPress = () => {
+    this.props.onSignUpPress(this.state.formValue);
   };
 
   private onSignInButtonPress = () => {
@@ -82,6 +94,12 @@ class SignUp1Component extends React.Component<SignUp1Props> {
     const { themedStyle } = this.props;
 
     return ForwardIcon({ ...style, ...themedStyle.signUpButtonIcon });
+  };
+
+  private signUpEnabled = () => {
+    const { formValue } = this.state;
+
+    return formValue !== undefined;
   };
 
   public render(): React.ReactNode {
@@ -131,8 +149,15 @@ class SignUp1Component extends React.Component<SignUp1Props> {
           <Text style={themedStyle.emailSignLabel}>Sign up with Email</Text>
           <SignUpForm1
             style={themedStyle.formContainer}
-            onSubmit={this.onSignUpButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signUpButton}
+            size='large'
+            disabled={!this.signUpEnabled()}
+            onPress={this.onSignUpButtonPress}>
+            Sign Up
+          </Button>
         </ScrollView>
       </AvoidKeyboard>
     );
@@ -180,6 +205,12 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   },
   signUpButtonIcon: {
     marginHorizontal: 0,
+  },
+  signUpButton: {
+    marginVertical: 24,
+    marginHorizontal: 16,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   socialAuthHint: {
     color: theme['font-primary-color'],
