@@ -12,6 +12,31 @@ export class EcommerceContainer extends React.Component<NavigationScreenProps> {
   private items: RouteListItem[] = [
     {
       title: 'Layout',
+      description: 'Add New Card',
+      route: 'Add New Card',
+    },
+    {
+      title: 'Layout',
+      description: 'Payment',
+      route: 'Payment',
+    },
+    {
+      title: 'Layout',
+      description: 'Products List',
+      route: 'Products List',
+    },
+    {
+      title: 'Layout',
+      description: 'Product Details',
+      route: 'Product Details',
+    },
+    {
+      title: 'Layout',
+      description: 'Shopping Cart',
+      route: 'Shopping Cart',
+    },
+    {
+      title: 'Layout',
       description: 'Rent Apartment',
       route: 'Rent Apartment',
     },
