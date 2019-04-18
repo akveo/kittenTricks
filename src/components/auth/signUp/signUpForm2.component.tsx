@@ -29,7 +29,11 @@ export interface SignUpForm2Type {
 }
 
 interface ComponentProps {
-  onFormValueChange: (value: SignUpForm2Type) => void;
+  /**
+   * Will emit changes depending on validation:
+   * Will be called with form value if it is valid, otherwise will be called with undefined
+   */
+  onFormValueChange: (value: SignUpForm2Type | undefined) => void;
 }
 
 export type SignUpForm2Props = ThemedComponentProps & ViewProps & ComponentProps;

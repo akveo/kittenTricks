@@ -67,7 +67,6 @@ import {
   AppBarProps,
 } from './appBar.component';
 import { BackArrowIcon } from '@src/assets/icons';
-import { SignIn2 } from '@src/containers/layouts/auth/signIn2/signIn2.component';
 
 const HeadingNavigationOptions = ({ navigation }) => {
 

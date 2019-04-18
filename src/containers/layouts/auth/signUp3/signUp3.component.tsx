@@ -32,7 +32,15 @@ interface ComponentProps {
 
 export type SignUp3Props = ThemedComponentProps & ComponentProps;
 
-class SignUp3Component extends React.Component<SignUp3Props> {
+interface State {
+  formValue: SignUpForm2Type | undefined;
+}
+
+class SignUp3Component extends React.Component<SignUp3Props, State> {
+
+  public state: State = {
+    formValue: undefined,
+  };
 
   private backgroundImage: ImageSourcePropType = {
     uri: `https://images.unsplash.com/photo-1536431311719-398b6704d4cc?ixlib=rb-1.2
@@ -43,6 +51,10 @@ class SignUp3Component extends React.Component<SignUp3Props> {
     uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png',
   };
 
+  private onFormValueChange = (formValue: SignUpForm2Type) => {
+    this.setState({ formValue });
+  };
+
   private onPhotoButtonPress = () => {
     this.props.onPhotoPress();
   };
@@ -51,8 +63,8 @@ class SignUp3Component extends React.Component<SignUp3Props> {
     this.props.onSignInPress();
   };
 
-  private onSignUpButtonPress = (formValue: SignUpForm2Type) => {
-    this.props.onSignUpPress(formValue);
+  private onSignUpButtonPress = () => {
+    this.props.onSignUpPress(this.state.formValue);
   };
 
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
@@ -73,6 +85,12 @@ class SignUp3Component extends React.Component<SignUp3Props> {
     );
   };
 
+  private signUpEnabled = () => {
+    const { formValue } = this.state;
+
+    return formValue !== undefined;
+  };
+
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
@@ -91,8 +109,15 @@ class SignUp3Component extends React.Component<SignUp3Props> {
           </View>
           <SignUpForm2
             style={themedStyle.formContainer}
-            onSubmit={this.onSignUpButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signUpButton}
+            size='giant'
+            disabled={!this.signUpEnabled()}
+            onPress={this.onSignUpButtonPress}>
+            Sign Up
+          </Button>
           <View style={themedStyle.signInContainer}>
             <Text>Already have an account?</Text>
             <Button
@@ -128,8 +153,7 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 24,
-    marginBottom: 32,
+    marginVertical: 24,
   },
   photo: {
     width: 116,
@@ -148,6 +172,11 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
   photoButtonIcon: {
     width: 24,
     height: 24,
+  },
+  signUpButton: {
+    marginHorizontal: 16,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   signInButton: {
     paddingHorizontal: 0,

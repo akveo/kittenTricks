@@ -143,8 +143,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 24,
-    marginBottom: 32,
+    marginVertical: 24,
   },
   photo: {
     width: 116,

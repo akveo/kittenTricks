@@ -122,7 +122,7 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 32,
+    marginVertical: 24,
   },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',

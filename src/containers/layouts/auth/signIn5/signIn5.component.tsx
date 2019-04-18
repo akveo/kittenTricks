@@ -174,11 +174,11 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     marginVertical: 8,
   },
   signUpContainer: {
-    marginVertical: 16,
     flexDirection: 'row',
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 24,
   },
   tabView: {
     flex: 1,
