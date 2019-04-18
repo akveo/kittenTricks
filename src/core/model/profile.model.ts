@@ -16,6 +16,7 @@ export interface Profile {
   email: string;
   phoneNumber: string;
   location: string;
+  onLine?: boolean;
 }
 
 export interface ProfileSocials {
