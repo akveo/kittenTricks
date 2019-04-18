@@ -13,7 +13,7 @@ import {
 } from '@kitten/theme';
 
 interface ComponentProps {
-  icon: (style: StyleType) => React.ReactElement<ImageProps>;
+  icon?: (style: StyleType) => React.ReactElement<ImageProps>;
   children: React.ReactElement<TextProps>;
 }
 
@@ -21,10 +21,10 @@ export type ChipsProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 class ChipsComponent extends React.Component<ChipsProps> {
 
-  private renderIcon = (): React.ReactElement<ImageProps> => {
+  private renderIcon = (): React.ReactElement<ImageProps> | null => {
     const { icon, themedStyle } = this.props;
 
-    return icon(themedStyle.icon);
+    return icon ? icon(themedStyle.icon) : null;
   };
 
   public render(): React.ReactNode {
