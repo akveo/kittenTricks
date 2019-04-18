@@ -69,11 +69,11 @@ export class ValidationInput extends React.Component<ValidationInputProps, State
   private getStatus = (): string | undefined => {
     const { value } = this.state;
 
-    if (value === undefined || value.length === 0) {
-      return undefined;
+    if (value && value.length) {
+      return this.isValid(value) ? 'success' : 'danger';
     }
 
-    return this.isValid(value) ? 'success' : 'danger';
+    return undefined;
   };
 
   public render(): React.ReactNode {

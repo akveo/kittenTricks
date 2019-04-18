@@ -75,12 +75,6 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
     );
   };
 
-  private signUpEnabled = () => {
-    const { formValue } = this.state;
-
-    return formValue !== undefined;
-  };
-
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
@@ -102,7 +96,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
           <Button
             style={themedStyle.signUpButton}
             size='giant'
-            disabled={!this.signUpEnabled()}
+            disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>
             Sign Up
           </Button>

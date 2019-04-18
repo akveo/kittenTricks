@@ -49,12 +49,6 @@ class SignIn2Component extends React.Component<SignIn2Props> {
     this.setState({ formValue });
   };
 
-  private signInEnabled = () => {
-    const { formValue } = this.state;
-
-    return formValue !== undefined;
-  };
-
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
@@ -73,7 +67,7 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           <Button
             style={themedStyle.signInButton}
             size='giant'
-            disabled={!this.signInEnabled()}
+            disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
             Sign In
           </Button>

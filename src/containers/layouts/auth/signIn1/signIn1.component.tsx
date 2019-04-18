@@ -95,12 +95,6 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
     return ForwardIcon({ ...style, ...themedStyle.signUpButtonIcon });
   };
 
-  private signInEnabled = (): boolean => {
-    const { formValue } = this.state;
-
-    return formValue !== undefined;
-  };
-
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
@@ -136,7 +130,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           <Button
             style={themedStyle.signInButton}
             size='giant'
-            disabled={!this.signInEnabled()}
+            disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
             Sign In
           </Button>

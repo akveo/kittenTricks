@@ -103,7 +103,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
     const tabContentWidth: number = dimensions.width - (themedStyle.tabView.paddingHorizontal * 2);
-    const signInButtonEnabled: boolean = this.getSelectedFormValue() !== undefined;
+    const signInButtonEnabled: boolean = !!this.getSelectedFormValue();
 
     return (
       <AvoidKeyboard>
