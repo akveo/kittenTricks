@@ -1,4 +1,9 @@
 import { Movie } from '@src/core/model';
+import {
+  CountryDetail,
+  LengthDetail,
+  YearDetail,
+} from '@src/core/model/movie.model';
 
 export const movie1: Movie = {
   name: 'How To Train Your Dragon\nThe Hidden World',
@@ -8,9 +13,11 @@ export const movie1: Movie = {
   preview: 'https://upload.wikimedia.org/wikipedia/en/f/fd/How_to_Train_Your_Dragon_3_poster.png',
   rating: 4,
   categories: ['Adventure', 'Family', 'Fantasy'],
-  year: '2019',
-  country: 'USA',
-  length: '112 min',
+  details: [
+    new YearDetail(2019),
+    new CountryDetail('USA'),
+    new LengthDetail(112),
+  ],
   screenshots: [
     'https://cdn.newsday.com/polopoly_fs/1.27712483.1551043709!/httpImage/image.jpg_gen/derivatives/landscape_768/' +
     'image.jpg',

@@ -12,7 +12,10 @@ export {
   File,
 } from './file.model';
 export { Message } from './message.model';
-export { Movie } from './movie.model';
+export {
+  Movie,
+  MovieDetail,
+} from './movie.model';
 export { Post } from './post.model';
 export {
   Gender,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { Movie } from './movie.component';
 import { movie1 } from '@src/core/data/movie';
 import { Movie as MovieModel } from '@src/core/model';
+import { Movie } from './movie.component';
 
 interface State {
   movie: MovieModel;
