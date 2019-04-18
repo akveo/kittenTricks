@@ -4,7 +4,6 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { Comment as CommentModel } from '@src/core/model';
 import {
   Avatar,
   Button,
@@ -17,9 +16,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { MoreIcon } from '@src/assets/icons';
 import { ArticleActivityBar } from '@src/components/articles';
-import { Text } from '@src/components/common';
+import { MoreIcon } from '@src/assets/icons';
+import { Text } from './text.component';
+import { Comment as CommentModel } from '@src/core/model';
 
 interface ComponentProps {
   comment: CommentModel;
@@ -63,6 +63,7 @@ class CommentComponent extends React.Component<CommentProps, State> {
       <View style={themedStyle.container} key={0}>
         <View style={themedStyle.authorInfoContainer}>
           <Avatar
+            style={themedStyle.avatar}
             size='medium'
             source={{ uri: comment.author.photo }}
           />
@@ -137,6 +138,8 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginLeft: 16,
+    marginBottom: 14,
   },
   authorInfoContainer: {
     flexDirection: 'row',
@@ -170,5 +173,8 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     marginHorizontal: 24,
     borderRadius: 10,
     paddingBottom: 16,
+  },
+  avatar: {
+    marginRight: 16,
   },
 }));
