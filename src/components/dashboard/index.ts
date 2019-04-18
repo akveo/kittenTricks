@@ -1,4 +1,8 @@
 export {
+  BookHeader,
+  BookHeaderProps,
+} from './bookDetails/bookHeader.component';
+export {
   MovieHeader,
   MovieHeaderProps,
 } from './movie/movieHeader.component';
