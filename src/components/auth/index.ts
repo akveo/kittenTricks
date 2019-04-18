@@ -13,14 +13,24 @@ export {
 } from './forgotPassword/forgotPasswordForm.component';
 export {
   SignInForm1,
-  SignInFormProps,
-  SignInFormType,
+  SignInForm1Props,
+  SignInForm1Type,
 } from './signIn/signInForm1.component';
 export {
   SignInForm2,
   SignInForm2Props,
-  SignIn2FormType,
+  SignInForm2Type,
 } from './signIn/signInForm2.component';
+export {
+  SignInForm3,
+  SignInForm3Props,
+  SignInForm3Type,
+} from './signIn/signInForm3.component';
+export {
+  SignInForm4,
+  SignInForm4Props,
+  SignInForm4Type,
+} from './signIn/signInForm4.component';
 export {
   SignUpForm1,
   SignUpForm1Props,

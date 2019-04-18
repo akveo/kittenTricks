@@ -36,15 +36,27 @@ interface ComponentProps {
 
 export type SignUp4Props = ThemedComponentProps & ComponentProps;
 
-class SignUp4Component extends React.Component<SignUp4Props> {
+interface State {
+  formValue: SignUpForm2Type | undefined;
+}
+
+class SignUp4Component extends React.Component<SignUp4Props, State> {
+
+  public state: State = {
+    formValue: undefined,
+  };
 
   private backgroundImage: ImageSourcePropType = {
     uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2]
     .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80`,
   };
 
-  private onSignUpButtonPress = (formValue: SignUpForm2Type) => {
-    this.props.onSignUpPress(formValue);
+  private onFormValueChange = (formValue: SignUpForm2Type) => {
+    this.setState({ formValue });
+  };
+
+  private onSignUpButtonPress = () => {
+    this.props.onSignUpPress(this.state.formValue);
   };
 
   private onSignInButtonPress = () => {
@@ -103,8 +115,15 @@ class SignUp4Component extends React.Component<SignUp4Props> {
           </View>
           <SignUpForm2
             style={themedStyle.formContainer}
-            onSubmit={this.onSignUpButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signUpButton}
+            size='giant'
+            disabled={!this.state.formValue}
+            onPress={this.onSignUpButtonPress}>
+            Sign Up
+          </Button>
           <SocialAuth
             iconStyle={themedStyle.socialAuthIcon}
             hint='Or Sign In using Social Media'
@@ -140,7 +159,7 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    paddingBottom: 24,
+    // paddingBottom: 24,
     justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
@@ -170,6 +189,12 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
   },
   socialAuthIcon: {
     tintColor: theme['color-white'],
+  },
+  signUpButton: {
+    marginVertical: 16,
+    marginHorizontal: 16,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   signInButton: {
     paddingHorizontal: 0,

@@ -3,43 +3,89 @@ import { ThemedComponentProps } from '@kitten/theme';
 import {
   Input,
   InputProps,
-} from './input.component';
+} from '../common/input.component';
 
-interface ComponentProps {
-  pattern: RegExp;
-  onResult?: (valid: boolean, value: string) => void;
+interface ComponentProps extends InputProps {
+  validator: (value: string) => boolean;
+  formatter?: (value: string, stateValue: string) => string;
+  /**
+   * Will emit changes depending on validation:
+   * Will be called with input value if it is valid, otherwise will be called with undefined
+   */
+  onChangeText?: (value: string | undefined) => void;
 }
 
-export type ValidationInputProps = ThemedComponentProps & InputProps & ComponentProps;
+interface State {
+  value: string;
+}
 
-export class ValidationInput extends React.Component<ValidationInputProps> {
+export type ValidationInputProps = ThemedComponentProps & ComponentProps;
 
-  private onChangeText = (value: string) => {
-    if (this.props.onResult) {
-      const { pattern } = this.props;
-      const isValid: boolean = pattern.test(value);
+/**
+ * You probably don't need to pass `value` prop into this component
+ */
+export class ValidationInput extends React.Component<ValidationInputProps, State> {
 
-      this.props.onResult(isValid, value);
+  public state: State = {
+    value: this.props.value,
+  };
+
+  public componentDidUpdate(prevProps: ValidationInputProps, prevState: State) {
+    const { value: oldValue } = prevState;
+    const { value: newValue } = this.state;
+
+    const becomeValid: boolean = !this.isValid(oldValue) && this.isValid(newValue);
+    const becomeInvalid: boolean = !this.isValid(newValue) && this.isValid(oldValue);
+
+    if (becomeValid) {
+      this.props.onChangeText(newValue);
+    } else if (becomeInvalid) {
+      this.props.onChangeText(undefined);
+    }
+  }
+
+  private onChangeText = (text: string) => {
+    const { formatter } = this.props;
+
+    const value: string = formatter ? formatter(text, this.state.value) : text;
+
+    this.setState({ value }, this.onValueChange);
+  };
+
+  private onValueChange = () => {
+    const { value } = this.state;
+
+    if (this.isValid(value) && this.props.onChangeText) {
+      this.props.onChangeText(value);
     }
   };
 
-  private status = (): string | undefined => {
-    const { value, status } = this.props;
+  private isValid = (value: string): boolean => {
+    const { validator } = this.props;
 
-    if (value === undefined || value.length === 0) {
-      return undefined;
+    return validator(value);
+  };
+
+  private getStatus = (): string | undefined => {
+    const { value } = this.state;
+
+    if (value && value.length) {
+      return this.isValid(value) ? 'success' : 'danger';
     }
 
-    return status;
+    return undefined;
   };
 
   public render(): React.ReactNode {
-    const { pattern, onResult, ...restProps } = this.props;
+    const { style, ...restProps } = this.props;
 
     return (
       <Input
+        autoCapitalize='none'
+        status={this.getStatus()}
         {...restProps}
-        status={this.status()}
+        value={this.state.value}
+        style={style}
         onChangeText={this.onChangeText}
       />
     );

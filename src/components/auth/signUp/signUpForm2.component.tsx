@@ -9,104 +9,92 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { CheckBox } from '@kitten/ui';
-import {
-  Button,
-  ValidationInput,
-} from '@src/components/common';
+import { ValidationInput } from '@src/components/common';
 import {
   EmailIconFill,
   EyeOffIconFill,
   PersonIconFill,
 } from '@src/assets/icons';
 import {
-  PATTERN_EMAIL,
-  PATTERN_NAME,
-  PATTERN_PASSWORD,
+  EmailValidator,
+  NameValidator,
+  PasswordValidator,
 } from '@src/core/validators';
 
 export interface SignUpForm2Type {
   username: string;
   email: string;
   password: string;
+  termsAccepted: boolean;
 }
 
 interface ComponentProps {
-  onSubmit: (value: SignUpForm2Type) => void;
+  /**
+   * Will emit changes depending on validation:
+   * Will be called with form value if it is valid, otherwise will be called with undefined
+   */
+  onFormValueChange: (value: SignUpForm2Type | undefined) => void;
 }
 
 export type SignUpForm2Props = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
-  username: string;
-  email: string;
-  password: string;
-  usernameValid: boolean;
-  emailValid: boolean;
-  passwordValid: boolean;
+  username: string | undefined;
+  email: string | undefined;
+  password: string | undefined;
   termsAccepted: boolean;
 }
 
 class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
 
   public state: State = {
-    username: '',
-    email: '',
-    password: '',
-    usernameValid: false,
-    emailValid: false,
-    passwordValid: false,
+    username: undefined,
+    email: undefined,
+    password: undefined,
     termsAccepted: false,
   };
+
+  public componentDidUpdate(prevProps: SignUpForm2Props, prevState: State) {
+    const oldFormValid: boolean = this.isValid(prevState);
+    const newFormValid: boolean = this.isValid(this.state);
+
+    const becomeValid: boolean = !oldFormValid && newFormValid;
+    const becomeInvalid: boolean = oldFormValid && !newFormValid;
+
+    if (becomeValid) {
+      this.props.onFormValueChange(this.state);
+    } else if (becomeInvalid) {
+      this.props.onFormValueChange(undefined);
+    }
+  }
 
   private onTermsValueChange = (termsAccepted: boolean) => {
     this.setState({ termsAccepted });
   };
 
-  private onSubmitButtonPress = () => {
-    const { username, email, password } = this.state;
-
-    this.props.onSubmit({ username, email, password });
+  private onUsernameInputTextChange = (username: string) => {
+    this.setState({ username });
   };
 
-  private onUsernameValidationResult = (usernameValid: boolean, username: string) => {
-    this.setState({ usernameValid, username });
+  private onEmailInputTextChange = (email: string) => {
+    this.setState({ email });
   };
 
-  private onEmailValidationResult = (emailValid: boolean, email: string) => {
-    this.setState({ emailValid, email });
+  private onPasswordInputValidationResult = (password: string) => {
+    this.setState({ password });
   };
 
-  private onPasswordValidationResult = (passwordValid: boolean, password: string) => {
-    this.setState({ passwordValid, password });
-  };
+  private isValid = (value: SignUpForm2Type): boolean => {
+    const { username, password, email, termsAccepted } = value;
 
-  private isFormValid = (): boolean => {
-    const { usernameValid, passwordValid, termsAccepted } = this.state;
-
-    return usernameValid && passwordValid && termsAccepted;
-  };
-
-  private getInputStatus = (valid: boolean): string => {
-    return valid ? 'success' : 'danger';
+    return username !== undefined
+      && email !== undefined
+      && password !== undefined
+      && termsAccepted;
   };
 
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
-    const {
-      username,
-      email,
-      password,
-      usernameValid,
-      emailValid,
-      passwordValid,
-      termsAccepted,
-    } = this.state;
-
-
-    const usernameInputStatus: string = this.getInputStatus(usernameValid);
-    const emailInputStatus: string = this.getInputStatus(emailValid);
-    const passwordInputStatus: string = this.getInputStatus(passwordValid);
-    const submitButtonEnabled: boolean = this.isFormValid();
 
     return (
       <View
@@ -115,57 +103,43 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
         <View style={themedStyle.formContainer}>
           <ValidationInput
             style={themedStyle.usernameInput}
-            pattern={PATTERN_NAME}
-            status={usernameInputStatus}
             autoCapitalize='none'
             placeholder='User Name'
-            value={username}
             icon={PersonIconFill}
-            onResult={this.onUsernameValidationResult}
+            validator={NameValidator}
+            onChangeText={this.onUsernameInputTextChange}
           />
           <ValidationInput
             style={themedStyle.emailInput}
-            pattern={PATTERN_EMAIL}
-            status={emailInputStatus}
             autoCapitalize='none'
             placeholder='Email'
-            value={email}
             icon={EmailIconFill}
-            onResult={this.onEmailValidationResult}
+            validator={EmailValidator}
+            onChangeText={this.onEmailInputTextChange}
           />
           <ValidationInput
             style={themedStyle.passwordInput}
-            pattern={PATTERN_PASSWORD}
-            status={passwordInputStatus}
             autoCapitalize='none'
             secureTextEntry={true}
             placeholder='Password'
-            value={password}
             icon={EyeOffIconFill}
-            onResult={this.onPasswordValidationResult}
+            validator={PasswordValidator}
+            onChangeText={this.onPasswordInputValidationResult}
           />
           <CheckBox
             style={themedStyle.termsCheckBox}
-            checked={termsAccepted}
+            checked={this.state.termsAccepted}
             onChange={this.onTermsValueChange}
             text='I read and agree to Terms & Conditions'
           />
         </View>
-        <Button
-          style={themedStyle.submitButton}
-          size='giant'
-          disabled={!submitButtonEnabled}
-          onPress={this.onSubmitButtonPress}>
-          Sign Up
-        </Button>
       </View>
     );
   }
 }
 
 export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) => ({
-  container: {
-  },
+  container: {},
   forgotPasswordContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -185,9 +159,5 @@ export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) =
     marginTop: 28,
     fontFamily: 'opensans-semibold',
     color: theme['color-basic-600'],
-  },
-  submitButton: {
-    fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
 }));

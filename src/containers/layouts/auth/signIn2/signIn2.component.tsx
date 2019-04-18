@@ -7,7 +7,7 @@ import {
 } from '@kitten/theme';
 import {
   SignInForm2,
-  SignIn2FormType,
+  SignInForm2Type,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -16,17 +16,25 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  onSignInPress: (formValue: SignIn2FormType) => void;
+  onSignInPress: (formValue: SignInForm2Type) => void;
   onSignUpPress: () => void;
   onForgotPasswordPress: () => void;
 }
 
 export type SignIn2Props = ThemedComponentProps & ComponentProps;
 
+interface State {
+  formValue: SignInForm2Type | undefined;
+}
+
 class SignIn2Component extends React.Component<SignIn2Props> {
 
-  private onSignInButtonPress = (formValue: SignIn2FormType) => {
-    this.props.onSignInPress(formValue);
+  public state: State = {
+    formValue: undefined,
+  };
+
+  private onSignInButtonPress = () => {
+    this.props.onSignInPress(this.state.formValue);
   };
 
   private onSignUpButtonPress = () => {
@@ -35,6 +43,10 @@ class SignIn2Component extends React.Component<SignIn2Props> {
 
   private onForgotPasswordButtonPress = () => {
     this.props.onForgotPasswordPress();
+  };
+
+  private onFormValueChange = (formValue: SignInForm2Type) => {
+    this.setState({ formValue });
   };
 
   public render(): React.ReactNode {
@@ -50,8 +62,15 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
-            onSubmit={this.onSignInButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signInButton}
+            size='giant'
+            disabled={!this.state.formValue}
+            onPress={this.onSignInButtonPress}>
+            Sign In
+          </Button>
           <View style={themedStyle.signUpContainer}>
             <Text style={themedStyle.haveAccountLabel}>Don't have an account?</Text>
             <Button
@@ -86,11 +105,10 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
     paddingHorizontal: 16,
   },
   signUpContainer: {
-    marginTop: 24,
-    marginBottom: 32,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 24,
   },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',
@@ -105,6 +123,11 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
   },
   haveAccountLabel: {
     color: theme['color-basic-600'],
+  },
+  signInButton: {
+    marginHorizontal: 16,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   signUpButton: {
     paddingHorizontal: 0,

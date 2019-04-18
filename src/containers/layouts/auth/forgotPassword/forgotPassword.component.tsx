@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  ImageBackground,
-  ImageSourcePropType,
-  View,
-} from 'react-native';
+import { ImageSourcePropType } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -15,6 +11,7 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
+  Button,
   ImageOverlay,
   Text,
 } from '@src/components/common';
@@ -25,15 +22,32 @@ interface ComponentProps {
 
 export type ForgotPasswordProps = ThemedComponentProps & ComponentProps;
 
-class ForgotPasswordComponent extends React.Component<ForgotPasswordProps> {
+interface State {
+  formValue: ForgotPasswordFormType | undefined;
+}
 
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1457459686225-c7db79d4e59f?ixlib=rb-1.2
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=935&q=80`,
+class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State> {
+
+  public state: State = {
+    formValue: undefined,
   };
 
-  private onResetPasswordButtonPress = (formValue: ForgotPasswordFormType) => {
-    this.props.onResetPress(formValue);
+  private backgroundImage: ImageSourcePropType = {
+    uri: 'https://images.unsplash.com/photo-1457459686225-c7db79d4e59f',
+  };
+
+  private onFormValueChange = (formValue: ForgotPasswordFormType) => {
+    this.setState({ formValue });
+  };
+
+  private onResetPasswordButtonPress = () => {
+    this.props.onResetPress(this.state.formValue);
+  };
+
+  private resetPasswordEnabled = (): boolean => {
+    const { formValue } = this.state;
+
+    return formValue !== undefined;
   };
 
   public render(): React.ReactNode {
@@ -48,8 +62,15 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps> {
           <Text style={themedStyle.enterEmailLabel}>Please enter your email address</Text>
           <ForgotPasswordForm
             style={themedStyle.formContainer}
-            onSubmit={this.onResetPasswordButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.resetButton}
+            size='giant'
+            disabled={!this.resetPasswordEnabled()}
+            onPress={this.onResetPasswordButtonPress}>
+            Reset Password
+          </Button>
         </ImageOverlay>
       </AvoidKeyboard>
     );
@@ -77,5 +98,9 @@ export const ForgotPassword = withStyles(ForgotPasswordComponent, (theme: ThemeT
     alignSelf: 'center',
     marginTop: 64,
     fontFamily: 'opensans-semibold',
+  },
+  resetButton: {
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
 }));

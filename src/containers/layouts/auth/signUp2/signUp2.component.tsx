@@ -30,7 +30,19 @@ interface ComponentProps {
 
 export type SignUp2Props = ThemedComponentProps & ComponentProps;
 
-class SignUp2Component extends React.Component<SignUp2Props> {
+interface State {
+  formValue: SignUpForm2Type;
+}
+
+class SignUp2Component extends React.Component<SignUp2Props, State> {
+
+  public state: State = {
+    formValue: undefined,
+  };
+
+  private onFormValueChange = (formValue: SignUpForm2Type) => {
+    this.setState({ formValue });
+  };
 
   private onPhotoButtonPress = () => {
     this.props.onPhotoPress();
@@ -40,8 +52,8 @@ class SignUp2Component extends React.Component<SignUp2Props> {
     this.props.onSignInPress();
   };
 
-  private onSignUpButtonPress = (formValue: SignUpForm2Type) => {
-    this.props.onSignUpPress(formValue);
+  private onSignUpButtonPress = () => {
+    this.props.onSignUpPress(this.state.formValue);
   };
 
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
@@ -79,8 +91,15 @@ class SignUp2Component extends React.Component<SignUp2Props> {
           </View>
           <SignUpForm2
             style={themedStyle.formContainer}
-            onSubmit={this.onSignUpButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signUpButton}
+            size='giant'
+            disabled={!this.state.formValue}
+            onPress={this.onSignUpButtonPress}>
+            Sign Up
+          </Button>
           <View style={themedStyle.signInContainer}>
             <Text style={themedStyle.signInLabel}>Already have an account?</Text>
             <Button
@@ -118,8 +137,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 24,
-    marginBottom: 32,
+    marginVertical: 24,
   },
   photo: {
     width: 116,
@@ -140,6 +158,11 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     width: 24,
     height: 24,
     tintColor: theme['blue-primary'],
+  },
+  signUpButton: {
+    marginHorizontal: 16,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   signInLabel: {
     color: theme['color-basic-600'],

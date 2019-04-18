@@ -12,7 +12,7 @@ import {
 import {
   SocialAuth,
   SignInForm2,
-  SignIn2FormType,
+  SignInForm2Type,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -22,7 +22,7 @@ import {
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSignInPress: (formValue: SignIn2FormType) => void;
+  onSignInPress: (formValue: SignInForm2Type) => void;
   onSignUpPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
@@ -31,7 +31,15 @@ interface ComponentProps {
 
 export type SignIn4Props = ThemedComponentProps & ComponentProps;
 
-class SignIn4Component extends React.Component<SignIn4Props> {
+interface State {
+  formValue: SignInForm2Type;
+}
+
+class SignIn4Component extends React.Component<SignIn4Props, State> {
+
+  public state: State = {
+    formValue: undefined,
+  };
 
   private backgroundImage: ImageSourcePropType = {
     uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2
@@ -42,8 +50,8 @@ class SignIn4Component extends React.Component<SignIn4Props> {
     this.props.onForgotPasswordPress();
   };
 
-  private onSignInButtonPress = (formValue: SignIn2FormType) => {
-    this.props.onSignInPress(formValue);
+  private onSignInButtonPress = () => {
+    this.props.onSignInPress(this.state.formValue);
   };
 
   private onSignUpButtonPress = () => {
@@ -62,6 +70,11 @@ class SignIn4Component extends React.Component<SignIn4Props> {
     this.props.onTwitterPress();
   };
 
+
+  private onFormValueChange = (formValue: SignInForm2Type) => {
+    this.setState({ formValue });
+  };
+
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
@@ -77,8 +90,15 @@ class SignIn4Component extends React.Component<SignIn4Props> {
           <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
-            onSubmit={this.onSignInButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signInButton}
+            size='giant'
+            disabled={!this.state.formValue}
+            onPress={this.onSignInButtonPress}>
+            Sign In
+          </Button>
           <SocialAuth
             style={themedStyle.socialAuthContainer}
             iconStyle={themedStyle.socialAuthIcon}
@@ -140,6 +160,11 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   },
   socialAuthIcon: {
     tintColor: theme['color-white'],
+  },
+  signInButton: {
+    marginHorizontal: 16,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   signUpButton: {
     paddingHorizontal: 0,

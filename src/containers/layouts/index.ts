@@ -11,6 +11,7 @@ export { SignIn1Container } from './auth/signIn1/signIn1.container';
 export { SignIn2Container } from './auth/signIn2/signIn2.container';
 export { SignIn3Container } from './auth/signIn3/signIn3.container';
 export { SignIn4Container } from './auth/signIn4/signIn4.container';
+export { SignIn5Container } from './auth/signIn5/signIn5.container';
 export { SignUp1Container } from './auth/signUp1/signUp1.container';
 export { SignUp2Container } from './auth/signUp2/signUp2.container';
 export { SignUp3Container } from './auth/signUp3/signUp3.container';
