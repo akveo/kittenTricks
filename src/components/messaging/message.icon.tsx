@@ -3,8 +3,8 @@ import {
   ImageProps,
   StyleSheet,
 } from 'react-native';
-import { DoneAllIcon } from '@src/assets/icons';
 import { theme } from 'eva/packages/theme/eva';
+import { DoneAllIcon } from '@src/assets/icons';
 
 interface MessageIcon {
   icon(): React.ReactElement<ImageProps>;

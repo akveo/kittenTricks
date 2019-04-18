@@ -16,22 +16,22 @@ import {
   Button,
 } from '@kitten/ui';
 import {
-  Conversation as ConversationModel,
-  Message as MessageModel,
-} from '@src/core/model';
-import {
   ChatMessage,
   ChatMessageProps,
   Alignments,
 } from '@src/components/messaging';
 import {
-  profile1,
-  profile2,
-} from '@src/core/data/profile';
-import {
   PlusIcon,
   MicIcon,
 } from '@src/assets/icons';
+import {
+  Conversation as ConversationModel,
+  Message as MessageModel,
+} from '@src/core/model';
+import {
+  profile1,
+  profile2,
+} from '@src/core/data/profile';
 import { UiMessageModel } from '../uiMessage.model';
 
 interface ComponentProps {

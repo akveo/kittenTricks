@@ -3,19 +3,21 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { Message as MessageModel } from '@src/core/model';
 import {
   StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Message as MessageModel } from '@src/core/model';
 import {
   Alignments,
   getContentAlignment,
+} from './type';
+import {
   getMessageContent,
   MessageElement,
-} from '@src/components/messaging';
+} from './message.content';
 
 export interface ComponentProps {
   index?: number;

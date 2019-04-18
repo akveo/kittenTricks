@@ -15,10 +15,8 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@src/components/common';
-import {
-  ConversationInterlocutor,
-  getMessageIcon,
-} from '@src/components/messaging';
+import { ConversationInterlocutor } from './conversationInterlocutor.component';
+import { getMessageIcon } from './message.icon';
 
 interface ComponentProps {
   index?: number;

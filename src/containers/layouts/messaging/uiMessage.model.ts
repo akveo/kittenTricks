@@ -1,5 +1,5 @@
 import { Message as MessageModel } from '@src/core/model';
-import { Alignments } from '@src/components/messaging/messageAlignment.type';
+import { Alignments } from '@src/components/messaging';
 
 interface UiMessage {
   alignment: Alignments;

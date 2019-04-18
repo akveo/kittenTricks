@@ -8,6 +8,10 @@ import {
   TouchableOpacityProps,
 } from 'react-native';
 import {
+  MediaLibrary,
+  Camera,
+} from 'expo';
+import {
   StyleType,
   ThemedComponentProps,
   ThemeType,
@@ -20,6 +24,7 @@ import {
   ViewPager,
   ViewPagerProps,
 } from '@kitten/ui';
+import { Text } from '@src/components/common';
 import {
   CameraIcon,
   ImageIcon,
@@ -27,11 +32,6 @@ import {
   MapIcon,
   PeopleIcon,
 } from '@src/assets/icons';
-import { Text } from '@src/components/common';
-import {
-  MediaLibrary,
-  Camera,
-} from 'expo';
 
 interface ComponentProps {
   galleryFiles: MediaLibrary.Asset[];

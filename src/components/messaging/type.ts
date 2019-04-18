@@ -37,3 +37,8 @@ const placements: { [key in Alignments]: Placement } = {
 export function getContentAlignment(value: Alignments) {
   return placements[value];
 }
+
+export enum ChatFileMessageAppearance {
+  full = 'full',
+  preview = 'preview',
+}

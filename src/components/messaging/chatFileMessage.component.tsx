@@ -15,15 +15,11 @@ import {
   ComponentProps,
 } from './chatMessage.component';
 import {
+  ChatFileMessageAppearance,
   Alignments,
   getContentAlignment,
-} from '@src/components/messaging';
-import { getFileComponent } from '@src/components/messaging/file.component';
-
-export enum ChatFileMessageAppearance {
-  full = 'full',
-  preview = 'preview',
-}
+} from './type';
+import { getFileComponent } from './file.component';
 
 interface FileComponentProps {
   appearance: ChatFileMessageAppearance;

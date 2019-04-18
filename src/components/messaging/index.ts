@@ -12,15 +12,18 @@ export {
 } from './chatMessage.component';
 export {
   ChatFileMessage,
-  ChatFileMessageAppearance,
   ChatFileMessageProps,
 } from './chatFileMessage.component';
 export {
+  ChatFileMessageAppearance,
   Alignments,
   getContentAlignment,
-} from './messageAlignment.type';
+} from './type';
 export { getMessageIcon } from './message.icon';
 export {
   getMessageContent,
   MessageElement,
 } from './message.content';
+export {
+  getFileComponent,
+} from './file.component';

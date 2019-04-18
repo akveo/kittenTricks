@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { Chat1 } from './chat1.component';
 import {
   Conversation,
   Message,
@@ -11,6 +10,7 @@ import {
   profile1,
   profile2,
 } from '@src/core/data/profile';
+import { Chat1 } from './chat1.component';
 
 interface State {
   newMessageText: string;

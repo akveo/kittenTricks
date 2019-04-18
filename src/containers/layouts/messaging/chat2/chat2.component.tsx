@@ -6,6 +6,7 @@ import {
   View,
   ViewProps,
 } from 'react-native';
+import { MediaLibrary } from 'expo';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -18,10 +19,6 @@ import {
   ButtonProps,
 } from '@kitten/ui';
 import {
-  Conversation as ConversationModel,
-  Message as MessageModel,
-} from '@src/core/model';
-import {
   ChatMessage,
   ChatMessageProps,
   ChatFileMessageProps,
@@ -30,17 +27,20 @@ import {
   Alignments,
 } from '@src/components/messaging';
 import {
-  profile1,
-  profile2,
-} from '@src/core/data/profile';
-import {
   PlusIcon,
   MicIcon,
   PaperPlaneIcon,
 } from '@src/assets/icons';
+import {
+  Conversation as ConversationModel,
+  Message as MessageModel,
+} from '@src/core/model';
+import {
+  profile1,
+  profile2,
+} from '@src/core/data/profile';
 import { UiMessageModel } from '../uiMessage.model';
 import { Chat2FileSection } from './chat2FileSection.component';
-import { MediaLibrary } from 'expo';
 
 const width: number = Dimensions.get('window').width;
 

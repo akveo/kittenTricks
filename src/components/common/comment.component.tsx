@@ -4,7 +4,6 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { Comment as CommentModel } from '@src/core/model';
 import {
   Avatar,
   Button,
@@ -17,9 +16,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { MoreIcon } from '@src/assets/icons';
 import { ArticleActivityBar } from '@src/components/articles';
-import { Text } from '@src/components/common';
+import { MoreIcon } from '@src/assets/icons';
+import { Text } from './text.component';
+import { Comment as CommentModel } from '@src/core/model';
 
 interface ComponentProps {
   comment: CommentModel;

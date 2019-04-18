@@ -5,13 +5,13 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { Message } from '@src/core/model';
 import { theme } from 'eva/packages/theme/eva';
-import { Alignments } from '@src/components/messaging';
 import {
   Text,
   TextProps,
 } from '@src/components/common';
+import { Message } from '@src/core/model';
+import { Alignments } from './type';
 
 type MessageRightElement = [React.ReactElement<TextProps>, React.ReactElement<ViewProps>];
 type MessageLeftElement = [React.ReactElement<ViewProps>, React.ReactElement<TextProps>];

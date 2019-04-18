@@ -6,14 +6,14 @@ import {
   ImageProps,
   StyleSheet,
 } from 'react-native';
+import { theme } from 'eva/packages/theme/eva';
+import { StyleType } from '@kitten/theme';
+import { PlayCircleIcon } from '@src/assets/icons';
 import {
   FileType,
   Message,
 } from '@src/core/model';
-import { StyleType } from '@kitten/theme';
-import { PlayCircleIcon } from '@src/assets/icons';
-import { theme } from 'eva/packages/theme/eva';
-import { ChatFileMessageAppearance } from '@src/components/messaging/chatFileMessage.component';
+import { ChatFileMessageAppearance } from './type';
 
 interface UiFileType {
   view(message: Message, appearance: ChatFileMessageAppearance): React.ReactElement<any>;

@@ -3,13 +3,13 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { Profile } from '@src/core/model';
-import { Avatar } from '@kitten/ui';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Avatar } from '@kitten/ui';
+import { Profile } from '@src/core/model';
 
 interface ComponentProps {
   profile: Profile;

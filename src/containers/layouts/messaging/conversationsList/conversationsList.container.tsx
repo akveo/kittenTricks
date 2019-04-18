@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { ConversationsList } from './conversationsList.component';
 import { Conversation } from '@src/core/model';
 import {
   conversation1,
@@ -8,6 +7,7 @@ import {
   conversation3,
   conversation4,
 } from '@src/core/data/conversation';
+import { ConversationsList } from './conversationsList.component';
 
 interface State {
   conversations: Conversation[];
