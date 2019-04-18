@@ -15,10 +15,6 @@ export {
   PriceTextProps,
 } from './priceText.component';
 export {
-  EcommerceInput,
-  EcommerceInputProps,
-} from './ecommerceInput.component';
-export {
   CardNumberValidator,
   ExpirationDateValidator,
   CvvValidator,

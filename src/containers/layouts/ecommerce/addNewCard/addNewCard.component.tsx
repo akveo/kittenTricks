@@ -6,9 +6,11 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Button } from '@kitten/ui';
-import { Text } from '@src/components/common';
 import {
-  EcommerceInput,
+  Text,
+  ValidationInput,
+} from '@src/components/common';
+import {
   CardNumberValidator,
   CardNumberFormatter,
   ExpirationDateValidator,
@@ -70,7 +72,7 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
       <View style={themedStyle.container}>
         <View>
           <Text style={themedStyle.inputLabel}>CARD NUMBER</Text>
-          <EcommerceInput
+          <ValidationInput
             style={[themedStyle.input, themedStyle.commonMargin]}
             value={cardNumber}
             validator={CardNumberValidator}
@@ -83,7 +85,7 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
           <View style={[themedStyle.middleContainer, themedStyle.commonMargin]}>
             <View>
               <Text style={themedStyle.inputLabel}>EXPIRE DATE</Text>
-              <EcommerceInput
+              <ValidationInput
                 style={[themedStyle.input, themedStyle.expireInput]}
                 value={expireDate}
                 validator={ExpirationDateValidator}
@@ -96,7 +98,7 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
             </View>
             <View style={themedStyle.cvvContainer}>
               <Text style={themedStyle.inputLabel}>CVV</Text>
-              <EcommerceInput
+              <ValidationInput
                 style={[themedStyle.input, themedStyle.cvvInput]}
                 value={cvv}
                 validator={CvvValidator}
@@ -109,7 +111,7 @@ class AddNewCardComponent extends React.Component<AddNewCardProps> {
             </View>
           </View>
           <Text style={themedStyle.inputLabel}>CARDHOLDER NAME</Text>
-          <EcommerceInput
+          <ValidationInput
             value={cardholderName}
             style={themedStyle.input}
             validator={CardholderNameValidator}
