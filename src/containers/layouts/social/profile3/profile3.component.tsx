@@ -6,7 +6,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  ProfileInfo,
+  ProfileInfo1,
   ProfileParameterCard,
   ProfileSocials,
 } from '@src/components/social';
@@ -64,7 +64,7 @@ class Profile3Component extends React.Component<Profile3Props> {
     return (
       <View style={themedStyle.container}>
         <View style={themedStyle.infoContainer}>
-          <ProfileInfo
+          <ProfileInfo1
             photo={{ uri: profile.photo }}
             name={`${profile.firstName} ${profile.lastName}`}
             location={profile.location}>
@@ -74,7 +74,7 @@ class Profile3Component extends React.Component<Profile3Props> {
               value={3}
               onChange={this.onRateBarValueChange}
             />
-          </ProfileInfo>
+          </ProfileInfo1>
           <Button
             style={themedStyle.followButton}
             onPress={this.onFollowButtonPress}>

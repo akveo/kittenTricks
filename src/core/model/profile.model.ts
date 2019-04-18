@@ -16,6 +16,7 @@ export interface Profile {
   email: string;
   phoneNumber: string;
   location: string;
+  friends: Profile[];
   onLine?: boolean;
 }
 
@@ -23,4 +24,13 @@ export interface ProfileSocials {
   followers: number;
   following: number;
   posts: number;
+}
+
+export interface CategorisedProfileActivity {
+  [category: string]: ProfileActivity[];
+}
+
+export interface ProfileActivity {
+  category: string;
+  source: string;
 }

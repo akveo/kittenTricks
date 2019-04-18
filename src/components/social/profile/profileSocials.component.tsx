@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  StyleProp,
+  TextStyle,
   TouchableOpacity,
   View,
   ViewProps,
@@ -18,6 +20,7 @@ interface ComponentProps {
   onFollowersPress: () => void;
   onFollowingPress: () => void;
   onPostsPress: () => void;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 export type ProfileSocialsProps = ThemedComponentProps & ViewProps & ComponentProps;
@@ -37,7 +40,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, followers, following, posts, ...restProps } = this.props;
+    const { style, themedStyle, textStyle, followers, following, posts, ...restProps } = this.props;
 
     return (
       <View
@@ -47,22 +50,22 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onFollowersButtonPress}>
-          <Text style={themedStyle.valueLabel}>{followers}</Text>
-          <Text style={themedStyle.hintLabel}>Followers</Text>
+          <Text style={[themedStyle.valueLabel, textStyle]}>{followers}</Text>
+          <Text style={[themedStyle.hintLabel, textStyle]}>Followers</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onFollowingButtonPress}>
-          <Text style={themedStyle.valueLabel}>{following}</Text>
-          <Text style={themedStyle.hintLabel}>Following</Text>
+          <Text style={[themedStyle.valueLabel, textStyle]}>{following}</Text>
+          <Text style={[themedStyle.hintLabel, textStyle]}>Following</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onPostsButtonPress}>
-          <Text style={themedStyle.valueLabel}>{posts}</Text>
-          <Text style={themedStyle.hintLabel}>Posts</Text>
+          <Text style={[themedStyle.valueLabel, textStyle]}>{posts}</Text>
+          <Text style={[themedStyle.hintLabel, textStyle]}>Posts</Text>
         </TouchableOpacity>
       </View>
     );
@@ -85,6 +88,7 @@ export const ProfileSocials = withStyles(ProfileSocialsComponent, (theme: ThemeT
   hintLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 13,
+    lineHeight: 24,
     color: theme['color-basic-600'],
   },
 }));

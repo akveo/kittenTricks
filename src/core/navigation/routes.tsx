@@ -5,7 +5,6 @@ import {
   NavigationContainer as ReactNavigationContainer,
   HeaderProps,
   createBottomTabNavigator,
-  createMaterialTopTabNavigator,
 } from 'react-navigation';
 import {
   MenuContainer,
@@ -30,6 +29,8 @@ import {
   Profile3Container,
   Profile4Container,
   Profile5Container,
+  Profile6Container,
+  Profile7Container,
   ProfileSettings1Container,
   ProfileSettings2Container,
   ProfileSettings3Container,
@@ -154,6 +155,8 @@ const SocialNavigator: ReactNavigationContainer = createStackNavigator(
     ['Profile 3']: Profile3Container,
     ['Profile 4']: Profile4Container,
     ['Profile 5']: Profile5Container,
+    ['Profile 6']: Profile6Container,
+    ['Profile 7']: Profile7Container,
     ['Profile Settings 1']: ProfileSettings1Container,
     ['Profile Settings 2']: ProfileSettings2Container,
     ['Profile Settings 3']: ProfileSettings3Container,
