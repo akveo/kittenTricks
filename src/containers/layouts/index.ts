@@ -11,6 +11,7 @@ export { SignIn1Container } from './auth/signIn1/signIn1.container';
 export { SignIn2Container } from './auth/signIn2/signIn2.container';
 export { SignIn3Container } from './auth/signIn3/signIn3.container';
 export { SignIn4Container } from './auth/signIn4/signIn4.container';
+export { SignIn5Container } from './auth/signIn5/signIn5.container';
 export { SignUp1Container } from './auth/signUp1/signUp1.container';
 export { SignUp2Container } from './auth/signUp2/signUp2.container';
 export { SignUp3Container } from './auth/signUp3/signUp3.container';
@@ -19,7 +20,10 @@ export { ForgotPasswordContainer } from './auth/forgotPassword/forgotPassword.co
 export { DashboardsContainer } from './dashboards/dashboards.container';
 export { Trainings1Container } from './dashboards/trainings/trainings1/trainings1.container';
 export { Trainings2Container } from './dashboards/trainings/trainings2/trainings2.container';
+export { MovieContainer } from './dashboards/movie/movie.container';
+export { BookDetailsContainer } from './dashboards/bookDetails/bookDetails.container';
 export { EcommerceContainer } from './ecommerce/ecommerce.container';
+export { RentApartmentContainer } from './ecommerce/rentApartment/rentApartment.container';
 export { AddNewCardContainer } from './ecommerce/addNewCard/addNewCard.container';
 export { PaymentContainer } from './ecommerce/payment/payment.container';
 export { ProductsListContainer } from './ecommerce/productsList/productsList.container';

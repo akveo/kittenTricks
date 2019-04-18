@@ -8,103 +8,89 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
 import { ValidationInput } from '@src/components/common';
 import {
-  PATTERN_EMAIL,
-  PATTERN_PASSWORD,
+  EmailValidator,
+  PasswordValidator,
 } from '@src/core/validators';
 
-export interface SignInFormType {
+export interface SignInForm1Type {
   email: string;
   password: string;
 }
 
 interface ComponentProps {
-  onSubmit: (value: SignInFormType) => void;
+  /**
+   * Will emit changes depending on validation:
+   * Will be called with form value if it is valid, otherwise will be called with undefined
+   */
+  onFormValueChange: (value: SignInForm1Type | undefined) => void;
 }
 
-export type SignInFormProps = ThemedComponentProps & ViewProps & ComponentProps;
+export type SignInForm1Props = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
-  email: string;
-  password: string;
-  emailValid: boolean;
-  passwordValid: boolean;
+  email: string | undefined;
+  password: string | undefined;
 }
 
-class SignInForm1Component extends React.Component<SignInFormProps, State> {
+class SignInForm1Component extends React.Component<SignInForm1Props, State> {
 
   public state: State = {
-    email: '',
-    password: '',
-    passwordValid: false,
-    emailValid: false,
+    email: undefined,
+    password: undefined,
   };
 
-  private onSubmitPress = () => {
-    const { email, password } = this.state;
+  public componentDidUpdate(prevProps: SignInForm1Props, prevState: State) {
+    const oldFormValid: boolean = this.isValid(prevState);
+    const newFormValid: boolean = this.isValid(this.state);
 
-    this.props.onSubmit({ email, password });
+    const becomeValid: boolean = !oldFormValid && newFormValid;
+    const becomeInvalid: boolean = oldFormValid && !newFormValid;
+
+    if (becomeValid) {
+      this.props.onFormValueChange(this.state);
+    } else if (becomeInvalid) {
+      this.props.onFormValueChange(undefined);
+    }
+  }
+
+  private onEmailInputTextChange = (email: string) => {
+    this.setState({ email });
   };
 
-  private onEmailValidationResult = (emailValid: boolean, email: string) => {
-    this.setState({ emailValid, email });
+  private onPasswordInputTextChange = (password: string) => {
+    this.setState({ password });
   };
 
-  private onPasswordValidationResult = (passwordValid: boolean, password: string) => {
-    this.setState({ passwordValid, password });
-  };
+  private isValid = (value: SignInForm1Type): boolean => {
+    const { email, password } = value;
 
-  private isFormValid = (): boolean => {
-    const { emailValid, passwordValid } = this.state;
-
-    return emailValid && passwordValid;
-  };
-
-  private getInputStatus = (valid: boolean): string => {
-    return valid ? 'success' : 'danger';
+    return email !== undefined && password !== undefined;
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, ...restProps } = this.props;
-    const { email, password, emailValid, passwordValid } = this.state;
-
-    const emailInputStatus: string = this.getInputStatus(emailValid);
-    const passwordInputStatus: string = this.getInputStatus(passwordValid);
-    const submitButtonEnabled: boolean = this.isFormValid();
+    const { style, themedStyle, theme, ...restProps } = this.props;
 
     return (
       <View
-        style={[themedStyle.container, style]}
-        {...restProps}>
+        {...restProps}
+        style={[themedStyle.container, style]}>
         <ValidationInput
           style={themedStyle.emailInput}
-          pattern={PATTERN_EMAIL}
-          placeholderTextColor='#FFFFFF'
-          autoCapitalize='none'
-          status={emailInputStatus}
+          placeholderTextColor={theme['color-white']}
           placeholder='Email'
-          value={email}
-          onResult={this.onEmailValidationResult}
+          validator={EmailValidator}
+          onChangeText={this.onEmailInputTextChange}
         />
         <ValidationInput
           style={themedStyle.passwordInput}
-          pattern={PATTERN_PASSWORD}
-          placeholderTextColor='#FFFFFF'
-          autoCapitalize='none'
-          status={passwordInputStatus}
+          placeholderTextColor={theme['color-white']}
+          secureTextEntry={true}
           placeholder='Password'
-          value={password}
-          onResult={this.onPasswordValidationResult}
+          validator={PasswordValidator}
+          onChangeText={this.onPasswordInputTextChange}
         />
-        <Button
-          style={themedStyle.submitButton}
-          size='giant'
-          disabled={!submitButtonEnabled}
-          onPress={this.onSubmitPress}>
-          Sign In
-        </Button>
       </View>
     );
   }
@@ -118,10 +104,5 @@ export const SignInForm1 = withStyles(SignInForm1Component, (theme: ThemeType) =
   passwordInput: {
     marginTop: 40,
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
-  },
-  submitButton: {
-    marginTop: 86,
-    fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
 }));

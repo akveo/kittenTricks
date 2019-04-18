@@ -31,6 +31,11 @@ export class AuthContainer extends React.Component<NavigationScreenProps> {
       route: 'Sign In 4',
     },
     {
+      title: 'Layout - V4',
+      description: 'Sign In',
+      route: 'Sign In 5',
+    },
+    {
       title: 'Layout',
       description: 'Sign Up',
       route: 'Sign Up 1',
