@@ -9,11 +9,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ProfileActivityBar } from '@src/components/social';
 import {
   ActivityAuthoring,
   ImageOverlay,
 } from '@src/components/common';
+import { ProfileActivityBar } from './profileActivityBar.component';
 
 interface ListDerivedProps {
   index?: number;
@@ -30,9 +30,9 @@ interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   onLikePress: (index: number) => void;
 }
 
-export type Profile1ListItemProps = ThemedComponentProps & ComponentProps;
+export type ProfileActivityList1ItemProps = ThemedComponentProps & ComponentProps;
 
-class Profile1ListItemComponent extends React.Component<Profile1ListItemProps> {
+class ProfileActivityList1ItemComponent extends React.Component<ProfileActivityList1ItemProps> {
 
   private onPress = () => {
     this.props.onPress(this.props.index);
@@ -80,7 +80,7 @@ class Profile1ListItemComponent extends React.Component<Profile1ListItemProps> {
   }
 }
 
-export const Profile1ListItem = withStyles(Profile1ListItemComponent, (theme: ThemeType) => ({
+export const ProfileActivityList1Item = withStyles(ProfileActivityList1ItemComponent, (theme: ThemeType) => ({
   container: {
     overflow: 'hidden',
     borderRadius: 12,

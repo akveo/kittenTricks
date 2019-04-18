@@ -4,7 +4,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { MessageCircleIcon } from '@src/assets/icons';
+import { MessageCircleIconOutline } from '@src/assets/icons';
 import {
   ReactionButton,
   ReactionButtonProps,
@@ -20,7 +20,7 @@ class CommentsButtonComponent extends React.Component<CommentsButtonProps> {
     return (
       <ReactionButton
         iconStyle={[themedStyle.icon, iconStyle]}
-        icon={MessageCircleIcon}
+        icon={MessageCircleIconOutline}
         {...restProps}
       />
     );

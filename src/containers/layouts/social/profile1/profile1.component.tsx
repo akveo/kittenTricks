@@ -8,21 +8,17 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { List } from '@kitten/ui';
 import {
-  ProfileInfo,
+  ProfileInfo1,
   ProfileSocials,
 } from '@src/components/social';
+import { ProfileActivityList1 } from '@src/components/social';
 import { Button } from '@src/components/common';
 import {
   Profile as ProfileModel,
   ProfileSocials as ProfileSocialsModel,
   Post as PostModel,
 } from '@src/core/model';
-import {
-  Profile1ListItem,
-  Profile1ListItemProps,
-} from './profile1ListItem.component';
 
 interface ComponentProps {
   profile: ProfileModel;
@@ -64,38 +60,12 @@ class Profile1Component extends React.Component<Profile1Props> {
     this.props.onPostLikePress(index);
   };
 
-  private renderPostItemElement = (item: PostModel): React.ReactElement<Profile1ListItemProps> => {
-    const { themedStyle } = this.props;
-    const { photo, author, date, likes } = item;
-
-    return (
-      <Profile1ListItem
-        style={themedStyle.feedItem}
-        photo={{ uri: photo }}
-        profilePhoto={{ uri: author.photo }}
-        authorName={`${author.firstName} ${author.lastName}`}
-        date={date}
-        likes={likes}
-        onPress={this.onItemPress}
-        onLikePress={this.onItemLikePress}
-      />
-    );
-  };
-
-  private renderPostItem = (info: ListRenderItemInfo<PostModel>): React.ReactElement<Profile1ListItemProps> => {
-    const { item, index } = info;
-
-    const postItemElement: React.ReactElement<Profile1ListItemProps> = this.renderPostItemElement(item);
-
-    return React.cloneElement(postItemElement, { index });
-  };
-
   public render(): React.ReactNode {
     const { themedStyle, profile, socials, posts } = this.props;
 
     return (
       <View style={themedStyle.container}>
-        <ProfileInfo
+        <ProfileInfo1
           style={themedStyle.profileInfo}
           photo={{ uri: profile.photo }}
           name={`${profile.firstName} ${profile.lastName}`}
@@ -115,11 +85,12 @@ class Profile1Component extends React.Component<Profile1Props> {
               FOLLOW
             </Button>
           </View>
-        </ProfileInfo>
-        <List
+        </ProfileInfo1>
+        <ProfileActivityList1
           style={themedStyle.feed}
           data={posts}
-          renderItem={this.renderPostItem}
+          onItemPress={this.onItemPress}
+          onItemLikePress={this.onItemLikePress}
         />
       </View>
     );
@@ -147,9 +118,6 @@ export const Profile1 = withStyles(Profile1Component, (theme: ThemeType) => ({
     backgroundColor: '#F4F5F8',
     paddingVertical: 8,
     paddingHorizontal: 24,
-  },
-  feedItem: {
-    marginVertical: 8,
   },
 }));
 
