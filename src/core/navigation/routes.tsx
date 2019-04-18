@@ -5,7 +5,6 @@ import {
   NavigationContainer as ReactNavigationContainer,
   HeaderProps,
   createBottomTabNavigator,
-  createMaterialTopTabNavigator,
 } from 'react-navigation';
 import {
   MenuContainer,
@@ -30,6 +29,8 @@ import {
   Profile3Container,
   Profile4Container,
   Profile5Container,
+  Profile6Container,
+  Profile7Container,
   ProfileSettings1Container,
   ProfileSettings2Container,
   ProfileSettings3Container,
@@ -46,6 +47,10 @@ import {
   Article3Container,
   MessagingContainer,
   CommentsList1Container,
+  ConversationsListContainer,
+  Chat1Container,
+  Chat2Container,
+  Chat3Container,
   DashboardsContainer,
   WalkthroughContainer,
   EcommerceContainer,
@@ -125,7 +130,11 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
 const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Messaging']: MessagingContainer,
-    ['Comments List 1']: CommentsList1Container,
+    ['Comments List']: CommentsList1Container,
+    ['Conversations List']: ConversationsListContainer,
+    ['Chat 1']: Chat1Container, // TODO: add custom header
+    ['Chat 2']: Chat2Container, // TODO: add custom header
+    ['Chat 3']: Chat3Container, // TODO: add custom header
   },
   {
     headerMode: 'none',
@@ -156,6 +165,8 @@ const SocialNavigator: ReactNavigationContainer = createStackNavigator(
     ['Profile 3']: Profile3Container,
     ['Profile 4']: Profile4Container,
     ['Profile 5']: Profile5Container,
+    ['Profile 6']: Profile6Container,
+    ['Profile 7']: Profile7Container,
     ['Profile Settings 1']: ProfileSettings1Container,
     ['Profile Settings 2']: ProfileSettings2Container,
     ['Profile Settings 3']: ProfileSettings3Container,
