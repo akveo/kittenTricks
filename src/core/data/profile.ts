@@ -21,6 +21,7 @@ export const profile1: Profile = {
   phoneNumber: '+375 44 846 97 68',
   location: 'Florida, USA',
   friends: [],
+  onLine: true,
 };
 
 export const profile2: Profile = {
@@ -39,6 +40,7 @@ export const profile2: Profile = {
   phoneNumber: '+375 44 123 12 12',
   location: 'Portland, USA',
   friends: [],
+  onLine: false,
 };
 
 export const profile3: Profile = {
@@ -57,6 +59,7 @@ export const profile3: Profile = {
   phoneNumber: '+375 44 123 12 12',
   location: 'Cleveland, USA',
   friends: [],
+  onLine: true,
 };
 
 export const profile4: Profile = {
@@ -76,6 +79,7 @@ export const profile4: Profile = {
   phoneNumber: '+375 44 123 12 12',
   location: 'Atlanta, USA',
   friends: [profile1, profile2, profile3],
+  onLine: false,
 };
 
 export const profileSocials1: ProfileSocials = {

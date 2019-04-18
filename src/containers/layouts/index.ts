@@ -22,6 +22,10 @@ export { Trainings2Container } from './dashboards/trainings/trainings2/trainings
 export { EcommerceContainer } from './ecommerce/ecommerce.container';
 export { MessagingContainer } from './messaging/messaging.container';
 export { CommentsList1Container } from './messaging/commentsList1/commentsList1.container';
+export { ConversationsListContainer } from './messaging/conversationsList/conversationsList.container';
+export { Chat1Container } from './messaging/chat1/chat1.container';
+export { Chat2Container } from './messaging/chat2/chat2.container';
+export { Chat3Container } from './messaging/chat3/chat3.container';
 export { NavigationContainer } from './navigation/navigation.container';
 export { SocialContainer } from './social/social.container';
 export { Profile1Container } from './social/profile1/profile1.container';

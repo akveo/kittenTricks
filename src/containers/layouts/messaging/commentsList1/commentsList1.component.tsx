@@ -62,7 +62,6 @@ class CommentsList1Component extends React.Component<CommentsList1Props> {
 export const CommentsList1 = withStyles(CommentsList1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
     paddingVertical: 8,
     backgroundColor: theme['color-white'],
   },

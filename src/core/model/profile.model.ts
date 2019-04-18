@@ -17,6 +17,7 @@ export interface Profile {
   phoneNumber: string;
   location: string;
   friends: Profile[];
+  onLine?: boolean;
 }
 
 export interface ProfileSocials {
