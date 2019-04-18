@@ -18,6 +18,7 @@ export const profile1: Profile = {
   email: 'john.cena@gmail.com',
   phoneNumber: '+375 44 846 97 68',
   location: 'Florida, USA',
+  onLine: true,
 };
 
 export const profile2: Profile = {
@@ -36,6 +37,7 @@ export const profile2: Profile = {
   email: '21.savage@gmail.com',
   phoneNumber: '+375 44 123 12 12',
   location: 'Atlanta, USA',
+  onLine: false,
 };
 
 export const profile3: Profile = {
@@ -53,6 +55,7 @@ export const profile3: Profile = {
   email: 'lebron.james@gmail.com',
   phoneNumber: '+375 44 123 12 12',
   location: 'Cleveland, USA',
+  onLine: true,
 };
 
 export const profile4: Profile = {
@@ -70,6 +73,7 @@ export const profile4: Profile = {
   email: 'stephen.king@gmail.com',
   phoneNumber: '+375 44 123 12 12',
   location: 'Portland, USA',
+  onLine: false,
 };
 
 export const profileSocials1: ProfileSocials = {
