@@ -13,14 +13,8 @@ import {
   Avatar,
   Text,
 } from '@kitten/ui';
-import {
-  ProfileLocation,
-  ProfileSocials,
-} from '@src/components/social';
-import {
-  PinIcon,
-  PinIconFill,
-} from '@src/assets/icons';
+import { PinIconFill } from '@src/assets/icons';
+import { ProfileLocation } from './profileLocation.component';
 
 interface ComponentProps {
   photo: ImageSourcePropType;

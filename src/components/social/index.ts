@@ -11,6 +11,10 @@ export {
   ProfileActivityList2Props,
 } from './profile/profileActivityList2.component';
 export {
+  ProfileActivityList3,
+  ProfileActivityList3Props,
+} from './profile/profileActivityList3.component';
+export {
   ProfileFriendList,
   ProfileFriendListProps,
 } from './profile/profileFriendList.component';

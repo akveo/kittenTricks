@@ -13,6 +13,7 @@ import {
   List,
   ListProps,
 } from '@kitten/ui';
+import { Post } from '@src/core/model';
 import {
   ProfileActivityList1Item,
   ProfileActivityList1ItemProps,
@@ -20,8 +21,9 @@ import {
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
-  data: ImageSourcePropType[];
+  data: Post[];
   onItemPress: (index: number) => void;
+  onItemLikePress: (index: number) => void;
   renderItem?: (info: ListRenderItemInfo<ImageSourcePropType>, style: StyleType) => React.ReactElement<any>;
 }
 
@@ -35,20 +37,29 @@ class ProfileActivityList1Component extends React.Component<ProfileActivityList1
     this.props.onItemPress(index);
   };
 
-  private renderListItemElement = (item: ImageSourcePropType): ListItemElement => {
+  private onItemLikePressPress = (index: number) => {
+     this.props.onItemPress(index);
+  };
+
+  private renderListItemElement = (item: Post): ListItemElement => {
     const { themedStyle } = this.props;
+    const { photo, author, date, likes } = item;
 
     return (
       <ProfileActivityList1Item
         style={themedStyle.item}
-        activeOpacity={0.75}
-        source={item}
+        photo={{ uri: photo }}
+        profilePhoto={{ uri: author.photo }}
+        authorName={`${author.firstName} ${author.lastName}`}
+        date={date}
+        likes={likes}
         onPress={this.onItemPress}
+        onLikePress={this.onItemLikePressPress}
       />
     );
   };
 
-  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
+  private renderItem = (info: ListRenderItemInfo<Post>): ListItemElement => {
     const { item, index } = info;
 
     const listItemElement: ListItemElement = this.renderListItemElement(item);
@@ -57,14 +68,9 @@ class ProfileActivityList1Component extends React.Component<ProfileActivityList1
   };
 
   public render(): React.ReactNode {
-    const { contentContainerStyle, themedStyle, ...restProps } = this.props;
-
     return (
       <List
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        {...restProps}
-        contentContainerStyle={[themedStyle.container, contentContainerStyle]}
+        {...this.props}
         renderItem={this.renderItem}
       />
     );
@@ -72,11 +78,7 @@ class ProfileActivityList1Component extends React.Component<ProfileActivityList1
 }
 
 export const ProfileActivityList1 = withStyles(ProfileActivityList1Component, (theme: ThemeType) => ({
-  container: {},
   item: {
-    width: 120,
-    height: 120,
-    marginHorizontal: 8,
-    backgroundColor: theme['color-basic-200'],
+    marginVertical: 8,
   },
 }));

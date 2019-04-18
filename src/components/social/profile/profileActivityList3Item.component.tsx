@@ -4,7 +4,6 @@ import {
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
-  ViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -25,9 +24,9 @@ interface ComponentProps extends ListDerivedProps, TouchableProps {
   source: ImageSourcePropType;
 }
 
-export type ProfileActivityList2ItemProps = ThemedComponentProps & ViewProps & ComponentProps;
+export type ProfileActivityList3ItemProps = ThemedComponentProps & ComponentProps;
 
-class ProfileActivityList2ItemComponent extends React.Component<ProfileActivityList2ItemProps> {
+class ProfileActivityList3ItemComponent extends React.Component<ProfileActivityList3ItemProps> {
 
   private onPress = () => {
     this.props.onPress(this.props.index);
@@ -50,11 +49,7 @@ class ProfileActivityList2ItemComponent extends React.Component<ProfileActivityL
   }
 }
 
-export const ProfileActivityList2Item = withStyles(ProfileActivityList2ItemComponent, (theme: ThemeType) => ({
-  container: {
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
+export const ProfileActivityList3Item = withStyles(ProfileActivityList3ItemComponent, (theme: ThemeType) => ({
   image: {
     flex: 1,
   },

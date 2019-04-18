@@ -1,31 +1,36 @@
 import React from 'react';
 import {
-  Image,
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
-  ViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import {
+  ActivityAuthoring,
+  ImageOverlay,
+} from '@src/components/common';
+import { ProfileActivityBar } from './profileActivityBar.component';
 
 interface ListDerivedProps {
   index?: number;
 }
 
-// @ts-ignore
-interface TouchableProps extends TouchableOpacityProps {
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
+  photo: ImageSourcePropType;
+  profilePhoto: ImageSourcePropType;
+  authorName: React.ReactText;
+  date: React.ReactText;
+  likes: React.ReactText;
   onPress: (index: number) => void;
+  onLikePress: (index: number) => void;
 }
 
-interface ComponentProps extends ListDerivedProps, TouchableProps {
-  source: ImageSourcePropType;
-}
-
-export type ProfileActivityList1ItemProps = ThemedComponentProps & ViewProps & ComponentProps;
+export type ProfileActivityList1ItemProps = ThemedComponentProps & ComponentProps;
 
 class ProfileActivityList1ItemComponent extends React.Component<ProfileActivityList1ItemProps> {
 
@@ -33,18 +38,43 @@ class ProfileActivityList1ItemComponent extends React.Component<ProfileActivityL
     this.props.onPress(this.props.index);
   };
 
+  private onLikeButtonPress = () => {
+    this.props.onLikePress(this.props.index);
+  };
+
   public render(): React.ReactNode {
-    const { style, themedStyle, source, ...restProps } = this.props;
+    const {
+      style,
+      themedStyle,
+      onPress,
+      photo,
+      profilePhoto,
+      authorName,
+      date,
+      likes,
+      ...restProps
+    } = this.props;
 
     return (
       <TouchableOpacity
+        activeOpacity={0.95}
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
-        <Image
-          style={themedStyle.image}
-          source={source}
+        <ImageOverlay
+          style={themedStyle.photo}
+          source={photo}
         />
+        <ProfileActivityBar
+          style={themedStyle.detailsContainer}
+          likes={likes}
+          onLikePress={this.onLikeButtonPress}>
+          <ActivityAuthoring
+            photo={profilePhoto}
+            name={authorName}
+            date={date}
+          />
+        </ProfileActivityBar>
       </TouchableOpacity>
     );
   }
@@ -52,10 +82,15 @@ class ProfileActivityList1ItemComponent extends React.Component<ProfileActivityL
 
 export const ProfileActivityList1Item = withStyles(ProfileActivityList1ItemComponent, (theme: ThemeType) => ({
   container: {
-    borderRadius: 8,
     overflow: 'hidden',
+    borderRadius: 12,
+    backgroundColor: theme['color-white'],
   },
-  image: {
-    flex: 1,
+  detailsContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+  },
+  photo: {
+    minHeight: 220,
   },
 }));
