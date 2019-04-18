@@ -51,6 +51,10 @@ export {
   TextProps,
 } from './text.component';
 export {
+  TextIcon,
+  TextIconProps,
+} from './textIcon.component';
+export {
   ValidationInput,
   ValidationInputProps,
 } from './validationInput.component';
