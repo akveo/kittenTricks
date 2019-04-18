@@ -57,6 +57,11 @@ import {
   MovieContainer,
   WalkthroughContainer,
   EcommerceContainer,
+  ShoppingCartContainer,
+  ProductsListContainer,
+  ProductDetailsContainer,
+  AddNewCardContainer,
+  PaymentContainer,
   RentApartmentContainer,
   NavigationContainer,
   Trainings1Container,
@@ -95,6 +100,11 @@ const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
 const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Ecommerce']: EcommerceContainer,
+    ['Add New Card']: AddNewCardContainer,
+    ['Payment']: PaymentContainer,
+    ['Products List']: ProductsListContainer,
+    ['Product Details']: ProductDetailsContainer,
+    ['Shopping Cart']: ShoppingCartContainer,
     ['Rent Apartment']: RentApartmentContainer,
   },
   {

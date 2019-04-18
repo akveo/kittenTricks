@@ -138,6 +138,10 @@ export const SettingsIcon = (style: StyleProp<ImageStyle>): React.ReactElement<I
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/settings.png', style);
 };
 
+export const MinusIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/minus-outline.png', style);
+};
+
 export const ShareIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/share-outline.png', style);
 };
@@ -160,6 +164,18 @@ export const FlashIcon = (style: StyleProp<ImageStyle>): React.ReactElement<Imag
 
 export const DoneAllIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/done-all.png', style);
+};
+
+export const MoreVerticalIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/more-vertical.png', style);
+};
+
+export const CreditCardIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/credit-card.png', style);
+};
+
+export const CloseIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/close.png', style);
 };
 
 export const MicIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
