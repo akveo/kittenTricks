@@ -5,12 +5,12 @@ import { StyleType } from '@kitten/theme';
 import {
   EditIcon,
   LockIcon,
-  MessageIcon,
   PersonIcon,
   LayoutIcon,
   SmartphoneIcon,
   CartIcon,
   PinIcon,
+  MessageCircleIconOutline,
 } from '@src/assets/icons';
 import { Layouts } from './layouts.component';
 
@@ -36,7 +36,7 @@ export class LayoutsContainer extends React.Component<NavigationScreenProps> {
     },
     {
       title: 'Messaging',
-      icon: MessageIcon,
+      icon: MessageCircleIconOutline,
     },
     {
       title: 'Dashboards',

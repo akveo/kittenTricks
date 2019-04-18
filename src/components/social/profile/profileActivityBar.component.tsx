@@ -4,12 +4,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { ButtonAlignments } from '@kitten/ui';
 import {
   ActivityBar,
   ActivityBarProps,
   LikeButton,
 } from '@src/components/common';
-import { ButtonAlignments } from '@kitten/ui';
 
 interface ComponentProps {
   likes: React.ReactText;
