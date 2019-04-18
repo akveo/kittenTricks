@@ -10,7 +10,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  SignIn2FormType,
+  SignInForm2Type,
   SignInForm2,
 } from '@src/components/auth';
 import {
@@ -21,21 +21,28 @@ import {
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSignInPress: (formValue: SignIn2FormType) => void;
+  onSignInPress: (formValue: SignInForm2Type) => void;
   onSignUpPress: () => void;
 }
 
 export type SignIn3Props = ThemedComponentProps & ComponentProps;
 
-class SignIn3Component extends React.Component<SignIn3Props> {
+interface State {
+  formValue: SignInForm2Type;
+}
 
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1536431311719-398b6704d4cc?ixlib=rb-1.2
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80`,
+class SignIn3Component extends React.Component<SignIn3Props, State> {
+
+  public state: State = {
+    formValue: undefined,
   };
 
-  private onSignInButtonPress = (formValue: SignIn2FormType) => {
-    this.props.onSignInPress(formValue);
+  private backgroundImage: ImageSourcePropType = {
+    uri: 'https://images.unsplash.com/photo-1536431311719-398b6704d4cc',
+  };
+
+  private onSignInButtonPress = () => {
+    this.props.onSignInPress(this.state.formValue);
   };
 
   private onSignUpButtonPress = () => {
@@ -44,6 +51,10 @@ class SignIn3Component extends React.Component<SignIn3Props> {
 
   private onForgotPasswordButtonPress = () => {
     this.props.onForgotPasswordPress();
+  };
+
+  private onFormValueChange = (formValue: SignInForm2Type) => {
+    this.setState({ formValue });
   };
 
   public render(): React.ReactNode {
@@ -61,8 +72,15 @@ class SignIn3Component extends React.Component<SignIn3Props> {
           <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
-            onSubmit={this.onSignInButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signInButton}
+            size='giant'
+            disabled={!this.state.formValue}
+            onPress={this.onSignInButtonPress}>
+            Sign In
+          </Button>
           <View style={themedStyle.signUpContainer}>
             <Text>Don't have an account?</Text>
             <Button
@@ -95,11 +113,10 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     paddingHorizontal: 16,
   },
   signUpContainer: {
-    marginTop: 24,
-    marginBottom: 32,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 24,
   },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',
@@ -111,6 +128,11 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     fontSize: 15,
     lineHeight: 24,
     marginTop: 16,
+  },
+  signInButton: {
+    marginHorizontal: 16,
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   signUpButton: {
     paddingHorizontal: 0,

@@ -5,15 +5,13 @@ import { ForgotPassword } from './forgotPassword.component';
 
 export class ForgotPasswordContainer extends React.Component<NavigationScreenProps> {
 
-  private onResetPress = (formValue: ForgotPasswordFormType) => {
+  private onResetPress = (value: ForgotPasswordFormType) => {
     this.props.navigation.goBack();
   };
 
   public render(): React.ReactNode {
     return (
-      <ForgotPassword
-        onResetPress={this.onResetPress}
-      />
+      <ForgotPassword onResetPress={this.onResetPress}/>
     );
   }
 }

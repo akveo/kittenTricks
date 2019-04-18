@@ -17,7 +17,7 @@ import {
 import {
   SocialAuth,
   SignInForm1,
-  SignInFormType,
+  SignInForm1Type,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -30,7 +30,7 @@ import {
 } from '@src/assets/icons';
 
 interface ComponentProps {
-  onSignInPress: (value: SignInFormType) => void;
+  onSignInPress: (value: SignInForm1Type) => void;
   onSignUpPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
@@ -40,15 +40,23 @@ interface ComponentProps {
 
 export type SignIn1Props = ThemedComponentProps & ComponentProps;
 
-class SignIn1Component extends React.Component<SignIn1Props> {
+interface State {
+  formValue: SignInForm1Type | undefined;
+}
+
+class SignIn1Component extends React.Component<SignIn1Props, State> {
+
+  public state: State = {
+    formValue: undefined,
+  };
 
   private backgroundImage: ImageSourcePropType = {
     uri: `https://images.unsplash.com/photo-1517438984742-1262db08379e?ixlib=rb-1.2
     .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=928&q=80`,
   };
 
-  private onSignInButtonPress = (formValue: SignInFormType) => {
-    this.props.onSignInPress(formValue);
+  private onSignInButtonPress = () => {
+    this.props.onSignInPress(this.state.formValue);
   };
 
   private onSignUpButtonPress = () => {
@@ -69,6 +77,10 @@ class SignIn1Component extends React.Component<SignIn1Props> {
 
   private onEwaButtonPress = () => {
     this.props.onEwaPress();
+  };
+
+  private onFormValueChange = (formValue: SignInForm1Type) => {
+    this.setState({ formValue });
   };
 
   private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
@@ -113,8 +125,15 @@ class SignIn1Component extends React.Component<SignIn1Props> {
           </View>
           <SignInForm1
             style={themedStyle.formContainer}
-            onSubmit={this.onSignInButtonPress}
+            onFormValueChange={this.onFormValueChange}
           />
+          <Button
+            style={themedStyle.signInButton}
+            size='giant'
+            disabled={!this.state.formValue}
+            onPress={this.onSignInButtonPress}>
+            Sign In
+          </Button>
           <SocialAuth
             style={themedStyle.socialAuthContainer}
             iconStyle={themedStyle.socialAuthIcon}
@@ -162,6 +181,10 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
     fontFamily: 'raleway-extra-bold',
     textTransform: 'uppercase',
     fontSize: 32,
+  },
+  signInButton: {
+    fontFamily: 'opensans-extrabold',
+    textTransform: 'uppercase',
   },
   signUpButton: {
     paddingHorizontal: 0,
