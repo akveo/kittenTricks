@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  Dimensions,
   ImageSourcePropType,
-  ScaledSize,
   View,
 } from 'react-native';
 import {
@@ -43,8 +41,6 @@ interface State {
   emailFormValue: SignInForm3Type;
   smsFormValue: SignInForm4Type;
 }
-
-const dimensions: ScaledSize = Dimensions.get('window');
 
 class SignIn5Component extends React.Component<SignIn5Props, State> {
 
@@ -102,7 +98,6 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
 
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
-    const tabContentWidth: number = dimensions.width - (themedStyle.tabView.paddingHorizontal * 2);
     const signInButtonEnabled: boolean = !!this.getSelectedFormValue();
 
     return (
@@ -117,7 +112,6 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
           <TabView
             style={themedStyle.tabView}
             selectedIndex={this.state.selectedTabIndex}
-            contentWidth={tabContentWidth}
             onSelect={this.onTabSelect}>
             <Tab
               style={themedStyle.tab}
@@ -170,7 +164,6 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     alignItems: 'center',
   },
   tabContentContainer: {
-    flex: 1,
     marginVertical: 8,
   },
   signUpContainer: {
