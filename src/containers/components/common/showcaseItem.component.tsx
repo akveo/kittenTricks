@@ -54,6 +54,6 @@ export const ShowcaseItem = withStyles(ShowcaseItemComponent, (theme: ThemeType)
     color: theme['color-basic-600'],
   },
   element: {
-    flex: 1,
+    // flex: 1,
   },
 }));

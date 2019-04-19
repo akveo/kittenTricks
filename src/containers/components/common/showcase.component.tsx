@@ -18,6 +18,7 @@ import {
 
 interface ComponentProps {
   showcase: ComponentShowcase;
+  renderItem: () => React.ReactElement<any>;
 }
 
 export type ShowcaseProps = ThemedComponentProps & ComponentProps;

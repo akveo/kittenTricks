@@ -67,7 +67,10 @@ import {
   Trainings1Container,
   Trainings2Container,
 } from '@src/containers/layouts';
-import { ButtonContainer } from '@src/containers/components';
+import {
+  ButtonContainer,
+  CheckBoxContainer,
+} from '@src/containers/components';
 import {
   AppBar,
   AppBarProps,
@@ -219,6 +222,7 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Components']: ComponentsContainer,
     ['Button']: ButtonContainer,
+    ['CheckBox']: CheckBoxContainer,
   },
   {
     headerMode: 'none',
