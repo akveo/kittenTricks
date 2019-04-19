@@ -1,9 +1,5 @@
 import React from 'react';
 import {
-  CheckBox,
-  CheckBoxProps,
-} from '@kitten/ui';
-import {
   ComponentShowcase,
   ComponentShowcaseItem,
   ComponentShowcaseSection,
@@ -11,151 +7,106 @@ import {
 
 const giantCheckBox: ComponentShowcaseItem = {
   title: 'Giant',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} size='giant'/>
-    );
+  props: {
+    size: 'giant',
   },
 };
 
 const largeCheckBox: ComponentShowcaseItem = {
   title: 'Large',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} size='large'/>
-    );
+  props: {
+    size: 'large',
   },
 };
 
 const mediumCheckBox: ComponentShowcaseItem = {
   title: 'Medium',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} size='medium'/>
-    );
+  props: {
+    size: 'medium',
   },
 };
 
 const smallCheckBox: ComponentShowcaseItem = {
   title: 'Small',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} size='small'/>
-    );
+  props: {
+    size: 'small',
   },
 };
 
 const tinyCheckBox: ComponentShowcaseItem = {
   title: 'Tiny',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} size='tiny'/>
-    );
+  props: {
+    size: 'tiny',
   },
 };
 
 const textCheckBox: ComponentShowcaseItem = {
   title: 'With Text',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} text='Place your text'/>
-    );
+  props: {
+    text: 'Place your text',
   },
 };
 
 const checkedCheckBox: ComponentShowcaseItem = {
   title: 'Checked',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true}/>
-    );
+  props: {
+    checked: true,
   },
 };
 
 const uncheckedCheckBox: ComponentShowcaseItem = {
   title: 'Unchecked',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={false}/>
-    );
+  props: {
+    checked: false,
   },
 };
 
 const indeterminateCheckBox: ComponentShowcaseItem = {
   title: 'Indeterminate',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox indeterminate={true}/>
-    );
+  props: {
+    indeterminate: true,
   },
 };
 
 const disabledCheckBox: ComponentShowcaseItem = {
   title: 'Disabled',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} disabled={true}/>
-    );
+  props: {
+    disabled: true,
   },
 };
 
 const primaryCheckBox: ComponentShowcaseItem = {
   title: 'Primary',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} status='primary'/>
-    );
+  props: {
+    status: 'primary',
   },
 };
 
 const successCheckBox: ComponentShowcaseItem = {
   title: 'Success',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} status='success'/>
-    );
+  props: {
+    status: 'success',
   },
 };
 
 const warningCheckBox: ComponentShowcaseItem = {
   title: 'Warning',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} status='warning'/>
-    );
+  props: {
+    status: 'warning',
   },
 };
 
 const dangerCheckBox: ComponentShowcaseItem = {
   title: 'Danger',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} status='danger'/>
-    );
+  props: {
+    status: 'danger',
   },
 };
 
 const infoCheckBox: ComponentShowcaseItem = {
-  title: 'Danger',
-
-  view: (): React.ReactElement<CheckBoxProps> => {
-    return (
-      <CheckBox checked={true} status='info'/>
-    );
+  title: 'info',
+  props: {
+    status: 'info',
   },
 };
 

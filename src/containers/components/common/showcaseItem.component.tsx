@@ -13,6 +13,7 @@ import { ComponentShowcaseItem } from './type';
 
 interface ComponentProps {
   item: ComponentShowcaseItem;
+  renderItem: (props: any) => React.ReactElement<any>;
 }
 
 export type ShowcaseItemProps = ThemedComponentProps & ViewProps & ComponentProps;
@@ -20,9 +21,9 @@ export type ShowcaseItemProps = ThemedComponentProps & ViewProps & ComponentProp
 class ShowcaseItemComponent extends React.Component<ShowcaseItemProps> {
 
   private renderElement = (): React.ReactElement<any> => {
-    const { themedStyle, item } = this.props;
+    const { themedStyle, item, renderItem } = this.props;
 
-    const element: React.ReactElement<any> = item.view();
+    const element: React.ReactElement<any> = renderItem(item.props);
 
     return React.cloneElement(element, {
       style: [themedStyle.element, element.props.style],

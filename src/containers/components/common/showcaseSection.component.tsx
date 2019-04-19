@@ -20,6 +20,7 @@ import {
 
 interface ComponentProps {
   section: ComponentShowcaseSectionModel;
+  renderItem: (props: any) => React.ReactElement<any>;
 }
 
 export type ShowcaseSectionProps = ThemedComponentProps & ViewProps & ComponentProps;
@@ -27,13 +28,14 @@ export type ShowcaseSectionProps = ThemedComponentProps & ViewProps & ComponentP
 class ShowcaseSectionComponent extends React.Component<ShowcaseSectionProps> {
 
   private renderItem = (item: ComponentShowcaseItem, index: number): React.ReactElement<ShowcaseItemProps> => {
-    const { themedStyle } = this.props;
+    const { themedStyle, renderItem } = this.props;
 
     return (
       <ShowcaseItem
         key={index}
         style={themedStyle.item}
         item={item}
+        renderItem={renderItem}
       />
     );
   };

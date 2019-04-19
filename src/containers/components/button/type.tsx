@@ -1,201 +1,137 @@
 import React from 'react';
 import {
-  Button,
   ButtonAlignments,
-  ButtonProps,
 } from '@kitten/ui';
+import { StarIcon } from '@src/assets/icons';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
   ComponentShowcaseSection,
 } from '../common/type';
-import { StarIcon } from '@src/assets/icons';
 
 const giantButton: ComponentShowcaseItem = {
   title: 'Giant',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button size='giant'>BUTTON</Button>
-    );
+  props: {
+    size: 'giant',
   },
 };
 
 const largeButton: ComponentShowcaseItem = {
   title: 'Large',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button size='large'>BUTTON</Button>
-    );
+  props: {
+    size: 'large',
   },
 };
 
 const mediumButton: ComponentShowcaseItem = {
   title: 'Medium',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button size='medium'>BUTTON</Button>
-    );
+  props: {
+    size: 'medium',
   },
 };
 
 const smallButton: ComponentShowcaseItem = {
   title: 'Small',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button size='small'>BUTTON</Button>
-    );
+  props: {
+    size: 'small',
   },
 };
 
 const tinyButton: ComponentShowcaseItem = {
   title: 'Tiny',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button size='tiny'>BUTTON</Button>
-    );
+  props: {
+    size: 'tiny',
   },
 };
 
 const rightIconButton: ComponentShowcaseItem = {
   title: 'Right Icon',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button
-        alignment={ButtonAlignments.RIGHT}
-        icon={StarIcon}>
-        BUTTON
-      </Button>
-    );
+  props: {
+    icon: StarIcon,
+    alignment: ButtonAlignments.RIGHT,
   },
 };
 
 const leftIconButton: ComponentShowcaseItem = {
   title: 'Left Icon',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button
-        alignment={ButtonAlignments.LEFT}
-        icon={StarIcon}>
-        BUTTON
-      </Button>
-    );
+  props: {
+    icon: StarIcon,
+    alignment: ButtonAlignments.LEFT,
   },
 };
 
 const filledButton: ComponentShowcaseItem = {
   title: 'Filled',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button appearance='filled'>BUTTON</Button>
-    );
+  props: {
+    appearance: 'filled',
   },
 };
 
 const outlineButton: ComponentShowcaseItem = {
   title: 'Outline',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button appearance='outline'>BUTTON</Button>
-    );
+  props: {
+    appearance: 'outline',
   },
 };
 
 const ghostButton: ComponentShowcaseItem = {
   title: 'Ghost',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button appearance='ghost'>BUTTON</Button>
-    );
+  props: {
+    appearance: 'ghost',
   },
 };
 
 const regularButton: ComponentShowcaseItem = {
   title: 'Regular',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button>BUTTON</Button>
-    );
-  },
+  props: {},
 };
 
 const disabledButton: ComponentShowcaseItem = {
   title: 'Disabled',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button disabled={true}>BUTTON</Button>
-    );
+  props: {
+    disabled: true,
   },
 };
 
 const primaryButton: ComponentShowcaseItem = {
   title: 'Primary',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button status='primary'>BUTTON</Button>
-    );
+  props: {
+    status: 'primary',
   },
 };
 
 const successButton: ComponentShowcaseItem = {
   title: 'Success',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button status='success'>BUTTON</Button>
-    );
+  props: {
+    status: 'success',
   },
 };
 
 const warningButton: ComponentShowcaseItem = {
   title: 'Warning',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button status='warning'>BUTTON</Button>
-    );
+  props: {
+    status: 'warning',
   },
 };
 
 const dangerButton: ComponentShowcaseItem = {
   title: 'Danger',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button status='danger'>BUTTON</Button>
-    );
+  props: {
+    status: 'danger',
   },
 };
 
 const infoButton: ComponentShowcaseItem = {
-  title: 'Danger',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button status='info'>BUTTON</Button>
-    );
+  title: 'Info',
+  props: {
+    status: 'info',
   },
 };
 
 const whiteButton: ComponentShowcaseItem = {
   title: 'White',
-
-  view: (): React.ReactElement<ButtonProps> => {
-    return (
-      <Button status='white'>BUTTON</Button>
-    );
+  props: {
+    status: 'white',
   },
 };
 

@@ -1,10 +1,5 @@
 import React from 'react';
 import {
-  Radio,
-  RadioGroup,
-  RadioProps,
-} from '@kitten/ui';
-import {
   ComponentShowcase,
   ComponentShowcaseItem,
   ComponentShowcaseSection,
@@ -12,141 +7,99 @@ import {
 
 const giantRadio: ComponentShowcaseItem = {
   title: 'Giant',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} size='giant'/>
-    );
+  props: {
+    size: 'giant',
   },
 };
 
 const largeRadio: ComponentShowcaseItem = {
   title: 'Large',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} size='large'/>
-    );
+  props: {
+    size: 'large',
   },
 };
 
 const mediumRadio: ComponentShowcaseItem = {
   title: 'Medium',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} size='medium'/>
-    );
+  props: {
+    size: 'medium',
   },
 };
 
 const smallRadio: ComponentShowcaseItem = {
   title: 'Small',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} size='small'/>
-    );
+  props: {
+    size: 'small',
   },
 };
 
 const tinyRadio: ComponentShowcaseItem = {
   title: 'Tiny',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} size='tiny'/>
-    );
+  props: {
+    size: 'tiny',
   },
 };
 
 const textRadio: ComponentShowcaseItem = {
   title: 'With Text',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} text='Place your text'/>
-    );
+  props: {
+    text: 'Place your text',
   },
 };
 
 const checkedRadio: ComponentShowcaseItem = {
   title: 'Checked',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true}/>
-    );
+  props: {
+    checked: true,
   },
 };
 
 const uncheckedRadio: ComponentShowcaseItem = {
   title: 'Unchecked',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={false}/>
-    );
+  props: {
+    checked: false,
   },
 };
 
 const disabledRadio: ComponentShowcaseItem = {
   title: 'Disabled',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} disabled={true}/>
-    );
+  props: {
+    disabled: true,
   },
 };
 
 const primaryRadio: ComponentShowcaseItem = {
   title: 'Primary',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} status='primary'/>
-    );
+  props: {
+    status: 'primary',
   },
 };
 
 const successRadio: ComponentShowcaseItem = {
   title: 'Success',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} status='success'/>
-    );
+  props: {
+    status: 'success',
   },
 };
 
 const warningRadio: ComponentShowcaseItem = {
   title: 'Warning',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} status='warning'/>
-    );
+  props: {
+    status: 'warning',
   },
 };
 
 const dangerRadio: ComponentShowcaseItem = {
   title: 'Danger',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} status='danger'/>
-    );
+  props: {
+    status: 'danger',
   },
 };
 
 const infoRadio: ComponentShowcaseItem = {
-  title: 'Danger',
-
-  view: (): React.ReactElement<RadioProps> => {
-    return (
-      <Radio checked={true} status='info'/>
-    );
+  title: 'Info',
+  props: {
+    status: 'info',
   },
 };
 

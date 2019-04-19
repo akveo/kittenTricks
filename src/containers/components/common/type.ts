@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface ComponentShowcase {
   sections: ComponentShowcaseSection[];
 }
@@ -11,5 +9,5 @@ export interface ComponentShowcaseSection {
 
 export interface ComponentShowcaseItem {
   title: string;
-  view: () => React.ReactElement<any>;
+  props: any;
 }
