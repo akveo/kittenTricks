@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import {
   Button,
@@ -11,7 +12,11 @@ export class ButtonContainer extends React.Component<NavigationScreenProps> {
 
   private renderItem = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     return (
-      <Button {...props}>BUTTON</Button>
+      <Button
+        style={styles.component}
+        {...props}>
+        BUTTON
+      </Button>
     );
   };
 
@@ -24,3 +29,9 @@ export class ButtonContainer extends React.Component<NavigationScreenProps> {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  component: {
+    flex: 1,
+  },
+});
