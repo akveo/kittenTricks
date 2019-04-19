@@ -70,6 +70,7 @@ import {
 import {
   ButtonContainer,
   CheckBoxContainer,
+  RadioContainer,
 } from '@src/containers/components';
 import {
   AppBar,
@@ -223,6 +224,7 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Components']: ComponentsContainer,
     ['Button']: ButtonContainer,
     ['CheckBox']: CheckBoxContainer,
+    ['Radio']: RadioContainer,
   },
   {
     headerMode: 'none',
