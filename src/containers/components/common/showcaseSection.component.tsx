@@ -41,10 +41,10 @@ class ShowcaseSectionComponent extends React.Component<ShowcaseSectionProps> {
   };
 
   public render(): React.ReactNode {
-    const { themedStyle, section } = this.props;
+    const { style, themedStyle, section } = this.props;
 
     return (
-      <View>
+      <View style={[themedStyle.container, style]}>
         <Text style={themedStyle.titleLabel}>{section.title}</Text>
         {section.items.map(this.renderItem)}
       </View>
@@ -53,7 +53,9 @@ class ShowcaseSectionComponent extends React.Component<ShowcaseSectionProps> {
 }
 
 export const ShowcaseSection = withStyles(ShowcaseSectionComponent, (theme: ThemeType) => ({
+  container: {},
   titleLabel: {
+    marginVertical: 8,
     fontFamily: 'raleway-extra-bold',
     fontSize: 20,
     lineHeight: 28,

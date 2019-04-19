@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ScrollView,
+  ViewStyle,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -23,16 +24,30 @@ interface ComponentProps {
 
 export type ShowcaseProps = ThemedComponentProps & ComponentProps;
 
+type ListItemElement = React.ReactElement<ShowcaseSectionProps>;
+
 class ShowcaseComponent extends React.Component<ShowcaseProps> {
 
-  private renderItem = (item: ComponentShowcaseSection, index: number): React.ReactElement<ShowcaseSectionProps> => {
+  private renderSectionElement = (item: ComponentShowcaseSection): ListItemElement => {
     return (
       <ShowcaseSection
-        key={index}
         section={item}
         renderItem={this.props.renderItem}
       />
     );
+  };
+
+  private renderItem = (item: ComponentShowcaseSection, index: number): ListItemElement => {
+    const { themedStyle, showcase } = this.props;
+
+    const listItemElement: ListItemElement = this.renderSectionElement(item);
+
+    const borderStyle: ViewStyle | null = index === showcase.sections.length - 1 ? null : themedStyle.itemBorder;
+
+    return React.cloneElement(listItemElement, {
+      key: index,
+      style: [themedStyle.item, borderStyle, listItemElement.props.style],
+    });
   };
 
   public render(): React.ReactNode {
@@ -49,6 +64,13 @@ class ShowcaseComponent extends React.Component<ShowcaseProps> {
 export const Showcase = withStyles(ShowcaseComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
+  },
+  item: {
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+  },
+  itemBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme['color-basic-200'],
   },
 }));
