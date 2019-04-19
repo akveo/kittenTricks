@@ -146,6 +146,10 @@ export const ShareIcon = (style: StyleProp<ImageStyle>): React.ReactElement<Imag
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/share-outline.png', style);
 };
 
+export const SearchIconOutline = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/outline/png/128/search-outline.png', style);
+};
+
 export const SmartphoneIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/smartphone-outline.png', style);
 };
