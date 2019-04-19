@@ -70,6 +70,7 @@ import {
 import {
   ButtonContainer,
   CheckBoxContainer,
+  InputContainer,
   RadioContainer,
 } from '@src/containers/components';
 import {
@@ -225,6 +226,7 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Button']: ButtonContainer,
     ['CheckBox']: CheckBoxContainer,
     ['Radio']: RadioContainer,
+    ['Input']: InputContainer,
   },
   {
     headerMode: 'none',
