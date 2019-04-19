@@ -68,6 +68,7 @@ import {
   Trainings2Container,
 } from '@src/containers/layouts';
 import {
+  AvatarContainer,
   ButtonContainer,
   CheckBoxContainer,
   InputContainer,
@@ -227,6 +228,7 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
     ['CheckBox']: CheckBoxContainer,
     ['Radio']: RadioContainer,
     ['Input']: InputContainer,
+    ['Avatar']: AvatarContainer,
   },
   {
     headerMode: 'none',
