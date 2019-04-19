@@ -73,6 +73,7 @@ import {
   CheckBoxContainer,
   InputContainer,
   RadioContainer,
+  ToggleContainer,
 } from '@src/containers/components';
 import {
   AppBar,
@@ -229,6 +230,7 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Radio']: RadioContainer,
     ['Input']: InputContainer,
     ['Avatar']: AvatarContainer,
+    ['Toggle']: ToggleContainer,
   },
   {
     headerMode: 'none',
