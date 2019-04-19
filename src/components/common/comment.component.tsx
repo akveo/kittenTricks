@@ -3,10 +3,11 @@ import {
   ListRenderItemInfo,
   View,
   ViewProps,
+  TouchableOpacity,
+  ImageProps,
 } from 'react-native';
 import {
   Avatar,
-  Button,
   List,
   ListProps,
   TextProps,
@@ -54,6 +55,12 @@ class CommentComponent extends React.Component<CommentProps, State> {
     this.props.onProfilePress(this.props.index);
   };
 
+  private renderMoreIcon = (): React.ReactElement<ImageProps> => {
+    const { themedStyle } = this.props;
+
+    return MoreIcon(themedStyle.moreIcon);
+  };
+
   private renderCommentContent = (comment: CommentModel)
     : [React.ReactElement<ViewProps>, React.ReactElement<TextProps>] => {
 
@@ -77,11 +84,12 @@ class CommentComponent extends React.Component<CommentProps, State> {
           </View>
         </View>
         <View>
-          <Button
-            appearance='ghost'
-            icon={() => MoreIcon(themedStyle.moreIcon)}
+          <TouchableOpacity
+            style={themedStyle.moreButton}
             activeOpacity={0.5}
-            onPress={this.onProfilePress}/>
+            onPress={this.onProfilePress}>
+            {this.renderMoreIcon()}
+          </TouchableOpacity>
         </View>
       </View>,
       <Text style={themedStyle.comment} key={1}>
@@ -100,11 +108,12 @@ class CommentComponent extends React.Component<CommentProps, State> {
     );
   };
 
-  private renderComments = (): React.ReactElement<ListProps> | null => {
+  private renderSubComments = (): React.ReactElement<ListProps> | null => {
     const { comment } = this.props;
     const { subCommentsVisible } = this.state;
+    const isVisible: boolean = comment.comments && comment.comments.length !== 0 && subCommentsVisible;
 
-    if (comment.comments && comment.comments.length !== 0 && subCommentsVisible) {
+    if (isVisible) {
       return (
         <List
           data={comment.comments}
@@ -123,11 +132,13 @@ class CommentComponent extends React.Component<CommentProps, State> {
       <View style={themedStyle.commentContainer}>
         {this.renderCommentContent(comment)}
         <ArticleActivityBar
+          style={themedStyle.activityBar}
           comments={comment.comments ? comment.comments.length : 0}
           likes={comment.likesCount}
           onCommentPress={this.onCommentPress}
-          onLikePress={this.onLikePress}/>
-        {this.renderComments()}
+          onLikePress={this.onLikePress}
+        />
+        {this.renderSubComments()}
       </View>
     );
   }
@@ -138,8 +149,9 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginLeft: 16,
+    // marginLeft: 16,
     marginBottom: 14,
+    marginHorizontal: 16,
   },
   authorInfoContainer: {
     flexDirection: 'row',
@@ -163,6 +175,10 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     height: 4,
     tintColor: theme['font-primary-color'],
   },
+  moreButton: {
+    width: 18,
+    height: 4,
+  },
   commentContainer: {
     borderBottomWidth: 1,
     borderBottomColor: theme['color-basic-200'],
@@ -172,9 +188,12 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     backgroundColor: theme['color-basic-100'],
     marginHorizontal: 24,
     borderRadius: 10,
-    paddingBottom: 16,
+    paddingVertical: 16,
   },
   avatar: {
     marginRight: 16,
+  },
+  activityBar: {
+    marginLeft: 12,
   },
 }));

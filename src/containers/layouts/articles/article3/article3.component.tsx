@@ -98,10 +98,11 @@ class Article3Component extends React.Component<Article3Props> {
           </Text>
         </View>
         <View style={themedStyle.inputContainer}>
-          <Text style={themedStyle.inputLabel}>
+          <Text style={[themedStyle.inputLabel, themedStyle.inputSpace]}>
             Comments
           </Text>
           <Input
+            style={themedStyle.inputSpace}
             placeholder='Write your comment'
             value={currentCommentText}
             onChangeText={this.onCommentTextChange}
@@ -164,8 +165,10 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     fontSize: 13,
     color: theme['color-basic-600'],
   },
-  inputContainer: {
+  inputSpace: {
     marginHorizontal: 24,
+  },
+  inputContainer: {
     marginTop: 44,
     marginBottom: 24,
   },
