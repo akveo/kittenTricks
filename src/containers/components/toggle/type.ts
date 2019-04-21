@@ -4,27 +4,6 @@ import {
   ComponentShowcaseSection,
 } from '../common/type';
 
-const largeToggle: ComponentShowcaseItem = {
-  title: 'Large',
-  props: {
-    size: 'large',
-  },
-};
-
-const mediumToggle: ComponentShowcaseItem = {
-  title: 'Medium',
-  props: {
-    size: 'medium',
-  },
-};
-
-const smallToggle: ComponentShowcaseItem = {
-  title: 'Small',
-  props: {
-    size: 'small',
-  },
-};
-
 const checkedToggle: ComponentShowcaseItem = {
   title: 'Checked',
   props: {
@@ -43,6 +22,27 @@ const disabledToggle: ComponentShowcaseItem = {
   title: 'Disabled',
   props: {
     disabled: true,
+  },
+};
+
+const largeToggle: ComponentShowcaseItem = {
+  title: 'Large',
+  props: {
+    size: 'large',
+  },
+};
+
+const mediumToggle: ComponentShowcaseItem = {
+  title: 'Medium',
+  props: {
+    size: 'medium',
+  },
+};
+
+const smallToggle: ComponentShowcaseItem = {
+  title: 'Small',
+  props: {
+    size: 'small',
   },
 };
 
@@ -81,17 +81,6 @@ const infoToggle: ComponentShowcaseItem = {
   },
 };
 
-const statusSection: ComponentShowcaseSection = {
-  title: 'Status',
-  items: [
-    primaryToggle,
-    successToggle,
-    warningToggle,
-    dangerToggle,
-    infoToggle,
-  ],
-};
-
 const stateSection: ComponentShowcaseSection = {
   title: 'State',
   items: [
@@ -110,10 +99,21 @@ const sizeSection: ComponentShowcaseSection = {
   ],
 };
 
+const statusSection: ComponentShowcaseSection = {
+  title: 'Status',
+  items: [
+    primaryToggle,
+    successToggle,
+    warningToggle,
+    dangerToggle,
+    infoToggle,
+  ],
+};
+
 export const toggleShowcase: ComponentShowcase = {
   sections: [
-    sizeSection,
     stateSection,
+    sizeSection,
     statusSection,
   ],
 };

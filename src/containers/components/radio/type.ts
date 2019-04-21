@@ -1,9 +1,36 @@
-import React from 'react';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
   ComponentShowcaseSection,
 } from '../common/type';
+
+const checkedRadio: ComponentShowcaseItem = {
+  title: 'Checked',
+  props: {
+    checked: true,
+  },
+};
+
+const uncheckedRadio: ComponentShowcaseItem = {
+  title: 'Unchecked',
+  props: {
+    checked: false,
+  },
+};
+
+const disabledRadio: ComponentShowcaseItem = {
+  title: 'Disabled',
+  props: {
+    disabled: true,
+  },
+};
+
+const textRadio: ComponentShowcaseItem = {
+  title: 'Text',
+  props: {
+    text: 'Place your text',
+  },
+};
 
 const giantRadio: ComponentShowcaseItem = {
   title: 'Giant',
@@ -37,34 +64,6 @@ const tinyRadio: ComponentShowcaseItem = {
   title: 'Tiny',
   props: {
     size: 'tiny',
-  },
-};
-
-const textRadio: ComponentShowcaseItem = {
-  title: 'With Text',
-  props: {
-    text: 'Place your text',
-  },
-};
-
-const checkedRadio: ComponentShowcaseItem = {
-  title: 'Checked',
-  props: {
-    checked: true,
-  },
-};
-
-const uncheckedRadio: ComponentShowcaseItem = {
-  title: 'Unchecked',
-  props: {
-    checked: false,
-  },
-};
-
-const disabledRadio: ComponentShowcaseItem = {
-  title: 'Disabled',
-  props: {
-    disabled: true,
   },
 };
 
@@ -103,23 +102,19 @@ const infoRadio: ComponentShowcaseItem = {
   },
 };
 
-const statusSection: ComponentShowcaseSection = {
-  title: 'Status',
-  items: [
-    primaryRadio,
-    successRadio,
-    warningRadio,
-    dangerRadio,
-    infoRadio,
-  ],
-};
-
 const stateSection: ComponentShowcaseSection = {
   title: 'State',
   items: [
     checkedRadio,
     uncheckedRadio,
     disabledRadio,
+  ],
+};
+
+const accessoriesSection: ComponentShowcaseSection = {
+  title: 'Accessories',
+  items: [
+    textRadio,
   ],
 };
 
@@ -131,14 +126,25 @@ const sizeSection: ComponentShowcaseSection = {
     mediumRadio,
     smallRadio,
     tinyRadio,
-    textRadio,
+  ],
+};
+
+const statusSection: ComponentShowcaseSection = {
+  title: 'Status',
+  items: [
+    primaryRadio,
+    successRadio,
+    warningRadio,
+    dangerRadio,
+    infoRadio,
   ],
 };
 
 export const radioShowcase: ComponentShowcase = {
   sections: [
-    sizeSection,
     stateSection,
+    accessoriesSection,
+    sizeSection,
     statusSection,
   ],
 };

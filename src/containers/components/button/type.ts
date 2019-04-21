@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   ButtonAlignments,
 } from '@kitten/ui';
@@ -8,6 +7,55 @@ import {
   ComponentShowcaseItem,
   ComponentShowcaseSection,
 } from '../common/type';
+
+const defaultButton: ComponentShowcaseItem = {
+  title: 'Default',
+  props: {},
+};
+
+const disabledButton: ComponentShowcaseItem = {
+  title: 'Disabled',
+  props: {
+    disabled: true,
+  },
+};
+
+const leftIconButton: ComponentShowcaseItem = {
+  title: 'Left Icon',
+  props: {
+    icon: StarIcon,
+    alignment: ButtonAlignments.LEFT,
+  },
+};
+
+const rightIconButton: ComponentShowcaseItem = {
+  title: 'Right Icon',
+  props: {
+    icon: StarIcon,
+    alignment: ButtonAlignments.RIGHT,
+  },
+};
+
+const filledButton: ComponentShowcaseItem = {
+  title: 'Filled',
+  props: {
+    appearance: 'filled',
+  },
+};
+
+const outlineButton: ComponentShowcaseItem = {
+  title: 'Outline',
+  props: {
+    appearance: 'outline',
+  },
+};
+
+const ghostButton: ComponentShowcaseItem = {
+  title: 'Ghost',
+  props: {
+    appearance: 'ghost',
+  },
+};
 
 const giantButton: ComponentShowcaseItem = {
   title: 'Giant',
@@ -41,55 +89,6 @@ const tinyButton: ComponentShowcaseItem = {
   title: 'Tiny',
   props: {
     size: 'tiny',
-  },
-};
-
-const rightIconButton: ComponentShowcaseItem = {
-  title: 'Right Icon',
-  props: {
-    icon: StarIcon,
-    alignment: ButtonAlignments.RIGHT,
-  },
-};
-
-const leftIconButton: ComponentShowcaseItem = {
-  title: 'Left Icon',
-  props: {
-    icon: StarIcon,
-    alignment: ButtonAlignments.LEFT,
-  },
-};
-
-const filledButton: ComponentShowcaseItem = {
-  title: 'Filled',
-  props: {
-    appearance: 'filled',
-  },
-};
-
-const outlineButton: ComponentShowcaseItem = {
-  title: 'Outline',
-  props: {
-    appearance: 'outline',
-  },
-};
-
-const ghostButton: ComponentShowcaseItem = {
-  title: 'Ghost',
-  props: {
-    appearance: 'ghost',
-  },
-};
-
-const regularButton: ComponentShowcaseItem = {
-  title: 'Regular',
-  props: {},
-};
-
-const disabledButton: ComponentShowcaseItem = {
-  title: 'Disabled',
-  props: {
-    disabled: true,
   },
 };
 
@@ -135,28 +134,24 @@ const whiteButton: ComponentShowcaseItem = {
   },
 };
 
-const statusSection: ComponentShowcaseSection = {
-  title: 'Status',
-  items: [
-    primaryButton,
-    successButton,
-    warningButton,
-    dangerButton,
-    infoButton,
-    whiteButton,
-  ],
-};
-
 const stateSection: ComponentShowcaseSection = {
   title: 'State',
   items: [
-    regularButton,
+    defaultButton,
     disabledButton,
   ],
 };
 
-const styleSection: ComponentShowcaseSection = {
-  title: 'Style',
+const accessoriesSection: ComponentShowcaseSection = {
+  title: 'Accessories',
+  items: [
+    leftIconButton,
+    rightIconButton,
+  ],
+};
+
+const appearanceSection: ComponentShowcaseSection = {
+  title: 'Appearance',
   items: [
     filledButton,
     outlineButton,
@@ -172,16 +167,27 @@ const sizeSection: ComponentShowcaseSection = {
     mediumButton,
     smallButton,
     tinyButton,
-    rightIconButton,
-    leftIconButton,
+  ],
+};
+
+const statusSection: ComponentShowcaseSection = {
+  title: 'Status',
+  items: [
+    primaryButton,
+    successButton,
+    warningButton,
+    dangerButton,
+    infoButton,
+    whiteButton,
   ],
 };
 
 export const buttonShowcase: ComponentShowcase = {
   sections: [
-    sizeSection,
-    styleSection,
     stateSection,
+    accessoriesSection,
+    appearanceSection,
+    sizeSection,
     statusSection,
   ],
 };

@@ -5,6 +5,19 @@ import {
   ComponentShowcaseSection,
 } from '../common/type';
 
+
+const defaultInput: ComponentShowcaseItem = {
+  title: 'Default',
+  props: {},
+};
+
+const disabledInput: ComponentShowcaseItem = {
+  title: 'Disabled',
+  props: {
+    disabled: true,
+  },
+};
+
 const iconInput: ComponentShowcaseItem = {
   title: 'Icon',
   props: {
@@ -31,18 +44,6 @@ const captionIconInput: ComponentShowcaseItem = {
   props: {
     caption: 'Place your text',
     captionIcon: StarIcon,
-  },
-};
-
-const regularInput: ComponentShowcaseItem = {
-  title: 'Regular',
-  props: {},
-};
-
-const disabledInput: ComponentShowcaseItem = {
-  title: 'Disabled',
-  props: {
-    disabled: true,
   },
 };
 
@@ -81,6 +82,24 @@ const infoInput: ComponentShowcaseItem = {
   },
 };
 
+const stateSection: ComponentShowcaseSection = {
+  title: 'State',
+  items: [
+    defaultInput,
+    disabledInput,
+  ],
+};
+
+const accessoriesSection: ComponentShowcaseSection = {
+  title: 'Accessories',
+  items: [
+    iconInput,
+    labelInput,
+    captionInput,
+    captionIconInput,
+  ],
+};
+
 const statusSection: ComponentShowcaseSection = {
   title: 'Status',
   items: [
@@ -92,28 +111,10 @@ const statusSection: ComponentShowcaseSection = {
   ],
 };
 
-const stateSection: ComponentShowcaseSection = {
-  title: 'State',
-  items: [
-    regularInput,
-    disabledInput,
-  ],
-};
-
-const iconSection: ComponentShowcaseSection = {
-  title: 'Accessories',
-  items: [
-    iconInput,
-    labelInput,
-    captionInput,
-    captionIconInput,
-  ],
-};
-
 export const inputShowcase: ComponentShowcase = {
   sections: [
-    iconSection,
     stateSection,
+    accessoriesSection,
     statusSection,
   ],
 };
