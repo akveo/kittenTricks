@@ -4,7 +4,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ButtonAlignments } from '@kitten/ui';
+import { ButtonIconAlignments } from '@kitten/ui';
 import {
   ActivityBar,
   ActivityBarProps,
@@ -27,7 +27,7 @@ class ProfileActivityBarComponent extends React.Component<ProfileActivityBarProp
       <ActivityBar {...restProps}>
         {children}
         <LikeButton
-          alignment={ButtonAlignments.RIGHT}
+          iconAlignment={ButtonIconAlignments.RIGHT}
           onPress={onLikePress}>
           {likes}
         </LikeButton>

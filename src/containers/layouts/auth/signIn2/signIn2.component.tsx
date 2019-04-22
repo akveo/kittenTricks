@@ -71,16 +71,13 @@ class SignIn2Component extends React.Component<SignIn2Props> {
             onPress={this.onSignInButtonPress}>
             Sign In
           </Button>
-          <View style={themedStyle.signUpContainer}>
-            <Text style={themedStyle.haveAccountLabel}>Don't have an account?</Text>
-            <Button
-              style={themedStyle.signUpButton}
-              appearance='ghost'
-              activeOpacity={0.75}
-              onPress={this.onSignUpButtonPress}>
-              Sign Up
-            </Button>
-          </View>
+          <Button
+            style={themedStyle.signUpButton}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignUpButtonPress}>
+            Don't have an account? Create
+          </Button>
         </View>
       </AvoidKeyboard>
     );
@@ -100,15 +97,8 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    justifyContent: 'space-between',
     marginTop: 32,
     paddingHorizontal: 16,
-  },
-  signUpContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 24,
   },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',
@@ -121,16 +111,13 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
     lineHeight: 24,
     marginTop: 16,
   },
-  haveAccountLabel: {
-    color: theme['color-basic-600'],
-  },
   signInButton: {
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
     textTransform: 'uppercase',
   },
   signUpButton: {
-    paddingHorizontal: 0,
+    marginVertical: 24,
     fontFamily: 'opensans-semibold',
     color: theme['color-basic-600'],
   },
