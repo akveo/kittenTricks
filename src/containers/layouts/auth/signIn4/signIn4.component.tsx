@@ -107,16 +107,13 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
             onFacebookPress={this.onFacebookButtonPress}
             onTwitterPress={this.onTwitterButtonPress}
           />
-          <View style={themedStyle.signUpContainer}>
-            <Text>Don't have an account?</Text>
-            <Button
-              style={themedStyle.signUpButton}
-              appearance='ghost'
-              activeOpacity={0.75}
-              onPress={this.onSignUpButtonPress}>
-              Sign Up
-            </Button>
-          </View>
+          <Button
+            style={themedStyle.signUpButton}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignUpButtonPress}>
+            Don't have an account? Sign Up
+          </Button>
         </ImageBackground>
       </AvoidKeyboard>
     );
@@ -140,13 +137,6 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   socialAuthContainer: {
     marginTop: 32,
   },
-  signUpContainer: {
-    marginVertical: 32,
-    flexDirection: 'row',
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',
     fontSize: 60,
@@ -167,6 +157,7 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
     textTransform: 'uppercase',
   },
   signUpButton: {
+    marginVertical: 32,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
   },
