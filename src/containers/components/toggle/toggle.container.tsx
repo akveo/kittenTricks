@@ -11,7 +11,7 @@ export class ToggleContainer extends React.Component<NavigationScreenProps> {
 
   private renderItem = (props: ToggleProps): React.ReactElement<ToggleProps> => {
     return (
-      <Toggle value={true} {...props} />
+      <Toggle checked={true} {...props} />
     );
   };
 

@@ -1,5 +1,5 @@
 import {
-  ButtonAlignments,
+  ButtonIconAlignments,
 } from '@kitten/ui';
 import { StarIcon } from '@src/assets/icons';
 import {
@@ -24,7 +24,7 @@ const leftIconButton: ComponentShowcaseItem = {
   title: 'Left Icon',
   props: {
     icon: StarIcon,
-    alignment: ButtonAlignments.LEFT,
+    alignment: ButtonIconAlignments.LEFT,
   },
 };
 
@@ -32,7 +32,7 @@ const rightIconButton: ComponentShowcaseItem = {
   title: 'Right Icon',
   props: {
     icon: StarIcon,
-    alignment: ButtonAlignments.RIGHT,
+    alignment: ButtonIconAlignments.RIGHT,
   },
 };
 

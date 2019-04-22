@@ -7,14 +7,14 @@ import {
 const checkedToggle: ComponentShowcaseItem = {
   title: 'Checked',
   props: {
-    value: true,
+    checked: true,
   },
 };
 
 const uncheckedToggle: ComponentShowcaseItem = {
   title: 'Unchecked',
   props: {
-    value: false,
+    checked: false,
   },
 };
 
@@ -22,6 +22,13 @@ const disabledToggle: ComponentShowcaseItem = {
   title: 'Disabled',
   props: {
     disabled: true,
+  },
+};
+
+const giantToggle: ComponentShowcaseItem = {
+  title: 'Giant',
+  props: {
+    size: 'giant',
   },
 };
 
@@ -43,6 +50,13 @@ const smallToggle: ComponentShowcaseItem = {
   title: 'Small',
   props: {
     size: 'small',
+  },
+};
+
+const tinyToggle: ComponentShowcaseItem = {
+  title: 'Tiny',
+  props: {
+    size: 'tiny',
   },
 };
 
@@ -93,9 +107,11 @@ const stateSection: ComponentShowcaseSection = {
 const sizeSection: ComponentShowcaseSection = {
   title: 'Size',
   items: [
+    giantToggle,
     largeToggle,
     mediumToggle,
     smallToggle,
+    tinyToggle,
   ],
 };
 
