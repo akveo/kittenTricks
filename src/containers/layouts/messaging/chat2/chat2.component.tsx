@@ -121,10 +121,11 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
   };
 
   private renderSendMessageButton = (): React.ReactElement<ButtonProps> | null => {
-    const { newMessage } = this.props;
+    const { newMessage, themedStyle } = this.props;
 
     return (newMessage && newMessage.length !== 0) ? (
       <Button
+        style={themedStyle.addMessageButton}
         appearance='ghost'
         size='large'
         icon={PaperPlaneIcon}
@@ -165,7 +166,6 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
       newMessage,
       fileSectionOpened,
     } = this.props;
-    const isMessageEmpty: boolean = newMessage.length === 0;
 
     return (
       <View style={themedStyle.container}>
@@ -183,7 +183,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
             onPress={this.onAddButtonPress}
           />
           <Input
-            style={themedStyle.inputComponent(isMessageEmpty)}
+            style={themedStyle.inputComponent}
             icon={MicIcon}
             value={newMessage}
             placeholder='Message...'
@@ -219,11 +219,9 @@ export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
   addMessageButton: {
     width: 26,
     borderRadius: 26,
-    marginRight: 4,
   },
-  inputComponent: (isMessageEmpty: boolean) => ({
-    // TODO: fix input width in RNUK
-    width: isMessageEmpty ? width - 86 : width - 126,
-  }),
+  inputComponent: {
+    marginHorizontal: 8,
+  },
 }));
 

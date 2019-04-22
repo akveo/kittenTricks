@@ -105,7 +105,6 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
             onPress={this.onMessageAdd}
           />
           <Input
-            style={themedStyle.inputComponent}
             icon={MicIcon}
             value={newMessage}
             placeholder='Message...'
@@ -139,10 +138,7 @@ export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
   addMessageButton: {
     width: 26,
     borderRadius: 26,
-  },
-  inputComponent: {
-    // TODO: fix input width in RNUK
-    width: Dimensions.get('window').width - 86,
+    marginRight: 18,
   },
 }));
 
