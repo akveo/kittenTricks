@@ -6,12 +6,17 @@ import {
 } from '@kitten/ui';
 import { Showcase } from '../common/showcase.component';
 import { inputShowcase } from './type';
+import { StyleSheet } from 'react-native';
 
 export class InputContainer extends React.Component<NavigationScreenProps> {
 
   private renderItem = (props: InputProps): React.ReactElement<InputProps> => {
     return (
-      <Input placeholder='Place your text' {...props} />
+      <Input
+        style={styles.component}
+        placeholder='Place your text'
+        {...props}
+      />
     );
   };
 
@@ -24,3 +29,9 @@ export class InputContainer extends React.Component<NavigationScreenProps> {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  component: {
+    flex: 1,
+  },
+});
