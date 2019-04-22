@@ -30,7 +30,6 @@ export { ProductsListContainer } from './ecommerce/productsList/productsList.con
 export { ProductDetailsContainer } from './ecommerce/productDetails/productDetails.container';
 export { ShoppingCartContainer } from './ecommerce/shoppingCart/shoppingCart.container';
 export { MessagingContainer } from './messaging/messaging.container';
-export { CommentsList1Container } from './messaging/commentsList1/commentsList1.container';
 export { ConversationsListContainer } from './messaging/conversationsList/conversationsList.container';
 export { Chat1Container } from './messaging/chat1/chat1.container';
 export { Chat2Container } from './messaging/chat2/chat2.container';

@@ -5,20 +5,30 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { List } from '@kitten/ui';
-import { Comment as CommentComponent } from '@src/components/common';
+import {
+  List,
+  ListProps,
+} from '@kitten/ui';
 import { Comment } from '@src/core/model';
+import {
+  Comment as CommentComponent,
+  CommentProps,
+} from './comment.component';
 
-interface ComponentProps {
-  comments: Comment[];
+// @ts-ignore (override `renderItem` prop)
+interface ComponentProps extends ListProps {
+  data: Comment[];
   onMorePress: (index: number) => void;
   onLikePress: (index: number) => void;
   onCommentPress: (index: number) => void;
+  renderItem?: (info: ListRenderItemInfo<Comment>) => ListItemElement;
 }
 
-export type CommentsList1Props = ThemedComponentProps & ComponentProps;
+export type CommentsListProps = ThemedComponentProps & ComponentProps;
 
-class CommentsList1Component extends React.Component<CommentsList1Props> {
+type ListItemElement = React.ReactElement<CommentProps>;
+
+class CommentsListComponent extends React.Component<CommentsListProps> {
 
   private onMorePress = (index: number) => {
     this.props.onMorePress(index);
@@ -32,7 +42,7 @@ class CommentsList1Component extends React.Component<CommentsList1Props> {
     this.props.onCommentPress(index);
   };
 
-  private renderItem = (info: ListRenderItemInfo<Comment>): React.ReactElement<any> => {
+  private renderItem = (info: ListRenderItemInfo<Comment>): ListItemElement => {
     const { themedStyle } = this.props;
 
     return (
@@ -42,24 +52,26 @@ class CommentsList1Component extends React.Component<CommentsList1Props> {
         index={info.index}
         onLikePress={this.onLikePress}
         onCommentPress={this.onCommentPress}
-        onProfilePress={this.onMorePress}/>
+        onProfilePress={this.onMorePress}
+      />
     );
   };
 
   public render(): React.ReactNode {
-    const { themedStyle, comments } = this.props;
+    const { contentContainerStyle, themedStyle, data, ...restProps } = this.props;
 
     return (
       <List
-        style={themedStyle.container}
-        data={comments}
+        {...restProps}
+        contentContainerStyle={[contentContainerStyle, themedStyle.container]}
+        data={data}
         renderItem={this.renderItem}
       />
     );
   }
 }
 
-export const CommentsList1 = withStyles(CommentsList1Component, (theme: ThemeType) => ({
+export const CommentsList = withStyles(CommentsListComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
     paddingVertical: 8,

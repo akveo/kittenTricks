@@ -18,15 +18,15 @@ import {
   Input,
 } from '@kitten/ui';
 import { Text } from '@src/components/common';
+import { CommentsList } from '@src/components/articles';
 import {
-  Product as ProductModel,
-  Comment as CommentModel,
+  Product,
+  Comment,
 } from '@src/core/model';
-import { CommentsList1 } from '@src/containers/layouts/messaging';
 
 interface ComponentProps {
-  product: ProductModel;
-  comments: CommentModel[];
+  product: Product;
+  comments: Comment[];
   currentCommentText: string;
   onCommentSubmit: () => void;
   onCommentTextChange: (text: string) => void;
@@ -124,11 +124,7 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
   };
 
   private renderCommentsSection = (): React.ReactElement<ViewProps> => {
-    const {
-      themedStyle,
-      comments,
-      currentCommentText,
-    } = this.props;
+    const { themedStyle, comments, currentCommentText } = this.props;
 
     return (
       <View style={themedStyle.commentsContainer}>
@@ -140,8 +136,8 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
           onChangeText={this.onCommentTextChange}
           onSubmitEditing={this.handleTextSubmit}
         />
-        <CommentsList1
-          comments={comments}
+        <CommentsList
+          data={comments}
           onMorePress={this.onMoreButtonPress}
           onLikePress={this.onLikeButtonPress}
           onCommentPress={this.onCommentButtonPress}
