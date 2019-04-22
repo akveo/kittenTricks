@@ -24,10 +24,10 @@ export {
   PaymentCardProps,
 } from './paymentCard.component';
 export {
-  Product,
-  ProductProps,
-} from './product.component';
-export {
   CartProduct,
   CartProductProps,
 } from './cartProduct.component';
+export {
+  ProductList,
+  ProductListProps,
+} from './productList/productList.component';
