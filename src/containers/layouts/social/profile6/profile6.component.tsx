@@ -27,19 +27,21 @@ import {
   Profile as ProfileModel,
   ProfileSocials as ProfileSocialsModel,
   ProfileActivity as ProfileActivityModel,
-  CategorisedProfileActivity as CategorisedProfileActivityModel,
+  CategorisedProfileActivity as CategorisedProfileActivityModel, Post,
 } from '@src/core/model';
 
 interface ComponentProps {
   profile: ProfileModel;
   socials: ProfileSocialsModel;
   activity: CategorisedProfileActivityModel;
+  posts: Post[];
   onFollowPress: () => void;
   onMessagePress: () => void;
   onFollowersPress: () => void;
   onFollowingPress: () => void;
   onPostsPress: () => void;
   onPhotoPress: (index: number) => void;
+  onActivityLikePress: (index: number) => void;
 }
 
 type ProfileActivityElement = React.ReactElement<ProfileActivityList1Props>;
@@ -72,18 +74,25 @@ class Profile6Component extends React.Component<Profile6Props> {
     this.props.onPhotoPress(index);
   };
 
+  private onItemLikePress = (index: number): void => {
+    this.props.onActivityLikePress(index);
+  };
+
   private createImageSource = (activity: ProfileActivityModel): ImageSourcePropType => {
     return { uri: activity.source };
   };
 
   private renderActivityElement = (category: string, activities: ProfileActivityModel[]): ProfileActivityElement => {
+    const { posts } = this.props;
+
     return (
       <View key={category}>
         <Text style={this.props.themedStyle.categoryLabel}>{category}</Text>
         <ProfileActivityList1
           contentContainerStyle={this.props.themedStyle.activityList}
-          data={activities.map(this.createImageSource)}
+          data={posts}
           onItemPress={this.onPhotoPress}
+          onItemLikePress={this.onItemLikePress}
         />
       </View>
     );
