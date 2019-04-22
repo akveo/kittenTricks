@@ -6,6 +6,7 @@ import { AddPaymentCardFormType } from '@src/components/ecommerce';
 export class AddNewCardContainer extends React.Component<NavigationScreenProps> {
 
   private onAddPress = (value: AddPaymentCardFormType) => {
+    this.props.navigation.goBack();
   };
 
   public render(): React.ReactNode {
