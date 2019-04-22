@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  View,
-  TouchableOpacity,
-  ListRenderItemInfo,
-} from 'react-native';
+import { ListRenderItemInfo } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -13,8 +9,9 @@ import {
   TabProps,
   List,
   ListProps,
+  Tab,
+  TabView,
 } from '@kitten/ui';
-import { Text } from '@src/components/common';
 import { Product as ProductModel } from '@src/core/model';
 import {
   ProductProps,
@@ -28,7 +25,7 @@ interface ComponentProps {
 
 interface State {
   selectedIndex: number;
-  currentProducts: ProductModel[];
+  tabs: string[];
 }
 
 export type ProductsListProps = ThemedComponentProps & ComponentProps;
@@ -37,19 +34,16 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
 
   public state: State = {
     selectedIndex: 0,
-    currentProducts: this.props.products,
+    tabs: [],
   };
 
-  private extractKey = (item: string, index: number): string => {
-    return `${item}-${index}`;
-  };
+  public componentWillMount(): void {
+    this.state.tabs = this.getComponentsTabs();
+    this.state.tabs.pop();
+  }
 
-  private onSelectTab = (selectedIndex: number, category: string): void => {
-    const products: ProductModel[] = this.filterProducts(category);
-    this.setState({
-      selectedIndex: selectedIndex,
-      currentProducts: products,
-    });
+  private onSelectTab = (selectedIndex: number): void => {
+    this.setState({ selectedIndex });
   };
 
   private onAddToBucketPress = (product: ProductModel): void => {
@@ -73,17 +67,16 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
     }
   };
 
-  private renderTab = (info: ListRenderItemInfo<string>): React.ReactElement<TabProps> => {
+  private renderTab = (title: string, index: number): React.ReactElement<TabProps> => {
     const { themedStyle } = this.props;
-    const isSelected: boolean = info.index === this.state.selectedIndex;
 
     return (
-      <TouchableOpacity
-        onPress={() => this.onSelectTab(info.index, info.item)}
-        style={themedStyle.tabContainer}>
-        <Text style={themedStyle.tabLabel(isSelected)}>{info.item.toUpperCase()}</Text>
-        {isSelected && <View style={themedStyle.tabIndicator}/>}
-      </TouchableOpacity>
+      <Tab
+        style={[themedStyle.container, {backgroundColor: 'white'}]}
+        title={title}
+        key={index}>
+        {this.renderProducts()}
+      </Tab>
     );
   };
 
@@ -102,75 +95,48 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
 
   private renderProducts = (): React.ReactElement<ListProps> => {
     const { themedStyle } = this.props;
+    const { tabs, selectedIndex} = this.state;
+    const products: ProductModel[] = this.filterProducts(tabs[selectedIndex]);
 
     return (
       <List
-        style={themedStyle.productsList}
+        style={themedStyle.productListContainer}
         contentContainerStyle={themedStyle.productsListContent}
-        data={this.state.currentProducts}
+        data={products}
         renderItem={this.renderProduct}
         numColumns={2}
       />
     );
   };
 
+  private renderTabs = (): React.ReactElement<TabProps>[] => {
+    return this.state.tabs.map(this.renderTab);
+  };
+
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
-    const tabs: string[] = this.getComponentsTabs();
 
     return (
-      <View style={themedStyle.container}>
-        <List
-          style={themedStyle.headerList}
-          keyExtractor={this.extractKey}
-          contentContainerStyle={themedStyle.tabsList}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          data={tabs}
-          renderItem={this.renderTab}/>
-        {this.renderProducts()}
-      </View>
+      <TabView
+        style={themedStyle.container}
+        selectedIndex={this.state.selectedIndex}
+        onSelect={this.onSelectTab}>
+        {this.renderTabs()}
+      </TabView>
     );
   }
 }
 
 export const ProductsList = withStyles(ProductsListComponent, (theme: ThemeType) => ({
   container: {
-    flexGrow: 1,
+    flex: 1,
   },
-  headerList: {
-    height: 48,
-  },
-  tabsList: {
-    paddingHorizontal: 38,
-    marginTop: 10,
-  },
-  tabContainer: {
-    width: 125,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tabLabel: (isSelected: boolean) => ({
-    color: isSelected ? theme['color-primary-500'] : theme['color-basic-600'],
-    fontFamily: 'opensans-extrabold',
-    fontSize: 14,
-    lineHeight: 16,
-  }),
-  tabIndicator: {
-    width: 125,
-    height: 4,
-    borderRadius: 100,
-    backgroundColor: theme['color-primary-500'],
-    position: 'absolute',
-    bottom: 0,
-  },
-  productsList: {
-    height: '100%',
+  productListContainer: {
+    flex: 1,
+    backgroundColor: theme['color-basic-100'],
   },
   productsListContent: {
-    flex: 1,
     padding: 8,
-    backgroundColor: theme['color-basic-100'],
   },
   productItem: {
     flex: 1,
