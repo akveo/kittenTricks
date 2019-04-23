@@ -67,6 +67,14 @@ import {
   Trainings2Container,
 } from '@src/containers/layouts';
 import {
+  AvatarContainer,
+  ButtonContainer,
+  CheckBoxContainer,
+  InputContainer,
+  RadioContainer,
+  ToggleContainer,
+} from '@src/containers/components';
+import {
   AppBar,
   AppBarProps,
 } from './appBar.component';
@@ -215,6 +223,12 @@ const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
 const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Components']: ComponentsContainer,
+    ['Button']: ButtonContainer,
+    ['CheckBox']: CheckBoxContainer,
+    ['Radio']: RadioContainer,
+    ['Input']: InputContainer,
+    ['Avatar']: AvatarContainer,
+    ['Toggle']: ToggleContainer,
   },
   {
     headerMode: 'none',

@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   TouchableOpacityProps,
+  ScrollView,
 } from 'react-native';
 import {
   MediaLibrary,
@@ -21,7 +22,6 @@ import {
   ListItem,
   ListItemProps,
   Button,
-  ViewPager,
   ViewPagerProps,
 } from '@kitten/ui';
 import { Text } from '@src/components/common';
@@ -143,14 +143,12 @@ class Chat2FileSectionComponent extends React.Component<Chat2FileSectionComponen
   private renderGalleryItem = (item: MediaLibrary.Asset,
                                index: number): React.ReactElement<TouchableOpacityProps> => {
 
-    const { themedStyle, galleryFiles } = this.props;
-    const isLastItem: boolean = index === galleryFiles.length - 1;
+    const { themedStyle } = this.props;
 
     return (
       <TouchableOpacity
         key={index + 1}
         activeOpacity={0.95}
-        style={themedStyle.galleryItemContainer(isLastItem)}
         onPress={() => this.onGalleryItemPress(item)}>
         <Image
           source={{ uri: item.uri }}
@@ -173,9 +171,13 @@ class Chat2FileSectionComponent extends React.Component<Chat2FileSectionComponen
     const { themedStyle } = this.props;
 
     return (
-      <ViewPager contentWidth={72} style={themedStyle.pager}>
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        style={themedStyle.pagerContainer}
+        contentContainerStyle={themedStyle.pagerContent}>
         {this.renderPagerContent()}
-      </ViewPager>
+      </ScrollView>
     );
   };
 
@@ -222,15 +224,17 @@ export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: Th
   container: {
     backgroundColor: theme['color-white'],
   },
-  pager: {
-    paddingHorizontal: 16,
+  pagerContainer: {
     marginBottom: 16,
+  },
+  pagerContent: {
+    paddingHorizontal: 8,
   },
   pagerItem: {
     width: 72,
     height: 72,
     borderRadius: 20,
-    marginRight: 16,
+    marginHorizontal: 8,
   },
   cameraView: {
     flex: 1,
@@ -248,9 +252,6 @@ export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: Th
     width: 25,
     height: 25,
   },
-  galleryItemContainer: (isLastItem: boolean) => ({
-    marginRight: isLastItem ? 0 : 16,
-  }),
   actionIcon: {
     width: 20,
     height: 20,
