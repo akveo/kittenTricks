@@ -12,7 +12,7 @@ import {
 } from '@kitten/theme';
 import {
   Button,
-  ButtonAlignments,
+  ButtonIconAlignments,
 } from '@kitten/ui';
 import {
   SocialAuth,
@@ -117,7 +117,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
               style={themedStyle.signUpButton}
               size='giant'
               activeOpacity={0.75}
-              alignment={ButtonAlignments.RIGHT}
+              alignment={ButtonIconAlignments.RIGHT}
               icon={this.renderSignUpButtonIcon}
               onPress={this.onSignUpButtonPress}>
               Sign Up

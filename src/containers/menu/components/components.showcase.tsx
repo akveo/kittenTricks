@@ -89,7 +89,9 @@ export const AvatarShowcase = (props?: AvatarProps): React.ReactElement<AvatarPr
 
 export const TextShowcase = (props?: TextProps): React.ReactElement<TextProps> => {
   return (
-    <Text>
+    <Text
+      {...props}
+      style={{ fontFamily: 'opensans-regular' }}>
       Read Me!
     </Text>
   );
