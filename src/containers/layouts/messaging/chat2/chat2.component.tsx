@@ -222,6 +222,7 @@ export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
   },
   inputComponent: {
     marginHorizontal: 8,
+    flex: 1,
   },
 }));
 
