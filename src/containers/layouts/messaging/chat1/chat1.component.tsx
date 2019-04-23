@@ -106,6 +106,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
           />
           <Input
             icon={MicIcon}
+            style={themedStyle.input}
             value={newMessage}
             placeholder='Message...'
             onChangeText={this.onNewMessageChange}
@@ -139,6 +140,9 @@ export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
     width: 26,
     borderRadius: 26,
     marginRight: 18,
+  },
+  input: {
+    flex: 1,
   },
 }));
 

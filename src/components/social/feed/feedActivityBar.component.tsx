@@ -68,7 +68,7 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
           style={themedStyle.addButton}
           activeOpacity={0.65}
           size='giant'
-          alignment={ButtonIconAlignments.RIGHT}
+          iconAlignment={ButtonIconAlignments.RIGHT}
           icon={this.renderAddIcon}
           onPress={this.onAddButtonPress}>
           Add Training

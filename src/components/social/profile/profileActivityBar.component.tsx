@@ -27,7 +27,7 @@ class ProfileActivityBarComponent extends React.Component<ProfileActivityBarProp
       <ActivityBar {...restProps}>
         {children}
         <LikeButton
-          alignment={ButtonIconAlignments.RIGHT}
+          iconAlignment={ButtonIconAlignments.RIGHT}
           onPress={onLikePress}>
           {likes}
         </LikeButton>

@@ -35,10 +35,10 @@ class SettingsComponent extends React.Component<SettingsProps> {
 
   private onSoundEnabledPress = () => {
     const { soundEnabled } = this.props;
-    this.onSoundEnabledValueChange(!soundEnabled);
+    this.onSoundEnabledChange(!soundEnabled);
   };
 
-  private onSoundEnabledValueChange = (value: boolean) => {
+  private onSoundEnabledChange = (value: boolean) => {
     this.props.onSoundEnabledValueChange(value);
   };
 
@@ -82,8 +82,8 @@ class SettingsComponent extends React.Component<SettingsProps> {
             Sound Enabled
           </Text>
           <Toggle
-            value={soundEnabled}
-            onValueChange={this.onSoundEnabledValueChange}
+            checked={soundEnabled}
+            onChange={this.onSoundEnabledChange}
           />
         </Section>
       </View>
