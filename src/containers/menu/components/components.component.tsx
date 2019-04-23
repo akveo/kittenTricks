@@ -25,6 +25,8 @@ interface ComponentProps {
 
 type Props = ThemedComponentProps & ComponentProps;
 
+type ListItemElement = React.ReactElement<ListItemProps>;
+
 class ComponentsComponent extends React.Component<Props> {
 
   private onSearchInputTextChange = (query: string) => {
@@ -35,17 +37,26 @@ class ComponentsComponent extends React.Component<Props> {
     this.props.onItemSelect(index);
   };
 
-  private renderItem = (info: ListRenderItemInfo<ListItem>): React.ReactElement<ListItemProps> => {
-    const { title, view } = info.item;
+  private renderItemElement = (item: ListItem): ListItemElement => {
+    const { themedStyle } = this.props;
 
     return (
       <ComponentsListItem
-        style={this.props.themedStyle.item}
-        title={title}
-        onPress={() => this.onItemPress(info.index)}>
-        {view()}
+        style={themedStyle.item}
+        activeOpacity={0.75}
+        title={item.title}
+        onPress={this.onItemPress}>
+        {item.view()}
       </ComponentsListItem>
     );
+  };
+
+  private renderItem = (info: ListRenderItemInfo<ListItem>): ListItemElement => {
+    const { item, index } = info;
+
+    const listItemElement: ListItemElement = this.renderItemElement(item);
+
+    return React.cloneElement(listItemElement, { index });
   };
 
   public render(): React.ReactNode {
