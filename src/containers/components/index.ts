@@ -6,3 +6,4 @@ export { RadioContainer } from './radio/radio.container';
 export { ToggleContainer } from './toggle/toggle.container';
 export { TabViewShowcaseContainer } from './tabView/tabViewShowcase.container';
 export { PopoverShowcaseContainer } from './popover/popoverShowcase.container';
+export { TooltipShowcaseContainer } from './tooltip/tooltipShowcase.container';
