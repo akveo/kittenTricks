@@ -12,7 +12,7 @@ import {
   Button,
   Input,
 } from '@kitten/ui';
-import { BookHeader } from '@src/components/dashboard';
+import { BookHeader } from '@src/components/ecommerce';
 import { CommentsList } from '@src/components/articles';
 import { Text } from '@src/components/common';
 import {

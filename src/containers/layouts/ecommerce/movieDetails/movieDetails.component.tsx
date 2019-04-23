@@ -14,7 +14,7 @@ import {
   MovieDetailList,
   MovieHeader,
   MovieScreenshotList,
-} from '@src/components/dashboard';
+} from '@src/components/ecommerce';
 import { Text } from '@src/components/common';
 import { Movie as MovieModel } from '@src/core/model';
 
@@ -29,7 +29,7 @@ interface State {
 
 export type MovieProps = ThemedComponentProps & ComponentProps;
 
-class MovieComponent extends React.Component<MovieProps, State> {
+class MovieDetailsComponent extends React.Component<MovieProps, State> {
 
   public state: State = {
     screenShotIndex: 0,
@@ -88,7 +88,7 @@ class MovieComponent extends React.Component<MovieProps, State> {
   }
 }
 
-export const Movie = withStyles(MovieComponent, (theme: ThemeType) => ({
+export const Movie = withStyles(MovieDetailsComponent, (theme: ThemeType) => ({
   container: {
     flexGrow: 1,
   },

@@ -32,6 +32,30 @@ export {
   ProductInfoProps,
 } from './productInfo.component';
 export {
+  BookHeader,
+  BookHeaderProps,
+} from './bookDetails/bookHeader.component';
+export {
+  BookCategoryList,
+  BookCategoryListProps,
+} from './bookDetails/bookCategoryList.component';
+export {
+  MovieCategoryList,
+  MovieCategoryListProps,
+} from './movieDetails/movieCategoryList.component';
+export {
+  MovieDetailList,
+  MovieDetailListProps,
+} from './movieDetails/movieDetailList.component';
+export {
+  MovieHeader,
+  MovieHeaderProps,
+} from './movieDetails/movieHeader.component';
+export {
+  MovieScreenshotList,
+  MovieScreenshotListProps,
+} from './movieDetails/movieScreenshotList.component';
+export {
   ProductList,
   ProductListProps,
 } from './productList/productList.component';

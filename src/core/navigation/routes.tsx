@@ -53,7 +53,7 @@ import {
   Chat3Container,
   DashboardsContainer,
   BookDetailsContainer,
-  MovieContainer,
+  MovieDetailsContainer,
   WalkthroughContainer,
   EcommerceContainer,
   ShoppingCartContainer,
@@ -105,6 +105,8 @@ const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
     ['Product Details']: ProductDetailsContainer,
     ['Shopping Cart']: ShoppingCartContainer,
     ['Rent Apartment']: RentApartmentContainer,
+    ['Movie Details']: MovieDetailsContainer,
+    ['Book Details']: BookDetailsContainer,
   },
   {
     headerMode: 'none',
@@ -125,8 +127,6 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Dashboards']: DashboardsContainer,
     ['Trainings 1']: Trainings1Container,
     ['Trainings 2']: Trainings2Container,
-    ['Movie']: MovieContainer,
-    ['Book Details']: BookDetailsContainer,
   },
   {
     headerMode: 'none',

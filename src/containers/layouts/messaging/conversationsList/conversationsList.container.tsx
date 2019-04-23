@@ -19,15 +19,15 @@ export class ConversationsListContainer extends React.Component<NavigationScreen
     conversations: [conversation1, conversation2, conversation3, conversation4],
   };
 
-  private onOneOfConversationsItemsFromListPress = (index: number): void => {
-
+  private onConversationPress = (index: number) => {
+    this.props.navigation.navigate('Chat 1');
   };
 
   public render(): React.ReactNode {
     return (
       <ConversationsList
         conversations={this.state.conversations}
-        onConversation={this.onOneOfConversationsItemsFromListPress}
+        onConversation={this.onConversationPress}
       />
     );
   }
