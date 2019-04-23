@@ -25,9 +25,9 @@ const ICON1: ImageSourcePropType = { uri: 'https://akveo.github.io/eva-icons/fil
 const ICON2: ImageSourcePropType = { uri: 'https://akveo.github.io/eva-icons/fill/png/128/email.png' };
 const ICON3: ImageSourcePropType = { uri: 'https://akveo.github.io/eva-icons/fill/png/128/info.png' };
 
-export type TabViewComponentProps = ThemedComponentProps & ComponentProps;
+export type TabViewShowcaseProps = ThemedComponentProps & ComponentProps;
 
-class TabViewComponent extends React.Component<TabViewComponentProps> {
+class TabViewShowcaseComponent extends React.Component<TabViewShowcaseProps> {
 
   private onTabSelect = (index: number): void => {
     this.props.onTabSelect(index);
@@ -38,7 +38,7 @@ class TabViewComponent extends React.Component<TabViewComponentProps> {
 
     return (
       <TabView
-        style={this.props.themedStyle.container}
+        style={themedStyle.container}
         selectedIndex={selectedIndex}
         onSelect={this.onTabSelect}>
         <Tab
@@ -67,10 +67,9 @@ class TabViewComponent extends React.Component<TabViewComponentProps> {
   }
 }
 
-export const TabViewShowcase = withStyles(TabViewComponent, (theme: ThemeType) => ({
+export const TabViewShowcase = withStyles(TabViewShowcaseComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-
   },
   tabContent: {
     flex: 1,

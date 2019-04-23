@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { TabViewShowcase } from './tabView.component';
+import { TabViewShowcase } from './tabViewShowcase.component';
 
 interface State {
   selectedTabIndex: number;
 }
 
-export class TabViewContainer extends React.Component<NavigationScreenProps, State> {
+export class TabViewShowcaseContainer extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
     selectedTabIndex: 0,

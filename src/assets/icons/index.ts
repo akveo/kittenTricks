@@ -209,3 +209,7 @@ export const PeopleIcon = (style: StyleProp<ImageStyle>): React.ReactElement<Ima
 export const PlayCircleIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/fill/png/128/play-circle.png', style);
 };
+
+export const MoveIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/move.png', style);
+};
