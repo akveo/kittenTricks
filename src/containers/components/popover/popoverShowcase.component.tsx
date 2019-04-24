@@ -103,13 +103,13 @@ export const PopoverShowcase = withStyles(PopoverShowcaseComponent, (theme: Them
     padding: 4,
   },
   popoverContentIcon: {
-    tintColor: 'white',
+    tintColor: theme['color-white'],
     width: 16,
     height: 16,
     marginRight: 4,
   },
   popoverContentText: {
-    color: 'white',
+    color: theme['color-white'],
     fontSize: 12,
   },
 }));

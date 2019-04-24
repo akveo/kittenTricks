@@ -61,6 +61,8 @@ class ComponentsComponent extends React.Component<Props> {
         />
         <List
           contentContainerStyle={themedStyle.list}
+          contentInset={themedStyle.listContentInset}
+          showsVerticalScrollIndicator={false}
           numColumns={2}
           data={items}
           renderItem={this.renderItem}
@@ -82,6 +84,9 @@ export const Components = withStyles(ComponentsComponent, (theme: ThemeType) => 
   },
   list: {
     paddingVertical: 24,
+  },
+  listContentInset: {
+    bottom: 24,
   },
   item: {
     flex: 1,
