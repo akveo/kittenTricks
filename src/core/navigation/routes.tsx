@@ -77,6 +77,7 @@ import {
   TabViewShowcaseContainer,
   PopoverShowcaseContainer,
   TooltipShowcaseContainer,
+  OverflowMenuShowcaseContainer,
 } from '@src/containers/components';
 import {
   AppBar,
@@ -237,6 +238,7 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Tab View']: TabViewShowcaseContainer,
     ['Popover']: PopoverShowcaseContainer,
     ['Tooltip']: TooltipShowcaseContainer,
+    ['Overflow Menu']: OverflowMenuShowcaseContainer,
   },
   {
     headerMode: 'none',
