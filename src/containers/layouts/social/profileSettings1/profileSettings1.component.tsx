@@ -98,9 +98,9 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
         </View>
         <Button
           style={themedStyle.button}
-          size='giant'
+          size='large'
           onPress={this.onButtonPress}>
-          BUTTON
+          DONE
         </Button>
       </ScrollView>
     );
@@ -133,11 +133,10 @@ export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: Th
     width: 48,
     height: 48,
     borderRadius: 24,
-    transform: [{ translateY: 96 }],
+    transform: [{ translateY: 82 }],
     backgroundColor: theme['color-basic-700'],
   },
   button: {
-    height: 40,
     marginHorizontal: 24,
     marginVertical: 24,
   },

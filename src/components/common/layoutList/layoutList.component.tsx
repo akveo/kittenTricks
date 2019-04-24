@@ -53,11 +53,12 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, ...restProps } = this.props;
+    const { style, contentContainerStyle, themedStyle, ...restProps } = this.props;
 
     return (
       <List
         style={[themedStyle.container, style]}
+        contentContainerStyle={[themedStyle.contentContainer, contentContainerStyle]}
         {...restProps}
         renderItem={this.renderItem}
       />
@@ -67,9 +68,11 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
 
 export const LayoutList = withStyles(LayoutListComponent, (theme: ThemeType) => ({
   container: {
-    paddingHorizontal: 24,
-    paddingTop: 12,
     backgroundColor: theme['color-basic-100'],
+  },
+  contentContainer: {
+    paddingHorizontal: 24,
+    paddingVertical: 12,
   },
   item: {
     marginVertical: 12,

@@ -98,7 +98,7 @@ interface SectionProps extends TouchableOpacityProps {
 const Section = (props?: SectionProps): React.ReactElement<TouchableOpacityProps> => {
   return (
     <TouchableOpacity
-      activeOpacity={1.0}
+      activeOpacity={0.65}
       {...props}
     />
   );

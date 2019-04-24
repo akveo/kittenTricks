@@ -83,6 +83,8 @@ import {
   FullscreenParams,
   TopNavigationElement,
   RootNavigatorParams,
+  MessagingNavigatorParams,
+  SocialNavigatorParams,
 } from './navigationParams';
 import { BottomNavigationBar } from './components/bottomNavigationBar.component';
 import { getCurrentRouteState } from './routeUtil';
@@ -151,10 +153,22 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
 const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Messaging']: MessagingContainer,
-    ['Conversations List']: ConversationsListContainer,
-    ['Chat 1']: Chat1Container, // TODO: add custom header
-    ['Chat 2']: Chat2Container, // TODO: add custom header
-    ['Chat 3']: Chat3Container, // TODO: add custom header
+    ['Conversations List']: {
+      screen: ConversationsListContainer,
+      params: MessagingNavigatorParams,
+    },
+    ['Chat 1']: {
+      screen: Chat1Container,
+      params: MessagingNavigatorParams,
+    },
+    ['Chat 2']: {
+      screen: Chat2Container,
+      params: MessagingNavigatorParams,
+    },
+    ['Chat 3']: {
+      screen: Chat3Container,
+      params: MessagingNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -182,19 +196,58 @@ const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
 const SocialNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Social']: SocialContainer,
-    ['Profile 1']: Profile1Container,
-    ['Profile 2']: Profile2Container,
-    ['Profile 3']: Profile3Container,
-    ['Profile 4']: Profile4Container,
-    ['Profile 5']: Profile5Container,
-    ['Profile 6']: Profile6Container,
-    ['Profile 7']: Profile7Container,
-    ['Profile Settings 1']: ProfileSettings1Container,
-    ['Profile Settings 2']: ProfileSettings2Container,
-    ['Profile Settings 3']: ProfileSettings3Container,
-    ['Feed 1']: Feed1Container,
-    ['Feed 2']: Feed2Container,
-    ['Settings']: SettingsContainer,
+    ['Profile 1']: {
+      screen: Profile1Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 2']: {
+      screen: Profile2Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 3']: {
+      screen: Profile3Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 4']: {
+      screen: Profile4Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 5']: {
+      screen: Profile5Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 6']: {
+      screen: Profile6Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 7']: {
+      screen: Profile7Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile Settings 1']: {
+      screen: ProfileSettings1Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile Settings 2']: {
+      screen: ProfileSettings2Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile Settings 3']: {
+      screen: ProfileSettings3Container,
+      params: SocialNavigatorParams,
+    },
+    ['Feed 1']: {
+      screen: Feed1Container,
+      params: SocialNavigatorParams,
+    },
+    ['Feed 2']: {
+      screen: Feed2Container,
+      params: SocialNavigatorParams,
+    },
+    ['Settings']: {
+      screen: SettingsContainer,
+      params: SocialNavigatorParams,
+    },
   },
   {
     headerMode: 'none',

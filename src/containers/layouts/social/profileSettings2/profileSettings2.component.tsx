@@ -42,6 +42,7 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
     return (
       <Button
         style={themedStyle.photoButton}
+        size='small'
         activeOpacity={0.95}
         icon={CameraIcon}
         onPress={this.onPhotoButtonPress}
@@ -66,7 +67,7 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
               value={profile.firstName}
             />
             <ProfileSetting
-              style={themedStyle.nameParameter}
+              style={[themedStyle.nameParameter, themedStyle.lastNameParameter]}
               value={profile.lastName}
             />
           </View>
@@ -98,9 +99,9 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
         </View>
         <Button
           style={themedStyle.button}
-          size='giant'
+          size='large'
           onPress={this.onButtonPress}>
-          BUTTON
+          DONE
         </Button>
       </ScrollView>
     );
@@ -114,8 +115,8 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
   },
   photoSection: {
     flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 32,
-    paddingVertical: 32,
     backgroundColor: theme['color-white'],
   },
   nameSection: {
@@ -132,11 +133,14 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
     backgroundColor: theme['color-white'],
   },
   nameParameter: {
-    marginVertical: 8,
     paddingHorizontal: 0,
     paddingVertical: 8,
   },
+  lastNameParameter: {
+    marginVertical: 16,
+  },
   description: {
+    marginTop: 24,
     color: theme['color-basic-600'],
   },
   photo: {
@@ -147,11 +151,10 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
     width: 32,
     height: 32,
     borderRadius: 16,
-    transform: [{ translateY: 60 }],
+    transform: [{ translateY: 48 }],
     backgroundColor: theme['color-basic-700'],
   },
   button: {
-    height: 40,
     marginHorizontal: 24,
     marginVertical: 24,
   },

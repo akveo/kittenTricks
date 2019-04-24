@@ -6,11 +6,13 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ButtonIconAlignments } from '@kitten/ui';
+import {
+  Button,
+  ButtonIconAlignments,
+} from '@kitten/ui';
 import {
   ActivityBar,
   ActivityBarProps,
-  Button,
   LikeButton,
   ReactionBar,
   ShareButton,
@@ -68,6 +70,7 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
           style={themedStyle.addButton}
           activeOpacity={0.65}
           size='giant'
+          status='white'
           iconAlignment={ButtonIconAlignments.RIGHT}
           icon={this.renderAddIcon}
           onPress={this.onAddButtonPress}>
@@ -83,13 +86,13 @@ export const FeedActivityBar = withStyles(FeedActivityBarComponent, (theme: Them
     marginHorizontal: 8,
   },
   addButton: {
-    backgroundColor: theme['opacity-transparent'],
+    flex: 1,
+    paddingHorizontal: 0,
     fontFamily: 'opensans-extrabold',
-    color: theme['color-primary-500'],
   },
   addButtonIcon: {
     width: 24,
     height: 24,
-    tintColor: theme['color-primary-500'],
+    marginHorizontal: 0,
   },
 }));

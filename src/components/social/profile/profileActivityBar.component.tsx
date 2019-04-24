@@ -27,6 +27,7 @@ class ProfileActivityBarComponent extends React.Component<ProfileActivityBarProp
       <ActivityBar {...restProps}>
         {children}
         <LikeButton
+          style={themedStyle.likeButton}
           iconAlignment={ButtonIconAlignments.RIGHT}
           onPress={onLikePress}>
           {likes}
@@ -36,4 +37,8 @@ class ProfileActivityBarComponent extends React.Component<ProfileActivityBarProp
   }
 }
 
-export const ProfileActivityBar = withStyles(ProfileActivityBarComponent, (theme: ThemeType) => ({}));
+export const ProfileActivityBar = withStyles(ProfileActivityBarComponent, (theme: ThemeType) => ({
+  likeButton: {
+    flex: 0.25,
+  },
+}));

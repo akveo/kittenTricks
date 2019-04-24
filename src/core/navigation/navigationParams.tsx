@@ -68,6 +68,16 @@ export const MenuNavigatorParams: NavigationParams = {
   ...MenuBottomNavigationParams,
 };
 
+export const SocialNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
+  ...BottomNavigationDisabledParams,
+};
+
+export const MessagingNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
+  ...BottomNavigationDisabledParams,
+};
+
 export const FullscreenParams: TopNavigationParams & BottomNavigationParams = {
   ...TopNavigationDisabledParams,
   ...BottomNavigationDisabledParams,
