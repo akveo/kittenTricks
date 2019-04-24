@@ -12,6 +12,7 @@ import {
   Tab,
   TabView,
   Text,
+  Button,
 } from '@kitten/ui';
 import {
   SignInForm3,
@@ -21,7 +22,6 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
-  Button,
   ImageOverlay,
 } from '@src/components/common';
 
@@ -203,6 +203,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
 }));
 
