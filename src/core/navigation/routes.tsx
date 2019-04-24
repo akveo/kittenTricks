@@ -7,7 +7,6 @@ import {
   createBottomTabNavigator,
 } from 'react-navigation';
 import {
-  MenuContainer,
   LayoutsContainer,
   ComponentsContainer,
   ThemesContainer,
@@ -80,21 +79,20 @@ import {
   ListShowcaseContainer,
 } from '@src/containers/components';
 import {
-  AppBar,
-  AppBarProps,
-} from './appBar.component';
-import { BackArrowIcon } from '@src/assets/icons';
+  MenuNavigatorParams,
+  FullscreenParams,
+  TopNavigationElement,
+  RootNavigatorParams,
+} from './navigationParams';
+import { BottomNavigationBar } from './components/bottomNavigationBar.component';
+import { getCurrentRouteState } from './routeUtil';
 
 const HeadingNavigationOptions = ({ navigation }) => {
 
-  const header = (props: HeaderProps): React.ReactElement<AppBarProps> => {
-    return (
-      <AppBar
-        {...props}
-        navigation={navigation}
-        backIcon={BackArrowIcon}
-      />
-    );
+  const header = (headerProps: HeaderProps): TopNavigationElement | null => {
+    const { params } = getCurrentRouteState(navigation);
+
+    return params && params.topNavigation && params.topNavigation(headerProps);
   };
 
   return { ...navigation, header };
@@ -106,6 +104,7 @@ const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
@@ -123,6 +122,7 @@ const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
@@ -132,6 +132,7 @@ const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
@@ -143,6 +144,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
@@ -156,6 +158,7 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
@@ -172,6 +175,7 @@ const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
@@ -194,25 +198,57 @@ const SocialNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
 const AuthNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Auth']: AuthContainer,
-    ['Sign In 1']: SignIn1Container,
-    ['Sign In 2']: SignIn2Container,
-    ['Sign In 3']: SignIn3Container,
-    ['Sign In 4']: SignIn4Container,
-    ['Sign In 5']: SignIn5Container,
-    ['Sign Up 1']: SignUp1Container,
-    ['Sign Up 2']: SignUp2Container,
-    ['Sign Up 3']: SignUp3Container,
-    ['Sign Up 4']: SignUp4Container,
-    ['Forgot Password']: ForgotPasswordContainer,
+    ['Sign In 1']: {
+      screen: SignIn1Container,
+      params: FullscreenParams,
+    },
+    ['Sign In 2']: {
+      screen: SignIn2Container,
+      params: FullscreenParams,
+    },
+    ['Sign In 3']: {
+      screen: SignIn3Container,
+      params: FullscreenParams,
+    },
+    ['Sign In 4']: {
+      screen: SignIn4Container,
+      params: FullscreenParams,
+    },
+    ['Sign In 5']: {
+      screen: SignIn5Container,
+      params: FullscreenParams,
+    },
+    ['Sign Up 1']: {
+      screen: SignUp1Container,
+      params: FullscreenParams,
+    },
+    ['Sign Up 2']: {
+      screen: SignUp2Container,
+      params: FullscreenParams,
+    },
+    ['Sign Up 3']: {
+      screen: SignUp3Container,
+      params: FullscreenParams,
+    },
+    ['Sign Up 4']: {
+      screen: SignUp4Container,
+      params: FullscreenParams,
+    },
+    ['Forgot Password']: {
+      screen: ForgotPasswordContainer,
+      params: FullscreenParams,
+    },
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
@@ -222,6 +258,10 @@ const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: {
+      ...RootNavigatorParams,
+      ...MenuNavigatorParams,
+    },
   },
 );
 
@@ -242,6 +282,10 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: {
+      ...RootNavigatorParams,
+      ...MenuNavigatorParams,
+    },
   },
 );
 
@@ -258,20 +302,24 @@ const LayoutsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Navigation']: NavigationNavigator,
   }, {
     headerMode: 'none',
+    initialRouteParams: {
+      ...RootNavigatorParams,
+      ...MenuNavigatorParams,
+    },
   },
 );
 
-const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
+const MenuNavigator: ReactNavigationContainer = createBottomTabNavigator({
   ['Layouts']: LayoutsNavigator,
   ['Components']: ComponentsNavigator,
   ['Themes']: ThemesNavigator,
 }, {
-  tabBarComponent: MenuContainer,
+  tabBarComponent: BottomNavigationBar,
 });
 
 const AppNavigator: ReactNavigationContainer = createStackNavigator({
-  Home: {
-    screen: HomeNavigator,
+  ['Home']: {
+    screen: MenuNavigator,
     navigationOptions: HeadingNavigationOptions,
   },
 });
