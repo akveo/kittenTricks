@@ -106,10 +106,10 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
     lineHeight: 72,
   },
   signInLabel: {
+    marginTop: 16,
     fontFamily: 'opensans-semibold',
     fontSize: 15,
     lineHeight: 24,
-    marginTop: 16,
   },
   signInButton: {
     marginHorizontal: 16,
@@ -117,7 +117,7 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
     textTransform: 'uppercase',
   },
   signUpButton: {
-    marginVertical: 24,
+    marginVertical: 12,
     fontFamily: 'opensans-semibold',
     color: theme['color-basic-600'],
   },
