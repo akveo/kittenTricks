@@ -115,10 +115,10 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     lineHeight: 72,
   },
   signInLabel: {
+    marginTop: 16,
     fontFamily: 'opensans-semibold',
     fontSize: 15,
     lineHeight: 24,
-    marginTop: 16,
   },
   signInButton: {
     marginHorizontal: 16,
@@ -126,7 +126,7 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     textTransform: 'uppercase',
   },
   signUpButton: {
-    marginVertical: 24,
+    marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
   },
