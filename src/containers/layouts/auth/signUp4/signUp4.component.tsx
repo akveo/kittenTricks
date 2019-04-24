@@ -91,6 +91,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     return (
       <Button
         style={themedStyle.photoButton}
+        size='small'
         icon={this.renderPhotoButtonIcon}
         onPress={this.onPhotoButtonPress}
       />
@@ -122,7 +123,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>
-            Sign Up
+            SIGN UP
           </Button>
           <SocialAuth
             iconStyle={themedStyle.socialAuthIcon}
@@ -152,30 +153,29 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
   headerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: 216,
+    minHeight: 160,
   },
   formContainer: {
     flex: 1,
-    justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
   photo: {
-    width: 116,
-    height: 116,
-    borderRadius: 58,
+    width: 92,
+    height: 92,
+    borderRadius: 46,
     alignSelf: 'center',
     backgroundColor: theme['color-white'],
     tintColor: theme['color-basic-500'],
   },
   photoButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    transform: [{ translateY: 80 }],
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    transform: [{ translateY: 64 }],
   },
   photoButtonIcon: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
   },
   socialAuthIcon: {
     tintColor: theme['color-white'],
@@ -184,10 +184,9 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
     marginVertical: 16,
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   signInButton: {
-    marginBottom: 32,
+    marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
   },

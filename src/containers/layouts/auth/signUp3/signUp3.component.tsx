@@ -110,7 +110,7 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>
-            Sign Up
+            SIGN UP
           </Button>
           <Button
             style={themedStyle.signInButton}
@@ -137,7 +137,6 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
   photo: {
@@ -161,10 +160,9 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
   signUpButton: {
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   signInButton: {
-    marginVertical: 24,
+    marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
   },

@@ -128,6 +128,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
           />
           <CheckBox
             style={themedStyle.termsCheckBox}
+            size='small'
             checked={this.state.termsAccepted}
             onChange={this.onTermsValueChange}
             text='I read and agree to Terms & Conditions'
@@ -156,7 +157,7 @@ export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) =
     color: theme['color-basic-600'],
   },
   termsCheckBox: {
-    marginTop: 28,
+    marginTop: 24,
     fontFamily: 'opensans-semibold',
     color: theme['color-basic-600'],
   },
