@@ -131,7 +131,6 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    justifyContent: 'space-evenly',
     paddingHorizontal: 16,
   },
   socialAuthContainer: {
@@ -157,13 +156,8 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
     textTransform: 'uppercase',
   },
   signUpButton: {
-    marginVertical: 32,
+    marginVertical: 12,
     paddingHorizontal: 0,
-    fontFamily: 'opensans-semibold',
-  },
-  socialMediaLabel: {
-    marginTop: 32,
-    alignSelf: 'center',
     fontFamily: 'opensans-semibold',
   },
 }));
