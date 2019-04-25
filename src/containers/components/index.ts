@@ -4,3 +4,8 @@ export { CheckBoxContainer } from './checkbox/checkbox.container';
 export { InputContainer } from './input/input.container';
 export { RadioContainer } from './radio/radio.container';
 export { ToggleContainer } from './toggle/toggle.container';
+export { TabViewShowcaseContainer } from './tabView/tabViewShowcase.container';
+export { PopoverShowcaseContainer } from './popover/popoverShowcase.container';
+export { TooltipShowcaseContainer } from './tooltip/tooltipShowcase.container';
+export { OverflowMenuShowcaseContainer } from './overflowMenu/overflowMenuShowcase.container';
+export { ListShowcaseContainer } from './list/listShowcase.container';

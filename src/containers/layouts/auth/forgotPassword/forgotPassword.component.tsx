@@ -6,14 +6,16 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Button,
+  Text,
+} from '@kitten/ui';
+import {
   ForgotPasswordForm,
   ForgotPasswordFormType,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
-  Button,
   ImageOverlay,
-  Text,
 } from '@src/components/common';
 
 interface ComponentProps {
@@ -69,7 +71,7 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
             size='giant'
             disabled={!this.resetPasswordEnabled()}
             onPress={this.onResetPasswordButtonPress}>
-            Reset Password
+            RESET PASSWORD
           </Button>
         </ImageOverlay>
       </AvoidKeyboard>
@@ -93,14 +95,15 @@ export const ForgotPassword = withStyles(ForgotPasswordComponent, (theme: ThemeT
     marginTop: 24,
     fontFamily: 'raleway-bold',
     fontSize: 32,
+    color: theme['color-white'],
   },
   enterEmailLabel: {
     alignSelf: 'center',
     marginTop: 64,
     fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
   resetButton: {
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
 }));

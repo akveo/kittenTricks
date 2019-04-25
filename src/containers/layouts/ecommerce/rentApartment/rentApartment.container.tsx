@@ -15,6 +15,7 @@ export class RentApartmentContainer extends React.Component<NavigationScreenProp
   };
 
   private onBookPress = () => {
+    this.props.navigation.navigate('Payment');
   };
 
   private onPhotoPress = (index: number) => {

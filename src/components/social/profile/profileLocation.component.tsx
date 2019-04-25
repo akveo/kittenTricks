@@ -17,7 +17,7 @@ import {
 import {
   Text,
   TextProps,
-} from '@src/components/common';
+} from '@kitten/ui';
 
 type IconProp = (style: StyleType) => React.ReactElement<ImageProps>;
 type ChildrenProp = React.ReactText;

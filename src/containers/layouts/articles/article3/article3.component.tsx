@@ -9,19 +9,17 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Text,
-  Comment,
-  CommentProps,
-} from '@src/components/common';
 import { Input } from '@kitten/ui';
+import { CommentsList } from '@src/components/articles';
+import { Text } from '@src/components/common';
 import {
   Article,
-  Comment as CommentModel,
+  Comment,
 } from '@src/core/model';
 
 interface ComponentProps {
   article: Article;
+  comments: Comment[];
   currentCommentText: string;
   onCommentSubmit: () => void;
   onCommentTextChange: (text: string) => void;
@@ -54,25 +52,8 @@ class Article3Component extends React.Component<Article3Props> {
     this.props.onCommentSubmit();
   };
 
-  private renderComment = (comment: CommentModel, key: number): React.ReactElement<CommentProps> => {
-    return (
-      <Comment
-        key={key}
-        comment={comment}
-        onLikePress={this.onLikeButtonPress}
-        onCommentPress={this.onCommentButtonPress}
-        onProfilePress={this.onMoreButtonPress}/>
-    );
-  };
-
-  private renderComments = (): React.ReactElement<CommentProps>[] => {
-    const { article } = this.props;
-
-    return article.comments.map(this.renderComment);
-  };
-
   public render(): React.ReactNode {
-    const { themedStyle, article, currentCommentText } = this.props;
+    const { themedStyle, article, comments, currentCommentText } = this.props;
 
     return (
       <ScrollView contentContainerStyle={themedStyle.contentContainer}>
@@ -109,7 +90,12 @@ class Article3Component extends React.Component<Article3Props> {
             onSubmitEditing={this.handleTextSubmit}
           />
         </View>
-        {this.renderComments()}
+        <CommentsList
+          data={comments}
+          onMorePress={this.onMoreButtonPress}
+          onLikePress={this.onLikeButtonPress}
+          onCommentPress={this.onCommentButtonPress}
+        />
       </ScrollView>
     );
   }

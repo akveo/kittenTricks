@@ -13,6 +13,7 @@ import {
 import {
   Button,
   ButtonIconAlignments,
+  Text,
 } from '@kitten/ui';
 import {
   SocialAuth,
@@ -22,7 +23,6 @@ import {
 import {
   AvoidKeyboard,
   ImageOverlay,
-  Text,
 } from '@src/components/common';
 import {
   ForwardIcon,
@@ -105,19 +105,19 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           source={this.backgroundImage}>
           <Button
             style={themedStyle.ewaButton}
-            size='giant'
+            size='large'
             activeOpacity={0.75}
             icon={this.renderEwaButtonIcon}
             onPress={this.onEwaButtonPress}>
             EWA
           </Button>
           <View style={themedStyle.signInContainer}>
-            <Text style={themedStyle.signInLabel}>Sign In</Text>
+            <Text style={themedStyle.signInLabel}>SIGN IN</Text>
             <Button
               style={themedStyle.signUpButton}
               size='giant'
               activeOpacity={0.75}
-              alignment={ButtonIconAlignments.RIGHT}
+              iconAlignment={ButtonIconAlignments.RIGHT}
               icon={this.renderSignUpButtonIcon}
               onPress={this.onSignUpButtonPress}>
               Sign Up
@@ -129,10 +129,10 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           />
           <Button
             style={themedStyle.signInButton}
-            size='giant'
+            size='large'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
-            Sign In
+            SIGN IN
           </Button>
           <SocialAuth
             style={themedStyle.socialAuthContainer}
@@ -151,23 +151,21 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
 export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingVertical: 24,
     paddingHorizontal: 16,
   },
   signInContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 48,
+    marginTop: 24,
   },
   socialAuthContainer: {
     marginTop: 48,
-    marginBottom: 36,
   },
   ewaButton: {
-    alignSelf: 'flex-start',
+    maxWidth: 72,
     paddingHorizontal: 0,
-    fontFamily: 'opensans-regular',
+    fontFamily: 'opensans-semibold',
     backgroundColor: theme['opacity-transparent'],
   },
   ewaButtonIcon: {
@@ -175,18 +173,19 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    marginTop: 96,
+    marginTop: 72,
   },
   signInLabel: {
+    flex: 1,
     fontFamily: 'raleway-extra-bold',
-    textTransform: 'uppercase',
     fontSize: 32,
+    color: theme['color-white'],
   },
   signInButton: {
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   signUpButton: {
+    flex: 0.25,
     paddingHorizontal: 0,
     backgroundColor: theme['opacity-transparent'],
   },

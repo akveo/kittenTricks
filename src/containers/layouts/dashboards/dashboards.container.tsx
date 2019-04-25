@@ -12,23 +12,13 @@ export class DashboardsContainer extends React.Component<NavigationScreenProps> 
   private items: RouteListItem[] = [
     {
       title: 'Layout',
-      description: 'Trainings 1',
+      description: 'Trainings',
       route: 'Trainings 1',
     },
     {
       title: 'Layout - V2',
-      description: 'Trainings 2',
+      description: 'Trainings',
       route: 'Trainings 2',
-    },
-    {
-      title: 'Layout',
-      description: 'Movie',
-      route: 'Movie',
-    },
-    {
-      title: 'Layout',
-      description: 'Book Details',
-      route: 'Book Details',
     },
   ];
 

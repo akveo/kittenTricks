@@ -1,14 +1,12 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
+import { ModalService } from '@kitten/theme';
 import {
   Comment,
   Product,
   Profile,
 } from '@src/core/model';
-import { ProductDetails } from './productDetails.component';
 import { products } from '@src/core/data/product';
-import { ModalService } from '@kitten/theme';
-import { ByuModal } from './byu.modal';
 import { comments } from '@src/core/data/comment';
 import {
   profile1,
@@ -16,6 +14,8 @@ import {
   profile3,
   profile4,
 } from '@src/core/data/profile';
+import { ProductDetails } from './productDetails.component';
+import { BuyProductModal } from './buyProduct.modal';
 
 const profiles: Profile[] = [
   profile1,
@@ -66,7 +66,7 @@ export class ProductDetailsContainer extends React.Component<NavigationScreenPro
 
   private onBuyPress = (): void => {
     this.modalId = ModalService.show(
-      <ByuModal
+      <BuyProductModal
         product={this.state.product}
         shoppingItemsCount={2}
         actionItems={this.buyActions}

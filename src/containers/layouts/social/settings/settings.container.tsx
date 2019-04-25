@@ -13,7 +13,7 @@ export class SettingsContainer extends React.Component<NavigationScreenProps, St
   };
 
   private onEditProfilePress = () => {
-
+    this.props.navigation.navigate('Profile Settings 1');
   };
 
   private onChangePasswordPress = () => {

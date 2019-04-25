@@ -55,7 +55,7 @@ export const ToggleShowcase = (props?: ToggleProps): React.ReactElement<TogglePr
   return (
     <Toggle
       {...props}
-      value={true}
+      checked={true}
     />
   );
 };

@@ -9,11 +9,9 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import { FeedActivityBar } from '@src/components/social';
-import {
-  ImageOverlay,
-  Text,
-} from '@src/components/common';
+import { ImageOverlay } from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -55,7 +53,6 @@ class Feed2ListItemComponent extends React.Component<Feed2ListItemProps> {
 
     return (
       <TouchableOpacity
-        activeOpacity={0.95}
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
@@ -96,6 +93,7 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
     marginVertical: 24,
     fontFamily: 'anton-regular',
     fontSize: 32,
+    color: theme['color-white'],
   },
   descriptionLabel: {
     marginHorizontal: 24,

@@ -11,14 +11,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   FeedActivityBar,
   Styx,
 } from '@src/components/social';
-import {
-  ImageOverlay,
-  Text,
-} from '@src/components/common';
+import { ImageOverlay } from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -148,10 +146,12 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     marginHorizontal: 8,
     fontFamily: 'anton-regular',
     fontSize: 20,
+    color: theme['color-white'],
   },
   timeLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 15,
+    color: theme['color-white'],
   },
   descriptionLabel: {
     marginTop: 16,

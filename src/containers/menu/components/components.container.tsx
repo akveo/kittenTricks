@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { Components } from './components.component';
 import {
@@ -16,7 +17,8 @@ import {
 export interface ListItem {
   title: string;
   view: () => React.ReactElement<any>;
-  route: string;
+  route?: string;
+  action?: () => void;
 }
 
 const COMPONENTS: ListItem[] = [
@@ -63,12 +65,12 @@ const COMPONENTS: ListItem[] = [
   {
     title: 'Top Navigation',
     view: ComplexComponentShowcase,
-    route: 'Top Navigation',
+    action: () => Alert.alert('This component you can check in other sections of application'),
   },
   {
     title: 'Bottom Navigation',
     view: ComplexComponentShowcase,
-    route: 'Bottom Navigation',
+    action: () => Alert.alert('This component you can check in other sections of application'),
   },
   {
     title: 'Tab View',
@@ -120,7 +122,11 @@ export class ComponentsContainer extends React.Component<NavigationScreenProps, 
   private onItemSelect = (index: number) => {
     const { [index]: selectedItem } = this.state.items;
 
-    this.props.navigation.navigate(selectedItem.route);
+    if (selectedItem.route) {
+      this.props.navigation.navigate(selectedItem.route);
+    } else {
+      selectedItem.action();
+    }
   };
 
   private fitsQuery = (item: ListItem): boolean => {

@@ -9,8 +9,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Avatar } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import {
+  Avatar,
+  Text,
+} from '@kitten/ui';
 
 interface ListDerivedProps {
   index?: number;

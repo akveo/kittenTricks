@@ -6,14 +6,14 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Button,
+  Text,
+} from '@kitten/ui';
+import {
   SignInForm2,
   SignInForm2Type,
 } from '@src/components/auth';
-import {
-  AvoidKeyboard,
-  Button,
-  Text,
-} from '@src/components/common';
+import { AvoidKeyboard } from '@src/components/common';
 
 interface ComponentProps {
   onSignInPress: (formValue: SignInForm2Type) => void;
@@ -69,18 +69,15 @@ class SignIn2Component extends React.Component<SignIn2Props> {
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
-            Sign In
+            SIGN IN
           </Button>
-          <View style={themedStyle.signUpContainer}>
-            <Text style={themedStyle.haveAccountLabel}>Don't have an account?</Text>
-            <Button
-              style={themedStyle.signUpButton}
-              appearance='ghost'
-              activeOpacity={0.75}
-              onPress={this.onSignUpButtonPress}>
-              Sign Up
-            </Button>
-          </View>
+          <Button
+            style={themedStyle.signUpButton}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignUpButtonPress}>
+            Don't have an account? Create
+          </Button>
         </View>
       </AvoidKeyboard>
     );
@@ -100,37 +97,28 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    justifyContent: 'space-between',
     marginTop: 32,
     paddingHorizontal: 16,
-  },
-  signUpContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 24,
   },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',
     fontSize: 60,
     lineHeight: 72,
+    color: theme['color-white'],
   },
   signInLabel: {
+    marginTop: 16,
     fontFamily: 'opensans-semibold',
     fontSize: 15,
     lineHeight: 24,
-    marginTop: 16,
-  },
-  haveAccountLabel: {
-    color: theme['color-basic-600'],
+    color: theme['color-white'],
   },
   signInButton: {
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   signUpButton: {
-    paddingHorizontal: 0,
+    marginVertical: 12,
     fontFamily: 'opensans-semibold',
     color: theme['color-basic-600'],
   },

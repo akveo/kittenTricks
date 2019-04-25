@@ -10,16 +10,26 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
 
-interface ComponentProps {
-  title: string;
-  icon: (style: StyleType) => React.ReactElement<ImageProps>;
+interface ListDerivedProps {
+  index?: number;
 }
 
-type Props = ThemedComponentProps & TouchableOpacityProps & ComponentProps;
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
+  title: string;
+  icon: (style: StyleType) => React.ReactElement<ImageProps>;
+  onPress: (index: number) => void;
+}
+
+type Props = ThemedComponentProps & ComponentProps;
 
 class LayoutsListItemComponent extends React.Component<Props> {
+
+  private onPress = () => {
+    this.props.onPress(this.props.index);
+  };
 
   private renderIconElement = (style: StyleType): React.ReactElement<ImageProps> => {
     const iconElement: React.ReactElement<ImageProps> = this.props.icon(style);
@@ -32,9 +42,9 @@ class LayoutsListItemComponent extends React.Component<Props> {
 
     return (
       <TouchableOpacity
+        {...restProps}
         style={[themedStyle.container, style]}
-        activeOpacity={0.65}
-        {...restProps}>
+        onPress={this.onPress}>
         {this.renderIconElement(themedStyle.icon)}
         <Text style={themedStyle.title}>{title}</Text>
       </TouchableOpacity>

@@ -11,6 +11,8 @@ import {
 import {
   Tab,
   TabView,
+  Text,
+  Button,
 } from '@kitten/ui';
 import {
   SignInForm3,
@@ -20,9 +22,7 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
-  Button,
   ImageOverlay,
-  Text,
 } from '@src/components/common';
 
 interface ComponentProps {
@@ -115,7 +115,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
             onSelect={this.onTabSelect}>
             <Tab
               style={themedStyle.tab}
-              title='Email'>
+              title='EMAIL'>
               <SignInForm3
                 style={themedStyle.tabContentContainer}
                 onFormValueChange={this.onEmailFormValueChange}
@@ -124,10 +124,15 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
             <Tab
               style={themedStyle.tab}
               title='SMS'>
-              <SignInForm4
-                style={themedStyle.tabContentContainer}
-                onFormValueChange={this.onSMSFormValueChange}
-              />
+              <View>
+                <SignInForm4
+                  style={themedStyle.tabContentContainer}
+                  onFormValueChange={this.onSMSFormValueChange}
+                />
+                <Text style={themedStyle.smsCaptionLabel}>within a minute you should receive
+                  an SMS with the code
+                </Text>
+              </View>
             </Tab>
           </TabView>
           <Button
@@ -135,18 +140,15 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
             size='giant'
             disabled={!signInButtonEnabled}
             onPress={this.onSignInButtonPress}>
-            Sign In
+            SIGN IN
           </Button>
-          <View style={themedStyle.signUpContainer}>
-            <Text>Don't have an account?</Text>
-            <Button
-              style={themedStyle.signUpButton}
-              appearance='ghost'
-              activeOpacity={0.75}
-              onPress={this.onSignUpButtonPress}>
-              Sign Up
-            </Button>
-          </View>
+          <Button
+            style={themedStyle.signUpButton}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignUpButtonPress}>
+            Don't have an account? Sign Up
+          </Button>
         </ImageOverlay>
       </AvoidKeyboard>
     );
@@ -158,7 +160,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     flex: 1,
   },
   headerContainer: {
-    paddingVertical: 32,
+    minHeight: 216,
     paddingHorizontal: 64,
     justifyContent: 'center',
     alignItems: 'center',
@@ -166,25 +168,18 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
   tabContentContainer: {
     marginVertical: 8,
   },
-  signUpContainer: {
-    flexDirection: 'row',
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 24,
-  },
   tabView: {
     flex: 1,
     paddingHorizontal: 16,
   },
   tab: {
     color: theme['color-white'],
-    textTransform: 'uppercase',
   },
   helloLabel: {
     fontFamily: 'opensans-bold',
     fontSize: 26,
     lineHeight: 32,
+    color: theme['color-white'],
   },
   signInLabel: {
     marginTop: 8,
@@ -192,15 +187,23 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     fontFamily: 'opensans-semibold',
     fontSize: 15,
     lineHeight: 24,
+    color: theme['color-white'],
+  },
+  smsCaptionLabel: {
+    paddingHorizontal: 32,
+    fontFamily: 'opensans-regular',
+    textAlign: 'center',
+    color: theme['color-white'],
   },
   signInButton: {
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   signUpButton: {
+    marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
 }));
 

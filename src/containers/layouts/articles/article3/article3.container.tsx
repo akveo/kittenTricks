@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import {
   Article,
+  Comment,
   Profile,
 } from '@src/core/model';
 import { articles } from '@src/core/data/article';
@@ -11,6 +12,7 @@ import {
   profile3,
   profile4,
 } from '@src/core/data/profile';
+import { comments } from '@src/core/data/comment';
 import { Article3 } from './article3.component';
 
 const profiles: Profile[] = [
@@ -22,6 +24,7 @@ const profiles: Profile[] = [
 
 interface State {
   article: Article;
+  comments: Comment[];
   currentCommentText: string;
 }
 
@@ -29,6 +32,7 @@ export class Article3Container extends React.Component<NavigationScreenProps, St
 
   public state: State = {
     article: articles[0],
+    comments: comments,
     currentCommentText: '',
   };
 
@@ -66,6 +70,7 @@ export class Article3Container extends React.Component<NavigationScreenProps, St
     return (
       <Article3
         article={this.state.article}
+        comments={this.state.comments}
         currentCommentText={this.state.currentCommentText}
         onCommentTextChange={this.onCommentTextChange}
         onCommentSubmit={this.onCommentSubmit}

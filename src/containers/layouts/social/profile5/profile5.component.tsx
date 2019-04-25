@@ -5,11 +5,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import { ProfileParameter } from '@src/components/social';
 import {
   ImageOverlay,
   RateBar,
-  Text,
 } from '@src/components/common';
 import { Profile } from '@src/core/model';
 
@@ -88,10 +88,12 @@ export const Profile5 = withStyles(Profile5Component, (theme: ThemeType) => ({
   nameLabel: {
     fontFamily: 'anton-regular',
     fontSize: 60,
+    color: theme['color-white'],
   },
   locationLabel: {
     fontFamily: 'anton-regular',
     fontSize: 20,
+    color: theme['color-white'],
   },
   rateHintLabel: {
     color: theme['color-white'],

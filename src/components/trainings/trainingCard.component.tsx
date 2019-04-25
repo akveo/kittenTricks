@@ -1,21 +1,21 @@
 import React from 'react';
 import {
-  ImageBackground,
   View,
   TouchableOpacity,
   TouchableOpacityProps,
 } from 'react-native';
-import { Exercise } from '@src/core/model/exercise.model';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
-  Text,
   Chips,
+  ImageOverlay,
 } from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
+import { Exercise } from '@src/core/model';
 
 interface ComponentProps {
   training: Exercise;
@@ -38,9 +38,8 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
       <TouchableOpacity
         activeOpacity={0.95}
         onPress={this.onDetails}>
-        <ImageBackground
+        <ImageOverlay
           style={[themedStyle.container, style]}
-          imageStyle={themedStyle.containerImageStyle}
           source={{ uri: training.image }}>
           <View>
             <Text style={themedStyle.levelLabel}>{`${training.level} Level`}</Text>
@@ -51,7 +50,7 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
             icon={ClockIcon}>
             <Text style={themedStyle.chipsText}>{training.duration}</Text>
           </Chips>
-        </ImageBackground>
+        </ImageOverlay>
       </TouchableOpacity>
     );
   }
@@ -59,25 +58,29 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
 
 export const TrainingCard1 = withStyles(TrainingCardComponent, (theme: ThemeType) => ({
   container: {
-    width: '100%',
+    // width: '100%',
     height: 200,
     padding: 16,
-    justifyContent: 'space-between',
-  },
-  containerImageStyle: {
     borderRadius: 12,
+    justifyContent: 'space-between',
+    overflow: 'hidden',
   },
   levelLabel: {
     fontSize: 15,
+    fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
   titleLabel: {
     fontSize: 32,
     fontFamily: 'anton-regular',
+    color: theme['color-white'],
   },
   chips: {
     width: 80,
   },
   chipsText: {
     fontSize: 11,
+    fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
 }));
