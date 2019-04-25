@@ -175,6 +175,7 @@ export const RentApartment = withStyles(RentApartmentComponent, (theme: ThemeTyp
   priceValueLabel: {
     fontFamily: 'opensans-bold',
     fontSize: 26,
+    lineHeight: 32,
     color: theme['font-primary-color'],
   },
   priceScaleLabel: {

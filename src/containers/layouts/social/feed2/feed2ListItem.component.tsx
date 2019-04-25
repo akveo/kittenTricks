@@ -59,7 +59,11 @@ class Feed2ListItemComponent extends React.Component<Feed2ListItemProps> {
         <ImageOverlay
           style={themedStyle.photo}
           source={photo}>
-          <Text style={themedStyle.categoryLabel}>{category}</Text>
+          <Text
+            style={themedStyle.categoryLabel}
+            category='h4'>
+            {category}
+          </Text>
         </ImageOverlay>
         <Text style={themedStyle.descriptionLabel}>{description}</Text>
         <FeedActivityBar
@@ -92,7 +96,6 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
     marginHorizontal: 24,
     marginVertical: 24,
     fontFamily: 'anton-regular',
-    fontSize: 32,
     color: theme['color-white'],
   },
   descriptionLabel: {

@@ -54,7 +54,11 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
         <ImageOverlay
           style={themedStyle.image}
           source={{ uri: article.image }}>
-          <Text style={themedStyle.titleLabel}>{article.title}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h4'>
+            {article.title}
+          </Text>
           <ArticleTips style={themedStyle.tipsContainer}>
             {`${article.tips} Useful Tips`}
           </ArticleTips>
@@ -92,7 +96,6 @@ export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: Th
   titleLabel: {
     maxWidth: 192,
     fontFamily: 'anton-regular',
-    fontSize: 32,
   },
   activityButton: {
     color: theme['color-white'],

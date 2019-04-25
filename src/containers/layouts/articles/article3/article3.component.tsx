@@ -57,7 +57,9 @@ class Article3Component extends React.Component<Article3Props> {
 
     return (
       <ScrollView contentContainerStyle={themedStyle.contentContainer}>
-        <Text style={themedStyle.titleLabel}>
+        <Text
+          style={themedStyle.titleLabel}
+          category='h4'>
           {article.title}
         </Text>
         <Text style={themedStyle.descriptionLabel}>
@@ -122,7 +124,6 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     marginTop: 24,
     marginBottom: 16,
     fontFamily: 'anton-regular',
-    fontSize: 32,
     color: theme['font-primary-color'],
   },
   descriptionLabel: {

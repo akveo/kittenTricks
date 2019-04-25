@@ -37,7 +37,11 @@ class StyxComponent extends React.Component<StyxProps> {
       <View
         {...restProps}
         style={[themedStyle.container, style]}>
-        <Text style={themedStyle.hintLabel}>{hint}</Text>
+        <Text
+          style={themedStyle.hintLabel}
+          category='h6'>
+          {hint}
+        </Text>
         <Chips
           style={themedStyle.chips}
           icon={ClockIcon}>
@@ -60,7 +64,6 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
     marginHorizontal: 16,
     marginVertical: 14,
     fontFamily: 'anton-regular',
-    fontSize: 20,
     color: theme['font-primary-color'],
   },
   chips: {

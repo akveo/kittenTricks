@@ -66,7 +66,11 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
           style={themedStyle.container}
           source={this.backgroundImage}>
           <View style={themedStyle.headerContainer}>
-            <Text style={themedStyle.helloLabel}>Hello</Text>
+            <Text
+              style={themedStyle.helloLabel}
+              category='h2'>
+              Hello
+            </Text>
             <Text style={themedStyle.signInLabel}>Sign in to your account</Text>
           </View>
           <SignInForm2
@@ -111,8 +115,6 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
   },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',
-    fontSize: 60,
-    lineHeight: 72,
     color: theme['color-white'],
   },
   signInLabel: {

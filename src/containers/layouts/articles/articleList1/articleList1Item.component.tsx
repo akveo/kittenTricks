@@ -56,7 +56,11 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
           source={{ uri: article.image }}
         />
         <View style={themedStyle.infoContainer}>
-          <Text style={themedStyle.titleLabel}>{article.title}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h5'>
+            {article.title}
+          </Text>
           <Text style={themedStyle.descriptionLabel}>{article.description}</Text>
         </View>
         <ArticleActivityBar
@@ -96,7 +100,6 @@ export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: Th
   },
   titleLabel: {
     fontFamily: 'anton-regular',
-    fontSize: 24,
     color: theme['font-primary-color'],
   },
   descriptionLabel: {

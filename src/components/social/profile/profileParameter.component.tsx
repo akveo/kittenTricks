@@ -26,7 +26,11 @@ class ProfileParameterComponent extends React.Component<ProfileParameterProps> {
       <View
         style={[themedStyle.container, style]}
         {...restProps}>
-        <Text style={themedStyle.valueLabel}>{value}</Text>
+        <Text
+          style={themedStyle.valueLabel}
+          category='h6'>
+          {value}
+        </Text>
         <Text style={themedStyle.hintLabel}>{hint}</Text>
       </View>
     );
@@ -39,7 +43,6 @@ export const ProfileParameter = withStyles(ProfileParameterComponent, (theme: Th
   },
   valueLabel: {
     fontFamily: 'anton-regular',
-    fontSize: 20,
     color: theme['color-white'],
   },
   hintLabel: {

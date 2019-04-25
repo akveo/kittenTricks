@@ -61,7 +61,11 @@ class ArticleList4ItemComponent extends React.Component<ArticleList4ItemProps> {
           source={photo}
         />
         <View style={themedStyle.infoContainer}>
-          <Text style={themedStyle.titleLabel}>{title}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h5'>
+            {title}
+          </Text>
           <ArticleActivityBar
             style={themedStyle.activityContainer}
             buttonStyle={themedStyle.reactionButton}
@@ -96,7 +100,6 @@ export const ArticleList4Item = withStyles(ArticleList4ItemComponent, (theme: Th
   },
   titleLabel: {
     fontFamily: 'anton-regular',
-    fontSize: 24,
     color: theme['font-primary-color'],
   },
 }));

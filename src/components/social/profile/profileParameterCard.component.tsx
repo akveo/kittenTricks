@@ -41,7 +41,11 @@ class ProfileParameterCardComponent extends React.Component<ProfileParameterCard
           <Text style={themedStyle.hintLabel}>{hint}</Text>
           {this.renderIconElement(themedStyle.icon)}
         </View>
-        <Text style={themedStyle.valueLabel}>{value}</Text>
+        <Text
+          style={themedStyle.valueLabel}
+          category='h4'>
+          {value}
+        </Text>
       </View>
     );
   }
@@ -65,7 +69,6 @@ export const ProfileParameterCard = withStyles(ProfileParameterCardComponent, (t
   valueLabel: {
     marginTop: 20,
     fontFamily: 'anton-regular',
-    fontSize: 32,
     color: theme['font-primary-color'],
   },
   icon: {

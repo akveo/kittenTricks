@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ListRenderItemInfo,
+  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -78,7 +79,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
     const [headingArticle, ...restArticles] = articles;
 
     return (
-      <View style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ArticleHeader
           source={{ uri: headingArticle.image }}
           title={headingArticle.title}
@@ -94,7 +95,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
           data={restArticles}
           renderItem={this.renderArticleItem}
         />
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -70,7 +70,11 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
           source={{ uri: training.image }}
         />
         <View style={themedStyle.infoContainer}>
-          <Text style={themedStyle.titleLabel}>{training.name}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h5'>
+            {training.name}
+          </Text>
           <View style={themedStyle.controlsContainer}>
             <Button
               style={[themedStyle.controlButton, themedStyle.timingButton]}
@@ -104,7 +108,6 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
     backgroundColor: theme['color-white'],
   },
   titleLabel: {
-    fontSize: 24,
     fontFamily: 'anton-regular',
     marginHorizontal: 18,
     color: theme['color-black'],

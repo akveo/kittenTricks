@@ -48,7 +48,9 @@ class Article2Component extends React.Component<Article2Props> {
           />
         </ImageBackground>
         <ScrollView contentContainerStyle={themedStyle.contentContainer}>
-          <Text style={themedStyle.titleLabel}>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h5'>
             {article.title}
           </Text>
           <Text style={themedStyle.contentLabel}>
@@ -103,7 +105,6 @@ export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
     marginHorizontal: 24,
     marginTop: 48,
     fontFamily: 'anton-regular',
-    fontSize: 24,
     color: theme['font-primary-color'],
   },
   contentLabel: {

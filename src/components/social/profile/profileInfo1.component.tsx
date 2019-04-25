@@ -37,8 +37,16 @@ class ProfileInfo1Component extends React.Component<ProfileInfo1Props> {
           source={photo}
         />
         <View style={themedStyle.detailsContainer}>
-          <Text style={themedStyle.nameLabel}>{name}</Text>
-          <Text style={themedStyle.locationLabel}>{location}</Text>
+          <Text
+            style={themedStyle.nameLabel}
+            category='h5'>
+            {name}
+          </Text>
+          <Text
+            style={themedStyle.locationLabel}
+            category='s2'>
+            {location}
+          </Text>
           {children}
         </View>
       </View>
@@ -57,12 +65,9 @@ export const ProfileInfo1 = withStyles(ProfileInfo1Component, (theme: ThemeType)
   },
   nameLabel: {
     fontFamily: 'anton-regular',
-    fontSize: 24,
     color: theme['font-primary-color'],
   },
   locationLabel: {
-    marginTop: 4,
-    fontSize: 13,
     fontFamily: 'opensans-semibold',
     color: theme['color-basic-600'],
   },

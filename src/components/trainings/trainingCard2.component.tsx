@@ -51,7 +51,11 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
             style={[themedStyle.subContainer, themedStyle.leftSection]}
             source={{ uri: training.image }}/>
           <View style={[themedStyle.subContainer, themedStyle.rightSection]}>
-            <Text style={themedStyle.titleLabel}>{training.name}</Text>
+            <Text
+              style={themedStyle.titleLabel}
+              category='h5'>
+              {training.name}
+            </Text>
             <View style={themedStyle.controlsContainer}>
               <Chips
                 style={themedStyle.chips}
@@ -86,7 +90,6 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
     padding: 16,
   },
   titleLabel: {
-    fontSize: 24,
     fontFamily: 'anton-regular',
     color: theme['color-black'],
   },

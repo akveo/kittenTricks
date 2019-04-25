@@ -27,7 +27,9 @@ class ArticleHeaderComponent extends React.Component<ArticleHeaderProps> {
       <ImageOverlay
         {...restProps}
         style={[componentStyle.container, style]}>
-        <Text style={componentStyle.titleLabel}>
+        <Text
+          style={componentStyle.titleLabel}
+          category='h3'>
           {title}
         </Text>
         <Text style={componentStyle.descriptionLabel}>
@@ -48,7 +50,6 @@ export const ArticleHeader = withStyles(ArticleHeaderComponent, (theme: ThemeTyp
   },
   titleLabel: {
     fontFamily: 'anton-regular',
-    fontSize: 48,
     textAlign: 'center',
   },
   descriptionLabel: {

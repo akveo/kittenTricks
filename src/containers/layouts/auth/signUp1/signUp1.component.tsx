@@ -114,7 +114,11 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
               EWA
             </Button>
             <View style={themedStyle.signUpContainer}>
-              <Text style={themedStyle.signInLabel}>SIGN UP</Text>
+              <Text
+                style={themedStyle.signInLabel}
+                category='h4'>
+                SIGN UP
+              </Text>
               <Button
                 style={themedStyle.signInButton}
                 activeOpacity={0.5}
@@ -193,7 +197,6 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   signInLabel: {
     flex: 1,
     fontFamily: 'raleway-extra-bold',
-    fontSize: 32,
     color: theme['color-white'],
   },
   signInButton: {

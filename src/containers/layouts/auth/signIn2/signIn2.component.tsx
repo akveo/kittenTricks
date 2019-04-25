@@ -56,7 +56,11 @@ class SignIn2Component extends React.Component<SignIn2Props> {
       <AvoidKeyboard>
         <View style={themedStyle.container}>
           <View style={themedStyle.headerContainer}>
-            <Text style={themedStyle.helloLabel}>Hello</Text>
+            <Text
+              style={themedStyle.helloLabel}
+              category='h2'>
+              Hello
+            </Text>
             <Text style={themedStyle.signInLabel}>Sign in to your account</Text>
           </View>
           <SignInForm2
@@ -102,8 +106,6 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
   },
   helloLabel: {
     fontFamily: 'raleway-extra-bold',
-    fontSize: 60,
-    lineHeight: 72,
     color: theme['color-white'],
   },
   signInLabel: {

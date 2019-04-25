@@ -112,7 +112,11 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             EWA
           </Button>
           <View style={themedStyle.signInContainer}>
-            <Text style={themedStyle.signInLabel}>SIGN IN</Text>
+            <Text
+              style={themedStyle.signInLabel}
+              category='h4'>
+              SIGN IN
+            </Text>
             <Button
               style={themedStyle.signUpButton}
               size='giant'
@@ -178,7 +182,6 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   signInLabel: {
     flex: 1,
     fontFamily: 'raleway-extra-bold',
-    fontSize: 32,
     color: theme['color-white'],
   },
   signInButton: {

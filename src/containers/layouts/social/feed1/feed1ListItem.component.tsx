@@ -76,7 +76,6 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
 
     return (
       <TouchableOpacity
-        activeOpacity={0.95}
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
@@ -86,7 +85,11 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
           <View style={themedStyle.categoryContainer}>
             <View style={themedStyle.categoryInfoContainer}>
               <Image style={themedStyle.categoryIcon} source={icon}/>
-              <Text style={themedStyle.categoryLabel}>{category}</Text>
+              <Text
+                style={themedStyle.categoryLabel}
+                category='h6'>
+                {category}
+              </Text>
             </View>
             <Text style={themedStyle.timeLabel}>{time}</Text>
           </View>
@@ -145,7 +148,6 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
   categoryLabel: {
     marginHorizontal: 8,
     fontFamily: 'anton-regular',
-    fontSize: 20,
     color: theme['color-white'],
   },
   timeLabel: {
