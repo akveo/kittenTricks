@@ -115,31 +115,37 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         {...restProps}>
         <ValidationInput
           style={[themedStyle.input, themedStyle.firstNameInput]}
-          placeholder='First Name'
+          placeholder='Ally'
+          label='FIRST NAME'
+          autoCapitalize='words'
           validator={NameValidator}
           onChangeText={this.onFirstNameInputTextChange}
         />
         <ValidationInput
           style={themedStyle.input}
-          placeholder='Last Name'
+          placeholder='Watsan'
+          label='LAST NAME'
+          autoCapitalize='words'
           validator={NameValidator}
           onChangeText={this.onLastNameValidationResult}
         />
         <ValidationInput
           style={themedStyle.input}
-          placeholder='Date of Birth'
+          placeholder='18/10/1995'
+          label='DATE OF BIRTHDAY'
           validator={DOBValidator}
           onChangeText={this.onDateInputTextChange}
         />
         <ValidationInput
           style={themedStyle.input}
-          placeholder='Email'
+          placeholder='ally.watsan@gmail.com'
+          label='EMAIL'
           validator={EmailValidator}
           onChangeText={this.onEmailInputTextChange}
         />
         <ValidationInput
           style={themedStyle.input}
-          placeholder='Password'
+          label='PASSWORD'
           secureTextEntry={true}
           validator={PasswordValidator}
           onChangeText={this.onPasswordInputTextChange}

@@ -10,15 +10,15 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Button,
+  Text,
+} from '@kitten/ui';
+import {
   SocialAuth,
   SignInForm2,
   SignInForm2Type,
 } from '@src/components/auth';
-import {
-  AvoidKeyboard,
-  Button,
-  Text,
-} from '@src/components/common';
+import { AvoidKeyboard } from '@src/components/common';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -97,7 +97,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
-            Sign In
+            SIGN IN
           </Button>
           <SocialAuth
             style={themedStyle.socialAuthContainer}
@@ -131,7 +131,6 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    justifyContent: 'space-evenly',
     paddingHorizontal: 16,
   },
   socialAuthContainer: {
@@ -141,12 +140,14 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
     fontFamily: 'raleway-extra-bold',
     fontSize: 60,
     lineHeight: 72,
+    color: theme['color-white'],
   },
   signInLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 15,
     lineHeight: 24,
     marginTop: 16,
+    color: theme['color-white'],
   },
   socialAuthIcon: {
     tintColor: theme['color-white'],
@@ -154,17 +155,12 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   signInButton: {
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   signUpButton: {
-    marginVertical: 32,
+    marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
-  },
-  socialMediaLabel: {
-    marginTop: 32,
-    alignSelf: 'center',
-    fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
 }));
 

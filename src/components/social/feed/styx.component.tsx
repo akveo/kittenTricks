@@ -10,10 +10,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Text,
-  Button,
-} from '@src/components/common';
+import { Text } from '@kitten/ui';
+import { Chips } from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
 
 interface ComponentProps {
@@ -40,12 +38,11 @@ class StyxComponent extends React.Component<StyxProps> {
         {...restProps}
         style={[themedStyle.container, style]}>
         <Text style={themedStyle.hintLabel}>{hint}</Text>
-        <Button
-          style={themedStyle.valueButton}
-          icon={icon}
-          onPress={onPress}>
-          {value}
-        </Button>
+        <Chips
+          style={themedStyle.chips}
+          icon={ClockIcon}>
+          <Text style={themedStyle.chipsText}>{value}</Text>
+        </Chips>
       </View>
     );
   }
@@ -57,7 +54,7 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: '#F4F5F8',
+    backgroundColor: theme['color-basic-100'],
   },
   hintLabel: {
     marginHorizontal: 16,
@@ -66,10 +63,13 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
     fontSize: 20,
     color: theme['font-primary-color'],
   },
-  valueButton: {
-    height: 24,
-    borderRadius: 12,
+  chips: {
+    width: 80,
+  },
+  chipsText: {
     fontFamily: 'opensans-semibold',
+    fontSize: 11,
+    color: theme['color-white'],
   },
 }));
 

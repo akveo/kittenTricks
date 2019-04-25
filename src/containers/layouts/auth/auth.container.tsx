@@ -16,22 +16,22 @@ export class AuthContainer extends React.Component<NavigationScreenProps> {
       route: 'Sign In 1',
     },
     {
-      title: 'Layout - V1',
+      title: 'Layout - V2',
       description: 'Sign In',
       route: 'Sign In 2',
     },
     {
-      title: 'Layout - V2',
+      title: 'Layout - V3',
       description: 'Sign In',
       route: 'Sign In 3',
     },
     {
-      title: 'Layout - V3',
+      title: 'Layout - V4',
       description: 'Sign In',
       route: 'Sign In 4',
     },
     {
-      title: 'Layout - V4',
+      title: 'Layout - V5',
       description: 'Sign In',
       route: 'Sign In 5',
     },
@@ -41,17 +41,17 @@ export class AuthContainer extends React.Component<NavigationScreenProps> {
       route: 'Sign Up 1',
     },
     {
-      title: 'Layout - V1',
+      title: 'Layout - V2',
       description: 'Sign Up',
       route: 'Sign Up 2',
     },
     {
-      title: 'Layout - V2',
+      title: 'Layout - V3',
       description: 'Sign Up',
       route: 'Sign Up 3',
     },
     {
-      title: 'Layout - V3',
+      title: 'Layout - V4',
       description: 'Sign Up',
       route: 'Sign Up 4',
     },

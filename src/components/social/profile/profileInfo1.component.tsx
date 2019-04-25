@@ -9,8 +9,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Avatar } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import {
+  Avatar,
+  Text,
+} from '@kitten/ui';
 
 interface ComponentProps {
   photo: ImageSourcePropType;
@@ -31,7 +33,7 @@ class ProfileInfo1Component extends React.Component<ProfileInfo1Props> {
         style={[themedStyle.container, style]}
         {...restProps}>
         <Avatar
-          style={themedStyle.photo}
+          size='giant'
           source={photo}
         />
         <View style={themedStyle.detailsContainer}>
@@ -52,10 +54,6 @@ export const ProfileInfo1 = withStyles(ProfileInfo1Component, (theme: ThemeType)
     flex: 1,
     justifyContent: 'center',
     marginLeft: 24,
-  },
-  photo: {
-    width: 56,
-    height: 56,
   },
   nameLabel: {
     fontFamily: 'anton-regular',

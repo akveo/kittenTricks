@@ -73,8 +73,8 @@ export const SocialAuth = withStyles(SocialAuthComponent, (theme: ThemeType) => 
     justifyContent: 'space-evenly',
   },
   hint: {
-    marginBottom: 24,
     alignSelf: 'center',
+    marginBottom: 16,
     fontFamily: 'opensans-semibold',
   },
 }));

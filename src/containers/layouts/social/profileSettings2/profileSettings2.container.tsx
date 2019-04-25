@@ -18,6 +18,7 @@ export class ProfileSettings2Container extends React.Component<NavigationScreenP
   };
 
   private onButtonPress = () => {
+    this.props.navigation.goBack();
   };
 
   public render(): React.ReactNode {

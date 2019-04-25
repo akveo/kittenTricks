@@ -8,7 +8,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
 
 interface ComponentProps {
   hint: React.ReactText;
@@ -40,9 +40,11 @@ export const ProfileParameter = withStyles(ProfileParameterComponent, (theme: Th
   valueLabel: {
     fontFamily: 'anton-regular',
     fontSize: 20,
+    color: theme['color-white'],
   },
   hintLabel: {
     fontFamily: 'opensans-semibold',
     fontSize: 15,
+    color: theme['color-white'],
   },
 }));

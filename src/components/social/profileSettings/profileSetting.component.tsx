@@ -56,11 +56,11 @@ export const ProfileSetting = withStyles(ProfileSettingComponent, (theme: ThemeT
     borderBottomColor: theme['gray-light'],
   },
   hint: {
-    color: theme['color-basic-600'],
     fontFamily: 'opensans-semibold',
+    color: theme['color-basic-600'],
   },
   value: {
-    color: theme['font-primary-color'],
     fontFamily: 'opensans-semibold',
+    color: theme['font-primary-color'],
   },
 }));
