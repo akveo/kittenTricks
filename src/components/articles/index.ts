@@ -10,3 +10,7 @@ export {
   ArticleTips,
   ArticleTipsProps,
 } from './articleTips.component';
+export {
+  CommentsList,
+  CommentsListProps,
+} from './commentList/commentsList.component';

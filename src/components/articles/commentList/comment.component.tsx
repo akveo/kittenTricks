@@ -17,10 +17,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ArticleActivityBar } from '@src/components/articles';
+import { Text } from '@src/components/common';
 import { MoreIcon } from '@src/assets/icons';
-import { Text } from './text.component';
 import { Comment as CommentModel } from '@src/core/model';
+import { ArticleActivityBar } from '../articleActivityBar.component';
 
 interface ComponentProps {
   comment: CommentModel;

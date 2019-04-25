@@ -8,25 +8,35 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
 
-interface ComponentProps {
-  title: string;
-  children: React.ReactElement<any>;
+interface ListDerivedProps {
+  index?: number;
 }
 
-type Props = ThemedComponentProps & TouchableOpacityProps & ComponentProps;
+// @ts-ignore (override `onPress` prop)
+interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
+  title: string;
+  children: React.ReactElement<any>;
+  onPress: (index: number) => void;
+}
+
+type Props = ThemedComponentProps & ComponentProps;
 
 class ComponentsListItemComponent extends React.Component<Props> {
+
+  private onPress = () => {
+    this.props.onPress(this.props.index);
+  };
 
   public render(): React.ReactNode {
     const { style, themedStyle, title, children, ...restProps } = this.props;
 
     return (
       <TouchableOpacity
+        {...restProps}
         style={[themedStyle.container, style]}
-        activeOpacity={0.65}
-        {...restProps}>
+        onPress={this.onPress}>
         {children}
         <Text style={themedStyle.title}>{title}</Text>
       </TouchableOpacity>

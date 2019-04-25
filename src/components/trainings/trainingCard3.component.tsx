@@ -1,24 +1,25 @@
 import React from 'react';
 import {
-  Image,
   View,
   TouchableOpacity,
   TouchableOpacityProps,
   ImageProps,
 } from 'react-native';
-import { Exercise } from '@src/core/model/exercise.model';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import {
+  Button,
+  Text,
+} from '@kitten/ui';
 import {
   ClockIcon,
   FlashIcon,
 } from '@src/assets/icons';
+import { Exercise } from '@src/core/model';
+import { ImageOverlay } from '@src/components/common';
 
 interface ComponentProps {
   training: Exercise;
@@ -44,12 +45,16 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
     this.props.onEnergy(this.props.index);
   };
 
-  private renderTimingIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    return ClockIcon([ this.props.themedStyle.timingIcon]);
+  private renderTimingIcon = (): React.ReactElement<ImageProps> => {
+    const { themedStyle } = this.props;
+
+    return ClockIcon(themedStyle.timingIcon);
   };
 
-  private renderEnergyIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    return FlashIcon([ this.props.themedStyle.energyIcon]);
+  private renderEnergyIcon = (): React.ReactElement<ImageProps> => {
+    const { themedStyle } = this.props;
+
+    return FlashIcon(themedStyle.energyIcon);
   };
 
   public render(): React.ReactNode {
@@ -60,7 +65,7 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
         activeOpacity={0.95}
         onPress={this.onDetails}
         style={style}>
-        <Image
+        <ImageOverlay
           style={themedStyle.image}
           source={{ uri: training.image }}
         />
@@ -100,6 +105,7 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
   },
   titleLabel: {
     fontSize: 24,
+    fontFamily: 'anton-regular',
     marginHorizontal: 18,
     color: theme['color-black'],
   },
@@ -108,13 +114,13 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
     alignItems: 'center',
   },
   controlButton: {
+    maxWidth: 90,
     color: theme['color-basic-600'],
     fontSize: 13,
     fontWeight: 'normal',
   },
   timingButton: {
     marginLeft: 8,
-    marginRight: 28,
   },
   timingIcon: {
     width: 20,

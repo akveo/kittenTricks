@@ -74,7 +74,8 @@ class PaymentComponent extends React.Component<PaymentProps> {
           </TouchableOpacity>
         </View>
         <Button
-          size='large'
+          style={themedStyle.buyButton}
+          size='giant'
           onPress={this.onBuy}>
           Buy
         </Button>
@@ -101,6 +102,7 @@ export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
     borderWidth: 1,
   },
   addCardLabel: {
+    marginTop: 12,
     color: theme['color-basic-400'],
     fontFamily: 'opensans-semibold',
     fontSize: 15,
@@ -113,5 +115,8 @@ export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
   },
   paymentCard: {
     marginBottom: 16,
+  },
+  buyButton: {
+    textTransform: 'uppercase',
   },
 }));

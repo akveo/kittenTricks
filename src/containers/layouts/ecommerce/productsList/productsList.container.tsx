@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { ProductsList } from './productsList.component';
 import { Product } from '@src/core/model';
 import { products } from '@src/core/data/product';
+import { ProductsList } from './productsList.component';
 
 interface State {
   products: Product[];
@@ -14,7 +14,11 @@ export class ProductsListContainer extends React.Component<NavigationScreenProps
     products: products,
   };
 
-  private onAddToBucketPress = (product: Product): void => {
+  private onProductPress = (product: Product) => {
+
+  };
+
+  private onProductAddPress = (product: Product) => {
 
   };
 
@@ -22,7 +26,8 @@ export class ProductsListContainer extends React.Component<NavigationScreenProps
     return (
       <ProductsList
         products={this.state.products}
-        onAddToBucketPress={this.onAddToBucketPress}
+        onProductPress={this.onProductPress}
+        onProductAddPress={this.onProductAddPress}
       />
     );
   }

@@ -112,16 +112,13 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
             onPress={this.onSignUpButtonPress}>
             Sign Up
           </Button>
-          <View style={themedStyle.signInContainer}>
-            <Text>Already have an account?</Text>
-            <Button
-              style={themedStyle.signInButton}
-              appearance='ghost'
-              activeOpacity={0.75}
-              onPress={this.onSignInButtonPress}>
-              Sign In
-            </Button>
-          </View>
+          <Button
+            style={themedStyle.signInButton}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignInButtonPress}>
+            Already have an account? Sign In
+          </Button>
         </ImageBackground>
       </AvoidKeyboard>
     );
@@ -142,12 +139,6 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
     flex: 1,
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-  },
-  signInContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 24,
   },
   photo: {
     width: 116,
@@ -173,6 +164,7 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
     textTransform: 'uppercase',
   },
   signInButton: {
+    marginVertical: 24,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
   },

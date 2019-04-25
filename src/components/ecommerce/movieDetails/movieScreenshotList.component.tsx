@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Image,
   ImageSourcePropType,
+  ListRenderItemInfo,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -9,7 +10,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  ViewPager,
+  List,
   ViewPagerProps,
 } from '@kitten/ui';
 
@@ -24,14 +25,13 @@ export type MovieScreenshotListProps = ThemedComponentProps & ComponentProps & C
 
 class MovieScreenshotListComponent extends React.Component<MovieScreenshotListProps> {
 
-  private renderItem = (item: ImageSourcePropType, index: number) => {
+  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>) => {
     const { themedStyle } = this.props;
 
     return (
       <Image
-        key={index}
         style={themedStyle.item}
-        source={item}
+        source={info.item}
       />
     );
   };
@@ -40,12 +40,14 @@ class MovieScreenshotListComponent extends React.Component<MovieScreenshotListPr
     const { contentContainerStyle, themedStyle, data, ...restProps } = this.props;
 
     return (
-      <ViewPager
+      <List
         {...restProps}
-        contentWidth={180}
-        contentContainerStyle={[themedStyle.container, contentContainerStyle]}>
-        {data.map(this.renderItem)}
-      </ViewPager>
+        contentContainerStyle={[themedStyle.container, contentContainerStyle]}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        data={data}
+        renderItem={this.renderItem}
+      />
     );
   }
 }

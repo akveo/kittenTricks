@@ -38,12 +38,8 @@ class Trainings1Component extends React.Component<Trainings1ComponentProps> {
   };
 
   public render(): React.ReactNode {
-    const {
-      themedStyle,
-      selectedLevelIndex,
-      levels,
-      exercises,
-    } = this.props;
+    const { themedStyle, selectedLevelIndex, levels, exercises } = this.props;
+    const { [0]: easyLevel, [1]: mediumLevel, [2]: hardLevel } = levels;
 
     return (
       <TabView
@@ -51,20 +47,23 @@ class Trainings1Component extends React.Component<Trainings1ComponentProps> {
         selectedIndex={selectedLevelIndex}
         onSelect={this.onSelectLevel}
         shouldLoadComponent={this.shouldLoadComponent}>
-        <Tab title={levels[0]}>
+        <Tab title={easyLevel}>
           <Easy1
             exercises={exercises}
-            onTrainingDetails={this.onTrainingDetails}/>
+            onTrainingDetails={this.onTrainingDetails}
+          />
         </Tab>
-        <Tab title={levels[1]}>
+        <Tab title={mediumLevel}>
           <Medium1
             exercises={exercises}
-            onTrainingDetails={this.onTrainingDetails}/>
+            onTrainingDetails={this.onTrainingDetails}
+          />
         </Tab>
-        <Tab title={levels[2]}>
+        <Tab title={hardLevel}>
           <Hard1
             exercises={exercises}
-            onTrainingDetails={this.onTrainingDetails}/>
+            onTrainingDetails={this.onTrainingDetails}
+          />
         </Tab>
       </TabView>
     );

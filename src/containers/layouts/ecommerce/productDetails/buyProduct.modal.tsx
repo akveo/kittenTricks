@@ -88,7 +88,7 @@ class ByuModalComponent extends React.Component<ByuModalProps> {
   }
 }
 
-export const ByuModal = withStyles(ByuModalComponent, (theme: ThemeType) => ({
+export const BuyProductModal = withStyles(ByuModalComponent, (theme: ThemeType) => ({
   wrapper: {
     width: width,
     height: height,

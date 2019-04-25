@@ -79,6 +79,7 @@ class SignInForm1Component extends React.Component<SignInForm1Props, State> {
         <ValidationInput
           style={themedStyle.emailInput}
           placeholderTextColor={theme['color-white']}
+          label='Email'
           placeholder='Email'
           validator={EmailValidator}
           onChangeText={this.onEmailInputTextChange}
@@ -88,6 +89,7 @@ class SignInForm1Component extends React.Component<SignInForm1Props, State> {
           placeholderTextColor={theme['color-white']}
           secureTextEntry={true}
           placeholder='Password'
+          label='PASSWORD'
           validator={PasswordValidator}
           onChangeText={this.onPasswordInputTextChange}
         />
@@ -102,7 +104,7 @@ export const SignInForm1 = withStyles(SignInForm1Component, (theme: ThemeType) =
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
   },
   passwordInput: {
-    marginTop: 40,
+    marginTop: 16,
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
   },
 }));

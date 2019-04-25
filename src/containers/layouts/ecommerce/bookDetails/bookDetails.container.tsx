@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { BookDetails } from './bookDetails.component';
 import {
   Book,
   Comment,
@@ -14,6 +13,7 @@ import {
   profile3,
   profile4,
 } from '@src/core/data/profile';
+import { BookDetails } from './bookDetails.component';
 
 const profiles: Profile[] = [
   profile1,
@@ -37,7 +37,7 @@ export class BookDetailsContainer extends React.Component<NavigationScreenProps,
   };
 
   private onBuyBookPress = (): void => {
-
+    this.props.navigation.navigate('Payment');
   };
 
   private onCommentPress = (index: number) => {
