@@ -8,7 +8,7 @@ export const InputShowcase = (props?: InputProps): React.ReactElement<InputProps
   return (
     <Input
       {...props}
-      placeholder='Text'
+      placeholder='Place your Text'
     />
   );
 };

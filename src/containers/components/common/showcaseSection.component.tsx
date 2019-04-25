@@ -45,7 +45,11 @@ class ShowcaseSectionComponent extends React.Component<ShowcaseSectionProps> {
 
     return (
       <View style={[themedStyle.container, style]}>
-        <Text style={themedStyle.titleLabel}>{section.title}</Text>
+        <Text
+          style={themedStyle.titleLabel}
+          category='h6'>
+          {section.title}
+        </Text>
         {section.items.map(this.renderItem)}
       </View>
     );
@@ -57,8 +61,6 @@ export const ShowcaseSection = withStyles(ShowcaseSectionComponent, (theme: Them
   titleLabel: {
     marginVertical: 8,
     fontFamily: 'raleway-extra-bold',
-    fontSize: 20,
-    lineHeight: 28,
     color: theme['font-primary-color'],
   },
   item: {

@@ -7,9 +7,8 @@ import {
 export const TextShowcase = (props?: TextProps): React.ReactElement<TextProps> => {
   return (
     <Text
-      {...props}
-      style={{ fontFamily: 'opensans-regular' }}>
-      Read Me!
+      {...props}>
+      Text
     </Text>
   );
 };

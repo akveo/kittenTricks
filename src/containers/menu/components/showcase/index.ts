@@ -1,9 +1,0 @@
-export { AvatarShowcase } from './avatar.component';
-export { ButtonShowcase } from './button.component';
-export { ButtonGroupShowcase } from './buttonGroup.component';
-export { CheckBoxShowcase } from './checkbox.component';
-export { InputShowcase } from './input.component';
-export { RadioShowcase } from './radio.component';
-export { TextShowcase } from './text.component';
-export { ToggleShowcase } from './toggle.component';
-export { ComplexComponentShowcase } from './complex.component';

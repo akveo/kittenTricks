@@ -10,8 +10,12 @@ interface RadioShowcaseComponentState {
 
 class RadioShowcaseComponent extends React.Component<RadioProps, RadioShowcaseComponentState> {
 
-  public state: RadioShowcaseComponentState = {
+  static defaultProps: RadioProps = {
     checked: true,
+  };
+
+  public state: RadioShowcaseComponentState = {
+    checked: this.props.checked,
   };
 
   private onChange = (checked: boolean) => {

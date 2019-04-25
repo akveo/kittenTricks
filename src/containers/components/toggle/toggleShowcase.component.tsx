@@ -10,8 +10,12 @@ interface ToggleShowcaseComponentState {
 
 class ToggleShowcaseComponent extends React.Component<ToggleProps, ToggleShowcaseComponentState> {
 
-  public state: ToggleShowcaseComponentState = {
+  static defaultProps: ToggleProps = {
     checked: true,
+  };
+
+  public state: ToggleShowcaseComponentState = {
+    checked: this.props.checked,
   };
 
   private onChange = (checked: boolean) => {

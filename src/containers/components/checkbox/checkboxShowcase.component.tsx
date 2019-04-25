@@ -6,16 +6,23 @@ import {
 
 interface CheckBoxShowcaseComponentState {
   checked: boolean;
+  indeterminate: boolean;
 }
 
 class CheckBoxShowcaseComponent extends React.Component<CheckBoxProps, CheckBoxShowcaseComponentState> {
 
-  public state: CheckBoxShowcaseComponentState = {
+  static defaultProps: CheckBoxProps = {
     checked: true,
+    indeterminate: false,
   };
 
-  private onChange = (checked: boolean) => {
-    this.setState({ checked });
+  public state: CheckBoxShowcaseComponentState = {
+    checked: this.props.checked,
+    indeterminate: this.props.indeterminate,
+  };
+
+  private onChange = (checked: boolean, indeterminate: boolean) => {
+    this.setState({ checked, indeterminate });
   };
 
   public render(): React.ReactElement<CheckBoxProps> {
@@ -23,6 +30,7 @@ class CheckBoxShowcaseComponent extends React.Component<CheckBoxProps, CheckBoxS
       <CheckBox
         {...this.props}
         checked={this.state.checked}
+        indeterminate={this.state.indeterminate}
         onChange={this.onChange}
       />
     );

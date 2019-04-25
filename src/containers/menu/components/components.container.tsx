@@ -10,8 +10,8 @@ import {
   RadioShowcase,
   TextShowcase,
   ToggleShowcase,
-  ComplexComponentShowcase,
-} from './showcase';
+} from '@src/containers/components';
+import { ComplexComponentShowcase } from './complexShowcase.component';
 import { Components } from './components.component';
 
 export interface ListItem {
@@ -53,14 +53,14 @@ const COMPONENTS: ListItem[] = [
     route: 'Input',
   },
   {
-    title: 'Avatar',
-    view: AvatarShowcase,
-    route: 'Avatar',
-  },
-  {
     title: 'Text',
     view: TextShowcase,
     route: 'Text',
+  },
+  {
+    title: 'Avatar',
+    view: AvatarShowcase,
+    route: 'Avatar',
   },
   {
     title: 'Top Navigation',

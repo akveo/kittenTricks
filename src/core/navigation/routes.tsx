@@ -68,9 +68,11 @@ import {
 import {
   AvatarContainer,
   ButtonContainer,
+  ButtonGroupContainer,
   CheckBoxContainer,
   InputContainer,
   RadioContainer,
+  TextContainer,
   ToggleContainer,
   TabViewShowcaseContainer,
   PopoverShowcaseContainer,
@@ -367,8 +369,16 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
       screen: ButtonContainer,
       params: ComponentShowcaseNavigatorParams,
     },
+    ['Button Group']: {
+      screen: ButtonGroupContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
     ['CheckBox']: {
       screen: CheckBoxContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Toggle']: {
+      screen: ToggleContainer,
       params: ComponentShowcaseNavigatorParams,
     },
     ['Radio']: {
@@ -379,12 +389,12 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
       screen: InputContainer,
       params: ComponentShowcaseNavigatorParams,
     },
-    ['Avatar']: {
-      screen: AvatarContainer,
+    ['Text']: {
+      screen: TextContainer,
       params: ComponentShowcaseNavigatorParams,
     },
-    ['Toggle']: {
-      screen: ToggleContainer,
+    ['Avatar']: {
+      screen: AvatarContainer,
       params: ComponentShowcaseNavigatorParams,
     },
     ['Tab View']: {
