@@ -9,10 +9,12 @@ import {
   withStyles,
   ThemedComponentProps,
 } from '@kitten/theme';
-import { Toggle } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import {
+  Toggle,
+  Text,
+} from '@kitten/ui';
 
-interface ComponentProps  {
+interface ComponentProps {
   soundEnabled: boolean;
   onEditProfilePress: () => void;
   onChangePasswordPress: () => void;
@@ -98,7 +100,7 @@ interface SectionProps extends TouchableOpacityProps {
 const Section = (props?: SectionProps): React.ReactElement<TouchableOpacityProps> => {
   return (
     <TouchableOpacity
-      activeOpacity={1.0}
+      activeOpacity={0.65}
       {...props}
     />
   );

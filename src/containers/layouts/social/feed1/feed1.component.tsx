@@ -79,7 +79,7 @@ class Feed1Component extends React.Component<Feed1Props> {
 
     return (
       <List
-        style={themedStyle.container}
+        contentContainerStyle={themedStyle.container}
         data={trainings}
         renderItem={this.renderTrainingItem}
       />
@@ -89,8 +89,7 @@ class Feed1Component extends React.Component<Feed1Props> {
 
 export const Feed1 = withStyles(Feed1Component, (theme: ThemeType) => ({
   container: {
-    flex: 1,
-    backgroundColor: '#F4F5F8',
+    backgroundColor: theme['color-basic-100'],
     paddingHorizontal: 16,
     paddingVertical: 8,
   },

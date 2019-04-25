@@ -90,43 +90,43 @@ export const profileSocials1: ProfileSocials = {
 
 export const profileActivity1: ProfileActivity[] = [
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1495908333425-29a1e0918c5f`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1512428813834-c702c7702b78`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1485955900006-10f4d324d411`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1494058303350-0bd5a9ecc5d3`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1500835556837-99ac94a94552`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1508672019048-805c876b67e2`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1469854523086-cc02fe5d8800`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1519160558534-579f5106e43f`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1520466809213-7b9a56adcd45`,
     },
     {
@@ -153,69 +153,69 @@ export const profileActivity1: ProfileActivity[] = [
 ;
 
 export const categorisedProfileActivity1: CategorisedProfileActivity = {
-  ['plants']: [
+  ['Plants']: [
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1495908333425-29a1e0918c5f`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1512428813834-c702c7702b78`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1485955900006-10f4d324d411`,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       source: `https://images.unsplash.com/photo-1494058303350-0bd5a9ecc5d3`,
     },
   ],
-  ['travel']: [
+  ['Travel']: [
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1500835556837-99ac94a94552`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1508672019048-805c876b67e2`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1469854523086-cc02fe5d8800`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1519160558534-579f5106e43f`,
     },
     {
-      category: 'travel',
+      category: 'Travel',
       source: `https://images.unsplash.com/photo-1520466809213-7b9a56adcd45`,
     },
   ],
-  ['style']: [
+  ['Style']: [
     {
-      category: 'style',
+      category: 'Style',
       source: `https://images.unsplash.com/photo-1522234811749-abc512463137`,
     },
     {
-      category: 'style',
+      category: 'Style',
       source: `https://images.unsplash.com/photo-1508540728476-74a4e03542a6`,
     },
     {
-      category: 'style',
+      category: 'Style',
       source: `https://images.unsplash.com/photo-1445052858312-134745f190f2`,
     },
     {
-      category: 'style',
+      category: 'Style',
       source: `https://images.unsplash.com/photo-1473768961734-a7222f539688`,
     },
     {
-      category: 'style',
+      category: 'Style',
       source: `https://images.unsplash.com/photo-1471560090527-d1af5e4e6eb6`,
     },
   ],

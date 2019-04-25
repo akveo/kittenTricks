@@ -11,7 +11,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
 
 interface ComponentProps {
   followers: React.ReactText;

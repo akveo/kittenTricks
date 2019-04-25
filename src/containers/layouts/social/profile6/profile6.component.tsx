@@ -14,8 +14,8 @@ import {
   Text,
 } from '@kitten/ui';
 import {
-  ProfileActivityList1,
-  ProfileActivityList1Props,
+  ProfileActivityList2,
+  ProfileActivityList2Props,
   ProfileInfo2,
   ProfileSocials,
 } from '@src/components/social';
@@ -44,7 +44,7 @@ interface ComponentProps {
   onActivityLikePress: (index: number) => void;
 }
 
-type ProfileActivityElement = React.ReactElement<ProfileActivityList1Props>;
+type ProfileActivityElement = React.ReactElement<ProfileActivityList2Props>;
 
 export type Profile6Props = ThemedComponentProps & ComponentProps;
 
@@ -74,25 +74,18 @@ class Profile6Component extends React.Component<Profile6Props> {
     this.props.onPhotoPress(index);
   };
 
-  private onItemLikePress = (index: number): void => {
-    this.props.onActivityLikePress(index);
-  };
-
   private createImageSource = (activity: ProfileActivityModel): ImageSourcePropType => {
     return { uri: activity.source };
   };
 
   private renderActivityElement = (category: string, activities: ProfileActivityModel[]): ProfileActivityElement => {
-    const { posts } = this.props;
-
     return (
       <View key={category}>
         <Text style={this.props.themedStyle.categoryLabel}>{category}</Text>
-        <ProfileActivityList1
+        <ProfileActivityList2
           contentContainerStyle={this.props.themedStyle.activityList}
-          data={posts}
+          data={activities.map(this.createImageSource)}
           onItemPress={this.onPhotoPress}
-          onItemLikePress={this.onItemLikePress}
         />
       </View>
     );
@@ -110,7 +103,7 @@ class Profile6Component extends React.Component<Profile6Props> {
     const { themedStyle, profile, socials, activity } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ProfileInfo2
           style={themedStyle.profileInfo}
           photo={{ uri: profile.photo }}
@@ -122,14 +115,14 @@ class Profile6Component extends React.Component<Profile6Props> {
             style={themedStyle.followButton}
             icon={PersonAddIconFill}
             onPress={this.onFollowPress}>
-            Follow
+            FOLLOW
           </Button>
           <Button
             style={themedStyle.messageButton}
             appearance='outline'
             icon={MessageCircleIconFill}
             onPress={this.onMessagePress}>
-            Message
+            MESSAGE
           </Button>
         </View>
         <ProfileSocials
@@ -144,7 +137,7 @@ class Profile6Component extends React.Component<Profile6Props> {
         <ScrollView style={themedStyle.activityContainer}>
           {this.renderActivitiesElement(activity)}
         </ScrollView>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -171,12 +164,12 @@ export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
   followButton: {
     flex: 1,
     marginRight: 4,
-    textTransform: 'uppercase',
+    fontFamily: 'opensans-extrabold',
   },
   messageButton: {
     flex: 1,
     marginLeft: 4,
-    textTransform: 'uppercase',
+    fontFamily: 'opensans-extrabold',
   },
   activityContainer: {
     paddingVertical: 16,
@@ -192,6 +185,5 @@ export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
     color: theme['font-primary-color'],
     fontFamily: 'opensans-semibold',
     fontSize: 15,
-    textTransform: 'capitalize',
   },
 }));

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ListRenderItemInfo,
+  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -8,12 +8,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Button } from '@kitten/ui';
 import {
   ProfileInfo1,
   ProfileSocials,
+  ProfileActivityList1,
 } from '@src/components/social';
-import { ProfileActivityList1 } from '@src/components/social';
-import { Button } from '@src/components/common';
 import {
   Profile as ProfileModel,
   ProfileSocials as ProfileSocialsModel,
@@ -64,7 +64,7 @@ class Profile1Component extends React.Component<Profile1Props> {
     const { themedStyle, profile, socials, posts } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ProfileInfo1
           style={themedStyle.profileInfo}
           photo={{ uri: profile.photo }}
@@ -92,7 +92,7 @@ class Profile1Component extends React.Component<Profile1Props> {
           onItemPress={this.onItemPress}
           onItemLikePress={this.onItemLikePress}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -106,18 +106,17 @@ export const Profile1 = withStyles(Profile1Component, (theme: ThemeType) => ({
   },
   profileInfo: {
     paddingHorizontal: 24,
-    paddingVertical: 24,
   },
   followButton: {
     height: 40,
-    marginTop: 16,
+    marginVertical: 16,
     fontSize: 14,
     fontFamily: 'opensans-extrabold',
   },
   feed: {
-    backgroundColor: '#F4F5F8',
     paddingVertical: 8,
     paddingHorizontal: 24,
+    backgroundColor: theme['color-basic-100'],
   },
 }));
 

@@ -9,12 +9,14 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
+import {
+  Button,
+  Text,
+} from '@kitten/ui';
 import {
   ProfileSetting,
   ProfilePhoto,
 } from '@src/components/social';
-import { Text } from '@src/components/common';
 import { CameraIcon } from '@src/assets/icons';
 import { Profile } from '@src/core/model';
 
@@ -103,9 +105,9 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
         </View>
         <Button
           style={themedStyle.button}
-          size='giant'
+          size='large'
           onPress={this.onButtonPress}>
-          BUTTON
+          DONE
         </Button>
       </ScrollView>
     );
@@ -151,7 +153,6 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
     backgroundColor: theme['color-basic-700'],
   },
   button: {
-    height: 40,
     marginHorizontal: 24,
     marginVertical: 24,
   },

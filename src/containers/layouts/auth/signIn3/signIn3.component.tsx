@@ -10,14 +10,14 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Button,
+  Text,
+} from '@kitten/ui';
+import {
   SignInForm2Type,
   SignInForm2,
 } from '@src/components/auth';
-import {
-  AvoidKeyboard,
-  Button,
-  Text,
-} from '@src/components/common';
+import { AvoidKeyboard } from '@src/components/common';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -79,7 +79,7 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
-            Sign In
+            SIGN IN
           </Button>
           <Button
             style={themedStyle.signUpButton}
@@ -113,22 +113,24 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     fontFamily: 'raleway-extra-bold',
     fontSize: 60,
     lineHeight: 72,
+    color: theme['color-white'],
   },
   signInLabel: {
+    marginTop: 16,
     fontFamily: 'opensans-semibold',
     fontSize: 15,
     lineHeight: 24,
-    marginTop: 16,
+    color: theme['color-white'],
   },
   signInButton: {
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   signUpButton: {
-    marginVertical: 24,
+    marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
 }));
 

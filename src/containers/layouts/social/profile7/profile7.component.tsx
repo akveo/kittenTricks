@@ -10,14 +10,16 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
 import {
-  ProfileActivityList2,
+  Button,
+  Text,
+} from '@kitten/ui';
+import {
+  ProfileActivityList3,
   ProfileFriendList,
   ProfileInfo3,
   ProfileSocials,
 } from '@src/components/social';
-import { Text } from '@src/components/common';
 import {
   MessageCircleIconFill,
   PersonAddIconFill,
@@ -86,7 +88,7 @@ class Profile7Component extends React.Component<Profile7Props> {
     const { themedStyle, profile, socials, activities } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ImageBackground
           style={themedStyle.profileInfoContainer}
           source={this.backgroundImage}>
@@ -100,14 +102,14 @@ class Profile7Component extends React.Component<Profile7Props> {
               style={themedStyle.followButton}
               icon={PersonAddIconFill}
               onPress={this.onFollowPress}>
-              Follow
+              FOLLOW
             </Button>
             <Button
               style={themedStyle.messageButton}
               status='white'
               icon={MessageCircleIconFill}
               onPress={this.onMessagePress}>
-              Message
+              MESSAGE
             </Button>
           </View>
           <ProfileSocials
@@ -121,30 +123,28 @@ class Profile7Component extends React.Component<Profile7Props> {
             onPostsPress={this.onPostsPress}
           />
         </ImageBackground>
-        <ScrollView>
-          <View
-            style={[themedStyle.profileSection, themedStyle.aboutSection]}>
-            <Text style={themedStyle.profileSectionLabel}>About</Text>
-            <Text style={[themedStyle.profileSectionContent, themedStyle.profileAboutLabel]}>{profile.about}</Text>
-          </View>
-          <View style={[themedStyle.profileSection, themedStyle.friendsSection]}>
-            <Text style={[themedStyle.profileSectionLabel, themedStyle.friendsSectionLabel]}>Friends</Text>
-            <ProfileFriendList
-              contentContainerStyle={[themedStyle.profileSectionContent, themedStyle.friendsList]}
-              data={profile.friends}
-              onItemPress={this.onFriendPress}
-            />
-          </View>
-          <View style={themedStyle.profileSection}>
-            <Text style={themedStyle.profileSectionLabel}>Shots</Text>
-            <ProfileActivityList2
-              contentContainerStyle={[themedStyle.profileSectionContent]}
-              data={activities.map(this.createActivitySource)}
-              onItemPress={this.onPhotoPress}
-            />
-          </View>
-        </ScrollView>
-      </View>
+        <View
+          style={[themedStyle.profileSection, themedStyle.aboutSection]}>
+          <Text style={themedStyle.profileSectionLabel}>About</Text>
+          <Text style={[themedStyle.profileSectionContent, themedStyle.profileAboutLabel]}>{profile.about}</Text>
+        </View>
+        <View style={[themedStyle.profileSection, themedStyle.friendsSection]}>
+          <Text style={[themedStyle.profileSectionLabel, themedStyle.friendsSectionLabel]}>Friends</Text>
+          <ProfileFriendList
+            contentContainerStyle={[themedStyle.profileSectionContent, themedStyle.friendsList]}
+            data={profile.friends}
+            onItemPress={this.onFriendPress}
+          />
+        </View>
+        <View style={themedStyle.profileSection}>
+          <Text style={themedStyle.profileSectionLabel}>Shots</Text>
+          <ProfileActivityList3
+            contentContainerStyle={[themedStyle.profileSectionContent]}
+            data={activities.map(this.createActivitySource)}
+            onItemPress={this.onPhotoPress}
+          />
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -179,12 +179,12 @@ export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
   followButton: {
     flex: 1,
     marginRight: 4,
-    textTransform: 'uppercase',
+    fontFamily: 'opensans-extrabold',
   },
   messageButton: {
     flex: 1,
     marginLeft: 4,
-    textTransform: 'uppercase',
+    fontFamily: 'opensans-extrabold',
   },
   profileSectionLabel: {
     marginHorizontal: 16,
@@ -197,9 +197,13 @@ export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
   },
   profileAboutLabel: {
     marginHorizontal: 16,
+    fontFamily: 'opensans-regular',
     fontSize: 15,
     lineHeight: 20,
     color: theme['color-basic-600'],
+  },
+  shotsSection: {
+    marginBottom: 32,
   },
   friendsList: {
     paddingHorizontal: 12,

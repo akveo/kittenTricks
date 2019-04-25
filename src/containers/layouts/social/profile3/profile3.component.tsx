@@ -6,15 +6,15 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Button,
+  Text,
+} from '@kitten/ui';
+import {
   ProfileInfo1,
   ProfileParameterCard,
   ProfileSocials,
 } from '@src/components/social';
-import {
-  Button,
-  RateBar,
-  Text,
-} from '@src/components/common';
+import { RateBar } from '@src/components/common';
 import {
   ArrowHeadDownIcon,
   ArrowHeadUpIcon,
@@ -151,7 +151,9 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   },
   descriptionLabel: {
     flex: 1,
+    fontFamily: 'opensans-regular',
     fontSize: 15,
+    lineHeight: 24,
     color: theme['color-basic-600'],
   },
   profileParameter: {

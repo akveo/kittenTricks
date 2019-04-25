@@ -7,7 +7,6 @@ import {
   createBottomTabNavigator,
 } from 'react-navigation';
 import {
-  MenuContainer,
   LayoutsContainer,
   ComponentsContainer,
   ThemesContainer,
@@ -80,21 +79,27 @@ import {
   ListShowcaseContainer,
 } from '@src/containers/components';
 import {
-  AppBar,
-  AppBarProps,
-} from './appBar.component';
-import { BackArrowIcon } from '@src/assets/icons';
+  MenuNavigatorParams,
+  TopNavigationElement,
+  RootNavigatorParams,
+  MessagingNavigatorParams,
+  SocialNavigatorParams,
+  ArticlesNavigatorParams,
+  DashboardsNavigatorParams,
+  EcommerceNavigatorParams,
+  ComponentShowcaseNavigatorParams,
+  WalkthroughNavigatorParams,
+  NavigationNavigatorParams,
+} from './navigationParams';
+import { BottomNavigationBar } from './components/bottomNavigationBar.component';
+import { getCurrentRouteState } from './routeUtil';
 
 const HeadingNavigationOptions = ({ navigation }) => {
 
-  const header = (props: HeaderProps): React.ReactElement<AppBarProps> => {
-    return (
-      <AppBar
-        {...props}
-        navigation={navigation}
-        backIcon={BackArrowIcon}
-      />
-    );
+  const header = (headerProps: HeaderProps): TopNavigationElement | null => {
+    const { params } = getCurrentRouteState(navigation);
+
+    return params && params.topNavigation && params.topNavigation(headerProps);
   };
 
   return { ...navigation, header };
@@ -102,7 +107,10 @@ const HeadingNavigationOptions = ({ navigation }) => {
 
 const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Navigation']: NavigationContainer,
+    ['Navigation']: {
+      screen: NavigationContainer,
+      params: NavigationNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -111,15 +119,42 @@ const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
 
 const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Ecommerce']: EcommerceContainer,
-    ['Add New Card']: AddNewCardContainer,
-    ['Payment']: PaymentContainer,
-    ['Products List']: ProductsListContainer,
-    ['Product Details']: ProductDetailsContainer,
-    ['Shopping Cart']: ShoppingCartContainer,
-    ['Rent Apartment']: RentApartmentContainer,
-    ['Movie Details']: MovieDetailsContainer,
-    ['Book Details']: BookDetailsContainer,
+    ['Ecommerce']: {
+      screen: EcommerceContainer,
+      params: MenuNavigatorParams,
+    },
+    ['Add New Card']: {
+      screen: AddNewCardContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Payment']: {
+      screen: PaymentContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Products List']: {
+      screen: ProductsListContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Product Details']: {
+      screen: ProductDetailsContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Shopping Cart']: {
+      screen: ShoppingCartContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Rent Apartment']: {
+      screen: RentApartmentContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Movie Details']: {
+      screen: MovieDetailsContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Book Details']: {
+      screen: BookDetailsContainer,
+      params: EcommerceNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -128,7 +163,10 @@ const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
 
 const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Walkthrough']: WalkthroughContainer,
+    ['Walkthrough']: {
+      screen: WalkthroughContainer,
+      params: WalkthroughNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -137,9 +175,18 @@ const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
 
 const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Dashboards']: DashboardsContainer,
-    ['Trainings 1']: Trainings1Container,
-    ['Trainings 2']: Trainings2Container,
+    ['Dashboards']: {
+      screen: DashboardsContainer,
+      params: MenuNavigatorParams,
+    },
+    ['Trainings 1']: {
+      screen: Trainings1Container,
+      params: DashboardsNavigatorParams,
+    },
+    ['Trainings 2']: {
+      screen: Trainings2Container,
+      params: DashboardsNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -148,11 +195,26 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
 
 const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Messaging']: MessagingContainer,
-    ['Conversations List']: ConversationsListContainer,
-    ['Chat 1']: Chat1Container, // TODO: add custom header
-    ['Chat 2']: Chat2Container, // TODO: add custom header
-    ['Chat 3']: Chat3Container, // TODO: add custom header
+    ['Messaging']: {
+      screen: MessagingContainer,
+      params: MenuNavigatorParams,
+    },
+    ['Conversations List']: {
+      screen: ConversationsListContainer,
+      params: MessagingNavigatorParams,
+    },
+    ['Chat 1']: {
+      screen: Chat1Container,
+      params: MessagingNavigatorParams,
+    },
+    ['Chat 2']: {
+      screen: Chat2Container,
+      params: MessagingNavigatorParams,
+    },
+    ['Chat 3']: {
+      screen: Chat3Container,
+      params: MessagingNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -161,14 +223,38 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
 
 const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Articles']: ArticlesContainer,
-    ['Article List 1']: ArticleList1Container,
-    ['Article List 2']: ArticleList2Container,
-    ['Article List 3']: ArticleList3Container,
-    ['Article List 4']: ArticleList4Container,
-    ['Article 1']: Article1Container,
-    ['Article 2']: Article2Container,
-    ['Article 3']: Article3Container,
+    ['Articles']: {
+      screen: ArticlesContainer,
+      params: MenuNavigatorParams,
+    },
+    ['Article List 1']: {
+      screen: ArticleList1Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article List 2']: {
+      screen: ArticleList2Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article List 3']: {
+      screen: ArticleList3Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article List 4']: {
+      screen: ArticleList4Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article 1']: {
+      screen: Article1Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article 2']: {
+      screen: Article2Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article 3']: {
+      screen: Article3Container,
+      params: ArticlesNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -177,20 +263,62 @@ const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
 
 const SocialNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Social']: SocialContainer,
-    ['Profile 1']: Profile1Container,
-    ['Profile 2']: Profile2Container,
-    ['Profile 3']: Profile3Container,
-    ['Profile 4']: Profile4Container,
-    ['Profile 5']: Profile5Container,
-    ['Profile 6']: Profile6Container,
-    ['Profile 7']: Profile7Container,
-    ['Profile Settings 1']: ProfileSettings1Container,
-    ['Profile Settings 2']: ProfileSettings2Container,
-    ['Profile Settings 3']: ProfileSettings3Container,
-    ['Feed 1']: Feed1Container,
-    ['Feed 2']: Feed2Container,
-    ['Settings']: SettingsContainer,
+    ['Social']: {
+      screen: SocialContainer,
+      params: MenuNavigatorParams,
+    },
+    ['Profile 1']: {
+      screen: Profile1Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 2']: {
+      screen: Profile2Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 3']: {
+      screen: Profile3Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 4']: {
+      screen: Profile4Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 5']: {
+      screen: Profile5Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 6']: {
+      screen: Profile6Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile 7']: {
+      screen: Profile7Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile Settings 1']: {
+      screen: ProfileSettings1Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile Settings 2']: {
+      screen: ProfileSettings2Container,
+      params: SocialNavigatorParams,
+    },
+    ['Profile Settings 3']: {
+      screen: ProfileSettings3Container,
+      params: SocialNavigatorParams,
+    },
+    ['Feed 1']: {
+      screen: Feed1Container,
+      params: SocialNavigatorParams,
+    },
+    ['Feed 2']: {
+      screen: Feed2Container,
+      params: SocialNavigatorParams,
+    },
+    ['Settings']: {
+      screen: SettingsContainer,
+      params: SocialNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -213,12 +341,16 @@ const AuthNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteParams: MenuNavigatorParams,
   },
 );
 
 const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Themes']: ThemesContainer,
+    ['Themes']: {
+      screen: ThemesContainer,
+      params: { ...RootNavigatorParams, ...MenuNavigatorParams },
+    },
   },
   {
     headerMode: 'none',
@@ -227,18 +359,54 @@ const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
 
 const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Components']: ComponentsContainer,
-    ['Button']: ButtonContainer,
-    ['CheckBox']: CheckBoxContainer,
-    ['Radio']: RadioContainer,
-    ['Input']: InputContainer,
-    ['Avatar']: AvatarContainer,
-    ['Toggle']: ToggleContainer,
-    ['Tab View']: TabViewShowcaseContainer,
-    ['Popover']: PopoverShowcaseContainer,
-    ['Tooltip']: TooltipShowcaseContainer,
-    ['Overflow Menu']: OverflowMenuShowcaseContainer,
-    ['List']: ListShowcaseContainer,
+    ['Components']: {
+      screen: ComponentsContainer,
+      params: { ...RootNavigatorParams, ...MenuNavigatorParams },
+    },
+    ['Button']: {
+      screen: ButtonContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['CheckBox']: {
+      screen: CheckBoxContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Radio']: {
+      screen: RadioContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Input']: {
+      screen: InputContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Avatar']: {
+      screen: AvatarContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Toggle']: {
+      screen: ToggleContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Tab View']: {
+      screen: TabViewShowcaseContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Popover']: {
+      screen: PopoverShowcaseContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Tooltip']: {
+      screen: TooltipShowcaseContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['Overflow Menu']: {
+      screen: OverflowMenuShowcaseContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['List']: {
+      screen: ListShowcaseContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -247,7 +415,10 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
 
 const LayoutsNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Layouts']: LayoutsContainer,
+    ['Layouts']: {
+      screen: LayoutsContainer,
+      params: { ...RootNavigatorParams, ...MenuNavigatorParams },
+    },
     ['Auth']: AuthNavigator,
     ['Social']: SocialNavigator,
     ['Articles']: ArticlesNavigator,
@@ -261,17 +432,17 @@ const LayoutsNavigator: ReactNavigationContainer = createStackNavigator(
   },
 );
 
-const HomeNavigator: ReactNavigationContainer = createBottomTabNavigator({
+const MenuNavigator: ReactNavigationContainer = createBottomTabNavigator({
   ['Layouts']: LayoutsNavigator,
   ['Components']: ComponentsNavigator,
   ['Themes']: ThemesNavigator,
 }, {
-  tabBarComponent: MenuContainer,
+  tabBarComponent: BottomNavigationBar,
 });
 
 const AppNavigator: ReactNavigationContainer = createStackNavigator({
-  Home: {
-    screen: HomeNavigator,
+  ['Home']: {
+    screen: MenuNavigator,
     navigationOptions: HeadingNavigationOptions,
   },
 });

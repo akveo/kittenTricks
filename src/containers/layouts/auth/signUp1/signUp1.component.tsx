@@ -12,6 +12,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Text,
   Button,
   ButtonIconAlignments,
 } from '@kitten/ui';
@@ -23,7 +24,6 @@ import {
 import {
   AvoidKeyboard,
   ImageOverlay,
-  Text,
 } from '@src/components/common';
 import {
   ForwardIcon,
@@ -114,7 +114,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
               EWA
             </Button>
             <View style={themedStyle.signUpContainer}>
-              <Text style={themedStyle.signInLabel}>Sign Up</Text>
+              <Text style={themedStyle.signInLabel}>SIGN UP</Text>
               <Button
                 style={themedStyle.signInButton}
                 activeOpacity={0.5}
@@ -150,7 +150,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             size='large'
             disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>
-            Sign Up
+            SIGN UP
           </Button>
         </ScrollView>
       </AvoidKeyboard>
@@ -165,18 +165,20 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   headerContainer: {
     minHeight: 200,
     paddingHorizontal: 16,
+    paddingTop: 24,
+    paddingBottom: 44,
   },
   signUpContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 48,
+    marginTop: 32,
   },
   socialAuthContainer: {
     marginTop: 24,
   },
   formContainer: {
-    marginTop: 72,
+    marginTop: 48,
     paddingHorizontal: 16,
   },
   ewaButton: {
@@ -192,7 +194,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     flex: 1,
     fontFamily: 'raleway-extra-bold',
     fontSize: 32,
-    textTransform: 'uppercase',
+    color: theme['color-white'],
   },
   signInButton: {
     flex: 0.25,
@@ -206,9 +208,9 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     marginVertical: 24,
     marginHorizontal: 16,
     fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
   },
   socialAuthHint: {
+    fontFamily: 'opensans-regular',
     color: theme['font-primary-color'],
   },
   socialAuthIcon: {
@@ -230,6 +232,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     alignSelf: 'center',
     marginTop: 8,
     color: theme['font-primary-color'],
+    fontFamily: 'opensans-regular',
   },
   divider: {
     flex: 1,
