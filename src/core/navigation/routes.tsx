@@ -85,6 +85,9 @@ import {
   RootNavigatorParams,
   MessagingNavigatorParams,
   SocialNavigatorParams,
+  ArticlesNavigatorParams,
+  DashboardsNavigatorParams,
+  EcommerceNavigatorParams,
 } from './navigationParams';
 import { BottomNavigationBar } from './components/bottomNavigationBar.component';
 import { getCurrentRouteState } from './routeUtil';
@@ -113,14 +116,38 @@ const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
 const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Ecommerce']: EcommerceContainer,
-    ['Add New Card']: AddNewCardContainer,
-    ['Payment']: PaymentContainer,
-    ['Products List']: ProductsListContainer,
-    ['Product Details']: ProductDetailsContainer,
-    ['Shopping Cart']: ShoppingCartContainer,
-    ['Rent Apartment']: RentApartmentContainer,
-    ['Movie Details']: MovieDetailsContainer,
-    ['Book Details']: BookDetailsContainer,
+    ['Add New Card']: {
+      screen: AddNewCardContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Payment']: {
+      screen: PaymentContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Products List']: {
+      screen: ProductsListContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Product Details']: {
+      screen: ProductDetailsContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Shopping Cart']: {
+      screen: ShoppingCartContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Rent Apartment']: {
+      screen: RentApartmentContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Movie Details']: {
+      screen: MovieDetailsContainer,
+      params: EcommerceNavigatorParams,
+    },
+    ['Book Details']: {
+      screen: BookDetailsContainer,
+      params: EcommerceNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -141,8 +168,14 @@ const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
 const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Dashboards']: DashboardsContainer,
-    ['Trainings 1']: Trainings1Container,
-    ['Trainings 2']: Trainings2Container,
+    ['Trainings 1']: {
+      screen: Trainings1Container,
+      params: DashboardsNavigatorParams,
+    },
+    ['Trainings 2']: {
+      screen: Trainings2Container,
+      params: DashboardsNavigatorParams,
+    },
   },
   {
     headerMode: 'none',
@@ -179,13 +212,34 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
 const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
   {
     ['Articles']: ArticlesContainer,
-    ['Article List 1']: ArticleList1Container,
-    ['Article List 2']: ArticleList2Container,
-    ['Article List 3']: ArticleList3Container,
-    ['Article List 4']: ArticleList4Container,
-    ['Article 1']: Article1Container,
-    ['Article 2']: Article2Container,
-    ['Article 3']: Article3Container,
+    ['Article List 1']: {
+      screen: ArticleList1Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article List 2']: {
+      screen: ArticleList2Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article List 3']: {
+      screen: ArticleList3Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article List 4']: {
+      screen: ArticleList4Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article 1']: {
+      screen: Article1Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article 2']: {
+      screen: Article2Container,
+      params: ArticlesNavigatorParams,
+    },
+    ['Article 3']: {
+      screen: Article3Container,
+      params: ArticlesNavigatorParams,
+    },
   },
   {
     headerMode: 'none',

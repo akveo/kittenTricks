@@ -73,7 +73,32 @@ export const SocialNavigatorParams: NavigationParams = {
   ...BottomNavigationDisabledParams,
 };
 
+export const ArticlesNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
+  ...BottomNavigationDisabledParams,
+};
+
 export const MessagingNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
+  ...BottomNavigationDisabledParams,
+};
+
+export const DashboardsNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
+  ...BottomNavigationDisabledParams,
+};
+
+export const WalkthroughNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
+  ...BottomNavigationDisabledParams,
+};
+
+export const EcommerceNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
+  ...BottomNavigationDisabledParams,
+};
+
+export const NavigationNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
   ...BottomNavigationDisabledParams,
 };
