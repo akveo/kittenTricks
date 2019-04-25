@@ -74,6 +74,11 @@ import {
   InputContainer,
   RadioContainer,
   ToggleContainer,
+  TabViewShowcaseContainer,
+  PopoverShowcaseContainer,
+  TooltipShowcaseContainer,
+  OverflowMenuShowcaseContainer,
+  ListShowcaseContainer,
 } from '@src/containers/components';
 import {
   AppBar,
@@ -231,6 +236,11 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
     ['Input']: InputContainer,
     ['Avatar']: AvatarContainer,
     ['Toggle']: ToggleContainer,
+    ['Tab View']: TabViewShowcaseContainer,
+    ['Popover']: PopoverShowcaseContainer,
+    ['Tooltip']: TooltipShowcaseContainer,
+    ['Overflow Menu']: OverflowMenuShowcaseContainer,
+    ['List']: ListShowcaseContainer,
   },
   {
     headerMode: 'none',
