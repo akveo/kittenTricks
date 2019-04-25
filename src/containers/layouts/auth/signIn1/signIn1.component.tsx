@@ -13,6 +13,7 @@ import {
 import {
   Button,
   ButtonIconAlignments,
+  Text,
 } from '@kitten/ui';
 import {
   SocialAuth,
@@ -22,7 +23,6 @@ import {
 import {
   AvoidKeyboard,
   ImageOverlay,
-  Text,
 } from '@src/components/common';
 import {
   ForwardIcon,
@@ -179,6 +179,7 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
     flex: 1,
     fontFamily: 'raleway-extra-bold',
     fontSize: 32,
+    color: theme['color-white'],
   },
   signInButton: {
     fontFamily: 'opensans-extrabold',

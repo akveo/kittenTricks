@@ -141,6 +141,7 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   },
   descriptionLabel: {
     marginVertical: 24,
+    fontFamily: 'opensans-regular',
     fontSize: 15,
     lineHeight: 24,
     color: theme['color-basic-600'],

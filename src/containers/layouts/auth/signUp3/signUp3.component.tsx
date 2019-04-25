@@ -12,16 +12,13 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Button } from '@kitten/ui';
 import {
   SignUpForm2,
   SignUpForm2Type,
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
-import {
-  AvoidKeyboard,
-  Button,
-  Text,
-} from '@src/components/common';
+import { AvoidKeyboard } from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
 
 interface ComponentProps {
@@ -165,6 +162,7 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
     marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
+    color: theme['color-white'],
   },
 }));
 

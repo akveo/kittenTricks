@@ -85,8 +85,4 @@ export const ForgotPasswordForm = withStyles(ForgotPasswordFormComponent, (theme
   emailInput: {
     color: theme['color-basic-600'],
   },
-  submitButton: {
-    fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
-  },
 }));

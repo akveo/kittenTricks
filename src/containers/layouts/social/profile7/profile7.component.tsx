@@ -179,10 +179,12 @@ export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
   followButton: {
     flex: 1,
     marginRight: 4,
+    fontFamily: 'opensans-extrabold',
   },
   messageButton: {
     flex: 1,
     marginLeft: 4,
+    fontFamily: 'opensans-extrabold',
   },
   profileSectionLabel: {
     marginHorizontal: 16,
@@ -195,6 +197,7 @@ export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
   },
   profileAboutLabel: {
     marginHorizontal: 16,
+    fontFamily: 'opensans-regular',
     fontSize: 15,
     lineHeight: 20,
     color: theme['color-basic-600'],

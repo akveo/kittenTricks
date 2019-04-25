@@ -9,16 +9,18 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
+import {
+  Button,
+  Text,
+} from '@kitten/ui';
 import {
   ProfileSetting,
   ProfilePhoto,
 } from '@src/components/social';
-import { Text } from '@src/components/common';
 import { CameraIcon } from '@src/assets/icons';
 import { Profile } from '@src/core/model';
 
-interface ComponentProps  {
+interface ComponentProps {
   profile: Profile;
   onUploadPhotoButtonPress: () => void;
   onButtonPress: () => void;
@@ -58,7 +60,7 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
         <View style={themedStyle.photoSection}>
           <ProfilePhoto
             style={themedStyle.photo}
-            source={{uri: profile.photo}}
+            source={{ uri: profile.photo }}
             button={this.renderPhotoButton}
           />
           <View style={themedStyle.nameSection}>
@@ -142,6 +144,7 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
   description: {
     marginTop: 24,
     color: theme['color-basic-600'],
+    fontFamily: 'opensans-regular',
   },
   photo: {
     width: 76,

@@ -68,7 +68,6 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
         </ReactionBar>
         <Button
           style={themedStyle.addButton}
-          activeOpacity={0.65}
           size='giant'
           status='white'
           iconAlignment={ButtonIconAlignments.RIGHT}

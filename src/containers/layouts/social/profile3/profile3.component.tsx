@@ -151,6 +151,7 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   },
   descriptionLabel: {
     flex: 1,
+    fontFamily: 'opensans-regular',
     fontSize: 15,
     lineHeight: 24,
     color: theme['color-basic-600'],

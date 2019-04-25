@@ -164,10 +164,12 @@ export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
   followButton: {
     flex: 1,
     marginRight: 4,
+    fontFamily: 'opensans-extrabold',
   },
   messageButton: {
     flex: 1,
     marginLeft: 4,
+    fontFamily: 'opensans-extrabold',
   },
   activityContainer: {
     paddingVertical: 16,

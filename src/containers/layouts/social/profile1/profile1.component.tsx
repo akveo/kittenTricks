@@ -8,12 +8,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Button } from '@kitten/ui';
 import {
   ProfileInfo1,
   ProfileSocials,
   ProfileActivityList1,
 } from '@src/components/social';
-import { Button } from '@src/components/common';
 import {
   Profile as ProfileModel,
   ProfileSocials as ProfileSocialsModel,
