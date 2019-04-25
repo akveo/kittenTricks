@@ -100,16 +100,13 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
             onPress={this.onSignUpButtonPress}>
             Sign Up
           </Button>
-          <View style={themedStyle.signInContainer}>
-            <Text style={themedStyle.signInLabel}>Already have an account?</Text>
-            <Button
-              style={themedStyle.signInButton}
-              appearance='ghost'
-              activeOpacity={0.75}
-              onPress={this.onSignInButtonPress}>
-              Sign In
-            </Button>
-          </View>
+          <Button
+            style={themedStyle.signInButton}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignInButtonPress}>
+            Already have an account? Sign In
+          </Button>
         </View>
       </AvoidKeyboard>
     );
@@ -132,12 +129,6 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     marginTop: 32,
     paddingHorizontal: 16,
-  },
-  signInContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 24,
   },
   photo: {
     width: 116,
@@ -168,7 +159,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     color: theme['color-basic-600'],
   },
   signInButton: {
-    paddingHorizontal: 0,
+    marginVertical: 24,
     fontFamily: 'opensans-semibold',
     color: theme['color-basic-600'],
   },

@@ -1,6 +1,8 @@
 import React from 'react';
 import {
   ListRenderItemInfo,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
   ScrollView,
   View,
   ViewProps,
@@ -28,7 +30,7 @@ interface ComponentProps {
 }
 
 interface State {
-  selectedPagerIndex: number;
+  selectedExerciseIndex: number;
 }
 
 export type Easy1ComponentProps = ThemedComponentProps & ComponentProps;
@@ -36,11 +38,20 @@ export type Easy1ComponentProps = ThemedComponentProps & ComponentProps;
 class Easy1Component extends React.Component<Easy1ComponentProps, State> {
 
   public state: State = {
-    selectedPagerIndex: 0,
+    selectedExerciseIndex: 0,
   };
 
-  private onChangePager = (selectedPagerIndex: number): void => {
-    this.setState({ selectedPagerIndex });
+  private onExerciseListScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const { themedStyle } = this.props;
+
+    const { x: xOffset } = event.nativeEvent.contentOffset;
+    const { width: itemWidth } = themedStyle.pagerCard;
+
+    const selectedExerciseIndex: number = Math.round(xOffset / itemWidth);
+
+    if (selectedExerciseIndex !== this.state.selectedExerciseIndex) {
+      this.setState({ selectedExerciseIndex });
+    }
   };
 
   private onTrainingDetails = (index: number): void => {
@@ -49,7 +60,7 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
 
   private renderPagerIndicator = (index: number): React.ReactElement<ViewProps> => {
     const { themedStyle, exercises } = this.props;
-    const additionalStyle: StyleType = index === this.state.selectedPagerIndex ?
+    const additionalStyle: StyleType = index === this.state.selectedExerciseIndex ?
       themedStyle.pagerIndicatorSelected : null;
     const marginStyle: StyleType = index === exercises.length - 1 ?
       null : themedStyle.indicatorMarginRight;
@@ -62,17 +73,17 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
     );
   };
 
-  private renderPagerCard = (exercise: Exercise, index: number): React.ReactElement<TrainingCardProps> => {
+  private renderPagerCard = (info: ListRenderItemInfo<Exercise>): React.ReactElement<TrainingCardProps> => {
     const { themedStyle, exercises } = this.props;
-    const marginStyle: StyleType = index === exercises.length - 1 ?
+
+    const marginStyle: StyleType = info.index === exercises.length - 1 ?
       null : themedStyle.pagerCardMargin;
 
     return (
       <TrainingCard1
-        key={index}
-        index={index}
+        index={info.index}
         style={[themedStyle.pagerCard, marginStyle]}
-        training={exercise}
+        training={info.item}
         onDetails={this.onTrainingDetails}
       />
     );
@@ -83,15 +94,16 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
 
     return (
       <View>
-        <ViewPager
-          contentWidth={226}
-          selectedIndex={this.state.selectedPagerIndex}
-          onSelect={this.onChangePager}>
-          {this.props.exercises.map(this.renderPagerCard)}
-        </ViewPager>
+        <List
+          horizontal={true}
+          renderItem={this.renderPagerCard}
+          data={this.props.exercises}
+          showsHorizontalScrollIndicator={false}
+          onScroll={this.onExerciseListScroll}
+        />
         <View style={themedStyle.pagerIndicatorContainer}>
           {this.props.exercises
-            .map((item: Exercise, i: number) => this.renderPagerIndicator(i))}
+               .map((item: Exercise, i: number) => this.renderPagerIndicator(i))}
         </View>
       </View>
     );

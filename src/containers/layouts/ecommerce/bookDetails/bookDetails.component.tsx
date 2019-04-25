@@ -12,17 +12,17 @@ import {
   Button,
   Input,
 } from '@kitten/ui';
-import { BookHeader } from '@src/components/dashboard';
+import { BookHeader } from '@src/components/ecommerce';
+import { CommentsList } from '@src/components/articles';
 import { Text } from '@src/components/common';
-import { CommentsList1 } from '@src/containers/layouts/messaging/commentsList1/commentsList1.component';
 import {
   Book,
-  Comment as CommentModel,
+  Comment,
 } from '@src/core/model';
 
 interface ComponentProps {
   book: Book;
-  comments: CommentModel[];
+  comments: Comment[];
   currentCommentText: string;
   onBuyBook: () => void;
   onCommentSubmit: () => void;
@@ -93,8 +93,8 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
               onSubmitEditing={this.handleTextSubmit}
             />
           </View>
-          <CommentsList1
-            comments={comments}
+          <CommentsList
+            data={comments}
             onMorePress={this.onMoreButtonPress}
             onLikePress={this.onLikeButtonPress}
             onCommentPress={this.onCommentButtonPress}

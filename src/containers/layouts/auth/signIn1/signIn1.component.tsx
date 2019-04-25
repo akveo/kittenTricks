@@ -105,7 +105,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           source={this.backgroundImage}>
           <Button
             style={themedStyle.ewaButton}
-            size='giant'
+            size='large'
             activeOpacity={0.75}
             icon={this.renderEwaButtonIcon}
             onPress={this.onEwaButtonPress}>
@@ -117,7 +117,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
               style={themedStyle.signUpButton}
               size='giant'
               activeOpacity={0.75}
-              alignment={ButtonIconAlignments.RIGHT}
+              iconAlignment={ButtonIconAlignments.RIGHT}
               icon={this.renderSignUpButtonIcon}
               onPress={this.onSignUpButtonPress}>
               Sign Up
@@ -156,7 +156,6 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   },
   signInContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 48,
   },
@@ -165,7 +164,7 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
     marginBottom: 36,
   },
   ewaButton: {
-    alignSelf: 'flex-start',
+    maxWidth: 72,
     paddingHorizontal: 0,
     fontFamily: 'opensans-regular',
     backgroundColor: theme['opacity-transparent'],
@@ -175,9 +174,10 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    marginTop: 96,
+    marginTop: 72,
   },
   signInLabel: {
+    flex: 1,
     fontFamily: 'raleway-extra-bold',
     textTransform: 'uppercase',
     fontSize: 32,
@@ -187,6 +187,7 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
     textTransform: 'uppercase',
   },
   signUpButton: {
+    flex: 0.25,
     paddingHorizontal: 0,
     backgroundColor: theme['opacity-transparent'],
   },

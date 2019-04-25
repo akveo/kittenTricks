@@ -137,16 +137,13 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
             onPress={this.onSignInButtonPress}>
             Sign In
           </Button>
-          <View style={themedStyle.signUpContainer}>
-            <Text>Don't have an account?</Text>
-            <Button
-              style={themedStyle.signUpButton}
-              appearance='ghost'
-              activeOpacity={0.75}
-              onPress={this.onSignUpButtonPress}>
-              Sign Up
-            </Button>
-          </View>
+          <Button
+            style={themedStyle.signUpButton}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignUpButtonPress}>
+            Don't have an account? Sign Up
+          </Button>
         </ImageOverlay>
       </AvoidKeyboard>
     );
@@ -165,13 +162,6 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
   },
   tabContentContainer: {
     marginVertical: 8,
-  },
-  signUpContainer: {
-    flexDirection: 'row',
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 24,
   },
   tabView: {
     flex: 1,
@@ -199,6 +189,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     textTransform: 'uppercase',
   },
   signUpButton: {
+    marginVertical: 24,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
   },

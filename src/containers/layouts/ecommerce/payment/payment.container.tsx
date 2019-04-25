@@ -23,7 +23,7 @@ export class PaymentContainer extends React.Component<NavigationScreenProps> {
   };
 
   private onAddCardPress = (): void => {
-
+    this.props.navigation.navigate('Add New Card');
   };
 
   public render(): React.ReactNode {

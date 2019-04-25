@@ -8,13 +8,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
 import { ValidationInput } from '@src/components/common';
 import {
-  PATTERN_EMAIL,
-  PATTERN_PASSWORD,
-  PATTERN_PHONE,
-  PATTERN_SMS_CODE,
   PhoneNumberValidator,
   SMSCodeValidator,
 } from '@src/core/validators';
@@ -22,10 +17,6 @@ import {
   LockIconFill,
   PhoneIconFill,
 } from '@src/assets/icons';
-import {
-  SignInForm3Props,
-  SignInForm3Type,
-} from '@src/components/auth';
 
 export interface SignInForm4Type {
   phone: string;

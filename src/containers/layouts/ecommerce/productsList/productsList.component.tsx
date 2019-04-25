@@ -1,31 +1,26 @@
 import React from 'react';
-import { ListRenderItemInfo } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
 import {
-  TabProps,
-  List,
-  ListProps,
   Tab,
   TabView,
+  TabViewChildProps,
 } from '@kitten/ui';
-import { Product as ProductModel } from '@src/core/model';
-import {
-  ProductProps,
-  Product,
-} from '@src/components/ecommerce';
+import { ProductList } from '@src/components/ecommerce';
+import { Product } from '@src/core/model';
 
 interface ComponentProps {
-  products: ProductModel[];
-  onAddToBucketPress: (product: ProductModel) => void;
+  products: Product[];
+  onProductPress: (product: Product) => void;
+  onProductAddPress: (product: Product) => void;
 }
 
 interface State {
+  tabCategories: string[];
   selectedIndex: number;
-  tabs: string[];
 }
 
 export type ProductsListProps = ThemedComponentProps & ComponentProps;
@@ -33,95 +28,94 @@ export type ProductsListProps = ThemedComponentProps & ComponentProps;
 class ProductsListComponent extends React.Component<ProductsListProps, State> {
 
   public state: State = {
+    tabCategories: [],
     selectedIndex: 0,
-    tabs: [],
   };
 
-  public componentWillMount(): void {
-    this.state.tabs = this.getComponentsTabs();
-    this.state.tabs.pop();
+  public componentWillMount() {
+    this.state.tabCategories = this.getProductCategories();
+    this.state.tabCategories.pop();
   }
 
-  private onSelectTab = (selectedIndex: number): void => {
+  private onProductPress = (index: number) => {
+    const selectedProduct: Product = this.findCurrentCategorySelectedProduct(index);
+
+    this.props.onProductPress(selectedProduct);
+  };
+
+  private onProductAddPress = (index: number) => {
+    const selectedProduct: Product = this.findCurrentCategorySelectedProduct(index);
+
+    this.props.onProductAddPress(selectedProduct);
+  };
+
+  private onTabSelect = (selectedIndex: number) => {
     this.setState({ selectedIndex });
   };
 
-  private onAddToBucketPress = (product: ProductModel): void => {
-    this.props.onAddToBucketPress(product);
+  private findCurrentCategorySelectedProduct = (index: number): Product => {
+    const { products } = this.props;
+    const { tabCategories, selectedIndex } = this.state;
+
+    const categoryProducts: Product[] = this.getCategoryProducts(products, tabCategories[selectedIndex]);
+
+    return categoryProducts[index];
   };
 
-  private getComponentsTabs = (): string[] => {
-    const { products } = this.props;
-    const tabs: string[] = products.map((item: ProductModel) => item.type);
-
-    return ['ALL', ...new Set(tabs)];
-  };
-
-  private filterProducts = (criteria: string): ProductModel[] => {
+  private getCategoryProducts = (source: Product[], category: string): Product[] => {
     const { products } = this.props;
 
-    if (criteria === 'ALL') {
+    if (category === 'All') {
       return products;
-    } else {
-      return products.filter((item: ProductModel) => item.type === criteria);
     }
+
+    return products.filter((item: Product): boolean => {
+      return item.type === category;
+    });
   };
 
-  private renderTab = (title: string, index: number): React.ReactElement<TabProps> => {
-    const { themedStyle } = this.props;
+  private getProductCategories = (): string[] => {
+    const { products } = this.props;
+
+    const categories: string[] = products.map((item: Product): string => {
+      return item.type;
+    });
+
+    return ['All', ...new Set(categories)];
+  };
+
+  private renderTab = (title: string, index: number): React.ReactElement<TabViewChildProps> => {
+    const { themedStyle, products } = this.props;
+    const { [index]: tabCategory } = this.state.tabCategories;
+
+    const displayProducts: Product[] = this.getCategoryProducts(products, tabCategory);
 
     return (
       <Tab
-        style={[themedStyle.container, {backgroundColor: 'white'}]}
-        title={title}
-        key={index}>
-        {this.renderProducts()}
+        key={index}
+        style={themedStyle.tab}
+        title={title}>
+        <ProductList
+          contentContainerStyle={themedStyle.productsListContent}
+          data={displayProducts}
+          onItemPress={this.onProductPress}
+          onItemAddPress={this.onProductAddPress}
+        />
       </Tab>
     );
-  };
-
-  private renderProduct = (info: ListRenderItemInfo<ProductModel>): React.ReactElement<ProductProps> => {
-    const { themedStyle } = this.props;
-
-    return (
-      <Product
-        style={themedStyle.productItem}
-        product={info.item}
-        index={info.index}
-        onAddToBucket={this.onAddToBucketPress}
-      />
-    );
-  };
-
-  private renderProducts = (): React.ReactElement<ListProps> => {
-    const { themedStyle } = this.props;
-    const { tabs, selectedIndex} = this.state;
-    const products: ProductModel[] = this.filterProducts(tabs[selectedIndex]);
-
-    return (
-      <List
-        style={themedStyle.productListContainer}
-        contentContainerStyle={themedStyle.productsListContent}
-        data={products}
-        renderItem={this.renderProduct}
-        numColumns={2}
-      />
-    );
-  };
-
-  private renderTabs = (): React.ReactElement<TabProps>[] => {
-    return this.state.tabs.map(this.renderTab);
   };
 
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
+    const tabElements: React.ReactElement<TabViewChildProps>[] = this.state.tabCategories.map(this.renderTab);
+
     return (
       <TabView
         style={themedStyle.container}
         selectedIndex={this.state.selectedIndex}
-        onSelect={this.onSelectTab}>
-        {this.renderTabs()}
+        onSelect={this.onTabSelect}>
+        {tabElements}
       </TabView>
     );
   }
@@ -131,15 +125,12 @@ export const ProductsList = withStyles(ProductsListComponent, (theme: ThemeType)
   container: {
     flex: 1,
   },
-  productListContainer: {
-    flex: 1,
-    backgroundColor: theme['color-basic-100'],
+  tab: {
+    textTransform: 'uppercase',
   },
   productsListContent: {
-    padding: 8,
-  },
-  productItem: {
-    flex: 1,
-    margin: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 16,
+    backgroundColor: theme['color-basic-100'],
   },
 }));

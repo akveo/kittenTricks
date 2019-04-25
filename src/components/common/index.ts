@@ -68,10 +68,6 @@ export {
   LayoutListItemProps,
 } from './layoutList/layoutListItem.component';
 export {
-  Comment,
-  CommentProps,
-} from './comment.component';
-export {
   Chips,
   ChipsProps,
 } from './chips.component';

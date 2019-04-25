@@ -19,22 +19,34 @@ interface ComponentProps {
 
 type Props = ThemedComponentProps & ComponentProps;
 
+type ListItemElement = React.ReactElement<ListItemProps>;
+
 class LayoutsComponent extends React.Component<Props> {
 
   private onItemPress = (index: number) => {
     this.props.onItemSelect(index);
   };
 
-  private renderItem = (info: ListRenderItemInfo<ListItem>): React.ReactElement<ListItemProps> => {
-    const { title, icon } = info.item;
+  private renderItemElement = (item: ListItem): ListItemElement => {
+    const { themedStyle } = this.props;
+
     return (
       <LayoutsListItem
-        style={this.props.themedStyle.item}
-        title={title}
-        icon={icon}
-        onPress={() => this.onItemPress(info.index)}
+        style={themedStyle.item}
+        activeOpacity={0.75}
+        title={item.title}
+        icon={item.icon}
+        onPress={this.onItemPress}
       />
     );
+  };
+
+  private renderItem = (info: ListRenderItemInfo<ListItem>): ListItemElement => {
+    const { item, index } = info;
+
+    const listItemElement: ListItemElement = this.renderItemElement(item);
+
+    return React.cloneElement(listItemElement, { index });
   };
 
   public render(): React.ReactNode {
