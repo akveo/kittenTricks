@@ -1,18 +1,18 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
-import { Components } from './components.component';
 import {
   AvatarShowcase,
-  ButtonGroupShowcase,
   ButtonShowcase,
+  ButtonGroupShowcase,
   CheckBoxShowcase,
-  ComplexComponentShowcase,
   InputShowcase,
   RadioShowcase,
   TextShowcase,
   ToggleShowcase,
-} from './components.showcase';
+  ComplexComponentShowcase,
+} from './showcase';
+import { Components } from './components.component';
 
 export interface ListItem {
   title: string;
