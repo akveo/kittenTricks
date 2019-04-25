@@ -200,10 +200,7 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
       params: MenuNavigatorParams,
     },
     ['Conversations List']: ConversationsListContainer,
-    ['Chat 1']: {
-      screen: Chat1Container,
-      params: MessagingNavigatorParams,
-    },
+    ['Chat 1']: Chat1Container,
     ['Chat 2']: {
       screen: Chat2Container,
       params: MessagingNavigatorParams,
