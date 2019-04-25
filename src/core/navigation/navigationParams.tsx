@@ -22,18 +22,6 @@ export interface BottomNavigationParams extends NavigationParams {
   bottomNavigation: (props: NavigationScreenProps) => BottomNavigationElement | null;
 }
 
-const TopNavigationDisabledParams: TopNavigationParams = {
-  topNavigation: (props: NavigationScreenProps): null => {
-    return null;
-  },
-};
-
-const BottomNavigationDisabledParams: BottomNavigationParams = {
-  bottomNavigation: (props: NavigationScreenProps): null => {
-    return null;
-  },
-};
-
 const MenuTopNavigationParams: TopNavigationParams = {
   topNavigation: (props: NavigationScreenProps): TopNavigationElement => {
     const state: NavigationRouteState = getCurrentRouteState(props.navigation);
@@ -70,42 +58,34 @@ export const MenuNavigatorParams: NavigationParams = {
 
 export const SocialNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
-  ...BottomNavigationDisabledParams,
 };
 
 export const ArticlesNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
-  ...BottomNavigationDisabledParams,
 };
 
 export const MessagingNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
-  ...BottomNavigationDisabledParams,
 };
 
 export const DashboardsNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
-  ...BottomNavigationDisabledParams,
 };
 
 export const WalkthroughNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
-  ...BottomNavigationDisabledParams,
 };
 
 export const EcommerceNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
-  ...BottomNavigationDisabledParams,
 };
 
 export const NavigationNavigatorParams: NavigationParams = {
   ...MenuTopNavigationParams,
-  ...BottomNavigationDisabledParams,
 };
 
-export const FullscreenParams: TopNavigationParams & BottomNavigationParams = {
-  ...TopNavigationDisabledParams,
-  ...BottomNavigationDisabledParams,
+export const ComponentShowcaseNavigatorParams: NavigationParams = {
+  ...MenuTopNavigationParams,
 };
 
 
