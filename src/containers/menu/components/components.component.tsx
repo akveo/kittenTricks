@@ -71,9 +71,7 @@ class ComponentsComponent extends React.Component<Props> {
           onChangeText={this.onSearchInputTextChange}
         />
         <List
-          contentContainerStyle={themedStyle.list}
-          contentInset={themedStyle.listContentInset}
-          showsVerticalScrollIndicator={false}
+          contentContainerStyle={themedStyle.listContentContainer}
           numColumns={2}
           data={items}
           renderItem={this.renderItem}
@@ -85,19 +83,17 @@ class ComponentsComponent extends React.Component<Props> {
 
 export const Components = withStyles(ComponentsComponent, (theme: ThemeType) => ({
   container: {
-    paddingVertical: 24,
-    paddingHorizontal: 16,
+    flex: 1,
+    paddingTop: 24,
     backgroundColor: theme['color-basic-100'],
   },
   searchInput: {
-    marginHorizontal: 8,
+    marginHorizontal: 24,
     backgroundColor: theme['color-white'],
   },
-  list: {
-    paddingVertical: 24,
-  },
-  listContentInset: {
-    bottom: 24,
+  listContentContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   item: {
     flex: 1,

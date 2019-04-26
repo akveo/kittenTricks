@@ -1,10 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
-import {
-  Button,
-  ButtonProps,
-} from '@kitten/ui';
+import { ButtonProps } from '@kitten/ui';
+import { ButtonShowcase } from './buttonShowcase.component';
 import { Showcase } from '../common/showcase.component';
 import { buttonShowcase } from './type';
 
@@ -12,11 +10,10 @@ export class ButtonContainer extends React.Component<NavigationScreenProps> {
 
   private renderItem = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     return (
-      <Button
+      <ButtonShowcase
         style={styles.component}
-        {...props}>
-        BUTTON
-      </Button>
+        {...props}
+      />
     );
   };
 
