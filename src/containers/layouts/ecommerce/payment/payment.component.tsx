@@ -9,8 +9,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import {
+  Button,
+  Text,
+} from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 import { PaymentCard as PaymentCardModel } from '@src/core/model';
 import {
   PaymentCardProps,
@@ -70,14 +73,19 @@ class PaymentComponent extends React.Component<PaymentProps> {
             activeOpacity={0.9}
             onPress={this.onAddCard}>
             {CreditCardIcon(themedStyle.addCardIcon)}
-            <Text style={themedStyle.addCardLabel}>Add New Card</Text>
+            <Text
+              style={themedStyle.addCardLabel}
+              appearance='hintLight'
+              category='s1'>
+              Add New Card
+            </Text>
           </TouchableOpacity>
         </View>
         <Button
           style={themedStyle.buyButton}
           size='giant'
           onPress={this.onBuy}>
-          Buy
+          BUY
         </Button>
       </ScrollView>
     );
@@ -103,10 +111,7 @@ export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
   },
   addCardLabel: {
     marginTop: 12,
-    color: theme['color-basic-400'],
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    lineHeight: 24,
+    ...textStyle.subtitle,
   },
   addCardIcon: {
     width: 48,
@@ -116,7 +121,5 @@ export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
   paymentCard: {
     marginBottom: 16,
   },
-  buyButton: {
-    textTransform: 'uppercase',
-  },
+  buyButton: {},
 }));

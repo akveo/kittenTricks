@@ -50,7 +50,5 @@ export const ApartmentFacilityList2Item = withStyles(ApartmentFacilityList2ItemC
   icon: {
     tintColor: theme['color-primary-500'],
   },
-  text: {
-    color: theme['font-primary-color'],
-  },
+  text: {},
 }));

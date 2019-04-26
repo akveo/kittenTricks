@@ -8,13 +8,14 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   ArticleActivityBar,
   ArticleHeader,
 } from '@src/components/articles';
 import {
-  Text,
   ActivityAuthoring,
+  textStyle,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
 
@@ -49,7 +50,9 @@ class Article1Component extends React.Component<Article1Props> {
           description={`${article.tips} Useful Tips`}
         />
         <ScrollView contentContainerStyle={themedStyle.contentContainer}>
-          <Text style={themedStyle.contentLabel}>
+          <Text
+            style={themedStyle.contentLabel}
+            category='s1'>
             {article.content}
           </Text>
           <ArticleActivityBar
@@ -87,8 +90,7 @@ export const Article1 = withStyles(Article1Component, (theme: ThemeType) => ({
     marginHorizontal: 24,
     marginVertical: 24,
     flex: 1,
-    fontSize: 17,
-    color: theme['font-primary-color'],
+    ...textStyle.paragraph,
   },
 }));
 

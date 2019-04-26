@@ -51,6 +51,7 @@ class Feed1Component extends React.Component<Feed1Props> {
     return (
       <Feed1ListItem
         style={themedStyle.item}
+        activeOpacity={0.95}
         photo={{ uri: training.photo }}
         icon={{ uri: training.icon }}
         category={training.category}

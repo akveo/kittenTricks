@@ -7,10 +7,6 @@ export {
   AvoidKeyboardProps,
 } from './avoidKeyboard.component';
 export {
-  Button,
-  ButtonProps,
-} from './button.component';
-export {
   CommentsButton,
   CommentsButtonProps,
 } from './commentsButton.component';
@@ -18,10 +14,6 @@ export {
   ActivityBar,
   ActivityBarProps,
 } from './activityBar.component';
-export {
-  Input,
-  InputProps,
-} from './input.component';
 export {
   ImageOverlay,
   ImageOverlayProps,
@@ -47,10 +39,6 @@ export {
   ShareButtonProps,
 } from './shareButton.component';
 export {
-  Text,
-  TextProps,
-} from './text.component';
-export {
   TextIcon,
   TextIconProps,
 } from './textIcon.component';
@@ -71,3 +59,6 @@ export {
   Chips,
   ChipsProps,
 } from './chips.component';
+export {
+  textStyle,
+} from './style';

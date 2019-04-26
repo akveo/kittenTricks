@@ -9,7 +9,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
 import {
   ChatMessage,
   ComponentProps,
@@ -20,6 +20,7 @@ import {
   getContentAlignment,
 } from './type';
 import { getFileComponent } from './file.component';
+import { textStyle } from '@src/components/common';
 
 interface FileComponentProps {
   appearance: ChatFileMessageAppearance;
@@ -52,7 +53,12 @@ class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
         index={index}
         alignment={alignment}
         message={message}>
-        <Text style={themedStyle.fileNameLabel}>{message.file.name}</Text>
+        <Text
+          style={themedStyle.fileNameLabel}
+          appearance='light'
+          category='c1'>
+          {message.file.name}
+        </Text>
         {this.renderPreviewImage()}
       </ChatMessage>
     );
@@ -66,7 +72,13 @@ class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
     return (
       <View style={style}>
         {this.renderPreviewImage()}
-        <Text key={0} style={themedStyle.dateLabel}>{message.date}</Text>
+        <Text
+          key={0}
+          style={themedStyle.dateLabel}
+          appearance='hintDark'
+          category='c1'>
+          {message.date}
+        </Text>
       </View>
     );
   };
@@ -95,17 +107,14 @@ class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
 
 export const ChatFileMessage = withStyles(ChatFileMessageComponent, (theme: ThemeType) => ({
   dateLabel: {
-    fontWeight: 'normal',
-    color: theme['color-basic-600'],
-    fontSize: 11,
     marginHorizontal: 26,
+    ...textStyle.caption1,
   },
   previewAppearanceSubContainer: (isLeft: boolean) => ({
     flexDirection: isLeft ? 'row' : 'row-reverse',
   }),
   fileNameLabel: {
-    fontSize: 11,
-    lineHeight: 16,
     marginRight: 16,
+    ...textStyle.caption1,
   },
 }));

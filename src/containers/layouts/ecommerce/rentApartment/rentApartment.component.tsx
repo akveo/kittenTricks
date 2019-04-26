@@ -21,6 +21,7 @@ import {
   PriceText,
 } from '@src/components/ecommerce';
 import { Apartment } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   apartment: Apartment;
@@ -59,8 +60,17 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
         />
         <View style={themedStyle.infoContainer}>
           <View style={themedStyle.detailsContainer}>
-            <Text style={themedStyle.titleLabel}>{apartment.title}</Text>
-            <Text style={themedStyle.rentLabel}>Rent House</Text>
+            <Text
+              style={themedStyle.titleLabel}
+              category='h6'>
+              {apartment.title}
+            </Text>
+            <Text
+              style={themedStyle.rentLabel}
+              appearance='hintDark'
+              category='p2'>
+              Rent House
+            </Text>
             <View style={themedStyle.bookContainer}>
               <PriceText
                 style={themedStyle.priceLabel}
@@ -72,12 +82,16 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
               <Button
                 style={themedStyle.bookButton}
                 onPress={this.onBookPress}>
-                Book Now
+                BOOK NOW
               </Button>
             </View>
           </View>
           <View style={themedStyle.facilitiesContainer}>
-            <Text style={themedStyle.sectionLabel}>Facilities</Text>
+            <Text
+              style={themedStyle.sectionLabel}
+              category='s1'>
+              Facilities
+            </Text>
             <ApartmentFacilityList1
               style={themedStyle.primaryFacilityList}
               data={apartment.primaryFacilities}
@@ -90,11 +104,23 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
           </View>
         </View>
         <View style={themedStyle.aboutSection}>
-          <Text style={themedStyle.sectionLabel}>About</Text>
-          <Text style={themedStyle.aboutLabel}>{apartment.description}</Text>
+          <Text
+            style={themedStyle.sectionLabel}
+            category='s1'>
+            About
+          </Text>
+          <Text
+            style={themedStyle.aboutLabel}
+            appearance='hintDark'>
+            {apartment.description}
+          </Text>
         </View>
         <View style={themedStyle.photoSection}>
-          <Text style={[themedStyle.sectionLabel, themedStyle.photoLabel]}>Photos</Text>
+          <Text
+            style={[themedStyle.sectionLabel, themedStyle.photoLabel]}
+            category='s1'>
+            Photos
+          </Text>
           <ApartmentPhotoList
             contentContainerStyle={themedStyle.photoList}
             data={apartment.photos.map(this.createImageSource)}
@@ -152,47 +178,29 @@ export const RentApartment = withStyles(RentApartmentComponent, (theme: ThemeTyp
     marginHorizontal: 16,
     marginVertical: 16,
   },
-  titleLabel: {
-    fontFamily: 'raleway-bold',
-    fontSize: 20,
-    lineHeight: 28,
-    color: theme['font-primary-color'],
-  },
+  titleLabel: textStyle.headline,
   rentLabel: {
     marginTop: 24,
-    fontFamily: 'opensans-regular',
-    fontSize: 13,
-    lineHeight: 16,
-    color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
-  bookButton: {
-    fontFamily: 'opensans-extrabold',
-    textTransform: 'uppercase',
-  },
+  bookButton: {},
   priceLabel: {
     marginTop: 8,
   },
   priceValueLabel: {
     fontFamily: 'opensans-bold',
     fontSize: 26,
-    color: theme['font-primary-color'],
+    lineHeight: 32,
   },
   priceScaleLabel: {
-    fontFamily: 'opensans-regular',
     fontSize: 13,
     lineHeight: 24,
-    color: theme['font-primary-color'],
+    ...textStyle.paragraph,
   },
-  sectionLabel: {
-    fontSize: 15,
-    fontFamily: 'opensans-semibold',
-    color: theme['font-primary-color'],
-  },
+  sectionLabel: textStyle.subtitle,
   aboutLabel: {
     marginVertical: 16,
-    fontSize: 15,
-    lineHeight: 20,
-    color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
   photoLabel: {
     marginHorizontal: 24,

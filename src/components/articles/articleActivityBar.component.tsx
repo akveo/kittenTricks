@@ -60,4 +60,5 @@ class ArticleActivityBarComponent extends React.Component<ArticleActivityBarProp
   }
 }
 
-export const ArticleActivityBar = withStyles(ArticleActivityBarComponent, (theme: ThemeType) => ({}));
+export const ArticleActivityBar = withStyles(ArticleActivityBarComponent, (theme: ThemeType) => ({
+}));

@@ -13,6 +13,7 @@ import {
   Button,
   Text,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   onCancel: () => void;
@@ -32,8 +33,16 @@ class ComingSoonModalComponent extends React.Component<ComingSoonModalProps> {
     return (
       <View style={themedStyle.container}>
         <View style={themedStyle.headerContainer}>
-          <Text style={themedStyle.titleLabel}>Coming Soon</Text>
-          <Text style={themedStyle.descriptionLabel}>These layouts are not currently available. Stay tuned</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h6'>
+            Coming Soon
+          </Text>
+          <Text
+            style={themedStyle.descriptionLabel}
+            category='p2'>
+            These layouts are not currently available. Stay tuned
+          </Text>
         </View>
         <Button
           appearance='ghost'
@@ -67,17 +76,10 @@ export const ComingSoonModal = withStyles(ComingSoonModalComponent, (theme: Them
       alignItems: 'center',
       justifyContent: 'center',
     },
-    titleLabel: {
-      color: theme['color-black'],
-      fontFamily: 'opensans-extrabold',
-      fontSize: 20,
-      lineHeight: 28,
-    },
+    titleLabel: textStyle.headline,
     descriptionLabel: {
       marginTop: 24,
-      fontSize: 13,
-      lineHeight: 16,
-      color: theme['color-black'],
+      ...textStyle.paragraph,
     },
   };
 });

@@ -23,6 +23,7 @@ import {
 import {
   AvoidKeyboard,
   ImageOverlay,
+  textStyle,
 } from '@src/components/common';
 import {
   ForwardIcon,
@@ -112,7 +113,12 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             EWA
           </Button>
           <View style={themedStyle.signInContainer}>
-            <Text style={themedStyle.signInLabel}>SIGN IN</Text>
+            <Text
+              style={themedStyle.signInLabel}
+              appearance='light'
+              category='h4'>
+              SIGN IN
+            </Text>
             <Button
               style={themedStyle.signUpButton}
               size='giant'
@@ -128,7 +134,6 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             onFormValueChange={this.onFormValueChange}
           />
           <Button
-            style={themedStyle.signInButton}
             size='large'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
@@ -165,7 +170,6 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   ewaButton: {
     maxWidth: 72,
     paddingHorizontal: 0,
-    fontFamily: 'opensans-semibold',
     backgroundColor: theme['opacity-transparent'],
   },
   ewaButtonIcon: {
@@ -177,12 +181,7 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   },
   signInLabel: {
     flex: 1,
-    fontFamily: 'raleway-extra-bold',
-    fontSize: 32,
-    color: theme['color-white'],
-  },
-  signInButton: {
-    fontFamily: 'opensans-extrabold',
+    ...textStyle.headline,
   },
   signUpButton: {
     flex: 0.25,

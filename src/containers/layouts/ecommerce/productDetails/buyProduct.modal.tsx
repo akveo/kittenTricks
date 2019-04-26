@@ -14,10 +14,11 @@ import {
 import {
   List,
   Button,
+  Text,
 } from '@kitten/ui';
-import { Text } from '@src/components/common';
 import { Product as ProductModel } from '@src/core/model';
 import { BuyActionModel } from './productDetails.container';
+import { textStyle } from '@src/components/common';
 
 const { width, height } = Dimensions.get('window');
 
@@ -44,7 +45,11 @@ class ByuModalComponent extends React.Component<ByuModalProps> {
         style={themedStyle.actionContainer}
         activeOpacity={0.95}
         onPress={info.item.action}>
-        <Text style={themedStyle.actionLabel}>{info.item.title}</Text>
+        <Text
+          style={themedStyle.actionLabel}
+          category='s2'>
+          {info.item.title}
+        </Text>
       </TouchableOpacity>
     );
   };
@@ -61,8 +66,14 @@ class ByuModalComponent extends React.Component<ByuModalProps> {
       [
         <View style={themedStyle.container} key={0}>
           <View style={themedStyle.headerContainer}>
-            <Text style={themedStyle.nameLabel}>{product.name}</Text>
-            <Text style={themedStyle.countLabel}>
+            <Text
+              style={themedStyle.nameLabel}
+              category='h6'>
+              {product.name}
+            </Text>
+            <Text
+              style={themedStyle.countLabel}
+              category='p2'>
               {`You have ${shoppingItemsCount} in your Shopping Cart`}
             </Text>
           </View>
@@ -112,17 +123,8 @@ export const BuyProductModal = withStyles(ByuModalComponent, (theme: ThemeType) 
     alignItems: 'center',
     justifyContent: 'center',
   },
-  nameLabel: {
-    color: theme['color-black'],
-    fontFamily: 'opensans-extrabold',
-    fontSize: 20,
-    lineHeight: 28,
-  },
-  countLabel: {
-    color: theme['color-black'],
-    fontSize: 13,
-    lineHeight: 16,
-  },
+  nameLabel: textStyle.headline,
+  countLabel: textStyle.paragraph,
   actionsList: {
     marginTop: 16,
   },
@@ -133,10 +135,5 @@ export const BuyProductModal = withStyles(ByuModalComponent, (theme: ThemeType) 
     borderBottomColor: theme['color-basic-200'],
     borderBottomWidth: 1.5,
   },
-  actionLabel: {
-    color: theme['color-black'],
-    fontFamily: 'opensans-bold',
-    fontSize: 13,
-    lineHeight: 24,
-  },
+  actionLabel: textStyle.subtitle,
 }));

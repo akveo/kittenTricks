@@ -12,8 +12,9 @@ import {
 import {
   List,
   Button,
+  Text,
 } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import { textStyle } from '@src/components/common';
 import { CartProduct as CartProductModel } from './cartProduct.model';
 import {
   CartProduct,
@@ -87,8 +88,13 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
             style={themedStyle.productsList}
           />
           <View style={themedStyle.totalCostContainer}>
-            <Text style={themedStyle.totalCostLabel}>Total Cost:</Text>
-            <Text style={themedStyle.totalPriceLabel}>
+            <Text
+              style={themedStyle.totalCostLabel}
+              category='h6'>
+              Total Cost:
+            </Text>
+            <Text
+              style={themedStyle.totalPriceLabel}>
               {`${this.currency} ${this.calculateTotalPrice()}`}
             </Text>
           </View>
@@ -120,14 +126,8 @@ export const ShoppingCart = withStyles(ShoppingCartComponent, (theme: ThemeType)
     borderBottomWidth: 1,
     borderBottomColor: theme['color-basic-200'],
   },
-  totalCostLabel: {
-    color: theme['color-black'],
-    fontFamily: 'opensans-extrabold',
-    fontSize: 20,
-    lineHeight: 28,
-  },
+  totalCostLabel: textStyle.headline,
   totalPriceLabel: {
-    color: theme['color-black'],
     fontFamily: 'opensans-bold',
     fontSize: 22,
     lineHeight: 32,

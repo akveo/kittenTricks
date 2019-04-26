@@ -8,7 +8,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   description: React.ReactText;
@@ -26,8 +27,17 @@ class MovieDetailListItemComponent extends React.Component<MovieDetailListItemPr
       <View
         {...restProps}
         style={[themedStyle.container, style]}>
-        <Text style={themedStyle.descriptionLabel}>{description}</Text>
-        <Text style={themedStyle.valueLabel}>{value}</Text>
+        <Text
+          style={themedStyle.descriptionLabel}
+          appearance='hintDark'
+          category='s1'>
+          {description}
+        </Text>
+        <Text
+          style={themedStyle.valueLabel}
+          category='s1'>
+          {value}
+        </Text>
       </View>
     );
   }
@@ -37,16 +47,6 @@ export const MovieDetailListItem = withStyles(MovieDetailListItemComponent, (the
   container: {
     alignItems: 'center',
   },
-  descriptionLabel: {
-    fontFamily: 'opensans-bold',
-    color: theme['color-basic-600'],
-    fontSize: 13,
-    lineHeight: 24,
-  },
-  valueLabel: {
-    fontFamily: 'opensans-bold',
-    color: theme['color-black'],
-    fontSize: 15,
-    lineHeight: 24,
-  },
+  descriptionLabel: textStyle.subtitle,
+  valueLabel: textStyle.subtitle,
 }));

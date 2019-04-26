@@ -17,7 +17,10 @@ import {
   SignInForm2Type,
   SignInForm2,
 } from '@src/components/auth';
-import { AvoidKeyboard } from '@src/components/common';
+import {
+  AvoidKeyboard,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -66,8 +69,18 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
           style={themedStyle.container}
           source={this.backgroundImage}>
           <View style={themedStyle.headerContainer}>
-            <Text style={themedStyle.helloLabel}>Hello</Text>
-            <Text style={themedStyle.signInLabel}>Sign in to your account</Text>
+            <Text
+              style={themedStyle.helloLabel}
+              appearance='light'
+              category='h2'>
+              Hello
+            </Text>
+            <Text
+              style={themedStyle.signInLabel}
+              appearance='light'
+              category='s1'>
+              Sign in to your account
+            </Text>
           </View>
           <SignInForm2
             style={themedStyle.formContainer}
@@ -109,28 +122,19 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
-  helloLabel: {
-    fontFamily: 'raleway-extra-bold',
-    fontSize: 60,
-    lineHeight: 72,
-    color: theme['color-white'],
-  },
+  helloLabel: textStyle.headline,
   signInLabel: {
     marginTop: 16,
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    lineHeight: 24,
-    color: theme['color-white'],
+    ...textStyle.subtitle,
   },
   signInButton: {
     marginHorizontal: 16,
-    fontFamily: 'opensans-extrabold',
   },
   signUpButton: {
     marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
 }));
 

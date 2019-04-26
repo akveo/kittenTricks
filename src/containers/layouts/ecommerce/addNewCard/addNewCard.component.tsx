@@ -49,7 +49,7 @@ class AddNewCardComponent extends React.Component<AddNewCardProps, State> {
           size='giant'
           disabled={!this.state.formValue}
           onPress={this.onAddButtonPress}>
-          Add new card
+          ADD NEW CARD
         </Button>
       </View>
     );
@@ -68,6 +68,5 @@ export const AddNewCard = withStyles(AddNewCardComponent, (theme: ThemeType) => 
   },
   addButton: {
     marginVertical: 24,
-    textTransform: 'uppercase',
   },
 }));

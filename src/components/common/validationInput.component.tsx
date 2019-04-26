@@ -1,9 +1,14 @@
 import React from 'react';
-import { ThemedComponentProps } from '@kitten/theme';
+import {
+  ThemedComponentProps,
+  ThemeType,
+  withStyles,
+} from '@kitten/theme';
 import {
   Input,
   InputProps,
-} from '../common/input.component';
+} from '@kitten/ui';
+import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps extends InputProps {
   validator: (value: string) => boolean;
@@ -24,7 +29,7 @@ export type ValidationInputProps = ThemedComponentProps & ComponentProps;
 /**
  * You probably don't need to pass `value` prop into this component
  */
-export class ValidationInput extends React.Component<ValidationInputProps, State> {
+class ValidationInputComponent extends React.Component<ValidationInputProps, State> {
 
   public state: State = {
     value: this.props.value,
@@ -77,7 +82,7 @@ export class ValidationInput extends React.Component<ValidationInputProps, State
   };
 
   public render(): React.ReactNode {
-    const { style, ...restProps } = this.props;
+    const { style, themedStyle, ...restProps } = this.props;
 
     return (
       <Input
@@ -85,9 +90,13 @@ export class ValidationInput extends React.Component<ValidationInputProps, State
         status={this.getStatus()}
         {...restProps}
         value={this.state.value}
-        style={style}
+        style={[themedStyle, style]}
         onChangeText={this.onChangeText}
       />
     );
   }
 }
+
+export const ValidationInput = withStyles(ValidationInputComponent, (theme: ThemeType) => ({
+  input: textStyle.paragraph,
+}));

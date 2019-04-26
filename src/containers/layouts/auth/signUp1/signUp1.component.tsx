@@ -24,6 +24,7 @@ import {
 import {
   AvoidKeyboard,
   ImageOverlay,
+  textStyle,
 } from '@src/components/common';
 import {
   ForwardIcon,
@@ -114,7 +115,12 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
               EWA
             </Button>
             <View style={themedStyle.signUpContainer}>
-              <Text style={themedStyle.signInLabel}>SIGN UP</Text>
+              <Text
+                style={themedStyle.signInLabel}
+                appearance='light'
+                category='h4'>
+                SIGN UP
+              </Text>
               <Button
                 style={themedStyle.signInButton}
                 activeOpacity={0.5}
@@ -137,10 +143,19 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
           />
           <View style={themedStyle.orContainer}>
             <View style={themedStyle.divider}/>
-            <Text style={themedStyle.orLabel}>OR</Text>
+            <Text
+              style={themedStyle.orLabel}
+              appearance='dark'
+              category='h5'>
+              OR
+            </Text>
             <View style={themedStyle.divider}/>
           </View>
-          <Text style={themedStyle.emailSignLabel}>Sign up with Email</Text>
+          <Text
+            style={themedStyle.emailSignLabel}
+            appearance='dark'>
+            Sign up with Email
+          </Text>
           <SignUpForm1
             style={themedStyle.formContainer}
             onFormValueChange={this.onFormValueChange}
@@ -184,7 +199,6 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   ewaButton: {
     maxWidth: 72,
     paddingHorizontal: 0,
-    fontFamily: 'opensans-regular',
     backgroundColor: theme['opacity-transparent'],
   },
   ewaButtonIcon: {
@@ -192,9 +206,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   },
   signInLabel: {
     flex: 1,
-    fontFamily: 'raleway-extra-bold',
-    fontSize: 32,
-    color: theme['color-white'],
+    ...textStyle.headline,
   },
   signInButton: {
     flex: 0.25,
@@ -207,10 +219,9 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   signUpButton: {
     marginVertical: 24,
     marginHorizontal: 16,
-    fontFamily: 'opensans-extrabold',
   },
   socialAuthHint: {
-    fontFamily: 'opensans-regular',
+    ...textStyle.paragraph,
     color: theme['font-primary-color'],
   },
   socialAuthIcon: {
@@ -224,15 +235,12 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   },
   orLabel: {
     marginHorizontal: 8,
-    fontFamily: 'raleway-extra-bold',
-    fontSize: 24,
-    color: theme['font-primary-color'],
+    ...textStyle.headline,
   },
   emailSignLabel: {
     alignSelf: 'center',
     marginTop: 8,
-    color: theme['font-primary-color'],
-    fontFamily: 'opensans-regular',
+    ...textStyle.paragraph,
   },
   divider: {
     flex: 1,

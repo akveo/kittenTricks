@@ -11,9 +11,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
 import { PaymentCard as PaymentCardModel } from '@src/core/model';
 import { MoreVerticalIcon } from '@src/assets/icons';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   paymentCard: PaymentCardModel;
@@ -35,12 +36,22 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
 
   public render(): React.ReactNode {
     const { themedStyle, style, paymentCard } = this.props;
-    const detailsHitSlop: StyleType = { top: 20, bottom: 20, left: 20, right: 20 };
+    const detailsHitSlop: StyleType = {
+      top: 20,
+      bottom: 20,
+      left: 20,
+      right: 20,
+    };
 
     return (
       <View style={[themedStyle.container, style]}>
         <View style={[themedStyle.topBottomContainer, themedStyle.topContainer]}>
-          <Text style={themedStyle.typeLabel}>{paymentCard.type}</Text>
+          <Text
+            style={themedStyle.typeLabel}
+            appearance='light'
+            category='h4'>
+            {paymentCard.type}
+          </Text>
           <TouchableOpacity
             hitSlop={detailsHitSlop}
             activeOpacity={0.95}
@@ -48,15 +59,39 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
             {this.renderDetailsIcon()}
           </TouchableOpacity>
         </View>
-        <Text style={themedStyle.numberLabel}>{paymentCard.number}</Text>
+        <Text
+          style={themedStyle.numberLabel}
+          appearance='light'
+          category='s1'>
+          {paymentCard.number}
+        </Text>
         <View style={themedStyle.topBottomContainer}>
           <View style={themedStyle.bottomLeftContainer}>
-            <Text style={themedStyle.bottomLabel}>Cardholder Name</Text>
-            <Text style={themedStyle.bottomLabelMain}>{paymentCard.cardHolder}</Text>
+            <Text
+              style={themedStyle.bottomLabel}
+              category='c1'
+              appearance='light'>
+              Cardholder Name
+            </Text>
+            <Text
+              style={themedStyle.bottomLabelMain}
+              appearance='light'
+              category='s1'>
+              {paymentCard.cardHolder}
+            </Text>
           </View>
           <View style={themedStyle.bottomRightContainer}>
-            <Text style={[themedStyle.bottomLabel, themedStyle.rightLabel]}>Expire Date</Text>
-            <Text style={[themedStyle.bottomLabelMain, themedStyle.rightLabel]}>{paymentCard.expireDate}</Text>
+            <Text
+              style={[themedStyle.bottomLabel, themedStyle.rightLabel]}
+              appearance='light'
+              category='c1'>
+              Expire Date
+            </Text>
+            <Text
+              style={[themedStyle.bottomLabelMain, themedStyle.rightLabel]}
+              appearance='light'>
+              {paymentCard.expireDate}
+            </Text>
           </View>
         </View>
       </View>
@@ -78,26 +113,14 @@ export const PaymentCard = withStyles(PaymentCardComponent, (theme: ThemeType) =
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  typeLabel: {
-    fontFamily: 'opensans-bold',
-    fontSize: 32,
-    lineHeight: 42,
-  },
+  typeLabel: textStyle.headline,
   numberLabel: {
+    marginBottom: 26,
     fontFamily: 'opensans-bold',
     fontSize: 18,
-    lineHeight: 24,
-    marginBottom: 26,
   },
-  bottomLabel: {
-    fontSize: 11,
-    lineHeight: 16,
-  },
-  bottomLabelMain: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    lineHeight: 24,
-  },
+  bottomLabel: textStyle.caption1,
+  bottomLabelMain: textStyle.subtitle,
   bottomLeftContainer: {
     justifyContent: 'flex-start',
   },

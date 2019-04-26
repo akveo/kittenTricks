@@ -10,7 +10,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   icon?: (style: StyleType) => React.ReactElement<ImageProps>;
@@ -31,7 +32,11 @@ class ArticleTipsComponent extends React.Component<ArticleTipsProps> {
     return (
       <View style={[themedStyle.container, style]}>
         {icon ? this.renderIconElement(themedStyle.icon) : null}
-        <Text style={themedStyle.text}>{children}</Text>
+        <Text
+          style={themedStyle.text}
+          appearance='light'>
+          {children}
+        </Text>
       </View>
     );
   }
@@ -47,7 +52,5 @@ export const ArticleTips = withStyles(ArticleTipsComponent, (theme: ThemeType) =
     marginRight: 18,
     tintColor: theme['color-white'],
   },
-  text: {
-    fontFamily: 'opensans-semibold',
-  },
+  text: textStyle.subtitle,
 }));

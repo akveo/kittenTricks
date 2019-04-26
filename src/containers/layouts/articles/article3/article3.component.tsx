@@ -9,9 +9,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Input } from '@kitten/ui';
+import {
+  Input,
+  Text,
+} from '@kitten/ui';
 import { CommentsList } from '@src/components/articles';
-import { Text } from '@src/components/common';
+import { textStyle } from '@src/components/common';
 import {
   Article,
   Comment,
@@ -57,29 +60,43 @@ class Article3Component extends React.Component<Article3Props> {
 
     return (
       <ScrollView contentContainerStyle={themedStyle.contentContainer}>
-        <Text style={themedStyle.titleLabel}>
+        <Text
+          style={themedStyle.titleLabel}
+          category='h4'>
           {article.title}
         </Text>
-        <Text style={themedStyle.descriptionLabel}>
+        <Text
+          style={themedStyle.descriptionLabel}
+          category='s1'>
           {article.description}
         </Text>
         <ImageBackground
           style={themedStyle.image}
           source={{ uri: article.image }}>
         </ImageBackground>
-        <Text style={themedStyle.contentLabel}>
+        <Text
+          style={themedStyle.contentLabel}
+          category='s1'>
           {article.content}
         </Text>
         <View style={themedStyle.articleAuthorContainer}>
-          <Text style={themedStyle.articleAuthorLabel}>
+          <Text
+            style={themedStyle.articleAuthorLabel}
+            appearance='hintDark'
+            category='p2'>
             {`By ${article.author.firstName} ${article.author.lastName}`}
           </Text>
-          <Text style={themedStyle.articleDateLabel}>
+          <Text
+            style={themedStyle.articleDateLabel}
+            appearance='hintDark'
+            category='p2'>
             {article.date}
           </Text>
         </View>
         <View style={themedStyle.inputContainer}>
-          <Text style={[themedStyle.inputLabel, themedStyle.inputSpace]}>
+          <Text
+            style={[themedStyle.inputLabel, themedStyle.inputSpace]}
+            category='s1'>
             Comments
           </Text>
           <Input
@@ -121,36 +138,25 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     marginHorizontal: 24,
     marginTop: 24,
     marginBottom: 16,
-    fontFamily: 'anton-regular',
-    fontSize: 32,
-    color: theme['font-primary-color'],
+    ...textStyle.headline,
   },
   descriptionLabel: {
     marginHorizontal: 24,
-    marginBottom: 24,
-    fontSize: 15,
-    color: theme['font-primary-color'],
+    marginVertical: 24,
+    ...textStyle.subtitle,
   },
   contentLabel: {
     marginHorizontal: 24,
     marginTop: 24,
     marginBottom: 16,
-    fontSize: 17,
-    color: theme['font-primary-color'],
+    ...textStyle.paragraph,
   },
   articleAuthorContainer: {
     marginHorizontal: 24,
     flexDirection: 'row',
   },
-  articleAuthorLabel: {
-    fontSize: 13,
-    marginRight: 16,
-    color: theme['color-basic-600'],
-  },
-  articleDateLabel: {
-    fontSize: 13,
-    color: theme['color-basic-600'],
-  },
+  articleAuthorLabel: textStyle.paragraph,
+  articleDateLabel: textStyle.paragraph,
   inputSpace: {
     marginHorizontal: 24,
   },
@@ -159,8 +165,7 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     marginBottom: 24,
   },
   inputLabel: {
-    fontSize: 17,
-    color: theme['font-primary-color'],
     marginBottom: 8,
+    ...textStyle.subtitle,
   },
 }));

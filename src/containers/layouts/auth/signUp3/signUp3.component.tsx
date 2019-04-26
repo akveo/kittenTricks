@@ -156,13 +156,12 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
   },
   signUpButton: {
     marginHorizontal: 16,
-    fontFamily: 'opensans-extrabold',
   },
   signInButton: {
     marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
 }));
 

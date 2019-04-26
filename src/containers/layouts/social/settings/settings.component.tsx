@@ -13,6 +13,7 @@ import {
   Toggle,
   Text,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   soundEnabled: boolean;
@@ -52,35 +53,45 @@ class SettingsComponent extends React.Component<SettingsProps> {
         <Section
           style={themedStyle.section}
           onPress={this.onEditProfilePress}>
-          <Text style={themedStyle.sectionText}>
+          <Text
+            style={themedStyle.sectionText}
+            category='s2'>
             Edit Profile
           </Text>
         </Section>
         <Section
           style={themedStyle.section}
           onPress={this.onChangePasswordPress}>
-          <Text style={themedStyle.sectionText}>
+          <Text
+            style={themedStyle.sectionText}
+            category='s2'>
             Change Password
           </Text>
         </Section>
         <Section
           style={[themedStyle.section, themedStyle.notificationSection]}
           onPress={this.onChangePasswordPress}>
-          <Text style={themedStyle.sectionText}>
+          <Text
+            style={themedStyle.sectionText}
+            category='s2'>
             Notification
           </Text>
         </Section>
         <Section
           style={themedStyle.section}
           onPress={this.onChangePasswordPress}>
-          <Text style={themedStyle.sectionText}>
+          <Text
+            style={themedStyle.sectionText}
+            category='s2'>
             Privacy
           </Text>
         </Section>
         <Section
           style={[themedStyle.section, themedStyle.soundEnabledSection]}
           onPress={this.onSoundEnabledPress}>
-          <Text style={themedStyle.sectionText}>
+          <Text
+            style={themedStyle.sectionText}
+            category='s2'>
             Sound Enabled
           </Text>
           <Toggle
@@ -124,11 +135,7 @@ export const Settings = withStyles(SettingsComponent, (theme: ThemeType) => ({
     flexDirection: 'row',
     paddingTop: 40,
   },
-  sectionText: {
-    fontSize: 13,
-    fontFamily: 'opensans-semibold',
-    color: theme['font-primary-color'],
-  },
+  sectionText: textStyle.subtitle,
   divider: {
     height: 1,
     backgroundColor: theme['gray-light'],

@@ -10,10 +10,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
 import {
   ImageOverlay,
-  Text,
+  textStyle,
 } from '@src/components/common';
 
 interface ListDerivedProps {
@@ -61,7 +62,11 @@ class ArticleList4ItemComponent extends React.Component<ArticleList4ItemProps> {
           source={photo}
         />
         <View style={themedStyle.infoContainer}>
-          <Text style={themedStyle.titleLabel}>{title}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h5'>
+            {title}
+          </Text>
           <ArticleActivityBar
             style={themedStyle.activityContainer}
             buttonStyle={themedStyle.reactionButton}
@@ -94,10 +99,6 @@ export const ArticleList4Item = withStyles(ArticleList4ItemComponent, (theme: Th
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
-  titleLabel: {
-    fontFamily: 'anton-regular',
-    fontSize: 24,
-    color: theme['font-primary-color'],
-  },
+  titleLabel: textStyle.headline,
 }));
 

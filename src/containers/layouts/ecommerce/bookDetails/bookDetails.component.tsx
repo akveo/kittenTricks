@@ -11,14 +11,15 @@ import {
 import {
   Button,
   Input,
+  Text,
 } from '@kitten/ui';
 import { BookHeader } from '@src/components/ecommerce';
 import { CommentsList } from '@src/components/articles';
-import { Text } from '@src/components/common';
 import {
   Book,
   Comment,
 } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   book: Book;
@@ -80,12 +81,24 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
           BUY BOOK
         </Button>
         <View style={themedStyle.descriptionContainer}>
-          <Text style={[themedStyle.sectionLabel, themedStyle.aboutLabel]}>About Book</Text>
-          <Text style={themedStyle.descriptionLabel}>{book.description}</Text>
+          <Text
+            style={[themedStyle.sectionLabel, themedStyle.aboutLabel]}
+            category='s1'>
+            About Book
+          </Text>
+          <Text
+            style={themedStyle.descriptionLabel}
+            appearance='hintDark'>
+            {book.description}
+          </Text>
         </View>
         <View style={themedStyle.commentsContainer}>
           <View style={themedStyle.inputContainer}>
-            <Text style={[themedStyle.sectionLabel, themedStyle.commentsLabel]}>Comments</Text>
+            <Text
+              style={[themedStyle.sectionLabel, themedStyle.commentsLabel]}
+              category='s1'>
+              Comments
+            </Text>
             <Input
               placeholder='Write your comment'
               value={currentCommentText}
@@ -121,23 +134,14 @@ export const BookDetails = withStyles(BookDetailsComponent, (theme: ThemeType) =
     paddingHorizontal: 24,
     marginBottom: 24,
   },
-  sectionLabel: {
-    fontFamily: 'opensans-bold',
-    fontSize: 15,
-    lineHeight: 24,
-    color: theme['color-black'],
-  },
+  sectionLabel: textStyle.subtitle,
   aboutLabel: {
     marginBottom: 16,
   },
   commentsLabel: {
     marginBottom: 8,
   },
-  descriptionLabel: {
-    fontSize: 15,
-    lineHeight: 20,
-    color: theme['color-basic-600'],
-  },
+  descriptionLabel: textStyle.paragraph,
   buyButton: {
     marginVertical: 24,
     marginHorizontal: 16,

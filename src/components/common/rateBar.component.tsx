@@ -10,6 +10,7 @@ import {
   View,
   ViewProps,
 } from 'react-native';
+import { Text } from '@kitten/ui';
 import {
   StyleType,
   ThemedComponentProps,
@@ -17,7 +18,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { StarIcon } from '@src/assets/icons';
-import { Text } from './text.component';
+import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps {
   hint?: React.ReactText;
@@ -52,7 +53,8 @@ class RateBarComponent extends React.Component<RateBarProps> {
     return (
       <Text
         key={0}
-        style={[style, hintStyle]}>
+        style={[style, hintStyle]}
+        appearance='hintDark'>
         {this.props.hint}
       </Text>
     );
@@ -128,10 +130,8 @@ export const RateBar = withStyles(RateBarComponent, (theme: ThemeType) => ({
     alignItems: 'center',
   },
   hint: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    color: theme['color-basic-600'],
     marginRight: 8,
+    ...textStyle.caption2,
   },
   icon: {
     width: 16,

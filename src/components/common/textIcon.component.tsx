@@ -14,6 +14,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
+import { textStyle } from './style';
 
 type IconProp = (style: StyleType) => React.ReactElement<ImageProps>;
 
@@ -37,14 +38,14 @@ class TextIconComponent extends React.Component<TextIconProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, textStyle, iconStyle, icon, children } = this.props;
+    const { style, themedStyle, textStyle: derivedTextStyle, iconStyle, icon, children } = this.props;
 
     const iconElement = icon ? this.renderIconElement(icon, [themedStyle.icon, iconStyle]) : null;
 
     return (
       <View style={[themedStyle.container, style]}>
         {iconElement}
-        <Text style={[themedStyle.text, textStyle]}>{children}</Text>
+        <Text style={[themedStyle.text, derivedTextStyle]}>{children}</Text>
       </View>
     );
   }
@@ -56,8 +57,8 @@ export const TextIcon = withStyles(TextIconComponent, (theme: ThemeType) => ({
     alignItems: 'center',
   },
   text: {
-    fontSize: 13,
     marginHorizontal: 8,
+    ...textStyle.paragraph,
   },
   icon: {
     width: 16,

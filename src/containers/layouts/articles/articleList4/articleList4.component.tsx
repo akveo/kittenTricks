@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   ListRenderItemInfo,
-  View,
+  ScrollView,
 } from 'react-native';
 import {
   StyleType,
@@ -9,9 +9,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { List } from '@kitten/ui';
+import {
+  List,
+  Button,
+} from '@kitten/ui';
 import { ArticleHeader } from '@src/components/articles';
-import { Button } from '@src/components/common';
 import { Article } from '@src/core/model';
 import {
   ArticleList4Item,
@@ -78,14 +80,14 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
     const [headingArticle, ...restArticles] = articles;
 
     return (
-      <View style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ArticleHeader
           source={{ uri: headingArticle.image }}
           title={headingArticle.title}
           description={`${headingArticle.tips} Useful Tips`}>
           <Button
             style={themedStyle.readButton}
-            activeOpacity={0.95}
+            status='white'
             onPress={this.onReadButtonPress}>
             READ
           </Button>
@@ -94,7 +96,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
           data={restArticles}
           renderItem={this.renderArticleItem}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -114,9 +116,5 @@ export const ArticleList4 = withStyles(ArticleList4Component, (theme: ThemeType)
     height: 40,
     width: 200,
     marginTop: 32,
-    fontFamily: 'opensans-extrabold',
-    fontSize: 16,
-    backgroundColor: theme['color-white'],
-    color: theme['color-primary-500'],
   },
 }));

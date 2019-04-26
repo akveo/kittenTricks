@@ -11,11 +11,12 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Text,
   Radio,
   RadioGroup,
   RadioProps,
 } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   image: ImageSourcePropType;
@@ -63,15 +64,40 @@ class ProductInfoComponent extends React.Component<ProductInfoProps> {
         />
         <View style={[themedStyle.nameContainer, themedStyle.bottomSpace]}>
           <View>
-            <Text style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}>{name}</Text>
-            <Text style={themedStyle.typeLabel}>{type}</Text>
+            <Text
+              style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
+              category='h6'>
+              {name}
+            </Text>
+            <Text
+              style={themedStyle.typeLabel}
+              appearance='hintDark'
+              category='p2'>
+              {type}
+            </Text>
           </View>
           <Text style={themedStyle.costLabel}>{price}</Text>
         </View>
-        <Text style={[themedStyle.descriptionText, themedStyle.bottomSpace]}>{description}</Text>
-        <Text style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}>Size</Text>
-        <Text style={[themedStyle.descriptionText, themedStyle.bottomSpace]}>{size}</Text>
-        <Text style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}>Color</Text>
+        <Text
+          style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
+          appearance='hintDark'>
+          {description}
+        </Text>
+        <Text
+          style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
+          category='h6'>
+          Size
+        </Text>
+        <Text
+          style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
+          appearance='hintDark'>
+          {size}
+        </Text>
+        <Text
+          style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
+          category='h6'>
+          Color
+        </Text>
         <RadioGroup
           style={themedStyle.colorSelector}
           selectedIndex={selectedColorIndex}
@@ -94,28 +120,14 @@ export const ProductInfo = withStyles(ProductInfoComponent, (theme: ThemeType) =
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  nameLabel: {
-    color: theme['color-black'],
-    fontFamily: 'opensans-extrabold',
-    fontSize: 20,
-    lineHeight: 28,
-  },
-  typeLabel: {
-    color: theme['color-basic-600'],
-    fontSize: 13,
-    lineHeight: 16,
-  },
+  nameLabel: textStyle.headline,
+  typeLabel: textStyle.paragraph,
   costLabel: {
-    color: theme['color-black'],
     fontFamily: 'opensans-bold',
     fontSize: 26,
     lineHeight: 32,
   },
-  descriptionText: {
-    color: theme['color-basic-600'],
-    fontSize: 15,
-    lineHeight: 20,
-  },
+  descriptionText: textStyle.paragraph,
   colorSelector: {
     flexDirection: 'row',
   },

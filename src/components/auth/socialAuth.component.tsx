@@ -12,7 +12,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 import { SocialButton } from './socialButton.component';
 
 interface ComponentProps {
@@ -32,7 +33,9 @@ class SocialAuthComponent extends React.Component<SocialAuthProps> {
     const { hint } = this.props;
 
     return (
-      <Text style={style}>
+      <Text
+        style={style}
+        appearance='light'>
         {hint}
       </Text>
     );
@@ -75,7 +78,7 @@ export const SocialAuth = withStyles(SocialAuthComponent, (theme: ThemeType) => 
   hint: {
     alignSelf: 'center',
     marginBottom: 16,
-    fontFamily: 'opensans-semibold',
+    ...textStyle.subtitle,
   },
 }));
 

@@ -16,7 +16,10 @@ import {
   FeedActivityBar,
   Styx,
 } from '@src/components/social';
-import { ImageOverlay } from '@src/components/common';
+import {
+  ImageOverlay,
+  textStyle,
+} from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -76,7 +79,6 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
 
     return (
       <TouchableOpacity
-        activeOpacity={0.95}
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
@@ -86,9 +88,18 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
           <View style={themedStyle.categoryContainer}>
             <View style={themedStyle.categoryInfoContainer}>
               <Image style={themedStyle.categoryIcon} source={icon}/>
-              <Text style={themedStyle.categoryLabel}>{category}</Text>
+              <Text
+                style={themedStyle.categoryLabel}
+                appearance='light'
+                category='h6'>
+                {category}
+              </Text>
             </View>
-            <Text style={themedStyle.timeLabel}>{time}</Text>
+            <Text
+              style={themedStyle.timeLabel}
+              appearance='light'>
+              {time}
+            </Text>
           </View>
         </ImageOverlay>
         <View style={themedStyle.infoContainer}>
@@ -144,19 +155,12 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
   },
   categoryLabel: {
     marginHorizontal: 8,
-    fontFamily: 'anton-regular',
-    fontSize: 20,
-    color: theme['color-white'],
+    ...textStyle.headline,
   },
-  timeLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    color: theme['color-white'],
-  },
+  timeLabel: textStyle.subtitle,
   descriptionLabel: {
     marginTop: 16,
-    fontFamily: 'opensans-semibold',
-    color: theme['font-primary-color'],
+    ...textStyle.subtitle,
   },
 }));
 

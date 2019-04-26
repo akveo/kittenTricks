@@ -29,6 +29,7 @@ import {
   ProfileSocials as ProfileSocialsModel,
   ProfileActivity as ProfileActivityModel,
 } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 
 interface ComponentProps {
@@ -125,8 +126,16 @@ class Profile7Component extends React.Component<Profile7Props> {
         </ImageBackground>
         <View
           style={[themedStyle.profileSection, themedStyle.aboutSection]}>
-          <Text style={themedStyle.profileSectionLabel}>About</Text>
-          <Text style={[themedStyle.profileSectionContent, themedStyle.profileAboutLabel]}>{profile.about}</Text>
+          <Text
+            style={themedStyle.profileSectionLabel}
+            category='s1'>
+            About
+          </Text>
+          <Text
+            style={[themedStyle.profileSectionContent, themedStyle.profileAboutLabel]}
+            appearance='hintDark'>
+            {profile.about}
+          </Text>
         </View>
         <View style={[themedStyle.profileSection, themedStyle.friendsSection]}>
           <Text style={[themedStyle.profileSectionLabel, themedStyle.friendsSectionLabel]}>Friends</Text>
@@ -174,33 +183,26 @@ export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
     marginTop: 8,
   },
   socialsLabel: {
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
   followButton: {
     flex: 1,
     marginRight: 4,
-    fontFamily: 'opensans-extrabold',
   },
   messageButton: {
     flex: 1,
     marginLeft: 4,
-    fontFamily: 'opensans-extrabold',
   },
   profileSectionLabel: {
     marginHorizontal: 16,
-    fontSize: 15,
-    fontFamily: 'opensans-semibold',
-    color: theme['font-primary-color'],
+    ...textStyle.subtitle,
   },
   aboutSection: {
     marginTop: 24,
   },
   profileAboutLabel: {
     marginHorizontal: 16,
-    fontFamily: 'opensans-regular',
-    fontSize: 15,
-    lineHeight: 20,
-    color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
   shotsSection: {
     marginBottom: 32,

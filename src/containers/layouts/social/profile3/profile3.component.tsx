@@ -14,7 +14,10 @@ import {
   ProfileParameterCard,
   ProfileSocials,
 } from '@src/components/social';
-import { RateBar } from '@src/components/common';
+import {
+  RateBar,
+  textStyle,
+} from '@src/components/common';
 import {
   ArrowHeadDownIcon,
   ArrowHeadUpIcon,
@@ -91,7 +94,12 @@ class Profile3Component extends React.Component<Profile3Props> {
               onPostsPress={this.onPostsButtonPress}
             />
             <View style={themedStyle.divider}/>
-            <Text style={themedStyle.descriptionLabel}>{profile.about}</Text>
+            <Text
+              style={themedStyle.descriptionLabel}
+              appearance='hintDark'
+              category='s1'>
+              {profile.about}
+            </Text>
           </View>
         </View>
         <View style={themedStyle.parameterContainer}>
@@ -138,7 +146,6 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
     height: 40,
     marginTop: 24,
     fontSize: 14,
-    fontFamily: 'opensans-extrabold',
   },
   profileSocials: {
     flexDirection: 'column',
@@ -151,10 +158,7 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   },
   descriptionLabel: {
     flex: 1,
-    fontFamily: 'opensans-regular',
-    fontSize: 15,
-    lineHeight: 24,
-    color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
   profileParameter: {
     flex: 1,

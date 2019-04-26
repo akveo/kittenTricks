@@ -13,6 +13,7 @@ import { Text } from '@kitten/ui';
 import {
   Chips,
   ImageOverlay,
+  textStyle,
 } from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
 import { Exercise } from '@src/core/model';
@@ -42,13 +43,27 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
           style={[themedStyle.container, style]}
           source={{ uri: training.image }}>
           <View>
-            <Text style={themedStyle.levelLabel}>{`${training.level} Level`}</Text>
-            <Text style={themedStyle.titleLabel}>{training.name}</Text>
+            <Text
+              style={themedStyle.levelLabel}
+              appearance='light'>
+              {`${training.level} Level`}
+            </Text>
+            <Text
+              style={themedStyle.titleLabel}
+              appearance='light'
+              category='h5'>
+              {training.name}
+            </Text>
           </View>
           <Chips
             style={themedStyle.chips}
             icon={ClockIcon}>
-            <Text style={themedStyle.chipsText}>{training.duration}</Text>
+            <Text
+              style={themedStyle.chipsText}
+              appearance='light'
+              category='c2'>
+              {training.duration}
+            </Text>
           </Chips>
         </ImageOverlay>
       </TouchableOpacity>
@@ -65,22 +80,10 @@ export const TrainingCard1 = withStyles(TrainingCardComponent, (theme: ThemeType
     justifyContent: 'space-between',
     overflow: 'hidden',
   },
-  levelLabel: {
-    fontSize: 15,
-    fontFamily: 'opensans-semibold',
-    color: theme['color-white'],
-  },
-  titleLabel: {
-    fontSize: 32,
-    fontFamily: 'anton-regular',
-    color: theme['color-white'],
-  },
+  levelLabel: textStyle.subtitle,
+  titleLabel: textStyle.headline,
   chips: {
     width: 80,
   },
-  chipsText: {
-    fontSize: 11,
-    fontFamily: 'opensans-semibold',
-    color: theme['color-white'],
-  },
+  chipsText: textStyle.caption2,
 }));

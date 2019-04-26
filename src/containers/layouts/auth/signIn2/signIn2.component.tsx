@@ -13,7 +13,10 @@ import {
   SignInForm2,
   SignInForm2Type,
 } from '@src/components/auth';
-import { AvoidKeyboard } from '@src/components/common';
+import {
+  AvoidKeyboard,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   onSignInPress: (formValue: SignInForm2Type) => void;
@@ -56,8 +59,18 @@ class SignIn2Component extends React.Component<SignIn2Props> {
       <AvoidKeyboard>
         <View style={themedStyle.container}>
           <View style={themedStyle.headerContainer}>
-            <Text style={themedStyle.helloLabel}>Hello</Text>
-            <Text style={themedStyle.signInLabel}>Sign in to your account</Text>
+            <Text
+              style={themedStyle.helloLabel}
+              appearance='light'
+              category='h2'>
+              Hello
+            </Text>
+            <Text
+              style={themedStyle.signInLabel}
+              appearance='light'
+              category='s1'>
+              Sign in to your account
+            </Text>
           </View>
           <SignInForm2
             style={themedStyle.formContainer}
@@ -100,22 +113,13 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
     marginTop: 32,
     paddingHorizontal: 16,
   },
-  helloLabel: {
-    fontFamily: 'raleway-extra-bold',
-    fontSize: 60,
-    lineHeight: 72,
-    color: theme['color-white'],
-  },
+  helloLabel: textStyle.headline,
   signInLabel: {
     marginTop: 16,
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    lineHeight: 24,
-    color: theme['color-white'],
+    ...textStyle.subtitle,
   },
   signInButton: {
     marginHorizontal: 16,
-    fontFamily: 'opensans-extrabold',
   },
   signUpButton: {
     marginVertical: 12,

@@ -10,6 +10,7 @@ import { ProfileParameter } from '@src/components/social';
 import {
   ImageOverlay,
   RateBar,
+  textStyle,
 } from '@src/components/common';
 import { Profile } from '@src/core/model';
 
@@ -34,10 +35,18 @@ class Profile5Component extends React.Component<Profile5Props> {
         style={themedStyle.container}
         source={{ uri: profile.photo }}>
         <View style={themedStyle.infoContainer}>
-          <Text style={themedStyle.nameLabel}>
+          <Text
+            style={themedStyle.nameLabel}
+            appearance='light'
+            category='h2'>
             {`${profile.firstName}\n${profile.lastName}`}
           </Text>
-          <Text style={themedStyle.locationLabel}>{profile.location}</Text>
+          <Text
+            style={themedStyle.locationLabel}
+            appearance='light'
+            category='h6'>
+            {profile.location}
+          </Text>
           <RateBar
             hint='Experience'
             hintStyle={themedStyle.rateHintLabel}
@@ -85,17 +94,9 @@ export const Profile5 = withStyles(Profile5Component, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     marginTop: 64,
   },
-  nameLabel: {
-    fontFamily: 'anton-regular',
-    fontSize: 60,
-    color: theme['color-white'],
-  },
-  locationLabel: {
-    fontFamily: 'anton-regular',
-    fontSize: 20,
-    color: theme['color-white'],
-  },
+  nameLabel: textStyle.headline,
+  locationLabel: textStyle.headline,
   rateHintLabel: {
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
 }));

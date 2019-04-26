@@ -11,9 +11,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import {
+  Button,
+  Text,
+} from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 import { CartIcon } from '@src/assets/icons';
-import { Button } from '@kitten/ui';
 
 interface ListDerivedProps {
   index?: number;
@@ -54,11 +57,24 @@ class ProductListItemComponent extends React.Component<ProductListItemProps> {
           style={themedStyle.image}/>
         <View style={themedStyle.infoContainer}>
           <View>
-            <Text style={themedStyle.nameLabel}>{name}</Text>
-            <Text style={themedStyle.typeLabel}>{type}</Text>
+            <Text
+              style={themedStyle.nameLabel}
+              category='s1'>
+              {name}
+            </Text>
+            <Text
+              style={themedStyle.typeLabel}
+              appearance='hintDark'
+              category='c1'>
+              {type}
+            </Text>
           </View>
           <View style={themedStyle.priceContainer}>
-            <Text style={themedStyle.costLabel}>{price}</Text>
+            <Text
+              style={themedStyle.costLabel}
+              category='s1'>
+              {price}
+            </Text>
             <Button
               style={themedStyle.buyButton}
               icon={CartIcon}
@@ -92,23 +108,9 @@ export const ProductListItem = withStyles(ProductListItemComponent, (theme: Them
     flex: 1,
     height: 140,
   },
-  nameLabel: {
-    fontFamily: 'opensans-semibold',
-    color: theme['color-black'],
-    fontSize: 15,
-    lineHeight: 24,
-  },
-  typeLabel: {
-    color: theme['color-basic-600'],
-    fontSize: 11,
-    lineHeight: 16,
-  },
-  costLabel: {
-    fontFamily: 'opensans-bold',
-    color: theme['color-black'],
-    fontSize: 15,
-    lineHeight: 24,
-  },
+  nameLabel: textStyle.subtitle,
+  typeLabel: textStyle.caption1,
+  costLabel: textStyle.subtitle,
   buyButton: {
     width: 32,
     height: 32,

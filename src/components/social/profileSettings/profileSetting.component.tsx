@@ -12,6 +12,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   hint?: React.ReactText;
@@ -24,7 +25,9 @@ class ProfileSettingComponent extends React.Component<ProfileSettingProps> {
 
   private renderTextElement = (text: React.ReactText, style: StyleProp<TextStyle>): React.ReactElement<TextProps> => {
     return (
-      <Text style={style}>
+      <Text
+        style={style}
+        appearance='hintDark'>
         {text}
       </Text>
     );
@@ -55,12 +58,9 @@ export const ProfileSetting = withStyles(ProfileSettingComponent, (theme: ThemeT
     borderBottomWidth: 1,
     borderBottomColor: theme['gray-light'],
   },
-  hint: {
-    fontFamily: 'opensans-semibold',
-    color: theme['color-basic-600'],
-  },
+  hint: textStyle.caption2,
   value: {
-    fontFamily: 'opensans-semibold',
     color: theme['font-primary-color'],
+    ...textStyle.caption2,
   },
 }));

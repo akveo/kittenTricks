@@ -11,6 +11,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -46,7 +47,12 @@ class LayoutsListItemComponent extends React.Component<Props> {
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
         {this.renderIconElement(themedStyle.icon)}
-        <Text style={themedStyle.title}>{title}</Text>
+        <Text
+          style={themedStyle.title}
+          appearance='dark'
+          category='s2'>
+          {title}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -67,7 +73,6 @@ export const LayoutsListItem = withStyles(LayoutsListItemComponent, (theme: Them
   },
   title: {
     marginTop: 20,
-    fontFamily: 'opensans-semibold',
-    color: theme['font-primary-color'],
+    ...textStyle.subtitle,
   },
 }));

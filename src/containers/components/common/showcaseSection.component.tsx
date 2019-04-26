@@ -17,6 +17,7 @@ import {
   ComponentShowcaseItem,
   ComponentShowcaseSection as ComponentShowcaseSectionModel,
 } from './type';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   section: ComponentShowcaseSectionModel;
@@ -60,8 +61,7 @@ export const ShowcaseSection = withStyles(ShowcaseSectionComponent, (theme: Them
   container: {},
   titleLabel: {
     marginVertical: 8,
-    fontFamily: 'raleway-extra-bold',
-    color: theme['font-primary-color'],
+    ...textStyle.headline,
   },
   item: {
     marginVertical: 8,

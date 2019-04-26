@@ -9,14 +9,15 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
 import {
   Popover,
   PopoverProps,
   Button,
+  Text,
 } from '@kitten/ui';
 import { PopoverShowcaseModel } from './popoverShowcase.container';
 import { MoveIcon } from '@src/assets/icons';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   popovers: PopoverShowcaseModel[];
@@ -37,7 +38,11 @@ class PopoverShowcaseComponent extends React.Component<PopoverShowcaseProps> {
     return (
       <View style={themedStyle.popoverContent}>
         {MoveIcon(themedStyle.popoverContentIcon)}
-        <Text style={themedStyle.popoverContentText}>{text}</Text>
+        <Text
+          style={themedStyle.popoverContentText}
+          appearance='light'>
+          {text}
+        </Text>
       </View>
     );
   };
@@ -87,10 +92,6 @@ export const PopoverShowcase = withStyles(PopoverShowcaseComponent, (theme: Them
   tip: {
     marginVertical: 24,
   },
-  text: {
-    alignSelf: 'center',
-    color: theme['color-black'],
-  },
   popover: {
     backgroundColor: theme['color-primary-500'],
     justifyContent: 'center',
@@ -108,9 +109,6 @@ export const PopoverShowcase = withStyles(PopoverShowcaseComponent, (theme: Them
     height: 16,
     marginRight: 4,
   },
-  popoverContentText: {
-    color: theme['color-white'],
-    fontSize: 12,
-  },
+  popoverContentText: textStyle.paragraph,
 }));
 

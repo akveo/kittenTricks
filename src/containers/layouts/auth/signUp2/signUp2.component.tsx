@@ -151,10 +151,6 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
   },
   signUpButton: {
     marginHorizontal: 16,
-    fontFamily: 'opensans-extrabold',
-  },
-  signInLabel: {
-    color: theme['color-basic-600'],
   },
   signInButton: {
     marginVertical: 12,

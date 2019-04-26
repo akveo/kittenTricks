@@ -14,9 +14,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
 import { ConversationInterlocutor } from './conversationInterlocutor.component';
 import { getMessageIcon } from './message.icon';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   index?: number;
@@ -67,17 +68,26 @@ class ConversationComponent extends React.Component<ConversationProps> {
             style={themedStyle.avatar}
             profile={conversation.interlocutor}/>
           <View>
-            <Text style={themedStyle.userLabel}>
+            <Text
+              style={themedStyle.userLabel}
+              category='s2'>
               {`${conversation.interlocutor.firstName} ${conversation.interlocutor.lastName}`}
             </Text>
-            <Text style={themedStyle.lastMessageLabel} adjustsFontSizeToFit={true}>
+            <Text
+              style={themedStyle.lastMessageLabel}
+              appearance='hintDark'
+              category='c1'
+              adjustsFontSizeToFit={true}>
               {this.getLastMessageText()}
             </Text>
           </View>
         </View>
         <View style={themedStyle.rightSection}>
           {this.renderLastMessageIcon()}
-          <Text style={themedStyle.dateLabel}>
+          <Text
+            style={themedStyle.dateLabel}
+            appearance='hintDark'
+            category='p2'>
             {this.getLastMessageDate()}
           </Text>
         </View>
@@ -102,24 +112,9 @@ export const Conversation = withStyles(ConversationComponent, (theme: ThemeType)
   avatar: {
     marginRight: 16,
   },
-  userLabel: {
-    fontWeight: '600',
-    color: theme['color-black'],
-    fontSize: 13,
-    lineHeight: 24,
-  },
-  lastMessageLabel: {
-    fontWeight: 'normal',
-    color: theme['color-basic-600'],
-    fontSize: 11,
-    lineHeight: 16,
-  },
-  dateLabel: {
-    fontWeight: 'normal',
-    color: theme['color-black'],
-    fontSize: 13,
-    lineHeight: 16,
-  },
+  userLabel: textStyle.subtitle,
+  lastMessageLabel: textStyle.caption1,
+  dateLabel: textStyle.paragraph,
   rightSection: {
     flexDirection: 'row',
     alignItems: 'center',
