@@ -8,10 +8,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Button,
-  ValidationInput,
-} from '@src/components/common';
+import { Button } from '@kitten/ui';
+import { ValidationInput } from '@src/components/common';
 import {
   EyeOffIconFill,
   PersonIconFill,
@@ -120,8 +118,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
 }
 
 export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) => ({
-  container: {
-  },
+  container: {},
   forgotPasswordContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',

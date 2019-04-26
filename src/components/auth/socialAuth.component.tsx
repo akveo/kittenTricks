@@ -12,7 +12,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 import { SocialButton } from './socialButton.component';
 
 interface ComponentProps {
@@ -75,7 +76,7 @@ export const SocialAuth = withStyles(SocialAuthComponent, (theme: ThemeType) => 
   hint: {
     alignSelf: 'center',
     marginBottom: 16,
-    fontFamily: 'opensans-semibold',
+    ...textStyle.subtitle,
   },
 }));
 

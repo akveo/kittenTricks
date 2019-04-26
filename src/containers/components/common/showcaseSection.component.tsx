@@ -17,6 +17,7 @@ import {
   ComponentShowcaseItem,
   ComponentShowcaseSection as ComponentShowcaseSectionModel,
 } from './type';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   section: ComponentShowcaseSectionModel;
@@ -45,7 +46,11 @@ class ShowcaseSectionComponent extends React.Component<ShowcaseSectionProps> {
 
     return (
       <View style={[themedStyle.container, style]}>
-        <Text style={themedStyle.titleLabel}>{section.title}</Text>
+        <Text
+          style={themedStyle.titleLabel}
+          category='h6'>
+          {section.title}
+        </Text>
         {section.items.map(this.renderItem)}
       </View>
     );
@@ -56,10 +61,7 @@ export const ShowcaseSection = withStyles(ShowcaseSectionComponent, (theme: Them
   container: {},
   titleLabel: {
     marginVertical: 8,
-    fontFamily: 'raleway-extra-bold',
-    fontSize: 20,
-    lineHeight: 28,
-    color: theme['font-primary-color'],
+    ...textStyle.headline,
   },
   item: {
     marginVertical: 8,

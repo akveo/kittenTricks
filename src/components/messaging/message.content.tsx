@@ -9,9 +9,10 @@ import { theme } from 'eva/packages/theme/eva';
 import {
   Text,
   TextProps,
-} from '@src/components/common';
+} from '@kitten/ui';
 import { Message } from '@src/core/model';
 import { Alignments } from './type';
+import { textStyle } from '@src/components/common';
 
 type MessageRightElement = [React.ReactElement<TextProps>, React.ReactElement<ViewProps>];
 type MessageLeftElement = [React.ReactElement<ViewProps>, React.ReactElement<TextProps>];
@@ -23,7 +24,11 @@ function renderMessageContent(message: Message,
 
   if (message.text) {
     return (
-      <Text style={styles.messageLabel}>{message.text}</Text>
+      <Text
+        style={styles.messageLabel}
+        appearance='light'>
+        {message.text}
+      </Text>
     );
   } else if (children) {
     return children;
@@ -42,7 +47,13 @@ function getLeftMessage(message: Message,
         {renderMessageContent(message, children)}
       </View>
     </View>,
-    <Text style={styles.dateLabel} key={1}>{message.date}</Text>,
+    <Text
+      key={1}
+      style={styles.dateLabel}
+      appearance='hintDark'
+      category='c1'>
+      {message.date}
+    </Text>,
   ];
 }
 
@@ -50,7 +61,12 @@ function getRightMessage(message: Message,
                          children?: React.ReactElement<any>[]): MessageRightElement {
 
   return [
-    <Text style={styles.dateLabel} key={0}>{message.date}</Text>,
+    <Text
+      key={0}
+      style={styles.dateLabel}
+      appearance='hintDark'
+      category='c1'>{message.date}
+    </Text>,
     <View style={styles.cloudContainer} key={1}>
       <View style={[styles.cloud, styles.cloudRight]}>
         {renderMessageContent(message, children)}
@@ -102,15 +118,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  dateLabel: {
-    fontWeight: 'normal',
-    color: theme['color-basic-600'],
-    fontSize: 11,
-  },
-  messageLabel: {
-    fontWeight: 'normal',
-    fontSize: 15,
-  },
+  dateLabel: textStyle.caption1,
+  messageLabel: textStyle.paragraph,
   cloud: {
     flexDirection: 'row',
     alignItems: 'center',

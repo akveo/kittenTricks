@@ -12,9 +12,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
-  Text,
   Chips,
+  textStyle,
 } from '@src/components/common';
 import {
   ClockIcon,
@@ -60,7 +61,12 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
               <Chips
                 style={themedStyle.chips}
                 icon={ClockIcon}>
-                <Text style={themedStyle.chipsText}>{training.duration}</Text>
+                <Text
+                  style={themedStyle.chipsText}
+                  appearance='light'
+                  category='c1'>
+                  {training.duration}
+                </Text>
               </Chips>
               {this.renderDetailsIcon()}
             </View>
@@ -89,10 +95,7 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   leftSection: {
     padding: 16,
   },
-  titleLabel: {
-    fontFamily: 'anton-regular',
-    color: theme['color-black'],
-  },
+  titleLabel: textStyle.headline,
   controlsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -101,9 +104,7 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   chips: {
     width: 80,
   },
-  chipsText: {
-    fontSize: 11,
-  },
+  chipsText: textStyle.paragraph,
   detailsIcon: {
     width: 22,
     height: 22,

@@ -11,7 +11,10 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
-import { Chips } from '@src/components/common';
+import {
+  Chips,
+  textStyle,
+} from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
 
 interface ComponentProps {
@@ -45,7 +48,12 @@ class StyxComponent extends React.Component<StyxProps> {
         <Chips
           style={themedStyle.chips}
           icon={ClockIcon}>
-          <Text style={themedStyle.chipsText}>{value}</Text>
+          <Text
+            style={themedStyle.chipsText}
+            appearance='light'
+            category='c2'>
+            {value}
+          </Text>
         </Chips>
       </View>
     );
@@ -63,17 +71,12 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
   hintLabel: {
     marginHorizontal: 16,
     marginVertical: 14,
-    fontFamily: 'anton-regular',
-    color: theme['font-primary-color'],
+    ...textStyle.headline,
   },
   chips: {
     width: 80,
   },
-  chipsText: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 11,
-    color: theme['color-white'],
-  },
+  chipsText: textStyle.caption2,
 }));
 
 

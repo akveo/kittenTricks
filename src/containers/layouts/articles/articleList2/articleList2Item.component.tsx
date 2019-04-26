@@ -8,6 +8,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   ArticleActivityBar,
   ArticleTips,
@@ -15,7 +16,7 @@ import {
 import {
   ActivityAuthoring,
   ImageOverlay,
-  Text,
+  textStyle,
 } from '@src/components/common';
 import { BulbIcon } from '@src/assets/icons';
 import { Article } from '@src/core/model';
@@ -58,6 +59,7 @@ class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
           source={{ uri: article.image }}>
           <Text
             style={themedStyle.titleLabel}
+            appearance='light'
             category='h4'>
             {article.title}
           </Text>
@@ -109,6 +111,6 @@ export const ArticleList2Item = withStyles(ArticleList2ItemComponent, (theme: Th
   },
   titleLabel: {
     maxWidth: 192,
-    fontFamily: 'anton-regular',
+    ...textStyle.headline,
   },
 }));

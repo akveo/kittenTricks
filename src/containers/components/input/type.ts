@@ -35,14 +35,14 @@ const labelInput: ComponentShowcaseItem = {
 const captionInput: ComponentShowcaseItem = {
   title: 'Caption',
   props: {
-    caption: 'Place your text',
+    caption2: 'Place your text',
   },
 };
 
 const captionIconInput: ComponentShowcaseItem = {
   title: 'Caption Icon',
   props: {
-    caption: 'Place your text',
+    caption2: 'Place your text',
     captionIcon: StarIcon,
   },
 };

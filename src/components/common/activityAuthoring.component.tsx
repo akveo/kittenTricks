@@ -4,13 +4,14 @@ import {
   View,
   ViewProps,
 } from 'react-native';
+import { Text } from '@kitten/ui';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
 import { Avatar } from '@kitten/ui';
-import { Text } from './text.component';
+import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps {
   photo: ImageSourcePropType;
@@ -35,7 +36,12 @@ class ActivityAuthoringComponent extends React.Component<ActivitiAuthoringProps>
         />
         <View style={themedStyle.authorInfoContainer}>
           <Text style={themedStyle.authorNameLabel}>{name}</Text>
-          <Text style={themedStyle.dateLabel}>{date}</Text>
+          <Text
+            style={themedStyle.dateLabel}
+            appearance='hintDark'
+            category='p2'>
+            {date}
+          </Text>
         </View>
       </View>
     );
@@ -53,13 +59,6 @@ export const ActivityAuthoring = withStyles(ActivityAuthoringComponent, (theme: 
   authorPhoto: {
     margin: 0,
   },
-  authorNameLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    color: theme['font-primary-color'],
-  },
-  dateLabel: {
-    color: theme['color-basic-600'],
-    fontSize: 13,
-  },
+  authorNameLabel: textStyle.subtitle,
+  dateLabel: textStyle.paragraph,
 }));

@@ -10,6 +10,7 @@ import {
   Avatar,
   List,
   ListProps,
+  Text,
   TextProps,
 } from '@kitten/ui';
 import {
@@ -17,7 +18,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { textStyle } from '@src/components/common';
 import { MoreIcon } from '@src/assets/icons';
 import { Comment as CommentModel } from '@src/core/model';
 import { ArticleActivityBar } from '../articleActivityBar.component';
@@ -47,8 +48,10 @@ class CommentComponent extends React.Component<CommentProps, State> {
   };
 
   private onCommentPress = (): void => {
-    this.setState({ subCommentsVisible: !this.state.subCommentsVisible },
-      () => this.props.onCommentPress(this.props.index));
+    this.setState(
+      { subCommentsVisible: !this.state.subCommentsVisible },
+      () => this.props.onCommentPress(this.props.index),
+    );
   };
 
   private onProfilePress = (): void => {
@@ -75,10 +78,15 @@ class CommentComponent extends React.Component<CommentProps, State> {
             source={{ uri: comment.author.photo }}
           />
           <View>
-            <Text style={themedStyle.articleAuthorLabel}>
+            <Text
+              style={themedStyle.articleAuthorLabel}
+              category='s2'>
               {`${comment.author.firstName} ${comment.author.lastName}`}
             </Text>
-            <Text style={themedStyle.articleDateLabel}>
+            <Text
+              style={themedStyle.articleDateLabel}
+              appearance='hintDark'
+              category='c1'>
               {comment.date}
             </Text>
           </View>
@@ -92,7 +100,10 @@ class CommentComponent extends React.Component<CommentProps, State> {
           </TouchableOpacity>
         </View>
       </View>,
-      <Text style={themedStyle.comment} key={1}>
+      <Text
+        key={1}
+        style={themedStyle.comment}
+        category='s1'>
         {comment.text}
       </Text>,
     ];
@@ -157,18 +168,11 @@ export const Comment = withStyles(CommentComponent, (theme: ThemeType) => ({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  articleAuthorLabel: {
-    fontSize: 13,
-    color: theme['font-primary-color'],
-  },
-  articleDateLabel: {
-    fontSize: 11,
-    color: theme['color-basic-600'],
-  },
+  articleAuthorLabel: textStyle.subtitle,
+  articleDateLabel: textStyle.caption1,
   comment: {
     marginHorizontal: 24,
-    fontSize: 15,
-    color: theme['font-primary-color'],
+    ...textStyle.paragraph,
   },
   moreIcon: {
     width: 18,

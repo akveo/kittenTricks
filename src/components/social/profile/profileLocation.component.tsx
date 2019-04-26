@@ -18,6 +18,7 @@ import {
   Text,
   TextProps,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 type IconProp = (style: StyleType) => React.ReactElement<ImageProps>;
 type ChildrenProp = React.ReactText;
@@ -35,7 +36,10 @@ class ProfileLocationComponent extends React.Component<ProfileLocationProps> {
 
   private renderTextElement = (children: ChildrenProp, style: StyleProp<TextStyle>): React.ReactElement<TextProps> => {
     return (
-      <Text style={style}>
+      <Text
+        style={style}
+        appearance='hintDark'
+        category='p2'>
         {children}
       </Text>
     );
@@ -52,11 +56,11 @@ class ProfileLocationComponent extends React.Component<ProfileLocationProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, iconStyle, textStyle, icon, children, ...restProps } = this.props;
+    const { style, themedStyle, iconStyle, textStyle: derivedTextStyle, icon, children, ...restProps } = this.props;
     const { container, ...componentStyle } = themedStyle;
 
     const iconElement = icon ? this.renderIconElement(icon, [componentStyle.icon, iconStyle]) : null;
-    const textElement = children ? this.renderTextElement(children, [componentStyle.text, textStyle]) : null;
+    const textElement = children ? this.renderTextElement(children, [componentStyle.text, derivedTextStyle]) : null;
 
     return (
       <View
@@ -79,9 +83,5 @@ export const ProfileLocation = withStyles(ProfileLocationComponent, (theme: Them
     height: 14,
     tintColor: theme['color-basic-600'],
   },
-  text: {
-    marginHorizontal: 8,
-    fontSize: 14,
-    color: theme['color-basic-600'],
-  },
+  text: textStyle.caption2,
 }));

@@ -87,7 +87,6 @@ export const FeedActivityBar = withStyles(FeedActivityBarComponent, (theme: Them
   addButton: {
     flex: 1,
     paddingHorizontal: 0,
-    fontFamily: 'opensans-extrabold',
   },
   addButtonIcon: {
     width: 24,

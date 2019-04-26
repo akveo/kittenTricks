@@ -18,7 +18,10 @@ import {
   SignInForm2,
   SignInForm2Type,
 } from '@src/components/auth';
-import { AvoidKeyboard } from '@src/components/common';
+import {
+  AvoidKeyboard,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -86,10 +89,16 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
+              appearance='light'
               category='h2'>
               Hello
             </Text>
-            <Text style={themedStyle.signInLabel}>Sign in to your account</Text>
+            <Text
+              style={themedStyle.signInLabel}
+              appearance='light'
+              category='s1'>
+              Sign in to your account
+            </Text>
           </View>
           <SignInForm2
             style={themedStyle.formContainer}
@@ -140,29 +149,22 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   socialAuthContainer: {
     marginTop: 32,
   },
-  helloLabel: {
-    fontFamily: 'raleway-extra-bold',
-    color: theme['color-white'],
-  },
+  helloLabel: textStyle.headline,
   signInLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    lineHeight: 24,
     marginTop: 16,
-    color: theme['color-white'],
+    ...textStyle.subtitle,
   },
   socialAuthIcon: {
     tintColor: theme['color-white'],
   },
   signInButton: {
     marginHorizontal: 16,
-    fontFamily: 'opensans-extrabold',
   },
   signUpButton: {
     marginVertical: 12,
     paddingHorizontal: 0,
     fontFamily: 'opensans-semibold',
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
 }));
 

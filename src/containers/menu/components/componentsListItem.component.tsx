@@ -9,6 +9,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -38,7 +39,12 @@ class ComponentsListItemComponent extends React.Component<Props> {
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
         {children}
-        <Text style={themedStyle.title}>{title}</Text>
+        <Text
+          style={themedStyle.title}
+          appearance='dark'
+          category='s2'>
+          {title}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -58,10 +64,5 @@ export const ComponentsListItem = withStyles(ComponentsListItemComponent, (theme
     height: 48,
     tintColor: theme['color-primary-500'],
   },
-  title: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 13,
-    lineHeight: 24,
-    color: theme['font-primary-color'],
-  },
+  title: textStyle.subtitle,
 }));

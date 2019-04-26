@@ -14,7 +14,10 @@ import {
   ProfileParameterCard,
   ProfileSocials,
 } from '@src/components/social';
-import { RateBar } from '@src/components/common';
+import {
+  RateBar,
+  textStyle,
+} from '@src/components/common';
 import {
   ArrowHeadDownIcon,
   ArrowHeadUpIcon,
@@ -89,7 +92,12 @@ class Profile4Component extends React.Component<Profile4Props> {
             onPress={this.onFollowButtonPress}>
             FOLLOW
           </Button>
-          <Text style={themedStyle.descriptionLabel}>{profile.about}</Text>
+          <Text
+            style={themedStyle.descriptionLabel}
+            appearance='hintDark'
+            category='s1'>
+            {profile.about}
+          </Text>
         </View>
         <View style={themedStyle.parameterContainer}>
           <ProfileParameterCard
@@ -131,7 +139,6 @@ export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
     height: 40,
     marginTop: 16,
     fontSize: 14,
-    fontFamily: 'opensans-extrabold',
   },
   profileSocials: {
     justifyContent: 'space-evenly',
@@ -144,10 +151,7 @@ export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
   },
   descriptionLabel: {
     marginVertical: 24,
-    fontFamily: 'opensans-regular',
-    fontSize: 15,
-    lineHeight: 24,
-    color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
   profileParameter: {
     flex: 1,

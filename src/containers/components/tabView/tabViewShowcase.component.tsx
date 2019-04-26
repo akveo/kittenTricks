@@ -10,11 +10,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
 import {
   Tab,
   TabView,
+  Text,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   selectedIndex: number;
@@ -76,8 +77,6 @@ export const TabViewShowcase = withStyles(TabViewShowcaseComponent, (theme: Them
     padding: 16,
     backgroundColor: theme['color-basic-100'],
   },
-  text: {
-    color: theme['font-primary-color'],
-  },
+  text: textStyle.paragraph,
 }));
 

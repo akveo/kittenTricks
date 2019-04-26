@@ -19,7 +19,10 @@ import {
   FlashIcon,
 } from '@src/assets/icons';
 import { Exercise } from '@src/core/model';
-import { ImageOverlay } from '@src/components/common';
+import {
+  ImageOverlay,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   training: Exercise;
@@ -108,9 +111,8 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
     backgroundColor: theme['color-white'],
   },
   titleLabel: {
-    fontFamily: 'anton-regular',
     marginHorizontal: 18,
-    color: theme['color-black'],
+    ...textStyle.headline,
   },
   controlsContainer: {
     flexDirection: 'row',

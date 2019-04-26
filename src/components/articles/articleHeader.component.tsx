@@ -4,10 +4,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   ImageOverlay,
   ImageOverlayProps,
-  Text,
+  textStyle,
 } from '@src/components/common';
 
 interface ComponentProps {
@@ -29,10 +30,14 @@ class ArticleHeaderComponent extends React.Component<ArticleHeaderProps> {
         style={[componentStyle.container, style]}>
         <Text
           style={componentStyle.titleLabel}
+          appearance='light'
           category='h3'>
           {title}
         </Text>
-        <Text style={componentStyle.descriptionLabel}>
+        <Text
+          style={componentStyle.descriptionLabel}
+          appearance='light'
+          category='h6'>
           {description}
         </Text>
         {children}
@@ -45,15 +50,11 @@ export const ArticleHeader = withStyles(ArticleHeaderComponent, (theme: ThemeTyp
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 64,
     paddingVertical: 64,
   },
   titleLabel: {
-    fontFamily: 'anton-regular',
     textAlign: 'center',
+    ...textStyle.headline,
   },
-  descriptionLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 18,
-  },
+  descriptionLabel: textStyle.subtitle,
 }));

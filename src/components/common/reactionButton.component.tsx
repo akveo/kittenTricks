@@ -13,7 +13,8 @@ import {
 import {
   Button,
   ButtonProps,
-} from './button.component';
+} from '@kitten/ui';
+import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps {
   iconStyle?: StyleProp<ImageStyle>;
@@ -53,6 +54,7 @@ export const ReactionButton = withStyles(ReactionButtonComponent, (theme: ThemeT
     paddingHorizontal: 0,
     fontSize: 15,
     color: theme['font-primary-color'],
+    ...textStyle.paragraph,
   },
   icon: {
     width: 24,

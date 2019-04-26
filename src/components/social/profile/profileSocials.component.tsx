@@ -12,6 +12,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   followers: React.ReactText;
@@ -40,7 +41,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, textStyle, followers, following, posts, ...restProps } = this.props;
+    const { style, themedStyle, textStyle: derivedTextStyle, followers, following, posts, ...restProps } = this.props;
 
     return (
       <View
@@ -50,22 +51,37 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onFollowersButtonPress}>
-          <Text style={[themedStyle.valueLabel, textStyle]}>{followers}</Text>
-          <Text style={[themedStyle.hintLabel, textStyle]}>Followers</Text>
+          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{followers}</Text>
+          <Text
+            style={[themedStyle.hintLabel, derivedTextStyle]}
+            appearance='hintDark'
+            category='s2'>
+            Followers
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onFollowingButtonPress}>
-          <Text style={[themedStyle.valueLabel, textStyle]}>{following}</Text>
-          <Text style={[themedStyle.hintLabel, textStyle]}>Following</Text>
+          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{following}</Text>
+          <Text
+            style={[themedStyle.hintLabel, derivedTextStyle]}
+            appearance='hintDark'
+            category='s2'>
+            Following
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onPostsButtonPress}>
-          <Text style={[themedStyle.valueLabel, textStyle]}>{posts}</Text>
-          <Text style={[themedStyle.hintLabel, textStyle]}>Posts</Text>
+          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{posts}</Text>
+          <Text
+            style={[themedStyle.hintLabel, derivedTextStyle]}
+            appearance='hintDark'
+            category='s2'>
+            Posts
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -80,15 +96,6 @@ export const ProfileSocials = withStyles(ProfileSocialsComponent, (theme: ThemeT
   parameterContainer: {
     alignItems: 'center',
   },
-  valueLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    color: theme['font-primary-color'],
-  },
-  hintLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 13,
-    lineHeight: 24,
-    color: theme['color-basic-600'],
-  },
+  valueLabel: textStyle.caption2,
+  hintLabel: textStyle.subtitle,
 }));

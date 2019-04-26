@@ -15,6 +15,7 @@ import {
 } from '@kitten/ui';
 import { PinIconFill } from '@src/assets/icons';
 import { ProfileLocation } from './profileLocation.component';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   photo: ImageSourcePropType;
@@ -37,15 +38,18 @@ class ProfileInfo3Component extends React.Component<ProfileInfo3Props> {
           style={themedStyle.profileAvatar}
           source={photo}
         />
-        <Text style={themedStyle.nameLabel}>{name}</Text>
+        <Text
+          style={themedStyle.nameLabel}
+          appearance='light'
+          category='h6'>
+          {name}
+        </Text>
         <ProfileLocation
-          style={themedStyle.locationLabel}
           iconStyle={themedStyle.locationIcon}
           textStyle={themedStyle.locationLabel}
           icon={PinIconFill}>
           {location}
         </ProfileLocation>
-
       </View>
     );
   }
@@ -58,14 +62,11 @@ export const ProfileInfo3 = withStyles(ProfileInfo3Component, (theme: ThemeType)
   detailsContainer: {},
   nameLabel: {
     marginTop: 16,
-    fontFamily: 'opensans-extrabold',
-    fontSize: 20,
-    lineHeight: 28,
-    color: theme['color-white'],
+    ...textStyle.headline,
   },
   locationLabel: {
     marginTop: 2,
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
   profileAvatar: {
     width: 124,

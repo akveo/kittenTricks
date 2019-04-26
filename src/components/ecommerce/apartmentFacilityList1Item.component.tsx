@@ -8,6 +8,7 @@ import {
   Button,
   ButtonProps,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -45,7 +46,7 @@ export const ApartmentFacilityList1Item = withStyles(ApartmentFacilityList1ItemC
   container: {
     borderWidth: 1,
     borderRadius: 15,
-    fontFamily: 'opensans-regular',
     fontSize: 11,
+    ...textStyle.paragraph,
   },
 }));

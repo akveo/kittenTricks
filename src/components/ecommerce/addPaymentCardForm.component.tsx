@@ -8,7 +8,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ValidationInput } from '@src/components/common';
+import {
+  textStyle,
+  ValidationInput,
+} from '@src/components/common';
 import {
   CardNumberValidator,
   ExpirationDateValidator,
@@ -155,11 +158,11 @@ export const AddPaymentCardForm = withStyles(AddNewCardComponent, (theme: ThemeT
     marginTop: 24,
   },
   input: {
-    fontFamily: 'opensans-regular',
     fontSize: 15,
     lineHeight: 20,
-    backgroundColor: theme['color-white'],
     color: theme['color-basic-600'],
+    backgroundColor: theme['color-white'],
+    ...textStyle.paragraph,
   },
   expireInput: {
     width: 90,

@@ -10,10 +10,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
 import {
   ImageOverlay,
-  Text,
+  textStyle,
 } from '@src/components/common';
 
 interface ListDerivedProps {
@@ -98,9 +99,6 @@ export const ArticleList4Item = withStyles(ArticleList4ItemComponent, (theme: Th
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
-  titleLabel: {
-    fontFamily: 'anton-regular',
-    color: theme['font-primary-color'],
-  },
+  titleLabel: textStyle.headline,
 }));
 

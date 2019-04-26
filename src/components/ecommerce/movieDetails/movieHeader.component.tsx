@@ -10,9 +10,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   RateBar,
-  Text,
+  textStyle,
 } from '@src/components/common';
 import { MovieCategoryList } from './movieCategoryList.component';
 
@@ -38,8 +39,16 @@ class MovieHeaderComponent extends React.Component<MovieHeaderProps> {
         <Image
           style={themedStyle.image}
           source={image}/>
-        <Text style={themedStyle.titleLabel}>{title}</Text>
-        <Text style={themedStyle.descriptionLabel}>{description}</Text>
+        <Text
+          style={themedStyle.titleLabel}
+          category='h6'>
+          {title}
+        </Text>
+        <Text
+          style={themedStyle.descriptionLabel}
+          category='p2'>
+          {description}
+        </Text>
         <MovieCategoryList
           style={themedStyle.categoriesContainer}
           data={categories}
@@ -68,16 +77,11 @@ export const MovieHeader = withStyles(MovieHeaderComponent, (theme: ThemeType) =
   },
   titleLabel: {
     textAlign: 'center',
-    fontFamily: 'opensans-extrabold',
-    color: theme['color-black'],
-    fontSize: 20,
-    lineHeight: 28,
+    ...textStyle.headline,
   },
   descriptionLabel: {
-    color: theme['color-black'],
-    fontSize: 13,
-    lineHeight: 16,
     marginTop: 8,
     marginBottom: 16,
+    ...textStyle.paragraph,
   },
 }));

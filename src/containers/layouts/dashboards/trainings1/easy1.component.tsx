@@ -19,10 +19,10 @@ import {
   TrainingCardProps,
 } from '@src/components/trainings/trainingCard.component';
 import {
-  ViewPager,
   List,
+  Text,
 } from '@kitten/ui';
-import { Text } from '@src/components/common';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   exercises: Exercise[];
@@ -125,7 +125,11 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
 
     return (
       <ScrollView contentContainerStyle={themedStyle.container}>
-        <Text style={themedStyle.pagerLabel}>MOST POPULAR</Text>
+        <Text
+          style={themedStyle.pagerLabel}
+          appearance='hintDark'>
+          MOST POPULAR
+        </Text>
         {this.renderPager()}
         <List
           data={exercises}
@@ -142,9 +146,8 @@ export const Easy1 = withStyles(Easy1Component, (theme: ThemeType) => ({
     flexGrow: 1,
   },
   pagerLabel: {
-    fontSize: 15,
-    color: theme['color-basic-600'],
     marginBottom: 16,
+    ...textStyle.paragraph,
   },
   pagerCard: {
     width: 226,

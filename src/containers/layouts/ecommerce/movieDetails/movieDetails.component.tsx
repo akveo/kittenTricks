@@ -9,13 +9,16 @@ import {
   ThemeType,
   ThemedComponentProps,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
+import {
+  Button,
+  Text,
+} from '@kitten/ui';
 import {
   MovieDetailList,
   MovieHeader,
   MovieScreenshotList,
 } from '@src/components/ecommerce';
-import { Text } from '@src/components/common';
+import { textStyle } from '@src/components/common';
 import { Movie as MovieModel } from '@src/core/model';
 
 interface ComponentProps {
@@ -54,7 +57,7 @@ class MovieDetailsComponent extends React.Component<MovieProps, State> {
       <ScrollView contentContainerStyle={themedStyle.container}>
         <MovieHeader
           style={themedStyle.movieHeader}
-          image={{uri: movie.preview}}
+          image={{ uri: movie.preview }}
           title={movie.name}
           description={movie.part}
           categories={movie.categories}
@@ -65,11 +68,22 @@ class MovieDetailsComponent extends React.Component<MovieProps, State> {
             style={themedStyle.techInfoContainer}
             data={movie.details}
           />
-          <Text style={themedStyle.sectionLabel}>About Movie</Text>
-          <Text style={themedStyle.descriptionLabel}>
+          <Text
+            style={themedStyle.sectionLabel}
+            category='s1'>
+            About Movie
+          </Text>
+          <Text
+            style={themedStyle.descriptionLabel}
+            appearance='hintDark'
+            category='s1'>
             {movie.description}
           </Text>
-          <Text style={themedStyle.sectionLabel}>Screenshots</Text>
+          <Text
+            style={themedStyle.sectionLabel}
+            category='s1'>
+            Screenshots
+          </Text>
           <MovieScreenshotList
             contentContainerStyle={themedStyle.screenshotList}
             selectedIndex={this.state.screenShotIndex}
@@ -110,17 +124,12 @@ export const Movie = withStyles(MovieDetailsComponent, (theme: ThemeType) => ({
   sectionLabel: {
     marginHorizontal: 16,
     marginBottom: 16,
-    fontFamily: 'opensans-bold',
-    fontSize: 15,
-    lineHeight: 24,
-    color: theme['color-black'],
+    ...textStyle.subtitle,
   },
   descriptionLabel: {
     marginHorizontal: 16,
     marginBottom: 32,
-    color: theme['color-basic-600'],
-    fontSize: 15,
-    lineHeight: 24,
+    ...textStyle.subtitle,
   },
   screenshotList: {
     marginHorizontal: 8,
