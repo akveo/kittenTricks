@@ -33,7 +33,9 @@ class SocialAuthComponent extends React.Component<SocialAuthProps> {
     const { hint } = this.props;
 
     return (
-      <Text style={style}>
+      <Text
+        style={style}
+        appearance='light'>
         {hint}
       </Text>
     );
