@@ -47,6 +47,7 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
       interlocutor: navigation.getParam('interlocutor'),
       lastSeen: navigation.getParam('lastSeen'),
       onBack: navigation.getParam('onBack'),
+      onProfile: navigation.getParam('onProfile'),
     };
 
     const renderHeader = (headerProps: NavigationScreenProps,
@@ -58,6 +59,7 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
           lastSeen={config.lastSeen}
           interlocutor={config.interlocutor}
           onBack={config.onBack}
+          onProfile={config.onProfile}
         />
       );
     };
@@ -79,8 +81,13 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
       interlocutor: this.state.conversation.interlocutor,
       lastSeen: this.state.conversation.lastSeen,
       onBack: this.onBackPress,
+      onProfile: this.onProfilePress,
     });
   }
+
+  private onProfilePress = (profile: Profile): void => {
+    this.props.navigation.navigate('Profile 1');
+  };
 
   private onNewMessageChange = (newMessageText: string): void => {
     this.setState({ newMessageText });

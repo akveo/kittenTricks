@@ -209,6 +209,10 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
       screen: Chat3Container,
       params: MessagingNavigatorParams,
     },
+    ['Profile 1']: {
+      screen: Profile1Container,
+      params: SocialNavigatorParams,
+    },
   },
   {
     headerMode: 'none',

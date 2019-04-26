@@ -22,12 +22,14 @@ interface ComponentProps {
   interlocutor: Profile;
   lastSeen: string;
   onBack: () => void;
+  onProfile: (profile: Profile) => void;
 }
 
 export interface ChatHeaderNavigationStateParams {
   interlocutor: Profile;
   lastSeen: string;
   onBack: () => void;
+  onProfile: (profile: Profile) => void;
 }
 
 export type ChatHeaderProps = ThemedComponentProps & ComponentProps & NavigationScreenProps;
@@ -36,6 +38,12 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
 
   private onBack = (): void => {
     this.props.onBack();
+  };
+
+  private onProfile = (): void => {
+    const { interlocutor, onProfile } = this.props;
+
+    onProfile(interlocutor);
   };
 
   private renderLeftControl = (): React.ReactElement<TopNavigationBarActionProps> => {
@@ -63,6 +71,7 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
     return ([
       <TopNavigationAction
         icon={this.renderProfileAvatar}
+        onPress={this.onProfile}
       />,
     ]);
   };
