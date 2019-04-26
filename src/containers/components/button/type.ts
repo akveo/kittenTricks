@@ -24,7 +24,7 @@ const leftIconButton: ComponentShowcaseItem = {
   title: 'Left Icon',
   props: {
     icon: StarIcon,
-    alignment: ButtonIconAlignments.LEFT,
+    iconAlignment: ButtonIconAlignments.LEFT,
   },
 };
 
@@ -32,7 +32,7 @@ const rightIconButton: ComponentShowcaseItem = {
   title: 'Right Icon',
   props: {
     icon: StarIcon,
-    alignment: ButtonIconAlignments.RIGHT,
+    iconAlignment: ButtonIconAlignments.RIGHT,
   },
 };
 
@@ -60,6 +60,7 @@ const ghostButton: ComponentShowcaseItem = {
 const giantButton: ComponentShowcaseItem = {
   title: 'Giant',
   props: {
+    flex: 0,
     size: 'giant',
   },
 };

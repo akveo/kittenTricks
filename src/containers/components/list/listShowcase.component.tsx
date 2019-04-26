@@ -13,7 +13,6 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  Button,
   RadioGroup,
   RadioGroupProps,
   Radio,
@@ -22,7 +21,6 @@ import {
   ListItemProps,
   CheckBoxProps,
   CheckBox,
-  Text,
 } from '@kitten/ui';
 import { ListItemModel } from './listShowcase.container';
 
@@ -55,10 +53,10 @@ class ListShowcaseComponent extends React.Component<ListShowcaseComponentProps> 
         style={themedStyle.radioGroup}
         selectedIndex={showcaseIndex}
         onChange={this.onShowcaseIndexChange}>
-        <Radio style={themedStyle.radioItem} text='With Icon'/>
-        <Radio style={themedStyle.radioItem} text='With Accessory'/>
-        <Radio style={themedStyle.radioItem} text='With Icon + Accessory'/>
-        <Radio style={themedStyle.radioItem} text='Custom'/>
+        <Radio style={themedStyle.radioItem} text='Plain'/>
+        <Radio style={themedStyle.radioItem} text='Icon'/>
+        <Radio style={themedStyle.radioItem} text='Accessory'/>
+        <Radio style={themedStyle.radioItem} text='Icon & Accessory'/>
       </RadioGroup>
     );
   };
@@ -72,6 +70,16 @@ class ListShowcaseComponent extends React.Component<ListShowcaseComponentProps> 
   private renderAccessory = (style: StyleType, index: number): React.ReactElement<CheckBoxProps> => {
     return (
       <CheckBox checked={index % 2 === 0}/>
+    );
+  };
+
+  private renderPlainListItem = (info: ListRenderItemInfo<ListItemModel>): ListItemElement => {
+    return (
+      <ListItem
+        title={info.item.title}
+        description={info.item.description}
+        onPress={this.onListItemPress}
+      />
     );
   };
 
@@ -109,41 +117,18 @@ class ListShowcaseComponent extends React.Component<ListShowcaseComponentProps> 
     );
   };
 
-  private renderCustomListItem = (info: ListRenderItemInfo<ListItemModel>): React.ReactElement<ViewProps> => {
-    const { themedStyle } = this.props;
-
-    return (
-      <View style={themedStyle.customListItemContainer(info.index)}>
-        <Image
-          style={themedStyle.customListItemIcon}
-          source={{ uri: 'https://akveo.github.io/eva-icons/outline/png/128/play-circle-outline.png' }}
-        />
-        <View style={themedStyle.customListItemContentContainer}>
-          <Text style={themedStyle.customListItemTitle}>Welcome to the Jungle</Text>
-          <Text style={themedStyle.customListItemDescription}>Guns N'Roses</Text>
-        </View>
-        <Button
-          style={themedStyle.customListItemButton}
-          status='success'
-          onPress={() => this.onListItemPress(info.index)}>
-          $2.99
-        </Button>
-      </View>
-    );
-  };
-
   private renderListItem = (info: ListRenderItemInfo<ListItemModel>): React.ReactElement<ListItemProps | ViewProps> => {
     const { showcaseIndex } = this.props;
 
     switch (showcaseIndex) {
       case 0:
-        return this.renderIconListItem(info);
+        return this.renderPlainListItem(info);
       case 1:
-        return this.renderAccessoryListItem(info);
+        return this.renderIconListItem(info);
       case 2:
-        return this.renderIconAccessoryListItem(info);
+        return this.renderAccessoryListItem(info);
       case 3:
-        return this.renderCustomListItem(info);
+        return this.renderIconAccessoryListItem(info);
     }
   };
 
@@ -154,7 +139,7 @@ class ListShowcaseComponent extends React.Component<ListShowcaseComponentProps> 
       <View style={themedStyle.container}>
         {this.renderRadioChooser()}
         <List
-          showsVerticalScrollIndicator={false}
+          contentContainerStyle={themedStyle.listContentContainer}
           data={listItems}
           renderItem={this.renderListItem}
         />
@@ -166,41 +151,15 @@ class ListShowcaseComponent extends React.Component<ListShowcaseComponentProps> 
 export const ListShowcase = withStyles(ListShowcaseComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+  },
+  listContentContainer: {
     paddingVertical: 8,
-    paddingHorizontal: 16,
   },
   radioGroup: {
-    paddingVertical: 8,
+    paddingHorizontal: 16,
   },
   radioItem: {
     marginVertical: 8,
-  },
-  customListItemContainer: (index: number) => ({
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: index % 2 === 0 ? theme['color-basic-100'] : theme['color-basic-400'],
-    padding: 4,
-  }),
-  customListItemContentContainer: {
-    flex: 1,
-    marginHorizontal: 4,
-  },
-  customListItemIcon: {
-    width: 42,
-    height: 42,
-    marginHorizontal: 4,
-  },
-  customListItemTitle: {
-    fontSize: 18,
-    fontWeight: '500',
-  },
-  customListItemDescription: {
-    fontSize: 12,
-    color: 'gray',
-  },
-  customListItemButton: {
-    marginHorizontal: 4,
-    width: 100,
   },
 }));
 
