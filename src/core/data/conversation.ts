@@ -4,6 +4,12 @@ import {
   profile2,
   profile3,
   profile4,
+  profile5,
+  profile6,
+  profile7,
+  profile8,
+  profile9,
+  profile10,
 } from './profile';
 import {
   message1,
@@ -69,5 +75,53 @@ export const conversation6: Conversation = {
     message23,
     message24,
     message16,
+  ],
+};
+
+export const conversation7: Conversation = {
+  interlocutor: profile5,
+  lastSeen: 'just now',
+  messages: [
+    message21,
+  ],
+};
+
+export const conversation8: Conversation = {
+  interlocutor: profile6,
+  lastSeen: 'just now',
+  messages: [
+    message16,
+  ],
+};
+
+export const conversation9: Conversation = {
+  interlocutor: profile7,
+  lastSeen: 'just now',
+  messages: [
+    message14,
+  ],
+};
+
+export const conversation10: Conversation = {
+  interlocutor: profile8,
+  lastSeen: 'just now',
+  messages: [
+    message13,
+  ],
+};
+
+export const conversation11: Conversation = {
+  interlocutor: profile9,
+  lastSeen: 'just now',
+  messages: [
+    message11,
+  ],
+};
+
+export const conversation12: Conversation = {
+  interlocutor: profile10,
+  lastSeen: 'just now',
+  messages: [
+    message17,
   ],
 };

@@ -30,6 +30,10 @@ export const CartIcon = (style: StyleProp<ImageStyle>): React.ReactElement<Image
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/shopping-cart-outline.png', style);
 };
 
+export const CartIconFill = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+  return Icon('https://akveo.github.io/eva-icons/fill/png/128/shopping-cart.png', style);
+};
+
 export const ClockIcon = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
   return Icon('https://akveo.github.io/eva-icons/outline/png/128/clock-outline.png', style);
 };

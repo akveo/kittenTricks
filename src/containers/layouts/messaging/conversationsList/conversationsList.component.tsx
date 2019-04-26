@@ -1,19 +1,29 @@
 import React from 'react';
-import { ListRenderItemInfo } from 'react-native';
+import {
+  View,
+  ListRenderItemInfo,
+} from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { List } from '@kitten/ui';
+import {
+  List,
+  Input,
+  InputProps,
+} from '@kitten/ui';
 import {
   Conversation,
   ConversationProps,
 } from '@src/components/messaging';
 import { Conversation as ConversationModel } from '@src/core/model';
+import { SearchIconOutline } from '@src/assets/icons';
 
 interface ComponentProps {
+  searchEnabled: boolean;
   conversations: ConversationModel[];
+  onSearchStringChange: (text: string) => void;
   onConversation: (index: number) => void;
 }
 
@@ -25,9 +35,11 @@ class ConversationsListComponent extends React.Component<ConversationsListProps>
     this.props.onConversation(index);
   };
 
-  private renderItem = (info: ListRenderItemInfo<ConversationModel>): React.ReactElement<ConversationProps> => {
-    const { themedStyle } = this.props;
+  private onSearchStringChange = (text: string): void => {
+    this.props.onSearchStringChange(text);
+  };
 
+  private renderItem = (info: ListRenderItemInfo<ConversationModel>): React.ReactElement<ConversationProps> => {
     return (
       <Conversation
         conversation={info.item}
@@ -37,15 +49,32 @@ class ConversationsListComponent extends React.Component<ConversationsListProps>
     );
   };
 
+  private  renderSearchInput = (): React.ReactElement<InputProps> | null => {
+    const { themedStyle, searchEnabled } = this.props;
+
+    return searchEnabled ? (
+      <Input
+        style={themedStyle.input}
+        icon={SearchIconOutline}
+        placeholder='Search Interlocutor...'
+        onChangeText={this.onSearchStringChange}
+      />
+    ) : null;
+  };
+
   public render(): React.ReactNode {
     const { themedStyle, conversations } = this.props;
 
     return (
-      <List
-        style={themedStyle.container}
-        data={conversations}
-        renderItem={this.renderItem}
-      />
+      <View style={themedStyle.container}>
+        {this.renderSearchInput()}
+        <List
+          style={themedStyle.container}
+          contentContainerStyle={themedStyle.listContent}
+          data={conversations}
+          renderItem={this.renderItem}
+        />
+      </View>
     );
   }
 }
@@ -53,8 +82,14 @@ class ConversationsListComponent extends React.Component<ConversationsListProps>
 export const ConversationsList = withStyles(ConversationsListComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+  },
+  listContent: {
     paddingVertical: 8,
     backgroundColor: '#FFFFFF',
+  },
+  input: {
+    marginHorizontal: 16,
+    marginTop: 16,
   },
 }));
 
