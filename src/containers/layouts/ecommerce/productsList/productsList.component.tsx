@@ -94,7 +94,7 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
       <Tab
         key={index}
         style={themedStyle.tab}
-        title={title}>
+        title={title.toUpperCase()}>
         <ProductList
           contentContainerStyle={themedStyle.productsListContent}
           data={displayProducts}
@@ -125,9 +125,7 @@ export const ProductsList = withStyles(ProductsListComponent, (theme: ThemeType)
   container: {
     flex: 1,
   },
-  tab: {
-    textTransform: 'uppercase',
-  },
+  tab: {},
   productsListContent: {
     paddingHorizontal: 8,
     paddingVertical: 16,

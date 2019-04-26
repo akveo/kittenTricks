@@ -27,8 +27,10 @@ import {
   Profile as ProfileModel,
   ProfileSocials as ProfileSocialsModel,
   ProfileActivity as ProfileActivityModel,
-  CategorisedProfileActivity as CategorisedProfileActivityModel, Post,
+  CategorisedProfileActivity as CategorisedProfileActivityModel,
+  Post,
 } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   profile: ProfileModel;
@@ -81,7 +83,11 @@ class Profile6Component extends React.Component<Profile6Props> {
   private renderActivityElement = (category: string, activities: ProfileActivityModel[]): ProfileActivityElement => {
     return (
       <View key={category}>
-        <Text style={this.props.themedStyle.categoryLabel}>{category}</Text>
+        <Text
+          style={this.props.themedStyle.categoryLabel}
+          category='s1'>
+          {category}
+        </Text>
         <ProfileActivityList2
           contentContainerStyle={this.props.themedStyle.activityList}
           data={activities.map(this.createImageSource)}
@@ -164,12 +170,10 @@ export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
   followButton: {
     flex: 1,
     marginRight: 4,
-    fontFamily: 'opensans-extrabold',
   },
   messageButton: {
     flex: 1,
     marginLeft: 4,
-    fontFamily: 'opensans-extrabold',
   },
   activityContainer: {
     paddingVertical: 16,
@@ -182,8 +186,6 @@ export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
   categoryLabel: {
     marginHorizontal: 24,
     marginTop: 8,
-    color: theme['font-primary-color'],
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
+    ...textStyle.subtitle,
   },
 }));

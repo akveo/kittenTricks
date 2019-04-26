@@ -4,10 +4,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   Chips,
   ChipsProps,
-  Text,
+  textStyle,
 } from '@src/components/common';
 
 // @ts-ignore (`children` prop override)
@@ -26,7 +27,12 @@ class BookCategoryListItemComponent extends React.Component<BookCategoryListItem
       <Chips
         {...restProps}
         style={[themedStyle.container, style]}>
-        <Text style={themedStyle.label}>{children}</Text>
+        <Text
+          style={themedStyle.label}
+          appearance='light'
+          category='c1'>
+          {children}
+        </Text>
       </Chips>
     );
   }
@@ -34,8 +40,5 @@ class BookCategoryListItemComponent extends React.Component<BookCategoryListItem
 
 export const BookCategoryListItem = withStyles(BookCategoryListItemComponent, (theme: ThemeType) => ({
   container: {},
-  label: {
-    fontSize: 11,
-    lineHeight: 16,
-  },
+  label: textStyle.caption1,
 }));

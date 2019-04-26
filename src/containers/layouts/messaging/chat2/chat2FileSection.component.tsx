@@ -22,9 +22,9 @@ import {
   ListItem,
   ListItemProps,
   Button,
+  Text,
   ViewPagerProps,
 } from '@kitten/ui';
-import { Text } from '@src/components/common';
 import {
   CameraIcon,
   ImageIcon,
@@ -32,6 +32,7 @@ import {
   MapIcon,
   PeopleIcon,
 } from '@src/assets/icons';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   galleryFiles: MediaLibrary.Asset[];
@@ -190,7 +191,11 @@ class Chat2FileSectionComponent extends React.Component<Chat2FileSectionComponen
         index={index}
         style={themedStyle.actionItemContainer}
         onPress={this.onAddActionItemPress}>
-        <Text style={themedStyle.addActionLabel}>{item.title}</Text>
+        <Text
+          style={themedStyle.addActionLabel}
+          category='s2'>
+          {item.title}
+        </Text>
         {item.icon}
       </ListItem>
     );
@@ -266,13 +271,8 @@ export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: Th
     borderBottomWidth: 1,
     borderBottomColor: theme['color-basic-200'],
   },
-  addActionLabel: {
-    color: theme['color-black'],
-    fontSize: 13,
-    fontWeight: '600',
-  },
+  addActionLabel: textStyle.subtitle,
   cancelButton: {
-    color: theme['color-primary-500'],
     fontSize: 18,
     fontWeight: 'bold',
     lineHeight: 24,

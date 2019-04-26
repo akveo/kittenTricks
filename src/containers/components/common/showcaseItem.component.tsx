@@ -10,6 +10,7 @@ import {
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
 import { ComponentShowcaseItem } from './type';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   item: ComponentShowcaseItem;
@@ -35,7 +36,12 @@ class ShowcaseItemComponent extends React.Component<ShowcaseItemProps> {
 
     return (
       <View style={[themedStyle.container, style]}>
-        <Text style={themedStyle.titleLabel}>{item.title}</Text>
+        <Text
+          style={themedStyle.titleLabel}
+          appearance='hintDark'
+          category='s2'>
+          {item.title}
+        </Text>
         {this.renderElement()}
       </View>
     );
@@ -50,9 +56,7 @@ export const ShowcaseItem = withStyles(ShowcaseItemComponent, (theme: ThemeType)
   },
   titleLabel: {
     minWidth: 128,
-    fontFamily: 'opensans-semibold',
-    fontSize: 13,
-    color: theme['color-basic-600'],
+    ...textStyle.subtitle,
   },
   element: {
     // flex: 1,

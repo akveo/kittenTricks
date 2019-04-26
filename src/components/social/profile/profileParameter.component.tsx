@@ -9,6 +9,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   hint: React.ReactText;
@@ -26,8 +27,17 @@ class ProfileParameterComponent extends React.Component<ProfileParameterProps> {
       <View
         style={[themedStyle.container, style]}
         {...restProps}>
-        <Text style={themedStyle.valueLabel}>{value}</Text>
-        <Text style={themedStyle.hintLabel}>{hint}</Text>
+        <Text
+          style={themedStyle.valueLabel}
+          appearance='light'
+          category='h6'>
+          {value}
+        </Text>
+        <Text
+          style={themedStyle.hintLabel}
+          appearance='light'>
+          {hint}
+        </Text>
       </View>
     );
   }
@@ -37,14 +47,6 @@ export const ProfileParameter = withStyles(ProfileParameterComponent, (theme: Th
   container: {
     alignItems: 'center',
   },
-  valueLabel: {
-    fontFamily: 'anton-regular',
-    fontSize: 20,
-    color: theme['color-white'],
-  },
-  hintLabel: {
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    color: theme['color-white'],
-  },
+  valueLabel: textStyle.headline,
+  hintLabel: textStyle.subtitle,
 }));

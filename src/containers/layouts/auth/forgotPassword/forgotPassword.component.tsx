@@ -16,6 +16,7 @@ import {
 import {
   AvoidKeyboard,
   ImageOverlay,
+  textStyle,
 } from '@src/components/common';
 
 interface ComponentProps {
@@ -60,8 +61,17 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
         <ImageOverlay
           style={themedStyle.container}
           source={this.backgroundImage}>
-          <Text style={themedStyle.forgotPasswordLabel}>Forgot Password</Text>
-          <Text style={themedStyle.enterEmailLabel}>Please enter your email address</Text>
+          <Text
+            style={themedStyle.forgotPasswordLabel}
+            appearance='light'
+            category='h4'>
+            Forgot Password
+          </Text>
+          <Text
+            style={themedStyle.enterEmailLabel}
+            appearance='light'>
+            Please enter your email address
+          </Text>
           <ForgotPasswordForm
             style={themedStyle.formContainer}
             onFormValueChange={this.onFormValueChange}
@@ -93,17 +103,12 @@ export const ForgotPassword = withStyles(ForgotPasswordComponent, (theme: ThemeT
   forgotPasswordLabel: {
     alignSelf: 'center',
     marginTop: 24,
-    fontFamily: 'raleway-bold',
-    fontSize: 32,
-    color: theme['color-white'],
+    ...textStyle.headline,
   },
   enterEmailLabel: {
     alignSelf: 'center',
     marginTop: 64,
-    fontFamily: 'opensans-semibold',
-    color: theme['color-white'],
+    ...textStyle.subtitle,
   },
-  resetButton: {
-    fontFamily: 'opensans-extrabold',
-  },
+  resetButton: {},
 }));

@@ -13,6 +13,7 @@ import {
   Avatar,
   Text,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -49,7 +50,11 @@ class ProfileFriendListItemComponent extends React.Component<ProfileFriendListIt
           size='large'
           source={photo}
         />
-        <Text style={themedStyle.nameLabel}>{name}</Text>
+        <Text
+          style={themedStyle.nameLabel}
+          category='c2'>
+          {name}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -65,9 +70,6 @@ export const ProfileFriendListItem = withStyles(ProfileFriendListItemComponent, 
   },
   nameLabel: {
     marginTop: 8,
-    fontSize: 11,
-    lineHeight: 16,
-    fontFamily: 'opensans-semibold',
-    color: theme['font-primary-color'],
+    ...textStyle.caption2,
   },
 }));

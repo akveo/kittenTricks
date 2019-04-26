@@ -71,10 +71,6 @@ export const TooltipShowcase = withStyles(TooltipShowcaseComponent, (theme: Them
   tip: {
     marginVertical: 24,
   },
-  text: {
-    alignSelf: 'center',
-    color: theme['color-black'],
-  },
   tooltip: {
     backgroundColor: theme['color-primary-500'],
     alignItems: 'center',

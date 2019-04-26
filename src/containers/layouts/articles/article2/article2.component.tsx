@@ -9,9 +9,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Avatar } from '@kitten/ui';
+import {
+  Avatar,
+  Text,
+} from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
-import { Text } from '@src/components/common';
+import { textStyle } from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
@@ -48,10 +51,14 @@ class Article2Component extends React.Component<Article2Props> {
           />
         </ImageBackground>
         <ScrollView contentContainerStyle={themedStyle.contentContainer}>
-          <Text style={themedStyle.titleLabel}>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h5'>
             {article.title}
           </Text>
-          <Text style={themedStyle.contentLabel}>
+          <Text
+            style={themedStyle.contentLabel}
+            category='s1'>
             {article.content}
           </Text>
           <ArticleActivityBar
@@ -62,7 +69,12 @@ class Article2Component extends React.Component<Article2Props> {
             onLikePress={this.onLikeButtonPress}>
             <View style={themedStyle.dateContainer}>
               {ClockIcon(themedStyle.dateIcon)}
-              <Text style={themedStyle.dateLabel}>{article.date}</Text>
+              <Text
+                style={themedStyle.dateLabel}
+                appearance='hintDark'
+                category='p2'>
+                {article.date}
+              </Text>
             </View>
           </ArticleActivityBar>
         </ScrollView>
@@ -102,21 +114,17 @@ export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
   titleLabel: {
     marginHorizontal: 24,
     marginTop: 48,
-    fontFamily: 'anton-regular',
-    fontSize: 24,
-    color: theme['font-primary-color'],
+    ...textStyle.headline,
   },
   contentLabel: {
-    marginHorizontal: 24,
-    marginTop: 24,
     flex: 1,
-    fontSize: 17,
-    color: theme['font-primary-color'],
+    marginHorizontal: 24,
+    marginVertical: 24,
+    ...textStyle.paragraph,
   },
   dateLabel: {
-    fontSize: 13,
     marginLeft: 8,
-    color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
   dateIcon: {
     width: 24,

@@ -9,11 +9,12 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
 import {
   ActivityAuthoring,
   ImageOverlay,
-  Text,
+  textStyle,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
 
@@ -56,8 +57,17 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
           source={{ uri: article.image }}
         />
         <View style={themedStyle.infoContainer}>
-          <Text style={themedStyle.titleLabel}>{article.title}</Text>
-          <Text style={themedStyle.descriptionLabel}>{article.description}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h5'>
+            {article.title}
+          </Text>
+          <Text
+            style={themedStyle.descriptionLabel}
+            appearance='hintDark'
+            category='s1'>
+            {article.description}
+          </Text>
         </View>
         <ArticleActivityBar
           style={themedStyle.activityContainer}
@@ -94,15 +104,9 @@ export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: Th
   image: {
     height: 220,
   },
-  titleLabel: {
-    fontFamily: 'anton-regular',
-    fontSize: 24,
-    color: theme['font-primary-color'],
-  },
+  titleLabel: textStyle.headline,
   descriptionLabel: {
     marginTop: 16,
-    fontSize: 15,
-    fontFamily: 'opensans-semibold',
-    color: theme['color-basic-600'],
+    ...textStyle.subtitle,
   },
 }));

@@ -19,6 +19,7 @@ import {
   Product,
   Comment,
 } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   product: Product;
@@ -93,10 +94,14 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
           style={themedStyle.buyButton}
           size='giant'
           onPress={this.onBuyPress}>
-          Buy
+          BUY
         </Button>
         <View style={themedStyle.commentsContainer}>
-          <Text style={themedStyle.inputLabel}>Comments</Text>
+          <Text
+            style={themedStyle.inputLabel}
+            category='s1'>
+            Comments
+          </Text>
           <Input
             style={themedStyle.input}
             placeholder='Write your comment'
@@ -136,14 +141,10 @@ export const ProductDetails = withStyles(ProductDetailsComponent, (theme: ThemeT
   inputLabel: {
     marginBottom: 8,
     marginHorizontal: 16,
-    fontFamily: 'opensans-semibold',
-    fontSize: 16,
-    lineHeight: 24,
-    color: theme['font-primary-color'],
+    ...textStyle.subtitle,
   },
   buyButton: {
     marginHorizontal: 16,
     marginVertical: 24,
-    textTransform: 'uppercase',
   },
 }));

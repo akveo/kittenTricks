@@ -19,6 +19,7 @@ import {
 } from '@src/components/social';
 import { CameraIcon } from '@src/assets/icons';
 import { Profile } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   profile: Profile;
@@ -65,7 +66,11 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
           />
         </View>
         <View style={themedStyle.descriptionSection}>
-          <Text style={themedStyle.description}>{profile.about}</Text>
+          <Text
+            style={themedStyle.description}
+            appearance='hintDark'>
+            {profile.about}
+          </Text>
         </View>
         <View style={themedStyle.infoSection}>
           <ProfileSetting
@@ -137,9 +142,7 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
     marginTop: 24,
     backgroundColor: theme['color-white'],
   },
-  description: {
-    color: theme['color-basic-600'],
-  },
+  description: textStyle.paragraph,
   photo: {
     width: 320,
     height: 320,

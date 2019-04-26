@@ -12,7 +12,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@src/components/common';
+import { Text } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 import {
   CloseIcon,
   PlusIcon,
@@ -88,8 +89,17 @@ class CartProductComponent extends React.Component<CartProductProps> {
             onPress={this.onRemoveProduct}>
             {this.renderCloseIcon()}
           </TouchableOpacity>
-          <Text style={[themedStyle.nameLabel, themedStyle.labelMargin]}>{product.name}</Text>
-          <Text style={[themedStyle.typeLabel, themedStyle.labelMargin]}>{product.type}</Text>
+          <Text
+            style={[themedStyle.nameLabel, themedStyle.labelMargin]}
+            category='s1'>
+            {product.name}
+          </Text>
+          <Text
+            style={[themedStyle.typeLabel, themedStyle.labelMargin]}
+            appearance='hintDark'
+            category='c1'>
+            {product.type}
+          </Text>
           <Text style={themedStyle.nameLabel}>
             {`${this.calculateTotalProductCost()} ${product.currency}`}
           </Text>
@@ -148,17 +158,8 @@ export const CartProduct = withStyles(CartProductComponent, (theme: ThemeType) =
   labelMargin: {
     marginBottom: 4,
   },
-  nameLabel: {
-    color: theme['color-black'],
-    fontFamily: 'opensans-bold',
-    fontSize: 15,
-    lineHeight: 24,
-  },
-  typeLabel: {
-    color: theme['color-basic-600'],
-    fontSize: 11,
-    lineHeight: 16,
-  },
+  nameLabel: textStyle.subtitle,
+  typeLabel: textStyle.paragraph,
   counterContainer: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -23,6 +23,7 @@ import {
 import {
   AvoidKeyboard,
   ImageOverlay,
+  textStyle,
 } from '@src/components/common';
 
 interface ComponentProps {
@@ -106,8 +107,17 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
           style={themedStyle.container}
           source={this.backgroundImage}>
           <View style={themedStyle.headerContainer}>
-            <Text style={themedStyle.helloLabel}>Sign In</Text>
-            <Text style={themedStyle.signInLabel}>Sign in to your account with Email or SMS</Text>
+            <Text
+              style={themedStyle.helloLabel}
+              appearance='light'>
+              Sign In
+            </Text>
+            <Text
+              style={themedStyle.signInLabel}
+              appearance='light'
+              category='s1'>
+              Sign in to your account with Email or SMS
+            </Text>
           </View>
           <TabView
             style={themedStyle.tabView}
@@ -129,7 +139,10 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
                   style={themedStyle.tabContentContainer}
                   onFormValueChange={this.onSMSFormValueChange}
                 />
-                <Text style={themedStyle.smsCaptionLabel}>within a minute you should receive
+                <Text
+                  style={themedStyle.smsCaptionLabel}
+                  appearance='light'>
+                  within a minute you should receive
                   an SMS with the code
                 </Text>
               </View>
@@ -173,37 +186,31 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     paddingHorizontal: 16,
   },
   tab: {
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
   helloLabel: {
     fontFamily: 'opensans-bold',
     fontSize: 26,
     lineHeight: 32,
-    color: theme['color-white'],
   },
   signInLabel: {
     marginTop: 8,
     textAlign: 'center',
-    fontFamily: 'opensans-semibold',
-    fontSize: 15,
-    lineHeight: 24,
-    color: theme['color-white'],
+    ...textStyle.subtitle,
   },
   smsCaptionLabel: {
-    paddingHorizontal: 32,
-    fontFamily: 'opensans-regular',
     textAlign: 'center',
-    color: theme['color-white'],
+    paddingHorizontal: 32,
+    ...textStyle.paragraph,
   },
   signInButton: {
     marginHorizontal: 16,
-    fontFamily: 'opensans-extrabold',
   },
   signUpButton: {
     marginVertical: 12,
     paddingHorizontal: 0,
-    fontFamily: 'opensans-semibold',
-    color: theme['color-white'],
+    color: theme['font-light-color'],
+    ...textStyle.subtitle,
   },
 }));
 

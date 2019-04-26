@@ -111,7 +111,6 @@ export const Profile1 = withStyles(Profile1Component, (theme: ThemeType) => ({
     height: 40,
     marginVertical: 16,
     fontSize: 14,
-    fontFamily: 'opensans-extrabold',
   },
   feed: {
     paddingVertical: 8,

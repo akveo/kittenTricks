@@ -10,9 +10,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   RateBar,
-  Text,
+  textStyle,
 } from '@src/components/common';
 import { BookCategoryList } from './bookCategoryList.component';
 
@@ -41,8 +42,17 @@ class BookHeaderComponent extends React.Component<BookHeaderProps> {
           source={image}
         />
         <View style={themedStyle.detailsContainer}>
-          <Text style={themedStyle.titleLabel}>{title}</Text>
-          <Text style={themedStyle.authorLabel}>{`Author: ${author}`}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            category='s1'>
+            {title}
+          </Text>
+          <Text
+            style={themedStyle.authorLabel}
+            appearance='hintDark'
+            category='c1'>
+            {`Author: ${author}`}
+          </Text>
           <BookCategoryList
             style={themedStyle.categoryList}
             data={categories}
@@ -51,7 +61,11 @@ class BookHeaderComponent extends React.Component<BookHeaderProps> {
             style={themedStyle.marginBottomLarge}
             value={rating}
           />
-          <Text style={themedStyle.priceLabel}>{price}</Text>
+          <Text
+            style={themedStyle.priceLabel}
+            category='s1'>
+            {price}
+          </Text>
         </View>
       </View>
     );
@@ -71,24 +85,14 @@ export const BookHeader = withStyles(BookHeaderComponent, (theme: ThemeType) => 
     height: 180,
     borderRadius: 12,
   },
-  titleLabel: {
-    fontFamily: 'opensans-bold',
-    color: theme['color-black'],
-    fontSize: 15,
-    lineHeight: 24,
-  },
+  titleLabel: textStyle.subtitle,
   authorLabel: {
     marginTop: 4,
-    color: theme['color-basic-600'],
-    fontSize: 11,
-    lineHeight: 16,
+    ...textStyle.caption1,
   },
   priceLabel: {
     marginTop: 16,
-    fontFamily: 'opensans-bold',
-    color: theme['color-black'],
-    fontSize: 15,
-    lineHeight: 24,
+    ...textStyle.subtitle,
   },
   categoryList: {
     marginVertical: 16,

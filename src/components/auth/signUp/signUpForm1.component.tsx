@@ -10,7 +10,10 @@ import {
 } from '@kitten/theme';
 import { CheckBox } from '@kitten/ui';
 import { SignInForm3Type } from '@src/components/auth';
-import { ValidationInput } from '@src/components/common';
+import {
+  textStyle,
+  ValidationInput,
+} from '@src/components/common';
 import {
   DOBValidator,
   EmailValidator,
@@ -173,8 +176,8 @@ export const SignUpForm1 = withStyles(SignUpForm1Component, (theme: ThemeType) =
   },
   termsCheckBox: {
     marginTop: 20,
-    fontFamily: 'opensans-regular',
     fontSize: 11,
     color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
 }));

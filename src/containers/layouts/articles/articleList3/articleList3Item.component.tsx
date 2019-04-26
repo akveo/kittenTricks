@@ -8,13 +8,14 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { Text } from '@kitten/ui';
 import {
   ArticleActivityBar,
   ArticleTips,
 } from '@src/components/articles';
 import {
   ImageOverlay,
-  Text,
+  textStyle,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
 
@@ -54,7 +55,12 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
         <ImageOverlay
           style={themedStyle.image}
           source={{ uri: article.image }}>
-          <Text style={themedStyle.titleLabel}>{article.title}</Text>
+          <Text
+            style={themedStyle.titleLabel}
+            appearance='light'
+            category='h4'>
+            {article.title}
+          </Text>
           <ArticleTips style={themedStyle.tipsContainer}>
             {`${article.tips} Useful Tips`}
           </ArticleTips>
@@ -91,10 +97,9 @@ export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: Th
   },
   titleLabel: {
     maxWidth: 192,
-    fontFamily: 'anton-regular',
-    fontSize: 32,
+    ...textStyle.headline,
   },
   activityButton: {
-    color: theme['color-white'],
+    color: theme['font-light-color'],
   },
 }));
