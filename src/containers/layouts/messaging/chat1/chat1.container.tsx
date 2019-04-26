@@ -1,5 +1,8 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import {
+  NavigationScreenProps,
+  NavigationScreenConfig,
+} from 'react-navigation';
 import {
   Conversation,
   Message,
@@ -11,6 +14,11 @@ import {
   profile2,
 } from '@src/core/data/profile';
 import { Chat1 } from './chat1.component';
+import {
+  ChatHeader,
+  ChatHeaderNavigationStateParams,
+} from '../chat.header';
+import { TopNavigationElement } from '@src/core/navigation/navigationParams';
 
 interface State {
   newMessageText: string;
@@ -22,6 +30,50 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
   public state: State = {
     newMessageText: '',
     conversation: conversation5,
+  };
+
+  static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
+    const chatHeaderConfig: ChatHeaderNavigationStateParams = {
+      interlocutor: navigation.getParam('interlocutor'),
+      lastSeen: navigation.getParam('lastSeen'),
+      onBack: navigation.getParam('onBack'),
+      onProfile: navigation.getParam('onProfile'),
+    };
+
+    const renderHeader = (headerProps: NavigationScreenProps,
+                          config: ChatHeaderNavigationStateParams) => {
+
+      return (
+        <ChatHeader
+          {...headerProps}
+          lastSeen={config.lastSeen}
+          interlocutor={config.interlocutor}
+          onBack={config.onBack}
+          onProfile={config.onProfile}
+        />
+      );
+    };
+
+    navigation.state.params = {
+      topNavigation: (headerProps: NavigationScreenProps): TopNavigationElement => {
+        return renderHeader(headerProps, chatHeaderConfig);
+      },
+    };
+
+    return { ...navigation, ...screenProps };
+  };
+
+  public componentWillMount(): void {
+    this.props.navigation.setParams({
+      interlocutor: this.state.conversation.interlocutor,
+      lastSeen: this.state.conversation.lastSeen,
+      onBack: this.onBackPress,
+      onProfile: this.onProfilePress,
+    });
+  }
+
+  private onProfilePress = (profile: Profile): void => {
+    this.props.navigation.navigate('Profile 1');
   };
 
   private onNewMessageChange = (newMessageText: string): void => {
@@ -43,6 +95,10 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
       conversation: conversationCopy,
       newMessageText: '',
     });
+  };
+
+  private onBackPress = (): void => {
+    this.props.navigation.goBack(null);
   };
 
   public render(): React.ReactNode {
