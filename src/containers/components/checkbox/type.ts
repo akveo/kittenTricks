@@ -18,17 +18,26 @@ const uncheckedCheckBox: ComponentShowcaseItem = {
   },
 };
 
+const checkedDisabledCheckBox: ComponentShowcaseItem = {
+  title: 'Checked Disabled',
+  props: {
+    checked: true,
+    disabled: true,
+  },
+};
+
+const uncheckedDisabledCheckBox: ComponentShowcaseItem = {
+  title: 'Unchecked Disabled',
+  props: {
+    checked: false,
+    disabled: true,
+  },
+};
+
 const indeterminateCheckBox: ComponentShowcaseItem = {
   title: 'Indeterminate',
   props: {
     indeterminate: true,
-  },
-};
-
-const disabledCheckBox: ComponentShowcaseItem = {
-  title: 'Disabled',
-  props: {
-    disabled: true,
   },
 };
 
@@ -114,8 +123,9 @@ const stateSection: ComponentShowcaseSection = {
   items: [
     checkedCheckBox,
     uncheckedCheckBox,
+    checkedDisabledCheckBox,
+    uncheckedDisabledCheckBox,
     indeterminateCheckBox,
-    disabledCheckBox,
   ],
 };
 
