@@ -13,18 +13,6 @@ interface State {
 
 const popovers: PopoverShowcaseModel[] = [
   {
-    placement: 'right',
-    visible: false,
-  },
-  {
-    placement: 'right start',
-    visible: false,
-  },
-  {
-    placement: 'right end',
-    visible: false,
-  },
-  {
     placement: 'left',
     visible: false,
   },
@@ -49,6 +37,18 @@ const popovers: PopoverShowcaseModel[] = [
     visible: false,
   },
   {
+    placement: 'right',
+    visible: false,
+  },
+  {
+    placement: 'right start',
+    visible: false,
+  },
+  {
+    placement: 'right end',
+    visible: false,
+  },
+  {
     placement: 'bottom',
     visible: false,
   },
@@ -68,9 +68,11 @@ export class PopoverShowcaseContainer extends React.Component<NavigationScreenPr
     popovers: popovers,
   };
 
-  private onPopoverShowcasePress = (index: number): void => {
+  private togglePopover = (index: number, visible: boolean) => {
     const popoversCopy: PopoverShowcaseModel[] = this.state.popovers;
-    popoversCopy[index].visible = !popoversCopy[index].visible;
+
+    popoversCopy[index].visible = visible;
+
     this.setState({ popovers: popoversCopy });
   };
 
@@ -78,7 +80,7 @@ export class PopoverShowcaseContainer extends React.Component<NavigationScreenPr
     return (
       <PopoverShowcase
         popovers={this.state.popovers}
-        onPopoverShowcase={this.onPopoverShowcasePress}
+        togglePopover={this.togglePopover}
       />
     );
   }

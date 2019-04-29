@@ -16,40 +16,52 @@ import {
   Text,
 } from '@kitten/ui';
 import { PopoverShowcaseModel } from './popoverShowcase.container';
-import { MoveIcon } from '@src/assets/icons';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   popovers: PopoverShowcaseModel[];
-  onPopoverShowcase: (index: number) => void;
+  togglePopover: (index: number, visible: boolean) => void;
 }
 
 export type PopoverShowcaseProps = ThemedComponentProps & ComponentProps;
 
 class PopoverShowcaseComponent extends React.Component<PopoverShowcaseProps> {
 
-  private onExamplePress = (index: number): void => {
-    this.props.onPopoverShowcase(index);
+  private onExampleButtonPress = (index: number): void => {
+    this.props.togglePopover(index, true);
   };
 
-  private renderPopover = (text: string): React.ReactElement<ViewProps> => {
+  private onExamplePopoverRequestClose = (index: number) => {
+    this.props.togglePopover(index, false);
+  };
+
+  private renderPopoverContent = (placement: string, index: number): React.ReactElement<ViewProps> => {
     const { themedStyle } = this.props;
 
     return (
       <View style={themedStyle.popoverContent}>
-        {MoveIcon(themedStyle.popoverContentIcon)}
         <Text
-          style={themedStyle.popoverContentText}
-          appearance='light'>
-          {text}
+          style={themedStyle.popoverContentTitle}
+          category='h6'>
+          PRO TIP
         </Text>
+        <Text
+          style={themedStyle.popoverContentDescription}
+          category='s1'>
+          {`Try setting 'placement' with 'PopoverPlacements.${placement.toUpperCase()}' instead of '${placement}'`}
+        </Text>
+        <Button
+          style={themedStyle.popoverContentButton}
+          status='success'
+          onPress={() => this.onExamplePopoverRequestClose(index)}>
+          GOT IT
+        </Button>
       </View>
     );
   };
 
   private renderExample = (item: PopoverShowcaseModel, index: number): React.ReactElement<PopoverProps> => {
     const { themedStyle } = this.props;
-    const placementLabel: string = item.placement.toUpperCase();
 
     return (
       <Popover
@@ -57,12 +69,12 @@ class PopoverShowcaseComponent extends React.Component<PopoverShowcaseProps> {
         placement={item.placement}
         visible={item.visible}
         style={themedStyle.popover}
-        content={this.renderPopover(item.placement)}
-        onRequestClose={() => this.onExamplePress(index)}>
+        content={this.renderPopoverContent(item.placement, index)}
+        onRequestClose={() => this.onExamplePopoverRequestClose(index)}>
         <Button
-          style={themedStyle.tip}
-          onPress={() => this.onExamplePress(index)}>
-          {placementLabel}
+          style={themedStyle.button}
+          onPress={() => this.onExampleButtonPress(index)}>
+          {item.placement.toUpperCase()}
         </Button>
       </Popover>
     );
@@ -84,31 +96,39 @@ class PopoverShowcaseComponent extends React.Component<PopoverShowcaseProps> {
 export const PopoverShowcase = withStyles(PopoverShowcaseComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['color-basic-900'],
   },
   content: {
-    paddingVertical: 8,
-    paddingHorizontal: 96,
+    paddingVertical: 16,
+    paddingHorizontal: 72,
   },
-  tip: {
-    marginVertical: 24,
+  button: {
+    marginVertical: 16,
   },
   popover: {
-    backgroundColor: theme['color-primary-500'],
     justifyContent: 'center',
     alignItems: 'center',
   },
   popoverContent: {
+    width: 280,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+  },
+  popoverContentTitle: {
+    marginVertical: 4,
+    ...textStyle.headline,
+  },
+  popoverContentDescription: {
+    marginVertical: 4,
+    ...textStyle.subtitle,
+  },
+  popoverActionContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    padding: 4,
+    justifyContent: 'space-between',
+    marginVertical: 8,
   },
-  popoverContentIcon: {
-    tintColor: theme['color-white'],
-    width: 16,
-    height: 16,
-    marginRight: 4,
+  popoverContentButton: {
+    marginVertical: 8,
   },
-  popoverContentText: textStyle.paragraph,
 }));
 
