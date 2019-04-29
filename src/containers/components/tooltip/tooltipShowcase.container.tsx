@@ -64,9 +64,11 @@ export class TooltipShowcaseContainer extends React.Component<NavigationScreenPr
     tooltips: tooltips,
   };
 
-  private onPopoverShowcasePress = (index: number): void => {
+  private toggleTooltip = (index: number, visible: boolean) => {
     const tooltipsCopy: PopoverShowcaseModel[] = this.state.tooltips;
-    tooltipsCopy[index].visible = !tooltipsCopy[index].visible;
+
+    tooltipsCopy[index].visible = visible;
+
     this.setState({ tooltips: tooltipsCopy });
   };
 
@@ -74,7 +76,7 @@ export class TooltipShowcaseContainer extends React.Component<NavigationScreenPr
     return (
       <TooltipShowcase
         tooltips={this.state.tooltips}
-        onTooltipShowcase={this.onPopoverShowcasePress}
+        toggleTooltip={this.toggleTooltip}
       />
     );
   }

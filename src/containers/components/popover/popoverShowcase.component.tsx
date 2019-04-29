@@ -27,7 +27,7 @@ export type PopoverShowcaseProps = ThemedComponentProps & ComponentProps;
 
 class PopoverShowcaseComponent extends React.Component<PopoverShowcaseProps> {
 
-  private onExampleButtonPress = (index: number): void => {
+  private onExampleButtonPress = (index: number) => {
     this.props.togglePopover(index, true);
   };
 

@@ -11,18 +11,23 @@ import {
   Button,
 } from '@kitten/ui';
 import { PopoverShowcaseModel } from '../popover/popoverShowcase.container';
+import { StarIcon } from '@src/assets/icons';
 
 interface ComponentProps {
   tooltips: PopoverShowcaseModel[];
-  onTooltipShowcase: (index: number) => void;
+  toggleTooltip: (index: number, visible: boolean) => void;
 }
 
 export type TooltipShowcaseProps = ThemedComponentProps & ComponentProps;
 
 class TooltipShowcaseComponent extends React.Component<TooltipShowcaseProps> {
 
-  private onExamplePress = (index: number): void => {
-    this.props.onTooltipShowcase(index);
+  private onExampleButtonPress = (index: number) => {
+    this.props.toggleTooltip(index, true);
+  };
+
+  private onExamplePopoverRequestClose = (index: number) => {
+    this.props.toggleTooltip(index, false);
   };
 
   private renderExample = (item: PopoverShowcaseModel, index: number): React.ReactElement<TooltipProps> => {
@@ -32,15 +37,14 @@ class TooltipShowcaseComponent extends React.Component<TooltipShowcaseProps> {
     return (
       <Tooltip
         key={index}
+        style={themedStyle.tooltip}
         placement={item.placement}
         visible={item.visible}
-        style={themedStyle.tooltip}
-        text={item.placement}
-        onRequestClose={() => this.onExamplePress(index)}>
+        text={`Try setting 'placement' with 'PopoverPlacements.${placementLabel}' instead of '${item.placement}'`}
+        onRequestClose={() => this.onExamplePopoverRequestClose(index)}>
         <Button
-          appearance='outline'
-          style={themedStyle.tip}
-          onPress={() => this.onExamplePress(index)}>
+          style={themedStyle.button}
+          onPress={() => this.onExampleButtonPress(index)}>
           {placementLabel}
         </Button>
       </Tooltip>
@@ -68,14 +72,11 @@ export const TooltipShowcase = withStyles(TooltipShowcaseComponent, (theme: Them
     paddingVertical: 8,
     paddingHorizontal: 96,
   },
-  tip: {
-    marginVertical: 24,
+  button: {
+    marginVertical: 16,
   },
   tooltip: {
-    backgroundColor: theme['color-primary-500'],
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
+    width: 256,
   },
 }));
 
