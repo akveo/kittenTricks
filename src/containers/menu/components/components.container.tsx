@@ -10,6 +10,10 @@ import {
   RadioShowcase,
   TextShowcase,
   ToggleShowcase,
+  TabViewShowcase,
+  PopoverShowcase,
+  TooltipShowcase,
+  OverflowMenuShowcase,
 } from '@src/containers/components';
 import { ComplexComponentShowcase } from './complexShowcase.component';
 import { Components } from './components.component';
@@ -63,6 +67,26 @@ const COMPONENTS: ListItem[] = [
     route: 'Avatar',
   },
   {
+    title: 'Popover',
+    view: PopoverShowcase,
+    route: 'Popover',
+  },
+  {
+    title: 'Tooltip',
+    view: TooltipShowcase,
+    route: 'Tooltip',
+  },
+  {
+    title: 'Overflow Menu',
+    view: OverflowMenuShowcase,
+    route: 'Overflow Menu',
+  },
+  {
+    title: 'Tab View',
+    view: ComplexComponentShowcase,
+    route: 'Tab View',
+  },
+  {
     title: 'Top Navigation',
     view: ComplexComponentShowcase,
     action: () => Alert.alert('This component you can check in other sections of application'),
@@ -71,26 +95,6 @@ const COMPONENTS: ListItem[] = [
     title: 'Bottom Navigation',
     view: ComplexComponentShowcase,
     action: () => Alert.alert('This component you can check in other sections of application'),
-  },
-  {
-    title: 'Tab View',
-    view: ComplexComponentShowcase,
-    route: 'Tab View',
-  },
-  {
-    title: 'Popover',
-    view: ComplexComponentShowcase,
-    route: 'Popover',
-  },
-  {
-    title: 'Tooltip',
-    view: ComplexComponentShowcase,
-    route: 'Tooltip',
-  },
-  {
-    title: 'Overflow Menu',
-    view: ComplexComponentShowcase,
-    route: 'Overflow Menu',
   },
   {
     title: 'List',

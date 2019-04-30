@@ -1,24 +1,54 @@
 import React from 'react';
+import { ImageSourcePropType } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
-import { AvatarProps } from '@kitten/ui';
-import { AvatarShowcase } from './avatarShowcase.component';
 import { Showcase } from '../common/showcase.component';
-import { avatarShowcase } from './type';
+import { ShowcaseSection } from '../common/showcaseSection.component';
+import { ShowcaseItem } from '../common/showcaseItem.component';
+import {
+  GiantAvatar,
+  LargeAvatar,
+  MediumAvatar,
+  RoundAvatar,
+  RoundedAvatar,
+  SmallAvatar,
+  SquareAvatar,
+  TinyAvatar,
+} from './showcase';
 
 export class AvatarContainer extends React.Component<NavigationScreenProps> {
 
-  private renderItem = (props: AvatarProps): React.ReactElement<AvatarProps> => {
-    return (
-      <AvatarShowcase {...props}/>
-    );
-  };
-
   public render(): React.ReactNode {
     return (
-      <Showcase
-        showcase={avatarShowcase}
-        renderItem={this.renderItem}
-      />
+      <Showcase>
+        <ShowcaseSection title='Size'>
+          <ShowcaseItem title='Giant'>
+            <GiantAvatar />
+          </ShowcaseItem>
+          <ShowcaseItem title='Large'>
+            <LargeAvatar />
+          </ShowcaseItem>
+          <ShowcaseItem title='Medium'>
+            <MediumAvatar />
+          </ShowcaseItem>
+          <ShowcaseItem title='Small'>
+            <SmallAvatar />
+          </ShowcaseItem>
+          <ShowcaseItem title='Tiny'>
+            <TinyAvatar />
+          </ShowcaseItem>
+        </ShowcaseSection>
+        <ShowcaseSection title='Shape'>
+          <ShowcaseItem title='Square'>
+            <SquareAvatar />
+          </ShowcaseItem>
+          <ShowcaseItem title='Rounded'>
+            <RoundedAvatar />
+          </ShowcaseItem>
+          <ShowcaseItem title='Round'>
+            <RoundAvatar />
+          </ShowcaseItem>
+        </ShowcaseSection>
+      </Showcase>
     );
   }
 }

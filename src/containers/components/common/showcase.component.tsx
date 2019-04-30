@@ -1,73 +1,66 @@
 import React from 'react';
 import {
+  FlexStyle,
   ScrollView,
-  ViewStyle,
+  ScrollViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  ShowcaseSection,
-  ShowcaseSectionProps,
-} from './showcaseSection.component';
-import {
-  ComponentShowcase,
-  ComponentShowcaseSection,
-} from '../common/type';
+import { ShowcaseSectionProps } from './showcaseSection.component';
 
 interface ComponentProps {
-  showcase: ComponentShowcase;
-  renderItem: (props: any) => React.ReactElement<any>;
+  children?: ChildrenProp;
 }
 
-export type ShowcaseProps = ThemedComponentProps & ComponentProps;
+type ChildrenProp = ShowcaseSectionElement | ShowcaseSectionElement[];
 
-type ListItemElement = React.ReactElement<ShowcaseSectionProps>;
+export type ShowcaseProps = ThemedComponentProps & ComponentProps & ScrollViewProps;
+
+type ShowcaseSectionElement = React.ReactElement<ShowcaseSectionProps>;
 
 class ShowcaseComponent extends React.Component<ShowcaseProps> {
 
-  private renderSectionElement = (item: ComponentShowcaseSection): ListItemElement => {
-    return (
-      <ShowcaseSection
-        section={item}
-        renderItem={this.props.renderItem}
-      />
-    );
+  private isLastItem = (index: number): boolean => {
+    const { children } = this.props;
+
+    return React.Children.count(children) - 1 === index;
   };
 
-  private renderItem = (item: ComponentShowcaseSection, index: number): ListItemElement => {
-    const { themedStyle, showcase } = this.props;
+  private renderSection = (section: ShowcaseSectionElement, index: number): ShowcaseSectionElement => {
+    const { themedStyle } = this.props;
 
-    const listItemElement: ListItemElement = this.renderSectionElement(item);
+    const additionalStyle: FlexStyle = this.isLastItem(index) ? null : themedStyle.itemBorder;
 
-    const borderStyle: ViewStyle | null = index === showcase.sections.length - 1 ? null : themedStyle.itemBorder;
-
-    return React.cloneElement(listItemElement, {
-      key: index,
-      style: [themedStyle.item, borderStyle, listItemElement.props.style],
+    return React.cloneElement(section, {
+      style: [themedStyle.item, section.props.style, additionalStyle],
     });
   };
 
+  private renderSections = (source: ChildrenProp): ShowcaseSectionElement[] => {
+    return React.Children.map(source, this.renderSection);
+  };
+
   public render(): React.ReactNode {
-    const { themedStyle, showcase } = this.props;
+    const { style, themedStyle, children, ...restProps } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
-        {showcase.sections.map(this.renderItem)}
+      <ScrollView
+        style={[themedStyle.container, style]}
+        {...restProps}>
+        {this.renderSections(children)}
       </ScrollView>
     );
   }
 }
 
 export const Showcase = withStyles(ShowcaseComponent, (theme: ThemeType) => ({
-  container: {
-    flex: 1,
-  },
+  container: {},
   item: {
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingVertical: 24,
   },
   itemBorder: {
     borderBottomWidth: 1,
