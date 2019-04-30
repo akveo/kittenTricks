@@ -1,24 +1,79 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { ToggleProps } from '@kitten/ui';
-import { ToggleShowcase } from '@src/containers/components';
 import { Showcase } from '../common/showcase.component';
-import { toggleShowcase } from './type';
+import { ShowcaseSection } from '../common/showcaseSection.component';
+import { ShowcaseItem } from '../common/showcaseItem.component';
+import {
+  CheckedDisabledToggle,
+  CheckedToggle,
+  DangerToggle,
+  GiantToggle,
+  InfoToggle,
+  LargeToggle,
+  MediumToggle,
+  PrimaryToggle,
+  SmallToggle,
+  SuccessToggle,
+  TinyToggle,
+  UncheckedDisabledToggle,
+  UncheckedToggle,
+  WarningToggle,
+} from './showcase';
 
 export class ToggleContainer extends React.Component<NavigationScreenProps> {
 
-  private renderItem = (props: ToggleProps): React.ReactElement<ToggleProps> => {
-    return (
-      <ToggleShowcase {...props} />
-    );
-  };
-
   public render(): React.ReactNode {
     return (
-      <Showcase
-        showcase={toggleShowcase}
-        renderItem={this.renderItem}
-      />
+      <Showcase>
+        <ShowcaseSection title='State'>
+          <ShowcaseItem title='Checked'>
+            <CheckedToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Unchecked'>
+            <UncheckedToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Checked Disabled'>
+            <CheckedDisabledToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Unchecked Disabled'>
+            <UncheckedDisabledToggle/>
+          </ShowcaseItem>
+        </ShowcaseSection>
+        <ShowcaseSection title='Size'>
+          <ShowcaseItem title='Giant'>
+            <GiantToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Large'>
+            <LargeToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Medium'>
+            <MediumToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Small'>
+            <SmallToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Tiny'>
+            <TinyToggle/>
+          </ShowcaseItem>
+        </ShowcaseSection>
+        <ShowcaseSection title='Status'>
+          <ShowcaseItem title='Primary'>
+            <PrimaryToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Success'>
+            <SuccessToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Info'>
+            <InfoToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Warning'>
+            <WarningToggle/>
+          </ShowcaseItem>
+          <ShowcaseItem title='Danger'>
+            <DangerToggle/>
+          </ShowcaseItem>
+        </ShowcaseSection>
+      </Showcase>
     );
   }
 }

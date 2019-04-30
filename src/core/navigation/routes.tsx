@@ -74,11 +74,11 @@ import {
   RadioContainer,
   TextContainer,
   ToggleContainer,
-  TabViewShowcaseContainer,
-  PopoverShowcaseContainer,
-  TooltipShowcaseContainer,
-  OverflowMenuShowcaseContainer,
-  ListShowcaseContainer,
+  TabViewContainer,
+  PopoverContainer,
+  TooltipContainer,
+  OverflowMenuContainer,
+  ListContainer,
 } from '@src/containers/components';
 import {
   MenuNavigatorParams,
@@ -396,23 +396,23 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
       params: ComponentShowcaseNavigatorParams,
     },
     ['Tab View']: {
-      screen: TabViewShowcaseContainer,
+      screen: TabViewContainer,
       params: ComponentShowcaseNavigatorParams,
     },
     ['Popover']: {
-      screen: PopoverShowcaseContainer,
+      screen: PopoverContainer,
       params: ComponentShowcaseNavigatorParams,
     },
     ['Tooltip']: {
-      screen: TooltipShowcaseContainer,
+      screen: TooltipContainer,
       params: ComponentShowcaseNavigatorParams,
     },
     ['Overflow Menu']: {
-      screen: OverflowMenuShowcaseContainer,
+      screen: OverflowMenuContainer,
       params: ComponentShowcaseNavigatorParams,
     },
     ['List']: {
-      screen: ListShowcaseContainer,
+      screen: ListContainer,
       params: ComponentShowcaseNavigatorParams,
     },
   },

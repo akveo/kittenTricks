@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FlexStyle,
   View,
   ViewProps,
 } from 'react-native';
@@ -9,49 +10,47 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
-import {
-  ShowcaseItem,
-  ShowcaseItemProps,
-} from './showcaseItem.component';
-import {
-  ComponentShowcaseItem,
-  ComponentShowcaseSection as ComponentShowcaseSectionModel,
-} from './type';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  section: ComponentShowcaseSectionModel;
-  renderItem: (props: any) => React.ReactElement<any>;
+  title: React.ReactText;
+  children: ChildrenProp;
 }
+
+type ChildrenProp = ShowcaseSectionItem | ShowcaseSectionItem[];
+type ShowcaseSectionItem = React.ReactElement<any>;
 
 export type ShowcaseSectionProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 class ShowcaseSectionComponent extends React.Component<ShowcaseSectionProps> {
 
-  private renderItem = (item: ComponentShowcaseItem, index: number): React.ReactElement<ShowcaseItemProps> => {
-    const { themedStyle, renderItem } = this.props;
+  private renderItem = (item: ShowcaseSectionItem): ShowcaseSectionItem => {
+    const { themedStyle } = this.props;
 
-    return (
-      <ShowcaseItem
-        key={index}
-        style={themedStyle.item}
-        item={item}
-        renderItem={renderItem}
-      />
-    );
+    const additionalStyle: FlexStyle = themedStyle.item;
+
+    return React.cloneElement(item, {
+      style: [item.props.style, additionalStyle],
+    });
+  };
+
+  private renderItems = (source: ChildrenProp): ShowcaseSectionItem[] => {
+    return React.Children.map(source, this.renderItem);
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, section } = this.props;
+    const { style, themedStyle, title, children, ...restProps } = this.props;
 
     return (
-      <View style={[themedStyle.container, style]}>
+      <View
+        style={[themedStyle.container, style]}
+        {...restProps}>
         <Text
           style={themedStyle.titleLabel}
           category='h6'>
-          {section.title}
+          {title}
         </Text>
-        {section.items.map(this.renderItem)}
+        {this.renderItems(children)}
       </View>
     );
   }
