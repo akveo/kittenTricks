@@ -35,14 +35,14 @@ class ProfileSettingComponent extends React.Component<ProfileSettingProps> {
 
   public render(): React.ReactNode {
     const { style, themedStyle, hint, value, ...restProps } = this.props;
-    const { container, hint: hintStyle, value: valueStyle } = themedStyle;
+    const { container, hintLabel, valueLabel } = themedStyle;
 
     return (
       <View
         {...restProps}
         style={[container, style]}>
-        {hint ? this.renderTextElement(hint, hintStyle) : null}
-        {this.renderTextElement(value, valueStyle)}
+        {hint ? this.renderTextElement(hint, hintLabel) : null}
+        {this.renderTextElement(value, valueLabel)}
       </View>
     );
   }
@@ -58,8 +58,8 @@ export const ProfileSetting = withStyles(ProfileSettingComponent, (theme: ThemeT
     borderBottomWidth: 1,
     borderBottomColor: theme['gray-light'],
   },
-  hint: textStyle.caption2,
-  value: {
+  hintLabel: textStyle.caption2,
+  valueLabel: {
     color: theme['font-primary-color'],
     ...textStyle.caption2,
   },

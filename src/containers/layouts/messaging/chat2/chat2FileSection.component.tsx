@@ -131,6 +131,7 @@ class Chat2FileSectionComponent extends React.Component<Chat2FileSectionComponen
           style={themedStyle.cameraView}>
           <View style={themedStyle.cameraContentContainer}>
             <Button
+              textStyle={textStyle.button}
               appearance='ghost'
               icon={this.renderPhotoItemIcon}
               onPress={this.onTakePhotoPress}
@@ -216,6 +217,7 @@ class Chat2FileSectionComponent extends React.Component<Chat2FileSectionComponen
         {this.renderAddActions()}
         <Button
           style={themedStyle.cancelButton}
+          textStyle={textStyle.button}
           appearance='ghost'
           onPress={this.onCancelPress}>
           Cancel

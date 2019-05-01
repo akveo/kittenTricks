@@ -106,6 +106,8 @@ class AddNewCardComponent extends React.Component<AddPaymentCardFormProps, State
         {...restProps}>
         <ValidationInput
           style={themedStyle.input}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
           label='CARD NUMBER'
           placeholder='0000 0000 0000 0000'
           validator={CardNumberValidator}
@@ -117,6 +119,8 @@ class AddNewCardComponent extends React.Component<AddPaymentCardFormProps, State
         <View style={themedStyle.middleContainer}>
           <ValidationInput
             style={[themedStyle.input, themedStyle.expireInput]}
+            textStyle={textStyle.paragraph}
+            labelStyle={textStyle.label}
             label='EXPIRE DATE'
             placeholder='MM/YY'
             validator={ExpirationDateValidator}
@@ -127,6 +131,8 @@ class AddNewCardComponent extends React.Component<AddPaymentCardFormProps, State
           />
           <ValidationInput
             style={[themedStyle.input, themedStyle.cvvInput]}
+            textStyle={textStyle.paragraph}
+            labelStyle={textStyle.label}
             label='CVV'
             placeholder='CVV'
             validator={CvvValidator}
@@ -138,6 +144,8 @@ class AddNewCardComponent extends React.Component<AddPaymentCardFormProps, State
         </View>
         <ValidationInput
           style={[themedStyle.input, themedStyle.cardholderNameInput]}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
           label='CARDHOLDER NAME'
           placeholder='Enter Name'
           validator={CardholderNameValidator}
@@ -158,11 +166,7 @@ export const AddPaymentCardForm = withStyles(AddNewCardComponent, (theme: ThemeT
     marginTop: 24,
   },
   input: {
-    fontSize: 15,
-    lineHeight: 20,
-    color: theme['color-basic-600'],
     backgroundColor: theme['color-white'],
-    ...textStyle.paragraph,
   },
   expireInput: {
     width: 90,

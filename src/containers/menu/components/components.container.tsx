@@ -10,7 +10,6 @@ import {
   RadioShowcase,
   TextShowcase,
   ToggleShowcase,
-  TabViewShowcase,
   PopoverShowcase,
   TooltipShowcase,
   OverflowMenuShowcase,

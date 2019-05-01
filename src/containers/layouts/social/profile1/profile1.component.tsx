@@ -19,6 +19,7 @@ import {
   ProfileSocials as ProfileSocialsModel,
   Post as PostModel,
 } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   profile: ProfileModel;
@@ -81,6 +82,7 @@ class Profile1Component extends React.Component<Profile1Props> {
             />
             <Button
               style={themedStyle.followButton}
+              textStyle={textStyle.button}
               onPress={this.onFollowButtonPress}>
               FOLLOW
             </Button>
@@ -110,7 +112,6 @@ export const Profile1 = withStyles(Profile1Component, (theme: ThemeType) => ({
   followButton: {
     height: 40,
     marginVertical: 16,
-    fontSize: 14,
   },
   feed: {
     paddingVertical: 8,

@@ -101,6 +101,7 @@ class Article3Component extends React.Component<Article3Props> {
           </Text>
           <Input
             style={themedStyle.inputSpace}
+            textStyle={textStyle.paragraph}
             placeholder='Write your comment'
             value={currentCommentText}
             onChangeText={this.onCommentTextChange}

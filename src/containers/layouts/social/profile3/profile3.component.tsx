@@ -80,6 +80,7 @@ class Profile3Component extends React.Component<Profile3Props> {
           </ProfileInfo1>
           <Button
             style={themedStyle.followButton}
+            textStyle={textStyle.button}
             onPress={this.onFollowButtonPress}>
             FOLLOW
           </Button>

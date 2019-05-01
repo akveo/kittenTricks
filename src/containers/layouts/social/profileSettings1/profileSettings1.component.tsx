@@ -16,6 +16,7 @@ import {
 } from '@src/components/social';
 import { CameraIcon } from '@src/assets/icons';
 import { Profile } from '@src/core/model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   profile: Profile;
@@ -98,6 +99,7 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
         </View>
         <Button
           style={themedStyle.button}
+          textStyle={textStyle.button}
           size='large'
           onPress={this.onButtonPress}>
           DONE

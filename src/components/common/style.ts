@@ -20,4 +20,7 @@ export const textStyle = {
   label: {
     fontFamily: 'opensans-bold',
   },
+  button: {
+    fontFamily: 'opensans-extrabold',
+  },
 };
