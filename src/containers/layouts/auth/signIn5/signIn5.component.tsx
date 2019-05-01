@@ -121,10 +121,11 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
           </View>
           <TabView
             style={themedStyle.tabView}
+            indicatorStyle={themedStyle.tabViewIndicator}
             selectedIndex={this.state.selectedTabIndex}
             onSelect={this.onTabSelect}>
             <Tab
-              style={themedStyle.tab}
+              titleStyle={themedStyle.tabTitle}
               title='EMAIL'>
               <SignInForm3
                 style={themedStyle.tabContentContainer}
@@ -132,7 +133,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
               />
             </Tab>
             <Tab
-              style={themedStyle.tab}
+              titleStyle={themedStyle.tabTitle}
               title='SMS'>
               <View>
                 <SignInForm4
@@ -157,6 +158,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
           </Button>
           <Button
             style={themedStyle.signUpButton}
+            textStyle={themedStyle.signUpText}
             appearance='ghost'
             activeOpacity={0.75}
             onPress={this.onSignUpButtonPress}>
@@ -185,7 +187,10 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     flex: 1,
     paddingHorizontal: 16,
   },
-  tab: {
+  tabViewIndicator: {
+    backgroundColor: theme['color-white'],
+  },
+  tabTitle: {
     color: theme['font-light-color'],
   },
   helloLabel: {
@@ -208,7 +213,8 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
   },
   signUpButton: {
     marginVertical: 12,
-    paddingHorizontal: 0,
+  },
+  signUpText: {
     color: theme['font-light-color'],
     ...textStyle.subtitle,
   },

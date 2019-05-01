@@ -19,7 +19,10 @@ import {
   SignUpForm2Type,
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
-import { AvoidKeyboard } from '@src/components/common';
+import {
+  AvoidKeyboard,
+  textStyle,
+} from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
 
 interface ComponentProps {
@@ -102,6 +105,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
           </Button>
           <Button
             style={themedStyle.signInButton}
+            textStyle={themedStyle.signInText}
             appearance='ghost'
             activeOpacity={0.75}
             onPress={this.onSignInButtonPress}>
@@ -154,8 +158,10 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
   },
   signInButton: {
     marginVertical: 12,
-    fontFamily: 'opensans-semibold',
+  },
+  signInText: {
     color: theme['color-basic-600'],
+    ...textStyle.subtitle,
   },
 }));
 

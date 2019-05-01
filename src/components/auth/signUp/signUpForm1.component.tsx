@@ -109,6 +109,10 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
       && termsAccepted;
   };
 
+  private passwordCaption = (): string => {
+    return this.state.password ? 'Password entered correctly' : 'Password entered incorrectly';
+  };
+
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
 
@@ -149,12 +153,15 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         <ValidationInput
           style={themedStyle.input}
           label='PASSWORD'
+          placeholder='Password'
+          caption={this.passwordCaption()}
           secureTextEntry={true}
           validator={PasswordValidator}
           onChangeText={this.onPasswordInputTextChange}
         />
         <CheckBox
           style={themedStyle.termsCheckBox}
+          textStyle={themedStyle.termsCheckBoxText}
           size='small'
           checked={this.state.termsAccepted}
           text={'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
@@ -176,6 +183,8 @@ export const SignUpForm1 = withStyles(SignUpForm1Component, (theme: ThemeType) =
   },
   termsCheckBox: {
     marginTop: 20,
+  },
+  termsCheckBoxText: {
     fontSize: 11,
     color: theme['color-basic-600'],
     ...textStyle.paragraph,

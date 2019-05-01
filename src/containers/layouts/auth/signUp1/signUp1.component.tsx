@@ -94,7 +94,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
   private renderSignInButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return ForwardIcon({ ...style, ...themedStyle.signUpButtonIcon });
+    return ForwardIcon({ ...style, ...themedStyle.signInButtonIcon });
   };
 
   public render(): React.ReactNode {
@@ -122,9 +122,10 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
                 SIGN UP
               </Text>
               <Button
-                style={themedStyle.signInButton}
-                activeOpacity={0.5}
+                textStyle={themedStyle.signInText}
+                appearance='ghost'
                 size='giant'
+                activeOpacity={0.75}
                 iconAlignment={ButtonIconAlignments.RIGHT}
                 icon={this.renderSignInButtonIcon}
                 onPress={this.onSignInButtonPress}>
@@ -208,13 +209,12 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     flex: 1,
     ...textStyle.headline,
   },
-  signInButton: {
-    flex: 0.25,
-    paddingHorizontal: 0,
-    backgroundColor: theme['opacity-transparent'],
+  signInText: {
+    color: theme['font-light-color'],
   },
-  signUpButtonIcon: {
+  signInButtonIcon: {
     marginHorizontal: 0,
+    tintColor: theme['color-white'],
   },
   signUpButton: {
     marginVertical: 24,

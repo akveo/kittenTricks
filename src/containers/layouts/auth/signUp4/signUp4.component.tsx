@@ -131,6 +131,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
           />
           <Button
             style={themedStyle.signInButton}
+            textStyle={themedStyle.signUpText}
             appearance='ghost'
             activeOpacity={0.75}
             onPress={this.onSignInButtonPress}>
@@ -183,7 +184,8 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
   },
   signInButton: {
     marginVertical: 12,
-    paddingHorizontal: 0,
+  },
+  signUpText: {
     fontFamily: 'opensans-semibold',
     color: theme['font-light-color'],
   },

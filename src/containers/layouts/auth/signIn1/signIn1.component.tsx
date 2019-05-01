@@ -121,8 +121,10 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             </Text>
             <Button
               style={themedStyle.signUpButton}
-              size='giant'
+              textStyle={themedStyle.signUpText}
               activeOpacity={0.75}
+              appearance='ghost'
+              size='giant'
               iconAlignment={ButtonIconAlignments.RIGHT}
               icon={this.renderSignUpButtonIcon}
               onPress={this.onSignUpButtonPress}>
@@ -184,12 +186,14 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
     ...textStyle.headline,
   },
   signUpButton: {
-    flex: 0.25,
     paddingHorizontal: 0,
-    backgroundColor: theme['opacity-transparent'],
+  },
+  signUpText: {
+    color: theme['font-light-color'],
   },
   signUpButtonIcon: {
     marginHorizontal: 0,
+    tintColor: theme['color-white'],
   },
   input: {
     backgroundColor: 'rgba(0, 0, 0, 0.35)',

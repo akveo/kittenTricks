@@ -105,6 +105,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
           <View style={themedStyle.forgotPasswordContainer}>
             <Button
               style={themedStyle.forgotPasswordButton}
+              textStyle={themedStyle.forgotPasswordText}
               appearance='ghost'
               activeOpacity={0.75}
               onPress={this.onForgotPasswordButtonPress}>
@@ -132,6 +133,8 @@ export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) =
   },
   forgotPasswordButton: {
     paddingHorizontal: 0,
+  },
+  forgotPasswordText: {
     fontSize: 15,
     fontWeight: 'normal',
     color: theme['color-basic-600'],
