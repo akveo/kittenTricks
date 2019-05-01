@@ -1,36 +1,56 @@
 import React from 'react';
 import {
+  StyleProp,
+  TextStyle,
+  TouchableOpacity,
+  TouchableOpacityProps,
+} from 'react-native';
+import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  ShareIcon,
-} from '@src/assets/icons';
-import {
-  ReactionButton,
-  ReactionButtonProps,
-} from './reactionButton.component';
+import { Text } from '@kitten/ui';
+import { HeartIcon } from '@src/assets/icons';
 
-export type ShareButtonProps = ThemedComponentProps & ReactionButtonProps;
+interface ComponentProps {
+  textStyle?: StyleProp<TextStyle>;
+  children?: React.ReactText;
+}
+
+export type ShareButtonProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;
 
 class ShareButtonComponent extends React.Component<ShareButtonProps> {
 
   public render(): React.ReactNode {
-    const { themedStyle, iconStyle, ...restProps } = this.props;
+    const { style, themedStyle, textStyle, children, ...restProps } = this.props;
 
     return (
-      <ReactionButton
-        iconStyle={[themedStyle.icon, iconStyle]}
-        icon={ShareIcon}
-        {...restProps}
-      />
+      <TouchableOpacity
+        style={[themedStyle.container, style]}
+        {...restProps}>
+        <Text
+          style={[themedStyle.valueLabel, textStyle]}
+          category='p2'>
+          {children}
+        </Text>
+        {HeartIcon(themedStyle.icon)}
+      </TouchableOpacity>
     );
   }
 }
 
 export const ShareButton = withStyles(ShareButtonComponent, (theme: ThemeType) => ({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   icon: {
+    width: 24,
+    height: 24,
     tintColor: theme['color-basic-500'],
+  },
+  valueLabel: {
+    marginHorizontal: 8,
   },
 }));

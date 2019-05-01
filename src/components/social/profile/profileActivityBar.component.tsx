@@ -4,11 +4,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ButtonIconAlignments } from '@kitten/ui';
 import {
   ActivityBar,
   ActivityBarProps,
   LikeButton,
+  textStyle,
 } from '@src/components/common';
 
 interface ComponentProps {
@@ -27,8 +27,7 @@ class ProfileActivityBarComponent extends React.Component<ProfileActivityBarProp
       <ActivityBar {...restProps}>
         {children}
         <LikeButton
-          style={themedStyle.likeButton}
-          iconAlignment={ButtonIconAlignments.RIGHT}
+          activeOpacity={0.75}
           onPress={onLikePress}>
           {likes}
         </LikeButton>
@@ -38,7 +37,10 @@ class ProfileActivityBarComponent extends React.Component<ProfileActivityBarProp
 }
 
 export const ProfileActivityBar = withStyles(ProfileActivityBarComponent, (theme: ThemeType) => ({
-  likeButton: {
-    flex: 0.25,
+
+  likesLabel: {
+    lineHeight: 0,
+    marginHorizontal: 0,
+    ...textStyle.paragraph,
   },
 }));
