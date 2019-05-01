@@ -31,10 +31,6 @@ export {
   ReactionBarProps,
 } from './reactionBar.component';
 export {
-  ReactionButton,
-  ReactionButtonProps,
-} from './reactionButton.component';
-export {
   ShareButton,
   ShareButtonProps,
 } from './shareButton.component';

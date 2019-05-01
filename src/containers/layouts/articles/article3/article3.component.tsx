@@ -121,7 +121,6 @@ class Article3Component extends React.Component<Article3Props> {
 export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
   contentContainer: {
     flexGrow: 1,
-    paddingBottom: 24,
   },
   image: {
     minHeight: 240,
