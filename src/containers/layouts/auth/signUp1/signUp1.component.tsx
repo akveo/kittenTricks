@@ -108,6 +108,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             source={this.headerImage}>
             <Button
               style={themedStyle.ewaButton}
+              textStyle={textStyle.button}
               size='large'
               activeOpacity={0.75}
               icon={this.renderEwaButtonIcon}
@@ -122,7 +123,8 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
                 SIGN UP
               </Text>
               <Button
-                textStyle={themedStyle.signInText}
+                style={themedStyle.signInButton}
+                textStyle={themedStyle.signInButtonText}
                 appearance='ghost'
                 size='giant'
                 activeOpacity={0.75}
@@ -163,6 +165,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
           />
           <Button
             style={themedStyle.signUpButton}
+            textStyle={textStyle.button}
             size='large'
             disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>
@@ -209,8 +212,12 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     flex: 1,
     ...textStyle.headline,
   },
-  signInText: {
+  signInButton: {
+    paddingHorizontal: 0,
+  },
+  signInButtonText: {
     color: theme['font-light-color'],
+    ...textStyle.button,
   },
   signInButtonIcon: {
     marginHorizontal: 0,
@@ -221,8 +228,8 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     marginHorizontal: 16,
   },
   socialAuthHint: {
-    ...textStyle.paragraph,
     color: theme['font-primary-color'],
+    ...textStyle.paragraph,
   },
   socialAuthIcon: {
     tintColor: theme['font-primary-color'],

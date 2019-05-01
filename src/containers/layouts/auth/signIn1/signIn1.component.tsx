@@ -106,6 +106,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           source={this.backgroundImage}>
           <Button
             style={themedStyle.ewaButton}
+            textStyle={textStyle.button}
             size='large'
             activeOpacity={0.75}
             icon={this.renderEwaButtonIcon}
@@ -121,7 +122,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             </Text>
             <Button
               style={themedStyle.signUpButton}
-              textStyle={themedStyle.signUpText}
+              textStyle={themedStyle.signUpButtonText}
               activeOpacity={0.75}
               appearance='ghost'
               size='giant'
@@ -137,6 +138,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           />
           <Button
             size='large'
+            textStyle={textStyle.button}
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
             SIGN IN
@@ -179,7 +181,7 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   },
   formContainer: {
     flex: 1,
-    marginTop: 72,
+    marginTop: 48,
   },
   signInLabel: {
     flex: 1,
@@ -188,7 +190,7 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   signUpButton: {
     paddingHorizontal: 0,
   },
-  signUpText: {
+  signUpButtonText: {
     color: theme['font-light-color'],
   },
   signUpButtonIcon: {

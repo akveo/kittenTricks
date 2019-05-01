@@ -107,6 +107,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
           />
           <Button
             style={themedStyle.signInButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>

@@ -107,6 +107,7 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
           />
           <Button
             style={themedStyle.signUpButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>

@@ -151,6 +151,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
           </TabView>
           <Button
             style={themedStyle.signInButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!signInButtonEnabled}
             onPress={this.onSignInButtonPress}>
@@ -192,6 +193,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
   },
   tabTitle: {
     color: theme['font-light-color'],
+    ...textStyle.label,
   },
   helloLabel: {
     fontFamily: 'opensans-bold',

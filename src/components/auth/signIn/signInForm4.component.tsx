@@ -8,7 +8,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ValidationInput } from '@src/components/common';
+import {
+  textStyle,
+  ValidationInput,
+} from '@src/components/common';
 import {
   PhoneNumberValidator,
   SMSCodeValidator,
@@ -82,6 +85,7 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
         style={[themedStyle.container, style]}>
         <ValidationInput
           style={themedStyle.phoneInput}
+          textStyle={textStyle.paragraph}
           placeholderTextColor={theme['color-basic-600']}
           placeholder='Phone Number'
           icon={PhoneIconFill}
@@ -90,6 +94,7 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
         />
         <ValidationInput
           style={themedStyle.codeInput}
+          textStyle={textStyle.paragraph}
           placeholderTextColor={theme['color-basic-600']}
           placeholder='SMS Code'
           secureTextEntry={true}
@@ -105,12 +110,10 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
 export const SignInForm4 = withStyles(SignInForm4Component, (theme: ThemeType) => ({
   container: {},
   phoneInput: {
-    color: theme['color-basic-600'],
     backgroundColor: theme['color-white'],
   },
   codeInput: {
     marginTop: 16,
-    color: theme['color-basic-600'],
     backgroundColor: theme['color-white'],
   },
 }));

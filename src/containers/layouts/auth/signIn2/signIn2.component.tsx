@@ -79,6 +79,7 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           />
           <Button
             style={themedStyle.signInButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>

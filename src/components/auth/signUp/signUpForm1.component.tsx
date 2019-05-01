@@ -122,6 +122,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         {...restProps}>
         <ValidationInput
           style={[themedStyle.input, themedStyle.firstNameInput]}
+          textStyle={themedStyle.inputText}
           placeholder='Ally'
           label='FIRST NAME'
           autoCapitalize='words'
@@ -130,6 +131,8 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
           placeholder='Watsan'
           label='LAST NAME'
           autoCapitalize='words'
@@ -138,6 +141,8 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
           placeholder='18/10/1995'
           label='DATE OF BIRTHDAY'
           validator={DOBValidator}
@@ -145,6 +150,8 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={themedStyle.inputText}
+          labelStyle={themedStyle.inputLabel}
           placeholder='ally.watsan@gmail.com'
           label='EMAIL'
           validator={EmailValidator}
@@ -152,6 +159,9 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
+          captionTextStyle={textStyle.paragraph}
           label='PASSWORD'
           placeholder='Password'
           caption={this.passwordCaption()}
@@ -176,7 +186,6 @@ export const SignUpForm1 = withStyles(SignUpForm1Component, (theme: ThemeType) =
   container: {},
   input: {
     marginTop: 16,
-    color: theme['color-basic-600'],
   },
   firstNameInput: {
     marginTop: 0,
