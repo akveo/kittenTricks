@@ -67,6 +67,10 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
     this.props.onSignUpPress(this.state.formValue);
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 56;
+  };
+
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -89,10 +93,10 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ImageBackground
-          style={themedStyle.container}
-          source={this.backgroundImage}>
+      <ImageBackground
+        style={themedStyle.container}
+        source={this.backgroundImage}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
               style={themedStyle.photo}
@@ -121,8 +125,8 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
             onPress={this.onSignInButtonPress}>
             Already have an account? Sign In
           </Button>
-        </ImageBackground>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+      </ImageBackground>
     );
   }
 }

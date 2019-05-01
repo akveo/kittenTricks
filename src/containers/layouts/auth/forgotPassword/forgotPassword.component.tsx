@@ -43,6 +43,10 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
     this.setState({ formValue });
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height * 0.5;
+  };
+
   private onResetPasswordButtonPress = () => {
     this.props.onResetPress(this.state.formValue);
   };
@@ -57,10 +61,10 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ImageOverlay
-          style={themedStyle.container}
-          source={this.backgroundImage}>
+      <ImageOverlay
+        style={themedStyle.container}
+        source={this.backgroundImage}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <Text
             style={themedStyle.forgotPasswordLabel}
             appearance='light'
@@ -84,8 +88,8 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
             onPress={this.onResetPasswordButtonPress}>
             RESET PASSWORD
           </Button>
-        </ImageOverlay>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+      </ImageOverlay>
     );
   }
 }

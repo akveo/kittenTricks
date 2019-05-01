@@ -33,7 +33,10 @@ import {
   profile2,
 } from '@src/core/data/profile';
 import { UiMessageModel } from '../uiMessage.model';
-import { textStyle } from '@src/components/common';
+import {
+  AvoidKeyboard,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   conversation: ConversationModel;
@@ -65,9 +68,15 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
     return conversation.messages.map((message: MessageModel) => {
       if (message.author === profile1) {
-        return { ...message, alignment: Alignments['ROW-LEFT'] };
+        return {
+          ...message,
+          alignment: Alignments['ROW-LEFT'],
+        };
       } else if (message.author === profile2) {
-        return { ...message, alignment: Alignments['ROW-RIGHT'] };
+        return {
+          ...message,
+          alignment: Alignments['ROW-RIGHT'],
+        };
       }
     });
   };
@@ -91,30 +100,32 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
     return (
       <View style={themedStyle.container}>
-        <List
-          ref={this.listRef}
-          style={themedStyle.chatContainer}
-          data={this.createUiMessages()}
-          onContentSizeChange={this.onListContentSizeChange}
-          renderItem={this.renderMessage}
-        />
-        <View style={themedStyle.inputContainer}>
-          <Button
-            style={themedStyle.addMessageButton}
-            textStyle={textStyle.button}
-            icon={PlusIcon}
-            disabled={isMessageEmpty}
-            onPress={this.onMessageAdd}
+        <AvoidKeyboard>
+          <List
+            ref={this.listRef}
+            style={themedStyle.chatContainer}
+            data={this.createUiMessages()}
+            onContentSizeChange={this.onListContentSizeChange}
+            renderItem={this.renderMessage}
           />
-          <Input
-            icon={MicIcon}
-            style={themedStyle.input}
-            textStyle={textStyle.paragraph}
-            value={newMessage}
-            placeholder='Message...'
-            onChangeText={this.onNewMessageChange}
-          />
-        </View>
+          <View style={themedStyle.inputContainer}>
+            <Button
+              style={themedStyle.addMessageButton}
+              textStyle={textStyle.button}
+              icon={PlusIcon}
+              disabled={isMessageEmpty}
+              onPress={this.onMessageAdd}
+            />
+            <Input
+              icon={MicIcon}
+              style={themedStyle.input}
+              textStyle={textStyle.paragraph}
+              value={newMessage}
+              placeholder='Message...'
+              onChangeText={this.onNewMessageChange}
+            />
+          </View>
+        </AvoidKeyboard>
       </View>
     );
   }

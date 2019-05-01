@@ -52,12 +52,16 @@ class SignIn2Component extends React.Component<SignIn2Props> {
     this.setState({ formValue });
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 56;
+  };
+
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <View style={themedStyle.container}>
+      <View style={themedStyle.container}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
@@ -85,16 +89,16 @@ class SignIn2Component extends React.Component<SignIn2Props> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-          <Button
-            style={themedStyle.signUpButton}
-            textStyle={themedStyle.signUpText}
-            appearance='ghost'
-            activeOpacity={0.75}
-            onPress={this.onSignUpButtonPress}>
-            Don't have an account? Create
-          </Button>
-        </View>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+        <Button
+          style={themedStyle.signUpButton}
+          textStyle={themedStyle.signUpText}
+          appearance='ghost'
+          activeOpacity={0.75}
+          onPress={this.onSignUpButtonPress}>
+          Don't have an account? Create
+        </Button>
+      </View>
     );
   }
 }

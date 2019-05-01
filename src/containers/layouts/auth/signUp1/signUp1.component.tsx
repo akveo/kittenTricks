@@ -85,6 +85,10 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
     this.props.onEwaPress();
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 16;
+  };
+
   private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -101,8 +105,8 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ScrollView style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <ImageOverlay
             style={themedStyle.headerContainer}
             source={this.headerImage}>
@@ -171,8 +175,8 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             onPress={this.onSignUpButtonPress}>
             SIGN UP
           </Button>
-        </ScrollView>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+      </ScrollView>
     );
   }
 }

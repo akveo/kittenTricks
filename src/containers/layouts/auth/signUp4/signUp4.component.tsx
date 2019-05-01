@@ -79,6 +79,10 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     this.props.onPhotoPress();
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 160;
+  };
+
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -103,10 +107,10 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ImageBackground
-          style={themedStyle.container}
-          source={this.backgroundImage}>
+      <ImageBackground
+        style={themedStyle.container}
+        source={this.backgroundImage}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
               style={themedStyle.photo}
@@ -127,23 +131,23 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
             onPress={this.onSignUpButtonPress}>
             SIGN UP
           </Button>
-          <SocialAuth
-            iconStyle={themedStyle.socialAuthIcon}
-            hint='Or Sign In using Social Media'
-            onGooglePress={this.onGoogleButtonPress}
-            onFacebookPress={this.onFacebookButtonPress}
-            onTwitterPress={this.onTwitterButtonPress}
-          />
-          <Button
-            style={themedStyle.signInButton}
-            textStyle={themedStyle.signUpText}
-            appearance='ghost'
-            activeOpacity={0.75}
-            onPress={this.onSignInButtonPress}>
-            Already have account? Sign In
-          </Button>
-        </ImageBackground>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+        <SocialAuth
+          iconStyle={themedStyle.socialAuthIcon}
+          hint='Or Sign In using Social Media'
+          onGooglePress={this.onGoogleButtonPress}
+          onFacebookPress={this.onFacebookButtonPress}
+          onTwitterPress={this.onTwitterButtonPress}
+        />
+        <Button
+          style={themedStyle.signInButton}
+          textStyle={themedStyle.signUpText}
+          appearance='ghost'
+          activeOpacity={0.75}
+          onPress={this.onSignInButtonPress}>
+          Already have account? Sign In
+        </Button>
+      </ImageBackground>
     );
   }
 }

@@ -84,6 +84,10 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
     this.setState({ formValue });
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 152;
+  };
+
   private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -100,10 +104,10 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ImageOverlay
-          style={themedStyle.container}
-          source={this.backgroundImage}>
+      <ImageOverlay
+        style={themedStyle.container}
+        source={this.backgroundImage}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <Button
             style={themedStyle.ewaButton}
             textStyle={textStyle.button}
@@ -143,16 +147,16 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-          <SocialAuth
-            style={themedStyle.socialAuthContainer}
-            iconStyle={themedStyle.socialAuthIcon}
-            hint='Sign with a social account'
-            onGooglePress={this.onGoogleButtonPress}
-            onFacebookPress={this.onFacebookButtonPress}
-            onTwitterPress={this.onTwitterButtonPress}
-          />
-        </ImageOverlay>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+        <SocialAuth
+          style={themedStyle.socialAuthContainer}
+          iconStyle={themedStyle.socialAuthIcon}
+          hint='Sign with a social account'
+          onGooglePress={this.onGoogleButtonPress}
+          onFacebookPress={this.onFacebookButtonPress}
+          onTwitterPress={this.onTwitterButtonPress}
+        />
+      </ImageOverlay>
     );
   }
 }

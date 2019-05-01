@@ -97,15 +97,19 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
     }
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 56;
+  };
+
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
     const signInButtonEnabled: boolean = !!this.getSelectedFormValue();
 
     return (
-      <AvoidKeyboard>
-        <ImageOverlay
-          style={themedStyle.container}
-          source={this.backgroundImage}>
+      <ImageOverlay
+        style={themedStyle.container}
+        source={this.backgroundImage}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
@@ -157,16 +161,16 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-          <Button
-            style={themedStyle.signUpButton}
-            textStyle={themedStyle.signUpText}
-            appearance='ghost'
-            activeOpacity={0.75}
-            onPress={this.onSignUpButtonPress}>
-            Don't have an account? Sign Up
-          </Button>
-        </ImageOverlay>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+        <Button
+          style={themedStyle.signUpButton}
+          textStyle={themedStyle.signUpText}
+          appearance='ghost'
+          activeOpacity={0.75}
+          onPress={this.onSignUpButtonPress}>
+          Don't have an account? Sign Up
+        </Button>
+      </ImageOverlay>
     );
   }
 }

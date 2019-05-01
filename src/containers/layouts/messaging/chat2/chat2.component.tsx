@@ -41,7 +41,10 @@ import {
 } from '@src/core/data/profile';
 import { UiMessageModel } from '../uiMessage.model';
 import { Chat2FileSection } from './chat2FileSection.component';
-import { textStyle } from '@src/components/common';
+import {
+  AvoidKeyboard,
+  textStyle,
+} from '@src/components/common';
 
 const width: number = Dimensions.get('window').width;
 
@@ -90,9 +93,15 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
     return conversation.messages.map((message: MessageModel) => {
       if (message.author === profile1) {
-        return { ...message, alignment: Alignments['ROW-LEFT'] };
+        return {
+          ...message,
+          alignment: Alignments['ROW-LEFT'],
+        };
       } else if (message.author === profile2) {
-        return { ...message, alignment: Alignments['ROW-RIGHT'] };
+        return {
+          ...message,
+          alignment: Alignments['ROW-RIGHT'],
+        };
       }
     });
   };
@@ -170,29 +179,31 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
     return (
       <View style={themedStyle.container}>
-        <List
-          ref={this.listRef}
-          style={themedStyle.chatContainer}
-          data={this.createUiMessages()}
-          onContentSizeChange={this.onListContentSizeChange}
-          renderItem={this.renderMessage}
-        />
-        <View style={themedStyle.inputContainer}>
-          <Button
-            style={themedStyle.addMessageButton}
-            icon={PlusIcon}
-            onPress={this.onAddButtonPress}
+        <AvoidKeyboard>
+          <List
+            ref={this.listRef}
+            style={themedStyle.chatContainer}
+            data={this.createUiMessages()}
+            onContentSizeChange={this.onListContentSizeChange}
+            renderItem={this.renderMessage}
           />
-          <Input
-            style={themedStyle.inputComponent}
-            textStyle={textStyle.paragraph}
-            icon={MicIcon}
-            value={newMessage}
-            placeholder='Message...'
-            onChangeText={this.onNewMessageChange}
-          />
-          {this.renderSendMessageButton()}
-        </View>
+          <View style={themedStyle.inputContainer}>
+            <Button
+              style={themedStyle.addMessageButton}
+              icon={PlusIcon}
+              onPress={this.onAddButtonPress}
+            />
+            <Input
+              style={themedStyle.inputComponent}
+              textStyle={textStyle.paragraph}
+              icon={MicIcon}
+              value={newMessage}
+              placeholder='Message...'
+              onChangeText={this.onNewMessageChange}
+            />
+            {this.renderSendMessageButton()}
+          </View>
+        </AvoidKeyboard>
         {fileSectionOpened && this.renderFileSection()}
       </View>
     );
