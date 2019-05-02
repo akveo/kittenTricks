@@ -5,6 +5,16 @@ import {
   ProfileActivity,
   ProfileSocials,
 } from '@src/core/model';
+import {
+  feedImage1,
+  feedImage2,
+  feedImage3,
+  feedImage4,
+  feedImage5,
+  feedImage6,
+  feedImage7,
+  feedImage8,
+} from '@src/assets/images';
 
 export const profile1: Profile = {
   photo: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/7790309/cena.jpg',
@@ -193,63 +203,63 @@ export const profileSocials1: ProfileSocials = {
 export const profileActivity1: ProfileActivity[] = [
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1495908333425-29a1e0918c5f`,
+      source: feedImage1,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6`,
+      source: feedImage2,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1512428813834-c702c7702b78`,
+      source: feedImage3,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1485955900006-10f4d324d411`,
+      source: feedImage1,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1494058303350-0bd5a9ecc5d3`,
+      source: feedImage2,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1500835556837-99ac94a94552`,
+      source: feedImage7,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1508672019048-805c876b67e2`,
+      source: feedImage8,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1469854523086-cc02fe5d8800`,
+      source: feedImage7,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1519160558534-579f5106e43f`,
+      source: feedImage8,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1520466809213-7b9a56adcd45`,
+      source: feedImage7,
     },
     {
       category: 'style',
-      source: `https://images.unsplash.com/photo-1522234811749-abc512463137`,
+      source: feedImage4,
     },
     {
       category: 'style',
-      source: `https://images.unsplash.com/photo-1508540728476-74a4e03542a6`,
+      source: feedImage5,
     },
     {
       category: 'style',
-      source: `https://images.unsplash.com/photo-1445052858312-134745f190f2`,
+      source: feedImage6,
     },
     {
       category: 'style',
-      source: `https://images.unsplash.com/photo-1473768961734-a7222f539688`,
+      source: feedImage4,
     },
     {
       category: 'style',
-      source: `https://images.unsplash.com/photo-1471560090527-d1af5e4e6eb6`,
+      source: feedImage5,
     },
   ]
 ;
@@ -258,67 +268,67 @@ export const categorisedProfileActivity1: CategorisedProfileActivity = {
   ['Plants']: [
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1495908333425-29a1e0918c5f`,
+      source: feedImage1,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1517191434949-5e90cd67d2b6`,
+      source: feedImage2,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1512428813834-c702c7702b78`,
+      source: feedImage3,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1485955900006-10f4d324d411`,
+      source: feedImage1,
     },
     {
       category: 'Plants',
-      source: `https://images.unsplash.com/photo-1494058303350-0bd5a9ecc5d3`,
+      source: feedImage2,
     },
   ],
   ['Travel']: [
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1500835556837-99ac94a94552`,
+      source: feedImage7,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1508672019048-805c876b67e2`,
+      source: feedImage8,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1469854523086-cc02fe5d8800`,
+      source: feedImage7,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1519160558534-579f5106e43f`,
+      source: feedImage8,
     },
     {
       category: 'Travel',
-      source: `https://images.unsplash.com/photo-1520466809213-7b9a56adcd45`,
+      source: feedImage7,
     },
   ],
   ['Style']: [
     {
       category: 'Style',
-      source: `https://images.unsplash.com/photo-1522234811749-abc512463137`,
+      source: feedImage4,
     },
     {
       category: 'Style',
-      source: `https://images.unsplash.com/photo-1508540728476-74a4e03542a6`,
+      source: feedImage5,
     },
     {
       category: 'Style',
-      source: `https://images.unsplash.com/photo-1445052858312-134745f190f2`,
+      source: feedImage6,
     },
     {
       category: 'Style',
-      source: `https://images.unsplash.com/photo-1473768961734-a7222f539688`,
+      source: feedImage4,
     },
     {
       category: 'Style',
-      source: `https://images.unsplash.com/photo-1471560090527-d1af5e4e6eb6`,
+      source: feedImage5,
     },
   ],
 };

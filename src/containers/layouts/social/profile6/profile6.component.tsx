@@ -77,7 +77,7 @@ class Profile6Component extends React.Component<Profile6Props> {
   };
 
   private createImageSource = (activity: ProfileActivityModel): ImageSourcePropType => {
-    return { uri: activity.source };
+    return activity.source;
   };
 
   private renderActivityElement = (category: string, activities: ProfileActivityModel[]): ProfileActivityElement => {
@@ -142,9 +142,9 @@ class Profile6Component extends React.Component<Profile6Props> {
           onFollowingPress={this.onFollowingPress}
           onPostsPress={this.onPostsPress}
         />
-        <ScrollView style={themedStyle.activityContainer}>
+        <View style={themedStyle.activityContainer}>
           {this.renderActivitiesElement(activity)}
-        </ScrollView>
+        </View>
       </ScrollView>
     );
   }

@@ -1,10 +1,18 @@
 import React from 'react';
+import { ImageRequireSource } from 'react-native';
 import { Font } from 'expo';
 import { default as mapping } from 'eva/packages/mapping/eva';
 import { theme } from 'eva/packages/theme/eva';
 import { ApplicationProvider } from '@kitten/theme';
-import { ApplicationLoader } from './core/applicationLoader.component';
+import {
+  ApplicationLoader,
+  Assets,
+} from './core/applicationLoader.component';
 import { Router } from './core/navigation/routes';
+
+const images: ImageRequireSource[] = [
+  require('./assets/images/image-background.png'),
+];
 
 const fonts: Font.FontMap = {
   'anton-regular': require('./assets/fonts/anton-regular.ttf'),
@@ -18,12 +26,16 @@ const fonts: Font.FontMap = {
   'opensans-regular': require('./assets/fonts/opensans-regular.ttf'),
 };
 
-export default class App extends React.Component {
+const assets: Assets = {
+  images: images,
+  fonts: fonts,
+};
 
+export default class App extends React.Component {
 
   public render(): React.ReactNode {
     return (
-      <ApplicationLoader fonts={fonts}>
+      <ApplicationLoader assets={assets}>
         <ApplicationProvider
           mapping={mapping}
           theme={theme}>

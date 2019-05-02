@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageBackground,
   ImageSourcePropType,
   ScrollView,
   View,
@@ -29,8 +28,11 @@ import {
   ProfileSocials as ProfileSocialsModel,
   ProfileActivity as ProfileActivityModel,
 } from '@src/core/model';
-import { textStyle } from '@src/components/common';
-
+import {
+  ImageOverlay,
+  textStyle,
+} from '@src/components/common';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   profile: ProfileModel;
@@ -48,10 +50,6 @@ interface ComponentProps {
 export type Profile7Props = ThemedComponentProps & ComponentProps;
 
 class Profile7Component extends React.Component<Profile7Props> {
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1534067783941-51c9c23ecefd`,
-  };
 
   private onFollowPress = () => {
     this.props.onFollowPress();
@@ -82,7 +80,7 @@ class Profile7Component extends React.Component<Profile7Props> {
   };
 
   private createActivitySource = (activity: ProfileActivityModel): ImageSourcePropType => {
-    return { uri: activity.source };
+    return activity.source;
   };
 
   public render(): React.ReactNode {
@@ -90,9 +88,9 @@ class Profile7Component extends React.Component<Profile7Props> {
 
     return (
       <ScrollView style={themedStyle.container}>
-        <ImageBackground
+        <ImageOverlay
           style={themedStyle.profileInfoContainer}
-          source={this.backgroundImage}>
+          source={backgroundImage}>
           <ProfileInfo3
             photo={{ uri: profile.photo }}
             name={`${profile.firstName} ${profile.lastName}`}
@@ -125,7 +123,7 @@ class Profile7Component extends React.Component<Profile7Props> {
             onFollowingPress={this.onFollowingPress}
             onPostsPress={this.onPostsPress}
           />
-        </ImageBackground>
+        </ImageOverlay>
         <View
           style={[themedStyle.profileSection, themedStyle.aboutSection]}>
           <Text

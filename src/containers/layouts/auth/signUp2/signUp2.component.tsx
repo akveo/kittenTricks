@@ -10,10 +10,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Button,
-  Text,
-} from '@kitten/ui';
+import { Button } from '@kitten/ui';
 import {
   SignUpForm2,
   SignUpForm2Type,

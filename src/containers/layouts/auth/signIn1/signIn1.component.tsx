@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageProps,
-  ImageSourcePropType,
   View,
 } from 'react-native';
 import {
@@ -29,6 +28,7 @@ import {
   ForwardIcon,
   HeartIcon,
 } from '@src/assets/icons';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onSignInPress: (value: SignInForm1Type) => void;
@@ -49,11 +49,6 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1517438984742-1262db08379e?ixlib=rb-1.2
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=928&q=80`,
   };
 
   private onSignInButtonPress = () => {
@@ -106,7 +101,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={this.backgroundImage}>
+        source={backgroundImage}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <Button
             style={themedStyle.ewaButton}

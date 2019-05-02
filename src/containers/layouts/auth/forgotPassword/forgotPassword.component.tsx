@@ -1,5 +1,4 @@
 import React from 'react';
-import { ImageSourcePropType } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -18,6 +17,7 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onResetPress: (formValue: ForgotPasswordFormType) => void;
@@ -33,10 +33,6 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: 'https://images.unsplash.com/photo-1457459686225-c7db79d4e59f',
   };
 
   private onFormValueChange = (formValue: ForgotPasswordFormType) => {
@@ -63,7 +59,7 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={this.backgroundImage}>
+        source={backgroundImage}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <Text
             style={themedStyle.forgotPasswordLabel}

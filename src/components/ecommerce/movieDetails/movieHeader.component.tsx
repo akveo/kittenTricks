@@ -38,7 +38,8 @@ class MovieHeaderComponent extends React.Component<MovieHeaderProps> {
         style={[themedStyle.container, style]}>
         <Image
           style={themedStyle.image}
-          source={image}/>
+          source={image}
+        />
         <Text
           style={themedStyle.titleLabel}
           category='h6'>
@@ -74,6 +75,7 @@ export const MovieHeader = withStyles(MovieHeaderComponent, (theme: ThemeType) =
     height: 360,
     borderRadius: 12,
     marginBottom: 24,
+    backgroundColor: theme['color-basic-100'],
   },
   titleLabel: {
     textAlign: 'center',

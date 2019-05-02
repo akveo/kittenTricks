@@ -1,3 +1,5 @@
+import { ImageRequireSource } from 'react-native';
+
 export enum Gender {
   MALE = 'Male',
   FEMALE = 'Female',
@@ -32,5 +34,5 @@ export interface CategorisedProfileActivity {
 
 export interface ProfileActivity {
   category: string;
-  source: string;
+  source: ImageRequireSource;
 }

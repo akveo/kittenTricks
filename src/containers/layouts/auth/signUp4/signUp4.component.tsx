@@ -1,9 +1,7 @@
 import React from 'react';
 import {
   ButtonProps,
-  ImageBackground,
   ImageProps,
-  ImageSourcePropType,
   View,
 } from 'react-native';
 import {
@@ -21,9 +19,11 @@ import {
 import { ProfilePhoto } from '@src/components/social';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   textStyle,
 } from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onSignUpPress: (formValue: SignUpForm2Type) => void;
@@ -44,11 +44,6 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2]
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80`,
   };
 
   private onFormValueChange = (formValue: SignUpForm2Type) => {
@@ -107,9 +102,9 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ImageBackground
+      <ImageOverlay
         style={themedStyle.container}
-        source={this.backgroundImage}>
+        source={backgroundImage}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
@@ -147,7 +142,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
           onPress={this.onSignInButtonPress}>
           Already have account? Sign In
         </Button>
-      </ImageBackground>
+      </ImageOverlay>
     );
   }
 }

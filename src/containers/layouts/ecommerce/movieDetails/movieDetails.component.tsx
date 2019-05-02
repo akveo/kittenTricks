@@ -24,22 +24,15 @@ import { Movie as MovieModel } from '@src/core/model';
 interface ComponentProps {
   movie: MovieModel;
   onBuyTicket: () => void;
-}
-
-interface State {
-  screenShotIndex: number;
+  onScreenshotPress: (index: number) => void;
 }
 
 export type MovieProps = ThemedComponentProps & ComponentProps;
 
-class MovieDetailsComponent extends React.Component<MovieProps, State> {
+class MovieDetailsComponent extends React.Component<MovieProps> {
 
-  public state: State = {
-    screenShotIndex: 0,
-  };
-
-  private onChangePager = (screenShotIndex: number): void => {
-    this.setState({ screenShotIndex });
+  private onScreenshotItemPress = (index: number) => {
+    this.props.onScreenshotPress(index);
   };
 
   private onBuyTicket = (): void => {
@@ -86,9 +79,8 @@ class MovieDetailsComponent extends React.Component<MovieProps, State> {
           </Text>
           <MovieScreenshotList
             contentContainerStyle={themedStyle.screenshotList}
-            selectedIndex={this.state.screenShotIndex}
-            onSelect={this.onChangePager}
             data={movie.screenshots.map(this.createScreenshotSource)}
+            onItemPress={this.onScreenshotItemPress}
           />
           <Button
             style={themedStyle.buyButton}

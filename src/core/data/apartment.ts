@@ -2,6 +2,7 @@ import {
   Apartment,
   ApartmentFacility,
 } from '../model/apartment.model';
+import { apartmentImage } from '@src/assets/images';
 
 /* tslint:disable */
 
@@ -70,7 +71,7 @@ export const apartment1: Apartment = {
     tvFacility,
     freeParkingFacility,
   ],
-  primaryPhoto: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267',
+  primaryPhoto: apartmentImage,
   photos: [
     'https://images.unsplash.com/photo-1527030280862-64139fba04ca',
     'https://images.unsplash.com/photo-1486304873000-235643847519',

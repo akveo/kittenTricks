@@ -20,8 +20,10 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   textStyle,
 } from '@src/components/common';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -42,11 +44,6 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80`,
   };
 
   private onForgotPasswordButtonPress = () => {
@@ -85,9 +82,9 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ImageBackground
+      <ImageOverlay
         style={themedStyle.container}
-        source={this.backgroundImage}>
+        source={backgroundImage}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text
@@ -133,7 +130,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
           onPress={this.onSignUpButtonPress}>
           Don't have an account? Sign Up
         </Button>
-      </ImageBackground>
+      </ImageOverlay>
     );
   }
 }

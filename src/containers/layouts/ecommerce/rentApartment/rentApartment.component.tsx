@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageBackground,
   ImageSourcePropType,
   ScrollView,
   View,
@@ -21,7 +20,10 @@ import {
   PriceText,
 } from '@src/components/ecommerce';
 import { Apartment } from '@src/core/model';
-import { textStyle } from '@src/components/common';
+import {
+  ImageOverlay,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   apartment: Apartment;
@@ -54,9 +56,9 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
 
     return (
       <ScrollView contentContainerStyle={themedStyle.container}>
-        <ImageBackground
+        <ImageOverlay
           style={themedStyle.backgroundImage}
-          source={{ uri: apartment.primaryPhoto }}
+          source={apartment.primaryPhoto}
         />
         <View style={themedStyle.infoContainer}>
           <View style={themedStyle.detailsContainer}>

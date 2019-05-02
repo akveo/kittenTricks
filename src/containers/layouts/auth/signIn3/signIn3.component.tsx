@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  ImageBackground,
-  ImageSourcePropType,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -19,8 +15,10 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   textStyle,
 } from '@src/components/common';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -38,10 +36,6 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: 'https://images.unsplash.com/photo-1536431311719-398b6704d4cc',
   };
 
   private onSignInButtonPress = () => {
@@ -68,9 +62,9 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ImageBackground
+      <ImageOverlay
         style={themedStyle.container}
-        source={this.backgroundImage}>
+        source={backgroundImage}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text
@@ -108,7 +102,7 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
           onPress={this.onSignUpButtonPress}>
           Don't have an account? Sign Up
         </Button>
-      </ImageBackground>
+      </ImageOverlay>
     );
   }
 }

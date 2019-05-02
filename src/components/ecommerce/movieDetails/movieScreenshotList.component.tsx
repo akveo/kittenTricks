@@ -11,28 +11,43 @@ import {
 } from '@kitten/theme';
 import {
   List,
-  ViewPagerProps,
+  ListItem,
+  ListItemProps,
+  ListProps,
 } from '@kitten/ui';
 
-// @ts-ignore (`contentWidth` and `children` props override)
-interface ComponentProps extends ViewPagerProps {
+// @ts-ignore (`renderItem` prop override)
+interface ComponentProps extends ListProps {
   data: ImageSourcePropType[];
-  contentWidth?: number;
-  children?: React.ReactNode;
+  onItemPress?: (index: number) => void;
+  renderItem?: (info: ListRenderItemInfo<ImageSourcePropType>) => ListItemElement;
 }
 
-export type MovieScreenshotListProps = ThemedComponentProps & ComponentProps & ComponentProps;
+export type MovieScreenshotListProps = ThemedComponentProps & ComponentProps;
+
+type ListItemElement = React.ReactElement<ListItemProps>;
 
 class MovieScreenshotListComponent extends React.Component<MovieScreenshotListProps> {
 
-  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>) => {
+  private onItemPress = (index: number) => {
+    if (this.props.onItemPress) {
+      this.props.onItemPress(index);
+    }
+  };
+
+  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
     const { themedStyle } = this.props;
 
     return (
-      <Image
-        style={themedStyle.item}
-        source={info.item}
-      />
+      <ListItem
+        style={themedStyle.itemContainer}
+        activeOpacity={0.75}
+        onPress={this.onItemPress}>
+        <Image
+          style={themedStyle.item}
+          source={info.item}
+        />
+      </ListItem>
     );
   };
 
@@ -56,10 +71,16 @@ export const MovieScreenshotList = withStyles(MovieScreenshotListComponent, (the
   container: {
     overflow: 'hidden',
   },
+  itemContainer: {
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    borderRadius: 12,
+    marginHorizontal: 8,
+    backgroundColor: theme['color-basic-100'],
+    overflow: 'hidden',
+  },
   item: {
     width: 180,
     height: 120,
-    borderRadius: 12,
-    marginHorizontal: 8,
   },
 }));

@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ButtonProps,
-  ImageBackground,
   ImageProps,
   ImageSourcePropType,
   View,
@@ -20,9 +19,11 @@ import {
 import { ProfilePhoto } from '@src/components/social';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   textStyle,
 } from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onSignUpPress: (formValue: SignUpForm2Type) => void;
@@ -40,11 +41,6 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1536431311719-398b6704d4cc?ixlib=rb-1.2
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80`,
   };
 
   private profileImage: ImageSourcePropType = {
@@ -93,9 +89,9 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ImageBackground
+      <ImageOverlay
         style={themedStyle.container}
-        source={this.backgroundImage}>
+        source={backgroundImage}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
@@ -126,7 +122,7 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
             Already have an account? Sign In
           </Button>
         </AvoidKeyboard>
-      </ImageBackground>
+      </ImageOverlay>
     );
   }
 }
