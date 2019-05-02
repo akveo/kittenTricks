@@ -66,7 +66,7 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
           </ArticleTips>
           <ArticleActivityBar
             style={themedStyle.activityContainer}
-            buttonStyle={themedStyle.activityButton}
+            textStyle={themedStyle.activityBarLabel}
             comments={article.comments ? article.comments.length : 0}
             likes={article.likes}
             onCommentPress={this.onCommentsButtonPress}
@@ -99,7 +99,7 @@ export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: Th
     maxWidth: 192,
     ...textStyle.headline,
   },
-  activityButton: {
+  activityBarLabel: {
     color: theme['font-light-color'],
   },
 }));

@@ -77,6 +77,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
         />
         <Button
           style={themedStyle.buyButton}
+          textStyle={textStyle.button}
           onPress={this.onBuyBook}>
           BUY BOOK
         </Button>
@@ -100,6 +101,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
               Comments
             </Text>
             <Input
+              textStyle={textStyle.paragraph}
               placeholder='Write your comment'
               value={currentCommentText}
               onChangeText={this.onCommentTextChange}

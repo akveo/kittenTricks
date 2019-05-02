@@ -16,6 +16,7 @@ import {
   LikeButton,
   ReactionBar,
   ShareButton,
+  textStyle,
 } from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
 
@@ -68,6 +69,7 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
         </ReactionBar>
         <Button
           style={themedStyle.addButton}
+          textStyle={textStyle.button}
           size='giant'
           status='white'
           iconAlignment={ButtonIconAlignments.RIGHT}

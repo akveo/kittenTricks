@@ -19,6 +19,7 @@ import {
   ArticleList4Item,
   ArticleList4ItemProps,
 } from './articleList4Item.component';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   articles: Article[];
@@ -87,6 +88,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
           description={`${headingArticle.tips} Useful Tips`}>
           <Button
             style={themedStyle.readButton}
+            textStyle={textStyle.button}
             status='white'
             onPress={this.onReadButtonPress}>
             READ

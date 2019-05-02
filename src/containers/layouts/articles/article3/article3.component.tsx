@@ -101,6 +101,7 @@ class Article3Component extends React.Component<Article3Props> {
           </Text>
           <Input
             style={themedStyle.inputSpace}
+            textStyle={textStyle.paragraph}
             placeholder='Write your comment'
             value={currentCommentText}
             onChangeText={this.onCommentTextChange}
@@ -121,7 +122,6 @@ class Article3Component extends React.Component<Article3Props> {
 export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
   contentContainer: {
     flexGrow: 1,
-    paddingBottom: 24,
   },
   image: {
     minHeight: 240,

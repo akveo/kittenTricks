@@ -14,6 +14,7 @@ import {
   ListItemProps,
 } from '@kitten/ui';
 import { SearchIconOutline } from '@src/assets/icons';
+import { textStyle } from '@src/components/common';
 import { ListItem } from './components.container';
 import { ComponentsListItem } from './componentsListItem.component';
 
@@ -66,6 +67,7 @@ class ComponentsComponent extends React.Component<Props> {
       <View style={themedStyle.container}>
         <Input
           style={themedStyle.searchInput}
+          textStyle={textStyle.paragraph}
           placeholder='Search'
           icon={SearchIconOutline}
           onChangeText={this.onSearchInputTextChange}

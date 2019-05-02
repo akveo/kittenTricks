@@ -21,7 +21,7 @@ interface ComponentProps {
   likes: React.ReactText;
   onCommentPress: () => void;
   onLikePress: () => void;
-  buttonStyle?: StyleProp<TextStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 export type ArticleActivityBarProps = ThemedComponentProps & ActivityBarProps & ComponentProps;
@@ -31,7 +31,7 @@ class ArticleActivityBarComponent extends React.Component<ArticleActivityBarProp
   public render(): React.ReactNode {
     const {
       themedStyle,
-      buttonStyle,
+      textStyle,
       comments,
       likes,
       onCommentPress,
@@ -45,12 +45,14 @@ class ArticleActivityBarComponent extends React.Component<ArticleActivityBarProp
         {children}
         <ReactionBar>
           <CommentsButton
-            style={buttonStyle}
+            textStyle={textStyle}
+            activeOpacity={0.75}
             onPress={onCommentPress}>
             {comments}
           </CommentsButton>
           <LikeButton
-            style={buttonStyle}
+            textStyle={textStyle}
+            activeOpacity={0.75}
             onPress={onLikePress}>
             {likes}
           </LikeButton>

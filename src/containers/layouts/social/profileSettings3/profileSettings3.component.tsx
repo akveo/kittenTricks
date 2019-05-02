@@ -110,6 +110,7 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
         </View>
         <Button
           style={themedStyle.button}
+          textStyle={textStyle.button}
           size='large'
           onPress={this.onButtonPress}>
           DONE

@@ -1,5 +1,9 @@
 import React from 'react';
-import { ListRenderItemInfo } from 'react-native';
+import {
+  Animated,
+  ListRenderItemInfo,
+  ViewStyle,
+} from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -17,7 +21,6 @@ import {
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
-  data: Comment[];
   onMorePress: (index: number) => void;
   onLikePress: (index: number) => void;
   onCommentPress: (index: number) => void;
@@ -42,19 +45,37 @@ class CommentsListComponent extends React.Component<CommentsListProps> {
     this.props.onCommentPress(index);
   };
 
-  private renderItem = (info: ListRenderItemInfo<Comment>): ListItemElement => {
+  private isLastItem = (index: number): boolean => {
+    const { data } = this.props;
+
+    return data.length - 1 === index;
+  };
+
+  private renderListItemElement = (comment: Comment): ListItemElement => {
     const { themedStyle } = this.props;
 
     return (
       <CommentComponent
         style={themedStyle.item}
-        comment={info.item}
-        index={info.index}
+        comment={comment}
         onLikePress={this.onLikePress}
         onCommentPress={this.onCommentPress}
         onProfilePress={this.onMorePress}
       />
     );
+  };
+
+  private renderItem = (info: ListRenderItemInfo<Comment>): ListItemElement => {
+    const { themedStyle } = this.props;
+    const { item, index } = info;
+
+    const listItemElement: ListItemElement = this.renderListItemElement(item);
+
+    const additionalStyle: ViewStyle = this.isLastItem(index) ? null : themedStyle.itemBorder;
+
+    return React.cloneElement(listItemElement, {
+      style: [listItemElement.props.style, additionalStyle],
+    });
   };
 
   public render(): React.ReactNode {
@@ -74,12 +95,14 @@ class CommentsListComponent extends React.Component<CommentsListProps> {
 export const CommentsList = withStyles(CommentsListComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    paddingVertical: 8,
     backgroundColor: theme['color-white'],
   },
   item: {
-    marginVertical: 8,
     backgroundColor: theme['color-white'],
+  },
+  itemBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme['color-basic-200'],
   },
 }));
 

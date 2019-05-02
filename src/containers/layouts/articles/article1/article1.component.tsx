@@ -43,41 +43,36 @@ class Article1Component extends React.Component<Article1Props> {
     const commentsCount: number = article.comments ? article.comments.length : 0;
 
     return (
-      <View style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ArticleHeader
           source={{ uri: article.image }}
           title={article.title}
           description={`${article.tips} Useful Tips`}
         />
-        <ScrollView contentContainerStyle={themedStyle.contentContainer}>
-          <Text
-            style={themedStyle.contentLabel}
-            category='s1'>
-            {article.content}
-          </Text>
-          <ArticleActivityBar
-            style={themedStyle.activityContainer}
-            comments={commentsCount}
-            likes={article.likes}
-            onCommentPress={this.onCommentButtonPress}
-            onLikePress={this.onLikeButtonPress}>
-            <ActivityAuthoring
-              photo={{ uri: article.author.photo }}
-              name={`${article.author.firstName} ${article.author.lastName}`}
-              date={article.date}
-            />
-          </ArticleActivityBar>
-        </ScrollView>
-      </View>
+        <Text
+          style={themedStyle.contentLabel}
+          category='s1'>
+          {article.content}
+        </Text>
+        <ArticleActivityBar
+          style={themedStyle.activityContainer}
+          comments={commentsCount}
+          likes={article.likes}
+          onCommentPress={this.onCommentButtonPress}
+          onLikePress={this.onLikeButtonPress}>
+          <ActivityAuthoring
+            photo={{ uri: article.author.photo }}
+            name={`${article.author.firstName} ${article.author.lastName}`}
+            date={article.date}
+          />
+        </ArticleActivityBar>
+      </ScrollView>
     );
   }
 }
 
 export const Article1 = withStyles(Article1Component, (theme: ThemeType) => ({
   container: {
-    flex: 1,
-  },
-  contentContainer: {
     flex: 1,
   },
   activityContainer: {

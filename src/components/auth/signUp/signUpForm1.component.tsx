@@ -109,6 +109,10 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
       && termsAccepted;
   };
 
+  private passwordCaption = (): string => {
+    return this.state.password ? 'Password entered correctly' : 'Password entered incorrectly';
+  };
+
   public render(): React.ReactNode {
     const { style, themedStyle, ...restProps } = this.props;
 
@@ -118,6 +122,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         {...restProps}>
         <ValidationInput
           style={[themedStyle.input, themedStyle.firstNameInput]}
+          textStyle={themedStyle.inputText}
           placeholder='Ally'
           label='FIRST NAME'
           autoCapitalize='words'
@@ -126,6 +131,8 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
           placeholder='Watsan'
           label='LAST NAME'
           autoCapitalize='words'
@@ -134,6 +141,8 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
           placeholder='18/10/1995'
           label='DATE OF BIRTHDAY'
           validator={DOBValidator}
@@ -141,6 +150,8 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={themedStyle.inputText}
+          labelStyle={themedStyle.inputLabel}
           placeholder='ally.watsan@gmail.com'
           label='EMAIL'
           validator={EmailValidator}
@@ -148,13 +159,19 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         />
         <ValidationInput
           style={themedStyle.input}
+          textStyle={textStyle.paragraph}
+          labelStyle={textStyle.label}
+          captionTextStyle={textStyle.paragraph}
           label='PASSWORD'
+          placeholder='Password'
+          caption={this.passwordCaption()}
           secureTextEntry={true}
           validator={PasswordValidator}
           onChangeText={this.onPasswordInputTextChange}
         />
         <CheckBox
           style={themedStyle.termsCheckBox}
+          textStyle={themedStyle.termsCheckBoxText}
           size='small'
           checked={this.state.termsAccepted}
           text={'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
@@ -169,13 +186,14 @@ export const SignUpForm1 = withStyles(SignUpForm1Component, (theme: ThemeType) =
   container: {},
   input: {
     marginTop: 16,
-    color: theme['color-basic-600'],
   },
   firstNameInput: {
     marginTop: 0,
   },
   termsCheckBox: {
     marginTop: 20,
+  },
+  termsCheckBoxText: {
     fontSize: 11,
     color: theme['color-basic-600'],
     ...textStyle.paragraph,

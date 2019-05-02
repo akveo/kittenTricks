@@ -101,8 +101,11 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
         </View>
         <Button
           style={themedStyle.checkoutButton}
+          textStyle={textStyle.button}
           size='giant'
-          onPress={this.onCheckout}>CHECKOUT</Button>
+          onPress={this.onCheckout}>
+          CHECKOUT
+        </Button>
       </ScrollView>
     );
   }

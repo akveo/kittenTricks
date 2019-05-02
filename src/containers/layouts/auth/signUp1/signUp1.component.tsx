@@ -94,7 +94,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
   private renderSignInButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return ForwardIcon({ ...style, ...themedStyle.signUpButtonIcon });
+    return ForwardIcon({ ...style, ...themedStyle.signInButtonIcon });
   };
 
   public render(): React.ReactNode {
@@ -108,6 +108,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             source={this.headerImage}>
             <Button
               style={themedStyle.ewaButton}
+              textStyle={textStyle.button}
               size='large'
               activeOpacity={0.75}
               icon={this.renderEwaButtonIcon}
@@ -123,8 +124,10 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
               </Text>
               <Button
                 style={themedStyle.signInButton}
-                activeOpacity={0.5}
+                textStyle={themedStyle.signInButtonText}
+                appearance='ghost'
                 size='giant'
+                activeOpacity={0.75}
                 iconAlignment={ButtonIconAlignments.RIGHT}
                 icon={this.renderSignInButtonIcon}
                 onPress={this.onSignInButtonPress}>
@@ -162,6 +165,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
           />
           <Button
             style={themedStyle.signUpButton}
+            textStyle={textStyle.button}
             size='large'
             disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>
@@ -209,20 +213,23 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     ...textStyle.headline,
   },
   signInButton: {
-    flex: 0.25,
     paddingHorizontal: 0,
-    backgroundColor: theme['opacity-transparent'],
   },
-  signUpButtonIcon: {
+  signInButtonText: {
+    color: theme['font-light-color'],
+    ...textStyle.button,
+  },
+  signInButtonIcon: {
     marginHorizontal: 0,
+    tintColor: theme['color-white'],
   },
   signUpButton: {
     marginVertical: 24,
     marginHorizontal: 16,
   },
   socialAuthHint: {
-    ...textStyle.paragraph,
     color: theme['font-primary-color'],
+    ...textStyle.paragraph,
   },
   socialAuthIcon: {
     tintColor: theme['font-primary-color'],
