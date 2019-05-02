@@ -81,6 +81,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
               </PriceText>
               <Button
                 style={themedStyle.bookButton}
+                textStyle={textStyle.button}
                 onPress={this.onBookPress}>
                 BOOK NOW
               </Button>

@@ -106,6 +106,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
         <View style={themedStyle.formContainer}>
           <ValidationInput
             style={themedStyle.usernameInput}
+            textStyle={textStyle.paragraph}
             autoCapitalize='none'
             placeholder='User Name'
             icon={PersonIconFill}
@@ -114,6 +115,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
           />
           <ValidationInput
             style={themedStyle.emailInput}
+            textStyle={textStyle.paragraph}
             autoCapitalize='none'
             placeholder='Email'
             icon={EmailIconFill}
@@ -122,6 +124,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
           />
           <ValidationInput
             style={themedStyle.passwordInput}
+            textStyle={textStyle.paragraph}
             autoCapitalize='none'
             secureTextEntry={true}
             placeholder='Password'
@@ -131,6 +134,7 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
           />
           <CheckBox
             style={themedStyle.termsCheckBox}
+            textStyle={themedStyle.termsCheckBoxText}
             size='small'
             checked={this.state.termsAccepted}
             onChange={this.onTermsValueChange}
@@ -148,19 +152,17 @@ export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) =
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
-  usernameInput: {
-    color: theme['color-basic-600'],
-  },
+  usernameInput: {},
   emailInput: {
     marginTop: 16,
-    color: theme['color-basic-600'],
   },
   passwordInput: {
     marginTop: 16,
-    color: theme['color-basic-600'],
   },
   termsCheckBox: {
     marginTop: 24,
+  },
+  termsCheckBoxText: {
     color: theme['color-basic-600'],
     ...textStyle.subtitle,
   },

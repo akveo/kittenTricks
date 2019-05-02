@@ -69,7 +69,6 @@ class ArticleList4ItemComponent extends React.Component<ArticleList4ItemProps> {
           </Text>
           <ArticleActivityBar
             style={themedStyle.activityContainer}
-            buttonStyle={themedStyle.reactionButton}
             comments={comments}
             likes={likes}
             onCommentPress={this.onCommentButtonPress}
@@ -99,6 +98,9 @@ export const ArticleList4Item = withStyles(ArticleList4ItemComponent, (theme: Th
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
-  titleLabel: textStyle.headline,
+  titleLabel: {
+    flex: 1,
+    ...textStyle.headline,
+  },
 }));
 

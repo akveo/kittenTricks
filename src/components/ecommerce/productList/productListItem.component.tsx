@@ -77,6 +77,7 @@ class ProductListItemComponent extends React.Component<ProductListItemProps> {
             </Text>
             <Button
               style={themedStyle.buyButton}
+              textStyle={textStyle.button}
               icon={CartIcon}
               onPress={this.onAddToBucket}
             />

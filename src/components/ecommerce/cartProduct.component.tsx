@@ -105,16 +105,18 @@ class CartProductComponent extends React.Component<CartProductProps> {
           </Text>
           <View style={themedStyle.counterContainer}>
             <Button
-              size='small'
               style={themedStyle.counterButton}
+              textStyle={textStyle.button}
+              size='small'
               icon={this.renderMinusIcon}
               onPress={this.onRemoveCopy}/>
             <Text style={[themedStyle.nameLabel, themedStyle.countLabel]}>
               {product.count}
             </Text>
             <Button
-              size='small'
               style={themedStyle.counterButton}
+              textStyle={textStyle.button}
+              size='small'
               icon={this.renderPlusIcon}
               onPress={this.onAddCopy}/>
           </View>

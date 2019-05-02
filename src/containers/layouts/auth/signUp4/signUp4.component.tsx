@@ -19,7 +19,10 @@ import {
   SignUpForm2Type,
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
-import { AvoidKeyboard } from '@src/components/common';
+import {
+  AvoidKeyboard,
+  textStyle,
+} from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
 
 interface ComponentProps {
@@ -88,6 +91,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     return (
       <Button
         style={themedStyle.photoButton}
+        textStyle={textStyle.button}
         size='small'
         icon={this.renderPhotoButtonIcon}
         onPress={this.onPhotoButtonPress}
@@ -117,6 +121,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
           />
           <Button
             style={themedStyle.signUpButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignUpButtonPress}>
@@ -131,6 +136,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
           />
           <Button
             style={themedStyle.signInButton}
+            textStyle={themedStyle.signUpText}
             appearance='ghost'
             activeOpacity={0.75}
             onPress={this.onSignInButtonPress}>
@@ -183,9 +189,10 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
   },
   signInButton: {
     marginVertical: 12,
-    paddingHorizontal: 0,
-    fontFamily: 'opensans-semibold',
+  },
+  signUpText: {
     color: theme['font-light-color'],
+    ...textStyle.subtitle,
   },
 }));
 

@@ -80,6 +80,7 @@ class Profile2Component extends React.Component<Profile2Props> {
           </ProfileInfo1>
           <Button
             style={themedStyle.followButton}
+            textStyle={textStyle.button}
             onPress={this.onFollowButtonPress}>
             FOLLOW
           </Button>
@@ -144,7 +145,6 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   followButton: {
     height: 40,
     marginTop: 24,
-    fontSize: 14,
   },
   descriptionLabel: {
     marginVertical: 24,

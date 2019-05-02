@@ -101,12 +101,14 @@ class Profile7Component extends React.Component<Profile7Props> {
           <View style={themedStyle.actionContainer}>
             <Button
               style={themedStyle.followButton}
+              textStyle={textStyle.button}
               icon={PersonAddIconFill}
               onPress={this.onFollowPress}>
               FOLLOW
             </Button>
             <Button
               style={themedStyle.messageButton}
+              textStyle={textStyle.button}
               status='white'
               icon={MessageCircleIconFill}
               onPress={this.onMessagePress}>

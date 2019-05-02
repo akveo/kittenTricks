@@ -78,6 +78,7 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
           />
           <Button
             style={themedStyle.resetButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!this.resetPasswordEnabled()}
             onPress={this.onResetPasswordButtonPress}>

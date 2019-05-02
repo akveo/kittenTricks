@@ -83,6 +83,7 @@ class PaymentComponent extends React.Component<PaymentProps> {
         </View>
         <Button
           style={themedStyle.buyButton}
+          textStyle={textStyle.button}
           size='giant'
           onPress={this.onBuy}>
           BUY

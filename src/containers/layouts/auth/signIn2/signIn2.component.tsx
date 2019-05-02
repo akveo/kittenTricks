@@ -79,6 +79,7 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           />
           <Button
             style={themedStyle.signInButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
@@ -86,6 +87,7 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           </Button>
           <Button
             style={themedStyle.signUpButton}
+            textStyle={themedStyle.signUpText}
             appearance='ghost'
             activeOpacity={0.75}
             onPress={this.onSignUpButtonPress}>
@@ -123,8 +125,10 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
   },
   signUpButton: {
     marginVertical: 12,
-    fontFamily: 'opensans-semibold',
+  },
+  signUpText: {
     color: theme['color-basic-600'],
+    ...textStyle.subtitle,
   },
 }));
 

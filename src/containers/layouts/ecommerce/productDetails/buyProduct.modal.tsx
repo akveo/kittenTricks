@@ -83,6 +83,7 @@ class ByuModalComponent extends React.Component<ByuModalProps> {
             renderItem={this.renderAction}
           />
           <Button
+            textStyle={textStyle.button}
             appearance='ghost'
             size='large'
             onPress={this.onCancel}>

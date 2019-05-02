@@ -33,6 +33,7 @@ import {
   profile2,
 } from '@src/core/data/profile';
 import { UiMessageModel } from '../uiMessage.model';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   conversation: ConversationModel;
@@ -100,6 +101,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
         <View style={themedStyle.inputContainer}>
           <Button
             style={themedStyle.addMessageButton}
+            textStyle={textStyle.button}
             icon={PlusIcon}
             disabled={isMessageEmpty}
             onPress={this.onMessageAdd}
@@ -107,6 +109,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
           <Input
             icon={MicIcon}
             style={themedStyle.input}
+            textStyle={textStyle.paragraph}
             value={newMessage}
             placeholder='Message...'
             onChangeText={this.onNewMessageChange}

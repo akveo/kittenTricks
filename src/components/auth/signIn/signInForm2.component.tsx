@@ -9,7 +9,10 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Button } from '@kitten/ui';
-import { ValidationInput } from '@src/components/common';
+import {
+  textStyle,
+  ValidationInput,
+} from '@src/components/common';
 import {
   EyeOffIconFill,
   PersonIconFill,
@@ -88,7 +91,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
         {...restProps}>
         <View style={themedStyle.formContainer}>
           <ValidationInput
-            style={themedStyle.usernameInput}
+            textStyle={textStyle.paragraph}
             placeholder='User Name'
             icon={PersonIconFill}
             validator={NameValidator}
@@ -96,6 +99,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
           />
           <ValidationInput
             style={themedStyle.passwordInput}
+            textStyle={textStyle.paragraph}
             placeholder='Password'
             icon={EyeOffIconFill}
             secureTextEntry={true}
@@ -105,6 +109,7 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
           <View style={themedStyle.forgotPasswordContainer}>
             <Button
               style={themedStyle.forgotPasswordButton}
+              textStyle={themedStyle.forgotPasswordText}
               appearance='ghost'
               activeOpacity={0.75}
               onPress={this.onForgotPasswordButtonPress}>
@@ -123,17 +128,15 @@ export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) =
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
-  usernameInput: {
-    color: theme['color-basic-600'],
-  },
   passwordInput: {
     marginTop: 16,
-    color: theme['color-basic-600'],
   },
   forgotPasswordButton: {
     paddingHorizontal: 0,
+  },
+  forgotPasswordText: {
     fontSize: 15,
-    fontWeight: 'normal',
     color: theme['color-basic-600'],
+    ...textStyle.paragraph,
   },
 }));

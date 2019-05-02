@@ -45,10 +45,11 @@ class ComingSoonModalComponent extends React.Component<ComingSoonModalProps> {
           </Text>
         </View>
         <Button
+          textStyle={textStyle.button}
           appearance='ghost'
           size='large'
           onPress={this.onCancel}>
-          Okay
+          OKAY
         </Button>
       </View>
     );

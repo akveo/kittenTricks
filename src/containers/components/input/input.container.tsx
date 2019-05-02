@@ -17,6 +17,7 @@ import {
   SuccessInput,
   WarningInput,
 } from './showcase';
+import { textStyle } from '@src/components/common';
 
 export class InputContainer extends React.Component<NavigationScreenProps> {
 
@@ -25,41 +26,74 @@ export class InputContainer extends React.Component<NavigationScreenProps> {
       <Showcase>
         <ShowcaseSection title='State'>
           <ShowcaseItem title='Default'>
-            <DefaultInput style={styles.component}/>
+            <DefaultInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Disabled'>
-            <DisabledInput style={styles.component}/>
+            <DisabledInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
         </ShowcaseSection>
         <ShowcaseSection title='Accessories'>
           <ShowcaseItem title='Icon'>
-            <IconInput style={styles.component}/>
+            <IconInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Label'>
-            <LabelInput style={styles.component}/>
+            <LabelInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Caption'>
-            <CaptionInput style={styles.component}/>
+            <CaptionInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Caption Icon'>
-            <CaptionIconInput style={styles.component}/>
+            <CaptionIconInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
         </ShowcaseSection>
         <ShowcaseSection title='Status'>
           <ShowcaseItem title='Primary'>
-            <PrimaryInput style={styles.component}/>
+            <PrimaryInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Success'>
-            <SuccessInput style={styles.component}/>
+            <SuccessInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Info'>
-            <InfoInput style={styles.component}/>
+            <InfoInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Warning'>
-            <WarningInput style={styles.component}/>
+            <WarningInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
           <ShowcaseItem title='Danger'>
-            <DangerInput style={styles.component}/>
+            <DangerInput
+              style={styles.component}
+              textStyle={styles.componentText}
+            />
           </ShowcaseItem>
         </ShowcaseSection>
       </Showcase>
@@ -71,4 +105,5 @@ const styles = StyleSheet.create({
   component: {
     flex: 1,
   },
+  componentText: textStyle.paragraph,
 });

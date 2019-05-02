@@ -16,6 +16,7 @@ import {
   Button,
   ButtonProps,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   type: 'google' | 'facebook' | 'twitter';
@@ -49,6 +50,7 @@ class SocialButtonComponent extends React.Component<SocialButtonProps> {
     return (
       <Button
         style={style}
+        textStyle={textStyle.button}
         appearance='ghost'
         size='giant'
         activeOpacity={0.5}

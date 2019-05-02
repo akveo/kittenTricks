@@ -90,7 +90,7 @@ class ValidationInputComponent extends React.Component<ValidationInputProps, Sta
         status={this.getStatus()}
         {...restProps}
         value={this.state.value}
-        style={[themedStyle, style]}
+        style={[themedStyle.container, style]}
         onChangeText={this.onChangeText}
       />
     );
@@ -98,5 +98,5 @@ class ValidationInputComponent extends React.Component<ValidationInputProps, Sta
 }
 
 export const ValidationInput = withStyles(ValidationInputComponent, (theme: ThemeType) => ({
-  input: textStyle.paragraph,
+  container: {},
 }));

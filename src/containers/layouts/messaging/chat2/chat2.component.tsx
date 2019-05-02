@@ -41,6 +41,7 @@ import {
 } from '@src/core/data/profile';
 import { UiMessageModel } from '../uiMessage.model';
 import { Chat2FileSection } from './chat2FileSection.component';
+import { textStyle } from '@src/components/common';
 
 const width: number = Dimensions.get('window').width;
 
@@ -184,6 +185,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
           />
           <Input
             style={themedStyle.inputComponent}
+            textStyle={textStyle.paragraph}
             icon={MicIcon}
             value={newMessage}
             placeholder='Message...'
@@ -221,8 +223,8 @@ export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
     borderRadius: 26,
   },
   inputComponent: {
-    marginHorizontal: 8,
     flex: 1,
+    marginHorizontal: 8,
   },
 }));
 

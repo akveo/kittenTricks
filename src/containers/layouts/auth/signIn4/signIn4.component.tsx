@@ -107,6 +107,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
           />
           <Button
             style={themedStyle.signInButton}
+            textStyle={textStyle.button}
             size='giant'
             disabled={!this.state.formValue}
             onPress={this.onSignInButtonPress}>
@@ -122,6 +123,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
           />
           <Button
             style={themedStyle.signUpButton}
+            textStyle={themedStyle.signUpText}
             appearance='ghost'
             activeOpacity={0.75}
             onPress={this.onSignUpButtonPress}>
@@ -162,9 +164,10 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   },
   signUpButton: {
     marginVertical: 12,
-    paddingHorizontal: 0,
-    fontFamily: 'opensans-semibold',
+  },
+  signUpText: {
     color: theme['font-light-color'],
+    ...textStyle.subtitle,
   },
 }));
 

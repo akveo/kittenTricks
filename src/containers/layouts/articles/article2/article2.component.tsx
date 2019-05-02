@@ -40,7 +40,7 @@ class Article2Component extends React.Component<Article2Props> {
     const { themedStyle, article } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ImageBackground
           style={themedStyle.image}
           source={{ uri: article.image }}>
@@ -50,7 +50,6 @@ class Article2Component extends React.Component<Article2Props> {
             source={{ uri: article.author.photo }}
           />
         </ImageBackground>
-        <ScrollView contentContainerStyle={themedStyle.contentContainer}>
           <Text
             style={themedStyle.titleLabel}
             category='h5'>
@@ -77,17 +76,13 @@ class Article2Component extends React.Component<Article2Props> {
               </Text>
             </View>
           </ArticleActivityBar>
-        </ScrollView>
-      </View>
+      </ScrollView>
     );
   }
 }
 
 export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
   container: {
-    flex: 1,
-  },
-  contentContainer: {
     flex: 1,
   },
   detailsContainer: {

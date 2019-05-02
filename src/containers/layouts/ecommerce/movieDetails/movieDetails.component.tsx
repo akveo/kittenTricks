@@ -92,6 +92,7 @@ class MovieDetailsComponent extends React.Component<MovieProps, State> {
           />
           <Button
             style={themedStyle.buyButton}
+            textStyle={textStyle.button}
             size='large'
             onPress={this.onBuyTicket}>
             BUY TICKET
