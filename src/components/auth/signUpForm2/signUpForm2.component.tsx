@@ -23,20 +23,14 @@ import {
   NameValidator,
   PasswordValidator,
 } from '@src/core/validators';
-
-export interface SignUpForm2Type {
-  username: string;
-  email: string;
-  password: string;
-  termsAccepted: boolean;
-}
+import { SignUpForm2Data } from './type';
 
 interface ComponentProps {
   /**
    * Will emit changes depending on validation:
    * Will be called with form value if it is valid, otherwise will be called with undefined
    */
-  onFormValueChange: (value: SignUpForm2Type | undefined) => void;
+  onDataChange: (value: SignUpForm2Data | undefined) => void;
 }
 
 export type SignUpForm2Props = ThemedComponentProps & ViewProps & ComponentProps;
@@ -65,9 +59,9 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
 
     if (becomeValid) {
-      this.props.onFormValueChange(this.state);
+      this.props.onDataChange(this.state);
     } else if (becomeInvalid) {
-      this.props.onFormValueChange(undefined);
+      this.props.onDataChange(undefined);
     }
   }
 
@@ -87,12 +81,12 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
     this.setState({ password });
   };
 
-  private isValid = (value: SignUpForm2Type): boolean => {
+  private isValid = (value: SignUpForm2Data): boolean => {
     const { username, password, email, termsAccepted } = value;
 
     return username !== undefined
-      && email !== undefined
       && password !== undefined
+      && email !== undefined
       && termsAccepted;
   };
 

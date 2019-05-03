@@ -20,18 +20,14 @@ import {
   LockIconFill,
   PhoneIconFill,
 } from '@src/assets/icons';
-
-export interface SignInForm4Type {
-  phone: string;
-  code: string;
-}
+import { SignInForm4Data } from './type';
 
 interface ComponentProps {
   /**
    * Will emit changes depending on validation:
    * Will be called with input value if it is valid, otherwise will be called with undefined
    */
-  onFormValueChange: (value: SignInForm4Type | undefined) => void;
+  onDataChange: (value: SignInForm4Data | undefined) => void;
 }
 
 export type SignInForm4Props = ThemedComponentProps & ViewProps & ComponentProps;
@@ -56,9 +52,9 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
 
     if (becomeValid) {
-      this.props.onFormValueChange(this.state);
+      this.props.onDataChange(this.state);
     } else if (becomeInvalid) {
-      this.props.onFormValueChange(undefined);
+      this.props.onDataChange(undefined);
     }
   }
 
@@ -70,10 +66,11 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
     this.setState({ code });
   };
 
-  private isValid = (value: SignInForm4Type): boolean => {
+  private isValid = (value: SignInForm4Data): boolean => {
     const { phone, code } = value;
 
-    return phone !== undefined && code !== undefined;
+    return phone !== undefined
+      && code !== undefined;
   };
 
   public render(): React.ReactNode {

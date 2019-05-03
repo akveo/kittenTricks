@@ -14,17 +14,15 @@ import {
 } from '@src/components/common';
 import { EmailIconFill } from '@src/assets/icons';
 import { EmailValidator } from '@src/core/validators';
+import { ForgotPasswordFormData } from './type';
 
-export interface ForgotPasswordFormType {
-  email: string;
-}
 
 interface ComponentProps {
   /**
    * Will emit changes depending on validation:
    * Will be called with form value if it is valid, otherwise will be called with undefined
    */
-  onFormValueChange: (value: ForgotPasswordFormType | undefined) => void;
+  onDataChange: (value: ForgotPasswordFormData | undefined) => void;
 }
 
 
@@ -48,9 +46,9 @@ class ForgotPasswordFormComponent extends React.Component<ForgotPasswordFormProp
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
 
     if (becomeValid) {
-      this.props.onFormValueChange(this.state);
+      this.props.onDataChange(this.state);
     } else if (becomeInvalid) {
-      this.props.onFormValueChange(undefined);
+      this.props.onDataChange(undefined);
     }
   }
 
@@ -58,7 +56,7 @@ class ForgotPasswordFormComponent extends React.Component<ForgotPasswordFormProp
     this.setState({ email });
   };
 
-  private isValid = (value: ForgotPasswordFormType): boolean => {
+  private isValid = (value: ForgotPasswordFormData): boolean => {
     const { email } = value;
 
     return email !== undefined;

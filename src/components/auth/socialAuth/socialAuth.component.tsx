@@ -14,10 +14,15 @@ import {
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
-import { SocialButton } from './socialButton.component';
+import {
+  FacebookIconFill,
+  GoogleIconFill,
+  TwitterIconFill,
+} from '@src/assets/icons';
+import { SocialButton } from './socialAuthButton.component';
 
 interface ComponentProps {
-  hint?: string;
+  hint?: React.ReactText;
   hintStyle?: StyleProp<TextStyle>;
   iconStyle?: StyleProp<ImageStyle>;
   onGooglePress: () => void;
@@ -50,17 +55,20 @@ class SocialAuthComponent extends React.Component<SocialAuthProps> {
         {hint ? this.renderCaptionElement([componentStyle.hint, hintStyle]) : null}
         <View style={buttonContainer}>
           <SocialButton
-            type='google'
+            activeOpacity={0.75}
+            icon={GoogleIconFill}
             iconStyle={iconStyle}
             onPress={this.props.onGooglePress}
           />
           <SocialButton
-            type='facebook'
+            activeOpacity={0.75}
+            icon={FacebookIconFill}
             iconStyle={iconStyle}
             onPress={this.props.onFacebookPress}
           />
           <SocialButton
-            type='twitter'
+            activeOpacity={0.75}
+            icon={TwitterIconFill}
             iconStyle={iconStyle}
             onPress={this.props.onTwitterPress}
           />

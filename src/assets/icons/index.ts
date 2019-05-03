@@ -249,6 +249,18 @@ export const ListIconFill = (style: StyleProp<ImageStyle>): IconElement => {
   return Icon(evaIcons.listFill, style);
 };
 
+export const GoogleIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  return Icon(evaIcons.googleFill, style);
+};
+
+export const FacebookIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  return Icon(evaIcons.facebookFill, style);
+};
+
+export const TwitterIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  return Icon(evaIcons.twitterFill, style);
+};
+
 const evaIcons: { [key: string]: IconSource } = {
   arrowForwardFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png'),
   backArrowFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png'),

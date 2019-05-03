@@ -13,38 +13,38 @@ import {
   ValidationInput,
 } from '@src/components/common';
 import {
+  EmailIconFill,
+  LockIconFill,
+} from '@src/assets/icons';
+import {
   EmailValidator,
   PasswordValidator,
 } from '@src/core/validators';
-
-export interface SignInForm1Type {
-  email: string;
-  password: string;
-}
+import { SignInForm3Data } from './type';
 
 interface ComponentProps {
   /**
    * Will emit changes depending on validation:
    * Will be called with form value if it is valid, otherwise will be called with undefined
    */
-  onFormValueChange: (value: SignInForm1Type | undefined) => void;
+  onDataChange: (value: SignInForm3Data | undefined) => void;
 }
 
-export type SignInForm1Props = ThemedComponentProps & ViewProps & ComponentProps;
+export type SignInForm3Props = ThemedComponentProps & ViewProps & ComponentProps;
 
 interface State {
   email: string | undefined;
   password: string | undefined;
 }
 
-class SignInForm1Component extends React.Component<SignInForm1Props, State> {
+class SignInForm3Component extends React.Component<SignInForm3Props, State> {
 
   public state: State = {
     email: undefined,
     password: undefined,
   };
 
-  public componentDidUpdate(prevProps: SignInForm1Props, prevState: State) {
+  public componentDidUpdate(prevProps: SignInForm3Props, prevState: State) {
     const oldFormValid: boolean = this.isValid(prevState);
     const newFormValid: boolean = this.isValid(this.state);
 
@@ -52,24 +52,25 @@ class SignInForm1Component extends React.Component<SignInForm1Props, State> {
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
 
     if (becomeValid) {
-      this.props.onFormValueChange(this.state);
+      this.props.onDataChange(this.state);
     } else if (becomeInvalid) {
-      this.props.onFormValueChange(undefined);
+      this.props.onDataChange(undefined);
     }
   }
 
-  private onEmailInputTextChange = (email: string) => {
+  private onEmailInputTextChange = (email: string | undefined) => {
     this.setState({ email });
   };
 
-  private onPasswordInputTextChange = (password: string) => {
+  private onPasswordInputTextChange = (password: string | undefined) => {
     this.setState({ password });
   };
 
-  private isValid = (value: SignInForm1Type): boolean => {
+  private isValid = (value: SignInForm3Data): boolean => {
     const { email, password } = value;
 
-    return email !== undefined && password !== undefined;
+    return email !== undefined
+      && password !== undefined;
   };
 
   public render(): React.ReactNode {
@@ -81,22 +82,20 @@ class SignInForm1Component extends React.Component<SignInForm1Props, State> {
         style={[themedStyle.container, style]}>
         <ValidationInput
           style={themedStyle.emailInput}
-          textStyle={themedStyle.inputText}
-          labelStyle={themedStyle.inputLabel}
-          placeholderTextColor={theme['color-white']}
-          label='EMAIL'
+          textStyle={textStyle.paragraph}
+          placeholderTextColor={theme['color-basic-600']}
           placeholder='Email'
+          icon={EmailIconFill}
           validator={EmailValidator}
           onChangeText={this.onEmailInputTextChange}
         />
         <ValidationInput
           style={themedStyle.passwordInput}
-          textStyle={themedStyle.inputText}
-          labelStyle={themedStyle.inputLabel}
-          placeholderTextColor={theme['color-white']}
-          secureTextEntry={true}
+          textStyle={textStyle.paragraph}
+          placeholderTextColor={theme['color-basic-600']}
           placeholder='Password'
-          label='PASSWORD'
+          secureTextEntry={true}
+          icon={LockIconFill}
           validator={PasswordValidator}
           onChangeText={this.onPasswordInputTextChange}
         />
@@ -105,21 +104,13 @@ class SignInForm1Component extends React.Component<SignInForm1Props, State> {
   }
 }
 
-export const SignInForm1 = withStyles(SignInForm1Component, (theme: ThemeType) => ({
+export const SignInForm3 = withStyles(SignInForm3Component, (theme: ThemeType) => ({
   container: {},
   emailInput: {
-    backgroundColor: 'rgba(0, 0, 0, 0.35)',
+    backgroundColor: theme['color-white'],
   },
   passwordInput: {
     marginTop: 16,
-    backgroundColor: 'rgba(0, 0, 0, 0.35)',
-  },
-  inputLabel: {
-    color: theme['font-light-color'],
-    ...textStyle.label,
-  },
-  inputText: {
-    color: theme['font-light-color'],
-    ...textStyle.paragraph,
+    backgroundColor: theme['color-white'],
   },
 }));

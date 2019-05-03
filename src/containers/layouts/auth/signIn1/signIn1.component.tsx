@@ -17,7 +17,7 @@ import {
 import {
   SocialAuth,
   SignInForm1,
-  SignInForm1Type,
+  SignInForm1Data,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -31,7 +31,7 @@ import {
 import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
-  onSignInPress: (value: SignInForm1Type) => void;
+  onSignInPress: (formData: SignInForm1Data) => void;
   onSignUpPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
@@ -42,17 +42,17 @@ interface ComponentProps {
 export type SignIn1Props = ThemedComponentProps & ComponentProps;
 
 interface State {
-  formValue: SignInForm1Type | undefined;
+  formData: SignInForm1Data | undefined;
 }
 
 class SignIn1Component extends React.Component<SignIn1Props, State> {
 
   public state: State = {
-    formValue: undefined,
+    formData: undefined,
   };
 
   private onSignInButtonPress = () => {
-    this.props.onSignInPress(this.state.formValue);
+    this.props.onSignInPress(this.state.formData);
   };
 
   private onSignUpButtonPress = () => {
@@ -75,8 +75,8 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
     this.props.onEwaPress();
   };
 
-  private onFormValueChange = (formValue: SignInForm1Type) => {
-    this.setState({ formValue });
+  private onFormDataChange = (formData: SignInForm1Data) => {
+    this.setState({ formData });
   };
 
   private keyboardOffset = (height: number): number => {
@@ -133,12 +133,12 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           </View>
           <SignInForm1
             style={themedStyle.formContainer}
-            onFormValueChange={this.onFormValueChange}
+            onDataChange={this.onFormDataChange}
           />
           <Button
             size='large'
             textStyle={textStyle.button}
-            disabled={!this.state.formValue}
+            disabled={!this.state.formData}
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>

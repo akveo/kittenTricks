@@ -1,44 +1,39 @@
 export {
-  SocialAuth,
-  SocialAuthProps,
-} from './socialAuth.component';
-export {
-  SocialButton,
-  SocialButtonProps,
-} from './socialButton.component';
-export {
   ForgotPasswordForm,
   ForgotPasswordFormProps,
-  ForgotPasswordFormType,
-} from './forgotPassword/forgotPasswordForm.component';
+  ForgotPasswordFormData,
+} from './forgotPassword';
 export {
   SignInForm1,
   SignInForm1Props,
-  SignInForm1Type,
-} from './signIn/signInForm1.component';
+  SignInForm1Data,
+} from './signInForm1';
 export {
   SignInForm2,
   SignInForm2Props,
-  SignInForm2Type,
-} from './signIn/signInForm2.component';
+  SignInForm2Data,
+} from './signInForm2';
 export {
   SignInForm3,
   SignInForm3Props,
-  SignInForm3Type,
-} from './signIn/signInForm3.component';
+  SignInForm3Data,
+} from './signInForm3';
 export {
   SignInForm4,
   SignInForm4Props,
-  SignInForm4Type,
-} from './signIn/signInForm4.component';
+  SignInForm4Data,
+} from './signInForm4';
 export {
   SignUpForm1,
   SignUpForm1Props,
-  SignUpForm1Type,
-} from './signUp/signUpForm1.component';
+  SignUpForm1Data,
+} from './signUpForm1';
 export {
   SignUpForm2,
   SignUpForm2Props,
-  SignUpForm2Type,
-} from './signUp/signUpForm2.component';
-
+  SignUpForm2Data,
+} from './signUpForm2';
+export {
+  SocialAuth,
+  SocialAuthProps,
+} from './socialAuth';

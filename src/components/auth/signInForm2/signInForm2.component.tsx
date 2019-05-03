@@ -21,11 +21,7 @@ import {
   NameValidator,
   PasswordValidator,
 } from '@src/core/validators';
-
-export interface SignInForm2Type {
-  username: string;
-  password: string;
-}
+import { SignInForm2Data } from './type';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -33,7 +29,7 @@ interface ComponentProps {
    * Will emit changes depending on validation:
    * Will be called with form value if it is valid, otherwise will be called with undefined
    */
-  onFormValueChange: (value: SignInForm2Type | undefined) => void;
+  onDataChange: (value: SignInForm2Data | undefined) => void;
 }
 
 export type SignInForm2Props = ThemedComponentProps & ViewProps & ComponentProps;
@@ -58,9 +54,9 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
 
     if (becomeValid) {
-      this.props.onFormValueChange(this.state);
+      this.props.onDataChange(this.state);
     } else if (becomeInvalid) {
-      this.props.onFormValueChange(undefined);
+      this.props.onDataChange(undefined);
     }
   }
 
@@ -76,10 +72,11 @@ class SignInForm2Component extends React.Component<SignInForm2Props, State> {
     this.setState({ password });
   };
 
-  private isValid = (value: SignInForm2Type): boolean => {
+  private isValid = (value: SignInForm2Data): boolean => {
     const { username, password } = value;
 
-    return username !== undefined && password !== undefined;
+    return username !== undefined
+      && password !== undefined;
   };
 
   public render(): React.ReactNode {

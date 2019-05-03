@@ -11,7 +11,7 @@ import {
 } from '@kitten/ui';
 import {
   SignInForm2,
-  SignInForm2Type,
+  SignInForm2Data,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -19,7 +19,7 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  onSignInPress: (formValue: SignInForm2Type) => void;
+  onSignInPress: (formData: SignInForm2Data) => void;
   onSignUpPress: () => void;
   onForgotPasswordPress: () => void;
 }
@@ -27,17 +27,17 @@ interface ComponentProps {
 export type SignIn2Props = ThemedComponentProps & ComponentProps;
 
 interface State {
-  formValue: SignInForm2Type | undefined;
+  formData: SignInForm2Data | undefined;
 }
 
 class SignIn2Component extends React.Component<SignIn2Props> {
 
   public state: State = {
-    formValue: undefined,
+    formData: undefined,
   };
 
   private onSignInButtonPress = () => {
-    this.props.onSignInPress(this.state.formValue);
+    this.props.onSignInPress(this.state.formData);
   };
 
   private onSignUpButtonPress = () => {
@@ -48,8 +48,8 @@ class SignIn2Component extends React.Component<SignIn2Props> {
     this.props.onForgotPasswordPress();
   };
 
-  private onFormValueChange = (formValue: SignInForm2Type) => {
-    this.setState({ formValue });
+  private onFormDataChange = (formData: SignInForm2Data) => {
+    this.setState({ formData });
   };
 
   private keyboardOffset = (height: number): number => {
@@ -79,13 +79,13 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
-            onFormValueChange={this.onFormValueChange}
+            onDataChange={this.onFormDataChange}
           />
           <Button
             style={themedStyle.signInButton}
             textStyle={textStyle.button}
             size='giant'
-            disabled={!this.state.formValue}
+            disabled={!this.state.formData}
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>

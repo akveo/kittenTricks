@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ImageSourcePropType,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -17,8 +14,8 @@ import {
 import {
   SignInForm3,
   SignInForm4,
-  SignInForm3Type,
-  SignInForm4Type,
+  SignInForm3Data,
+  SignInForm4Data,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -28,8 +25,8 @@ import {
 import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
-  onSignInEmailPress: (formValue: SignInForm3Type) => void;
-  onSignInSMSPress: (formValue: SignInForm4Type) => void;
+  onSignInEmailPress: (formData: SignInForm3Data) => void;
+  onSignInSMSPress: (formData: SignInForm4Data) => void;
   onSignUpPress: () => void;
 }
 
@@ -40,29 +37,29 @@ export type SignIn5Props = ThemedComponentProps & ComponentProps;
 
 interface State {
   selectedTabIndex: number;
-  emailFormValue: SignInForm3Type;
-  smsFormValue: SignInForm4Type;
+  emailFormData: SignInForm3Data;
+  smsFormData: SignInForm4Data;
 }
 
 class SignIn5Component extends React.Component<SignIn5Props, State> {
 
   public state: State = {
     selectedTabIndex: 0,
-    emailFormValue: undefined,
-    smsFormValue: undefined,
+    emailFormData: undefined,
+    smsFormData: undefined,
   };
 
   private onSignInButtonPress = () => {
     const { selectedTabIndex } = this.state;
 
-    const formValue: SignInForm3Type | SignInForm4Type = this.getSelectedFormValue();
+    const formValue: SignInForm3Data | SignInForm4Data = this.getSelectedFormData();
 
     switch (selectedTabIndex) {
       case TAB_INDEX_EMAIL:
-        this.props.onSignInEmailPress(formValue as SignInForm3Type);
+        this.props.onSignInEmailPress(formValue as SignInForm3Data);
         break;
       case TAB_INDEX_SMS:
-        this.props.onSignInSMSPress(formValue as SignInForm4Type);
+        this.props.onSignInSMSPress(formValue as SignInForm4Data);
         break;
     }
   };
@@ -75,22 +72,22 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
     this.setState({ selectedTabIndex });
   };
 
-  private onEmailFormValueChange = (emailFormValue: SignInForm3Type | undefined) => {
-    this.setState({ emailFormValue });
+  private onEmailFormDataChange = (emailFormData: SignInForm3Data | undefined) => {
+    this.setState({ emailFormData });
   };
 
-  private onSMSFormValueChange = (smsFormValue: SignInForm4Type | undefined) => {
-    this.setState({ smsFormValue });
+  private onSMSFormDataChange = (smsFormData: SignInForm4Data | undefined) => {
+    this.setState({ smsFormData });
   };
 
-  private getSelectedFormValue = (): SignInForm3Type | SignInForm4Type => {
-    const { selectedTabIndex, emailFormValue, smsFormValue } = this.state;
+  private getSelectedFormData = (): SignInForm3Data | SignInForm4Data => {
+    const { selectedTabIndex, emailFormData, smsFormData } = this.state;
 
     switch (selectedTabIndex) {
       case TAB_INDEX_EMAIL:
-        return emailFormValue;
+        return emailFormData;
       case TAB_INDEX_SMS:
-        return smsFormValue;
+        return smsFormData;
     }
   };
 
@@ -100,7 +97,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
 
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
-    const signInButtonEnabled: boolean = !!this.getSelectedFormValue();
+    const signInButtonEnabled: boolean = !!this.getSelectedFormData();
 
     return (
       <ImageOverlay
@@ -130,7 +127,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
               title='EMAIL'>
               <SignInForm3
                 style={themedStyle.tabContentContainer}
-                onFormValueChange={this.onEmailFormValueChange}
+                onDataChange={this.onEmailFormDataChange}
               />
             </Tab>
             <Tab
@@ -139,7 +136,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
               <View>
                 <SignInForm4
                   style={themedStyle.tabContentContainer}
-                  onFormValueChange={this.onSMSFormValueChange}
+                  onDataChange={this.onSMSFormDataChange}
                 />
                 <Text
                   style={themedStyle.smsCaptionLabel}

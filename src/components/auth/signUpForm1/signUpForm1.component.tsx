@@ -9,7 +9,6 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { CheckBox } from '@kitten/ui';
-import { SignInForm3Type } from '@src/components/auth';
 import {
   textStyle,
   ValidationInput,
@@ -20,22 +19,14 @@ import {
   NameValidator,
   PasswordValidator,
 } from '@src/core/validators';
-
-export interface SignUpForm1Type {
-  firstName: string;
-  lastName: string;
-  date: string;
-  email: string;
-  password: string;
-  termsAccepted: boolean;
-}
+import { SignUpForm1Data } from './type';
 
 interface ComponentProps {
   /**
    * Will emit changes depending on validation:
    * Will be called with form value if it is valid, otherwise will be called with undefined
    */
-  onFormValueChange: (value: SignInForm3Type | undefined) => void;
+  onDataChange: (value: SignUpForm1Data | undefined) => void;
 }
 
 export type SignUpForm1Props = ThemedComponentProps & ViewProps & ComponentProps;
@@ -68,9 +59,9 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
 
     if (becomeValid) {
-      this.props.onFormValueChange(this.state);
+      this.props.onDataChange(this.state);
     } else if (becomeInvalid) {
-      this.props.onFormValueChange(undefined);
+      this.props.onDataChange(undefined);
     }
   }
 
@@ -98,7 +89,7 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
     this.setState({ termsAccepted });
   };
 
-  private isValid = (value: SignUpForm1Type): boolean => {
+  private isValid = (value: SignUpForm1Data): boolean => {
     const { firstName, lastName, date, email, password, termsAccepted } = value;
 
     return firstName !== undefined

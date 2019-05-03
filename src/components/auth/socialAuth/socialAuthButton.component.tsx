@@ -19,52 +19,34 @@ import {
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  type: 'google' | 'facebook' | 'twitter';
   iconStyle?: StyleProp<ImageStyle>;
 }
 
 export type SocialButtonProps = ThemedComponentProps & ButtonProps & ComponentProps;
 
-class SocialButtonComponent extends React.Component<SocialButtonProps> {
-
-  private getIconSource = (): ImageSourcePropType => {
-    const { type } = this.props;
-
-    return { uri: `https://akveo.github.io/eva-icons/fill/png/128/${type}.png` };
-  };
+class SocialAuthButtonComponent extends React.Component<SocialButtonProps> {
 
   private renderIcon = (style: StyleType): React.ReactElement<ImageProps> => {
-    const { iconStyle } = this.props;
+    const { icon, iconStyle } = this.props;
 
-    return (
-      <Image
-        style={[style, iconStyle]}
-        source={this.getIconSource()}
-      />
-    );
+    return icon([style, iconStyle]);
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, ...restProps } = this.props;
+    const { themedStyle, ...restProps } = this.props;
 
     return (
       <Button
-        style={style}
-        textStyle={textStyle.button}
         appearance='ghost'
         size='giant'
-        activeOpacity={0.5}
-        icon={this.renderIcon}
         {...restProps}
+        icon={this.renderIcon}
       />
     );
   }
 }
 
-export const SocialButton = withStyles(SocialButtonComponent, (theme: ThemeType) => ({
-  button: {
-    backgroundColor: theme['opacity-transparent'],
-  },
+export const SocialButton = withStyles(SocialAuthButtonComponent, (theme: ThemeType) => ({
   icon: {
     width: 24,
     height: 24,
