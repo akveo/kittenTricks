@@ -1,54 +1,43 @@
 import React from 'react';
 import {
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from 'react-native';
-import { Text } from '@kitten/ui';
+  ListItem,
+  ListItemProps,
+  Text,
+} from '@kitten/ui';
 import {
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
+import { LayoutListItemData } from './type';
 import { textStyle } from '../style';
 
-interface ListDerivedProps {
-  index?: number;
+interface ComponentProps {
+  data: LayoutListItemData;
 }
 
-// @ts-ignore
-interface TouchableProps extends TouchableOpacityProps {
-  onPress: (index: number) => void;
-}
-
-interface ComponentProps extends ListDerivedProps, TouchableProps {
-  title: string;
-  description: string;
-}
-
-export type LayoutListItemProps = ThemedComponentProps & TouchableProps & ComponentProps;
+export type LayoutListItemProps = ThemedComponentProps & ComponentProps & ListItemProps;
 
 class LayoutListItemComponent extends React.Component<LayoutListItemProps> {
 
-  private onPress = () => {
-    this.props.onPress(this.props.index);
-  };
-
   public render(): React.ReactNode {
-    const { style, themedStyle, title, description, ...restProps } = this.props;
+    const { style, themedStyle, data, ...restProps } = this.props;
 
     return (
-      <TouchableOpacity
-        activeOpacity={0.65}
+      <ListItem
         {...restProps}
-        style={[themedStyle.container, style]}
-        onPress={this.onPress}>
+        style={[themedStyle.container, style]}>
         <Text
-          style={themedStyle.title}
-          appearance='hintDark'>
-          {title}
+          style={textStyle.subtitle}
+          category='s1'>
+          {data.title}
         </Text>
-        <Text style={themedStyle.description}>{description}</Text>
-      </TouchableOpacity>
+        <Text
+          style={textStyle.paragraph}
+          appearance='hintDark'>
+          {data.description}
+        </Text>
+      </ListItem>
     );
   }
 }
@@ -57,16 +46,12 @@ export const LayoutListItem = withStyles(LayoutListItemComponent, (theme: ThemeT
   container: {
     paddingHorizontal: 16,
     paddingVertical: 16,
-    borderWidth: 1,
     borderRadius: 8,
-    borderColor: theme['color-basic-300'],
-  },
-  title: {
-    fontSize: 15,
-    ...textStyle.paragraph,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   description: {
-    marginTop: 8,
+    marginTop: 4,
     ...textStyle.subtitle,
   },
 }));

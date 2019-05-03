@@ -1,33 +1,33 @@
 import React from 'react';
 import { ListRenderItemInfo } from 'react-native';
 import {
-  withStyles,
-  ThemeType,
   ThemedComponentProps,
+  ThemeType,
+  withStyles,
 } from '@kitten/theme';
 import {
   List,
   ListProps,
 } from '@kitten/ui';
 import {
-  LayoutListItem,
-  LayoutListItemProps,
-} from './layoutListItem.component';
-import { LayoutListItemData } from './type';
+  LayoutsListItem,
+  LayoutsListItemProps,
+} from './layoutsListItem.component';
+import { LayoutsListItemData } from './type';
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
-  data: LayoutListItemData[];
-  renderItem?: (info: ListItemElementInfo) => void;
+  data: LayoutsListItemData[];
   onItemPress: (index: number) => void;
+  renderItem?: (info: ListItemElementInfo) => ListItemElement;
 }
 
-export type LayoutListProps = ThemedComponentProps & ComponentProps;
+export type LayoutsListProps = ThemedComponentProps & ComponentProps;
 
-type ListItemElement = React.ReactElement<LayoutListItemProps>;
-type ListItemElementInfo = ListRenderItemInfo<LayoutListItemData>;
+type ListItemElement = React.ReactElement<LayoutsListItemProps>;
+type ListItemElementInfo = ListRenderItemInfo<LayoutsListItemData>;
 
-class LayoutListComponent extends React.Component<LayoutListProps> {
+class LayoutsListComponent extends React.Component<LayoutsListProps> {
 
   private onItemPress = (index: number) => {
     this.props.onItemPress(index);
@@ -35,7 +35,7 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
 
   private renderItem = (info: ListItemElementInfo): ListItemElement => {
     return (
-      <LayoutListItem
+      <LayoutsListItem
         style={this.props.themedStyle.item}
         activeOpacity={0.75}
         data={info.item}
@@ -45,22 +45,23 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, ...restProps } = this.props;
+    const { themedStyle, ...restProps } = this.props;
 
     return (
       <List
-        style={[themedStyle.container, style]}
-        {...restProps}
+        numColumns={2}
         renderItem={this.renderItem}
+        {...restProps}
       />
     );
   }
 }
 
-export const LayoutList = withStyles(LayoutListComponent, (theme: ThemeType) => ({
+export const LayoutsList = withStyles(LayoutsListComponent, (theme: ThemeType) => ({
   item: {
-    marginVertical: 8,
+    flex: 1,
+    height: 160,
     marginHorizontal: 8,
-    backgroundColor: theme['color-white'],
+    marginVertical: 8,
   },
 }));

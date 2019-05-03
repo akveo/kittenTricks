@@ -1,33 +1,33 @@
 import React from 'react';
 import { ListRenderItemInfo } from 'react-native';
 import {
-  withStyles,
-  ThemeType,
   ThemedComponentProps,
+  ThemeType,
+  withStyles,
 } from '@kitten/theme';
 import {
   List,
   ListProps,
 } from '@kitten/ui';
 import {
-  LayoutListItem,
-  LayoutListItemProps,
-} from './layoutListItem.component';
-import { LayoutListItemData } from './type';
+  LayoutGridListItem,
+  LayoutGridListItemProps,
+} from './layoutGridListItem.component';
+import { LayoutGridListItemData } from './type';
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
-  data: LayoutListItemData[];
-  renderItem?: (info: ListItemElementInfo) => void;
+  data: LayoutGridListItemData[];
   onItemPress: (index: number) => void;
+  renderItem?: (info: ListItemElementInfo) => ListItemElement;
 }
 
-export type LayoutListProps = ThemedComponentProps & ComponentProps;
+export type LayoutGridListProps = ThemedComponentProps & ComponentProps;
 
-type ListItemElement = React.ReactElement<LayoutListItemProps>;
-type ListItemElementInfo = ListRenderItemInfo<LayoutListItemData>;
+type ListItemElement = React.ReactElement<LayoutGridListItemProps>;
+type ListItemElementInfo = ListRenderItemInfo<LayoutGridListItemData>;
 
-class LayoutListComponent extends React.Component<LayoutListProps> {
+class LayoutGridListComponent extends React.Component<LayoutGridListProps> {
 
   private onItemPress = (index: number) => {
     this.props.onItemPress(index);
@@ -35,7 +35,7 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
 
   private renderItem = (info: ListItemElementInfo): ListItemElement => {
     return (
-      <LayoutListItem
+      <LayoutGridListItem
         style={this.props.themedStyle.item}
         activeOpacity={0.75}
         data={info.item}
@@ -45,22 +45,20 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, ...restProps } = this.props;
-
     return (
       <List
-        style={[themedStyle.container, style]}
-        {...restProps}
+        numColumns={2}
         renderItem={this.renderItem}
+        {...this.props}
       />
     );
   }
 }
 
-export const LayoutList = withStyles(LayoutListComponent, (theme: ThemeType) => ({
+export const LayoutGridList = withStyles(LayoutGridListComponent, (theme: ThemeType) => ({
   item: {
+    flex: 1,
     marginVertical: 8,
     marginHorizontal: 8,
-    backgroundColor: theme['color-white'],
   },
 }));
