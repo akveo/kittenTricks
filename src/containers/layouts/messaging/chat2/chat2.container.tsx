@@ -7,7 +7,11 @@ import {
   Permissions,
   MediaLibrary,
 } from 'expo';
-import { ChatFileMessageAppearance } from '@src/components/messaging';
+import {
+  ChatHeader,
+  ChatHeaderNavigationStateParams,
+  ChatFileMessageAppearance,
+} from '@src/components/messaging';
 import {
   Conversation,
   FileType,
@@ -19,12 +23,8 @@ import {
   profile1,
   profile2,
 } from '@src/core/data/profile';
-import { Chat2 } from './chat2.component';
-import {
-  ChatHeader,
-  ChatHeaderNavigationStateParams,
-} from '../chat.header';
 import { TopNavigationElement } from '@src/core/navigation/navigationParams';
+import { Chat2 } from './chat2.component';
 
 interface State {
   newMessageText: string;

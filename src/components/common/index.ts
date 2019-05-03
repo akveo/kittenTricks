@@ -43,18 +43,14 @@ export {
   ValidationInputProps,
 } from './validationInput.component';
 export {
-  LayoutList,
-  LayoutListProps,
-  ListItem,
-} from './layoutList/layoutList.component';
-export {
-  LayoutListItem,
-  LayoutListItemProps,
-} from './layoutList/layoutListItem.component';
-export {
   Chips,
   ChipsProps,
 } from './chips.component';
+export {
+  LayoutMenu,
+  LayoutMenuProps,
+  LayoutMenuItemData,
+} from './layoutMenu';
 export {
   textStyle,
 } from './style';

@@ -1,25 +1,18 @@
 import React from 'react';
-import { ListRenderItemInfo } from 'react-native';
 import {
   withStyles,
   ThemeType,
   ThemedComponentProps,
 } from '@kitten/theme';
-import {
-  List,
-  ListItemProps,
-} from '@kitten/ui';
-import { ListItem } from './layouts.container';
-import { LayoutsListItem } from './layoutsListItem.component';
+import { LayoutsList } from '@src/components/menu';
+import { LayoutsData } from './type';
 
 interface ComponentProps {
-  items: ListItem[];
+  data: LayoutsData[];
   onItemSelect: (index: number) => void;
 }
 
 type Props = ThemedComponentProps & ComponentProps;
-
-type ListItemElement = React.ReactElement<ListItemProps>;
 
 class LayoutsComponent extends React.Component<Props> {
 
@@ -27,38 +20,15 @@ class LayoutsComponent extends React.Component<Props> {
     this.props.onItemSelect(index);
   };
 
-  private renderItemElement = (item: ListItem): ListItemElement => {
-    const { themedStyle } = this.props;
-
-    return (
-      <LayoutsListItem
-        style={themedStyle.item}
-        activeOpacity={0.75}
-        title={item.title}
-        icon={item.icon}
-        onPress={this.onItemPress}
-      />
-    );
-  };
-
-  private renderItem = (info: ListRenderItemInfo<ListItem>): ListItemElement => {
-    const { item, index } = info;
-
-    const listItemElement: ListItemElement = this.renderItemElement(item);
-
-    return React.cloneElement(listItemElement, { index });
-  };
-
   public render(): React.ReactNode {
-    const { themedStyle, items } = this.props;
+    const { themedStyle, data } = this.props;
 
     return (
-      <List
+      <LayoutsList
         style={themedStyle.container}
         contentContainerStyle={themedStyle.contentContainer}
-        numColumns={2}
-        data={items}
-        renderItem={this.renderItem}
+        data={data}
+        onItemPress={this.onItemPress}
       />
     );
   }

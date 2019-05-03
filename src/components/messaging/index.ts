@@ -1,4 +1,9 @@
 export {
+  ChatHeader,
+  ChatHeaderProps,
+  ChatHeaderNavigationStateParams,
+} from './chat.header';
+export {
   Conversation,
   ConversationProps,
 } from './conversation.component';

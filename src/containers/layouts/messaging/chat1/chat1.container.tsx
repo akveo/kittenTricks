@@ -4,6 +4,10 @@ import {
   NavigationScreenConfig,
 } from 'react-navigation';
 import {
+  ChatHeader,
+  ChatHeaderNavigationStateParams,
+} from '@src/components/messaging';
+import {
   Conversation,
   Message,
   Profile,
@@ -13,12 +17,8 @@ import {
   profile1,
   profile2,
 } from '@src/core/data/profile';
-import { Chat1 } from './chat1.component';
-import {
-  ChatHeader,
-  ChatHeaderNavigationStateParams,
-} from '../chat.header';
 import { TopNavigationElement } from '@src/core/navigation/navigationParams';
+import { Chat1 } from './chat1.component';
 
 interface State {
   newMessageText: string;

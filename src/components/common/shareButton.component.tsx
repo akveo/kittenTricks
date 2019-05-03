@@ -11,7 +11,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
-import { HeartIcon } from '@src/assets/icons';
+import { ShareIcon } from '@src/assets/icons';
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
@@ -34,7 +34,7 @@ class ShareButtonComponent extends React.Component<ShareButtonProps> {
           category='p2'>
           {children}
         </Text>
-        {HeartIcon(themedStyle.icon)}
+        {ShareIcon(themedStyle.icon)}
       </TouchableOpacity>
     );
   }
