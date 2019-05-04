@@ -11,6 +11,6 @@ export {
   ArticleTipsProps,
 } from './articleTips.component';
 export {
-  CommentsList,
-  CommentsListProps,
-} from './commentList/commentsList.component';
+  CommentsList1,
+  CommentsList1Props,
+} from './commentList1/commentList1.component';

@@ -29,12 +29,12 @@ class CommentsButtonComponent extends React.Component<CommentsButtonProps> {
       <TouchableOpacity
         style={[themedStyle.container, style]}
         {...restProps}>
+        {MessageCircleIconOutline(themedStyle.icon)}
         <Text
           style={[themedStyle.valueLabel, textStyle]}
           category='p2'>
           {children}
         </Text>
-        {MessageCircleIconOutline(themedStyle.icon)}
       </TouchableOpacity>
     );
   }

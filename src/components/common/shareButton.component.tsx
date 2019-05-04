@@ -29,12 +29,12 @@ class ShareButtonComponent extends React.Component<ShareButtonProps> {
       <TouchableOpacity
         style={[themedStyle.container, style]}
         {...restProps}>
+        {ShareIcon(themedStyle.icon)}
         <Text
           style={[themedStyle.valueLabel, textStyle]}
           category='p2'>
           {children}
         </Text>
-        {ShareIcon(themedStyle.icon)}
       </TouchableOpacity>
     );
   }

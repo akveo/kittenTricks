@@ -14,7 +14,7 @@ import {
   Text,
 } from '@kitten/ui';
 import { BookHeader } from '@src/components/ecommerce';
-import { CommentsList } from '@src/components/articles';
+import { CommentsList1 } from '@src/components/articles';
 import {
   Book,
   Comment,
@@ -28,9 +28,9 @@ interface ComponentProps {
   onBuyBook: () => void;
   onCommentSubmit: () => void;
   onCommentTextChange: (text: string) => void;
-  onCommentItemPress: (index: number) => void;
-  onCommentPress: (index: number) => void;
-  onLikePress: (index: number) => void;
+  onCommentLikePress: (index: number) => void;
+  onCommentMorePress: (index: number) => void;
+  onCommentReplyMorePress: (index: number) => void;
 }
 
 export type BookDetailsProps = ThemedComponentProps & ComponentProps;
@@ -41,16 +41,16 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
     this.props.onBuyBook();
   };
 
-  private onCommentButtonPress = (index: number) => {
-    this.props.onCommentPress(index);
+  private onCommentLikePress = (index: number) => {
+    this.props.onCommentLikePress(index);
   };
 
-  private onLikeButtonPress = (index: number) => {
-    this.props.onLikePress(index);
+  private onCommentMorePress = (index: number) => {
+    this.props.onCommentMorePress(index);
   };
 
-  private onMoreButtonPress = (index: number) => {
-    this.props.onCommentItemPress(index);
+  private onCommentReplyMorePress = (index: number) => {
+    this.props.onCommentReplyMorePress(index);
   };
 
   private onCommentTextChange = (text: string): void => {
@@ -108,11 +108,11 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
               onSubmitEditing={this.handleTextSubmit}
             />
           </View>
-          <CommentsList
+          <CommentsList1
             data={comments}
-            onMorePress={this.onMoreButtonPress}
-            onLikePress={this.onLikeButtonPress}
-            onCommentPress={this.onCommentButtonPress}
+            onLikePress={this.onCommentLikePress}
+            onMorePress={this.onCommentMorePress}
+            onReplyMorePress={this.onCommentReplyMorePress}
           />
         </View>
       </ScrollView>

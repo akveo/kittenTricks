@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Animated,
   ListRenderItemInfo,
   ViewStyle,
 } from 'react-native';
@@ -15,34 +14,36 @@ import {
 } from '@kitten/ui';
 import { Comment } from '@src/core/model';
 import {
-  Comment as CommentComponent,
-  CommentProps,
-} from './comment.component';
+  CommentList1Item,
+  CommentList1ItemProps,
+} from './commentList1Item.component';
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
-  onMorePress: (index: number) => void;
+  data: Comment[];
   onLikePress: (index: number) => void;
-  onCommentPress: (index: number) => void;
-  renderItem?: (info: ListRenderItemInfo<Comment>) => ListItemElement;
+  onMorePress: (index: number) => void;
+  onReplyMorePress: (index: number) => void;
+  renderItem?: (info: ListItemElementInfo) => ListItemElement;
 }
 
-export type CommentsListProps = ThemedComponentProps & ComponentProps;
+export type CommentsList1Props = ThemedComponentProps & ComponentProps;
 
-type ListItemElement = React.ReactElement<CommentProps>;
+type ListItemElement = React.ReactElement<CommentList1ItemProps>;
+type ListItemElementInfo = ListRenderItemInfo<Comment>;
 
-class CommentsListComponent extends React.Component<CommentsListProps> {
+class CommentList1Component extends React.Component<CommentsList1Props> {
 
-  private onMorePress = (index: number) => {
+  private onItemMorePress = (index: number) => {
     this.props.onMorePress(index);
   };
 
-  private onLikePress = (index: number) => {
+  private onItemLikePress = (index: number) => {
     this.props.onLikePress(index);
   };
 
-  private onCommentPress = (index: number) => {
-    this.props.onCommentPress(index);
+  private onItemReplyMorePress = (index: number) => {
+    this.props.onReplyMorePress(index);
   };
 
   private isLastItem = (index: number): boolean => {
@@ -55,17 +56,17 @@ class CommentsListComponent extends React.Component<CommentsListProps> {
     const { themedStyle } = this.props;
 
     return (
-      <CommentComponent
+      <CommentList1Item
         style={themedStyle.item}
         comment={comment}
-        onLikePress={this.onLikePress}
-        onCommentPress={this.onCommentPress}
-        onProfilePress={this.onMorePress}
+        onLikePress={this.onItemLikePress}
+        onMorePress={this.onItemMorePress}
+        onReplyMorePress={this.onItemReplyMorePress}
       />
     );
   };
 
-  private renderItem = (info: ListRenderItemInfo<Comment>): ListItemElement => {
+  private renderItem = (info: ListItemElementInfo): ListItemElement => {
     const { themedStyle } = this.props;
     const { item, index } = info;
 
@@ -79,25 +80,21 @@ class CommentsListComponent extends React.Component<CommentsListProps> {
   };
 
   public render(): React.ReactNode {
-    const { contentContainerStyle, themedStyle, data, ...restProps } = this.props;
+    const { contentContainerStyle, themedStyle, ...restProps } = this.props;
 
     return (
       <List
         {...restProps}
-        contentContainerStyle={[contentContainerStyle, themedStyle.container]}
-        data={data}
         renderItem={this.renderItem}
       />
     );
   }
 }
 
-export const CommentsList = withStyles(CommentsListComponent, (theme: ThemeType) => ({
-  container: {
-    flex: 1,
-    backgroundColor: theme['color-white'],
-  },
+export const CommentsList1 = withStyles(CommentList1Component, (theme: ThemeType) => ({
   item: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
     backgroundColor: theme['color-white'],
   },
   itemBorder: {
