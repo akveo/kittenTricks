@@ -1,32 +1,25 @@
 import React from 'react';
-import {
-  ListRenderItemInfo,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   withStyles,
   ThemeType,
   ThemedComponentProps,
 } from '@kitten/theme';
+import { Input } from '@kitten/ui';
 import {
-  Input,
-  List,
-  ListItemProps,
-} from '@kitten/ui';
-import { SearchIconOutline } from '@src/assets/icons';
+  ComponentsList,
+  ComponentsListItemData,
+} from '@src/components/menu';
 import { textStyle } from '@src/components/common';
-import { ListItem } from './components.container';
-import { ComponentsListItem } from './componentsListItem.component';
+import { SearchIconOutline } from '@src/assets/icons';
 
 interface ComponentProps {
-  items: ListItem[];
+  data: ComponentsListItemData[];
   onQueryChange: (query: string) => void;
   onItemSelect: (index: number) => void;
 }
 
 type Props = ThemedComponentProps & ComponentProps;
-
-type ListItemElement = React.ReactElement<ListItemProps>;
 
 class ComponentsComponent extends React.Component<Props> {
 
@@ -38,30 +31,8 @@ class ComponentsComponent extends React.Component<Props> {
     this.props.onItemSelect(index);
   };
 
-  private renderItemElement = (item: ListItem): ListItemElement => {
-    const { themedStyle } = this.props;
-
-    return (
-      <ComponentsListItem
-        style={themedStyle.item}
-        activeOpacity={0.75}
-        title={item.title}
-        onPress={this.onItemPress}>
-        {item.view()}
-      </ComponentsListItem>
-    );
-  };
-
-  private renderItem = (info: ListRenderItemInfo<ListItem>): ListItemElement => {
-    const { item, index } = info;
-
-    const listItemElement: ListItemElement = this.renderItemElement(item);
-
-    return React.cloneElement(listItemElement, { index });
-  };
-
   public render(): React.ReactNode {
-    const { themedStyle, items } = this.props;
+    const { themedStyle, data } = this.props;
 
     return (
       <View style={themedStyle.container}>
@@ -72,11 +43,10 @@ class ComponentsComponent extends React.Component<Props> {
           icon={SearchIconOutline}
           onChangeText={this.onSearchInputTextChange}
         />
-        <List
-          contentContainerStyle={themedStyle.listContentContainer}
-          numColumns={2}
-          data={items}
-          renderItem={this.renderItem}
+        <ComponentsList
+          contentContainerStyle={themedStyle.contentContainer}
+          data={data}
+          onItemPress={this.onItemPress}
         />
       </View>
     );
@@ -89,18 +59,12 @@ export const Components = withStyles(ComponentsComponent, (theme: ThemeType) => 
     paddingTop: 24,
     backgroundColor: theme['color-basic-100'],
   },
+  contentContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+  },
   searchInput: {
     marginHorizontal: 24,
     backgroundColor: theme['color-white'],
-  },
-  listContentContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  item: {
-    flex: 1,
-    height: 160,
-    marginHorizontal: 8,
-    marginVertical: 8,
   },
 }));
