@@ -14,7 +14,10 @@ export class MovieDetailsContainer extends React.Component<NavigationScreenProps
     movie: movie1,
   };
 
-  private onBuyTicketPress = (): void => {
+  private onScreenshotPress = (index: number) => {
+  };
+
+  private onBuyTicketPress = () => {
     this.props.navigation.navigate('Payment');
   };
 
@@ -23,6 +26,7 @@ export class MovieDetailsContainer extends React.Component<NavigationScreenProps
       <Movie
         movie={this.state.movie}
         onBuyTicket={this.onBuyTicketPress}
+        onScreenshotPress={this.onScreenshotPress}
       />
     );
   }

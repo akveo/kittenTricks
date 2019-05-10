@@ -10,10 +10,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Button,
-  Text,
-} from '@kitten/ui';
+import { Button } from '@kitten/ui';
 import {
   SignUpForm2,
   SignUpForm2Type,
@@ -59,6 +56,10 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
     this.props.onSignUpPress(this.state.formValue);
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 56;
+  };
+
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -82,8 +83,8 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <View style={themedStyle.container}>
+      <View style={themedStyle.container}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
               style={themedStyle.photo}
@@ -104,16 +105,16 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
             onPress={this.onSignUpButtonPress}>
             SIGN UP
           </Button>
-          <Button
-            style={themedStyle.signInButton}
-            textStyle={themedStyle.signInText}
-            appearance='ghost'
-            activeOpacity={0.75}
-            onPress={this.onSignInButtonPress}>
-            Already have an account? Sign In
-          </Button>
-        </View>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+        <Button
+          style={themedStyle.signInButton}
+          textStyle={themedStyle.signInText}
+          appearance='ghost'
+          activeOpacity={0.75}
+          onPress={this.onSignInButtonPress}>
+          Already have an account? Sign In
+        </Button>
+      </View>
     );
   }
 }

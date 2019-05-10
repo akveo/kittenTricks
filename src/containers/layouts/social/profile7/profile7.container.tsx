@@ -7,7 +7,7 @@ import {
 } from '@src/core/model';
 import { Profile7 } from './profile7.component';
 import {
-  profile4,
+  profile1,
   profileActivity1,
   profileSocials1,
 } from '@src/core/data/profile';
@@ -21,7 +21,7 @@ interface State {
 export class Profile7Container extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
-    profile: profile4,
+    profile: profile1,
     socials: profileSocials1,
     activity: profileActivity1,
   };

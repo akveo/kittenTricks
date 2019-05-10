@@ -1,12 +1,10 @@
 import React from 'react';
 import {
-  Image,
   ImageProps,
   View,
   TouchableOpacity,
   TouchableOpacityProps,
 } from 'react-native';
-import { Exercise } from '@src/core/model/exercise.model';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -15,12 +13,14 @@ import {
 import { Text } from '@kitten/ui';
 import {
   Chips,
+  ImageOverlay,
   textStyle,
 } from '@src/components/common';
 import {
   ClockIcon,
   ForwardArrowIcon,
 } from '@src/assets/icons';
+import { Exercise } from '@src/core/model/exercise.model';
 
 interface ComponentProps {
   training: Exercise;
@@ -48,7 +48,7 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
         activeOpacity={0.95}
         onPress={this.onDetails}>
         <View style={[themedStyle.container, style]}>
-          <Image
+          <ImageOverlay
             style={[themedStyle.subContainer, themedStyle.leftSection]}
             source={{ uri: training.image }}/>
           <View style={[themedStyle.subContainer, themedStyle.rightSection]}>

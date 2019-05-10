@@ -1,7 +1,9 @@
 import React from 'react';
 import {
   Image,
+  ImageProps,
   ImageSourcePropType,
+  StyleSheet,
   TouchableOpacity,
   TouchableOpacityProps,
   ViewProps,
@@ -12,50 +14,23 @@ import {
   withStyles,
 } from '@kitten/theme';
 
-interface ListDerivedProps {
-  index?: number;
-}
-
-// @ts-ignore
-interface TouchableProps extends TouchableOpacityProps {
-  onPress: (index: number) => void;
-}
-
-interface ComponentProps extends ListDerivedProps, TouchableProps {
-  source: ImageSourcePropType;
-}
-
-export type ProfileActivityList2ItemProps = ThemedComponentProps & ViewProps & ComponentProps;
+export type ProfileActivityList2ItemProps = ThemedComponentProps & ImageProps;
 
 class ProfileActivityList2ItemComponent extends React.Component<ProfileActivityList2ItemProps> {
 
-  private onPress = () => {
-    this.props.onPress(this.props.index);
-  };
-
   public render(): React.ReactNode {
-    const { style, themedStyle, source, ...restProps } = this.props;
+    const { style, themedStyle, ...restProps } = this.props;
 
     return (
-      <TouchableOpacity
-        {...restProps}
+      <Image
         style={[themedStyle.container, style]}
-        onPress={this.onPress}>
-        <Image
-          style={themedStyle.image}
-          source={source}
-        />
-      </TouchableOpacity>
+        resizeMode='center'
+        {...restProps}
+      />
     );
   }
 }
 
 export const ProfileActivityList2Item = withStyles(ProfileActivityList2ItemComponent, (theme: ThemeType) => ({
-  container: {
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
-  image: {
-    flex: 1,
-  },
+  container: {},
 }));
