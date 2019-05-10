@@ -11,6 +11,7 @@ import {
 } from '@kitten/theme';
 import {
   List,
+  ListItem,
   ListProps,
 } from '@kitten/ui';
 import {
@@ -35,25 +36,20 @@ class ProfileActivityList2Component extends React.Component<ProfileActivityList2
     this.props.onItemPress(index);
   };
 
-  private renderListItemElement = (item: ImageSourcePropType): ListItemElement => {
+  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
     const { themedStyle } = this.props;
 
     return (
-      <ProfileActivityList2Item
-        style={themedStyle.item}
+      <ListItem
+        style={themedStyle.itemContainer}
         activeOpacity={0.75}
-        source={item}
-        onPress={this.onItemPress}
-      />
+        onPress={this.onItemPress}>
+        <ProfileActivityList2Item
+          style={themedStyle.item}
+          source={info.item}
+        />
+      </ListItem>
     );
-  };
-
-  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
-    const { item, index } = info;
-
-    const listItemElement: ListItemElement = this.renderListItemElement(item);
-
-    return React.cloneElement(listItemElement, { index });
   };
 
   public render(): React.ReactNode {
@@ -73,10 +69,16 @@ class ProfileActivityList2Component extends React.Component<ProfileActivityList2
 
 export const ProfileActivityList2 = withStyles(ProfileActivityList2Component, (theme: ThemeType) => ({
   container: {},
+  itemContainer: {
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    marginHorizontal: 8,
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: theme['color-basic-200'],
+  },
   item: {
     width: 120,
     height: 120,
-    marginHorizontal: 8,
-    backgroundColor: theme['color-basic-200'],
   },
 }));

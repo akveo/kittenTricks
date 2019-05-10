@@ -30,6 +30,7 @@ import {
   ForwardIcon,
   HeartIcon,
 } from '@src/assets/icons';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onSignUpPress: (value: SignUpForm1Type) => void;
@@ -50,11 +51,6 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private headerImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1480264104733-84fb0b925be3?ixlib=rb-1.2
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
   };
 
   private onFormValueChange = (formValue: SignUpForm1Type) => {
@@ -85,6 +81,10 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
     this.props.onEwaPress();
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 16;
+  };
+
   private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -101,11 +101,11 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ScrollView style={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <ImageOverlay
             style={themedStyle.headerContainer}
-            source={this.headerImage}>
+            source={backgroundImage}>
             <Button
               style={themedStyle.ewaButton}
               textStyle={textStyle.button}
@@ -171,8 +171,8 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             onPress={this.onSignUpButtonPress}>
             SIGN UP
           </Button>
-        </ScrollView>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+      </ScrollView>
     );
   }
 }

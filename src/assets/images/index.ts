@@ -1,1 +1,10 @@
-export const overlayLogin1 = require('./overlay-login-1.png');
+export const backgroundImage = require('./image-background.png');
+export const apartmentImage = require('./image-apartment.png');
+export const feedImage1 = require('./image-feed-plant-1.png');
+export const feedImage2 = require('./image-feed-plant-2.png');
+export const feedImage3 = require('./image-feed-plant-3.png');
+export const feedImage4 = require('./image-feed-style-1.png');
+export const feedImage5 = require('./image-feed-style-2.png');
+export const feedImage6 = require('./image-feed-style-3.png');
+export const feedImage7 = require('./image-feed-travel-1.png');
+export const feedImage8 = require('./image-feed-travel-2.png');

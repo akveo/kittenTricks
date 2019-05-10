@@ -80,7 +80,7 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
           </Text>
           <View style={themedStyle.controlsContainer}>
             <Button
-              style={[themedStyle.controlButton, themedStyle.timingButton]}
+              style={themedStyle.timingButton}
               textStyle={themedStyle.controlButtonText}
               appearance='ghost'
               icon={this.renderTimingIcon}
@@ -88,7 +88,6 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
               {training.duration}
             </Button>
             <Button
-              style={themedStyle.controlButton}
               textStyle={themedStyle.controlButtonText}
               appearance='ghost'
               icon={this.renderEnergyIcon}
@@ -120,13 +119,11 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
     flexDirection: 'row',
     alignItems: 'center',
   },
-  controlButton: {
-    maxWidth: 90,
-    fontSize: 13,
-    fontWeight: 'normal',
-  },
   controlButtonText: {
     color: theme['color-basic-600'],
+    fontSize: 13,
+    fontWeight: 'normal',
+    ...textStyle.button,
   },
   timingButton: {
     marginLeft: 8,

@@ -54,7 +54,8 @@ class ProductListItemComponent extends React.Component<ProductListItemProps> {
         onPress={this.onPress}>
         <Image
           source={image}
-          style={themedStyle.image}/>
+          style={themedStyle.image}
+        />
         <View style={themedStyle.infoContainer}>
           <View>
             <Text
@@ -108,6 +109,7 @@ export const ProductListItem = withStyles(ProductListItemComponent, (theme: Them
   image: {
     flex: 1,
     height: 140,
+    backgroundColor: theme['color-basic-100'],
   },
   nameLabel: textStyle.subtitle,
   typeLabel: textStyle.caption1,

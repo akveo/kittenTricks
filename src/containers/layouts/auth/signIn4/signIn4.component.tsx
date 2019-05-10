@@ -20,8 +20,10 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   textStyle,
 } from '@src/components/common';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -42,11 +44,6 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
 
   public state: State = {
     formValue: undefined,
-  };
-
-  private backgroundImage: ImageSourcePropType = {
-    uri: `https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-1.2
-    .1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80`,
   };
 
   private onForgotPasswordButtonPress = () => {
@@ -73,19 +70,22 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
     this.props.onTwitterPress();
   };
 
-
   private onFormValueChange = (formValue: SignInForm2Type) => {
     this.setState({ formValue });
+  };
+
+  private keyboardOffset = (height: number): number => {
+    return height - 176;
   };
 
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ImageBackground
-          style={themedStyle.container}
-          source={this.backgroundImage}>
+      <ImageOverlay
+        style={themedStyle.container}
+        source={backgroundImage}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
@@ -113,24 +113,24 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-          <SocialAuth
-            style={themedStyle.socialAuthContainer}
-            iconStyle={themedStyle.socialAuthIcon}
-            hint='Or Sign In using Social Media'
-            onGooglePress={this.onGoogleButtonPress}
-            onFacebookPress={this.onFacebookButtonPress}
-            onTwitterPress={this.onTwitterButtonPress}
-          />
-          <Button
-            style={themedStyle.signUpButton}
-            textStyle={themedStyle.signUpText}
-            appearance='ghost'
-            activeOpacity={0.75}
-            onPress={this.onSignUpButtonPress}>
-            Don't have an account? Sign Up
-          </Button>
-        </ImageBackground>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+        <SocialAuth
+          style={themedStyle.socialAuthContainer}
+          iconStyle={themedStyle.socialAuthIcon}
+          hint='Or Sign In using Social Media'
+          onGooglePress={this.onGoogleButtonPress}
+          onFacebookPress={this.onFacebookButtonPress}
+          onTwitterPress={this.onTwitterButtonPress}
+        />
+        <Button
+          style={themedStyle.signUpButton}
+          textStyle={themedStyle.signUpText}
+          appearance='ghost'
+          activeOpacity={0.75}
+          onPress={this.onSignUpButtonPress}>
+          Don't have an account? Sign Up
+        </Button>
+      </ImageOverlay>
     );
   }
 }

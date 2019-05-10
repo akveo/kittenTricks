@@ -3,6 +3,7 @@ import {
   Dimensions,
   FlexStyle,
   ImageSourcePropType,
+  ImageStyle,
   ListRenderItemInfo,
   ScaledSize,
 } from 'react-native';
@@ -14,6 +15,7 @@ import {
 } from '@kitten/theme';
 import {
   List,
+  ListItem,
   ListProps,
 } from '@kitten/ui';
 import {
@@ -44,31 +46,26 @@ class ProfileActivityList3Component extends React.Component<ProfileActivityList3
     this.props.onItemPress(index);
   };
 
-  private renderListItemElement = (item: ImageSourcePropType): ListItemElement => {
+  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
     const { themedStyle, numColumns } = this.props;
 
     const size: number = dimensions.width / numColumns;
-    const sizeStyle: FlexStyle = {
+    const sizeStyle: ImageStyle = {
       width: size,
       height: size,
     };
 
     return (
-      <ProfileActivityList3Item
-        style={[themedStyle.item, sizeStyle]}
+      <ListItem
+        style={themedStyle.item}
         activeOpacity={0.75}
-        source={item}
-        onPress={this.onItemPress}
-      />
+        onPress={this.onItemPress}>
+        <ProfileActivityList3Item
+          style={sizeStyle}
+          source={info.item}
+        />
+      </ListItem>
     );
-  };
-
-  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
-    const { item, index } = info;
-
-    const listItemElement: ListItemElement = this.renderListItemElement(item);
-
-    return React.cloneElement(listItemElement, { index });
   };
 
   public render(): React.ReactNode {
@@ -87,6 +84,8 @@ class ProfileActivityList3Component extends React.Component<ProfileActivityList3
 export const ProfileActivityList3 = withStyles(ProfileActivityList3Component, (theme: ThemeType) => ({
   container: {},
   item: {
+    paddingHorizontal: 0,
+    paddingVertical: 0,
     backgroundColor: theme['color-basic-100'],
   },
 }));

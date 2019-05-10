@@ -1,10 +1,12 @@
+import { ImageRequireSource } from 'react-native';
+
 export interface Apartment {
   title: string;
   description: string;
   price: number;
   primaryFacilities: ApartmentFacility[];
   facilities: ApartmentFacility[];
-  primaryPhoto: string;
+  primaryPhoto: ImageRequireSource;
   photos: string[];
 }
 

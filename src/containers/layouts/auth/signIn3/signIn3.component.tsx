@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  ImageBackground,
-  ImageSourcePropType,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -19,8 +15,10 @@ import {
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
+  ImageOverlay,
   textStyle,
 } from '@src/components/common';
+import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -40,10 +38,6 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
     formValue: undefined,
   };
 
-  private backgroundImage: ImageSourcePropType = {
-    uri: 'https://images.unsplash.com/photo-1536431311719-398b6704d4cc',
-  };
-
   private onSignInButtonPress = () => {
     this.props.onSignInPress(this.state.formValue);
   };
@@ -60,14 +54,18 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
     this.setState({ formValue });
   };
 
+  private keyboardOffset = (height: number): number => {
+    return height - 56;
+  };
+
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
     return (
-      <AvoidKeyboard>
-        <ImageBackground
-          style={themedStyle.container}
-          source={this.backgroundImage}>
+      <ImageOverlay
+        style={themedStyle.container}
+        source={backgroundImage}>
+        <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
@@ -95,16 +93,16 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-          <Button
-            style={themedStyle.signUpButton}
-            textStyle={themedStyle.signUpText}
-            appearance='ghost'
-            activeOpacity={0.75}
-            onPress={this.onSignUpButtonPress}>
-            Don't have an account? Sign Up
-          </Button>
-        </ImageBackground>
-      </AvoidKeyboard>
+        </AvoidKeyboard>
+        <Button
+          style={themedStyle.signUpButton}
+          textStyle={themedStyle.signUpText}
+          appearance='ghost'
+          activeOpacity={0.75}
+          onPress={this.onSignUpButtonPress}>
+          Don't have an account? Sign Up
+        </Button>
+      </ImageOverlay>
     );
   }
 }
