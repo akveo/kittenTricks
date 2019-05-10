@@ -1,9 +1,10 @@
 import React from 'react';
+import { Alert } from 'react-native';
 import {
   NavigationParams,
   NavigationScreenProps,
 } from 'react-navigation';
-import { Alert } from 'react-native';
+import { EcommerceHeader } from '@src/components/ecommerce';
 import { MenuContainer } from '@src/containers/menu';
 import { BackArrowIcon } from '@src/assets/icons';
 import { TopNavigationBar } from './components/topNavigationBar.component';
@@ -11,7 +12,6 @@ import {
   getCurrentRouteState,
   NavigationRouteState,
 } from './routeUtil';
-import { EcommerceHeader } from '@src/containers/layouts/ecommerce/ecommerce.header';
 
 export type TopNavigationElement = React.ReactElement<any>;
 export type BottomNavigationElement = React.ReactElement<any>;

@@ -13,52 +13,43 @@ import {
   LayoutListItem,
   LayoutListItemProps,
 } from './layoutListItem.component';
-
-export interface ListItem {
-  title: string;
-  description: string;
-}
+import { LayoutListItemData } from './type';
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
-  renderItem?: () => void;
-  onItemSelect: (index: number) => void;
+  data: LayoutListItemData[];
+  renderItem?: (info: ListItemElementInfo) => void;
+  onItemPress: (index: number) => void;
 }
 
 export type LayoutListProps = ThemedComponentProps & ComponentProps;
 
+type ListItemElement = React.ReactElement<LayoutListItemProps>;
+type ListItemElementInfo = ListRenderItemInfo<LayoutListItemData>;
+
 class LayoutListComponent extends React.Component<LayoutListProps> {
 
-  private onItemPress = (index: number): void => {
-    this.props.onItemSelect(index);
+  private onItemPress = (index: number) => {
+    this.props.onItemPress(index);
   };
 
-  private renderListItemElement = (item: ListItem): React.ReactElement<LayoutListItemProps> => {
+  private renderItem = (info: ListItemElementInfo): ListItemElement => {
     return (
       <LayoutListItem
         style={this.props.themedStyle.item}
-        title={item.title}
-        description={item.description}
+        activeOpacity={0.75}
+        data={info.item}
         onPress={this.onItemPress}
       />
     );
   };
 
-  private renderItem = (info: ListRenderItemInfo<ListItem>): React.ReactElement<LayoutListItemProps> => {
-    const { item, index } = info;
-
-    const listItemElement: React.ReactElement<LayoutListItemProps> = this.renderListItemElement(item);
-
-    return React.cloneElement(listItemElement, { index });
-  };
-
   public render(): React.ReactNode {
-    const { style, contentContainerStyle, themedStyle, ...restProps } = this.props;
+    const { style, themedStyle, ...restProps } = this.props;
 
     return (
       <List
         style={[themedStyle.container, style]}
-        contentContainerStyle={[themedStyle.contentContainer, contentContainerStyle]}
         {...restProps}
         renderItem={this.renderItem}
       />
@@ -67,15 +58,9 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
 }
 
 export const LayoutList = withStyles(LayoutListComponent, (theme: ThemeType) => ({
-  container: {
-    backgroundColor: theme['color-basic-100'],
-  },
-  contentContainer: {
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-  },
   item: {
-    marginVertical: 12,
+    marginVertical: 8,
+    marginHorizontal: 8,
     backgroundColor: theme['color-white'],
   },
 }));

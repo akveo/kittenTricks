@@ -119,9 +119,9 @@ export class ProductDetailsContainer extends React.Component<NavigationScreenPro
         onBuyPress={this.onBuyPress}
         onCommentTextChange={this.onCommentTextChange}
         onCommentSubmit={this.onCommentSubmit}
-        onCommentPress={this.onCommentPress}
-        onLikePress={this.onLikePress}
-        onCommentItemPress={this.onCommentItemPress}
+        onCommentLikePress={this.onLikePress}
+        onCommentMorePress={this.onCommentItemPress}
+        onCommentReplyMorePress={this.onCommentPress}
       />
     );
   }

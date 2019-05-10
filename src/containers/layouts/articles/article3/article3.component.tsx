@@ -13,7 +13,7 @@ import {
   Input,
   Text,
 } from '@kitten/ui';
-import { CommentsList } from '@src/components/articles';
+import { CommentsList1 } from '@src/components/articles';
 import { textStyle } from '@src/components/common';
 import {
   Article,
@@ -26,25 +26,25 @@ interface ComponentProps {
   currentCommentText: string;
   onCommentSubmit: () => void;
   onCommentTextChange: (text: string) => void;
-  onCommentItemPress: (index: number) => void;
-  onCommentPress: (index: number) => void;
-  onLikePress: (index: number) => void;
+  onCommentLikePress: (index: number) => void;
+  onCommentMorePress: (index: number) => void;
+  onCommentReplyMorePress: (index: number) => void;
 }
 
 export type Article3Props = ThemedComponentProps & ComponentProps;
 
 class Article3Component extends React.Component<Article3Props> {
 
-  private onCommentButtonPress = (index: number) => {
-    this.props.onCommentPress(index);
+  private onLikePress = (index: number) => {
+    this.props.onCommentLikePress(index);
   };
 
-  private onLikeButtonPress = (index: number) => {
-    this.props.onLikePress(index);
+  private onMorePress = (index: number) => {
+    this.props.onCommentMorePress(index);
   };
 
-  private onMoreButtonPress = (index: number) => {
-    this.props.onCommentItemPress(index);
+  private onReplyMorePress = (index: number) => {
+    this.props.onCommentReplyMorePress(index);
   };
 
   private onCommentTextChange = (text: string): void => {
@@ -108,11 +108,11 @@ class Article3Component extends React.Component<Article3Props> {
             onSubmitEditing={this.handleTextSubmit}
           />
         </View>
-        <CommentsList
+        <CommentsList1
           data={comments}
-          onMorePress={this.onMoreButtonPress}
-          onLikePress={this.onLikeButtonPress}
-          onCommentPress={this.onCommentButtonPress}
+          onLikePress={this.onLikePress}
+          onMorePress={this.onMorePress}
+          onReplyMorePress={this.onReplyMorePress}
         />
       </ScrollView>
     );
@@ -121,7 +121,6 @@ class Article3Component extends React.Component<Article3Props> {
 
 export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
   contentContainer: {
-    flexGrow: 1,
   },
   image: {
     minHeight: 240,

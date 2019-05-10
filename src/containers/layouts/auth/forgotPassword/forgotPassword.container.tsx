@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
-import { ForgotPasswordFormType } from '@src/components/auth';
+import { ForgotPasswordFormData } from '@src/components/auth';
 import { ForgotPassword } from './forgotPassword.component';
 
 export class ForgotPasswordContainer extends React.Component<NavigationScreenProps> {
 
-  private onResetPress = (value: ForgotPasswordFormType) => {
+  private onResetPress = (data: ForgotPasswordFormData) => {
     this.props.navigation.goBack();
   };
 

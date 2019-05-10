@@ -1,115 +1,17 @@
 import React from 'react';
-import { Alert } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
-import {
-  AvatarShowcase,
-  ButtonShowcase,
-  ButtonGroupShowcase,
-  CheckBoxShowcase,
-  InputShowcase,
-  RadioShowcase,
-  TextShowcase,
-  ToggleShowcase,
-  PopoverShowcase,
-  TooltipShowcase,
-  OverflowMenuShowcase,
-} from '@src/containers/components';
-import { ComplexComponentShowcase } from './complexShowcase.component';
 import { Components } from './components.component';
-
-export interface ListItem {
-  title: string;
-  view: () => React.ReactElement<any>;
-  route?: string;
-  action?: () => void;
-}
-
-const COMPONENTS: ListItem[] = [
-  {
-    title: 'Button',
-    view: ButtonShowcase,
-    route: 'Button',
-  },
-  {
-    title: 'Button Group',
-    view: ButtonGroupShowcase,
-    route: 'Button Group',
-  },
-  {
-    title: 'Checkbox',
-    view: CheckBoxShowcase,
-    route: 'CheckBox',
-  },
-  {
-    title: 'Toggle',
-    view: ToggleShowcase,
-    route: 'Toggle',
-  },
-  {
-    title: 'Radio',
-    view: RadioShowcase,
-    route: 'Radio',
-  },
-  {
-    title: 'Input',
-    view: InputShowcase,
-    route: 'Input',
-  },
-  {
-    title: 'Text',
-    view: TextShowcase,
-    route: 'Text',
-  },
-  {
-    title: 'Avatar',
-    view: AvatarShowcase,
-    route: 'Avatar',
-  },
-  {
-    title: 'Popover',
-    view: PopoverShowcase,
-    route: 'Popover',
-  },
-  {
-    title: 'Tooltip',
-    view: TooltipShowcase,
-    route: 'Tooltip',
-  },
-  {
-    title: 'Overflow Menu',
-    view: OverflowMenuShowcase,
-    route: 'Overflow Menu',
-  },
-  {
-    title: 'Tab View',
-    view: ComplexComponentShowcase,
-    route: 'Tab View',
-  },
-  {
-    title: 'Top Navigation',
-    view: ComplexComponentShowcase,
-    action: () => Alert.alert('This component you can check in other sections of application'),
-  },
-  {
-    title: 'Bottom Navigation',
-    view: ComplexComponentShowcase,
-    action: () => Alert.alert('This component you can check in other sections of application'),
-  },
-  {
-    title: 'List',
-    view: ComplexComponentShowcase,
-    route: 'List',
-  },
-];
+import { ComponentsContainerData } from './type';
+import { routes } from './routes';
 
 interface State {
-  items: ListItem[];
+  data: ComponentsContainerData[];
 }
 
 export class ComponentsContainer extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
-    items: COMPONENTS,
+    data: routes,
   };
 
   private query: string = '';
@@ -117,22 +19,18 @@ export class ComponentsContainer extends React.Component<NavigationScreenProps, 
   private onQueryChange = (query: string) => {
     this.query = query;
 
-    const items: ListItem[] = COMPONENTS.filter(this.fitsQuery);
+    const data: ComponentsContainerData[] = routes.filter(this.fitsQuery);
 
-    this.setState({ items });
+    this.setState({ data });
   };
 
   private onItemSelect = (index: number) => {
-    const { [index]: selectedItem } = this.state.items;
+    const { [index]: selectedItem } = this.state.data;
 
-    if (selectedItem.route) {
-      this.props.navigation.navigate(selectedItem.route);
-    } else {
-      selectedItem.action();
-    }
+    this.props.navigation.navigate(selectedItem.route);
   };
 
-  private fitsQuery = (item: ListItem): boolean => {
+  private fitsQuery = (item: ComponentsContainerData): boolean => {
     const title: string = item.title.toLowerCase();
     const query: string = this.query.toLowerCase();
 
@@ -142,7 +40,7 @@ export class ComponentsContainer extends React.Component<NavigationScreenProps, 
   public render(): React.ReactNode {
     return (
       <Components
-        items={this.state.items}
+        data={this.state.data}
         onQueryChange={this.onQueryChange}
         onItemSelect={this.onItemSelect}
       />

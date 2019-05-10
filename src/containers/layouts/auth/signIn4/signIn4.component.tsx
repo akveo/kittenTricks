@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  ImageBackground,
-  ImageSourcePropType,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -16,7 +12,7 @@ import {
 import {
   SocialAuth,
   SignInForm2,
-  SignInForm2Type,
+  SignInForm2Data,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -27,7 +23,7 @@ import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSignInPress: (formValue: SignInForm2Type) => void;
+  onSignInPress: (formData: SignInForm2Data) => void;
   onSignUpPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
@@ -37,13 +33,13 @@ interface ComponentProps {
 export type SignIn4Props = ThemedComponentProps & ComponentProps;
 
 interface State {
-  formValue: SignInForm2Type;
+  formData: SignInForm2Data;
 }
 
 class SignIn4Component extends React.Component<SignIn4Props, State> {
 
   public state: State = {
-    formValue: undefined,
+    formData: undefined,
   };
 
   private onForgotPasswordButtonPress = () => {
@@ -51,7 +47,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
   };
 
   private onSignInButtonPress = () => {
-    this.props.onSignInPress(this.state.formValue);
+    this.props.onSignInPress(this.state.formData);
   };
 
   private onSignUpButtonPress = () => {
@@ -70,8 +66,8 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
     this.props.onTwitterPress();
   };
 
-  private onFormValueChange = (formValue: SignInForm2Type) => {
-    this.setState({ formValue });
+  private onFormDataChange = (formData: SignInForm2Data) => {
+    this.setState({ formData });
   };
 
   private keyboardOffset = (height: number): number => {
@@ -103,13 +99,13 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
           <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
-            onFormValueChange={this.onFormValueChange}
+            onDataChange={this.onFormDataChange}
           />
           <Button
             style={themedStyle.signInButton}
             textStyle={textStyle.button}
             size='giant'
-            disabled={!this.state.formValue}
+            disabled={!this.state.formData}
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>

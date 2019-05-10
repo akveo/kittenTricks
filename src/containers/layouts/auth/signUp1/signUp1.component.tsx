@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageProps,
-  ImageSourcePropType,
   ScrollView,
   View,
 } from 'react-native';
@@ -19,7 +18,7 @@ import {
 import {
   SocialAuth,
   SignUpForm1,
-  SignUpForm1Type,
+  SignUpForm1Data,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -33,7 +32,7 @@ import {
 import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
-  onSignUpPress: (value: SignUpForm1Type) => void;
+  onSignUpPress: (formData: SignUpForm1Data) => void;
   onSignInPress: () => void;
   onGooglePress: () => void;
   onFacebookPress: () => void;
@@ -44,21 +43,21 @@ interface ComponentProps {
 export type SignUp1Props = ThemedComponentProps & ComponentProps;
 
 interface State {
-  formValue: SignUpForm1Type;
+  formData: SignUpForm1Data;
 }
 
 class SignUp1Component extends React.Component<SignUp1Props, State> {
 
   public state: State = {
-    formValue: undefined,
+    formData: undefined,
   };
 
-  private onFormValueChange = (formValue: SignUpForm1Type) => {
-    this.setState({ formValue });
+  private onFormDataChange = (formData: SignUpForm1Data) => {
+    this.setState({ formData });
   };
 
   private onSignUpButtonPress = () => {
-    this.props.onSignUpPress(this.state.formValue);
+    this.props.onSignUpPress(this.state.formData);
   };
 
   private onSignInButtonPress = () => {
@@ -161,13 +160,13 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
           </Text>
           <SignUpForm1
             style={themedStyle.formContainer}
-            onFormValueChange={this.onFormValueChange}
+            onDataChange={this.onFormDataChange}
           />
           <Button
             style={themedStyle.signUpButton}
             textStyle={textStyle.button}
             size='large'
-            disabled={!this.state.formValue}
+            disabled={!this.state.formData}
             onPress={this.onSignUpButtonPress}>
             SIGN UP
           </Button>
