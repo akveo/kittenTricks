@@ -12,7 +12,18 @@ import {
   ThemesContainer,
 } from '@src/containers/menu';
 import {
+  ArticlesContainer,
+  Article1Container,
+  Article2Container,
+  Article3Container,
+  ArticleList1Container,
+  ArticleList2Container,
+  ArticleList3Container,
+  ArticleList4Container,
+} from '@src/containers/layouts/articles';
+import {
   AuthContainer,
+  ForgotPasswordContainer,
   SignIn1Container,
   SignIn2Container,
   SignIn3Container,
@@ -22,8 +33,35 @@ import {
   SignUp2Container,
   SignUp3Container,
   SignUp4Container,
-  ForgotPasswordContainer,
+} from '@src/containers/layouts/auth';
+import {
+  DashboardsContainer,
+  Trainings1Container,
+  Trainings2Container,
+} from '@src/containers/layouts/dashboards';
+import {
+  EcommerceContainer,
+  AddNewCardContainer,
+  BookDetailsContainer,
+  MovieDetailsContainer,
+  PaymentContainer,
+  ProductDetailsContainer,
+  ProductsListContainer,
+  RentApartmentContainer,
+  ShoppingCartContainer,
+} from '@src/containers/layouts/ecommerce';
+import {
+  MessagingContainer,
+  Chat1Container,
+  Chat2Container,
+  Chat3Container,
+  ConversationsListContainer,
+} from '@src/containers/layouts/messaging';
+import { NavigationContainer } from '@src/containers/layouts/navigation';
+import {
   SocialContainer,
+  Feed1Container,
+  Feed2Container,
   Profile1Container,
   Profile2Container,
   Profile3Container,
@@ -34,37 +72,9 @@ import {
   ProfileSettings1Container,
   ProfileSettings2Container,
   ProfileSettings3Container,
-  Feed1Container,
-  Feed2Container,
   SettingsContainer,
-  ArticlesContainer,
-  ArticleList1Container,
-  ArticleList2Container,
-  ArticleList3Container,
-  ArticleList4Container,
-  Article1Container,
-  Article2Container,
-  Article3Container,
-  MessagingContainer,
-  ConversationsListContainer,
-  Chat1Container,
-  Chat2Container,
-  Chat3Container,
-  DashboardsContainer,
-  BookDetailsContainer,
-  MovieDetailsContainer,
-  WalkthroughContainer,
-  EcommerceContainer,
-  ShoppingCartContainer,
-  ProductsListContainer,
-  ProductDetailsContainer,
-  AddNewCardContainer,
-  PaymentContainer,
-  RentApartmentContainer,
-  NavigationContainer,
-  Trainings1Container,
-  Trainings2Container,
-} from '@src/containers/layouts';
+} from '@src/containers/layouts/social';
+import { WalkthroughContainer } from '@src/containers/layouts/walkthrough';
 import {
   AvatarContainer,
   ButtonContainer,
@@ -104,7 +114,10 @@ const HeadingNavigationOptions = ({ navigation }) => {
     return params && params.topNavigation && params.topNavigation(headerProps);
   };
 
-  return { ...navigation, header };
+  return {
+    ...navigation,
+    header,
+  };
 };
 
 const NavigationNavigator: ReactNavigationContainer = createStackNavigator(

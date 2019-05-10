@@ -1,4 +1,8 @@
 export {
+  EcommerceHeader,
+  EcommerceHeaderProps,
+} from './ecommerce.header';
+export {
   AddPaymentCardForm,
   AddPaymentCardFormProps,
   AddPaymentCardFormType,

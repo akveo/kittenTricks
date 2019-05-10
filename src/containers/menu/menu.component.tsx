@@ -12,6 +12,7 @@ import {
   ColorPaletteIcon,
   GridIcon,
   LayoutIcon,
+  StarIconOutline,
 } from '@src/assets/icons';
 
 interface ComponentProps {
@@ -41,7 +42,7 @@ class MenuComponent extends React.Component<Props> {
         />
         <BottomNavigationTab
           title='Components'
-          icon={GridIcon}
+          icon={StarIconOutline}
         />
         <BottomNavigationTab
           title='Themes'

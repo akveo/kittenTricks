@@ -36,15 +36,15 @@ export class Article3Container extends React.Component<NavigationScreenProps, St
     currentCommentText: '',
   };
 
-  private onCommentPress = (index: number) => {
-
-  };
-
   private onLikePress = (index: number) => {
 
   };
 
-  private onCommentItemPress = (index: number) => {
+  private onMorePress = (index: number) => {
+
+  };
+
+  private onReplyMorePress = (index: number) => {
 
   };
 
@@ -74,9 +74,9 @@ export class Article3Container extends React.Component<NavigationScreenProps, St
         currentCommentText={this.state.currentCommentText}
         onCommentTextChange={this.onCommentTextChange}
         onCommentSubmit={this.onCommentSubmit}
-        onCommentPress={this.onCommentPress}
-        onLikePress={this.onLikePress}
-        onCommentItemPress={this.onCommentItemPress}
+        onCommentLikePress={this.onLikePress}
+        onCommentMorePress={this.onMorePress}
+        onCommentReplyMorePress={this.onReplyMorePress}
       />
     );
   }

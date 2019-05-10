@@ -40,15 +40,15 @@ export class BookDetailsContainer extends React.Component<NavigationScreenProps,
     this.props.navigation.navigate('Payment');
   };
 
-  private onCommentPress = (index: number) => {
+  private onCommentReplyMorePress = (index: number) => {
 
   };
 
-  private onLikePress = (index: number) => {
+  private onCommentLikePress = (index: number) => {
 
   };
 
-  private onCommentItemPress = (index: number) => {
+  private onCommentMorePress = (index: number) => {
 
   };
 
@@ -80,9 +80,9 @@ export class BookDetailsContainer extends React.Component<NavigationScreenProps,
         onBuyBook={this.onBuyBookPress}
         onCommentTextChange={this.onCommentTextChange}
         onCommentSubmit={this.onCommentSubmit}
-        onCommentPress={this.onCommentPress}
-        onLikePress={this.onLikePress}
-        onCommentItemPress={this.onCommentItemPress}
+        onCommentLikePress={this.onCommentLikePress}
+        onCommentMorePress={this.onCommentMorePress}
+        onCommentReplyMorePress={this.onCommentReplyMorePress}
       />
     );
   }

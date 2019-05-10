@@ -10,7 +10,7 @@ import {
   Text,
 } from '@kitten/ui';
 import {
-  SignInForm2Type,
+  SignInForm2Data,
   SignInForm2,
 } from '@src/components/auth';
 import {
@@ -22,24 +22,24 @@ import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
-  onSignInPress: (formValue: SignInForm2Type) => void;
+  onSignInPress: (formData: SignInForm2Data) => void;
   onSignUpPress: () => void;
 }
 
 export type SignIn3Props = ThemedComponentProps & ComponentProps;
 
 interface State {
-  formValue: SignInForm2Type;
+  formData: SignInForm2Data;
 }
 
 class SignIn3Component extends React.Component<SignIn3Props, State> {
 
   public state: State = {
-    formValue: undefined,
+    formData: undefined,
   };
 
   private onSignInButtonPress = () => {
-    this.props.onSignInPress(this.state.formValue);
+    this.props.onSignInPress(this.state.formData);
   };
 
   private onSignUpButtonPress = () => {
@@ -50,8 +50,8 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
     this.props.onForgotPasswordPress();
   };
 
-  private onFormValueChange = (formValue: SignInForm2Type) => {
-    this.setState({ formValue });
+  private onFormDataChange = (formData: SignInForm2Data) => {
+    this.setState({ formData });
   };
 
   private keyboardOffset = (height: number): number => {
@@ -83,13 +83,13 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
           <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
-            onFormValueChange={this.onFormValueChange}
+            onDataChange={this.onFormDataChange}
           />
           <Button
             style={themedStyle.signInButton}
             textStyle={textStyle.button}
             size='giant'
-            disabled={!this.state.formValue}
+            disabled={!this.state.formData}
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>

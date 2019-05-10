@@ -10,7 +10,7 @@ import {
 } from '@kitten/ui';
 import {
   ForgotPasswordForm,
-  ForgotPasswordFormType,
+  ForgotPasswordFormData,
 } from '@src/components/auth';
 import {
   AvoidKeyboard,
@@ -20,23 +20,23 @@ import {
 import { backgroundImage } from '@src/assets/images';
 
 interface ComponentProps {
-  onResetPress: (formValue: ForgotPasswordFormType) => void;
+  onResetPress: (formData: ForgotPasswordFormData) => void;
 }
 
 export type ForgotPasswordProps = ThemedComponentProps & ComponentProps;
 
 interface State {
-  formValue: ForgotPasswordFormType | undefined;
+  formData: ForgotPasswordFormData | undefined;
 }
 
 class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State> {
 
   public state: State = {
-    formValue: undefined,
+    formData: undefined,
   };
 
-  private onFormValueChange = (formValue: ForgotPasswordFormType) => {
-    this.setState({ formValue });
+  private onFormDataChange = (formData: ForgotPasswordFormData) => {
+    this.setState({ formData });
   };
 
   private keyboardOffset = (height: number): number => {
@@ -44,13 +44,7 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
   };
 
   private onResetPasswordButtonPress = () => {
-    this.props.onResetPress(this.state.formValue);
-  };
-
-  private resetPasswordEnabled = (): boolean => {
-    const { formValue } = this.state;
-
-    return formValue !== undefined;
+    this.props.onResetPress(this.state.formData);
   };
 
   public render(): React.ReactNode {
@@ -74,13 +68,13 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
           </Text>
           <ForgotPasswordForm
             style={themedStyle.formContainer}
-            onFormValueChange={this.onFormValueChange}
+            onDataChange={this.onFormDataChange}
           />
           <Button
             style={themedStyle.resetButton}
             textStyle={textStyle.button}
             size='giant'
-            disabled={!this.resetPasswordEnabled()}
+            disabled={!this.state.formData}
             onPress={this.onResetPasswordButtonPress}>
             RESET PASSWORD
           </Button>

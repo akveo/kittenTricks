@@ -29,12 +29,12 @@ class LikeButtonComponent extends React.Component<LikeButtonProps> {
       <TouchableOpacity
         style={[themedStyle.container, style]}
         {...restProps}>
+        {HeartIcon(themedStyle.icon)}
         <Text
           style={[themedStyle.valueLabel, textStyle]}
           category='p2'>
           {children}
         </Text>
-        {HeartIcon(themedStyle.icon)}
       </TouchableOpacity>
     );
   }

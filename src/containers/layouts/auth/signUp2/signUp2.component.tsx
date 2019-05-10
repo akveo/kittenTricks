@@ -13,7 +13,7 @@ import {
 import { Button } from '@kitten/ui';
 import {
   SignUpForm2,
-  SignUpForm2Type,
+  SignUpForm2Data,
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
 import {
@@ -23,7 +23,7 @@ import {
 import { PlusIcon } from '@src/assets/icons';
 
 interface ComponentProps {
-  onSignUpPress: (formValue: SignUpForm2Type) => void;
+  onSignUpPress: (formData: SignUpForm2Data) => void;
   onSignInPress: () => void;
   onPhotoPress: () => void;
 }
@@ -31,17 +31,17 @@ interface ComponentProps {
 export type SignUp2Props = ThemedComponentProps & ComponentProps;
 
 interface State {
-  formValue: SignUpForm2Type;
+  formData: SignUpForm2Data;
 }
 
 class SignUp2Component extends React.Component<SignUp2Props, State> {
 
   public state: State = {
-    formValue: undefined,
+    formData: undefined,
   };
 
-  private onFormValueChange = (formValue: SignUpForm2Type) => {
-    this.setState({ formValue });
+  private onFormDataChange = (formData: SignUpForm2Data) => {
+    this.setState({ formData });
   };
 
   private onPhotoButtonPress = () => {
@@ -53,7 +53,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
   };
 
   private onSignUpButtonPress = () => {
-    this.props.onSignUpPress(this.state.formValue);
+    this.props.onSignUpPress(this.state.formData);
   };
 
   private keyboardOffset = (height: number): number => {
@@ -95,13 +95,13 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
           </View>
           <SignUpForm2
             style={themedStyle.formContainer}
-            onFormValueChange={this.onFormValueChange}
+            onDataChange={this.onFormDataChange}
           />
           <Button
             style={themedStyle.signUpButton}
             textStyle={textStyle.button}
             size='giant'
-            disabled={!this.state.formValue}
+            disabled={!this.state.formData}
             onPress={this.onSignUpButtonPress}>
             SIGN UP
           </Button>
