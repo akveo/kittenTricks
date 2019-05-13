@@ -7,7 +7,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  TopNavigationBarActionProps,
+  TopNavigationActionProps,
   TopNavigationAction,
   TopNavigation,
 } from '@kitten/ui';
@@ -41,7 +41,7 @@ class EcommerceHeaderComponent extends React.Component<EcommerceHeaderProps> {
     this.props.onSearch();
   };
 
-  private renderLeftControl = (): React.ReactElement<TopNavigationBarActionProps> => {
+  private renderLeftControl = (): React.ReactElement<TopNavigationActionProps> => {
     return (
       <TopNavigationAction
         icon={BackArrowIcon}
@@ -56,7 +56,7 @@ class EcommerceHeaderComponent extends React.Component<EcommerceHeaderProps> {
     return CartIconFill({ ...style, ...themedStyle.cartIcon });
   };
 
-  private renderRightControls = (): React.ReactElement<TopNavigationBarActionProps>[] => {
+  private renderRightControls = (): React.ReactElement<TopNavigationActionProps>[] => {
     return ([
       <TopNavigationAction
         icon={SearchIconOutline}

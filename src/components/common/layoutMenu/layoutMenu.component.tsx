@@ -6,8 +6,8 @@ import {
 } from '@kitten/theme';
 import {
   Tab,
+  TabProps,
   TabView,
-  TabViewChildProps,
   TabViewProps,
 } from '@kitten/ui';
 import {
@@ -27,7 +27,7 @@ interface ComponentProps extends TabViewProps {
 
 export type LayoutMenuProps = ThemedComponentProps & ComponentProps;
 
-type ChildElement = React.ReactElement<TabViewChildProps>;
+type ChildElement = React.ReactElement<TabProps>;
 type ChildrenProp = ChildElement | ChildElement[];
 
 class LayoutMenuComponent extends React.Component<LayoutMenuProps> {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  SafeAreaView,
   NavigationScreenProps,
+  SafeAreaView,
 } from 'react-navigation';
 import {
   ThemedComponentProps,
@@ -9,11 +9,12 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  TopNavigationBarActionProps,
-  TopNavigationAction,
-  TopNavigation,
   Avatar,
   AvatarProps,
+  TopNavigation,
+  TopNavigationAction,
+  TopNavigationActionProps,
+  TopNavigationProps,
 } from '@kitten/ui';
 import { BackArrowIcon } from '@src/assets/icons';
 import { Profile } from '@src/core/model';
@@ -46,7 +47,7 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
     onProfile(interlocutor);
   };
 
-  private renderLeftControl = (): React.ReactElement<TopNavigationBarActionProps> => {
+  private renderLeftControl = (): React.ReactElement<TopNavigationActionProps> => {
     return (
       <TopNavigationAction
         icon={BackArrowIcon}
@@ -55,43 +56,46 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
     );
   };
 
-  private renderProfileAvatar = (): React.ReactElement<AvatarProps> | null => {
+  private renderProfileAvatar = (): React.ReactElement<AvatarProps> => {
     const { interlocutor } = this.props;
 
-    return interlocutor ? (
+    return (
       <Avatar
         source={{ uri: interlocutor.photo }}
         shape='round'
         size='small'
       />
-    ) : null;
+    );
   };
 
-  private renderRightControls = (): React.ReactElement<TopNavigationBarActionProps>[] => {
-    return ([
+  private renderRightControls = (): React.ReactElement<TopNavigationActionProps> => {
+    return (
       <TopNavigationAction
         icon={this.renderProfileAvatar}
         onPress={this.onProfile}
-      />,
-    ]);
+      />
+    );
+  };
+
+  private renderInterlocutorProps = (): TopNavigationProps | null => {
+    const { interlocutor } = this.props;
+
+    return interlocutor && {
+      title: `${interlocutor.firstName} ${interlocutor.lastName}`,
+      rightControls: this.renderRightControls(),
+    };
   };
 
   public render(): React.ReactNode {
-    const {
-      themedStyle,
-      interlocutor,
-      lastSeen,
-    } = this.props;
-    const title: string = interlocutor ? `${interlocutor.firstName} ${interlocutor.lastName}` : '';
+    const { themedStyle, lastSeen } = this.props;
 
     return (
       <SafeAreaView style={themedStyle.container}>
         <TopNavigation
           alignment='center'
-          title={title}
           subtitle={`Last seen ${lastSeen}`}
           leftControl={this.renderLeftControl()}
-          rightControls={this.renderRightControls()}
+          {...this.renderInterlocutorProps()}
         />
       </SafeAreaView>
     );

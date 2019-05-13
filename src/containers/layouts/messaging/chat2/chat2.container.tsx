@@ -4,13 +4,13 @@ import {
   NavigationScreenProps,
 } from 'react-navigation';
 import {
-  Permissions,
   MediaLibrary,
+  Permissions,
 } from 'expo';
 import {
+  ChatFileMessageAppearance,
   ChatHeader,
   ChatHeaderNavigationStateParams,
-  ChatFileMessageAppearance,
 } from '@src/components/messaging';
 import {
   Conversation,
@@ -50,9 +50,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
       onProfile: navigation.getParam('onProfile'),
     };
 
-    const renderHeader = (headerProps: NavigationScreenProps,
-                          config: ChatHeaderNavigationStateParams) => {
-
+    const renderHeader = (headerProps: NavigationScreenProps, config: ChatHeaderNavigationStateParams) => {
       return (
         <ChatHeader
           {...headerProps}
@@ -75,7 +73,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
 
   public componentWillMount(): void {
     MediaLibrary.getAssetsAsync({ first: 6 })
-      .then(this.onMediaResponse);
+                .then(this.onMediaResponse);
     this.props.navigation.setParams({
       interlocutor: this.state.conversation.interlocutor,
       lastSeen: this.state.conversation.lastSeen,
@@ -121,7 +119,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
 
   private onAddButtonPress = (): void => {
     Permissions.askAsync(Permissions.CAMERA_ROLL)
-      .then(this.onCameraPermissionResponse);
+               .then(this.onCameraPermissionResponse);
   };
 
   private onCancelButtonPress = (): void => {

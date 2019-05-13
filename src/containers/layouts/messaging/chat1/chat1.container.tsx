@@ -40,9 +40,7 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
       onProfile: navigation.getParam('onProfile'),
     };
 
-    const renderHeader = (headerProps: NavigationScreenProps,
-                          config: ChatHeaderNavigationStateParams) => {
-
+    const renderHeader = (headerProps: NavigationScreenProps, config: ChatHeaderNavigationStateParams) => {
       return (
         <ChatHeader
           {...headerProps}
