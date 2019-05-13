@@ -11,7 +11,6 @@ import {
 } from '@kitten/theme';
 import {
   Button,
-  ButtonIconAlignments,
   Text,
 } from '@kitten/ui';
 import {
@@ -125,7 +124,6 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
               activeOpacity={0.75}
               appearance='ghost'
               size='giant'
-              iconAlignment={ButtonIconAlignments.RIGHT}
               icon={this.renderSignUpButtonIcon}
               onPress={this.onSignUpButtonPress}>
               Sign Up
@@ -187,6 +185,7 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
     ...textStyle.headline,
   },
   signUpButton: {
+    flexDirection: 'row-reverse',
     paddingHorizontal: 0,
   },
   signUpButtonText: {

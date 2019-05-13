@@ -6,10 +6,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  Button,
-  ButtonIconAlignments,
-} from '@kitten/ui';
+import { Button } from '@kitten/ui';
 import {
   ActivityBar,
   ActivityBarProps,
@@ -72,7 +69,6 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
           textStyle={textStyle.button}
           size='giant'
           status='white'
-          iconAlignment={ButtonIconAlignments.RIGHT}
           icon={this.renderAddIcon}
           onPress={this.onAddButtonPress}>
           Add Training
@@ -88,6 +84,7 @@ export const FeedActivityBar = withStyles(FeedActivityBarComponent, (theme: Them
   },
   addButton: {
     flex: 1,
+    flexDirection: 'row-reverse',
     paddingHorizontal: 0,
   },
   addButtonIcon: {

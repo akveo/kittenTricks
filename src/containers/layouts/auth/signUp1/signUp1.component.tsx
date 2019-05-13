@@ -13,7 +13,6 @@ import {
 import {
   Text,
   Button,
-  ButtonIconAlignments,
 } from '@kitten/ui';
 import {
   SocialAuth,
@@ -127,7 +126,6 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
                 appearance='ghost'
                 size='giant'
                 activeOpacity={0.75}
-                iconAlignment={ButtonIconAlignments.RIGHT}
                 icon={this.renderSignInButtonIcon}
                 onPress={this.onSignInButtonPress}>
                 Sign In
@@ -212,6 +210,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     ...textStyle.headline,
   },
   signInButton: {
+    flexDirection: 'row-reverse',
     paddingHorizontal: 0,
   },
   signInButtonText: {

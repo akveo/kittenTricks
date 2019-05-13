@@ -9,7 +9,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  TopNavigationBarActionProps,
+  TopNavigationActionProps,
   TopNavigationAction,
   TopNavigation,
 } from '@kitten/ui';
@@ -35,7 +35,7 @@ class ConversationListHeaderComponent extends React.Component<ConversationListHe
     this.props.onBack();
   };
 
-  private renderLeftControl = (): React.ReactElement<TopNavigationBarActionProps> => {
+  private renderLeftControl = (): React.ReactElement<TopNavigationActionProps> => {
     return (
       <TopNavigationAction
         icon={BackArrowIcon}
@@ -44,7 +44,7 @@ class ConversationListHeaderComponent extends React.Component<ConversationListHe
     );
   };
 
-  private renderRightControls = (): React.ReactElement<TopNavigationBarActionProps>[] => {
+  private renderRightControls = (): React.ReactElement<TopNavigationActionProps>[] => {
     return ([
       <TopNavigationAction
         icon={SearchIconOutline}

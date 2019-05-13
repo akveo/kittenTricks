@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Dimensions,
   FlatList,
   ListRenderItemInfo,
   View,
@@ -32,7 +31,7 @@ import {
   profile1,
   profile2,
 } from '@src/core/data/profile';
-import { UiMessageModel } from '../uiMessage.model';
+import { UiMessageModel } from '../container/uiMessage.model';
 import {
   AvoidKeyboard,
   textStyle,

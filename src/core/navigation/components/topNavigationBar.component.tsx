@@ -1,26 +1,30 @@
 import React from 'react';
-import { StyleType } from '@kitten/theme';
 import {
-  ImageProps,
-  StyleSheet,
-} from 'react-native';
+  StyleType,
+  ThemeType,
+  withStyles,
+} from '@kitten/theme';
+import { ImageProps } from 'react-native';
 import {
   TopNavigation,
   TopNavigationAction,
-  TopNavigationBarActionProps,
+  TopNavigationActionProps,
+  TopNavigationProps,
 } from '@kitten/ui';
 import { SafeAreaView } from 'react-navigation';
+import { textStyle } from '@src/components/common';
 
-export interface TopNavigationBarProps {
-  title?: string;
+interface ComponentProps {
   backIcon?: BackIconProp;
   onBackPress?: () => void;
 }
 
-type BackIconProp = (style: StyleType) => React.ReactElement<ImageProps>;
-type BackButtonElement = React.ReactElement<TopNavigationBarActionProps>;
+export type TopNavigationBarProps = TopNavigationProps & ComponentProps;
 
-export class TopNavigationBar extends React.Component<TopNavigationBarProps> {
+type BackIconProp = (style: StyleType) => React.ReactElement<ImageProps>;
+type BackButtonElement = React.ReactElement<TopNavigationActionProps>;
+
+class TopNavigationBarComponent extends React.Component<TopNavigationBarProps> {
 
   private onBackButtonPress = () => {
     if (this.props.onBackPress) {
@@ -38,15 +42,17 @@ export class TopNavigationBar extends React.Component<TopNavigationBarProps> {
   };
 
   public render(): React.ReactNode {
-    const { title, backIcon } = this.props;
+    const { themedStyle, title, backIcon } = this.props;
 
     const leftControlElement: BackButtonElement | null = backIcon ? this.renderBackButton(backIcon) : null;
 
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={themedStyle.safeArea}>
         <TopNavigation
           alignment='center'
           title={title}
+          titleStyle={textStyle.subtitle}
+          subtitleStyle={textStyle.caption1}
           leftControl={leftControlElement}
         />
       </SafeAreaView>
@@ -54,8 +60,8 @@ export class TopNavigationBar extends React.Component<TopNavigationBarProps> {
   }
 }
 
-const styles = StyleSheet.create({
+export const TopNavigationBar = withStyles(TopNavigationBarComponent, (theme: ThemeType) => ({
   safeArea: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme['color-white'],
   },
-});
+}));
