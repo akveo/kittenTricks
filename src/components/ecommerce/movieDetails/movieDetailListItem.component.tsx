@@ -12,8 +12,8 @@ import { Text } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  description: React.ReactText;
-  value: React.ReactText;
+  description: string;
+  value: string;
 }
 
 export type MovieDetailListItemProps = ThemedComponentProps & ViewProps & ComponentProps;

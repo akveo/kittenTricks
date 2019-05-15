@@ -14,8 +14,8 @@ import { Text } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  hint: React.ReactText;
-  value: React.ReactText;
+  hint: string;
+  value: string;
   icon: (style: StyleType) => React.ReactElement<ImageProps>;
 }
 

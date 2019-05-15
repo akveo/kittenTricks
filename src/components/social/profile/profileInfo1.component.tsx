@@ -17,9 +17,9 @@ import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   photo: ImageSourcePropType;
-  name: React.ReactText;
-  location: React.ReactText;
-  children?: React.ReactNode;
+  name: string;
+  location: string;
+  children?: string;
 }
 
 export type ProfileInfo1Props = ThemedComponentProps & ViewProps & ComponentProps;

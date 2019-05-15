@@ -3,6 +3,6 @@ import { StyleType } from '@kitten/theme';
 import { ImageProps } from 'react-native';
 
 export interface LayoutsListItemData {
-  title: React.ReactText;
+  title: string;
   icon: (style: StyleType) => React.ReactElement<ImageProps>;
 }

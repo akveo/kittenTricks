@@ -17,8 +17,8 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  comments: React.ReactText;
-  likes: React.ReactText;
+  comments: string;
+  likes: string;
   onCommentPress: () => void;
   onLikePress: () => void;
   textStyle?: StyleProp<TextStyle>;

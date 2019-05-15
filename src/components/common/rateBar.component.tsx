@@ -21,7 +21,7 @@ import { StarIcon } from '@src/assets/icons';
 import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps {
-  hint?: React.ReactText;
+  hint?: string;
   value?: number;
   max?: number;
   icon?: (style: StyleType) => React.ReactElement<ImageProps>;

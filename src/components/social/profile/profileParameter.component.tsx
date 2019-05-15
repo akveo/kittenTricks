@@ -12,8 +12,8 @@ import { Text } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  hint: React.ReactText;
-  value: React.ReactText;
+  hint: string;
+  value: string;
 }
 
 export type ProfileParameterProps = ThemedComponentProps & ViewProps & ComponentProps;

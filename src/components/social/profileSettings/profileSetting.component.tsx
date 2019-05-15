@@ -15,15 +15,15 @@ import { Text } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  hint?: React.ReactText;
-  value: React.ReactText;
+  hint?: string;
+  value: string;
 }
 
 export type ProfileSettingProps = ComponentProps & ViewProps & ThemedComponentProps;
 
 class ProfileSettingComponent extends React.Component<ProfileSettingProps> {
 
-  private renderTextElement = (text: React.ReactText, style: StyleProp<TextStyle>): React.ReactElement<TextProps> => {
+  private renderTextElement = (text: string, style: StyleProp<TextStyle>): React.ReactElement<TextProps> => {
     return (
       <Text
         style={style}

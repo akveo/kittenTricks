@@ -15,7 +15,7 @@ import { HeartIcon } from '@src/assets/icons';
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
-  children?: React.ReactText;
+  children?: string;
 }
 
 export type LikeButtonProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;

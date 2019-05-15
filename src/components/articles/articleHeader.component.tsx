@@ -12,8 +12,8 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  title: React.ReactText;
-  description: React.ReactText;
+  title: string;
+  description: string;
 }
 
 export type ArticleHeaderProps = ThemedComponentProps & ImageOverlayProps & ComponentProps;

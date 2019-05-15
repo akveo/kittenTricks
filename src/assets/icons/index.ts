@@ -1,6 +1,6 @@
 import {
-  StyleProp,
   ImageStyle,
+  StyleProp,
 } from 'react-native';
 import {
   Icon,
@@ -259,6 +259,12 @@ export const FacebookIconFill = (style: StyleProp<ImageStyle>): IconElement => {
 
 export const TwitterIconFill = (style: StyleProp<ImageStyle>): IconElement => {
   return Icon(evaIcons.twitterFill, style);
+};
+
+export {
+  Icon,
+  RemoteIcon,
+  IconSource,
 };
 
 const evaIcons: { [key: string]: IconSource } = {

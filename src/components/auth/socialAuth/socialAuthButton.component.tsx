@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  Image,
   ImageProps,
-  ImageSourcePropType,
   ImageStyle,
   StyleProp,
 } from 'react-native';
@@ -16,7 +14,6 @@ import {
   Button,
   ButtonProps,
 } from '@kitten/ui';
-import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   iconStyle?: StyleProp<ImageStyle>;

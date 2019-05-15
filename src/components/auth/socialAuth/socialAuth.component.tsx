@@ -22,7 +22,7 @@ import {
 import { SocialButton } from './socialAuthButton.component';
 
 interface ComponentProps {
-  hint?: React.ReactText;
+  hint?: string;
   hintStyle?: StyleProp<TextStyle>;
   iconStyle?: StyleProp<ImageStyle>;
   onGooglePress: () => void;

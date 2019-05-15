@@ -20,11 +20,11 @@ import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   image: ImageSourcePropType;
-  name: React.ReactText;
-  type: React.ReactText;
-  price: React.ReactText;
-  description: React.ReactText;
-  size: React.ReactText;
+  name: string;
+  type: string;
+  price: string;
+  description: string;
+  size: string;
   colors: string[];
   selectedColorIndex: number;
   onColorSelect: (index: number) => void;

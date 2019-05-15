@@ -13,7 +13,10 @@ import {
   TextIcon,
   TextIconProps,
 } from '@src/components/common';
-import { Icon } from '@src/assets/icons/icon.component';
+import {
+  Icon,
+  RemoteIcon,
+} from '@src/assets/icons';
 
 // @ts-ignore (`icon` prop override)
 interface ComponentProps extends TextIconProps {
@@ -27,7 +30,7 @@ class ApartmentFacilityList2ItemComponent extends React.Component<ApartmentFacil
   private renderIconElement = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
     const { icon } = this.props;
 
-    return Icon(icon, style);
+    return Icon(new RemoteIcon(icon), style);
   };
 
   public render(): React.ReactNode {

@@ -8,7 +8,6 @@ import {
   Input,
   InputProps,
 } from '@kitten/ui';
-import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps extends InputProps {
   validator: (value: string) => boolean;

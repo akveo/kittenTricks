@@ -12,7 +12,7 @@ import { Text } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  title: React.ReactText;
+  title: string;
   children: ChildrenProp;
 }
 

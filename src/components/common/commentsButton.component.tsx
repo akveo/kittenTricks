@@ -15,7 +15,7 @@ import { MessageCircleIconOutline } from '@src/assets/icons';
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
-  children?: React.ReactText;
+  children?: string;
 }
 
 export type CommentsButtonProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;

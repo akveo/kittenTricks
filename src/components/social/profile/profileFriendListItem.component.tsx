@@ -26,7 +26,7 @@ interface TouchableProps extends TouchableOpacityProps {
 
 interface ComponentProps extends ListDerivedProps, TouchableProps {
   photo: ImageSourcePropType;
-  name: React.ReactText;
+  name: string;
 }
 
 export type ProfileFriendListItemProps = ThemedComponentProps & ComponentProps & ComponentProps;

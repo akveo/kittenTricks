@@ -12,7 +12,7 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  likes: React.ReactText;
+  likes: string;
   onLikePress: () => void;
 }
 

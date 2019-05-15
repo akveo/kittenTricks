@@ -14,7 +14,7 @@ import {
   Platform,
 } from 'react-native';
 
-interface AvoidKeyboardProps extends ViewProps {
+export interface AvoidKeyboardProps extends ViewProps {
   offset?: (height: number) => number;
   autoDismiss?: boolean;
 }
