@@ -1,47 +1,55 @@
 import { ArticlesContainerData } from './type';
-import { backgroundImage } from '@src/assets/images';
+import {
+  article1LayoutImage,
+  article2LayoutImage,
+  article3LayoutImage,
+  articleList1LayoutImage,
+  articleList2LayoutImage,
+  articleList3LayoutImage,
+  articleList4LayoutImage,
+} from '@src/assets/images';
 
 export const routes: ArticlesContainerData[] = [
   {
     title: 'Article List',
     description: 'Option 1',
-    image: backgroundImage,
+    image: articleList1LayoutImage,
     route: 'Article List 1',
   },
   {
     title: 'Article List',
     description: 'Option 2',
-    image: backgroundImage,
+    image: articleList2LayoutImage,
     route: 'Article List 2',
   },
   {
     title: 'Article List',
     description: 'Option 3',
-    image: backgroundImage,
+    image: articleList3LayoutImage,
     route: 'Article List 3',
   },
   {
     title: 'Article List',
     description: 'Option 4',
-    image: backgroundImage,
+    image: articleList4LayoutImage,
     route: 'Article List 4',
   },
   {
     title: 'Article',
     description: 'Option 1',
-    image: backgroundImage,
+    image: article1LayoutImage,
     route: 'Article 1',
   },
   {
     title: 'Article',
     description: 'Option 2',
-    image: backgroundImage,
+    image: article2LayoutImage,
     route: 'Article 2',
   },
   {
     title: 'Article',
     description: 'Option 3',
-    image: backgroundImage,
+    image: article3LayoutImage,
     route: 'Article 3',
   },
 ];

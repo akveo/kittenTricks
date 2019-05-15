@@ -47,7 +47,6 @@ class LayoutGridListItemComponent extends React.Component<LayoutGridListItemProp
         <Image
           style={themedStyle.image}
           source={data.image}
-          resizeMode='center'
         />
       </ListItem>
     );
@@ -71,5 +70,6 @@ export const LayoutGridListItem = withStyles(LayoutGridListItemComponent, (theme
   image: {
     flex: 1,
     height: 276,
+    resizeMode: 'contain',
   },
 }));
