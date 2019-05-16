@@ -179,7 +179,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
     return (
       <View style={themedStyle.container}>
-        <AvoidKeyboard>
+        <AvoidKeyboard autoDismiss={false}>
           <List
             ref={this.listRef}
             style={themedStyle.chatContainer}

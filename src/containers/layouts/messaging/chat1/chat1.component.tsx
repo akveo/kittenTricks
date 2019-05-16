@@ -2,6 +2,7 @@ import React from 'react';
 import {
   FlatList,
   ListRenderItemInfo,
+  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -99,7 +100,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
     return (
       <View style={themedStyle.container}>
-        <AvoidKeyboard>
+        <AvoidKeyboard autoDismiss={false}>
           <List
             ref={this.listRef}
             style={themedStyle.chatContainer}
