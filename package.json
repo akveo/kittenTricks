@@ -15,15 +15,13 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
-    "@eva/processor-kitten": "github:akveo/eva#package/processor-kitten",
-    "create-react-context": "^0.2.3",
-    "eva": "github:akveo/eva",
+    "@eva/eva": "github:akveo/eva#package/mapping-eva",
+    "@eva/theme-eva": "github:akveo/eva#package/theme-eva",
     "expo": "^32.0.0",
     "expo-analytics": "^1.0.8",
-    "hoist-non-react-statics": "^3.2.1",
-    "lodash.merge": "^4.6.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-ui-kitten": "github:akveo/react-native-ui-kitten#next",
     "react-navigation": "^3.5.1"
   },
   "devDependencies": {
@@ -34,6 +32,7 @@
     "@types/react-native": "^0.57.57",
     "@types/react-navigation": "^3.0.7",
     "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-expo": "^5.0.0",
     "husky": "^1.1.2",
     "metro-react-native-babel-preset": "^0.49.0",

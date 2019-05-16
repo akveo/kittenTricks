@@ -1,5 +1,7 @@
 const path = require('path');
 
+const frameworkLocalPath = '../react-native-ui-kitten';
+
 module.exports = {
   resolver: {
     extraNodeModules: new Proxy({}, {
@@ -17,6 +19,10 @@ module.exports = {
   projectRoot: path.resolve(__dirname),
   watchFolders: [
     path.resolve(__dirname, './node_modules/@babel'),
-    path.resolve(__dirname, '../react-native-ui-kitten/src/framework'),
+
+    // DEV purposes.
+    // Uncomment line below to watch framework changes.
+
+    // path.resolve(__dirname, frameworkLocalPath, 'src/framework'),
   ],
 };
