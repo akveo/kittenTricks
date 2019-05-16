@@ -2,7 +2,6 @@ import React from 'react';
 import {
   ButtonProps,
   ImageProps,
-  ImageSourcePropType,
   View,
 } from 'react-native';
 import {
@@ -22,8 +21,15 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { PlusIcon } from '@src/assets/icons';
-import { backgroundImage } from '@src/assets/images';
+import {
+  evaIcons,
+  IconSource,
+  PlusIcon,
+} from '@src/assets/icons';
+import {
+  ImageSource,
+  imageSignUp3Bg,
+} from '@src/assets/images';
 
 interface ComponentProps {
   onSignUpPress: (formData: SignUpForm2Data) => void;
@@ -43,9 +49,9 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
     formData: undefined,
   };
 
-  private profileImage: ImageSourcePropType = {
-    uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png',
-  };
+  private backgroundImage: ImageSource = imageSignUp3Bg;
+
+  private profileImage: IconSource = evaIcons.personFill;
 
   private onFormDataChange = (formData: SignUpForm2Data) => {
     this.setState({ formData });
@@ -91,13 +97,13 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={backgroundImage}>
+        source={this.backgroundImage.imageSource}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
               style={themedStyle.photo}
               resizeMode='center'
-              source={this.profileImage}
+              source={this.profileImage.imageSource}
               button={this.renderPhotoButton}
             />
           </View>

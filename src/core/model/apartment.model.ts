@@ -1,4 +1,5 @@
-import { ImageRequireSource } from 'react-native';
+import { ImageSource } from '@src/assets/images';
+import { IconSource } from '@src/assets/icons';
 
 export interface Apartment {
   title: string;
@@ -6,11 +7,11 @@ export interface Apartment {
   price: number;
   primaryFacilities: ApartmentFacility[];
   facilities: ApartmentFacility[];
-  primaryPhoto: ImageRequireSource;
-  photos: string[];
+  primaryPhoto: ImageSource;
+  photos: ImageSource[];
 }
 
 export interface ApartmentFacility {
   title: string;
-  icon?: string;
+  icon?: IconSource;
 }

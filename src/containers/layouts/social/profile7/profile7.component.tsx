@@ -32,7 +32,10 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { backgroundImage } from '@src/assets/images';
+import {
+  imageProfile7Bg,
+  ImageSource,
+} from '@src/assets/images';
 
 interface ComponentProps {
   profile: ProfileModel;
@@ -50,6 +53,8 @@ interface ComponentProps {
 export type Profile7Props = ThemedComponentProps & ComponentProps;
 
 class Profile7Component extends React.Component<Profile7Props> {
+
+  private backgroundImage: ImageSource = imageProfile7Bg;
 
   private onFollowPress = () => {
     this.props.onFollowPress();
@@ -80,7 +85,7 @@ class Profile7Component extends React.Component<Profile7Props> {
   };
 
   private createActivitySource = (activity: ProfileActivityModel): ImageSourcePropType => {
-    return activity.source;
+    return activity.source.imageSource;
   };
 
   public render(): React.ReactNode {
@@ -90,9 +95,9 @@ class Profile7Component extends React.Component<Profile7Props> {
       <ScrollView style={themedStyle.container}>
         <ImageOverlay
           style={themedStyle.profileInfoContainer}
-          source={backgroundImage}>
+          source={this.backgroundImage.imageSource}>
           <ProfileInfo3
-            photo={{ uri: profile.photo }}
+            photo={profile.photo.imageSource}
             name={`${profile.firstName} ${profile.lastName}`}
             location={profile.location}
           />

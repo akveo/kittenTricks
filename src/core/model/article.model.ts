@@ -1,11 +1,12 @@
+import { ImageSource } from '@src/assets/images';
+import { Comment } from './comment.model';
 import { Profile } from './profile.model';
-import { Comment } from '@src/core/model/comment.model';
 
 export interface Article {
   title: string;
   description: string;
   content: string;
-  image: string;
+  image: ImageSource;
   author: Profile;
   date: string;
   tips: number;

@@ -50,7 +50,7 @@ class CommentList2ItemComponent extends React.Component<CommentList2ItemProps> {
         <View style={themedStyle.authorContainer}>
           <ActivityAuthoring
             style={themedStyle.activityAuthoring}
-            photo={{ uri: data.author.photo }}
+            photo={data.author.photo.imageSource}
             name={`${data.author.firstName} ${data.author.lastName}`}
             date={data.date}
           />

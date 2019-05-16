@@ -1,7 +1,5 @@
-import {
-  Message,
-  Profile,
-} from './';
+import { Profile } from './profile.model';
+import { Message } from './message.model';
 
 export interface Conversation {
   interlocutor: Profile;

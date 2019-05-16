@@ -1,4 +1,5 @@
 import React from 'react';
+import { ImageProps } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import {
   StyleType,
@@ -16,7 +17,6 @@ import {
   CartIconFill,
   SearchIconOutline,
 } from '@src/assets/icons';
-import { ImageProps } from 'react-native';
 
 interface ComponentProps {
   title: string;

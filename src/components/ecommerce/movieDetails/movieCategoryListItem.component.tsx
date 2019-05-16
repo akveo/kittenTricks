@@ -13,7 +13,7 @@ import {
 
 // @ts-ignore (`children` prop override)
 interface ComponentProps extends ChipsProps {
-  children?: React.ReactText;
+  children?: string;
 }
 
 export type MovieCategoryListItemProps = ThemedComponentProps & ComponentProps;

@@ -13,10 +13,10 @@ import {
 import { Text } from '@kitten/ui';
 
 interface ComponentProps {
-  scale: React.ReactText;
+  scale: string;
   valueStyle?: StyleProp<TextStyle>;
   scaleStyle?: StyleProp<TextStyle>;
-  children: React.ReactText;
+  children: string;
 }
 
 export type PriceTextProps = ThemedComponentProps & ViewProps & ComponentProps;

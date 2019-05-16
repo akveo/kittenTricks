@@ -23,8 +23,8 @@ interface ListDerivedProps {
 // @ts-ignore (override `onPress` prop)
 interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
-  category: React.ReactText;
-  description: React.ReactText;
+  category: string;
+  description: string;
   onPress: (index: number) => void;
   onAddPress: (index: number) => void;
   onSharePress: (index: number) => void;

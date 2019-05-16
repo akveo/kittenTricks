@@ -35,7 +35,7 @@ class ConversationInterlocutorComponent extends React.Component<ConversationInte
     return (
       <View style={[themedStyle.container, style]}>
         <Avatar
-          source={{ uri: profile.photo }}
+          source={profile.photo.imageSource}
           style={themedStyle.avatar}/>
         {this.renderOnlineIndicator()}
       </View>

@@ -22,8 +22,15 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { PlusIcon } from '@src/assets/icons';
-import { backgroundImage } from '@src/assets/images';
+import {
+  evaIcons,
+  IconSource,
+  PlusIcon,
+} from '@src/assets/icons';
+import {
+  ImageSource,
+  imageSignUp4Bg,
+} from '@src/assets/images';
 
 interface ComponentProps {
   onSignUpPress: (formData: SignUpForm2Data) => void;
@@ -45,6 +52,9 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
   public state: State = {
     formData: undefined,
   };
+
+  private backgroundImage: ImageSource = imageSignUp4Bg;
+  private profileImage: IconSource = evaIcons.personFill;
 
   private onFormDataChange = (formData: SignUpForm2Data) => {
     this.setState({ formData });
@@ -104,13 +114,13 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={backgroundImage}>
+        source={this.backgroundImage.imageSource}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
               style={themedStyle.photo}
               resizeMode='center'
-              source={{ uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png' }}
+              source={this.profileImage.imageSource}
               button={this.renderPhotoButton}
             />
           </View>

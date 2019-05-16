@@ -1,17 +1,24 @@
 import { Post } from '@src/core/model';
-import { profile1 } from '@src/core/data/profile';
+import {
+  profile2,
+  profile3,
+} from '@src/core/data/profile';
+import {
+  imagePost1Bg,
+  imagePost2Bg,
+} from '@src/assets/images';
 
 export const posts: Post[] = [
   {
-    photo: 'https://media.self.com/photos/586540bc733664ae3e5ee9f8/4:3/w_728,c_limit/eat-healthy_feature.png',
+    photo: imagePost2Bg,
     date: 'Today 12:35 pm',
     likes: 125,
-    author: profile1,
+    author: profile2,
   },
   {
-    photo: 'http://s1.1zoom.me/big3/855/349302-admin.jpg',
+    photo: imagePost1Bg,
     date: 'Today 12:35 pm',
     likes: 232,
-    author: profile1,
+    author: profile3,
   },
 ];

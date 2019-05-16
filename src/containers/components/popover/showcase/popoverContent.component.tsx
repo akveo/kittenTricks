@@ -15,8 +15,8 @@ import {
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  title: React.ReactText;
-  description: React.ReactText;
+  title: string;
+  description: string;
   onGotItPress: () => void;
 }
 

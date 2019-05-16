@@ -25,9 +25,9 @@ interface ListDerivedProps {
 // @ts-ignore
 interface ComponentProps extends ListDerivedProps, TouchableOpacityProps {
   image: ImageSourcePropType;
-  name: React.ReactText;
-  type: React.ReactText;
-  price: React.ReactText;
+  name: string;
+  type: string;
+  price: string;
   onAddPress: (index: number) => void;
   onPress: (index: number) => void;
 }
@@ -53,8 +53,8 @@ class ProductListItemComponent extends React.Component<ProductListItemProps> {
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
         <Image
-          source={image}
           style={themedStyle.image}
+          source={image}
         />
         <View style={themedStyle.infoContainer}>
           <View>
@@ -108,6 +108,7 @@ export const ProductListItem = withStyles(ProductListItemComponent, (theme: Them
   },
   image: {
     flex: 1,
+    width: null,
     height: 140,
     backgroundColor: theme['color-basic-100'],
   },

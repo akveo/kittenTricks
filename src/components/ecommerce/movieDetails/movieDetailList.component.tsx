@@ -29,7 +29,7 @@ class MovieDetailListComponent extends React.Component<MovieDetailListProps> {
       <MovieDetailListItem
         key={index}
         description={item.description}
-        value={item.value}
+        value={`${item.value}`}
       />
     );
   };

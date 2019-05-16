@@ -15,9 +15,9 @@ import { Text } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
-  followers: React.ReactText;
-  following: React.ReactText;
-  posts: React.ReactText;
+  followers: number;
+  following: number;
+  posts: number;
   onFollowersPress: () => void;
   onFollowingPress: () => void;
   onPostsPress: () => void;
@@ -51,7 +51,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onFollowersButtonPress}>
-          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{followers}</Text>
+          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{`${followers}`}</Text>
           <Text
             style={[themedStyle.hintLabel, derivedTextStyle]}
             appearance='hintDark'
@@ -63,7 +63,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onFollowingButtonPress}>
-          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{following}</Text>
+          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{`${following}`}</Text>
           <Text
             style={[themedStyle.hintLabel, derivedTextStyle]}
             appearance='hintDark'
@@ -75,7 +75,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           activeOpacity={0.65}
           style={themedStyle.parameterContainer}
           onPress={this.onPostsButtonPress}>
-          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{posts}</Text>
+          <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{`${posts}`}</Text>
           <Text
             style={[themedStyle.hintLabel, derivedTextStyle]}
             appearance='hintDark'

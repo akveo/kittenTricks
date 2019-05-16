@@ -41,7 +41,7 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
         onPress={this.onDetails}>
         <ImageOverlay
           style={[themedStyle.container, style]}
-          source={{ uri: training.image }}>
+          source={training.image.imageSource}>
           <View>
             <Text
               style={themedStyle.levelLabel}

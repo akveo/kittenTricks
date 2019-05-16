@@ -22,7 +22,10 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { backgroundImage } from '@src/assets/images';
+import {
+  ImageSource,
+  imageSignIn5Bg,
+} from '@src/assets/images';
 
 interface ComponentProps {
   onSignInEmailPress: (formData: SignInForm3Data) => void;
@@ -48,6 +51,8 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
     emailFormData: undefined,
     smsFormData: undefined,
   };
+
+  private backgroundImage: ImageSource = imageSignIn5Bg;
 
   private onSignInButtonPress = () => {
     const { selectedTabIndex } = this.state;
@@ -102,7 +107,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={backgroundImage}>
+        source={this.backgroundImage.imageSource}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text

@@ -13,14 +13,14 @@ import {
   Avatar,
   Text,
 } from '@kitten/ui';
+import { textStyle } from '@src/components/common';
 import { PinIcon } from '@src/assets/icons';
 import { ProfileLocation } from './profileLocation.component';
-import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   photo: ImageSourcePropType;
-  name: React.ReactText;
-  location: React.ReactText;
+  name: string;
+  location: string;
 }
 
 export type ProfileInfo2Props = ThemedComponentProps & ViewProps & ComponentProps;

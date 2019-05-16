@@ -15,7 +15,7 @@ import { ShareIcon } from '@src/assets/icons';
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
-  children?: React.ReactText;
+  children?: string;
 }
 
 export type ShareButtonProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;

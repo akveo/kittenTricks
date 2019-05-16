@@ -12,7 +12,7 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  likes: React.ReactText;
+  likes: number;
   onLikePress: () => void;
 }
 
@@ -29,7 +29,7 @@ class ProfileActivityBarComponent extends React.Component<ProfileActivityBarProp
         <LikeButton
           activeOpacity={0.75}
           onPress={onLikePress}>
-          {likes}
+          {`${likes}`}
         </LikeButton>
       </ActivityBar>
     );

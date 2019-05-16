@@ -17,8 +17,8 @@ import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   photo: ImageSourcePropType;
-  name: React.ReactText;
-  location: React.ReactText;
+  name: string;
+  location: string;
   children?: React.ReactNode;
 }
 

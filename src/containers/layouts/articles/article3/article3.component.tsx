@@ -72,7 +72,7 @@ class Article3Component extends React.Component<Article3Props> {
         </Text>
         <ImageBackground
           style={themedStyle.image}
-          source={{ uri: article.image }}>
+          source={article.image.imageSource}>
         </ImageBackground>
         <Text
           style={themedStyle.contentLabel}

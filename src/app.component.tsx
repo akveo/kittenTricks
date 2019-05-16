@@ -14,7 +14,16 @@ import { trackScreenTransition } from '@src/core/utils/analytics';
 import { getCurrentStateName } from '@src/core/navigation/routeUtil';
 
 const images: ImageRequireSource[] = [
-  require('./assets/images/image-background.png'),
+  require('./assets/images/source/image-profile-1.jpg'),
+  require('./assets/images/source/image-profile-2.jpg'),
+  require('./assets/images/source/image-profile-3.jpg'),
+  require('./assets/images/source/image-profile-4.jpg'),
+  require('./assets/images/source/image-profile-5.jpg'),
+  require('./assets/images/source/image-profile-6.jpg'),
+  require('./assets/images/source/image-profile-7.jpg'),
+  require('./assets/images/source/image-profile-8.jpg'),
+  require('./assets/images/source/image-profile-9.jpg'),
+  require('./assets/images/source/image-profile-10.jpg'),
 ];
 
 const fonts: Font.FontMap = {
