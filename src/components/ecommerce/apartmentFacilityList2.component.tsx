@@ -28,7 +28,7 @@ class ApartmentFacilityList2Component extends React.Component<ApartmentFacilityL
     return (
       <ApartmentFacilityList2Item
         style={this.props.themedStyle.item}
-        icon={item.icon}>
+        icon={item.icon.imageSource}>
         {item.title}
       </ApartmentFacilityList2Item>
     );

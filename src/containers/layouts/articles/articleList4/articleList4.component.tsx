@@ -57,7 +57,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
     return (
       <ArticleList4Item
         style={style}
-        photo={{ uri: item.image }}
+        photo={item.image.imageSource}
         title={item.title}
         comments={item.comments ? item.comments.length : 0}
         likes={item.likes}
@@ -83,7 +83,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
     return (
       <ScrollView style={themedStyle.container}>
         <ArticleHeader
-          source={{ uri: headingArticle.image }}
+          source={headingArticle.image.imageSource}
           title={headingArticle.title}
           description={`${headingArticle.tips} Useful Tips`}>
           <Button

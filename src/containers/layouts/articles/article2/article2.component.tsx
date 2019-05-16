@@ -43,11 +43,11 @@ class Article2Component extends React.Component<Article2Props> {
       <ScrollView style={themedStyle.container}>
         <ImageBackground
           style={themedStyle.image}
-          source={{ uri: article.image }}>
+          source={article.image.imageSource}>
           <Avatar
             style={themedStyle.authorPhoto}
             size='large'
-            source={{ uri: article.author.photo }}
+            source={article.author.photo.imageSource}
           />
         </ImageBackground>
           <Text

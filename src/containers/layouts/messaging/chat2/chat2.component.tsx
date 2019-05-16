@@ -39,7 +39,7 @@ import {
   profile1,
   profile2,
 } from '@src/core/data/profile';
-import { UiMessageModel } from '../uiMessage.model';
+import { UiMessageModel } from '../container/uiMessage.model';
 import { Chat2FileSection } from './chat2FileSection.component';
 import {
   AvoidKeyboard,

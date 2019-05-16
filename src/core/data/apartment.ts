@@ -2,7 +2,14 @@ import {
   Apartment,
   ApartmentFacility,
 } from '../model/apartment.model';
-import { apartmentImage } from '@src/assets/images';
+import {
+  imageApartment1,
+  imageApartment2,
+  imageApartment3,
+  imageApartment4,
+  imageApartment5,
+} from '@src/assets/images';
+import { evaIcons } from '@src/assets/icons';
 
 /* tslint:disable */
 
@@ -44,17 +51,17 @@ class BathFacility implements ApartmentFacility {
 
 const wifiFacility: ApartmentFacility = {
   title: 'Wi-Fi',
-  icon: 'https://akveo.github.io/eva-icons/outline/png/128/wifi-outline.png',
+  icon: evaIcons.wifiOutline,
 };
 
 const tvFacility: ApartmentFacility = {
   title: 'TV',
-  icon: 'https://akveo.github.io/eva-icons/fill/png/128/tv.png',
+  icon: evaIcons.tvFill,
 };
 
 const freeParkingFacility: ApartmentFacility = {
   title: 'Free Parking',
-  icon: 'https://akveo.github.io/eva-icons/fill/png/128/car.png',
+  icon: evaIcons.carFill,
 };
 
 export const apartment1: Apartment = {
@@ -71,12 +78,12 @@ export const apartment1: Apartment = {
     tvFacility,
     freeParkingFacility,
   ],
-  primaryPhoto: apartmentImage,
+  primaryPhoto: imageApartment1,
   photos: [
-    'https://images.unsplash.com/photo-1527030280862-64139fba04ca',
-    'https://images.unsplash.com/photo-1486304873000-235643847519',
-    'https://images.unsplash.com/photo-1528914137830-c85ee162f588',
-    'https://images.unsplash.com/photo-1499955085172-a104c9463ece',
+    imageApartment2,
+    imageApartment3,
+    imageApartment4,
+    imageApartment5,
   ],
 };
 

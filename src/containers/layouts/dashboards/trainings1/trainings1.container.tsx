@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { Trainings1 } from './trainings1.component';
 import { Exercise } from '@src/core/model/exercise.model';
-import { exercises } from '@src/core/data/exercise';
+import { exercises1 } from '@src/core/data/exercise';
 
 interface State {
   selectedLevelIndex: number;
@@ -13,7 +13,7 @@ export class Trainings1Container extends React.Component<NavigationScreenProps, 
 
   public state: State = {
     selectedLevelIndex: 0,
-    exercises: exercises,
+    exercises: exercises1,
   };
 
   private levels: string[] = ['EASY', 'MEDIUM', 'HARD'];

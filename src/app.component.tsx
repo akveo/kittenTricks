@@ -11,7 +11,7 @@ import {
 import { Router } from './core/navigation/routes';
 
 const images: ImageRequireSource[] = [
-  require('./assets/images/image-background.png'),
+
 ];
 
 const fonts: Font.FontMap = {

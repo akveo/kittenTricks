@@ -61,7 +61,7 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
         <View style={themedStyle.photoSection}>
           <ProfilePhoto
             style={themedStyle.photo}
-            source={{ uri: profile.photo }}
+            source={profile.photo.imageSource}
             button={this.renderPhotoButton}
           />
           <View style={themedStyle.nameSection}>
@@ -94,7 +94,7 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
           />
           <ProfileSetting
             hint='Age'
-            value={profile.age}
+            value={`${profile.age}`}
           />
           <ProfileSetting
             hint='Weight'

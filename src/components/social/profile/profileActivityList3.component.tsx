@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Dimensions,
-  FlexStyle,
   ImageSourcePropType,
   ImageStyle,
   ListRenderItemInfo,

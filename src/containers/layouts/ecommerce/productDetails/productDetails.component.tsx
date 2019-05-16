@@ -79,8 +79,7 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
     return (
       <ScrollView contentContainerStyle={themedStyle.container}>
         <ProductInfo
-          style={themedStyle.infoContainer}
-          image={{ uri: product.photo }}
+          image={product.photo.imageSource}
           name={product.name}
           type={product.type}
           price={`${product.cost} ${product.currency}`}
@@ -127,9 +126,6 @@ export const ProductDetails = withStyles(ProductDetailsComponent, (theme: ThemeT
   container: {
     flexGrow: 1,
     backgroundColor: theme['color-basic-100'],
-  },
-  infoContainer: {
-    paddingHorizontal: 16,
   },
   commentsContainer: {
     paddingHorizontal: 8,

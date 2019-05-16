@@ -24,6 +24,7 @@ import {
   profile2,
 } from '@src/core/data/profile';
 import { TopNavigationElement } from '@src/core/navigation/navigationParams';
+import { imageMessage1 } from '@src/assets/images';
 import { Chat2 } from './chat2.component';
 
 interface State {
@@ -155,7 +156,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
     const newMessage: Message = {
       file: {
         type: item.mediaType as FileType,
-        preview: item.uri,
+        preview: imageMessage1,
         name: item.filename,
       },
       date: '15:01 PM',

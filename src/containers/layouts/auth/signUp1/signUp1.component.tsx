@@ -28,7 +28,10 @@ import {
   ForwardIcon,
   HeartIcon,
 } from '@src/assets/icons';
-import { backgroundImage } from '@src/assets/images';
+import {
+  ImageSource,
+  imageSignUp1Bg,
+} from '@src/assets/images';
 
 interface ComponentProps {
   onSignUpPress: (formData: SignUpForm1Data) => void;
@@ -50,6 +53,8 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
   public state: State = {
     formData: undefined,
   };
+
+  private backgroundImage: ImageSource = imageSignUp1Bg;
 
   private onFormDataChange = (formData: SignUpForm1Data) => {
     this.setState({ formData });
@@ -103,7 +108,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
         <AvoidKeyboard offset={this.keyboardOffset}>
           <ImageOverlay
             style={themedStyle.headerContainer}
-            source={backgroundImage}>
+            source={this.backgroundImage.imageSource}>
             <Button
               style={themedStyle.ewaButton}
               textStyle={textStyle.button}

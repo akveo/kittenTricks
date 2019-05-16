@@ -54,7 +54,7 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
         onPress={this.onPress}>
         <ImageOverlay
           style={themedStyle.image}
-          source={{ uri: article.image }}
+          source={article.image.imageSource}
         />
         <View style={themedStyle.infoContainer}>
           <Text
@@ -76,7 +76,7 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
           onCommentPress={this.onCommentsButtonPress}
           onLikePress={this.onLikeButtonPress}>
           <ActivityAuthoring
-            photo={{ uri: article.author.photo }}
+            photo={article.author.photo.imageSource}
             name={`${article.author.firstName} ${article.author.lastName}`}
             date={article.date}
           />

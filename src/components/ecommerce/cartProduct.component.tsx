@@ -83,7 +83,7 @@ class CartProductComponent extends React.Component<CartProductProps> {
       <View style={[themedStyle.container, style]}>
         <Image
           style={themedStyle.image}
-          source={{ uri: product.photo }}/>
+          source={product.photo.imageSource}/>
         <View style={themedStyle.infoContainer}>
           <TouchableOpacity
             style={themedStyle.closeButton}

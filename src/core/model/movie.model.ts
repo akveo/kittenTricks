@@ -1,12 +1,14 @@
+import { ImageSource } from '@src/assets/images';
+
 export interface Movie {
   name: string;
   part: string;
   description: string;
-  preview: string;
+  preview: ImageSource;
   rating: number;
   categories: string[];
   details: MovieDetail[];
-  screenshots: string[];
+  screenshots: ImageSource[];
 }
 
 export interface MovieDetail {

@@ -1,6 +1,8 @@
 import React from 'react';
 import {
+  Image,
   ImageProps,
+  ImageSourcePropType,
   ImageStyle,
   StyleProp,
 } from 'react-native';
@@ -13,14 +15,10 @@ import {
   TextIcon,
   TextIconProps,
 } from '@src/components/common';
-import {
-  Icon,
-  RemoteIcon,
-} from '@src/assets/icons';
 
 // @ts-ignore (`icon` prop override)
 interface ComponentProps extends TextIconProps {
-  icon: string;
+  icon: ImageSourcePropType;
 }
 
 export type ApartmentFacilityList2ItemProps = ThemedComponentProps & ComponentProps;
@@ -28,9 +26,14 @@ export type ApartmentFacilityList2ItemProps = ThemedComponentProps & ComponentPr
 class ApartmentFacilityList2ItemComponent extends React.Component<ApartmentFacilityList2ItemProps> {
 
   private renderIconElement = (style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
-    const { icon } = this.props;
+    const { themedStyle, icon } = this.props;
 
-    return Icon(new RemoteIcon(icon), style);
+    return (
+      <Image
+        style={[themedStyle.icon, style]}
+        source={icon}
+      />
+    );
   };
 
   public render(): React.ReactNode {

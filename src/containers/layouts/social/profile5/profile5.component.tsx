@@ -33,7 +33,7 @@ class Profile5Component extends React.Component<Profile5Props> {
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={{ uri: profile.photo }}>
+        source={profile.photo.imageSource}>
         <View style={themedStyle.infoContainer}>
           <Text
             style={themedStyle.nameLabel}

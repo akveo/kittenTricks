@@ -38,7 +38,7 @@ interface State {
 export class ProductDetailsContainer extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
-    product: products[0],
+    product: products[1],
     comments: comments,
     currentCommentText: '',
   };

@@ -9,6 +9,12 @@ import {
   RemoteIcon,
 } from './icon.component';
 
+export {
+  Icon,
+  IconSource,
+  RemoteIcon,
+} from './icon.component';
+
 export const MenuIconAuth = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
     imageSource: require('./icon-auth.png'),
@@ -261,13 +267,7 @@ export const TwitterIconFill = (style: StyleProp<ImageStyle>): IconElement => {
   return Icon(evaIcons.twitterFill, style);
 };
 
-export {
-  Icon,
-  RemoteIcon,
-  IconSource,
-};
-
-const evaIcons: { [key: string]: IconSource } = {
+export const evaIcons: { [key: string]: IconSource } = {
   arrowForwardFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png'),
   backArrowFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png'),
   bulbFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/bulb.png'),
@@ -327,4 +327,8 @@ const evaIcons: { [key: string]: IconSource } = {
   searchOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/search-outline.png'),
   smartphoneOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/smartphone-outline.png'),
   flashOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/flash-outline.png'),
+  wifiOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/wifi-outline.png'),
+  tvFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/tv.png'),
+  carFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/car.png'),
+  activityOutline: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/activity-outline.png'),
 };

@@ -54,7 +54,7 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
         onPress={this.onPress}>
         <ImageOverlay
           style={themedStyle.image}
-          source={{ uri: article.image }}>
+          source={article.image.imageSource}>
           <Text
             style={themedStyle.titleLabel}
             appearance='light'

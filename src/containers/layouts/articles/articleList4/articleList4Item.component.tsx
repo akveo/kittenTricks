@@ -25,8 +25,8 @@ interface ListDerivedProps {
 interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
   title: string;
-  comments: string;
-  likes: string;
+  comments: number;
+  likes: number;
   onPress: (index: number) => void;
   onCommentPress: (index: number) => void;
   onLikePress: (index: number) => void;

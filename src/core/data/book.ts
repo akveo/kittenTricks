@@ -1,4 +1,5 @@
 import { Book } from '@src/core/model';
+import { imageBook } from '@src/assets/images';
 
 export const book1: Book = {
   name: 'Design Systems',
@@ -7,8 +8,7 @@ export const book1: Book = {
   rating: 4,
   price: 10,
   currency: '$',
-  preview: 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/' +
-    '55c43937-4e10-4ee0-9259-1469d3ff36dd/design-systems-book-opt.jpg',
+  preview: imageBook,
   description: 'Not all design systems are equally effective. Some can generate coherent user experiences, ' +
     'others produce confusing patchwork designs. Some inspire teams to contribute to them, while others are ' +
     'neglected. ' +

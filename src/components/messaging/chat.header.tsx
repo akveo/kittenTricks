@@ -4,6 +4,7 @@ import {
   SafeAreaView,
 } from 'react-navigation';
 import {
+  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -61,7 +62,7 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
 
     return (
       <Avatar
-        source={{ uri: interlocutor.photo }}
+        source={interlocutor.photo.imageSource}
         shape='round'
         size='small'
       />

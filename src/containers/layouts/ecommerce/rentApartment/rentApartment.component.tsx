@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageSourcePropType,
   ScrollView,
   View,
 } from 'react-native';
@@ -47,10 +46,6 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
     this.props.onPhotoPress(index);
   };
 
-  private createImageSource = (source: string): ImageSourcePropType => {
-    return { uri: source };
-  };
-
   public render(): React.ReactNode {
     const { themedStyle, apartment } = this.props;
 
@@ -58,7 +53,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
       <ScrollView contentContainerStyle={themedStyle.container}>
         <ImageOverlay
           style={themedStyle.backgroundImage}
-          source={apartment.primaryPhoto}
+          source={apartment.primaryPhoto.imageSource}
         />
         <View style={themedStyle.infoContainer}>
           <View style={themedStyle.detailsContainer}>
@@ -79,7 +74,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
                 valueStyle={themedStyle.priceValueLabel}
                 scaleStyle={themedStyle.priceScaleLabel}
                 scale='night'>
-                {apartment.price}
+                {`${apartment.price}`}
               </PriceText>
               <Button
                 style={themedStyle.bookButton}
@@ -126,7 +121,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
           </Text>
           <ApartmentPhotoList
             contentContainerStyle={themedStyle.photoList}
-            data={apartment.photos.map(this.createImageSource)}
+            data={apartment.photos}
             onItemPress={this.onPhotoPress}
           />
         </View>

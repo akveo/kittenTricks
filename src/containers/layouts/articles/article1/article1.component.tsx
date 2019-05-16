@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ScrollView,
-  View,
-} from 'react-native';
+import { ScrollView } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -45,7 +42,7 @@ class Article1Component extends React.Component<Article1Props> {
     return (
       <ScrollView style={themedStyle.container}>
         <ArticleHeader
-          source={{ uri: article.image }}
+          source={article.image.imageSource}
           title={article.title}
           description={`${article.tips} Useful Tips`}
         />
@@ -61,7 +58,7 @@ class Article1Component extends React.Component<Article1Props> {
           onCommentPress={this.onCommentButtonPress}
           onLikePress={this.onLikeButtonPress}>
           <ActivityAuthoring
-            photo={{ uri: article.author.photo }}
+            photo={article.author.photo.imageSource}
             name={`${article.author.firstName} ${article.author.lastName}`}
             date={article.date}
           />

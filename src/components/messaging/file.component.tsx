@@ -27,7 +27,7 @@ function getPhotoFileComponent(message: Message, appearance: ChatFileMessageAppe
     <Image
       key={2}
       style={style}
-      source={{ uri: message.file.preview }}
+      source={message.file.preview.imageSource}
     />
   );
 }
@@ -44,7 +44,7 @@ function getVideoFileComponent(message: Message, appearance: ChatFileMessageAppe
   return (
     <ImageBackground
       key={2}
-      source={{ uri: message.file.preview }}
+      source={message.file.preview.imageSource}
       style={style}
       imageStyle={imageStyle}>
       {PlayCircleIcon(iconStyle)}

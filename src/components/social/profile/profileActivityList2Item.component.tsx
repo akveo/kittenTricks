@@ -2,11 +2,6 @@ import React from 'react';
 import {
   Image,
   ImageProps,
-  ImageSourcePropType,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
-  ViewProps,
 } from 'react-native';
 import {
   ThemedComponentProps,

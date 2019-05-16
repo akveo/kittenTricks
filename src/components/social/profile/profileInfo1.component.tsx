@@ -19,7 +19,7 @@ interface ComponentProps {
   photo: ImageSourcePropType;
   name: string;
   location: string;
-  children?: string;
+  children?: React.ReactNode;
 }
 
 export type ProfileInfo1Props = ThemedComponentProps & ViewProps & ComponentProps;
