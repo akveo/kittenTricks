@@ -228,7 +228,7 @@ export const PaperPlaneIcon = (style: StyleProp<ImageStyle>): IconElement => {
 };
 
 export const ImageIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.image, style);
+  return Icon(evaIcons.imageFill, style);
 };
 
 export const FileTextIcon = (style: StyleProp<ImageStyle>): IconElement => {

@@ -74,7 +74,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
 
   public componentWillMount(): void {
     MediaLibrary.getAssetsAsync({ first: 6 })
-                .then(this.onMediaResponse);
+      .then(this.onMediaResponse);
     this.props.navigation.setParams({
       interlocutor: this.state.conversation.interlocutor,
       lastSeen: this.state.conversation.lastSeen,
@@ -120,7 +120,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
 
   private onAddButtonPress = (): void => {
     Permissions.askAsync(Permissions.CAMERA_ROLL)
-               .then(this.onCameraPermissionResponse);
+      .then(this.onCameraPermissionResponse);
   };
 
   private onCancelButtonPress = (): void => {
