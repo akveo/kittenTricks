@@ -1,10 +1,14 @@
 export interface NavigationRouteState {
   index: number;
   routes: any[];
-  routeName: string;
+  routeName?: string;
 
   params: { [key: string]: any };
 }
+
+export const getCurrentStateName = (state: NavigationRouteState): string => {
+  return findCurrentRoute(state).routeName;
+};
 
 export const getCurrentRouteState = (navigation: any): NavigationRouteState => {
   return findCurrentRoute(navigation.state);
