@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView } from 'react-navigation';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -32,27 +33,27 @@ class MenuComponent extends React.Component<Props> {
     const { selectedIndex } = this.props;
 
     return (
-      <BottomNavigation
-        appearance='noIndicator'
-        selectedIndex={selectedIndex}
-        onSelect={this.onTabSelect}>
-        <BottomNavigationTab
-          title='Layouts'
-          icon={LayoutIcon}
-        />
-        <BottomNavigationTab
-          title='Components'
-          icon={StarIconOutline}
-        />
-        <BottomNavigationTab
-          title='Themes'
-          icon={ColorPaletteIcon}
-        />
-      </BottomNavigation>
+      <SafeAreaView>
+        <BottomNavigation
+          appearance='noIndicator'
+          selectedIndex={selectedIndex}
+          onSelect={this.onTabSelect}>
+          <BottomNavigationTab
+            title='Layouts'
+            icon={LayoutIcon}
+          />
+          <BottomNavigationTab
+            title='Components'
+            icon={StarIconOutline}
+          />
+          <BottomNavigationTab
+            title='Themes'
+            icon={ColorPaletteIcon}
+          />
+        </BottomNavigation>
+      </SafeAreaView>
     );
   }
 }
 
-export const Menu = withStyles(MenuComponent, (theme: ThemeType) => ({
-
-}));
+export const Menu = withStyles(MenuComponent, (theme: ThemeType) => ({}));
