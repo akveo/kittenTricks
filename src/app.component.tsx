@@ -11,6 +11,7 @@ import {
 } from './core/applicationLoader.component';
 import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from '@src/core/utils/analytics';
+import { getCurrentStateName } from '@src/core/navigation/routeUtil';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/image-background.png'),
@@ -35,26 +36,23 @@ const assets: Assets = {
 
 export default class App extends React.Component {
 
-  private getActiveRouteName = (navigationState): string | null => {
-    if (!navigationState) {
-      return null;
-    }
-    const route = navigationState.routes[navigationState.index];
-    if (route.routes) {
-      return this.getActiveRouteName(route);
-    }
-    return route.routeName;
+  private onTransitionTrackError = (error: any): void => {
+    console.warn('Analytics error: ', error.message);
+  };
+
+  private onTransitionTrackSuccess = (): void => {
+    // console.log('success');
   };
 
   private onNavigationStateChange = (prevState: NavigationState,
                                      currentState: NavigationState): void => {
 
-    const prevStateName: string | null = this.getActiveRouteName(prevState);
-    const currentStateName: string | null = this.getActiveRouteName(currentState);
+    const prevStateName: string = getCurrentStateName(prevState);
+    const currentStateName: string = getCurrentStateName(currentState);
     if (prevStateName !== currentStateName) {
       trackScreenTransition(currentStateName)
-        // .then(() => console.log('success'))
-        .catch((error: any) => console.warn('Analytics error: ', error.message));
+        .then(this.onTransitionTrackSuccess)
+        .catch(this.onTransitionTrackError);
     }
   };
 

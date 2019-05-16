@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-navigation';
 import { textStyle } from '@src/components/common';
 
-interface ComponentProps {
+export interface ComponentProps {
   backIcon?: BackIconProp;
   onBackPress?: () => void;
 }
