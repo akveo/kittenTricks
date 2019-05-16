@@ -17,8 +17,8 @@ import {
 } from '@src/components/common';
 
 interface ComponentProps {
-  comments: React.ReactText;
-  likes: React.ReactText;
+  comments: number;
+  likes: number;
   onCommentPress: () => void;
   onLikePress: () => void;
   textStyle?: StyleProp<TextStyle>;
@@ -48,13 +48,13 @@ class ArticleActivityBarComponent extends React.Component<ArticleActivityBarProp
             textStyle={textStyle}
             activeOpacity={0.75}
             onPress={onCommentPress}>
-            {comments}
+            {`${comments}`}
           </CommentsButton>
           <LikeButton
             textStyle={textStyle}
             activeOpacity={0.75}
             onPress={onLikePress}>
-            {likes}
+            {`${likes}`}
           </LikeButton>
         </ReactionBar>
       </ActivityBar>

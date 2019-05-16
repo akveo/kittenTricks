@@ -17,7 +17,10 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { backgroundImage } from '@src/assets/images';
+import {
+  imageForgotPasswordBg,
+  ImageSource,
+} from '@src/assets/images';
 
 interface ComponentProps {
   onResetPress: (formData: ForgotPasswordFormData) => void;
@@ -34,6 +37,8 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
   public state: State = {
     formData: undefined,
   };
+
+  private backgroundImage: ImageSource = imageForgotPasswordBg;
 
   private onFormDataChange = (formData: ForgotPasswordFormData) => {
     this.setState({ formData });
@@ -53,7 +58,7 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={backgroundImage}>
+        source={this.backgroundImage.imageSource}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <Text
             style={themedStyle.forgotPasswordLabel}

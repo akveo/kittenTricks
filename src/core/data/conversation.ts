@@ -1,6 +1,5 @@
 import { Conversation } from '@src/core/model';
 import {
-  profile1,
   profile2,
   profile3,
   profile4,
@@ -10,6 +9,7 @@ import {
   profile8,
   profile9,
   profile10,
+  profile1,
 } from './profile';
 import {
   message1,
@@ -30,12 +30,12 @@ import {
 } from './message';
 
 export const conversation1: Conversation = {
-  interlocutor: profile1,
+  interlocutor: profile7,
   messages: [message1],
 };
 
 export const conversation2: Conversation = {
-  interlocutor: profile2,
+  interlocutor: profile8,
   messages: [message2],
 };
 
@@ -50,7 +50,7 @@ export const conversation4: Conversation = {
 };
 
 export const conversation5: Conversation = {
-  interlocutor: profile2,
+  interlocutor: profile9,
   lastSeen: 'just now',
   messages: [
     message11,
@@ -64,7 +64,7 @@ export const conversation5: Conversation = {
 };
 
 export const conversation6: Conversation = {
-  interlocutor: profile2,
+  interlocutor: profile9,
   lastSeen: 'just now',
   messages: [
     message11,
@@ -95,7 +95,7 @@ export const conversation8: Conversation = {
 };
 
 export const conversation9: Conversation = {
-  interlocutor: profile7,
+  interlocutor: profile1,
   lastSeen: 'just now',
   messages: [
     message14,
@@ -103,7 +103,7 @@ export const conversation9: Conversation = {
 };
 
 export const conversation10: Conversation = {
-  interlocutor: profile8,
+  interlocutor: profile2,
   lastSeen: 'just now',
   messages: [
     message13,

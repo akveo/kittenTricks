@@ -22,7 +22,7 @@ interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
   iconStyle?: StyleProp<ImageProps>;
   icon?: IconProp;
-  children?: React.ReactText;
+  children?: string;
 }
 
 export type TextIconProps = ThemedComponentProps & ViewProps & ComponentProps;
@@ -45,7 +45,9 @@ class TextIconComponent extends React.Component<TextIconProps> {
     return (
       <View style={[themedStyle.container, style]}>
         {iconElement}
-        <Text style={[themedStyle.text, derivedTextStyle]}>{children}</Text>
+        <Text style={[themedStyle.text, derivedTextStyle]}>
+          {children}
+        </Text>
       </View>
     );
   }

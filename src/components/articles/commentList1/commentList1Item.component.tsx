@@ -97,7 +97,7 @@ class CommentList1ItemComponent extends React.Component<CommentList1ItemProps, S
         <View style={themedStyle.authorContainer}>
           <ActivityAuthoring
             style={themedStyle.activityAuthoring}
-            photo={{ uri: comment.author.photo }}
+            photo={comment.author.photo.imageSource}
             name={`${comment.author.firstName} ${comment.author.lastName}`}
             date={comment.date}
           />

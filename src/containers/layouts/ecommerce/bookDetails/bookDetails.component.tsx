@@ -68,7 +68,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
       <ScrollView>
         <BookHeader
           style={themedStyle.bookHeader}
-          image={{ uri: book.preview }}
+          image={book.preview.imageSource}
           title={book.name}
           author={book.author}
           categories={book.categories}

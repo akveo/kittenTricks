@@ -70,7 +70,7 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
         style={style}>
         <ImageOverlay
           style={themedStyle.image}
-          source={{ uri: training.image }}
+          source={training.image.imageSource}
         />
         <View style={themedStyle.infoContainer}>
           <Text

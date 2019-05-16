@@ -50,7 +50,7 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
         <View style={[themedStyle.container, style]}>
           <ImageOverlay
             style={[themedStyle.subContainer, themedStyle.leftSection]}
-            source={{ uri: training.image }}/>
+            source={training.image.imageSource}/>
           <View style={[themedStyle.subContainer, themedStyle.rightSection]}>
             <Text
               style={themedStyle.titleLabel}

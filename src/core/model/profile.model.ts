@@ -1,4 +1,4 @@
-import { ImageRequireSource } from 'react-native';
+import { ImageSource } from '@src/assets/images';
 
 export enum Gender {
   MALE = 'Male',
@@ -6,7 +6,7 @@ export enum Gender {
 }
 
 export interface Profile {
-  photo: string;
+  photo: ImageSource;
   about: string;
   firstName: string;
   lastName: string;
@@ -34,5 +34,5 @@ export interface CategorisedProfileActivity {
 
 export interface ProfileActivity {
   category: string;
-  source: ImageRequireSource;
+  source: ImageSource;
 }

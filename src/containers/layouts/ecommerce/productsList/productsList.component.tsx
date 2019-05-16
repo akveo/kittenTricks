@@ -6,8 +6,8 @@ import {
 } from '@kitten/theme';
 import {
   Tab,
+  TabProps,
   TabView,
-  TabViewChildProps,
 } from '@kitten/ui';
 import { ProductList } from '@src/components/ecommerce';
 import { Product } from '@src/core/model';
@@ -84,7 +84,7 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
     return ['All', ...new Set(categories)];
   };
 
-  private renderTab = (title: string, index: number): React.ReactElement<TabViewChildProps> => {
+  private renderTab = (title: string, index: number): React.ReactElement<TabProps> => {
     const { themedStyle, products } = this.props;
     const { [index]: tabCategory } = this.state.tabCategories;
 
@@ -108,7 +108,7 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
-    const tabElements: React.ReactElement<TabViewChildProps>[] = this.state.tabCategories.map(this.renderTab);
+    const tabElements: React.ReactElement<TabProps>[] = this.state.tabCategories.map(this.renderTab);
 
     return (
       <TabView

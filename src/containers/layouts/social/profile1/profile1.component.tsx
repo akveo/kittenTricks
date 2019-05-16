@@ -68,7 +68,7 @@ class Profile1Component extends React.Component<Profile1Props> {
       <ScrollView style={themedStyle.container}>
         <ProfileInfo1
           style={themedStyle.profileInfo}
-          photo={{ uri: profile.photo }}
+          photo={profile.photo.imageSource}
           name={`${profile.firstName} ${profile.lastName}`}
           location={profile.location}>
           <View style={themedStyle.parametersContainer}>

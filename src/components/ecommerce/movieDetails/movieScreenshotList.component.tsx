@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Image,
-  ImageSourcePropType,
   ListRenderItemInfo,
 } from 'react-native';
 import {
@@ -15,12 +14,13 @@ import {
   ListItemProps,
   ListProps,
 } from '@kitten/ui';
+import { ImageSource } from '@src/assets/images';
 
 // @ts-ignore (`renderItem` prop override)
 interface ComponentProps extends ListProps {
-  data: ImageSourcePropType[];
+  data: ImageSource[];
   onItemPress?: (index: number) => void;
-  renderItem?: (info: ListRenderItemInfo<ImageSourcePropType>) => ListItemElement;
+  renderItem?: (info: ListRenderItemInfo<ImageSource>) => ListItemElement;
 }
 
 export type MovieScreenshotListProps = ThemedComponentProps & ComponentProps;
@@ -35,7 +35,7 @@ class MovieScreenshotListComponent extends React.Component<MovieScreenshotListPr
     }
   };
 
-  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
+  private renderItem = (info: ListRenderItemInfo<ImageSource>): ListItemElement => {
     const { themedStyle } = this.props;
 
     return (
@@ -45,7 +45,7 @@ class MovieScreenshotListComponent extends React.Component<MovieScreenshotListPr
         onPress={this.onItemPress}>
         <Image
           style={themedStyle.item}
-          source={info.item}
+          source={info.item.imageSource}
         />
       </ListItem>
     );

@@ -15,8 +15,8 @@ import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps {
   photo: ImageSourcePropType;
-  name: React.ReactText;
-  date: React.ReactText;
+  name: string;
+  date: string;
 }
 
 export type ActivitiAuthoringProps = ThemedComponentProps & ViewProps & ComponentProps;

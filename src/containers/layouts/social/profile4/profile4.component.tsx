@@ -68,7 +68,7 @@ class Profile4Component extends React.Component<Profile4Props> {
       <View style={themedStyle.container}>
         <View style={themedStyle.infoContainer}>
           <ProfileInfo1
-            photo={{ uri: profile.photo }}
+            photo={profile.photo.imageSource}
             name={`${profile.firstName} ${profile.lastName}`}
             location={profile.location}>
             <RateBar

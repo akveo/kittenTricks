@@ -43,7 +43,7 @@ class ProfileFriendListComponent extends React.Component<ProfileFriendListProps>
       <ProfileFriendListItem
         style={themedStyle.item}
         activeOpacity={0.75}
-        photo={{ uri: item.photo }}
+        photo={item.photo.imageSource}
         name={item.firstName}
         onPress={this.onItemPress}
       />

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ImageSourcePropType } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { Showcase } from '../common/showcase.component';
 import { ShowcaseSection } from '../common/showcaseSection.component';

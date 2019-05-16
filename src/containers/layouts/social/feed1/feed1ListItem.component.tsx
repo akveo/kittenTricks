@@ -29,10 +29,10 @@ interface ListDerivedProps {
 interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
   icon: ImageSourcePropType;
-  category: React.ReactText;
-  time: React.ReactText;
-  description: React.ReactText;
-  styx?: React.ReactText;
+  category: string;
+  time: string;
+  description: string;
+  styx?: string;
   onPress: (index: number) => void;
   onAddPress: (index: number) => void;
   onSharePress: (index: number) => void;
@@ -87,7 +87,10 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
           source={photo}>
           <View style={themedStyle.categoryContainer}>
             <View style={themedStyle.categoryInfoContainer}>
-              <Image style={themedStyle.categoryIcon} source={icon}/>
+              <Image
+                style={themedStyle.categoryIcon}
+                source={icon}
+              />
               <Text
                 style={themedStyle.categoryLabel}
                 appearance='light'

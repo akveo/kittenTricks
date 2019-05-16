@@ -23,9 +23,9 @@ interface ListDerivedProps {
 interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
   profilePhoto: ImageSourcePropType;
-  authorName: React.ReactText;
-  date: React.ReactText;
-  likes: React.ReactText;
+  authorName: string;
+  date: string;
+  likes: number;
   onPress: (index: number) => void;
   onLikePress: (index: number) => void;
 }

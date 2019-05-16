@@ -19,7 +19,10 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { backgroundImage } from '@src/assets/images';
+import {
+  imageSignIn4Bg,
+  ImageSource,
+} from '@src/assets/images';
 
 interface ComponentProps {
   onForgotPasswordPress: () => void;
@@ -41,6 +44,8 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
   public state: State = {
     formData: undefined,
   };
+
+  private backgroundImage: ImageSource = imageSignIn4Bg;
 
   private onForgotPasswordButtonPress = () => {
     this.props.onForgotPasswordPress();
@@ -80,7 +85,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
     return (
       <ImageOverlay
         style={themedStyle.container}
-        source={backgroundImage}>
+        source={this.backgroundImage.imageSource}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text

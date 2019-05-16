@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   ScrollView,
-  ImageSourcePropType,
 } from 'react-native';
 import {
   withStyles,
@@ -39,10 +38,6 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
     this.props.onBuyTicket();
   };
 
-  private createScreenshotSource = (source: string): ImageSourcePropType => {
-    return { uri: source };
-  };
-
   public render(): React.ReactNode {
     const { themedStyle, movie } = this.props;
 
@@ -50,7 +45,7 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
       <ScrollView contentContainerStyle={themedStyle.container}>
         <MovieHeader
           style={themedStyle.movieHeader}
-          image={{ uri: movie.preview }}
+          image={movie.preview.imageSource}
           title={movie.name}
           description={movie.part}
           categories={movie.categories}
@@ -79,7 +74,7 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
           </Text>
           <MovieScreenshotList
             contentContainerStyle={themedStyle.screenshotList}
-            data={movie.screenshots.map(this.createScreenshotSource)}
+            data={movie.screenshots}
             onItemPress={this.onScreenshotItemPress}
           />
           <Button

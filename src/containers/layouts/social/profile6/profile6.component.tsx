@@ -76,8 +76,8 @@ class Profile6Component extends React.Component<Profile6Props> {
     this.props.onPhotoPress(index);
   };
 
-  private createImageSource = (activity: ProfileActivityModel): ImageSourcePropType => {
-    return activity.source;
+  private createImageSource = (source: ProfileActivityModel): ImageSourcePropType => {
+    return source.source.imageSource;
   };
 
   private renderActivityElement = (category: string, activities: ProfileActivityModel[]): ProfileActivityElement => {
@@ -112,7 +112,7 @@ class Profile6Component extends React.Component<Profile6Props> {
       <ScrollView style={themedStyle.container}>
         <ProfileInfo2
           style={themedStyle.profileInfo}
-          photo={{ uri: profile.photo }}
+          photo={profile.photo.imageSource}
           name={`${profile.firstName} ${profile.lastName}`}
           location={profile.location}
         />

@@ -14,7 +14,7 @@ import {
 } from './movieCategoryListItem.component';
 
 interface ComponentProps {
-  data: React.ReactText[];
+  data: string[];
 }
 
 export type MovieCategoryListProps = ThemedComponentProps & ViewProps & ComponentProps;

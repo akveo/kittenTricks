@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-  View,
-  ViewProps,
   Image,
   ImageProps,
   TouchableOpacity,
+  View,
+  ViewProps,
 } from 'react-native';
 import {
   StyleType,
@@ -12,14 +12,16 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@kitten/ui';
+import {
+  Button,
+  Text,
+} from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 import {
   CloseIcon,
-  PlusIcon,
   MinusIcon,
+  PlusIcon,
 } from '@src/assets/icons';
-import { Button } from '@kitten/ui';
 import { CartProduct as CartProductModel } from '@src/containers/layouts/ecommerce/shoppingCart/cartProduct.model';
 
 interface ComponentProps {
@@ -81,7 +83,7 @@ class CartProductComponent extends React.Component<CartProductProps> {
       <View style={[themedStyle.container, style]}>
         <Image
           style={themedStyle.image}
-          source={{ uri: product.photo }}/>
+          source={product.photo.imageSource}/>
         <View style={themedStyle.infoContainer}>
           <TouchableOpacity
             style={themedStyle.closeButton}
@@ -111,7 +113,7 @@ class CartProductComponent extends React.Component<CartProductProps> {
               icon={this.renderMinusIcon}
               onPress={this.onRemoveCopy}/>
             <Text style={[themedStyle.nameLabel, themedStyle.countLabel]}>
-              {product.count}
+              {`${product.count}`}
             </Text>
             <Button
               style={themedStyle.counterButton}

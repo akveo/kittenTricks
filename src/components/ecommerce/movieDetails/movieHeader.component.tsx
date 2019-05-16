@@ -19,9 +19,9 @@ import { MovieCategoryList } from './movieCategoryList.component';
 
 interface ComponentProps {
   image: ImageSourcePropType;
-  title: React.ReactText;
-  description: React.ReactText;
-  categories: React.ReactText[];
+  title: string;
+  description: string;
+  categories: string[];
   rating: number;
 }
 

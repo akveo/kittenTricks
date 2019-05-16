@@ -11,20 +11,20 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  Text,
   Radio,
   RadioGroup,
   RadioProps,
+  Text,
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   image: ImageSourcePropType;
-  name: React.ReactText;
-  type: React.ReactText;
-  price: React.ReactText;
-  description: React.ReactText;
-  size: React.ReactText;
+  name: string;
+  type: string;
+  price: string;
+  description: string;
+  size: string;
   colors: string[];
   selectedColorIndex: number;
   onColorSelect: (index: number) => void;
@@ -62,48 +62,50 @@ class ProductInfoComponent extends React.Component<ProductInfoProps> {
           style={[themedStyle.image, themedStyle.bottomSpace]}
           source={image}
         />
-        <View style={[themedStyle.nameContainer, themedStyle.bottomSpace]}>
-          <View>
-            <Text
-              style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
-              category='h6'>
-              {name}
-            </Text>
-            <Text
-              style={themedStyle.typeLabel}
-              appearance='hintDark'
-              category='p2'>
-              {type}
-            </Text>
+        <View style={themedStyle.detailsContainer}>
+          <View style={[themedStyle.nameContainer, themedStyle.bottomSpace]}>
+            <View>
+              <Text
+                style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
+                category='h6'>
+                {name}
+              </Text>
+              <Text
+                style={themedStyle.typeLabel}
+                appearance='hintDark'
+                category='p2'>
+                {type}
+              </Text>
+            </View>
+            <Text style={themedStyle.costLabel}>{price}</Text>
           </View>
-          <Text style={themedStyle.costLabel}>{price}</Text>
+          <Text
+            style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
+            appearance='hintDark'>
+            {description}
+          </Text>
+          <Text
+            style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
+            category='h6'>
+            Size
+          </Text>
+          <Text
+            style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
+            appearance='hintDark'>
+            {size}
+          </Text>
+          <Text
+            style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
+            category='h6'>
+            Color
+          </Text>
+          <RadioGroup
+            style={themedStyle.colorSelector}
+            selectedIndex={selectedColorIndex}
+            onChange={this.onColorSelectChange}>
+            {colors.map(this.renderColorRadio)}
+          </RadioGroup>
         </View>
-        <Text
-          style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
-          appearance='hintDark'>
-          {description}
-        </Text>
-        <Text
-          style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
-          category='h6'>
-          Size
-        </Text>
-        <Text
-          style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
-          appearance='hintDark'>
-          {size}
-        </Text>
-        <Text
-          style={[themedStyle.nameLabel, themedStyle.labelBottomSpace]}
-          category='h6'>
-          Color
-        </Text>
-        <RadioGroup
-          style={themedStyle.colorSelector}
-          selectedIndex={selectedColorIndex}
-          onChange={this.onColorSelectChange}>
-          {colors.map(this.renderColorRadio)}
-        </RadioGroup>
       </View>
     );
   }
@@ -113,7 +115,11 @@ export const ProductInfo = withStyles(ProductInfoComponent, (theme: ThemeType) =
   container: {},
   image: {
     flex: 1,
+    width: null,
     height: 340,
+  },
+  detailsContainer: {
+    marginHorizontal: 16,
   },
   nameContainer: {
     flexDirection: 'row',
@@ -130,6 +136,7 @@ export const ProductInfo = withStyles(ProductInfoComponent, (theme: ThemeType) =
   descriptionText: textStyle.paragraph,
   colorSelector: {
     flexDirection: 'row',
+    marginHorizontal: 16,
   },
   radioItem: {
     marginRight: 16,

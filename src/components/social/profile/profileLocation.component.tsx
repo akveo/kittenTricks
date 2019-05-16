@@ -21,7 +21,7 @@ import {
 import { textStyle } from '@src/components/common';
 
 type IconProp = (style: StyleType) => React.ReactElement<ImageProps>;
-type ChildrenProp = React.ReactText;
+type ChildrenProp = string;
 
 interface ComponentProps {
   icon?: IconProp;

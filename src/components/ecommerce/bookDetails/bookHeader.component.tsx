@@ -19,11 +19,11 @@ import { BookCategoryList } from './bookCategoryList.component';
 
 interface ComponentProps {
   image: ImageSourcePropType;
-  title: React.ReactText;
-  author: React.ReactText;
-  categories: React.ReactText[];
+  title: string;
+  author: string;
+  categories: string[];
   rating: number;
-  price: React.ReactText;
+  price: string;
 }
 
 export type BookHeaderProps = ThemedComponentProps & ViewProps & ComponentProps;

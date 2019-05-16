@@ -1,20 +1,20 @@
 import React from 'react';
 import {
-  TouchableWithoutFeedback,
   Animated,
+  Easing,
   EventSubscription,
   Keyboard,
-  KeyboardEventName,
   KeyboardEvent,
-  Easing,
-  ViewStyle,
-  ViewProps,
+  KeyboardEventName,
+  Platform,
   StyleProp,
   StyleSheet,
-  Platform,
+  TouchableWithoutFeedback,
+  ViewProps,
+  ViewStyle,
 } from 'react-native';
 
-interface AvoidKeyboardProps extends ViewProps {
+export interface AvoidKeyboardProps extends ViewProps {
   offset?: (height: number) => number;
   autoDismiss?: boolean;
 }
@@ -71,9 +71,7 @@ export class AvoidKeyboard extends React.Component<AvoidKeyboardProps> {
   };
 
   private onContainerPress = () => {
-    if (this.props.autoDismiss) {
-      Keyboard.dismiss();
-    }
+    Keyboard.dismiss();
   };
 
   private getComponentStyle = (source: StyleProp<ViewStyle>): ViewStyle => {
@@ -95,11 +93,13 @@ export class AvoidKeyboard extends React.Component<AvoidKeyboardProps> {
   };
 
   public render(): React.ReactElement<ViewProps> {
-    const { style, ...restProps } = this.props;
+    const { style, autoDismiss, ...restProps } = this.props;
     const componentStyle: ViewStyle = this.getComponentStyle(style);
 
     return (
-      <TouchableWithoutFeedback onPress={this.onContainerPress}>
+      <TouchableWithoutFeedback
+        onPress={this.onContainerPress}
+        disabled={!autoDismiss}>
         <Animated.View
           style={componentStyle}
           {...restProps}

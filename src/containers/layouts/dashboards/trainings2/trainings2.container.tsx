@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { Trainings2 } from './trainings2.component';
 import { Exercise } from '@src/core/model/exercise.model';
-import { exercises } from '@src/core/data/exercise';
+import { exercises2 } from '@src/core/data/exercise';
 
 interface State {
   exercises: Exercise[];
@@ -11,7 +11,7 @@ interface State {
 export class Trainings2Container extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
-    exercises: exercises,
+    exercises: exercises2,
   };
 
   private onTrainingDetails = (index: number): void => {

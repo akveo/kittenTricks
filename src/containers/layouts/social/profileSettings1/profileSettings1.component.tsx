@@ -57,7 +57,7 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
         <View style={themedStyle.photoSection}>
           <ProfilePhoto
             style={themedStyle.photo}
-            source={{ uri: profile.photo }}
+            source={profile.photo.imageSource}
             button={this.renderPhotoButton}
           />
         </View>

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ImageSourcePropType,
-  ListRenderItemInfo,
-} from 'react-native';
+import { ListRenderItemInfo } from 'react-native';
 import {
   withStyles,
   ThemeType,
@@ -12,6 +9,7 @@ import {
   List,
   ListProps,
 } from '@kitten/ui';
+import { ImageSource } from '@src/assets/images';
 import {
   ApartmentPhotoListItem,
   ApartmentPhotoListItemProps,
@@ -21,7 +19,7 @@ import {
 interface ComponentProps extends ListProps {
   renderItem?: () => void;
   onItemPress: (index: number) => void;
-  data: ImageSourcePropType[];
+  data: ImageSource[];
 }
 
 export type ApartmentPhotoListProps = ThemedComponentProps & ComponentProps;
@@ -34,18 +32,18 @@ class ApartmentPhotoListComponent extends React.Component<ApartmentPhotoListProp
     this.props.onItemPress(index);
   };
 
-  private renderListItemElement = (item: ImageSourcePropType): ListItemElement => {
+  private renderListItemElement = (item: ImageSource): ListItemElement => {
     return (
       <ApartmentPhotoListItem
         style={this.props.themedStyle.item}
         activeOpacity={0.75}
-        source={item}
+        source={item.imageSource}
         onPress={this.onItemPress}
       />
     );
   };
 
-  private renderItem = (info: ListRenderItemInfo<ImageSourcePropType>): ListItemElement => {
+  private renderItem = (info: ListRenderItemInfo<ImageSource>): ListItemElement => {
     const { item, index } = info;
 
     const listItemElement: ListItemElement = this.renderListItemElement(item);

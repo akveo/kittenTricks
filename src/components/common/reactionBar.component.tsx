@@ -8,9 +8,8 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ReactionButtonProps } from './reactionButton.component';
 
-type ChildElement = React.ReactElement<ReactionButtonProps>;
+type ChildElement = React.ReactElement<any>;
 
 interface ComponentProps {
   children: ChildElement | ChildElement[];

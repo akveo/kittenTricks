@@ -296,10 +296,7 @@ const SocialNavigator: ReactNavigationContainer = createStackNavigator(
       screen: Profile4Container,
       params: SocialNavigatorParams,
     },
-    ['Profile 5']: {
-      screen: Profile5Container,
-      params: SocialNavigatorParams,
-    },
+    ['Profile 5']: Profile5Container,
     ['Profile 6']: {
       screen: Profile6Container,
       params: SocialNavigatorParams,

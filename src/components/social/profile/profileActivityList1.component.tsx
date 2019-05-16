@@ -48,8 +48,8 @@ class ProfileActivityList1Component extends React.Component<ProfileActivityList1
     return (
       <ProfileActivityList1Item
         style={themedStyle.item}
-        photo={{ uri: photo }}
-        profilePhoto={{ uri: author.photo }}
+        photo={photo.imageSource}
+        profilePhoto={author.photo.imageSource}
         authorName={`${author.firstName} ${author.lastName}`}
         date={date}
         likes={likes}

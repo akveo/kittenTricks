@@ -14,7 +14,7 @@ import {
 } from './bookCategoryListItem.component';
 
 interface ComponentProps {
-  data: React.ReactText[];
+  data: string[];
 }
 
 export type BookCategoryListProps = ThemedComponentProps & ViewProps & ComponentProps;
@@ -23,7 +23,7 @@ type ListItemElement = React.ReactElement<BookCategoryListItemProps>;
 
 class BookCategoryListComponent extends React.Component<BookCategoryListProps> {
 
-  private renderItem = (item: React.ReactText, index: number): ListItemElement => {
+  private renderItem = (item: string, index: number): ListItemElement => {
     const { themedStyle } = this.props;
 
     return (

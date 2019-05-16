@@ -39,7 +39,7 @@ import {
   profile1,
   profile2,
 } from '@src/core/data/profile';
-import { UiMessageModel } from '../uiMessage.model';
+import { UiMessageModel } from '../container/uiMessage.model';
 import { Chat2FileSection } from './chat2FileSection.component';
 import {
   AvoidKeyboard,
@@ -179,7 +179,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
     return (
       <View style={themedStyle.container}>
-        <AvoidKeyboard>
+        <AvoidKeyboard autoDismiss={false}>
           <List
             ref={this.listRef}
             style={themedStyle.chatContainer}

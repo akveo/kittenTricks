@@ -60,17 +60,16 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
     const { interlocutor } = this.props;
 
     return (
-      <Avatar
-        source={{ uri: interlocutor.photo }}
-        shape='round'
-        size='small'
-      />
+      <Avatar source={interlocutor.photo.imageSource} />
     );
   };
 
   private renderRightControls = (): React.ReactElement<TopNavigationActionProps> => {
+    const { themedStyle } = this.props;
+
     return (
       <TopNavigationAction
+        style={themedStyle.profileAction}
         icon={this.renderProfileAvatar}
         onPress={this.onProfile}
       />
@@ -105,6 +104,9 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
 export const ChatHeader = withStyles(ChatHeaderComponent, (theme: ThemeType) => ({
   container: {
     backgroundColor: theme['color-white'],
+  },
+  profileAction: {
+    marginRight: 16,
   },
 }));
 

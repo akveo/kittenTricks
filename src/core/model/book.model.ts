@@ -1,3 +1,5 @@
+import { ImageSource } from '@src/assets/images';
+
 export interface Book {
   name: string;
   author: string;
@@ -6,5 +8,5 @@ export interface Book {
   currency: string;
   rating: number;
   description: string;
-  preview: string;
+  preview: ImageSource;
 }

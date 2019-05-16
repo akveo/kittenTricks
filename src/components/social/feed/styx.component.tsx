@@ -18,8 +18,8 @@ import {
 import { ClockIcon } from '@src/assets/icons';
 
 interface ComponentProps {
-  hint?: React.ReactText;
-  value: React.ReactText;
+  hint?: string;
+  value: string;
   icon?: (style: StyleType) => React.ReactElement<ImageProps>;
   onPress?: () => void;
 }

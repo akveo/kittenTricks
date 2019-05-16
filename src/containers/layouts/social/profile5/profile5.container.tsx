@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { Profile } from '@src/core/model';
+import { profile4 } from '@src/core/data/profile';
 import { Profile5 } from './profile5.component';
-import { profile1 } from '@src/core/data/profile';
 
 interface State {
   profile: Profile;
@@ -11,7 +11,7 @@ interface State {
 export class Profile5Container extends React.Component<NavigationScreenProps, State> {
 
   public state: State = {
-    profile: profile1,
+    profile: profile4,
   };
 
   private onRateChange = (value: number) => {
