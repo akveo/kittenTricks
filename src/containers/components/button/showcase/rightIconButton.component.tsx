@@ -8,10 +8,11 @@ import { StarIcon } from '@src/assets/icons';
 type ButtonElement = React.ReactElement<ButtonProps>;
 
 export const RightIconButton = (props?: ButtonProps): ButtonElement => {
+
   return (
     <Button
+      style={{ flexDirection: 'row-reverse' }}
       icon={StarIcon}
-      iconAlignment='right'
       {...props}>
       BUTTON
     </Button>

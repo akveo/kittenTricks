@@ -20,7 +20,8 @@
       "@kitten/*": ["../react-native-ui-kitten/src/framework/*"]
     },
     "typeRoots": [
-      "./node_modules/@types"
+      "./node_modules/@types",
+      "../react-native-ui-kitten/node_modules/@types"
     ]
   },
   "include": [

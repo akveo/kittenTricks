@@ -76,7 +76,7 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
           />
           <ProfileSetting
             hint='Age'
-            value={profile.age}
+            value={`${profile.age}`}
           />
           <ProfileSetting
             hint='Weight'
