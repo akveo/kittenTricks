@@ -60,10 +60,7 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
     const { interlocutor } = this.props;
 
     return (
-      <Avatar
-        size='medium'
-        source={interlocutor.photo.imageSource}
-      />
+      <Avatar source={interlocutor.photo.imageSource}/>
     );
   };
 
