@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import {
   SignInForm3Data,
-  SignInForm4Type,
+  SignInForm4Data,
 } from '@src/components/auth';
 import { SignIn5 } from './signIn5.component';
 
@@ -12,7 +12,7 @@ export class SignIn5Container extends React.Component<NavigationScreenProps> {
     this.props.navigation.goBack();
   };
 
-  private onSignInSMSPress = (data: SignInForm4Type) => {
+  private onSignInSMSPress = (data: SignInForm4Data) => {
     this.props.navigation.goBack();
   };
 

@@ -3,7 +3,7 @@ import {
   ImageProps,
   StyleSheet,
 } from 'react-native';
-import { theme } from 'eva/packages/theme/eva';
+import { theme } from '@eva/theme-eva';
 import { DoneAllIcon } from '@src/assets/icons';
 
 interface MessageIcon {

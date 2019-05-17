@@ -5,7 +5,7 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { theme } from 'eva/packages/theme/eva';
+import { theme } from '@eva/theme-eva';
 import {
   Text,
   TextProps,

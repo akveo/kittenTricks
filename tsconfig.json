@@ -17,20 +17,16 @@
     ],
     "paths": {
       "@src/*": ["./src/*"],
-      "@kitten/*": ["../react-native-ui-kitten/src/framework/*"]
+      "@kitten/*": ["./node_modules/react-native-ui-kitten/src/framework/*"]
     },
     "typeRoots": [
       "./node_modules/@types"
     ]
   },
   "include": [
-    "./src/**/*",
-    "../react-native-ui-kitten/src/framework"
+    "./src/**/*"
   ],
   "exclude": [
-    "./node_modules",
-    "../react-native-ui-kitten/node_modules/**/*",
-    "../react-native-ui-kitten/**/*.spec.ts",
-    "../react-native-ui-kitten/**/*.spec.tsx"
+    "./node_modules"
   ]
 }
