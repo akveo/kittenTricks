@@ -7,11 +7,13 @@ const path = require('path');
 // TODO: Replace nested package.json-s with aliases
 
 const productionConfig = {
-  frameworkPath: path.resolve('./node_modules/react-native-ui-kitten'),
+  kittenPath: path.resolve('./node_modules/react-native-ui-kitten'),
+  evaPath: path.resolve('./node_modules/@eva'),
 };
 
 const developmentConfig = {
-  frameworkPath: path.resolve(__dirname, '../react-native-ui-kitten'),
+  kittenPath: path.resolve(__dirname, '../react-native-ui-kitten'),
+  evaPath: path.resolve(__dirname, '../eva/packages'),
 };
 
 const environment = {
@@ -19,12 +21,14 @@ const environment = {
   dev: developmentConfig,
 };
 
-function moduleResolverConfig (env) {
+function moduleResolverConfig(env) {
   return {
     root: path.resolve('./'),
     alias: {
-      '@kitten/theme': path.resolve(env.frameworkPath, 'src/framework/theme'),
-      '@kitten/ui': path.resolve(env.frameworkPath, 'src/framework/ui'),
+      '@kitten/theme': path.resolve(env.kittenPath, 'src/framework/theme'),
+      '@kitten/ui': path.resolve(env.kittenPath, 'src/framework/ui'),
+      '@eva/eva': path.resolve(env.evaPath, 'mapping/eva'),
+      '@eva/theme-eva': path.resolve(env.evaPath, 'theme/eva'),
     },
   };
 }
