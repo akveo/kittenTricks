@@ -2,6 +2,7 @@ node_modules/**/*
 .expo/*
 npm-debug.*
 *.jks
+*.jks.bak
 *.p12
 *.key
 *.mobileprovision
@@ -22,4 +23,6 @@ docs/docs.json
 docs/output.json
 
 .expo
+.expo-shared/
 dist
+.
