@@ -152,6 +152,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
   };
 
   private onGalleryItemPress = (item: MediaLibrary.Asset) => {
+    // TODO: resolve somehow the possibility of adding a real asset
     const profiles: Profile[] = [profile1, profile2];
     const newMessage: Message = {
       file: {
