@@ -1,6 +1,7 @@
 const path = require('path');
 
-const frameworkPath = path.resolve(__dirname, '../react-native-ui-kitten');
+const kittenPath = path.resolve(__dirname, '../react-native-ui-kitten');
+const evaPath = path.resolve(__dirname, '../eva/packages');
 
 const productionConfig = {
   resolver: {
@@ -26,8 +27,10 @@ const developmentConfig = {
     ...productionConfig.transformer,
   },
   watchFolders: [
-    path.resolve(frameworkPath, 'src/framework/theme'),
-    path.resolve(frameworkPath, 'src/framework/ui'),
+    path.resolve(kittenPath, 'src/framework/theme'),
+    path.resolve(kittenPath, 'src/framework/ui'),
+    path.resolve(evaPath, 'mapping/eva'),
+    path.resolve(evaPath, 'theme/eva'),
   ],
 };
 
