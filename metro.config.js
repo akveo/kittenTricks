@@ -1,12 +1,9 @@
 const path = require('path');
 
-const frameworkLocalPath = '../react-native-ui-kitten';
+const frameworkPath = path.resolve(__dirname, '../react-native-ui-kitten');
 
-module.exports = {
+const productionConfig = {
   resolver: {
-    extraNodeModules: new Proxy({}, {
-      get: (target, name) => path.join(process.cwd(), `node_modules/${name}`)
-    }),
     sourceExts: [
       'js',
       'ts',
@@ -16,13 +13,27 @@ module.exports = {
   transformer: {
     babelTransformerPath: require.resolve('react-native-typescript-transformer'),
   },
-  projectRoot: path.resolve(__dirname),
+};
+
+const developmentConfig = {
+  resolver: {
+    ...productionConfig.resolver,
+    extraNodeModules: new Proxy({}, {
+      get: (target, name) => path.join(process.cwd(), `node_modules/${name}`),
+    }),
+  },
+  transformer: {
+    ...productionConfig.transformer,
+  },
   watchFolders: [
-    path.resolve(__dirname, './node_modules/@babel'),
-
-    // DEV purposes.
-    // Uncomment line below to watch framework changes.
-
-    // path.resolve(__dirname, frameworkLocalPath, 'src/framework'),
+    path.resolve(frameworkPath, 'src/framework/theme'),
+    path.resolve(frameworkPath, 'src/framework/ui'),
   ],
 };
+
+const environment = {
+  prod: productionConfig,
+  dev: developmentConfig,
+};
+
+module.exports = environment.dev;

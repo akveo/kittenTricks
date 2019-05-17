@@ -6,13 +6,28 @@ const path = require('path');
 // TODO: Framework path aliasing even not needed here. Replace?
 // TODO: Replace nested package.json-s with aliases
 
-const moduleResolverConfig = {
-  root: path.resolve('./'),
-  alias: {
-    '@kitten/theme': path.resolve('./node_modules/react-native-ui-kitten'),
-    '@kitten/ui': path.resolve('./node_modules/react-native-ui-kitten'),
-  },
+const productionConfig = {
+  frameworkPath: path.resolve('./node_modules/react-native-ui-kitten'),
 };
+
+const developmentConfig = {
+  frameworkPath: path.resolve(__dirname, '../react-native-ui-kitten'),
+};
+
+const environment = {
+  prod: productionConfig,
+  dev: developmentConfig,
+};
+
+function moduleResolverConfig (env) {
+  return {
+    root: path.resolve('./'),
+    alias: {
+      '@kitten/theme': path.resolve(env.frameworkPath, 'src/framework/theme'),
+      '@kitten/ui': path.resolve(env.frameworkPath, 'src/framework/ui'),
+    },
+  };
+}
 
 module.exports = function (api) {
   api.cache(true);
@@ -22,7 +37,7 @@ module.exports = function (api) {
   ];
 
   const plugins = [
-    ['module-resolver', moduleResolverConfig],
+    ['module-resolver', moduleResolverConfig(environment.dev)],
   ];
 
   const devPlugins = [
