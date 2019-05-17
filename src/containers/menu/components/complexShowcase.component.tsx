@@ -2,7 +2,7 @@ import {
   ImageStyle,
   StyleProp,
 } from 'react-native';
-import { theme } from 'eva/packages/theme/eva';
+import { theme } from '@eva/theme-eva';
 import { StarIcon } from '@src/assets/icons';
 
 export const ComplexComponentShowcase = () => {

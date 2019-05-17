@@ -6,7 +6,7 @@ import {
   ImageProps,
   StyleSheet,
 } from 'react-native';
-import { theme } from 'eva/packages/theme/eva';
+import { theme } from '@eva/theme-eva';
 import { StyleType } from '@kitten/theme';
 import { PlayCircleIcon } from '@src/assets/icons';
 import {

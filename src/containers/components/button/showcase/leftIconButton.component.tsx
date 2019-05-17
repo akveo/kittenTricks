@@ -11,7 +11,6 @@ export const LeftIconButton = (props?: ButtonProps): ButtonElement => {
   return (
     <Button
       icon={StarIcon}
-      iconAlignment='left'
       {...props}>
       BUTTON
     </Button>

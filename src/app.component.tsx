@@ -2,16 +2,16 @@ import React from 'react';
 import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
-import { default as mapping } from 'eva/packages/mapping/eva';
-import { theme } from 'eva/packages/theme/eva';
+import { default as mapping } from '@eva/eva';
+import { theme } from '@eva/theme-eva';
 import { ApplicationProvider } from '@kitten/theme';
 import {
   ApplicationLoader,
   Assets,
 } from './core/applicationLoader.component';
 import { Router } from './core/navigation/routes';
-import { trackScreenTransition } from '@src/core/utils/analytics';
-import { getCurrentStateName } from '@src/core/navigation/routeUtil';
+import { trackScreenTransition } from './core/utils/analytics';
+import { getCurrentStateName } from './core/navigation/routeUtil';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
