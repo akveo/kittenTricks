@@ -22,7 +22,9 @@ npm-debug.log
 docs/docs.json
 docs/output.json
 
+# config
+config/index.js
+
 .expo
 .expo-shared/
 dist
-.
