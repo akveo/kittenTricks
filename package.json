@@ -9,7 +9,7 @@
     "start:dev": "npm run env:set -- dev && npm start -- -c",
     "start:prod": "npm run env:set -- prod && npm start -- -c",
     "start:ci": "npm run start:prod",
-    "env:set": "sh ./scripts/set-env.sh",
+    "env:set": "sh ./scripts/environment/set-env.sh",
     "build": "tsc -p ./tsconfig.json",
     "clean": "rimraf ./dist",
     "lint": "tslint -p ./tsconfig.json",
