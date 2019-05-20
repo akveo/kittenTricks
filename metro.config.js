@@ -1,42 +1,24 @@
 const path = require('path');
+const Config = require('./config');
 
-const kittenPath = path.resolve(__dirname, '../react-native-ui-kitten');
-const evaPath = path.resolve(__dirname, '../eva/packages');
-
-const productionConfig = {
+module.exports = {
   resolver: {
     sourceExts: [
       'js',
       'ts',
       'tsx',
     ],
-  },
-  transformer: {
-    babelTransformerPath: require.resolve('react-native-typescript-transformer'),
-  },
-};
-
-const developmentConfig = {
-  resolver: {
-    ...productionConfig.resolver,
     extraNodeModules: new Proxy({}, {
       get: (target, name) => path.join(process.cwd(), `node_modules/${name}`),
     }),
   },
   transformer: {
-    ...productionConfig.transformer,
+    babelTransformerPath: require.resolve('react-native-typescript-transformer'),
   },
   watchFolders: [
-    path.resolve(kittenPath, 'src/framework/theme'),
-    path.resolve(kittenPath, 'src/framework/ui'),
-    path.resolve(evaPath, 'mapping/eva'),
-    path.resolve(evaPath, 'theme/eva'),
+    path.resolve(Config.KITTEN_PATH, 'src/framework/theme'),
+    path.resolve(Config.KITTEN_PATH, 'src/framework/ui'),
+    path.resolve(Config.MAPPING_PATH),
+    path.resolve(Config.THEME_PATH),
   ],
 };
-
-const environment = {
-  prod: productionConfig,
-  dev: developmentConfig,
-};
-
-module.exports = environment.dev;

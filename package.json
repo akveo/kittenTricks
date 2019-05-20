@@ -6,13 +6,16 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject",
+    "start:dev": "npm run env:set -- dev && npm start -- -c",
+    "start:prod": "npm run env:set -- prod && npm start -- -c",
+    "start:ci": "npm run start:prod",
+    "env:set": "sh ./scripts/environment/set-env.sh",
     "build": "tsc -p ./tsconfig.json",
     "clean": "rimraf ./dist",
     "lint": "tslint -p ./tsconfig.json",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "ci:lint": "npm run lint",
+    "ci:build": "npm run env:set -- prod && npm run build"
   },
   "dependencies": {
     "@eva/eva": "github:akveo/eva#package/mapping-eva",
@@ -39,9 +42,5 @@
     "rimraf": "^2.6.2",
     "tslint": "^5.12.1",
     "typescript": "^3.4.5"
-  },
-  "peerDependencies": {
-    "@kitten/ui": "*",
-    "@kitten/theme": "*"
   }
 }
