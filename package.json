@@ -13,7 +13,9 @@
     "build": "tsc -p ./tsconfig.json",
     "clean": "rimraf ./dist",
     "lint": "tslint -p ./tsconfig.json",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "ci:lint": "npm run lint",
+    "ci:build": "npm run env:set -- prod && npm run build"
   },
   "dependencies": {
     "@eva/eva": "github:akveo/eva#package/mapping-eva",
