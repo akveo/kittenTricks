@@ -1,4 +1,5 @@
 const path = require('path');
+const Config = require('./config');
 
 // FIXME: Resolve `transform[stderr]: Could not resolve` command-line warnings.
 // FIXME: Reproducible when starting with clearing cache (npm start -- -c)
@@ -6,32 +7,15 @@ const path = require('path');
 // TODO: Framework path aliasing even not needed here. Replace?
 // TODO: Replace nested package.json-s with aliases
 
-const productionConfig = {
-  kittenPath: path.resolve('./node_modules/react-native-ui-kitten'),
-  evaPath: path.resolve('./node_modules/@eva'),
+const moduleResolverConfig = {
+  root: path.resolve('./'),
+  alias: {
+    '@kitten/theme': path.resolve(Config.KITTEN_PATH, 'src/framework/theme'),
+    '@kitten/ui': path.resolve(Config.KITTEN_PATH, 'src/framework/ui'),
+    '@eva/eva': path.resolve(Config.MAPPING_PATH),
+    '@eva/theme-eva': path.resolve(Config.THEME_PATH),
+  },
 };
-
-const developmentConfig = {
-  kittenPath: path.resolve(__dirname, '../react-native-ui-kitten'),
-  evaPath: path.resolve(__dirname, '../eva/packages'),
-};
-
-const environment = {
-  prod: productionConfig,
-  dev: developmentConfig,
-};
-
-function moduleResolverConfig(env) {
-  return {
-    root: path.resolve('./'),
-    alias: {
-      '@kitten/theme': path.resolve(env.kittenPath, 'src/framework/theme'),
-      '@kitten/ui': path.resolve(env.kittenPath, 'src/framework/ui'),
-      '@eva/eva': path.resolve(env.evaPath, 'mapping/eva'),
-      '@eva/theme-eva': path.resolve(env.evaPath, 'theme/eva'),
-    },
-  };
-}
 
 module.exports = function (api) {
   api.cache(true);
@@ -41,7 +25,7 @@ module.exports = function (api) {
   ];
 
   const plugins = [
-    ['module-resolver', moduleResolverConfig(environment.dev)],
+    ['module-resolver', moduleResolverConfig],
   ];
 
   const devPlugins = [

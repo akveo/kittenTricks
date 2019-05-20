@@ -1,4 +1,4 @@
-# Kitten Tricks
+# Kitten Tricks [![Build Status][badge-travis]][link-travis]
 
 A perfect starter kit for your next cross-platform React Native app. **FREE** and open-source! Check out live demo on [App Store](https://itunes.apple.com/us/app/kitten-tricks/id1246143230) or [Google Play](https://play.google.com/store/apps/details?id=com.akveo.kittenTricks).
 
@@ -51,3 +51,6 @@ Yes!  Visit [our homepage](http://akveo.com/) or simply leave us a message to [c
 
 Enjoy :metal:
 We're always happy to receive your feedback!
+
+[badge-travis]: https://travis-ci.com/akveo/kittenTricks.svg?branch=next
+[link-travis]: https://travis-ci.com/akveo/kittenTricks
