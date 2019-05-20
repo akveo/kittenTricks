@@ -20,5 +20,6 @@ module.exports = {
     path.resolve(Config.KITTEN_PATH, 'src/framework/ui'),
     path.resolve(Config.MAPPING_PATH),
     path.resolve(Config.THEME_PATH),
+    path.resolve(Config.PROCESSOR_PATH),
   ],
 };
