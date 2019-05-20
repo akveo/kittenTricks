@@ -3,8 +3,13 @@ import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
 import { default as mapping } from '@eva/eva';
-import { theme } from '@eva/theme-eva';
-import { ApplicationProvider } from '@kitten/theme';
+import { theme as themeLight } from '@eva/theme-eva';
+// todo: replace with theme from eva package
+import { themeDark } from '@src/core/utils/darkTheme';
+import {
+  ApplicationProvider,
+  ThemeType,
+} from '@kitten/theme';
 import {
   ApplicationLoader,
   Assets,
@@ -12,6 +17,8 @@ import {
 import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from './core/utils/analytics';
 import { getCurrentStateName } from './core/navigation/routeUtil';
+import { ContextType, ThemeContext } from '@src/core/utils/themeContext';
+import { ThemeService } from '@src/core/utils/theme.service';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
@@ -43,7 +50,26 @@ const assets: Assets = {
   fonts: fonts,
 };
 
-export default class App extends React.Component {
+interface State {
+  currentTheme: 'light' | 'dark';
+  theme: ThemeType;
+}
+
+export default class App extends React.Component<any, State> {
+
+  public state: State = {
+    currentTheme: 'dark',
+    theme: {},
+  };
+
+  public componentWillMount(): void {
+    Promise.all([
+      ThemeService.setTheme('light', themeLight),
+      ThemeService.setTheme('dark', themeDark),
+    ])
+      .then(() => ThemeService.getTheme('dark'))
+      .then((theme: ThemeType) => this.setState({ theme: theme }));
+  }
 
   private onTransitionTrackError = (error: any): void => {
     console.warn('Analytics error: ', error.message);
@@ -65,17 +91,28 @@ export default class App extends React.Component {
     }
   };
 
+  private onThemeChange = (theme: string): void => {
+    console.log(theme);
+  };
+
   public render(): React.ReactNode {
+    const contextValue: ContextType = {
+      currentTheme: this.state.currentTheme,
+      toggleTheme: this.onThemeChange,
+    };
+
     return (
-      <ApplicationLoader assets={assets}>
-        <ApplicationProvider
-          mapping={mapping}
-          theme={theme}>
-          <Router
-            onNavigationStateChange={this.onNavigationStateChange}
-          />
-        </ApplicationProvider>
-      </ApplicationLoader>
+      <ThemeContext.Provider value={contextValue}>
+        <ApplicationLoader assets={assets}>
+          <ApplicationProvider
+            mapping={mapping}
+            theme={this.state.theme}>
+            <Router
+              onNavigationStateChange={this.onNavigationStateChange}
+            />
+          </ApplicationProvider>
+        </ApplicationLoader>
+      </ThemeContext.Provider>
     );
   }
 }
