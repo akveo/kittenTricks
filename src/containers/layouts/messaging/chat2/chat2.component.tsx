@@ -231,6 +231,7 @@ export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
   },
   addMessageButton: {
     width: 26,
+    height: 26,
     borderRadius: 26,
   },
   inputComponent: {

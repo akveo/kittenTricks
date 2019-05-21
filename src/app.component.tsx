@@ -1,5 +1,8 @@
 import React from 'react';
-import { ImageRequireSource } from 'react-native';
+import {
+  ImageRequireSource,
+  StatusBar,
+} from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
 import { default as mapping } from '@eva/eva';
@@ -112,6 +115,10 @@ export default class App extends React.Component<any, State> {
           <ApplicationProvider
             mapping={mapping}
             theme={this.state.theme}>
+            <StatusBar
+              backgroundColor='#3366FF'
+              barStyle='dark-content'
+            />
             <Router
               onNavigationStateChange={this.onNavigationStateChange}
             />
