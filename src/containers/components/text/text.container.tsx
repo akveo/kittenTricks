@@ -15,7 +15,6 @@ import {
   H6Text,
   InfoText,
   LabelText,
-  OverlineText,
   P1Text,
   P2Text,
   PrimaryText,
@@ -69,9 +68,6 @@ export class TextContainer extends React.Component<NavigationScreenProps> {
           </ShowcaseItem>
           <ShowcaseItem title='Label'>
             <LabelText />
-          </ShowcaseItem>
-          <ShowcaseItem title='Overline'>
-            <OverlineText />
           </ShowcaseItem>
         </ShowcaseSection>
         <ShowcaseSection title='Status'>

@@ -10,7 +10,6 @@ export { P1Text } from './p1Text.component';
 export { P2Text } from './p2Text.component';
 export { C1Text } from './c1Text.component';
 export { C2Text } from './c2Text.component';
-export { OverlineText } from './overlineText.component';
 export { LabelText } from './labelText.component';
 export { PrimaryText } from './primaryText.component';
 export { SuccessText } from './successText.component';

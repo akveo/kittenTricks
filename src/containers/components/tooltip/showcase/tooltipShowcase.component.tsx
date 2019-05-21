@@ -57,6 +57,6 @@ export class TooltipShowcase extends React.Component<any, TooltipShowcaseCompone
 
 const styles = StyleSheet.create({
   container: {
-    width: 192,
+    width: 228,
   },
 });
