@@ -188,7 +188,7 @@ export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
     marginTop: 8,
   },
   socialsLabel: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
   },
   followButton: {
     flex: 1,

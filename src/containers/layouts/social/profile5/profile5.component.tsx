@@ -97,6 +97,6 @@ export const Profile5 = withStyles(Profile5Component, (theme: ThemeType) => ({
   nameLabel: textStyle.headline,
   locationLabel: textStyle.headline,
   rateHintLabel: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
   },
 }));

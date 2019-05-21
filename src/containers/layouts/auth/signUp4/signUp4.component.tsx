@@ -200,7 +200,7 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signUpText: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
     ...textStyle.subtitle,
   },
 }));
