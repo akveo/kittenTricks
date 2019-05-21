@@ -11,9 +11,9 @@ export const RightIconButton = (props?: ButtonProps): ButtonElement => {
 
   return (
     <Button
-      style={{ flexDirection: 'row-reverse' }}
       icon={StarIcon}
-      {...props}>
+      {...props}
+      style={[props.style, { flexDirection: 'row-reverse' }]}>
       BUTTON
     </Button>
   );
