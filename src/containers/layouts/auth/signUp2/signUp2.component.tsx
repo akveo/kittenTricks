@@ -153,7 +153,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
   photoButtonIcon: {
     width: 24,
     height: 24,
-    tintColor: theme['blue-primary'],
+    tintColor: theme['color-primary-500'],
   },
   signUpButton: {
     marginHorizontal: 16,

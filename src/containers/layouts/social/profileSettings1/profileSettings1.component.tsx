@@ -112,11 +112,11 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
 export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['gray-light'],
+    backgroundColor: theme['color-basic-300'],
   },
   photoSection: {
     marginVertical: 40,
-    backgroundColor: theme['opacity-transparent'],
+    backgroundColor: 'transparent',
   },
   infoSection: {
     marginTop: 24,

@@ -124,7 +124,7 @@ export const Settings = withStyles(SettingsComponent, (theme: ThemeType) => ({
   section: {
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: theme['gray-light'],
+    borderBottomColor: theme['color-basic-300'],
   },
   notificationSection: {
     paddingTop: 40,
@@ -138,6 +138,6 @@ export const Settings = withStyles(SettingsComponent, (theme: ThemeType) => ({
   sectionText: textStyle.subtitle,
   divider: {
     height: 1,
-    backgroundColor: theme['gray-light'],
+    backgroundColor: theme['color-basic-300'],
   },
 }));
