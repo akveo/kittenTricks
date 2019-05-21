@@ -195,7 +195,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     backgroundColor: theme['color-white'],
   },
   tabTitle: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
     ...textStyle.label,
   },
   helloLabel: {
@@ -220,7 +220,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signUpText: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
     ...textStyle.subtitle,
   },
 }));

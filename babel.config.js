@@ -14,6 +14,7 @@ const moduleResolverConfig = {
     '@kitten/ui': path.resolve(Config.KITTEN_PATH, 'src/framework/ui'),
     '@eva/eva': path.resolve(Config.MAPPING_PATH),
     '@eva/theme-eva': path.resolve(Config.THEME_PATH),
+    '@eva/processor-kitten': path.resolve(Config.PROCESSOR_PATH),
   },
 };
 
