@@ -71,7 +71,7 @@ export default class App extends React.Component<any, State> {
       ThemeService.setTheme('dark', themeDark),
     ])
       .then(() => ThemeService.getTheme('light'))
-      .then(this.setTheme);
+      .then((lightTheme: ThemeType) => this.setTheme(lightTheme, 'light'));
   }
 
   private onTransitionTrackError = (error: any): void => {
@@ -94,13 +94,16 @@ export default class App extends React.Component<any, State> {
     }
   };
 
-  private onThemeChange = (theme: string): void => {
-    ThemeService.getTheme(theme)
-      .then(this.setTheme);
+  private onThemeChange = (themeName: 'light' | 'dark'): void => {
+    ThemeService.getTheme(themeName)
+      .then((theme: ThemeType) => this.setTheme(theme, themeName));
   };
 
-  private setTheme = (theme: ThemeType): void => {
-    this.setState({ theme });
+  private setTheme = (theme: ThemeType, themeName: 'light' | 'dark'): void => {
+    this.setState({
+      theme: theme,
+      currentTheme: themeName,
+    });
   };
 
   public render(): React.ReactNode {
