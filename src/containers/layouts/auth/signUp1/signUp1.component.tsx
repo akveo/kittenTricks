@@ -205,7 +205,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   ewaButton: {
     maxWidth: 72,
     paddingHorizontal: 0,
-    backgroundColor: theme['opacity-transparent'],
+    backgroundColor: 'transparent',
   },
   ewaButtonIcon: {
     marginHorizontal: 0,
@@ -219,7 +219,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     paddingHorizontal: 0,
   },
   signInButtonText: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
     ...textStyle.button,
   },
   signInButtonIcon: {

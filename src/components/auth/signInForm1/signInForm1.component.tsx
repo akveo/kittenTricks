@@ -112,11 +112,11 @@ export const SignInForm1 = withStyles(SignInForm1Component, (theme: ThemeType) =
     backgroundColor: 'rgba(0, 0, 0, 0.35)',
   },
   inputLabel: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
     ...textStyle.label,
   },
   inputText: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
     ...textStyle.paragraph,
   },
 }));

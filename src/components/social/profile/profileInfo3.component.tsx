@@ -66,7 +66,7 @@ export const ProfileInfo3 = withStyles(ProfileInfo3Component, (theme: ThemeType)
   },
   locationLabel: {
     marginTop: 2,
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
   },
   profileAvatar: {
     width: 124,

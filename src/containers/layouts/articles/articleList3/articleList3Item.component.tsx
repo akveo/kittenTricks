@@ -100,6 +100,6 @@ export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: Th
     ...textStyle.headline,
   },
   activityBarLabel: {
-    color: theme['font-light-color'],
+    color: theme['font-primary-inverse-color'],
   },
 }));

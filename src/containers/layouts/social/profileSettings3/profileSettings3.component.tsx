@@ -123,12 +123,12 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
 export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['gray-light'],
+    backgroundColor: theme['color-basic-300'],
   },
   photoSection: {
     marginHorizontal: 32,
     marginVertical: 32,
-    backgroundColor: theme['opacity-transparent'],
+    backgroundColor: 'transparent',
   },
   descriptionSection: {
     paddingHorizontal: 24,

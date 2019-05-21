@@ -120,7 +120,7 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
 export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['gray-light'],
+    backgroundColor: theme['color-basic-300'],
   },
   photoSection: {
     flexDirection: 'row',
