@@ -58,7 +58,7 @@ interface State {
 export default class App extends React.Component<any, State> {
 
   public state: State = {
-    currentTheme: 'dark',
+    currentTheme: 'light',
     theme: {},
   };
 
@@ -67,8 +67,8 @@ export default class App extends React.Component<any, State> {
       ThemeService.setTheme('light', themeLight),
       ThemeService.setTheme('dark', themeDark),
     ])
-      .then(() => ThemeService.getTheme('dark'))
-      .then((theme: ThemeType) => this.setState({ theme: theme }));
+      .then(() => ThemeService.getTheme('light'))
+      .then(this.setTheme);
   }
 
   private onTransitionTrackError = (error: any): void => {
@@ -92,7 +92,12 @@ export default class App extends React.Component<any, State> {
   };
 
   private onThemeChange = (theme: string): void => {
-    console.log(theme);
+    ThemeService.getTheme(theme)
+      .then(this.setTheme);
+  };
+
+  private setTheme = (theme: ThemeType): void => {
+    this.setState({ theme });
   };
 
   public render(): React.ReactNode {
