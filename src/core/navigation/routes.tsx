@@ -91,6 +91,7 @@ import {
   ListContainer,
   AppBarContainer,
   BottomNavigationContainer,
+  ViewPagerContainer,
 } from '@src/containers/components';
 import {
   MenuNavigatorParams,
@@ -433,6 +434,10 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
     },
     ['Bottom Navigation']: {
       screen: BottomNavigationContainer,
+      params: ComponentShowcaseNavigatorParams,
+    },
+    ['View Pager']: {
+      screen: ViewPagerContainer,
       params: ComponentShowcaseNavigatorParams,
     },
   },

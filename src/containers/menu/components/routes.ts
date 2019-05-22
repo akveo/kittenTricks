@@ -90,4 +90,9 @@ export const routes: ComponentsContainerData[] = [
     showcase: ComplexComponentShowcase,
     route: 'Bottom Navigation',
   },
+  {
+    title: 'View Pager',
+    showcase: ComplexComponentShowcase,
+    route: 'View Pager',
+  },
 ];

@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {
+  StyleSheet,
+  View,
+} from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import {
   TopNavigationStart,
