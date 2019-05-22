@@ -1,46 +1,31 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import {
   TopNavigationStart,
   TopNavigationCenter,
 } from './showcase';
-import { Text } from '@kitten/ui';
-import { textStyle } from '@src/components/common';
+import { ShowcaseSection } from '../common/showcaseSection.component';
+import { Showcase } from '../common/showcase.component';
 
 export class AppBarContainer extends React.Component<NavigationScreenProps> {
 
   public render(): React.ReactNode {
     return (
-      <View style={styles.container}>
-        <Text
-          style={styles.titleLabel}
-          category='h6'>
-          Title Start
-        </Text>
-        <TopNavigationStart/>
-        <Text
-          style={styles.titleLabel}
-          category='h6'>
-          Title Center
-        </Text>
-        <TopNavigationCenter/>
-      </View>
+      <Showcase style={styles.container}>
+        <ShowcaseSection title='Title Start'>
+          <TopNavigationStart/>
+        </ShowcaseSection>
+        <ShowcaseSection title='Title Center'>
+          <TopNavigationCenter/>
+        </ShowcaseSection>
+      </Showcase>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#F7F8FA',
-    padding: 24,
-  },
-  titleLabel: {
-    marginVertical: 8,
-    ...textStyle.headline,
   },
 });
