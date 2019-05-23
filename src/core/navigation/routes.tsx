@@ -89,9 +89,8 @@ import {
   TooltipContainer,
   OverflowMenuContainer,
   ListContainer,
-  AppBarContainer,
+  TopNavigationContainer,
   BottomNavigationContainer,
-  ViewPagerContainer,
 } from '@src/containers/components';
 import {
   MenuNavigatorParams,
@@ -425,16 +424,12 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
       screen: ListContainer,
       params: ComponentShowcaseNavigatorParams,
     },
-    ['App Bar']: {
-      screen: AppBarContainer,
+    ['Top Navigation']: {
+      screen: TopNavigationContainer,
       params: ComponentShowcaseNavigatorParams,
     },
     ['Bottom Navigation']: {
       screen: BottomNavigationContainer,
-      params: ComponentShowcaseNavigatorParams,
-    },
-    ['View Pager']: {
-      screen: ViewPagerContainer,
       params: ComponentShowcaseNavigatorParams,
     },
   },

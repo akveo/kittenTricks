@@ -23,7 +23,7 @@ export type ComponentsListItemProps = ThemedComponentProps & ListItemProps & Com
 class ComponentsListItemComponent extends React.Component<ComponentsListItemProps> {
 
   private renderShowcaseElement = (style: StyleType): React.ReactElement<ImageProps> => {
-    const showcaseElement: React.ReactElement<ImageProps> = this.props.data.showcase(style);
+    const showcaseElement: React.ReactElement<ImageProps> = this.props.data.icon(style);
 
     return React.cloneElement(showcaseElement, {
       style: [style, showcaseElement.props.style],
@@ -37,9 +37,9 @@ class ComponentsListItemComponent extends React.Component<ComponentsListItemProp
       <ListItem
         {...restProps}
         style={[themedStyle.container, style]}>
-        {this.renderShowcaseElement(themedStyle.showcase)}
+        {this.renderShowcaseElement(themedStyle.icon)}
         <Text
-          style={themedStyle.title}
+          style={textStyle.subtitle}
           category='s2'>
           {data.title}
         </Text>
@@ -57,9 +57,8 @@ export const ComponentsListItem = withStyles(ComponentsListItemComponent, (theme
     paddingHorizontal: 16,
     paddingVertical: 0,
   },
-  showcase: {},
-  title: {
-    marginTop: 8,
-    ...textStyle.subtitle,
+  icon: {
+    width: 80,
+    height: 80,
   },
 }));
