@@ -54,7 +54,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{`${followers}`}</Text>
           <Text
             style={[themedStyle.hintLabel, derivedTextStyle]}
-            appearance='hintDark'
+            appearance='hint'
             category='s2'>
             Followers
           </Text>
@@ -66,7 +66,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{`${following}`}</Text>
           <Text
             style={[themedStyle.hintLabel, derivedTextStyle]}
-            appearance='hintDark'
+            appearance='hint'
             category='s2'>
             Following
           </Text>
@@ -78,7 +78,7 @@ class ProfileSocialsComponent extends React.Component<ProfileSocialsProps> {
           <Text style={[themedStyle.valueLabel, derivedTextStyle]}>{`${posts}`}</Text>
           <Text
             style={[themedStyle.hintLabel, derivedTextStyle]}
-            appearance='hintDark'
+            appearance='hint'
             category='s2'>
             Posts
           </Text>

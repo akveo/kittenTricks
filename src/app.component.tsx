@@ -3,7 +3,7 @@ import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
 import { default as mapping } from '@eva/eva';
-import { theme } from '@eva/theme-eva';
+import { light as theme } from '@eva/themes';
 import { ApplicationProvider } from '@kitten/theme';
 import {
   ApplicationLoader,
@@ -71,9 +71,7 @@ export default class App extends React.Component {
         <ApplicationProvider
           mapping={mapping}
           theme={theme}>
-          <Router
-            onNavigationStateChange={this.onNavigationStateChange}
-          />
+          <Router onNavigationStateChange={this.onNavigationStateChange} />
         </ApplicationProvider>
       </ApplicationLoader>
     );

@@ -37,7 +37,6 @@ class LayoutGridListComponent extends React.Component<LayoutGridListProps> {
     return (
       <LayoutGridListItem
         style={this.props.themedStyle.item}
-        activeOpacity={0.75}
         data={info.item}
         onPress={this.onItemPress}
       />

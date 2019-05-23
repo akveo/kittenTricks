@@ -160,7 +160,6 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
 export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: ['color-white'],
   },
   headerContainer: {
     justifyContent: 'center',
@@ -176,8 +175,8 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
     height: 92,
     borderRadius: 46,
     alignSelf: 'center',
-    backgroundColor: theme['color-white'],
-    tintColor: theme['color-basic-500'],
+    backgroundColor: theme['background-color-default-1'],
+    tintColor: theme['text-color-hint'],
   },
   photoButton: {
     width: 32,
@@ -190,7 +189,7 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
     height: 20,
   },
   socialAuthIcon: {
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
   signUpButton: {
     marginVertical: 16,
@@ -200,7 +199,7 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signUpText: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
     ...textStyle.subtitle,
   },
 }));

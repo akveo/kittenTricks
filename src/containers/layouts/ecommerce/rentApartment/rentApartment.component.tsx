@@ -50,7 +50,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
     const { themedStyle, apartment } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ImageOverlay
           style={themedStyle.backgroundImage}
           source={apartment.primaryPhoto.imageSource}
@@ -64,7 +64,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
             </Text>
             <Text
               style={themedStyle.rentLabel}
-              appearance='hintDark'
+              appearance='hint'
               category='p2'>
               Rent House
             </Text>
@@ -109,7 +109,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
           </Text>
           <Text
             style={themedStyle.aboutLabel}
-            appearance='hintDark'>
+            appearance='hint'>
             {apartment.description}
           </Text>
         </View>
@@ -132,24 +132,23 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
 
 export const RentApartment = withStyles(RentApartmentComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
   },
   backgroundImage: {
     flex: 1,
     minHeight: 280,
-    backgroundColor: theme['color-basic-200'],
   },
   infoContainer: {
     marginTop: -80,
     marginHorizontal: 16,
     borderRadius: 12,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   detailsContainer: {
     paddingHorizontal: 24,
     paddingVertical: 24,
     borderBottomWidth: 1,
-    borderBottomColor: theme['color-basic-200'],
+    borderBottomColor: theme['border-color-default-2'],
   },
   bookContainer: {
     flexDirection: 'row',

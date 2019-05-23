@@ -110,8 +110,9 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             style={themedStyle.headerContainer}
             source={this.backgroundImage.imageSource}>
             <Button
+              appearance='ghost'
               style={themedStyle.ewaButton}
-              textStyle={textStyle.button}
+              textStyle={themedStyle.ewaButtonText}
               size='large'
               activeOpacity={0.75}
               icon={this.renderEwaButtonIcon}
@@ -121,7 +122,6 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             <View style={themedStyle.signUpContainer}>
               <Text
                 style={themedStyle.signInLabel}
-                appearance='light'
                 category='h4'>
                 SIGN UP
               </Text>
@@ -150,15 +150,13 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
             <View style={themedStyle.divider}/>
             <Text
               style={themedStyle.orLabel}
-              appearance='dark'
               category='h5'>
               OR
             </Text>
             <View style={themedStyle.divider}/>
           </View>
           <Text
-            style={themedStyle.emailSignLabel}
-            appearance='dark'>
+            style={themedStyle.emailSignLabel}>
             Sign up with Email
           </Text>
           <SignUpForm1
@@ -182,6 +180,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
 export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-1'],
   },
   headerContainer: {
     minHeight: 200,
@@ -205,13 +204,18 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   ewaButton: {
     maxWidth: 72,
     paddingHorizontal: 0,
-    backgroundColor: 'transparent',
+  },
+  ewaButtonText: {
+    color: 'white',
+    ...textStyle.button,
   },
   ewaButtonIcon: {
     marginHorizontal: 0,
+    tintColor: 'white',
   },
   signInLabel: {
     flex: 1,
+    color: 'white',
     ...textStyle.headline,
   },
   signInButton: {
@@ -219,23 +223,22 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     paddingHorizontal: 0,
   },
   signInButtonText: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
     ...textStyle.button,
   },
   signInButtonIcon: {
     marginHorizontal: 0,
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
   signUpButton: {
     marginVertical: 24,
     marginHorizontal: 16,
   },
   socialAuthHint: {
-    color: theme['font-primary-color'],
     ...textStyle.paragraph,
   },
   socialAuthIcon: {
-    tintColor: theme['font-primary-color'],
+    tintColor: theme['text-color-default'],
   },
   orContainer: {
     flexDirection: 'row',
@@ -255,7 +258,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   divider: {
     flex: 1,
     height: 1,
-    backgroundColor: theme['color-basic-200'],
+    backgroundColor: theme['background-color-default-3'],
   },
 }));
 

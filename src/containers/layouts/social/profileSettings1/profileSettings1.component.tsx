@@ -63,36 +63,44 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
         </View>
         <View style={themedStyle.infoSection}>
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='First Name'
             value={profile.firstName}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Last Name'
             value={profile.lastName}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Gender'
             value={profile.gender}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Age'
             value={`${profile.age}`}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Weight'
             value={`${profile.weight} kg`}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Height'
             value={`${profile.height} cm`}
           />
         </View>
         <View style={themedStyle.contactSection}>
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Email'
             value={profile.email}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Phone Number'
             value={profile.phoneNumber}
           />
@@ -112,19 +120,22 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
 export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-basic-300'],
+    backgroundColor: theme['background-color-default-2'],
   },
   photoSection: {
     marginVertical: 40,
-    backgroundColor: 'transparent',
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   contactSection: {
     marginTop: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
+  },
+  profileSetting: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme['border-color-default-2'],
   },
   photo: {
     width: 124,
@@ -136,7 +147,8 @@ export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: Th
     height: 48,
     borderRadius: 24,
     transform: [{ translateY: 82 }],
-    backgroundColor: theme['color-basic-700'],
+    borderColor: theme['border-color-default-4'],
+    backgroundColor: theme['background-color-default-4'],
   },
   button: {
     marginHorizontal: 24,

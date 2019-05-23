@@ -62,6 +62,6 @@ class TopNavigationBarComponent extends React.Component<TopNavigationBarProps> {
 
 export const TopNavigationBar = withStyles(TopNavigationBarComponent, (theme: ThemeType) => ({
   safeArea: {
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
 }));

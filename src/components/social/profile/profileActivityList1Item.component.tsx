@@ -84,7 +84,6 @@ export const ProfileActivityList1Item = withStyles(ProfileActivityList1ItemCompo
   container: {
     overflow: 'hidden',
     borderRadius: 12,
-    backgroundColor: theme['color-white'],
   },
   detailsContainer: {
     paddingHorizontal: 16,

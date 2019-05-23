@@ -34,7 +34,7 @@ class LayoutListItemComponent extends React.Component<LayoutListItemProps> {
         </Text>
         <Text
           style={textStyle.paragraph}
-          appearance='hintDark'>
+          appearance='hint'>
           {data.description}
         </Text>
       </ListItem>

@@ -30,13 +30,11 @@ class ArticleHeaderComponent extends React.Component<ArticleHeaderProps> {
         style={[componentStyle.container, style]}>
         <Text
           style={componentStyle.titleLabel}
-          appearance='light'
           category='h3'>
           {title}
         </Text>
         <Text
           style={componentStyle.descriptionLabel}
-          appearance='light'
           category='h6'>
           {description}
         </Text>
@@ -54,7 +52,11 @@ export const ArticleHeader = withStyles(ArticleHeaderComponent, (theme: ThemeTyp
   },
   titleLabel: {
     textAlign: 'center',
+    color: 'white',
     ...textStyle.headline,
   },
-  descriptionLabel: textStyle.subtitle,
+  descriptionLabel: {
+    color: 'white',
+    ...textStyle.subtitle,
+  },
 }));

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   View,
   ViewProps,
+  ViewStyle,
 } from 'react-native';
 import {
   StyleType,
@@ -15,8 +16,8 @@ import {
   ComponentProps,
 } from './chatMessage.component';
 import {
-  ChatFileMessageAppearance,
   Alignments,
+  ChatFileMessageAppearance,
   getContentAlignment,
 } from './type';
 import { getFileComponent } from './file.component';
@@ -55,7 +56,7 @@ class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
         message={message}>
         <Text
           style={themedStyle.fileNameLabel}
-          appearance='light'
+          appearance='alternative'
           category='c1'>
           {message.file.name}
         </Text>
@@ -66,8 +67,10 @@ class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
 
   private renderPreviewMessageAppearance = (): React.ReactElement<ViewProps> => {
     const { themedStyle, alignment, message } = this.props;
-    const style: StyleType = themedStyle
-      .previewAppearanceSubContainer(alignment === Alignments['ROW-LEFT']);
+
+    const style: ViewStyle = {
+      flexDirection: alignment === Alignments['ROW-LEFT'] ? 'row' : 'row-reverse',
+    };
 
     return (
       <View style={style}>
@@ -75,7 +78,7 @@ class ChatFileMessageComponent extends React.Component<ChatFileMessageProps> {
         <Text
           key={0}
           style={themedStyle.dateLabel}
-          appearance='hintDark'
+          appearance='hint'
           category='c1'>
           {message.date}
         </Text>
@@ -110,10 +113,8 @@ export const ChatFileMessage = withStyles(ChatFileMessageComponent, (theme: Them
     marginHorizontal: 26,
     ...textStyle.caption1,
   },
-  previewAppearanceSubContainer: (isLeft: boolean) => ({
-    flexDirection: isLeft ? 'row' : 'row-reverse',
-  }),
   fileNameLabel: {
+    color: 'white',
     marginRight: 16,
     ...textStyle.caption1,
   },

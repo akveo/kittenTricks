@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  FlexStyle,
   View,
+  FlexStyle,
   ViewProps,
 } from 'react-native';
 import {

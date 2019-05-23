@@ -48,7 +48,6 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
         <View style={[themedStyle.topBottomContainer, themedStyle.topContainer]}>
           <Text
             style={themedStyle.typeLabel}
-            appearance='light'
             category='h4'>
             {paymentCard.type}
           </Text>
@@ -61,7 +60,6 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
         </View>
         <Text
           style={themedStyle.numberLabel}
-          appearance='light'
           category='s1'>
           {paymentCard.number}
         </Text>
@@ -69,13 +67,11 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
           <View style={themedStyle.bottomLeftContainer}>
             <Text
               style={themedStyle.bottomLabel}
-              category='c1'
-              appearance='light'>
+              category='c1'>
               Cardholder Name
             </Text>
             <Text
               style={themedStyle.bottomLabelMain}
-              appearance='light'
               category='s1'>
               {paymentCard.cardHolder}
             </Text>
@@ -83,13 +79,11 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
           <View style={themedStyle.bottomRightContainer}>
             <Text
               style={[themedStyle.bottomLabel, themedStyle.rightLabel]}
-              appearance='light'
               category='c1'>
               Expire Date
             </Text>
             <Text
-              style={[themedStyle.bottomLabelMain, themedStyle.rightLabel]}
-              appearance='light'>
+              style={[themedStyle.bottomLabelMain, themedStyle.rightLabel]}>
               {paymentCard.expireDate}
             </Text>
           </View>
@@ -101,9 +95,9 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
 
 export const PaymentCard = withStyles(PaymentCardComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['color-primary-500'],
     borderRadius: 12,
     padding: 24,
+    backgroundColor: theme['color-primary-default'],
   },
   topContainer: {
     marginBottom: 32,
@@ -113,14 +107,24 @@ export const PaymentCard = withStyles(PaymentCardComponent, (theme: ThemeType) =
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  typeLabel: textStyle.headline,
+  typeLabel: {
+    color: 'white',
+    ...textStyle.headline,
+  },
   numberLabel: {
+    color: 'white',
     marginBottom: 26,
     fontFamily: 'opensans-bold',
     fontSize: 18,
   },
-  bottomLabel: textStyle.caption1,
-  bottomLabelMain: textStyle.subtitle,
+  bottomLabel: {
+    color: 'white',
+    ...textStyle.caption1,
+  },
+  bottomLabelMain: {
+    color: 'white',
+    ...textStyle.subtitle,
+  },
   bottomLeftContainer: {
     justifyContent: 'flex-start',
   },
@@ -130,7 +134,7 @@ export const PaymentCard = withStyles(PaymentCardComponent, (theme: ThemeType) =
   moreIcon: {
     width: 4,
     height: 18,
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
   rightLabel: {
     textAlign: 'right',

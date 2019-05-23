@@ -64,7 +64,7 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
           </Text>
           <Text
             style={themedStyle.descriptionLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='s1'>
             {article.description}
           </Text>
@@ -95,7 +95,7 @@ export const ArticleList1Item = withStyles(ArticleList1ItemComponent, (theme: Th
     paddingHorizontal: 16,
     paddingVertical: 24,
     borderBottomWidth: 1,
-    borderBottomColor: theme['color-basic-200'],
+    borderBottomColor: theme['border-color-default-2'],
   },
   activityContainer: {
     paddingHorizontal: 16,

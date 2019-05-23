@@ -68,42 +68,50 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
         <View style={themedStyle.descriptionSection}>
           <Text
             style={themedStyle.description}
-            appearance='hintDark'>
+            appearance='hint'>
             {profile.about}
           </Text>
         </View>
         <View style={themedStyle.infoSection}>
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='First Name'
             value={profile.firstName}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Last Name'
             value={profile.lastName}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Gender'
             value={profile.gender}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Age'
             value={`${profile.age}`}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Weight'
             value={`${profile.weight} kg`}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Height'
             value={`${profile.height} cm`}
           />
         </View>
         <View style={themedStyle.contactSection}>
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Email'
             value={profile.email}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Phone Number'
             value={profile.phoneNumber}
           />
@@ -123,25 +131,28 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
 export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-basic-300'],
+    backgroundColor: theme['background-color-default-2'],
   },
   photoSection: {
     marginHorizontal: 32,
     marginVertical: 32,
-    backgroundColor: 'transparent',
   },
   descriptionSection: {
     paddingHorizontal: 24,
     paddingVertical: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   contactSection: {
     marginTop: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
+  },
+  profileSetting: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme['border-color-default-2'],
   },
   description: textStyle.paragraph,
   photo: {
@@ -154,7 +165,8 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
     height: 48,
     borderRadius: 24,
     transform: [{ translateY: 32 }, { translateX: -16 }],
-    backgroundColor: theme['color-basic-700'],
+    borderColor: theme['border-color-default-4'],
+    backgroundColor: theme['background-color-default-4'],
   },
   button: {
     marginHorizontal: 24,

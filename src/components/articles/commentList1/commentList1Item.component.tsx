@@ -150,7 +150,7 @@ export const CommentList1Item = withStyles(CommentList1ItemComponent, (theme: Th
   moreIcon: {
     width: 18,
     height: 18,
-    tintColor: theme['color-basic-700'],
+    tintColor: theme['text-color-hint'],
   },
   repliesList: {
     alignSelf: 'stretch',

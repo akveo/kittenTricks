@@ -95,6 +95,7 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
     return (
       <View>
         <List
+          style={themedStyle.pagerContainer}
           horizontal={true}
           renderItem={this.renderPagerCard}
           data={this.props.exercises}
@@ -127,7 +128,7 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
       <ScrollView contentContainerStyle={themedStyle.container}>
         <Text
           style={themedStyle.pagerLabel}
-          appearance='hintDark'>
+          appearance='hint'>
           MOST POPULAR
         </Text>
         {this.renderPager()}
@@ -142,18 +143,21 @@ class Easy1Component extends React.Component<Easy1ComponentProps, State> {
 
 export const Easy1 = withStyles(Easy1Component, (theme: ThemeType) => ({
   container: {
-    padding: 16,
-    flexGrow: 1,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  pagerContainer: {
+    marginVertical: 8,
   },
   pagerLabel: {
-    marginBottom: 16,
+    marginVertical: 16,
     ...textStyle.paragraph,
   },
   pagerCard: {
     width: 226,
   },
   listCard: {
-    marginBottom: 16,
+    marginVertical: 8,
   },
   pagerCardMargin: {
     marginRight: 16,
@@ -162,16 +166,16 @@ export const Easy1 = withStyles(Easy1Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: 8,
   },
   pagerIndicator: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: theme['color-basic-300'],
+    backgroundColor: theme['background-color-default-3'],
   },
   pagerIndicatorSelected: {
-    backgroundColor: theme['color-black'],
+    backgroundColor: theme['background-color-default-4'],
   },
   indicatorMarginRight: {
     marginRight: 12,

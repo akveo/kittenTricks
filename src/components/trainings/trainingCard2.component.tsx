@@ -63,7 +63,6 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
                 icon={ClockIcon}>
                 <Text
                   style={themedStyle.chipsText}
-                  appearance='light'
                   category='c1'>
                   {training.duration}
                 </Text>
@@ -90,7 +89,7 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   rightSection: {
     padding: 16,
     justifyContent: 'space-between',
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   leftSection: {
     padding: 16,
@@ -104,10 +103,13 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   chips: {
     width: 80,
   },
-  chipsText: textStyle.paragraph,
+  chipsText: {
+    color: 'white',
+    ...textStyle.paragraph,
+  },
   detailsIcon: {
     width: 22,
     height: 22,
-    tintColor: theme['color-black'],
+    tintColor: theme['text-color-hint'],
   },
 }));

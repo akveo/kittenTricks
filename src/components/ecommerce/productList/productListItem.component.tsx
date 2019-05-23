@@ -65,7 +65,7 @@ class ProductListItemComponent extends React.Component<ProductListItemProps> {
             </Text>
             <Text
               style={themedStyle.typeLabel}
-              appearance='hintDark'
+              appearance='hint'
               category='c1'>
               {type}
             </Text>
@@ -93,7 +93,6 @@ export const ProductListItem = withStyles(ProductListItemComponent, (theme: Them
   container: {
     minHeight: 272,
     borderRadius: 12,
-    backgroundColor: theme['color-white'],
     overflow: 'hidden',
   },
   infoContainer: {
@@ -110,7 +109,6 @@ export const ProductListItem = withStyles(ProductListItemComponent, (theme: Them
     flex: 1,
     width: null,
     height: 140,
-    backgroundColor: theme['color-basic-100'],
   },
   nameLabel: textStyle.subtitle,
   typeLabel: textStyle.caption1,

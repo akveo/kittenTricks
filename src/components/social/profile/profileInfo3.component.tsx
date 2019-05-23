@@ -40,7 +40,6 @@ class ProfileInfo3Component extends React.Component<ProfileInfo3Props> {
         />
         <Text
           style={themedStyle.nameLabel}
-          appearance='light'
           category='h6'>
           {name}
         </Text>
@@ -62,17 +61,18 @@ export const ProfileInfo3 = withStyles(ProfileInfo3Component, (theme: ThemeType)
   detailsContainer: {},
   nameLabel: {
     marginTop: 16,
+    color: 'white',
     ...textStyle.headline,
   },
   locationLabel: {
     marginTop: 2,
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
   },
   profileAvatar: {
     width: 124,
     height: 124,
   },
   locationIcon: {
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
 }));

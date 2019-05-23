@@ -85,6 +85,5 @@ export const ProfileActivityList3 = withStyles(ProfileActivityList3Component, (t
   item: {
     paddingHorizontal: 0,
     paddingVertical: 0,
-    backgroundColor: theme['color-basic-100'],
   },
 }));

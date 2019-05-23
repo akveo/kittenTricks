@@ -12,7 +12,7 @@ export const P1Text = (): TextElement => {
     <Text
       style={textStyle.paragraph}
       category='p1'>
-      Text
+      Sample Text
     </Text>
   );
 };

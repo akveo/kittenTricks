@@ -75,7 +75,6 @@ export const ProfileActivityList2 = withStyles(ProfileActivityList2Component, (t
     marginHorizontal: 8,
     borderRadius: 8,
     overflow: 'hidden',
-    backgroundColor: theme['color-basic-200'],
   },
   item: {
     width: 120,

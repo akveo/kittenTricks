@@ -27,7 +27,7 @@ class ProfileSettingComponent extends React.Component<ProfileSettingProps> {
     return (
       <Text
         style={style}
-        appearance='hintDark'>
+        appearance='hint'>
         {text}
       </Text>
     );
@@ -55,12 +55,10 @@ export const ProfileSetting = withStyles(ProfileSettingComponent, (theme: ThemeT
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: theme['color-basic-300'],
   },
   hintLabel: textStyle.caption2,
   valueLabel: {
-    color: theme['font-primary-color'],
+    color: theme['text-color-default'],
     ...textStyle.caption2,
   },
 }));

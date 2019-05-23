@@ -330,5 +330,5 @@ export const evaIcons: { [key: string]: IconSource } = {
   wifiOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/wifi-outline.png'),
   tvFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/tv.png'),
   carFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/car.png'),
-  activityOutline: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/activity-outline.png'),
+  activityOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/activity-outline.png'),
 };

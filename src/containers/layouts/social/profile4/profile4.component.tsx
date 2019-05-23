@@ -95,7 +95,7 @@ class Profile4Component extends React.Component<Profile4Props> {
           </Button>
           <Text
             style={themedStyle.descriptionLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='s1'>
             {profile.about}
           </Text>
@@ -122,11 +122,11 @@ class Profile4Component extends React.Component<Profile4Props> {
 export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
   },
   infoContainer: {
     paddingHorizontal: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   parameterContainer: {
     flexDirection: 'row',
@@ -145,11 +145,6 @@ export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
     justifyContent: 'space-evenly',
     marginTop: 24,
   },
-  divider: {
-    marginHorizontal: 24,
-    borderWidth: 0.5,
-    borderColor: theme['color-basic-500'],
-  },
   descriptionLabel: {
     marginVertical: 24,
     ...textStyle.paragraph,
@@ -157,5 +152,6 @@ export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
   profileParameter: {
     flex: 1,
     marginHorizontal: 12,
+    backgroundColor: theme['background-color-default-1'],
   },
 }));

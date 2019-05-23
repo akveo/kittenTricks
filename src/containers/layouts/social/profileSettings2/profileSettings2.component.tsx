@@ -66,11 +66,11 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
           />
           <View style={themedStyle.nameSection}>
             <ProfileSetting
-              style={themedStyle.nameParameter}
+              style={[themedStyle.profileSetting, themedStyle.nameParameter]}
               value={profile.firstName}
             />
             <ProfileSetting
-              style={[themedStyle.nameParameter, themedStyle.lastNameParameter]}
+              style={[themedStyle.profileSetting, themedStyle.nameParameter, themedStyle.lastNameParameter]}
               value={profile.lastName}
             />
           </View>
@@ -78,29 +78,34 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
         <View style={themedStyle.descriptionSection}>
           <Text
             style={themedStyle.description}
-            appearance='hintDark'
+            appearance='hint'
             category='s1'>
             {profile.about}
           </Text>
         </View>
         <View style={themedStyle.infoSection}>
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Email'
             value={profile.email}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Gender'
             value={profile.gender}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Age'
             value={`${profile.age}`}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Weight'
             value={`${profile.weight} kg`}
           />
           <ProfileSetting
+            style={themedStyle.profileSetting}
             hint='Height'
             value={`${profile.height} cm`}
           />
@@ -120,13 +125,13 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
 export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-basic-300'],
+    backgroundColor: theme['background-color-default-2'],
   },
   photoSection: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 32,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   nameSection: {
     flex: 1,
@@ -135,11 +140,15 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
   descriptionSection: {
     paddingHorizontal: 24,
     paddingBottom: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
+  },
+  profileSetting: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme['border-color-default-2'],
   },
   nameParameter: {
     paddingHorizontal: 0,
@@ -161,7 +170,8 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
     height: 32,
     borderRadius: 16,
     transform: [{ translateY: 48 }],
-    backgroundColor: theme['color-basic-700'],
+    borderColor: theme['border-color-default-4'],
+    backgroundColor: theme['background-color-default-4'],
   },
   button: {
     marginHorizontal: 24,
