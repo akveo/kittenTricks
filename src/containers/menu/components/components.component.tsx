@@ -57,7 +57,7 @@ export const Components = withStyles(ComponentsComponent, (theme: ThemeType) => 
   container: {
     flex: 1,
     paddingTop: 24,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
   },
   contentContainer: {
     paddingHorizontal: 16,
@@ -65,6 +65,5 @@ export const Components = withStyles(ComponentsComponent, (theme: ThemeType) => 
   },
   searchInput: {
     marginHorizontal: 24,
-    backgroundColor: theme['color-white'],
   },
 }));

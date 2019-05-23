@@ -108,8 +108,9 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
         source={this.backgroundImage.imageSource}>
         <AvoidKeyboard offset={this.keyboardOffset}>
           <Button
+            appearance='ghost'
             style={themedStyle.ewaButton}
-            textStyle={textStyle.button}
+            textStyle={themedStyle.ewaButtonText}
             size='large'
             activeOpacity={0.75}
             icon={this.renderEwaButtonIcon}
@@ -119,7 +120,6 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
           <View style={themedStyle.signInContainer}>
             <Text
               style={themedStyle.signInLabel}
-              appearance='light'
               category='h4'>
               SIGN IN
             </Text>
@@ -149,6 +149,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
         <SocialAuth
           style={themedStyle.socialAuthContainer}
           iconStyle={themedStyle.socialAuthIcon}
+          hintStyle={themedStyle.socialAuthHint}
           hint='Sign with a social account'
           onGooglePress={this.onGoogleButtonPress}
           onFacebookPress={this.onFacebookButtonPress}
@@ -176,10 +177,14 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   ewaButton: {
     maxWidth: 72,
     paddingHorizontal: 0,
-    backgroundColor: 'transparent',
+  },
+  ewaButtonText: {
+    color: 'white',
+    ...textStyle.button,
   },
   ewaButtonIcon: {
     marginHorizontal: 0,
+    tintColor: 'white',
   },
   formContainer: {
     flex: 1,
@@ -188,23 +193,24 @@ export const SignIn1 = withStyles(SignIn1Component, (theme: ThemeType) => ({
   signInLabel: {
     flex: 1,
     ...textStyle.headline,
+    color: 'white',
   },
   signUpButton: {
     flexDirection: 'row-reverse',
     paddingHorizontal: 0,
   },
   signUpButtonText: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
   },
   signUpButtonIcon: {
     marginHorizontal: 0,
-    tintColor: theme['color-white'],
-  },
-  input: {
-    backgroundColor: 'rgba(0, 0, 0, 0.35)',
+    tintColor: 'white',
   },
   socialAuthIcon: {
-    tintColor: theme['color-white'],
+    tintColor: 'white',
+  },
+  socialAuthHint: {
+    color: 'white',
   },
 }));
 

@@ -6,15 +6,15 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Button,
   Tab,
   TabView,
   Text,
-  Button,
 } from '@kitten/ui';
 import {
   SignInForm3,
-  SignInForm4,
   SignInForm3Data,
+  SignInForm4,
   SignInForm4Data,
 } from '@src/components/auth';
 import {
@@ -23,8 +23,8 @@ import {
   textStyle,
 } from '@src/components/common';
 import {
-  ImageSource,
   imageSignIn5Bg,
+  ImageSource,
 } from '@src/assets/images';
 
 interface ComponentProps {
@@ -111,19 +111,18 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
         <AvoidKeyboard offset={this.keyboardOffset}>
           <View style={themedStyle.headerContainer}>
             <Text
-              style={themedStyle.helloLabel}
-              appearance='light'>
+              style={themedStyle.helloLabel}>
               Sign In
             </Text>
             <Text
               style={themedStyle.signInLabel}
-              appearance='light'
               category='s1'>
               Sign in to your account with Email or SMS
             </Text>
           </View>
           <TabView
             style={themedStyle.tabView}
+            tabBarStyle={themedStyle.tabBar}
             indicatorStyle={themedStyle.tabViewIndicator}
             selectedIndex={this.state.selectedTabIndex}
             onSelect={this.onTabSelect}>
@@ -145,7 +144,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
                 />
                 <Text
                   style={themedStyle.smsCaptionLabel}
-                  appearance='light'>
+                  appearance='hint'>
                   within a minute you should receive
                   an SMS with the code
                 </Text>
@@ -191,21 +190,26 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     flex: 1,
     paddingHorizontal: 16,
   },
+  tabBar: {
+    backgroundColor: 'transparent',
+  },
   tabViewIndicator: {
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   tabTitle: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
     ...textStyle.label,
   },
   helloLabel: {
-    fontFamily: 'opensans-bold',
     fontSize: 26,
     lineHeight: 32,
+    color: 'white',
+    ...textStyle.headline,
   },
   signInLabel: {
     marginTop: 8,
     textAlign: 'center',
+    color: 'white',
     ...textStyle.subtitle,
   },
   smsCaptionLabel: {
@@ -220,7 +224,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signUpText: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
     ...textStyle.subtitle,
   },
 }));

@@ -81,12 +81,12 @@ class Feed2Component extends React.Component<Feed1Props> {
 
 export const Feed2 = withStyles(Feed2Component, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['color-basic-100'],
     paddingHorizontal: 16,
     paddingVertical: 8,
+    backgroundColor: theme['background-color-default-2'],
   },
   item: {
     marginVertical: 8,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
 }));

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageBackground,
   ScrollView,
   View,
 } from 'react-native';
@@ -14,7 +13,10 @@ import {
   Text,
 } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
-import { textStyle } from '@src/components/common';
+import {
+  ImageOverlay,
+  textStyle,
+} from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
@@ -41,7 +43,7 @@ class Article2Component extends React.Component<Article2Props> {
 
     return (
       <ScrollView style={themedStyle.container}>
-        <ImageBackground
+        <ImageOverlay
           style={themedStyle.image}
           source={article.image.imageSource}>
           <Avatar
@@ -49,7 +51,7 @@ class Article2Component extends React.Component<Article2Props> {
             size='large'
             source={article.author.photo.imageSource}
           />
-        </ImageBackground>
+        </ImageOverlay>
           <Text
             style={themedStyle.titleLabel}
             category='h5'>
@@ -70,7 +72,7 @@ class Article2Component extends React.Component<Article2Props> {
               {ClockIcon(themedStyle.dateIcon)}
               <Text
                 style={themedStyle.dateLabel}
-                appearance='hintDark'
+                appearance='hint'
                 category='p2'>
                 {article.date}
               </Text>
@@ -84,12 +86,13 @@ class Article2Component extends React.Component<Article2Props> {
 export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-1'],
   },
   detailsContainer: {
     paddingHorizontal: 24,
     paddingVertical: 24,
     borderTopWidth: 1,
-    borderTopColor: theme['color-basic-200'],
+    borderTopColor: theme['border-color-default-2'],
   },
   dateContainer: {
     flexDirection: 'row',
@@ -104,7 +107,7 @@ export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
     bottom: -32,
     margin: 0,
     borderWidth: 2,
-    borderColor: theme['color-white'],
+    borderColor: theme['border-color-default-2'],
   },
   titleLabel: {
     marginHorizontal: 24,
@@ -124,6 +127,6 @@ export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
   dateIcon: {
     width: 24,
     height: 24,
-    tintColor: theme['color-basic-600'],
+    tintColor: theme['text-color-hint'],
   },
 }));

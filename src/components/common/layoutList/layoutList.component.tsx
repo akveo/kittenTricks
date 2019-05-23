@@ -37,7 +37,6 @@ class LayoutListComponent extends React.Component<LayoutListProps> {
     return (
       <LayoutListItem
         style={this.props.themedStyle.item}
-        activeOpacity={0.75}
         data={info.item}
         onPress={this.onItemPress}
       />
@@ -61,6 +60,5 @@ export const LayoutList = withStyles(LayoutListComponent, (theme: ThemeType) => 
   item: {
     marginVertical: 8,
     marginHorizontal: 8,
-    backgroundColor: theme['color-white'],
   },
 }));

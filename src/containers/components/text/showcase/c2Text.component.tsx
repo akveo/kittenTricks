@@ -12,7 +12,7 @@ export const C2Text = (): TextElement => {
     <Text
       style={textStyle.caption2}
       category='c2'>
-      Text
+      Sample Text
     </Text>
   );
 };

@@ -1,14 +1,11 @@
 import React from 'react';
 import {
-  withStyles,
-  ThemeType,
   ThemedComponentProps,
+  ThemeType,
+  withStyles,
 } from '@kitten/theme';
 import { Exercise } from '@src/core/model/exercise.model';
-import {
-  View,
-  ListRenderItemInfo,
-} from 'react-native';
+import { ListRenderItemInfo } from 'react-native';
 import { List } from '@kitten/ui';
 import {
   TrainingCard3,
@@ -41,7 +38,7 @@ class Trainings2Component extends React.Component<Trainings2ComponentProps> {
   private renderCard = (info: ListRenderItemInfo<Exercise>): React.ReactElement<TrainingCardProps> => {
     return (
       <TrainingCard3
-        style={this.props.themedStyle.listCard}
+        style={this.props.themedStyle.item}
         training={info.item}
         index={info.index}
         onDetails={this.onTrainingDetails}
@@ -55,23 +52,21 @@ class Trainings2Component extends React.Component<Trainings2ComponentProps> {
     const { themedStyle, exercises } = this.props;
 
     return (
-      <View style={themedStyle.container}>
-        <List
-          data={exercises}
-          renderItem={this.renderCard}
-        />
-      </View>
+      <List
+        contentContainerStyle={themedStyle.container}
+        data={exercises}
+        renderItem={this.renderCard}
+      />
     );
   }
 }
 
 export const Trainings2 = withStyles(Trainings2Component, (theme: ThemeType) => ({
   container: {
-    flex: 1,
-    backgroundColor: theme['color-basic-100'],
-    paddingTop: 16,
+    paddingVertical: 8,
   },
-  listCard: {
-    marginBottom: 16,
+  item: {
+    marginVertical: 8,
+    backgroundColor: theme['background-color-default-1'],
   },
 }));

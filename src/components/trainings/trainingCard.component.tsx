@@ -45,12 +45,11 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
           <View>
             <Text
               style={themedStyle.levelLabel}
-              appearance='light'>
+            appearance='hint'>
               {`${training.level} Level`}
             </Text>
             <Text
               style={themedStyle.titleLabel}
-              appearance='light'
               category='h5'>
               {training.name}
             </Text>
@@ -60,7 +59,6 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
             icon={ClockIcon}>
             <Text
               style={themedStyle.chipsText}
-              appearance='light'
               category='c2'>
               {training.duration}
             </Text>
@@ -73,17 +71,25 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
 
 export const TrainingCard1 = withStyles(TrainingCardComponent, (theme: ThemeType) => ({
   container: {
-    // width: '100%',
     height: 200,
     padding: 16,
     borderRadius: 12,
     justifyContent: 'space-between',
     overflow: 'hidden',
   },
-  levelLabel: textStyle.subtitle,
-  titleLabel: textStyle.headline,
+  levelLabel: {
+    color: 'white',
+    ...textStyle.subtitle,
+  },
+  titleLabel: {
+    color: 'white',
+    ...textStyle.headline,
+  },
   chips: {
     width: 80,
   },
-  chipsText: textStyle.caption2,
+  chipsText: {
+    color: 'white',
+    ...textStyle.caption2,
+  },
 }));

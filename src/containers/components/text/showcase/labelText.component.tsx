@@ -12,7 +12,7 @@ export const LabelText = (): TextElement => {
     <Text
       style={textStyle.paragraph}
       category='label'>
-      Text
+      Sample Text
     </Text>
   );
 };

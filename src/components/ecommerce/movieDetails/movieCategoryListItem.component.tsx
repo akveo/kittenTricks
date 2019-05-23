@@ -29,7 +29,6 @@ class MovieCategoryListItemComponent extends React.Component<MovieCategoryListIt
         style={[themedStyle.container, style]}>
         <Text
           style={themedStyle.label}
-          appearance='light'
           category='c1'>
           {children}
         </Text>
@@ -40,5 +39,8 @@ class MovieCategoryListItemComponent extends React.Component<MovieCategoryListIt
 
 export const MovieCategoryListItem = withStyles(MovieCategoryListItemComponent, (theme: ThemeType) => ({
   container: {},
-  label: textStyle.caption1,
+  label: {
+    color: 'white',
+    ...textStyle.caption1,
+  },
 }));

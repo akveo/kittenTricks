@@ -71,7 +71,7 @@ export const ComingSoonModal = withStyles(ComingSoonModalComponent, (theme: Them
       borderRadius: 12,
       top: (dimensions.height - contentHeight) / 2,
       left: (dimensions.width - contentWidth) / 2,
-      backgroundColor: theme['color-white'],
+      backgroundColor: theme['background-color-default-3'],
     },
     headerContainer: {
       alignItems: 'center',

@@ -44,5 +44,6 @@ class SocialComponent extends React.Component<SocialProps> {
 export const Social = withStyles(SocialComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
 }));

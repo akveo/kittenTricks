@@ -31,7 +31,7 @@ class ShowcaseItemComponent extends React.Component<ShowcaseItemProps> {
         {...restProps}>
         <Text
           style={themedStyle.titleLabel}
-          appearance='hintDark'
+          appearance='hint'
           category='s2'>
           {title}
         </Text>

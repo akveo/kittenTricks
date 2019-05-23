@@ -12,7 +12,7 @@ export const H1Text = (): TextElement => {
     <Text
       style={textStyle.headline}
       category='h1'>
-      Text
+      Sample Text
     </Text>
   );
 };

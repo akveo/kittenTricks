@@ -65,7 +65,6 @@ class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
 export const LayoutMenu = withStyles(LayoutMenuComponent, (theme: ThemeType) => ({
   listContainer: {
     flex: 1,
-    backgroundColor: theme['color-basic-100'],
   },
   listContentContainer: {
     paddingHorizontal: 16,

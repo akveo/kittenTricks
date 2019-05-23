@@ -182,7 +182,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
         <AvoidKeyboard autoDismiss={false}>
           <List
             ref={this.listRef}
-            style={themedStyle.chatContainer}
+            contentContainerStyle={themedStyle.chatContainer}
             data={this.createUiMessages()}
             onContentSizeChange={this.onListContentSizeChange}
             renderItem={this.renderMessage}
@@ -213,24 +213,24 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-white'],
   },
   chatContainer: {
-    backgroundColor: theme['color-basic-100'],
     paddingHorizontal: 16,
-    paddingVertical: 28,
+    paddingVertical: 12,
   },
   message: {
-    marginBottom: 28,
+    marginVertical: 12,
   },
   inputContainer: {
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    backgroundColor: theme['background-color-default-1'],
   },
   addMessageButton: {
     width: 26,
+    height: 26,
     borderRadius: 26,
   },
   inputComponent: {

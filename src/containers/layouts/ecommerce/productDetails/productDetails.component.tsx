@@ -77,7 +77,7 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
     const { themedStyle, product, comments, currentCommentText } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <ProductInfo
           image={product.photo.imageSource}
           name={product.name}
@@ -124,13 +124,12 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
 
 export const ProductDetails = withStyles(ProductDetailsComponent, (theme: ThemeType) => ({
   container: {
-    flexGrow: 1,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-1'],
   },
   commentsContainer: {
     paddingHorizontal: 8,
     paddingVertical: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-2'],
   },
   input: {
     marginHorizontal: 16,

@@ -83,7 +83,8 @@ class CartProductComponent extends React.Component<CartProductProps> {
       <View style={[themedStyle.container, style]}>
         <Image
           style={themedStyle.image}
-          source={product.photo.imageSource}/>
+          source={product.photo.imageSource}
+        />
         <View style={themedStyle.infoContainer}>
           <TouchableOpacity
             style={themedStyle.closeButton}
@@ -98,7 +99,7 @@ class CartProductComponent extends React.Component<CartProductProps> {
           </Text>
           <Text
             style={[themedStyle.typeLabel, themedStyle.labelMargin]}
-            appearance='hintDark'
+            appearance='hint'
             category='c1'>
             {product.type}
           </Text>
@@ -120,7 +121,8 @@ class CartProductComponent extends React.Component<CartProductProps> {
               textStyle={textStyle.button}
               size='small'
               icon={this.renderPlusIcon}
-              onPress={this.onAddCopy}/>
+              onPress={this.onAddCopy}
+            />
           </View>
         </View>
       </View>
@@ -131,24 +133,22 @@ class CartProductComponent extends React.Component<CartProductProps> {
 export const CartProduct = withStyles(CartProductComponent, (theme: ThemeType) => ({
   container: {
     flexDirection: 'row',
-    paddingLeft: 16,
+    // paddingLeft: 16,
   },
   image: {
-    width: 124,
-    height: 144,
+    width: 144,
+    height: null,
   },
   infoContainer: {
     flex: 1,
     padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: theme['color-basic-200'],
   },
   closeIcon: {
     width: 20,
     height: 20,
     position: 'absolute',
-    tintColor: theme['color-basic-500'],
     alignSelf: 'center',
+    tintColor: theme['text-color-hint'],
     top: 8,
   },
   closeButton: {
@@ -170,7 +170,7 @@ export const CartProduct = withStyles(CartProductComponent, (theme: ThemeType) =
     marginTop: 18,
   },
   counterIcon: {
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
   counterButton: {
     width: 10,

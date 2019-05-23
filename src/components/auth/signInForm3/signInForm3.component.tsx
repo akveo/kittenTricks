@@ -83,7 +83,6 @@ class SignInForm3Component extends React.Component<SignInForm3Props, State> {
         <ValidationInput
           style={themedStyle.emailInput}
           textStyle={textStyle.paragraph}
-          placeholderTextColor={theme['color-basic-600']}
           placeholder='Email'
           icon={EmailIconFill}
           validator={EmailValidator}
@@ -92,7 +91,6 @@ class SignInForm3Component extends React.Component<SignInForm3Props, State> {
         <ValidationInput
           style={themedStyle.passwordInput}
           textStyle={textStyle.paragraph}
-          placeholderTextColor={theme['color-basic-600']}
           placeholder='Password'
           secureTextEntry={true}
           icon={LockIconFill}
@@ -106,11 +104,8 @@ class SignInForm3Component extends React.Component<SignInForm3Props, State> {
 
 export const SignInForm3 = withStyles(SignInForm3Component, (theme: ThemeType) => ({
   container: {},
-  emailInput: {
-    backgroundColor: theme['color-white'],
-  },
+  emailInput: {},
   passwordInput: {
     marginTop: 16,
-    backgroundColor: theme['color-white'],
   },
 }));

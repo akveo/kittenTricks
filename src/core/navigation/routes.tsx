@@ -117,10 +117,7 @@ const HeadingNavigationOptions = ({ navigation }) => {
     return params && params.topNavigation && params.topNavigation(headerProps);
   };
 
-  return {
-    ...navigation,
-    header,
-  };
+  return { ...navigation, header };
 };
 
 const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
@@ -198,7 +195,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
       params: MenuNavigatorParams,
     },
     ['Trainings 1']: {
-      screen: Trainings1Container,
+      screen: Trainings2Container,
       params: DashboardsNavigatorParams,
     },
     ['Trainings 2']: {

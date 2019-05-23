@@ -8,6 +8,7 @@ import {
 import {
   Button,
   Text,
+  Layout,
 } from '@kitten/ui';
 import {
   SignInForm2,
@@ -60,22 +61,20 @@ class SignIn2Component extends React.Component<SignIn2Props> {
     const { themedStyle } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <Layout style={themedStyle.container}>
         <AvoidKeyboard offset={this.keyboardOffset}>
-          <View style={themedStyle.headerContainer}>
+          <Layout style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
-              appearance='light'
-              category='h2'>
+              category='h1'>
               Hello
             </Text>
             <Text
               style={themedStyle.signInLabel}
-              appearance='light'
               category='s1'>
               Sign in to your account
             </Text>
-          </View>
+          </Layout>
           <SignInForm2
             style={themedStyle.formContainer}
             onForgotPasswordPress={this.onForgotPasswordButtonPress}
@@ -98,41 +97,46 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           onPress={this.onSignUpButtonPress}>
           Don't have an account? Create
         </Button>
-      </View>
+      </Layout>
     );
   }
 }
 
-export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => ({
-  container: {
-    flex: 1,
-    backgroundColor: ['color-white'],
-  },
-  headerContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: 216,
-    backgroundColor: theme['color-primary-500'],
-  },
-  formContainer: {
-    flex: 1,
-    marginTop: 32,
-    paddingHorizontal: 16,
-  },
-  helloLabel: textStyle.headline,
-  signInLabel: {
-    marginTop: 16,
-    ...textStyle.subtitle,
-  },
-  signInButton: {
-    marginHorizontal: 16,
-  },
-  signUpButton: {
-    marginVertical: 12,
-  },
-  signUpText: {
-    color: theme['color-basic-600'],
-    ...textStyle.subtitle,
-  },
-}));
+export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => {
+  return ({
+    container: {
+      flex: 1,
+    },
+    headerContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: 216,
+      backgroundColor: theme['color-primary-default'],
+    },
+    formContainer: {
+      flex: 1,
+      marginTop: 32,
+      paddingHorizontal: 16,
+    },
+    helloLabel: {
+      color: 'white',
+      ...textStyle.headline,
+    },
+    signInLabel: {
+      marginTop: 16,
+      color: 'white',
+      ...textStyle.subtitle,
+    },
+    signInButton: {
+      marginHorizontal: 16,
+    },
+    signUpButton: {
+      marginVertical: 12,
+    },
+    signUpText: {
+      color: theme['text-color-hint'],
+      ...textStyle.subtitle,
+    },
+  });
+});
 

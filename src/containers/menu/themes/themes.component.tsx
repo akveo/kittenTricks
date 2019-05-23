@@ -22,5 +22,6 @@ class ThemesComponent extends React.Component<Props> {
 export const Themes = withStyles(ThemesComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
 }));

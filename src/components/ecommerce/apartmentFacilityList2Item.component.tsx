@@ -54,7 +54,7 @@ class ApartmentFacilityList2ItemComponent extends React.Component<ApartmentFacil
 export const ApartmentFacilityList2Item = withStyles(ApartmentFacilityList2ItemComponent, (theme: ThemeType) => ({
   container: {},
   icon: {
-    tintColor: theme['color-primary-500'],
+    tintColor: theme['color-primary-default'],
   },
   text: {},
 }));

@@ -24,7 +24,7 @@ export {
   Alignments,
   getContentAlignment,
 } from './type';
-export { getMessageIcon } from './message.icon';
+export { MessageIcon } from './messageIcon.component';
 export {
   getMessageContent,
   MessageElement,

@@ -38,7 +38,6 @@ class LayoutsListItemComponent extends React.Component<LayoutsListItemProps> {
         {this.renderIconElement(themedStyle.icon)}
         <Text
           style={themedStyle.title}
-          appearance='dark'
           category='s2'>
           {data.title}
         </Text>
@@ -53,7 +52,6 @@ export const LayoutsListItem = withStyles(LayoutsListItemComponent, (theme: Them
     alignItems: 'center',
     flexDirection: 'column',
     borderRadius: 8,
-    backgroundColor: theme['color-white'],
     paddingHorizontal: 0,
     paddingVertical: 0,
   },

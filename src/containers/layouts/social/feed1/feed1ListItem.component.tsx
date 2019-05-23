@@ -93,14 +93,12 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
               />
               <Text
                 style={themedStyle.categoryLabel}
-                appearance='light'
                 category='h6'>
                 {category}
               </Text>
             </View>
             <Text
-              style={themedStyle.timeLabel}
-              appearance='light'>
+              style={themedStyle.timeLabel}>
               {time}
             </Text>
           </View>
@@ -131,6 +129,7 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
   categoryContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   categoryInfoContainer: {
     flexDirection: 'row',
@@ -144,7 +143,7 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     paddingVertical: 16,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderTopColor: theme['color-basic-200'],
+    borderTopColor: theme['border-color-default-2'],
   },
   photo: {
     minHeight: 220,
@@ -154,13 +153,17 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
   categoryIcon: {
     width: 32,
     height: 32,
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
   categoryLabel: {
     marginHorizontal: 8,
+    color: 'white',
     ...textStyle.headline,
   },
-  timeLabel: textStyle.subtitle,
+  timeLabel: {
+    color: 'white',
+    ...textStyle.subtitle,
+  },
   descriptionLabel: {
     marginTop: 16,
     ...textStyle.subtitle,
