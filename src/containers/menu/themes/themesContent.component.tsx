@@ -122,7 +122,7 @@ class ThemesContentComponent extends React.Component<Props> {
     return (
       <View
         key={index}
-        style={themedStyle.colorItem(color)}
+        style={[themedStyle.colorItem, { backgroundColor: color }]}
       />
     );
   };
@@ -187,12 +187,11 @@ export const ThemesContent = withStyles(ThemesContentComponent, (theme: ThemeTyp
   cardHeader: {
     marginBottom: 28,
   },
-  colorItem: (color: string) => ({
-    backgroundColor: color,
+  colorItem: {
     width: 40,
     height: 40,
     borderRadius: 6,
-  }),
+  },
   lightActiveButton: {
     flexDirection: 'row-reverse',
     paddingHorizontal: 0,
