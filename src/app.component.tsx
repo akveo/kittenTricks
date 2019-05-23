@@ -1,10 +1,19 @@
 import React from 'react';
-import { ImageRequireSource } from 'react-native';
+import {
+  ImageRequireSource,
+  StatusBar,
+} from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
 import { default as mapping } from '@eva/eva';
-import { light as theme } from '@eva/themes';
-import { ApplicationProvider } from '@kitten/theme';
+import {
+  ApplicationProvider,
+  ThemeType,
+} from '@kitten/theme';
+import {
+  light as lightTheme,
+  dark as darkTheme,
+} from '@eva/themes';
 import {
   ApplicationLoader,
   Assets,
@@ -12,6 +21,11 @@ import {
 import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from './core/utils/analytics';
 import { getCurrentStateName } from './core/navigation/routeUtil';
+import {
+  ContextType,
+  ThemeContext,
+} from '@src/core/utils/themeContext';
+import { ThemeService } from '@src/core/utils/theme.service';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
@@ -43,7 +57,26 @@ const assets: Assets = {
   fonts: fonts,
 };
 
-export default class App extends React.Component {
+interface State {
+  currentTheme: 'light' | 'dark';
+  theme: ThemeType;
+}
+
+export default class App extends React.Component<any, State> {
+
+  public state: State = {
+    currentTheme: 'light',
+    theme: {},
+  };
+
+  public componentWillMount(): void {
+    Promise.all([
+      ThemeService.setTheme('light', lightTheme),
+      ThemeService.setTheme('dark', darkTheme),
+    ])
+      .then(() => ThemeService.getTheme('light'))
+      .then((theme: ThemeType) => this.setTheme(theme, 'light'));
+  }
 
   private onTransitionTrackError = (error: any): void => {
     console.warn('Analytics error: ', error.message);
@@ -65,15 +98,40 @@ export default class App extends React.Component {
     }
   };
 
+  private onThemeChange = (themeName: 'light' | 'dark'): void => {
+    ThemeService.getTheme(themeName)
+      .then((theme: ThemeType) => this.setTheme(theme, themeName));
+  };
+
+  private setTheme = (theme: ThemeType, themeName: 'light' | 'dark'): void => {
+    this.setState({
+      theme: theme,
+      currentTheme: themeName,
+    });
+  };
+
   public render(): React.ReactNode {
+    const contextValue: ContextType = {
+      currentTheme: this.state.currentTheme,
+      toggleTheme: this.onThemeChange,
+    };
+
     return (
-      <ApplicationLoader assets={assets}>
-        <ApplicationProvider
-          mapping={mapping}
-          theme={theme}>
-          <Router onNavigationStateChange={this.onNavigationStateChange} />
-        </ApplicationProvider>
-      </ApplicationLoader>
+      <ThemeContext.Provider value={contextValue}>
+        <ApplicationLoader assets={assets}>
+          <ApplicationProvider
+            mapping={mapping}
+            theme={this.state.theme}>
+            <StatusBar
+              backgroundColor='#3366FF'
+              barStyle='dark-content'
+            />
+            <Router
+              onNavigationStateChange={this.onNavigationStateChange}
+            />
+          </ApplicationProvider>
+        </ApplicationLoader>
+      </ThemeContext.Provider>
     );
   }
 }
