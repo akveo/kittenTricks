@@ -41,7 +41,7 @@ class ProfileParameterCardComponent extends React.Component<ProfileParameterCard
         <View style={themedStyle.topContainer}>
           <Text
             style={themedStyle.hintLabel}
-            appearance='hintDark'>
+            appearance='hint'>
             {hint}
           </Text>
           {this.renderIconElement(themedStyle.icon)}
@@ -60,7 +60,6 @@ export const ProfileParameterCard = withStyles(ProfileParameterCardComponent, (t
   container: {
     padding: 24,
     borderRadius: 12,
-    backgroundColor: theme['color-white'],
   },
   topContainer: {
     flexDirection: 'row',
@@ -74,6 +73,6 @@ export const ProfileParameterCard = withStyles(ProfileParameterCardComponent, (t
   icon: {
     width: 20,
     height: 20,
-    tintColor: theme['color-primary-500'],
+    tintColor: theme['color-primary-default'],
   },
 }));

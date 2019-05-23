@@ -48,7 +48,7 @@ export const CommentsButton = withStyles(CommentsButtonComponent, (theme: ThemeT
   icon: {
     width: 24,
     height: 24,
-    tintColor: theme['color-basic-500'],
+    tintColor: theme['text-color-hint'],
   },
   valueLabel: {
     marginHorizontal: 8,

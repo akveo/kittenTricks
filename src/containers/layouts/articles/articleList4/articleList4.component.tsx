@@ -106,6 +106,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
 export const ArticleList4 = withStyles(ArticleList4Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
   item: {
     flex: 1,

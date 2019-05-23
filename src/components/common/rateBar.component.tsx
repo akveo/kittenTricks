@@ -54,7 +54,7 @@ class RateBarComponent extends React.Component<RateBarProps> {
       <Text
         key={0}
         style={[style, hintStyle]}
-        appearance='hintDark'>
+        appearance='hint'>
         {this.props.hint}
       </Text>
     );
@@ -138,9 +138,9 @@ export const RateBar = withStyles(RateBarComponent, (theme: ThemeType) => ({
     height: 16,
   },
   iconEnabled: {
-    tintColor: theme['color-warning-500'],
+    tintColor: theme['color-warning-default'],
   },
   iconDisabled: {
-    tintColor: theme['color-basic-500'],
+    tintColor: theme['color-basic-default'],
   },
 }));

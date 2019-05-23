@@ -73,5 +73,6 @@ class Trainings1Component extends React.Component<Trainings1ComponentProps> {
 export const Trainings1 = withStyles(Trainings1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
 }));

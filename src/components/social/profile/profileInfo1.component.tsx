@@ -45,7 +45,7 @@ class ProfileInfo1Component extends React.Component<ProfileInfo1Props> {
           </Text>
           <Text
             style={themedStyle.locationLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='s2'>
             {location}
           </Text>

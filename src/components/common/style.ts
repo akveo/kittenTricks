@@ -1,6 +1,6 @@
 export const textStyle = {
   headline: {
-    fontFamily: 'raleway-extra-bold',
+    fontFamily: 'opensans-bold',
   },
   subtitle: {
     fontFamily: 'opensans-semibold',
@@ -18,6 +18,6 @@ export const textStyle = {
     fontFamily: 'opensans-bold',
   },
   button: {
-    fontFamily: 'opensans-extrabold',
+    // fontFamily: 'opensans-extrabold',
   },
 };

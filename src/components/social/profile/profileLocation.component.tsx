@@ -38,7 +38,7 @@ class ProfileLocationComponent extends React.Component<ProfileLocationProps> {
     return (
       <Text
         style={style}
-        appearance='hintDark'
+        appearance='hint'
         category='p2'>
         {children}
       </Text>
@@ -81,7 +81,7 @@ export const ProfileLocation = withStyles(ProfileLocationComponent, (theme: Them
   icon: {
     width: 14,
     height: 14,
-    tintColor: theme['color-basic-600'],
+    tintColor: theme['text-color-hint'],
   },
   text: textStyle.caption2,
 }));

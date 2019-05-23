@@ -38,7 +38,7 @@ class LayoutGridListItemComponent extends React.Component<LayoutGridListItemProp
             {data.title}
           </Text>
           <Text
-            appearance='hintDark'
+            appearance='hint'
             style={textStyle.paragraph}
             category='p2'>
             {data.description}
@@ -59,7 +59,6 @@ export const LayoutGridListItem = withStyles(LayoutGridListItemComponent, (theme
     borderRadius: 12,
     paddingHorizontal: 0,
     paddingVertical: 0,
-    backgroundColor: theme['color-white'],
     overflow: 'hidden',
   },
   detailsContainer: {

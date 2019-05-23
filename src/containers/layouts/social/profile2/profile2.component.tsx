@@ -86,7 +86,7 @@ class Profile2Component extends React.Component<Profile2Props> {
           </Button>
           <Text
             style={themedStyle.descriptionLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='s1'>
             {profile.about}
           </Text>
@@ -125,16 +125,17 @@ class Profile2Component extends React.Component<Profile2Props> {
 export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-1'],
   },
   infoContainer: {
     paddingHorizontal: 24,
-    backgroundColor: theme['color-white'],
   },
   detailsContainer: {
+    flex: 1,
     flexDirection: 'row',
-    paddingVertical: 16,
+    paddingVertical: 8,
     paddingHorizontal: 24,
+    backgroundColor: theme['background-color-default-2'],
   },
   parameterContainer: {
     flex: 1,
@@ -156,11 +157,12 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   },
   divider: {
     borderWidth: 0.5,
-    borderColor: theme['color-basic-500'],
+    borderColor: theme['border-color-default-3'],
     marginHorizontal: 24,
     marginVertical: 8,
   },
   profileParameter: {
+    backgroundColor: theme['background-color-default-1'],
     marginVertical: 8,
   },
 }));

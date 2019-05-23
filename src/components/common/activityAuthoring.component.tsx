@@ -38,7 +38,7 @@ class ActivityAuthoringComponent extends React.Component<ActivitiAuthoringProps>
           <Text style={themedStyle.authorNameLabel}>{name}</Text>
           <Text
             style={themedStyle.dateLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='p2'>
             {date}
           </Text>

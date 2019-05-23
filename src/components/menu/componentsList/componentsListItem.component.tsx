@@ -40,7 +40,6 @@ class ComponentsListItemComponent extends React.Component<ComponentsListItemProp
         {this.renderShowcaseElement(themedStyle.showcase)}
         <Text
           style={themedStyle.title}
-          appearance='dark'
           category='s2'>
           {data.title}
         </Text>
@@ -55,7 +54,6 @@ export const ComponentsListItem = withStyles(ComponentsListItemComponent, (theme
     alignItems: 'center',
     flexDirection: 'column',
     borderRadius: 8,
-    backgroundColor: theme['color-white'],
     paddingHorizontal: 16,
     paddingVertical: 0,
   },

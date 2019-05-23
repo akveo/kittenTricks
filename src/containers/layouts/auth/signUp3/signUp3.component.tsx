@@ -136,7 +136,6 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
 export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: ['color-white'],
   },
   headerContainer: {
     justifyContent: 'center',
@@ -152,8 +151,8 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
     height: 116,
     borderRadius: 58,
     alignSelf: 'center',
-    backgroundColor: theme['color-white'],
-    tintColor: theme['color-basic-500'],
+    backgroundColor: theme['background-color-default-1'],
+    tintColor: theme['text-color-hint'],
   },
   photoButton: {
     width: 40,
@@ -172,7 +171,7 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signUpText: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
     ...textStyle.subtitle,
   },
 }));

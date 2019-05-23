@@ -74,13 +74,11 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
-              appearance='light'
-              category='h2'>
+              category='h1'>
               Hello
             </Text>
             <Text
               style={themedStyle.signInLabel}
-              appearance='light'
               category='s1'>
               Sign in to your account
             </Text>
@@ -115,7 +113,6 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
 export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: ['color-white'],
   },
   headerContainer: {
     minHeight: 216,
@@ -127,9 +124,13 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
   },
-  helloLabel: textStyle.headline,
+  helloLabel: {
+    color: 'white',
+    ...textStyle.headline,
+  },
   signInLabel: {
     marginTop: 16,
+    color: 'white',
     ...textStyle.subtitle,
   },
   signInButton: {
@@ -139,7 +140,7 @@ export const SignIn3 = withStyles(SignIn3Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signUpText: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
     ...textStyle.subtitle,
   },
 }));

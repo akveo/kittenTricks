@@ -103,13 +103,11 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
 
 export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeType) => ({
   image: {
-    width: '100%',
     minHeight: 160,
   },
   infoContainer: {
     paddingVertical: 16,
     justifyContent: 'space-between',
-    backgroundColor: theme['color-white'],
   },
   titleLabel: {
     marginHorizontal: 18,
@@ -120,9 +118,9 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
     alignItems: 'center',
   },
   controlButtonText: {
-    color: theme['color-basic-600'],
     fontSize: 13,
     fontWeight: 'normal',
+    color: theme['text-color-hint'],
     ...textStyle.button,
   },
   timingButton: {
@@ -131,11 +129,11 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
   timingIcon: {
     width: 20,
     height: 20,
-    tintColor: theme['color-primary-500'],
+    tintColor: theme['color-primary-default'],
   },
   energyIcon: {
     width: 20,
     height: 20,
-    tintColor: theme['color-danger-500'],
+    tintColor: theme['color-danger-default'],
   },
 }));

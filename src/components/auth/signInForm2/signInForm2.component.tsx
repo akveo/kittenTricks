@@ -133,7 +133,7 @@ export const SignInForm2 = withStyles(SignInForm2Component, (theme: ThemeType) =
   },
   forgotPasswordText: {
     fontSize: 15,
-    color: theme['color-basic-400'],
+    color: theme['text-color-hint'],
     ...textStyle.subtitle,
   },
 }));

@@ -54,7 +54,7 @@ export const ConversationInterlocutor = withStyles(ConversationInterlocutorCompo
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: theme['color-success-500'],
+    backgroundColor: theme['color-success-default'],
     position: 'absolute',
     alignSelf: 'flex-end',
     bottom: 2,

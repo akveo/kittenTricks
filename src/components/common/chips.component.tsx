@@ -46,12 +46,12 @@ export const Chips = withStyles(ChipsComponent, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     paddingHorizontal: 10,
     paddingVertical: 4,
-    backgroundColor: theme['color-primary-500'],
+    backgroundColor: theme['color-primary-default'],
     borderRadius: 100,
   },
   icon: {
     width: 13,
     height: 13,
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
 }));

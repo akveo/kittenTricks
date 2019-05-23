@@ -37,7 +37,6 @@ class LayoutsListComponent extends React.Component<LayoutsListProps> {
     return (
       <LayoutsListItem
         style={this.props.themedStyle.item}
-        activeOpacity={0.75}
         data={info.item}
         onPress={this.onItemPress}
       />
@@ -49,6 +48,7 @@ class LayoutsListComponent extends React.Component<LayoutsListProps> {
 
     return (
       <List
+        style={themedStyle.container}
         numColumns={2}
         renderItem={this.renderItem}
         {...restProps}
@@ -58,6 +58,7 @@ class LayoutsListComponent extends React.Component<LayoutsListProps> {
 }
 
 export const LayoutsList = withStyles(LayoutsListComponent, (theme: ThemeType) => ({
+  container: {},
   item: {
     flex: 1,
     height: 160,

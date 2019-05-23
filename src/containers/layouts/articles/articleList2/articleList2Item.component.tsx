@@ -59,7 +59,6 @@ class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
           source={article.image.imageSource}>
           <Text
             style={themedStyle.titleLabel}
-            appearance='light'
             category='h4'>
             {article.title}
           </Text>
@@ -91,12 +90,6 @@ export const ArticleList2Item = withStyles(ArticleList2ItemComponent, (theme: Th
     borderRadius: 12,
     overflow: 'hidden',
   },
-  infoContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: theme['color-basic-200'],
-  },
   activityContainer: {
     paddingHorizontal: 16,
     paddingVertical: 16,
@@ -111,6 +104,7 @@ export const ArticleList2Item = withStyles(ArticleList2ItemComponent, (theme: Th
   },
   titleLabel: {
     maxWidth: 192,
+    color: 'white',
     ...textStyle.headline,
   },
 }));

@@ -1,12 +1,9 @@
 import React from 'react';
+import { ListRenderItemInfo } from 'react-native';
 import {
-  ListRenderItemInfo,
-  View,
-} from 'react-native';
-import {
-  withStyles,
-  ThemeType,
   ThemedComponentProps,
+  ThemeType,
+  withStyles,
 } from '@kitten/theme';
 import { Exercise } from '@src/core/model/exercise.model';
 import { List } from '@kitten/ui';
@@ -43,26 +40,21 @@ class Hard1Component extends React.Component<Hard1ComponentProps> {
     const { themedStyle, exercises } = this.props;
 
     return (
-      <View style={themedStyle.wrapper}>
-        <List
-          style={themedStyle.container}
-          data={exercises}
-          renderItem={this.renderCard}
-        />
-      </View>
+      <List
+        contentContainerStyle={themedStyle.container}
+        data={exercises}
+        renderItem={this.renderCard}
+      />
     );
   }
 }
 
 export const Hard1 = withStyles(Hard1Component, (theme: ThemeType) => ({
-  wrapper: {
-    flex: 1,
-    backgroundColor: theme['color-basic-100'],
-  },
   container: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   card: {
-    marginBottom: 16,
+    marginVertical: 8,
   },
 }));

@@ -65,7 +65,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
     const { themedStyle, book, comments, currentCommentText } = this.props;
 
     return (
-      <ScrollView>
+      <ScrollView style={themedStyle.container}>
         <BookHeader
           style={themedStyle.bookHeader}
           image={book.preview.imageSource}
@@ -89,7 +89,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
           </Text>
           <Text
             style={themedStyle.descriptionLabel}
-            appearance='hintDark'>
+            appearance='hint'>
             {book.description}
           </Text>
         </View>
@@ -121,16 +121,20 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
 }
 
 export const BookDetails = withStyles(BookDetailsComponent, (theme: ThemeType) => ({
+  container: {
+    backgroundColor: theme['background-color-default-1'],
+  },
   bookHeader: {
     paddingHorizontal: 16,
   },
   descriptionContainer: {
     paddingHorizontal: 16,
     paddingVertical: 24,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
   },
   commentsContainer: {
     paddingVertical: 24,
+    backgroundColor: theme['background-color-default-2'],
   },
   inputContainer: {
     paddingHorizontal: 24,

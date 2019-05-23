@@ -41,8 +41,11 @@ class ConversationsListComponent extends React.Component<ConversationsListProps>
   };
 
   private renderItem = (info: ListRenderItemInfo<ConversationModel>): React.ReactElement<ConversationProps> => {
+    const { themedStyle } = this.props;
+
     return (
       <Conversation
+        style={themedStyle.item}
         conversation={info.item}
         index={info.index}
         onConversation={this.onConversation}
@@ -72,7 +75,6 @@ class ConversationsListComponent extends React.Component<ConversationsListProps>
         {this.renderSearchInput()}
         <List
           style={themedStyle.container}
-          contentContainerStyle={themedStyle.listContent}
           data={conversations}
           renderItem={this.renderItem}
         />
@@ -84,14 +86,15 @@ class ConversationsListComponent extends React.Component<ConversationsListProps>
 export const ConversationsList = withStyles(ConversationsListComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
-  listContent: {
-    paddingVertical: 8,
-    backgroundColor: '#FFFFFF',
+  item: {
+    backgroundColor: theme['background-color-default-1'],
+    marginVertical: 0.5,
   },
   input: {
     marginHorizontal: 16,
-    marginTop: 16,
+    marginVertical: 16,
   },
 }));
 

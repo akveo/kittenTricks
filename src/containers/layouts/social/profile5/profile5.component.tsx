@@ -37,13 +37,11 @@ class Profile5Component extends React.Component<Profile5Props> {
         <View style={themedStyle.infoContainer}>
           <Text
             style={themedStyle.nameLabel}
-            appearance='light'
             category='h2'>
             {`${profile.firstName}\n${profile.lastName}`}
           </Text>
           <Text
             style={themedStyle.locationLabel}
-            appearance='light'
             category='h6'>
             {profile.location}
           </Text>
@@ -94,9 +92,12 @@ export const Profile5 = withStyles(Profile5Component, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     marginTop: 64,
   },
-  nameLabel: textStyle.headline,
+  nameLabel: {
+    color: 'white',
+    ...textStyle.headline,
+  },
   locationLabel: textStyle.headline,
   rateHintLabel: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
   },
 }));

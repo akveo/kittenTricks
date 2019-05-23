@@ -42,7 +42,7 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
     const { themedStyle, movie } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={themedStyle.container}>
+      <ScrollView style={themedStyle.container}>
         <MovieHeader
           style={themedStyle.movieHeader}
           image={movie.preview.imageSource}
@@ -63,7 +63,7 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
           </Text>
           <Text
             style={themedStyle.descriptionLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='s1'>
             {movie.description}
           </Text>
@@ -73,7 +73,8 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
             Screenshots
           </Text>
           <MovieScreenshotList
-            contentContainerStyle={themedStyle.screenshotList}
+            style={themedStyle.screenshotList}
+            contentContainerStyle={themedStyle.screenshotListContent}
             data={movie.screenshots}
             onItemPress={this.onScreenshotItemPress}
           />
@@ -92,13 +93,14 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
 
 export const Movie = withStyles(MovieDetailsComponent, (theme: ThemeType) => ({
   container: {
-    flexGrow: 1,
+    flex: 1,
+    backgroundColor: theme['background-color-default-1'],
   },
   movieHeader: {
     paddingHorizontal: 64,
     paddingVertical: 24,
-    borderBottomColor: theme['color-basic-200'],
     borderBottomWidth: 1,
+    borderBottomColor: theme['border-color-default-2'],
   },
   bottomSectionContainer: {
     paddingTop: 24,
@@ -120,6 +122,9 @@ export const Movie = withStyles(MovieDetailsComponent, (theme: ThemeType) => ({
     ...textStyle.subtitle,
   },
   screenshotList: {
+    backgroundColor: theme['background-color-default-1'],
+  },
+  screenshotListContent: {
     marginHorizontal: 8,
     marginBottom: 24,
   },

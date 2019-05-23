@@ -90,13 +90,11 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
-              appearance='light'
-              category='h2'>
+              category='h1'>
               Hello
             </Text>
             <Text
               style={themedStyle.signInLabel}
-              appearance='light'
               category='s1'>
               Sign in to your account
             </Text>
@@ -152,13 +150,17 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
   socialAuthContainer: {
     marginTop: 32,
   },
-  helloLabel: textStyle.headline,
+  helloLabel: {
+    color: 'white',
+    ...textStyle.headline,
+  },
   signInLabel: {
     marginTop: 16,
+    color: 'white',
     ...textStyle.subtitle,
   },
   socialAuthIcon: {
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
   signInButton: {
     marginHorizontal: 16,
@@ -167,7 +169,7 @@ export const SignIn4 = withStyles(SignIn4Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signUpText: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
     ...textStyle.subtitle,
   },
 }));

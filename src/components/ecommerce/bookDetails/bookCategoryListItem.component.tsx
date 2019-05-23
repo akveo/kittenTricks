@@ -29,7 +29,6 @@ class BookCategoryListItemComponent extends React.Component<BookCategoryListItem
         style={[themedStyle.container, style]}>
         <Text
           style={themedStyle.label}
-          appearance='light'
           category='c1'>
           {children}
         </Text>
@@ -40,5 +39,8 @@ class BookCategoryListItemComponent extends React.Component<BookCategoryListItem
 
 export const BookCategoryListItem = withStyles(BookCategoryListItemComponent, (theme: ThemeType) => ({
   container: {},
-  label: textStyle.caption1,
+  label: {
+    color: 'white',
+    ...textStyle.caption1,
+  },
 }));

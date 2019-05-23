@@ -62,13 +62,13 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
         <AvoidKeyboard offset={this.keyboardOffset}>
           <Text
             style={themedStyle.forgotPasswordLabel}
-            appearance='light'
+            appearance='alternative'
             category='h4'>
             Forgot Password
           </Text>
           <Text
             style={themedStyle.enterEmailLabel}
-            appearance='light'>
+            appearance='alternative'>
             Please enter your email address
           </Text>
           <ForgotPasswordForm
@@ -103,11 +103,13 @@ export const ForgotPassword = withStyles(ForgotPasswordComponent, (theme: ThemeT
   forgotPasswordLabel: {
     alignSelf: 'center',
     marginTop: 24,
+    color: 'white',
     ...textStyle.headline,
   },
   enterEmailLabel: {
     alignSelf: 'center',
     marginTop: 64,
+    color: 'white',
     ...textStyle.subtitle,
   },
   resetButton: {},

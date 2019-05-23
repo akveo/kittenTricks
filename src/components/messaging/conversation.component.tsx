@@ -15,9 +15,9 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
-import { ConversationInterlocutor } from './conversationInterlocutor.component';
-import { getMessageIcon } from './message.icon';
 import { textStyle } from '@src/components/common';
+import { MessageIcon } from './messageIcon.component';
+import { ConversationInterlocutor } from './conversationInterlocutor.component';
 
 interface ComponentProps {
   index?: number;
@@ -37,7 +37,7 @@ class ConversationComponent extends React.Component<ConversationProps> {
     const { conversation } = this.props;
     const lastMessage: string = conversation.messages[conversation.messages.length - 1].text;
 
-    return lastMessage.length <= 37 ? lastMessage : `${lastMessage.substring(0, 37)}...`;
+    return lastMessage.length <= 37 ? lastMessage : `${lastMessage.substring(0, 32)}...`;
   };
 
   private getLastMessageDate = (): string => {
@@ -47,27 +47,27 @@ class ConversationComponent extends React.Component<ConversationProps> {
   };
 
   private renderLastMessageIcon = (): React.ReactElement<ImageProps> | null => {
-    const { conversation, themedStyle } = this.props;
+    const { conversation } = this.props;
     const lastMessage: Message = conversation.messages[conversation.messages.length - 1];
-    const lastMessageRead: boolean = lastMessage.read;
-    const lastMessageDelivered: boolean = lastMessage.delivered;
 
-    return getMessageIcon(lastMessageRead, lastMessageDelivered);
+    return (
+      <MessageIcon message={lastMessage}/>
+    );
   };
 
   public render(): React.ReactNode {
-    const { themedStyle, conversation } = this.props;
+    const { themedStyle, style, conversation } = this.props;
 
     return (
       <TouchableOpacity
-        activeOpacity={0.97}
-        style={themedStyle.container}
+        activeOpacity={0.95}
+        style={[themedStyle.container, style]}
         onPress={this.onConversation}>
         <View style={themedStyle.leftSection}>
           <ConversationInterlocutor
             style={themedStyle.avatar}
             profile={conversation.interlocutor}/>
-          <View>
+          <View style={themedStyle.messageContainer}>
             <Text
               style={themedStyle.userLabel}
               category='s2'>
@@ -75,7 +75,7 @@ class ConversationComponent extends React.Component<ConversationProps> {
             </Text>
             <Text
               style={themedStyle.lastMessageLabel}
-              appearance='hintDark'
+              appearance='hint'
               category='c1'
               adjustsFontSizeToFit={true}>
               {this.getLastMessageText()}
@@ -86,7 +86,7 @@ class ConversationComponent extends React.Component<ConversationProps> {
           {this.renderLastMessageIcon()}
           <Text
             style={themedStyle.dateLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='p2'>
             {this.getLastMessageDate()}
           </Text>
@@ -102,8 +102,9 @@ export const Conversation = withStyles(ConversationComponent, (theme: ThemeType)
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 16,
-    borderBottomColor: '#EDF0F5',
-    borderBottomWidth: 1,
+  },
+  messageContainer: {
+    // flex: 1,
   },
   leftSection: {
     flexDirection: 'row',
