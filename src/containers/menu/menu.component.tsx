@@ -11,7 +11,6 @@ import {
 } from '@kitten/ui';
 import {
   ColorPaletteIcon,
-  GridIcon,
   LayoutIcon,
   StarIconOutline,
 } from '@src/assets/icons';
@@ -30,10 +29,10 @@ class MenuComponent extends React.Component<Props> {
   };
 
   public render(): React.ReactNode {
-    const { selectedIndex } = this.props;
+    const { selectedIndex, themedStyle } = this.props;
 
     return (
-      <SafeAreaView>
+      <SafeAreaView style={themedStyle.safeAreaContainer}>
         <BottomNavigation
           appearance='noIndicator'
           selectedIndex={selectedIndex}
@@ -56,4 +55,8 @@ class MenuComponent extends React.Component<Props> {
   }
 }
 
-export const Menu = withStyles(MenuComponent, (theme: ThemeType) => ({}));
+export const Menu = withStyles(MenuComponent, (theme: ThemeType) => ({
+  safeAreaContainer: {
+    backgroundColor: theme['background-color-default-1'],
+  },
+}));

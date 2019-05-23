@@ -267,6 +267,10 @@ export const TwitterIconFill = (style: StyleProp<ImageStyle>): IconElement => {
   return Icon(evaIcons.twitterFill, style);
 };
 
+export const CheckMarkIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  return Icon(evaIcons.checkMark, style);
+};
+
 export const evaIcons: { [key: string]: IconSource } = {
   arrowForwardFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png'),
   backArrowFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png'),
@@ -330,5 +334,6 @@ export const evaIcons: { [key: string]: IconSource } = {
   wifiOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/wifi-outline.png'),
   tvFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/tv.png'),
   carFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/car.png'),
-  activityOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/activity-outline.png'),
+  activityOutline: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/activity-outline.png'),
+  checkMark: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/checkmark.png'),
 };

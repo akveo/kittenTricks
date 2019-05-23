@@ -13,10 +13,10 @@
     "android": {
       "package": "com.akveo.kittentricks"
     },
-    "androidStatusBarColor": "#3366FF",
+    "androidStatusBarColor": "#FFFFFF",
     "androidStatusBar": {
       "barStyle": "light-content",
-      "backgroundColor": "#3366FF"
+      "backgroundColor": "#FFFFFF"
     },
     "assetBundlePatterns": [
       "src/assets/images/source/*",
