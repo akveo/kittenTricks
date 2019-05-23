@@ -80,4 +80,19 @@ export const routes: ComponentsContainerData[] = [
     showcase: ComplexComponentShowcase,
     route: 'List',
   },
+  {
+    title: 'App Bar',
+    showcase: ComplexComponentShowcase,
+    route: 'App Bar',
+  },
+  {
+    title: 'Bottom Navigation',
+    showcase: ComplexComponentShowcase,
+    route: 'Bottom Navigation',
+  },
+  {
+    title: 'View Pager',
+    showcase: ComplexComponentShowcase,
+    route: 'View Pager',
+  },
 ];
