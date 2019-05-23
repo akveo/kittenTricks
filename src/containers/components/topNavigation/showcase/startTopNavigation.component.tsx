@@ -1,5 +1,4 @@
 import React from 'react';
-import { Alert } from 'react-native';
 import {
   TopNavigation,
   TopNavigationProps,
@@ -9,17 +8,19 @@ import {
 import {
   StarIcon,
   BackArrowIcon,
+  MoreVerticalIcon,
 } from '@src/assets/icons';
 
 type TopNavigationElement = React.ReactElement<TopNavigationProps>;
 type TopNavigationActionElement = React.ReactElement<TopNavigationActionProps>;
 
-export const TopNavigationCenter = (props?: TopNavigationProps): TopNavigationElement => {
+export const StartTopNavigation = (props?: TopNavigationProps): TopNavigationElement => {
   return (
     <TopNavigation
       {...props}
-      alignment='center'
-      title='Application Bar'
+      alignment='start'
+      title='Title'
+      subtitle='Subtitle'
       leftControl={renderLeftControl()}
       rightControls={renderRightControls()}
     />
@@ -28,18 +29,13 @@ export const TopNavigationCenter = (props?: TopNavigationProps): TopNavigationEl
 
 const renderLeftControl = (): TopNavigationActionElement => {
   return (
-    <TopNavigationAction
-      icon={BackArrowIcon}
-      onPress={() => Alert.alert('On Left Control Press')}
-    />
+    <TopNavigationAction icon={BackArrowIcon}/>
   );
 };
 
 const renderRightControls = (): TopNavigationActionElement[] => {
   return ([
-    <TopNavigationAction
-      icon={StarIcon}
-      onPress={() => Alert.alert('On Right Control Press')}
-    />,
+    <TopNavigationAction icon={StarIcon}/>,
+    <TopNavigationAction icon={MoreVerticalIcon}/>,
   ]);
 };

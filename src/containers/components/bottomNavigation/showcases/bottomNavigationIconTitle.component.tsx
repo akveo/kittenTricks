@@ -3,10 +3,7 @@ import {
   BottomNavigation,
   BottomNavigationTab,
 } from '@kitten/ui';
-import {
-  StarIcon,
-  CameraIcon,
-} from '@src/assets/icons';
+import { StarIcon } from '@src/assets/icons';
 
 interface State {
   selectedIndex: number;
@@ -23,8 +20,6 @@ export class BottomNavigationIconTitle extends React.Component<{}, State> {
   };
 
   public render(): React.ReactNode {
-    const { selectedIndex } = this.state;
-
     return (
       <BottomNavigation
         appearance='noIndicator'
@@ -36,7 +31,7 @@ export class BottomNavigationIconTitle extends React.Component<{}, State> {
         />
         <BottomNavigationTab
           title='Screen 2'
-          icon={selectedIndex === 1 ? CameraIcon : StarIcon}
+          icon={StarIcon}
         />
         <BottomNavigationTab
           title='Screen 3'

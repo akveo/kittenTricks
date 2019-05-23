@@ -25,15 +25,9 @@ export class BottomNavigationTitle extends React.Component<{}, State> {
         appearance='noIndicator'
         selectedIndex={this.state.selectedIndex}
         onSelect={this.onTabSelect}>
-        <BottomNavigationTab
-          title='Screen 1'
-        />
-        <BottomNavigationTab
-          title='Screen 2'
-        />
-        <BottomNavigationTab
-          title='Screen 3'
-        />
+        <BottomNavigationTab title='Screen 1'/>
+        <BottomNavigationTab title='Screen 2'/>
+        <BottomNavigationTab title='Screen 3'/>
       </BottomNavigation>
     );
   }

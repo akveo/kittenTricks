@@ -19,7 +19,7 @@ import { ComponentsListItemData } from './type';
 interface ComponentProps extends ListProps {
   data: ComponentsListItemData[];
   onItemPress: (index: number) => void;
-  renderItem?: (info: ListItemElementInfo) => ListItemElement;
+  renderItem?: (info: ListRenderItemInfo<ComponentsListItemData>) => React.ReactElement<any>;
 }
 
 export type ComponentsListProps = ThemedComponentProps & ComponentProps;

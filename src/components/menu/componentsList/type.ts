@@ -1,7 +1,8 @@
 import React from 'react';
+import { ImageProps } from 'react-native';
 import { StyleType } from '@kitten/theme';
 
 export interface ComponentsListItemData {
   title: string;
-  showcase: (style: StyleType) => React.ReactElement<any>;
+  icon: (style: StyleType) => React.ReactElement<ImageProps>;
 }

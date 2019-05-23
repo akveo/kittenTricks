@@ -1,98 +1,96 @@
-import {
-  AvatarShowcase,
-  ButtonGroupShowcase,
-  ButtonShowcase,
-  CheckBoxShowcase,
-  InputShowcase,
-  OverflowMenuShowcase,
-  PopoverShowcase,
-  RadioShowcase,
-  TextShowcase,
-  ToggleShowcase,
-  TooltipShowcase,
-} from '@src/containers/components';
-import { ComplexComponentShowcase } from './complexShowcase.component';
 import { ComponentsContainerData } from './type';
+import {
+  ComponentsIconAvatar,
+  ComponentsIconBottomNavigation,
+  ComponentsIconButton,
+  ComponentsIconButtonGroup,
+  ComponentsIconCheckBox,
+  ComponentsIconInput,
+  ComponentsIconList,
+  ComponentsIconOverflowMenu,
+  ComponentsIconPopover,
+  ComponentsIconRadio,
+  ComponentsIconTabView,
+  ComponentsIconText,
+  ComponentsIconToggle,
+  ComponentsIconTooltip,
+  ComponentsIconTopNavigation,
+} from '@src/assets/icons';
 
 export const routes: ComponentsContainerData[] = [
   {
     title: 'Button',
-    showcase: ButtonShowcase,
+    icon: ComponentsIconButton,
     route: 'Button',
   },
   {
     title: 'Button Group',
-    showcase: ButtonGroupShowcase,
+    icon: ComponentsIconButtonGroup,
     route: 'Button Group',
   },
   {
     title: 'Checkbox',
-    showcase: CheckBoxShowcase,
+    icon: ComponentsIconCheckBox,
     route: 'CheckBox',
   },
   {
     title: 'Toggle',
-    showcase: ToggleShowcase,
+    icon: ComponentsIconToggle,
     route: 'Toggle',
   },
   {
     title: 'Radio',
-    showcase: RadioShowcase,
+    icon: ComponentsIconRadio,
     route: 'Radio',
   },
   {
     title: 'Input',
-    showcase: InputShowcase,
+    icon: ComponentsIconInput,
     route: 'Input',
   },
   {
     title: 'Text',
-    showcase: TextShowcase,
+    icon: ComponentsIconText,
     route: 'Text',
   },
   {
     title: 'Avatar',
-    showcase: AvatarShowcase,
+    icon: ComponentsIconAvatar,
     route: 'Avatar',
   },
   {
     title: 'Popover',
-    showcase: PopoverShowcase,
+    icon: ComponentsIconPopover,
     route: 'Popover',
   },
   {
     title: 'Tooltip',
-    showcase: TooltipShowcase,
+    icon: ComponentsIconTooltip,
     route: 'Tooltip',
   },
   {
     title: 'Overflow Menu',
-    showcase: OverflowMenuShowcase,
+    icon: ComponentsIconOverflowMenu,
     route: 'Overflow Menu',
   },
   {
     title: 'Tab View',
-    showcase: ComplexComponentShowcase,
+    icon: ComponentsIconTabView,
     route: 'Tab View',
   },
   {
     title: 'List',
-    showcase: ComplexComponentShowcase,
+    icon: ComponentsIconList,
     route: 'List',
   },
   {
-    title: 'App Bar',
-    showcase: ComplexComponentShowcase,
-    route: 'App Bar',
+    title: 'Top Navigation',
+    icon: ComponentsIconTopNavigation,
+    route: 'Top Navigation',
   },
   {
     title: 'Bottom Navigation',
-    showcase: ComplexComponentShowcase,
+    icon: ComponentsIconBottomNavigation,
     route: 'Bottom Navigation',
-  },
-  {
-    title: 'View Pager',
-    showcase: ComplexComponentShowcase,
-    route: 'View Pager',
   },
 ];

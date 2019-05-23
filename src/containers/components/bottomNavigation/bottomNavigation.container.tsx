@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import {
   BottomNavigationTitle,
@@ -14,27 +13,20 @@ export class BottomNavigationContainer extends React.Component<NavigationScreenP
 
   public render(): React.ReactNode {
     return (
-      <Showcase style={styles.container}>
-        <ShowcaseSection title='Title (No indicator)'>
+      <Showcase>
+        <ShowcaseSection title='Title'>
           <BottomNavigationTitle/>
         </ShowcaseSection>
-        <ShowcaseSection title='Icon (No indicator)'>
+        <ShowcaseSection title='Icon'>
           <BottomNavigationIcon/>
         </ShowcaseSection>
-        <ShowcaseSection title='Icon + Title (No indicator)'>
+        <ShowcaseSection title='Title & Icon'>
           <BottomNavigationIconTitle/>
         </ShowcaseSection>
-        <ShowcaseSection title='Full API (With indicator)'>
+        <ShowcaseSection title='Indicator'>
           <BottomNavigationFull/>
         </ShowcaseSection>
       </Showcase>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F7F8FA',
-  },
-});
