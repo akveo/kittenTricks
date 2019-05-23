@@ -41,7 +41,7 @@ class Medium1Component extends React.Component<Medium1ComponentProps> {
 
     return (
       <List
-        style={themedStyle.container}
+        contentContainerStyle={themedStyle.container}
         data={exercises}
         renderItem={this.renderCard}
       />
@@ -51,10 +51,10 @@ class Medium1Component extends React.Component<Medium1ComponentProps> {
 
 export const Medium1 = withStyles(Medium1Component, (theme: ThemeType) => ({
   container: {
-    flex: 1,
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   card: {
-    marginBottom: 16,
+    marginVertical: 8,
   },
 }));

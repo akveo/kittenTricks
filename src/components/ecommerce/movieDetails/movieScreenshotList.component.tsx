@@ -76,7 +76,6 @@ export const MovieScreenshotList = withStyles(MovieScreenshotListComponent, (the
     paddingVertical: 0,
     borderRadius: 12,
     marginHorizontal: 8,
-    backgroundColor: theme['color-basic-100'],
     overflow: 'hidden',
   },
   item: {

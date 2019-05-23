@@ -50,7 +50,6 @@ class StyxComponent extends React.Component<StyxProps> {
           icon={ClockIcon}>
           <Text
             style={themedStyle.chipsText}
-            appearance='light'
             category='c2'>
             {value}
           </Text>
@@ -66,7 +65,7 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
   },
   hintLabel: {
     marginHorizontal: 16,

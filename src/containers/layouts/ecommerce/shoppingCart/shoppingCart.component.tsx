@@ -65,8 +65,11 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
   };
 
   private renderProduct = (info: ListRenderItemInfo<CartProductModel>): React.ReactElement<CartProductProps> => {
+    const { themedStyle } = this.props;
+
     return (
       <CartProduct
+        style={themedStyle.item}
         product={info.item}
         index={info.index}
         onRemoveProduct={this.onRemoveProductPress}
@@ -80,12 +83,14 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
     const { themedStyle, products } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={themedStyle.container}>
+      <ScrollView
+        style={themedStyle.container}
+        contentContainerStyle={themedStyle.contentContainer}>
         <View>
           <List
+            style={themedStyle.productsList}
             data={products}
             renderItem={this.renderProduct}
-            style={themedStyle.productsList}
           />
           <View style={themedStyle.totalCostContainer}>
             <Text
@@ -113,12 +118,19 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
 
 export const ShoppingCart = withStyles(ShoppingCartComponent, (theme: ThemeType) => ({
   container: {
-    flexGrow: 1,
+    backgroundColor: theme['background-color-default-1'],
+  },
+  contentContainer: {
+    flex: 1,
     justifyContent: 'space-between',
   },
   productsList: {
-    borderTopWidth: 1,
-    borderTopColor: theme['color-basic-200'],
+    // borderTopWidth: 1,
+    // borderTopColor: theme['border-color-default-2'],
+  },
+  item: {
+    marginVertical: 1,
+    backgroundColor: theme['background-color-default-1'],
   },
   totalCostContainer: {
     flexDirection: 'row',
@@ -127,7 +139,7 @@ export const ShoppingCart = withStyles(ShoppingCartComponent, (theme: ThemeType)
     paddingVertical: 24,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: theme['color-basic-200'],
+    borderBottomColor: theme['border-color-default-2'],
   },
   totalCostLabel: textStyle.headline,
   totalPriceLabel: {

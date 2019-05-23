@@ -97,7 +97,7 @@ class Profile3Component extends React.Component<Profile3Props> {
             <View style={themedStyle.divider}/>
             <Text
               style={themedStyle.descriptionLabel}
-              appearance='hintDark'
+              appearance='hint'
               category='s1'>
               {profile.about}
             </Text>
@@ -125,11 +125,11 @@ class Profile3Component extends React.Component<Profile3Props> {
 export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
   },
   infoContainer: {
     paddingHorizontal: 24,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
   detailsContainer: {
     flexDirection: 'row',
@@ -154,8 +154,8 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   },
   divider: {
     borderWidth: 0.5,
-    borderColor: theme['color-basic-500'],
     marginHorizontal: 24,
+    backgroundColor: theme['border-color-default-1'],
   },
   descriptionLabel: {
     flex: 1,
@@ -164,5 +164,6 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   profileParameter: {
     flex: 1,
     marginHorizontal: 12,
+    backgroundColor: theme['background-color-default-1'],
   },
 }));

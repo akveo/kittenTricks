@@ -44,5 +44,6 @@ class AuthComponent extends React.Component<AuthProps> {
 export const Auth = withStyles(AuthComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
 }));

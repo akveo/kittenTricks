@@ -104,13 +104,13 @@ export const BuyProductModal = withStyles(ByuModalComponent, (theme: ThemeType) 
   wrapper: {
     width: width,
     height: height,
-    backgroundColor: theme['color-black'],
+    backgroundColor: theme['background-color-default-1'],
     opacity: 0.4,
     position: 'absolute',
   },
   container: {
     zIndex: 1,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-3'],
     justifyContent: 'space-between',
     paddingTop: 24,
     paddingBottom: 16,
@@ -128,12 +128,13 @@ export const BuyProductModal = withStyles(ByuModalComponent, (theme: ThemeType) 
   countLabel: textStyle.paragraph,
   actionsList: {
     marginTop: 16,
+    backgroundColor: 'transparent',
   },
   actionContainer: {
     width: '100%',
     padding: 16,
     justifyContent: 'center',
-    borderBottomColor: theme['color-basic-200'],
+    borderBottomColor: theme['border-color-default-4'],
     borderBottomWidth: 1.5,
   },
   actionLabel: textStyle.subtitle,

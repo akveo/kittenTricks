@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageBackground,
   ScrollView,
   View,
 } from 'react-native';
@@ -14,7 +13,10 @@ import {
   Text,
 } from '@kitten/ui';
 import { CommentsList1 } from '@src/components/articles';
-import { textStyle } from '@src/components/common';
+import {
+  ImageOverlay,
+  textStyle,
+} from '@src/components/common';
 import {
   Article,
   Comment,
@@ -59,7 +61,7 @@ class Article3Component extends React.Component<Article3Props> {
     const { themedStyle, article, comments, currentCommentText } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={themedStyle.contentContainer}>
+      <ScrollView style={themedStyle.container}>
         <Text
           style={themedStyle.titleLabel}
           category='h4'>
@@ -70,10 +72,10 @@ class Article3Component extends React.Component<Article3Props> {
           category='s1'>
           {article.description}
         </Text>
-        <ImageBackground
+        <ImageOverlay
           style={themedStyle.image}
           source={article.image.imageSource}>
-        </ImageBackground>
+        </ImageOverlay>
         <Text
           style={themedStyle.contentLabel}
           category='s1'>
@@ -82,13 +84,13 @@ class Article3Component extends React.Component<Article3Props> {
         <View style={themedStyle.articleAuthorContainer}>
           <Text
             style={themedStyle.articleAuthorLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='p2'>
             {`By ${article.author.firstName} ${article.author.lastName}`}
           </Text>
           <Text
             style={themedStyle.articleDateLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='p2'>
             {article.date}
           </Text>
@@ -120,7 +122,8 @@ class Article3Component extends React.Component<Article3Props> {
 }
 
 export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
-  contentContainer: {
+  container: {
+    backgroundColor: theme['background-color-default-1'],
   },
   image: {
     minHeight: 240,
@@ -131,7 +134,7 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     bottom: -32,
     margin: 0,
     borderWidth: 2,
-    borderColor: theme['color-white'],
+    borderColor: theme['border-color-default-2'],
   },
   titleLabel: {
     marginHorizontal: 24,

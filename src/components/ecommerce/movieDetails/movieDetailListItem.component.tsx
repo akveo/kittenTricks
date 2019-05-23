@@ -29,7 +29,7 @@ class MovieDetailListItemComponent extends React.Component<MovieDetailListItemPr
         style={[themedStyle.container, style]}>
         <Text
           style={themedStyle.descriptionLabel}
-          appearance='hintDark'
+          appearance='hint'
           category='s1'>
           {description}
         </Text>

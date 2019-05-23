@@ -49,7 +49,7 @@ class BookHeaderComponent extends React.Component<BookHeaderProps> {
           </Text>
           <Text
             style={themedStyle.authorLabel}
-            appearance='hintDark'
+            appearance='hint'
             category='c1'>
             {`Author: ${author}`}
           </Text>
@@ -84,7 +84,6 @@ export const BookHeader = withStyles(BookHeaderComponent, (theme: ThemeType) => 
     width: 140,
     height: 180,
     borderRadius: 12,
-    backgroundColor: theme['color-basic-100'],
   },
   titleLabel: textStyle.subtitle,
   authorLabel: {

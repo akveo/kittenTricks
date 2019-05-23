@@ -44,5 +44,6 @@ class MessagingComponent extends React.Component<MessagingProps> {
 export const Messaging = withStyles(MessagingComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
 }));

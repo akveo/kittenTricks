@@ -12,7 +12,7 @@ export const PrimaryText = (): TextElement => {
     <Text
       style={textStyle.paragraph}
       status='primary'>
-      Text
+      Sample Text
     </Text>
   );
 };

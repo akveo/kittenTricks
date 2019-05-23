@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  StyleProp,
+  TextStyle,
   View,
   ViewProps,
 } from 'react-native';
@@ -14,6 +16,8 @@ import { textStyle } from '@src/components/common';
 interface ComponentProps {
   hint: string;
   value: string;
+  hintStyle?: StyleProp<TextStyle>;
+  valueStyle?: StyleProp<TextStyle>;
 }
 
 export type ProfileParameterProps = ThemedComponentProps & ViewProps & ComponentProps;
@@ -29,13 +33,11 @@ class ProfileParameterComponent extends React.Component<ProfileParameterProps> {
         {...restProps}>
         <Text
           style={themedStyle.valueLabel}
-          appearance='light'
           category='h6'>
           {value}
         </Text>
         <Text
-          style={themedStyle.hintLabel}
-          appearance='light'>
+          style={themedStyle.hintLabel}>
           {hint}
         </Text>
       </View>

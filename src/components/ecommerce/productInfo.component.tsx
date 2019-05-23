@@ -72,7 +72,7 @@ class ProductInfoComponent extends React.Component<ProductInfoProps> {
               </Text>
               <Text
                 style={themedStyle.typeLabel}
-                appearance='hintDark'
+                appearance='hint'
                 category='p2'>
                 {type}
               </Text>
@@ -81,7 +81,7 @@ class ProductInfoComponent extends React.Component<ProductInfoProps> {
           </View>
           <Text
             style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
-            appearance='hintDark'>
+            appearance='hint'>
             {description}
           </Text>
           <Text
@@ -91,7 +91,7 @@ class ProductInfoComponent extends React.Component<ProductInfoProps> {
           </Text>
           <Text
             style={[themedStyle.descriptionText, themedStyle.bottomSpace]}
-            appearance='hintDark'>
+            appearance='hint'>
             {size}
           </Text>
           <Text

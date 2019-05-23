@@ -12,7 +12,7 @@ export const WarningText = (): TextElement => {
     <Text
       style={textStyle.paragraph}
       status='warning'>
-      Text
+      Sample Text
     </Text>
   );
 };

@@ -122,13 +122,13 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
 export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: ['color-white'],
+    backgroundColor: ['background-color-default-1'],
   },
   headerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: 216,
-    backgroundColor: theme['color-primary-500'],
+    backgroundColor: theme['color-primary-default'],
   },
   formContainer: {
     flex: 1,
@@ -140,20 +140,21 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     height: 116,
     borderRadius: 58,
     alignSelf: 'center',
-    backgroundColor: theme['color-white'],
-    tintColor: theme['color-primary-500'],
+    backgroundColor: theme['background-color-default-1'],
+    tintColor: theme['color-primary-default'],
   },
   photoButton: {
     width: 40,
     height: 40,
     borderRadius: 20,
     transform: [{ translateY: 80 }],
-    backgroundColor: theme['color-primary-100'],
+    borderColor: theme['border-color-default-2'],
+    backgroundColor: theme['background-color-default-2'],
   },
   photoButtonIcon: {
     width: 24,
     height: 24,
-    tintColor: theme['color-primary-500'],
+    tintColor: theme['color-primary-default'],
   },
   signUpButton: {
     marginHorizontal: 16,
@@ -162,7 +163,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signInText: {
-    color: theme['color-basic-600'],
+    color: theme['text-color-hint'],
     ...textStyle.subtitle,
   },
 }));

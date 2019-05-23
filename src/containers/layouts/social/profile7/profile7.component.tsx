@@ -138,7 +138,7 @@ class Profile7Component extends React.Component<Profile7Props> {
           </Text>
           <Text
             style={[themedStyle.profileSectionContent, themedStyle.profileAboutLabel]}
-            appearance='hintDark'>
+            appearance='hint'>
             {profile.about}
           </Text>
         </View>
@@ -166,11 +166,11 @@ class Profile7Component extends React.Component<Profile7Props> {
 export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
   profileInfoContainer: {
     paddingHorizontal: 24,
     paddingVertical: 24,
-    backgroundColor: theme['color-basic-100'],
   },
   profileSocials: {
     justifyContent: 'space-evenly',
@@ -188,7 +188,7 @@ export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
     marginTop: 8,
   },
   socialsLabel: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
   },
   followButton: {
     flex: 1,

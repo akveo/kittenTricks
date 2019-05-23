@@ -1,16 +1,35 @@
+import React from 'react';
 import {
-  ImageStyle,
-  StyleProp,
+  ImageProps,
+  ViewProps,
 } from 'react-native';
-import { theme } from '@eva/theme-eva';
+import {
+  withStyles,
+  ThemeType,
+  ThemedComponentProps,
+} from '@kitten/theme';
 import { StarIcon } from '@src/assets/icons';
 
-export const ComplexComponentShowcase = () => {
-  const style: StyleProp<ImageStyle> = {
+type ComplexComponentShowcaseProps = ThemedComponentProps & ViewProps;
+
+class ComplexComponentShowcaseComponent extends React.Component<ComplexComponentShowcaseProps> {
+  public render(): React.ReactElement<ImageProps> {
+    const { themedStyle } = this.props;
+
+    return StarIcon(themedStyle.icon);
+  }
+}
+
+const ThemedComplexComponentShowcase = withStyles(ComplexComponentShowcaseComponent, (theme: ThemeType) => ({
+  icon: {
     width: 32,
     height: 32,
-    tintColor: theme['color-primary-500'],
-  };
+    tintColor: theme['color-primary-default'],
+  },
+}));
 
-  return StarIcon(style);
+export const ComplexComponentShowcase = () => {
+  return (
+    <ThemedComplexComponentShowcase />
+  );
 };

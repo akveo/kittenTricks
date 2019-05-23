@@ -44,5 +44,6 @@ class DashboardsComponent extends React.Component<DashboardsProps> {
 export const Dashboards = withStyles(DashboardsComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
 }));

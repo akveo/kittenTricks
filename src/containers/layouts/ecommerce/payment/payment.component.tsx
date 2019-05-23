@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  View,
-  TouchableOpacity,
   ScrollView,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -16,8 +16,8 @@ import {
 import { textStyle } from '@src/components/common';
 import { PaymentCard as PaymentCardModel } from '@src/core/model';
 import {
-  PaymentCardProps,
   PaymentCard,
+  PaymentCardProps,
 } from '@src/components/ecommerce';
 import { CreditCardIcon } from '@src/assets/icons';
 
@@ -65,7 +65,9 @@ class PaymentComponent extends React.Component<PaymentProps> {
     const { themedStyle, paymentCards } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={themedStyle.container}>
+      <ScrollView
+        style={themedStyle.container}
+        contentContainerStyle={themedStyle.contentContainer}>
         <View>
           {paymentCards.map(this.renderPaymentCard)}
           <TouchableOpacity
@@ -75,7 +77,7 @@ class PaymentComponent extends React.Component<PaymentProps> {
             {CreditCardIcon(themedStyle.addCardIcon)}
             <Text
               style={themedStyle.addCardLabel}
-              appearance='hintLight'
+              appearance='hint'
               category='s1'>
               Add New Card
             </Text>
@@ -96,19 +98,20 @@ class PaymentComponent extends React.Component<PaymentProps> {
 export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
     paddingVertical: 24,
     paddingHorizontal: 16,
-    justifyContent: 'space-between',
   },
   addCardContainer: {
     minHeight: 192,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 12,
-    backgroundColor: theme['color-basic-200'],
-    borderColor: theme['color-basic-300'],
-    borderWidth: 1,
+    backgroundColor: theme['background-color-default-3'],
   },
   addCardLabel: {
     marginTop: 12,
@@ -117,7 +120,7 @@ export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
   addCardIcon: {
     width: 48,
     height: 34,
-    tintColor: theme['color-basic-300'],
+    tintColor: theme['text-color-hint'],
   },
   paymentCard: {
     marginBottom: 16,

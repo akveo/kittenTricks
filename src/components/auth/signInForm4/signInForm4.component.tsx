@@ -83,7 +83,6 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
         <ValidationInput
           style={themedStyle.phoneInput}
           textStyle={textStyle.paragraph}
-          placeholderTextColor={theme['color-basic-600']}
           placeholder='Phone Number'
           icon={PhoneIconFill}
           validator={PhoneNumberValidator}
@@ -92,7 +91,6 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
         <ValidationInput
           style={themedStyle.codeInput}
           textStyle={textStyle.paragraph}
-          placeholderTextColor={theme['color-basic-600']}
           placeholder='SMS Code'
           secureTextEntry={true}
           icon={LockIconFill}
@@ -106,11 +104,8 @@ class SignInForm4Component extends React.Component<SignInForm4Props, State> {
 
 export const SignInForm4 = withStyles(SignInForm4Component, (theme: ThemeType) => ({
   container: {},
-  phoneInput: {
-    backgroundColor: theme['color-white'],
-  },
+  phoneInput: {},
   codeInput: {
     marginTop: 16,
-    backgroundColor: theme['color-white'],
   },
 }));

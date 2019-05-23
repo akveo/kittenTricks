@@ -6,13 +6,14 @@ import {
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
 import { default as mapping } from '@eva/eva';
-import { theme as themeLight } from '@eva/theme-eva';
-// todo: replace with theme from eva package
-import { themeDark } from '@src/core/utils/darkTheme';
 import {
   ApplicationProvider,
   ThemeType,
 } from '@kitten/theme';
+import {
+  light as lightTheme,
+  dark as darkTheme,
+} from '@eva/themes';
 import {
   ApplicationLoader,
   Assets,
@@ -20,7 +21,10 @@ import {
 import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from './core/utils/analytics';
 import { getCurrentStateName } from './core/navigation/routeUtil';
-import { ContextType, ThemeContext } from '@src/core/utils/themeContext';
+import {
+  ContextType,
+  ThemeContext,
+} from '@src/core/utils/themeContext';
 import { ThemeService } from '@src/core/utils/theme.service';
 
 const images: ImageRequireSource[] = [
@@ -67,11 +71,11 @@ export default class App extends React.Component<any, State> {
 
   public componentWillMount(): void {
     Promise.all([
-      ThemeService.setTheme('light', themeLight),
-      ThemeService.setTheme('dark', themeDark),
+      ThemeService.setTheme('light', lightTheme),
+      ThemeService.setTheme('dark', darkTheme),
     ])
       .then(() => ThemeService.getTheme('light'))
-      .then((lightTheme: ThemeType) => this.setTheme(lightTheme, 'light'));
+      .then((theme: ThemeType) => this.setTheme(theme, 'light'));
   }
 
   private onTransitionTrackError = (error: any): void => {

@@ -12,7 +12,7 @@ export const S1Text = (): TextElement => {
     <Text
       style={textStyle.subtitle}
       category='s1'>
-      Text
+      Sample Text
     </Text>
   );
 };

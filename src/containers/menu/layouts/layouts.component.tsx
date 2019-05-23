@@ -25,7 +25,6 @@ class LayoutsComponent extends React.Component<Props> {
 
     return (
       <LayoutsList
-        style={themedStyle.container}
         contentContainerStyle={themedStyle.contentContainer}
         data={data}
         onItemPress={this.onItemPress}
@@ -36,7 +35,6 @@ class LayoutsComponent extends React.Component<Props> {
 
 export const Layouts = withStyles(LayoutsComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['color-basic-100'],
   },
   contentContainer: {
     paddingHorizontal: 16,

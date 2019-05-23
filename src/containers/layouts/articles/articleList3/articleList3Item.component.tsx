@@ -57,7 +57,6 @@ class ArticleList3ItemComponent extends React.Component<ArticleList3ItemProps> {
           source={article.image.imageSource}>
           <Text
             style={themedStyle.titleLabel}
-            appearance='light'
             category='h4'>
             {article.title}
           </Text>
@@ -91,15 +90,17 @@ export const ArticleList3Item = withStyles(ArticleList3ItemComponent, (theme: Th
     marginTop: 48,
   },
   image: {
+    flex: 1,
     paddingHorizontal: 16,
     paddingTop: 24,
     paddingBottom: 16,
   },
   titleLabel: {
     maxWidth: 192,
+    color: 'white',
     ...textStyle.headline,
   },
   activityBarLabel: {
-    color: theme['font-primary-inverse-color'],
+    color: 'white',
   },
 }));

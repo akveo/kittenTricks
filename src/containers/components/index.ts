@@ -23,3 +23,6 @@ export { IconTabView as TabViewShowcase } from './tabView/showcase';
 export { P1Text as TextShowcase } from './text/showcase';
 export { PrimaryToggle as ToggleShowcase } from './toggle/showcase';
 export { BottomEndTooltip as TooltipShowcase } from './tooltip/showcase';
+export { AppBarContainer } from './appBar/appBar.container';
+export { BottomNavigationContainer } from './bottomNavigation/bottomNavigation.container';
+export { ViewPagerContainer } from './viewPager/viewPager.container';

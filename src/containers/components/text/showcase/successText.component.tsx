@@ -12,7 +12,7 @@ export const SuccessText = (): TextElement => {
     <Text
       style={textStyle.paragraph}
       status='success'>
-      Text
+      Sample Text
     </Text>
   );
 };

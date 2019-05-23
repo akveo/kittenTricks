@@ -44,5 +44,6 @@ class ArticlesComponent extends React.Component<ArticlesProps> {
 export const Articles = withStyles(ArticlesComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
 }));

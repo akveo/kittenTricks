@@ -54,7 +54,7 @@ class ArticleList2Component extends React.Component<ArticleList2Props> {
 
     return (
       <List
-        style={themedStyle.container}
+        contentContainerStyle={themedStyle.container}
         data={articles}
         renderItem={this.renderItem}
       />
@@ -64,14 +64,13 @@ class ArticleList2Component extends React.Component<ArticleList2Props> {
 
 export const ArticleList2 = withStyles(ArticleList2Component, (theme: ThemeType) => ({
   container: {
-    flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-2'],
   },
   item: {
     marginVertical: 8,
-    backgroundColor: theme['color-white'],
+    backgroundColor: theme['background-color-default-1'],
   },
 }));
 

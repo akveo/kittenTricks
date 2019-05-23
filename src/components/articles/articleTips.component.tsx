@@ -33,8 +33,7 @@ class ArticleTipsComponent extends React.Component<ArticleTipsProps> {
       <View style={[themedStyle.container, style]}>
         {icon ? this.renderIconElement(themedStyle.icon) : null}
         <Text
-          style={themedStyle.text}
-          appearance='light'>
+          style={themedStyle.text}>
           {children}
         </Text>
       </View>
@@ -50,7 +49,10 @@ export const ArticleTips = withStyles(ArticleTipsComponent, (theme: ThemeType) =
     width: 20,
     height: 20,
     marginRight: 18,
-    tintColor: theme['color-white'],
+    tintColor: 'white',
   },
-  text: textStyle.subtitle,
+  text: {
+    color: 'white',
+    ...textStyle.subtitle,
+  },
 }));

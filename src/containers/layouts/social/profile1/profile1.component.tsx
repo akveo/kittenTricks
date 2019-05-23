@@ -102,12 +102,14 @@ class Profile1Component extends React.Component<Profile1Props> {
 export const Profile1 = withStyles(Profile1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
   parametersContainer: {
     marginTop: 24,
   },
   profileInfo: {
     paddingHorizontal: 24,
+    backgroundColor: theme['background-color-default-1'],
   },
   followButton: {
     height: 40,
@@ -116,7 +118,6 @@ export const Profile1 = withStyles(Profile1Component, (theme: ThemeType) => ({
   feed: {
     paddingVertical: 8,
     paddingHorizontal: 24,
-    backgroundColor: theme['color-basic-100'],
   },
 }));
 

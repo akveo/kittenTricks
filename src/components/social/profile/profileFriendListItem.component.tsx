@@ -66,7 +66,7 @@ export const ProfileFriendListItem = withStyles(ProfileFriendListItemComponent, 
     justifyContent: 'center',
   },
   photo: {
-    backgroundColor: theme['color-basic-100'],
+    backgroundColor: theme['background-color-default-1'],
   },
   nameLabel: {
     marginTop: 8,

@@ -64,7 +64,6 @@ class Feed2ListItemComponent extends React.Component<Feed2ListItemProps> {
           source={photo}>
           <Text
             style={themedStyle.categoryLabel}
-            appearance='light'
             category='h4'>
             {category}
           </Text>
@@ -89,16 +88,12 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
   photo: {
     minHeight: 220,
   },
-  categoryIcon: {
-    width: 32,
-    height: 32,
-    tintColor: theme['color-white'],
-  },
   categoryLabel: {
     position: 'absolute',
     bottom: 0,
     marginHorizontal: 24,
     marginVertical: 24,
+    color: 'white',
     ...textStyle.headline,
   },
   descriptionLabel: {
@@ -110,6 +105,6 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
     paddingVertical: 16,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderTopColor: theme['color-basic-200'],
+    borderTopColor: theme['border-color-default-2'],
   },
 }));
