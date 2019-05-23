@@ -1,31 +1,24 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import {
-  TopNavigationStart,
-  TopNavigationCenter,
+  StartTopNavigation,
+  CenterTopNavigation,
 } from './showcase';
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import { Showcase } from '../common/showcase.component';
 
-export class AppBarContainer extends React.Component<NavigationScreenProps> {
+export class TopNavigationContainer extends React.Component<NavigationScreenProps> {
 
   public render(): React.ReactNode {
     return (
-      <Showcase style={styles.container}>
+      <Showcase>
         <ShowcaseSection title='Title Start'>
-          <TopNavigationStart/>
+          <StartTopNavigation/>
         </ShowcaseSection>
         <ShowcaseSection title='Title Center'>
-          <TopNavigationCenter/>
+          <CenterTopNavigation/>
         </ShowcaseSection>
       </Showcase>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#F7F8FA',
-  },
-});

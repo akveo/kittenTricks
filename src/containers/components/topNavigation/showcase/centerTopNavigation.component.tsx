@@ -9,18 +9,19 @@ import {
 import {
   StarIcon,
   BackArrowIcon,
+  MoreVerticalIcon,
 } from '@src/assets/icons';
 
 type TopNavigationElement = React.ReactElement<TopNavigationProps>;
 type TopNavigationActionElement = React.ReactElement<TopNavigationActionProps>;
 
-export const TopNavigationStart = (props?: TopNavigationProps): TopNavigationElement => {
+export const CenterTopNavigation = (props?: TopNavigationProps): TopNavigationElement => {
   return (
     <TopNavigation
       {...props}
-      alignment='start'
-      title='Application Bar'
-      subtitle='Application Bar Subtitle'
+      alignment='center'
+      title='Title'
+      subtitle='Subtitle'
       leftControl={renderLeftControl()}
       rightControls={renderRightControls()}
     />
@@ -29,22 +30,13 @@ export const TopNavigationStart = (props?: TopNavigationProps): TopNavigationEle
 
 const renderLeftControl = (): TopNavigationActionElement => {
   return (
-    <TopNavigationAction
-      icon={BackArrowIcon}
-      onPress={() => Alert.alert('On Left Control Press')}
-    />
+    <TopNavigationAction icon={BackArrowIcon} />
   );
 };
 
 const renderRightControls = (): TopNavigationActionElement[] => {
   return ([
-    <TopNavigationAction
-      icon={StarIcon}
-      onPress={() => Alert.alert('On Right Control 1 Press')}
-    />,
-    <TopNavigationAction
-      icon={StarIcon}
-      onPress={() => Alert.alert('On Right Control 2 Press')}
-    />,
+    <TopNavigationAction icon={StarIcon}/>,
+    <TopNavigationAction icon={MoreVerticalIcon}/>,
   ]);
 };

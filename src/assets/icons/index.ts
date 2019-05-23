@@ -79,6 +79,126 @@ export const MenuIconNavigation = (style: StyleProp<ImageStyle>): IconElement =>
   return Icon(source, style);
 };
 
+export const ComponentsIconAvatar = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-avatar.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconButton = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-button.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconButtonGroup = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-button-group.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconCheckBox = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-checkbox.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconInput = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-input.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconList = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-list.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconOverflowMenu = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-overflow-menu.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconPopover = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-popover.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconRadio = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-radio.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconTabView = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-tab-view.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconText = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-text.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconToggle = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-toggle.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconTooltip = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-tooltip.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconTopNavigation = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-top-navigation.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconBottomNavigation = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-bottom-navigation.png'),
+  };
+
+  return Icon(source, style);
+};
+
 export const ArrowHeadDownIcon = (style: StyleProp<ImageStyle>): IconElement => {
   return Icon(evaIcons.arrowHeadDownOutline, style);
 };
