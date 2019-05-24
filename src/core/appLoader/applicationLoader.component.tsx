@@ -5,7 +5,9 @@ import {
   AppLoadingProps,
   Asset,
   Font,
+  SplashScreen,
 } from 'expo';
+import { LoadingAnimationComponent } from '@src/core/appLoader/loadingAnimation.component';
 
 export interface Assets {
   images: ImageRequireSource[];
@@ -28,12 +30,18 @@ type LoadingElement = React.ReactElement<AppLoadingProps>;
  */
 export class ApplicationLoader extends React.Component<Props, State> {
 
+  constructor(props: Props) {
+    super(props);
+    SplashScreen.preventAutoHide();
+  }
+
   public state: State = {
     loaded: false,
   };
 
   private onLoadSuccess = () => {
     this.setState({ loaded: true });
+    SplashScreen.hide();
   };
 
   private onLoadError = (error: Error) => {
@@ -72,11 +80,17 @@ export class ApplicationLoader extends React.Component<Props, State> {
         startAsync={this.loadResources}
         onFinish={this.onLoadSuccess}
         onError={this.onLoadError}
+        autoHideSplash={false}
       />
     );
   };
 
   public render(): React.ReactNode {
-    return this.state.loaded ? this.props.children : this.renderLoading();
+    return (
+      <React.Fragment>
+        {this.state.loaded ? this.props.children : this.renderLoading()}
+        <LoadingAnimationComponent isLoaded={this.state.loaded}/>
+      </React.Fragment>
+    );
   }
 }
