@@ -13,6 +13,7 @@ import {
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 import { LayoutsListItemData } from './type';
+import { ThemeContext } from '@src/core/utils/themeContext';
 
 interface ComponentProps {
   data: LayoutsListItemData;
@@ -22,8 +23,10 @@ export type LayoutsListItemProps = ThemedComponentProps & ListItemProps & Compon
 
 class LayoutsListItemComponent extends React.Component<LayoutsListItemProps> {
 
-  private renderIconElement = (style: StyleType): React.ReactElement<ImageProps> => {
-    const iconElement: React.ReactElement<ImageProps> = this.props.data.icon(style);
+  private renderIconElement = (style: StyleType,
+                               theme: 'light' | 'dark'): React.ReactElement<ImageProps> => {
+
+    const iconElement: React.ReactElement<ImageProps> = this.props.data.icon(style, theme);
 
     return React.cloneElement(iconElement, { style });
   };
@@ -32,16 +35,18 @@ class LayoutsListItemComponent extends React.Component<LayoutsListItemProps> {
     const { style, themedStyle, data, ...restProps } = this.props;
 
     return (
-      <ListItem
-        {...restProps}
-        style={[themedStyle.container, style]}>
-        {this.renderIconElement(themedStyle.icon)}
-        <Text
-          style={themedStyle.title}
-          category='s2'>
-          {data.title}
-        </Text>
-      </ListItem>
+      <ThemeContext.Consumer>{({ currentTheme }) => (
+        <ListItem
+          {...restProps}
+          style={[themedStyle.container, style]}>
+          {this.renderIconElement(themedStyle.icon, currentTheme)}
+          <Text
+            style={themedStyle.title}
+            category='s2'>
+            {data.title}
+          </Text>
+        </ListItem>
+      )}</ThemeContext.Consumer>
     );
   }
 }

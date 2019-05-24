@@ -44,7 +44,7 @@ export class ThemeCardComponent extends React.Component<ThemeCardComponentProps>
   };
 
   private renderText = (disabled: boolean): React.ReactElement<TextProps> => {
-    const title: string = disabled ? 'ACTIVE' : 'CHOOSE';
+    const title: string = disabled ? 'ACTIVE' : '';
 
     return (
       <Text category='label'>{title}</Text>

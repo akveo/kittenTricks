@@ -13,6 +13,7 @@ import {
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 import { ComponentsListItemData } from './type';
+import { ThemeContext } from '@src/core/utils/themeContext';
 
 interface ComponentProps {
   data: ComponentsListItemData;
@@ -22,8 +23,10 @@ export type ComponentsListItemProps = ThemedComponentProps & ListItemProps & Com
 
 class ComponentsListItemComponent extends React.Component<ComponentsListItemProps> {
 
-  private renderShowcaseElement = (style: StyleType): React.ReactElement<ImageProps> => {
-    const showcaseElement: React.ReactElement<ImageProps> = this.props.data.icon(style);
+  private renderShowcaseElement = (style: StyleType,
+                                   theme: 'light' | 'dark'): React.ReactElement<ImageProps> => {
+
+    const showcaseElement: React.ReactElement<ImageProps> = this.props.data.icon(style, theme);
 
     return React.cloneElement(showcaseElement, {
       style: [style, showcaseElement.props.style],
@@ -34,16 +37,18 @@ class ComponentsListItemComponent extends React.Component<ComponentsListItemProp
     const { style, themedStyle, data, ...restProps } = this.props;
 
     return (
-      <ListItem
-        {...restProps}
-        style={[themedStyle.container, style]}>
-        {this.renderShowcaseElement(themedStyle.icon)}
-        <Text
-          style={textStyle.subtitle}
-          category='s2'>
-          {data.title}
-        </Text>
-      </ListItem>
+      <ThemeContext.Consumer>{({ currentTheme }) => (
+        <ListItem
+          {...restProps}
+          style={[themedStyle.container, style]}>
+          {this.renderShowcaseElement(themedStyle.icon, currentTheme)}
+          <Text
+            style={textStyle.subtitle}
+            category='s2'>
+            {data.title}
+          </Text>
+        </ListItem>
+      )}</ThemeContext.Consumer>
     );
   }
 }
