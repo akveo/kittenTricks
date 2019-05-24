@@ -416,6 +416,10 @@ export const imageProduct6: ImageSource = {
   imageSource: require('./source/image-product-6.jpg'),
 };
 
+export const splash: ImageSource = {
+  imageSource: require('./source/splash.png'),
+};
+
 export const movieImage1: ImageSource = new RemoteImage(
   'https://upload.wikimedia.org/wikipedia/en/f/fd/How_to_Train_Your_Dragon_3_poster.png',
 );
