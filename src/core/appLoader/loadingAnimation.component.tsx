@@ -1,5 +1,9 @@
 import React from 'react';
-import { Animated, Easing, StyleSheet } from 'react-native';
+import {
+  Animated,
+  Easing,
+  StyleSheet,
+} from 'react-native';
 import { splash } from '@src/assets/images';
 
 interface Props {
@@ -24,26 +28,25 @@ export class LoadingAnimationComponent extends React.Component<Props, State> {
     }
   }
 
-
-  private triggerAnimation() {
+  private triggerAnimation(): void {
     Animated.timing(this.state.animationValue, {
       toValue: 1,
       duration: 700,
       useNativeDriver: true,
       easing: Easing.in(Easing.exp),
-    }).start(() => this.setState({ animationCompleted: true }));
+    }).start(() => this.onAnimationCompleted());
   }
 
-  public render(): React.ReactNode {
-    if (this.state.animationCompleted) {
-      return null;
-    }
+  private onAnimationCompleted(): void {
+    this.setState({ animationCompleted: true });
+  }
 
-    const opacity = this.state.animationValue.interpolate({
+  public renderAnimatedComponent(): React.ReactNode {
+    const opacity: Animated.AnimatedInterpolation = this.state.animationValue.interpolate({
       inputRange: [0, 1],
       outputRange: [1, 0],
     });
-    const transform = [
+    const transform: Object[] = [
       {
         scale: this.state.animationValue.interpolate({
           inputRange: [0, 1],
@@ -61,6 +64,11 @@ export class LoadingAnimationComponent extends React.Component<Props, State> {
         />
       </Animated.View>
     );
+  }
+
+  public render(): React.ReactNode {
+    const { animationCompleted } = this.state;
+    return animationCompleted ? null : this.renderAnimatedComponent();
   }
 }
 

@@ -30,7 +30,7 @@ type LoadingElement = React.ReactElement<AppLoadingProps>;
  */
 export class ApplicationLoader extends React.Component<Props, State> {
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     SplashScreen.preventAutoHide();
   }
