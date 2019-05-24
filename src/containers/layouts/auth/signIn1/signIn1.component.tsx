@@ -14,12 +14,12 @@ import {
   Text,
 } from '@kitten/ui';
 import {
-  SocialAuth,
   SignInForm1,
   SignInForm1Data,
+  SocialAuth,
 } from '@src/components/auth';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
@@ -83,10 +83,6 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
     this.setState({ formData });
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 152;
-  };
-
   private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -103,10 +99,10 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ImageOverlay
-        style={themedStyle.container}
-        source={this.backgroundImage.imageSource}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
+      <ScrollableAvoidKeyboard>
+        <ImageOverlay
+          style={themedStyle.container}
+          source={this.backgroundImage.imageSource}>
           <Button
             appearance='ghost'
             style={themedStyle.ewaButton}
@@ -145,17 +141,17 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-        </AvoidKeyboard>
-        <SocialAuth
-          style={themedStyle.socialAuthContainer}
-          iconStyle={themedStyle.socialAuthIcon}
-          hintStyle={themedStyle.socialAuthHint}
-          hint='Sign with a social account'
-          onGooglePress={this.onGoogleButtonPress}
-          onFacebookPress={this.onFacebookButtonPress}
-          onTwitterPress={this.onTwitterButtonPress}
-        />
-      </ImageOverlay>
+          <SocialAuth
+            style={themedStyle.socialAuthContainer}
+            iconStyle={themedStyle.socialAuthIcon}
+            hintStyle={themedStyle.socialAuthHint}
+            hint='Sign with a social account'
+            onGooglePress={this.onGoogleButtonPress}
+            onFacebookPress={this.onFacebookButtonPress}
+            onTwitterPress={this.onTwitterButtonPress}
+          />
+        </ImageOverlay>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

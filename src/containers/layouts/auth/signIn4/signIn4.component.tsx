@@ -10,12 +10,12 @@ import {
   Text,
 } from '@kitten/ui';
 import {
-  SocialAuth,
   SignInForm2,
   SignInForm2Data,
+  SocialAuth,
 } from '@src/components/auth';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
@@ -75,18 +75,14 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
     this.setState({ formData });
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 176;
-  };
-
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
     return (
-      <ImageOverlay
-        style={themedStyle.container}
-        source={this.backgroundImage.imageSource}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
+      <ScrollableAvoidKeyboard>
+        <ImageOverlay
+          style={themedStyle.container}
+          source={this.backgroundImage.imageSource}>
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}
@@ -112,24 +108,24 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-        </AvoidKeyboard>
-        <SocialAuth
-          style={themedStyle.socialAuthContainer}
-          iconStyle={themedStyle.socialAuthIcon}
-          hint='Or Sign In using Social Media'
-          onGooglePress={this.onGoogleButtonPress}
-          onFacebookPress={this.onFacebookButtonPress}
-          onTwitterPress={this.onTwitterButtonPress}
-        />
-        <Button
-          style={themedStyle.signUpButton}
-          textStyle={themedStyle.signUpText}
-          appearance='ghost'
-          activeOpacity={0.75}
-          onPress={this.onSignUpButtonPress}>
-          Don't have an account? Sign Up
-        </Button>
-      </ImageOverlay>
+          <SocialAuth
+            style={themedStyle.socialAuthContainer}
+            iconStyle={themedStyle.socialAuthIcon}
+            hint='Or Sign In using Social Media'
+            onGooglePress={this.onGoogleButtonPress}
+            onFacebookPress={this.onFacebookButtonPress}
+            onTwitterPress={this.onTwitterButtonPress}
+          />
+          <Button
+            style={themedStyle.signUpButton}
+            textStyle={themedStyle.signUpText}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignUpButtonPress}>
+            Don't have an account? Sign Up
+          </Button>
+        </ImageOverlay>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

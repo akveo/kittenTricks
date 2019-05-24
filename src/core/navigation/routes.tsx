@@ -194,7 +194,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
       params: MenuNavigatorParams,
     },
     ['Trainings 1']: {
-      screen: Trainings2Container,
+      screen: Trainings1Container,
       params: DashboardsNavigatorParams,
     },
     ['Trainings 2']: {

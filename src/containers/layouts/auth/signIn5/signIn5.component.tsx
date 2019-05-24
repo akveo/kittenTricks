@@ -18,7 +18,7 @@ import {
   SignInForm4Data,
 } from '@src/components/auth';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
@@ -96,19 +96,15 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
     }
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 56;
-  };
-
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
     const signInButtonEnabled: boolean = !!this.getSelectedFormData();
 
     return (
-      <ImageOverlay
-        style={themedStyle.container}
-        source={this.backgroundImage.imageSource}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
+      <ScrollableAvoidKeyboard>
+        <ImageOverlay
+          style={themedStyle.container}
+          source={this.backgroundImage.imageSource}>
           <View style={themedStyle.headerContainer}>
             <Text
               style={themedStyle.helloLabel}>
@@ -159,16 +155,16 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
             onPress={this.onSignInButtonPress}>
             SIGN IN
           </Button>
-        </AvoidKeyboard>
-        <Button
-          style={themedStyle.signUpButton}
-          textStyle={themedStyle.signUpText}
-          appearance='ghost'
-          activeOpacity={0.75}
-          onPress={this.onSignUpButtonPress}>
-          Don't have an account? Sign Up
-        </Button>
-      </ImageOverlay>
+          <Button
+            style={themedStyle.signUpButton}
+            textStyle={themedStyle.signUpText}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignUpButtonPress}>
+            Don't have an account? Sign Up
+          </Button>
+        </ImageOverlay>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

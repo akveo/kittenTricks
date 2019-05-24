@@ -17,7 +17,7 @@ import {
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
@@ -27,8 +27,8 @@ import {
   PlusIcon,
 } from '@src/assets/icons';
 import {
-  ImageSource,
   imageSignUp3Bg,
+  ImageSource,
 } from '@src/assets/images';
 
 interface ComponentProps {
@@ -69,10 +69,6 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
     this.props.onSignUpPress(this.state.formData);
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 56;
-  };
-
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -95,10 +91,10 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ImageOverlay
-        style={themedStyle.container}
-        source={this.backgroundImage.imageSource}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
+      <ScrollableAvoidKeyboard>
+        <ImageOverlay
+          style={themedStyle.container}
+          source={this.backgroundImage.imageSource}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
               style={themedStyle.photo}
@@ -127,8 +123,8 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
             onPress={this.onSignInButtonPress}>
             Already have an account? Sign In
           </Button>
-        </AvoidKeyboard>
-      </ImageOverlay>
+        </ImageOverlay>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

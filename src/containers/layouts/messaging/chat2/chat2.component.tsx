@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  Dimensions,
   FlatList,
   ListRenderItemInfo,
+  Platform,
   View,
   ViewProps,
 } from 'react-native';
@@ -13,23 +13,23 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  List,
-  Input,
   Button,
   ButtonProps,
+  Input,
+  List,
 } from '@kitten/ui';
 import {
-  ChatMessage,
-  ChatMessageProps,
-  ChatFileMessageProps,
+  Alignments,
   ChatFileMessage,
   ChatFileMessageAppearance,
-  Alignments,
+  ChatFileMessageProps,
+  ChatMessage,
+  ChatMessageProps,
 } from '@src/components/messaging';
 import {
-  PlusIcon,
   MicIcon,
   PaperPlaneIcon,
+  PlusIcon,
 } from '@src/assets/icons';
 import {
   Conversation as ConversationModel,
@@ -45,8 +45,6 @@ import {
   AvoidKeyboard,
   textStyle,
 } from '@src/components/common';
-
-const width: number = Dimensions.get('window').width;
 
 interface ComponentProps {
   conversation: ConversationModel;
@@ -170,6 +168,13 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
     );
   };
 
+  private keyboardOffset = (height: number) => {
+    return Platform.select({
+      ios: height,
+      android: 0,
+    });
+  };
+
   public render(): React.ReactNode {
     const {
       themedStyle,
@@ -178,8 +183,11 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
     } = this.props;
 
     return (
-      <View style={themedStyle.container}>
-        <AvoidKeyboard autoDismiss={false}>
+      <AvoidKeyboard
+        style={themedStyle.container}
+        autoDismiss={false}
+        offset={this.keyboardOffset}>
+        <View style={themedStyle.container}>
           <List
             ref={this.listRef}
             contentContainerStyle={themedStyle.chatContainer}
@@ -203,9 +211,9 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
             />
             {this.renderSendMessageButton()}
           </View>
-        </AvoidKeyboard>
-        {fileSectionOpened && this.renderFileSection()}
-      </View>
+          {fileSectionOpened && this.renderFileSection()}
+        </View>
+      </AvoidKeyboard>
     );
   }
 }
