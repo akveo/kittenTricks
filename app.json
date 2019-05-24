@@ -2,20 +2,27 @@
   "expo": {
     "name": "kittenTricks",
     "icon": "./src/assets/icons/icon.png",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "slug": "kittenTricks",
     "sdkVersion": "32.0.0",
     "privacy": "public",
     "orientation": "portrait",
+    "githubUrl": "https://github.com/akveo/kittenTricks",
     "ios": {
-      "bundleIdentifier": "com.akveo.kittentricks"
+      "bundleIdentifier": "com.akveo.kittentricks",
+      "appStoreUrl": "https://itunes.apple.com/us/app/kitten-tricks/id1246143230"
     },
     "android": {
-      "package": "com.akveo.kittentricks"
+      "package": "com.akveo.kittentricks",
+      "versionCode": 16,
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.akveo.kittenTricks"
     },
     "assetBundlePatterns": [
       "src/assets/images/source/*",
       "src/assets/fonts"
-    ]
+    ],
+    "splash": {
+      "image": "src/assets/images/source/splash.png"
+    }
   }
 }
