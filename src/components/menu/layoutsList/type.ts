@@ -4,5 +4,5 @@ import { ImageProps } from 'react-native';
 
 export interface LayoutsListItemData {
   title: string;
-  icon: (style: StyleType) => React.ReactElement<ImageProps>;
+  icon: (style: StyleType, currentTheme: 'light' | 'dark') => React.ReactElement<ImageProps>;
 }

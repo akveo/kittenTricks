@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   View,
+  TouchableOpacity,
   TouchableOpacityProps,
   ViewProps,
 } from 'react-native';
@@ -12,13 +13,8 @@ import {
 } from '@kitten/theme';
 import {
   Text,
-  Button,
-  ButtonProps,
+  TextProps,
 } from '@kitten/ui';
-import {
-  CheckMarkIconFill,
-  StarIcon,
-} from '@src/assets/icons';
 
 interface ComponentProps {
   currentTheme: 'light' | 'dark';
@@ -47,27 +43,11 @@ export class ThemeCardComponent extends React.Component<ThemeCardComponentProps>
     return `Eva ${theme}`;
   };
 
-  private renderButton = (): React.ReactElement<ButtonProps> => {
-    const {
-      currentTheme,
-      buttonResponsibility,
-      themedStyle,
-      onPress,
-    } = this.props;
-
-    const disabled: boolean = currentTheme === buttonResponsibility;
-    const title: string = disabled ? 'ACTIVE' : 'CHOOSE';
+  private renderText = (disabled: boolean): React.ReactElement<TextProps> => {
+    const title: string = disabled ? 'ACTIVE' : '';
 
     return (
-      <Button
-        appearance='outline'
-        status='success'
-        disabled={disabled}
-        style={themedStyle.button}
-        icon={disabled ? CheckMarkIconFill : StarIcon}
-        onPress={onPress}>
-        {title}
-      </Button>
+      <Text category='label'>{title}</Text>
     );
   };
 
@@ -75,6 +55,9 @@ export class ThemeCardComponent extends React.Component<ThemeCardComponentProps>
     const {
       themedStyle,
       style,
+      currentTheme,
+      buttonResponsibility,
+      onPress,
     } = this.props;
 
     const colors: string[] = [
@@ -86,19 +69,23 @@ export class ThemeCardComponent extends React.Component<ThemeCardComponentProps>
       themedStyle.colorItem6,
     ];
 
+    const disabled: boolean = currentTheme === buttonResponsibility;
     const cardTitle: string = this.getCardTitle();
 
     return (
-      <View
-        style={[themedStyle.card, style]}>
+      <TouchableOpacity
+        style={[themedStyle.card, style]}
+        activeOpacity={0.85}
+        disabled={disabled}
+        onPress={onPress}>
         <View style={[themedStyle.cardHeader, themedStyle.cardItem]}>
           <Text category='h6'>{cardTitle}</Text>
-          {this.renderButton()}
+          {this.renderText(disabled)}
         </View>
         <View style={themedStyle.cardItem}>
           {colors.map(this.renderColors)}
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

@@ -1,5 +1,8 @@
 import React from 'react';
-import { ListRenderItemInfo } from 'react-native';
+import {
+  ListRenderItemInfo,
+  Dimensions,
+} from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -14,6 +17,9 @@ import {
   ComponentsListItemProps,
 } from './componentsListItem.component';
 import { ComponentsListItemData } from './type';
+
+const { width } = Dimensions.get('window');
+const itemWidth: number = width / 2 - 32;
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
@@ -50,6 +56,7 @@ class ComponentsListComponent extends React.Component<ComponentsListProps> {
     return (
       <List
         numColumns={2}
+        columnWrapperStyle={themedStyle.columnWrapperStyle}
         renderItem={this.renderItem}
         {...restProps}
       />
@@ -61,7 +68,11 @@ export const ComponentsList = withStyles(ComponentsListComponent, (theme: ThemeT
   item: {
     flex: 1,
     height: 160,
+    maxWidth: itemWidth,
     marginHorizontal: 8,
     marginVertical: 8,
+  },
+  columnWrapperStyle: {
+    justifyContent: 'space-between',
   },
 }));

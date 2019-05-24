@@ -49,7 +49,11 @@ export class TooltipShowcase extends React.Component<any, TooltipShowcaseCompone
         visible={this.state.visible}
         text={this.tipDescription()}
         onRequestClose={this.onRequestClose}>
-        <Button onPress={this.onButtonPress}>BUTTON</Button>
+        <Button
+          size='small'
+          onPress={this.onButtonPress}>
+          BUTTON
+        </Button>
       </Tooltip>
     );
   }

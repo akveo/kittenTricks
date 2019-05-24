@@ -5,27 +5,19 @@ import {
   ThemeType,
   ThemedComponentProps,
 } from '@kitten/theme';
-import { Input } from '@kitten/ui';
 import {
   ComponentsList,
   ComponentsListItemData,
 } from '@src/components/menu';
-import { textStyle } from '@src/components/common';
-import { SearchIconOutline } from '@src/assets/icons';
 
 interface ComponentProps {
   data: ComponentsListItemData[];
-  onQueryChange: (query: string) => void;
   onItemSelect: (index: number) => void;
 }
 
 type Props = ThemedComponentProps & ComponentProps;
 
 class ComponentsComponent extends React.Component<Props> {
-
-  private onSearchInputTextChange = (query: string) => {
-    this.props.onQueryChange(query);
-  };
 
   private onItemPress = (index: number) => {
     this.props.onItemSelect(index);
@@ -36,13 +28,6 @@ class ComponentsComponent extends React.Component<Props> {
 
     return (
       <View style={themedStyle.container}>
-        <Input
-          style={themedStyle.searchInput}
-          textStyle={textStyle.paragraph}
-          placeholder='Search'
-          icon={SearchIconOutline}
-          onChangeText={this.onSearchInputTextChange}
-        />
         <ComponentsList
           contentContainerStyle={themedStyle.contentContainer}
           data={data}
@@ -56,14 +41,10 @@ class ComponentsComponent extends React.Component<Props> {
 export const Components = withStyles(ComponentsComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    paddingTop: 24,
     backgroundColor: theme['background-color-default-2'],
   },
   contentContainer: {
     paddingHorizontal: 16,
     paddingVertical: 16,
-  },
-  searchInput: {
-    marginHorizontal: 24,
   },
 }));
