@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  ImageRequireSource,
-  StatusBar,
-  StatusBarStyle,
-} from 'react-native';
+import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
 import { default as mapping } from '@eva/eva';
@@ -27,6 +23,7 @@ import {
   ThemeContext,
 } from '@src/core/utils/themeContext';
 import { ThemeService } from '@src/core/utils/theme.service';
+import { DynamicStatusBar } from '@src/components/common';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
@@ -99,14 +96,6 @@ export default class App extends React.Component<any, State> {
     }
   };
 
-  private getStatusBarContent = (): StatusBarStyle => {
-    if (this.state.currentTheme === 'light') {
-      return 'dark-content';
-    } else {
-      return 'light-content';
-    }
-  };
-
   private onThemeChange = (themeName: 'light' | 'dark'): void => {
     ThemeService.getTheme(themeName)
       .then((theme: ThemeType) => this.setTheme(theme, themeName));
@@ -124,7 +113,6 @@ export default class App extends React.Component<any, State> {
       currentTheme: this.state.currentTheme,
       toggleTheme: this.onThemeChange,
     };
-    const barStyle: StatusBarStyle = this.getStatusBarContent();
 
     return (
       <ThemeContext.Provider value={contextValue}>
@@ -132,9 +120,7 @@ export default class App extends React.Component<any, State> {
           <ApplicationProvider
             mapping={mapping}
             theme={this.state.theme}>
-            <StatusBar
-              barStyle={barStyle}
-            />
+            <DynamicStatusBar currentTheme={this.state.currentTheme}/>
             <Router
               onNavigationStateChange={this.onNavigationStateChange}
             />
