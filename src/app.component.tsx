@@ -2,6 +2,7 @@ import React from 'react';
 import {
   ImageRequireSource,
   StatusBar,
+  StatusBarStyle,
 } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
@@ -98,6 +99,14 @@ export default class App extends React.Component<any, State> {
     }
   };
 
+  private getStatusBarContent = (): StatusBarStyle => {
+    if (this.state.currentTheme === 'light') {
+      return 'dark-content';
+    } else {
+      return 'light-content';
+    }
+  };
+
   private onThemeChange = (themeName: 'light' | 'dark'): void => {
     ThemeService.getTheme(themeName)
       .then((theme: ThemeType) => this.setTheme(theme, themeName));
@@ -115,6 +124,7 @@ export default class App extends React.Component<any, State> {
       currentTheme: this.state.currentTheme,
       toggleTheme: this.onThemeChange,
     };
+    const barStyle: StatusBarStyle = this.getStatusBarContent();
 
     return (
       <ThemeContext.Provider value={contextValue}>
@@ -123,8 +133,7 @@ export default class App extends React.Component<any, State> {
             mapping={mapping}
             theme={this.state.theme}>
             <StatusBar
-              backgroundColor='#3366FF'
-              barStyle='dark-content'
+              barStyle={barStyle}
             />
             <Router
               onNavigationStateChange={this.onNavigationStateChange}
