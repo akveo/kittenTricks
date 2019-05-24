@@ -1,54 +1,59 @@
+import { StyleType } from '@kitten/theme';
 import {
-  MenuIconArticles,
   MenuIconAuth,
+  MenuIconAuthDark,
+  MenuIconSocialDark,
+  MenuIconArticles,
   MenuIconDashboards,
   MenuIconEcommerce,
   MenuIconMessaging,
   MenuIconNavigation,
   MenuIconSocial,
   MenuIconWalkthrough,
+  MenuIconArticlesDark,
+  MenuIconMessagingDark,
+  MenuIconDashboardsDark,
+  MenuIconWalkthroughDark,
+  MenuIconEcommerceDark,
+  MenuIconNavigationDark,
 } from '@src/assets/icons';
 import { LayoutsContainerData } from './type';
 
 export const routes: LayoutsContainerData[] = [
   {
     title: 'Auth',
-    icon: MenuIconAuth,
+    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
+      currentTheme === 'light' ? MenuIconAuth(style) : MenuIconAuthDark(style),
     route: 'Auth',
   },
   {
     title: 'Social',
-    icon: MenuIconSocial,
+    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
+      currentTheme === 'light' ? MenuIconSocial(style) : MenuIconSocialDark(style),
     route: 'Social',
   },
   {
     title: 'Articles',
-    icon: MenuIconArticles,
+    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
+      currentTheme === 'light' ? MenuIconArticles(style) : MenuIconArticlesDark(style),
     route: 'Articles',
   },
   {
     title: 'Messaging',
-    icon: MenuIconMessaging,
+    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
+      currentTheme === 'light' ? MenuIconMessaging(style) : MenuIconMessagingDark(style),
     route: 'Messaging',
   },
   {
     title: 'Dashboards',
-    icon: MenuIconDashboards,
+    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
+      currentTheme === 'light' ? MenuIconDashboards(style) : MenuIconDashboardsDark(style),
     route: 'Dashboards',
   },
   {
-    title: 'Walkthrough',
-    icon: MenuIconWalkthrough,
-    route: '',
-  },
-  {
     title: 'Ecommerce',
-    icon: MenuIconEcommerce,
+    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
+      currentTheme === 'light' ? MenuIconEcommerce(style) : MenuIconEcommerceDark(style),
     route: 'Ecommerce',
-  },
-  {
-    title: 'Navigation',
-    icon: MenuIconNavigation,
-    route: '',
   },
 ];

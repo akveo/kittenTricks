@@ -54,3 +54,7 @@ export {
 export {
   textStyle,
 } from './style';
+export {
+  DynamicStatusBar,
+  DynamicStatusBarProps,
+} from './dynamicStatusBar.component';

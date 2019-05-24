@@ -4,5 +4,5 @@ import { StyleType } from '@kitten/theme';
 
 export interface ComponentsListItemData {
   title: string;
-  icon: (style: StyleType) => React.ReactElement<ImageProps>;
+  icon: (style: StyleType, theme: 'light' | 'dark') => React.ReactElement<ImageProps>;
 }
