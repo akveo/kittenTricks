@@ -65,7 +65,7 @@ interface State {
 export default class App extends React.Component<any, State> {
 
   public state: State = {
-    currentTheme: 'light',
+    currentTheme: 'dark',
     theme: {},
   };
 

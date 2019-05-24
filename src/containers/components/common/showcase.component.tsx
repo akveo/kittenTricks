@@ -1,8 +1,7 @@
 import React from 'react';
 import {
   FlexStyle,
-  ScrollView,
-  ScrollViewProps,
+  Platform,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -10,6 +9,10 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { ShowcaseSectionProps } from './showcaseSection.component';
+import {
+  ScrollableAvoidKeyboard,
+  ScrollableAvoidKeyboardProps,
+} from '@src/components/common';
 
 interface ComponentProps {
   children?: ChildrenProp;
@@ -17,11 +20,16 @@ interface ComponentProps {
 
 type ChildrenProp = ShowcaseSectionElement | ShowcaseSectionElement[];
 
-export type ShowcaseProps = ThemedComponentProps & ComponentProps & ScrollViewProps;
+export type ShowcaseProps = ThemedComponentProps & ComponentProps & ScrollableAvoidKeyboardProps;
 
 type ShowcaseSectionElement = React.ReactElement<ShowcaseSectionProps>;
 
 class ShowcaseComponent extends React.Component<ShowcaseProps> {
+
+  private keyboardOffset: number = Platform.select({
+    ios: 0,
+    android: 228,
+  });
 
   private isLastItem = (index: number): boolean => {
     const { children } = this.props;
@@ -47,11 +55,12 @@ class ShowcaseComponent extends React.Component<ShowcaseProps> {
     const { style, themedStyle, children, ...restProps } = this.props;
 
     return (
-      <ScrollView
+      <ScrollableAvoidKeyboard
         style={[themedStyle.container, style]}
+        extraScrollHeight={this.keyboardOffset}
         {...restProps}>
         {this.renderSections(children)}
-      </ScrollView>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

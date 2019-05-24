@@ -12,13 +12,13 @@ import {
 } from '@kitten/theme';
 import { Button } from '@kitten/ui';
 import {
-  SocialAuth,
   SignUpForm2,
   SignUpForm2Data,
+  SocialAuth,
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
@@ -28,8 +28,8 @@ import {
   PlusIcon,
 } from '@src/assets/icons';
 import {
-  ImageSource,
   imageSignUp4Bg,
+  ImageSource,
 } from '@src/assets/images';
 
 interface ComponentProps {
@@ -84,10 +84,6 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     this.props.onPhotoPress();
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 160;
-  };
-
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -112,10 +108,10 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ImageOverlay
-        style={themedStyle.container}
-        source={this.backgroundImage.imageSource}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
+      <ScrollableAvoidKeyboard>
+        <ImageOverlay
+          style={themedStyle.container}
+          source={this.backgroundImage.imageSource}>
           <View style={themedStyle.headerContainer}>
             <ProfilePhoto
               style={themedStyle.photo}
@@ -136,23 +132,23 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
             onPress={this.onSignUpButtonPress}>
             SIGN UP
           </Button>
-        </AvoidKeyboard>
-        <SocialAuth
-          iconStyle={themedStyle.socialAuthIcon}
-          hint='Or Sign In using Social Media'
-          onGooglePress={this.onGoogleButtonPress}
-          onFacebookPress={this.onFacebookButtonPress}
-          onTwitterPress={this.onTwitterButtonPress}
-        />
-        <Button
-          style={themedStyle.signInButton}
-          textStyle={themedStyle.signUpText}
-          appearance='ghost'
-          activeOpacity={0.75}
-          onPress={this.onSignInButtonPress}>
-          Already have account? Sign In
-        </Button>
-      </ImageOverlay>
+          <SocialAuth
+            iconStyle={themedStyle.socialAuthIcon}
+            hint='Or Sign In using Social Media'
+            onGooglePress={this.onGoogleButtonPress}
+            onFacebookPress={this.onFacebookButtonPress}
+            onTwitterPress={this.onTwitterButtonPress}
+          />
+          <Button
+            style={themedStyle.signInButton}
+            textStyle={themedStyle.signUpText}
+            appearance='ghost'
+            activeOpacity={0.75}
+            onPress={this.onSignInButtonPress}>
+            Already have account? Sign In
+          </Button>
+        </ImageOverlay>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

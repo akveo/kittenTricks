@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageProps,
-  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -11,16 +10,16 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  Text,
   Button,
+  Text,
 } from '@kitten/ui';
 import {
-  SocialAuth,
   SignUpForm1,
   SignUpForm1Data,
+  SocialAuth,
 } from '@src/components/auth';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
@@ -29,8 +28,8 @@ import {
   HeartIcon,
 } from '@src/assets/icons';
 import {
-  ImageSource,
   imageSignUp1Bg,
+  ImageSource,
 } from '@src/assets/images';
 
 interface ComponentProps {
@@ -84,10 +83,6 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
     this.props.onEwaPress();
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 16;
-  };
-
   private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -104,75 +99,73 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
-          <ImageOverlay
-            style={themedStyle.headerContainer}
-            source={this.backgroundImage.imageSource}>
-            <Button
-              appearance='ghost'
-              style={themedStyle.ewaButton}
-              textStyle={themedStyle.ewaButtonText}
-              size='large'
-              activeOpacity={0.75}
-              icon={this.renderEwaButtonIcon}
-              onPress={this.onEwaButtonPress}>
-              EWA
-            </Button>
-            <View style={themedStyle.signUpContainer}>
-              <Text
-                style={themedStyle.signInLabel}
-                category='h4'>
-                SIGN UP
-              </Text>
-              <Button
-                style={themedStyle.signInButton}
-                textStyle={themedStyle.signInButtonText}
-                appearance='ghost'
-                size='giant'
-                activeOpacity={0.75}
-                icon={this.renderSignInButtonIcon}
-                onPress={this.onSignInButtonPress}>
-                Sign In
-              </Button>
-            </View>
-          </ImageOverlay>
-          <SocialAuth
-            style={themedStyle.socialAuthContainer}
-            hintStyle={themedStyle.socialAuthHint}
-            iconStyle={themedStyle.socialAuthIcon}
-            hint='Sign with a social account'
-            onGooglePress={this.onGoogleButtonPress}
-            onFacebookPress={this.onFacebookButtonPress}
-            onTwitterPress={this.onTwitterButtonPress}
-          />
-          <View style={themedStyle.orContainer}>
-            <View style={themedStyle.divider}/>
-            <Text
-              style={themedStyle.orLabel}
-              category='h5'>
-              OR
-            </Text>
-            <View style={themedStyle.divider}/>
-          </View>
-          <Text
-            style={themedStyle.emailSignLabel}>
-            Sign up with Email
-          </Text>
-          <SignUpForm1
-            style={themedStyle.formContainer}
-            onDataChange={this.onFormDataChange}
-          />
+      <ScrollableAvoidKeyboard style={themedStyle.container}>
+        <ImageOverlay
+          style={themedStyle.headerContainer}
+          source={this.backgroundImage.imageSource}>
           <Button
-            style={themedStyle.signUpButton}
-            textStyle={textStyle.button}
+            appearance='ghost'
+            style={themedStyle.ewaButton}
+            textStyle={themedStyle.ewaButtonText}
             size='large'
-            disabled={!this.state.formData}
-            onPress={this.onSignUpButtonPress}>
-            SIGN UP
+            activeOpacity={0.75}
+            icon={this.renderEwaButtonIcon}
+            onPress={this.onEwaButtonPress}>
+            EWA
           </Button>
-        </AvoidKeyboard>
-      </ScrollView>
+          <View style={themedStyle.signUpContainer}>
+            <Text
+              style={themedStyle.signInLabel}
+              category='h4'>
+              SIGN UP
+            </Text>
+            <Button
+              style={themedStyle.signInButton}
+              textStyle={themedStyle.signInButtonText}
+              appearance='ghost'
+              size='giant'
+              activeOpacity={0.75}
+              icon={this.renderSignInButtonIcon}
+              onPress={this.onSignInButtonPress}>
+              Sign In
+            </Button>
+          </View>
+        </ImageOverlay>
+        <SocialAuth
+          style={themedStyle.socialAuthContainer}
+          hintStyle={themedStyle.socialAuthHint}
+          iconStyle={themedStyle.socialAuthIcon}
+          hint='Sign with a social account'
+          onGooglePress={this.onGoogleButtonPress}
+          onFacebookPress={this.onFacebookButtonPress}
+          onTwitterPress={this.onTwitterButtonPress}
+        />
+        <View style={themedStyle.orContainer}>
+          <View style={themedStyle.divider}/>
+          <Text
+            style={themedStyle.orLabel}
+            category='h5'>
+            OR
+          </Text>
+          <View style={themedStyle.divider}/>
+        </View>
+        <Text
+          style={themedStyle.emailSignLabel}>
+          Sign up with Email
+        </Text>
+        <SignUpForm1
+          style={themedStyle.formContainer}
+          onDataChange={this.onFormDataChange}
+        />
+        <Button
+          style={themedStyle.signUpButton}
+          textStyle={textStyle.button}
+          size='large'
+          disabled={!this.state.formData}
+          onPress={this.onSignUpButtonPress}>
+          SIGN UP
+        </Button>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

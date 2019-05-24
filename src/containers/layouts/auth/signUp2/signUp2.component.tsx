@@ -17,10 +17,11 @@ import {
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   textStyle,
 } from '@src/components/common';
 import { PlusIcon } from '@src/assets/icons';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 interface ComponentProps {
   onSignUpPress: (formData: SignUpForm2Data) => void;
@@ -56,10 +57,6 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
     this.props.onSignUpPress(this.state.formData);
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 56;
-  };
-
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
@@ -83,29 +80,27 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <View style={themedStyle.container}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
-          <View style={themedStyle.headerContainer}>
-            <ProfilePhoto
-              style={themedStyle.photo}
-              resizeMode='center'
-              source={{ uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png' }}
-              button={this.renderPhotoButton}
-            />
-          </View>
-          <SignUpForm2
-            style={themedStyle.formContainer}
-            onDataChange={this.onFormDataChange}
+      <ScrollableAvoidKeyboard style={themedStyle.container}>
+        <View style={themedStyle.headerContainer}>
+          <ProfilePhoto
+            style={themedStyle.photo}
+            resizeMode='center'
+            source={{ uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png' }}
+            button={this.renderPhotoButton}
           />
-          <Button
-            style={themedStyle.signUpButton}
-            textStyle={textStyle.button}
-            size='giant'
-            disabled={!this.state.formData}
-            onPress={this.onSignUpButtonPress}>
-            SIGN UP
-          </Button>
-        </AvoidKeyboard>
+        </View>
+        <SignUpForm2
+          style={themedStyle.formContainer}
+          onDataChange={this.onFormDataChange}
+        />
+        <Button
+          style={themedStyle.signUpButton}
+          textStyle={textStyle.button}
+          size='giant'
+          disabled={!this.state.formData}
+          onPress={this.onSignUpButtonPress}>
+          SIGN UP
+        </Button>
         <Button
           style={themedStyle.signInButton}
           textStyle={themedStyle.signInText}
@@ -114,7 +109,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
           onPress={this.onSignInButtonPress}>
           Already have an account? Sign In
         </Button>
-      </View>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

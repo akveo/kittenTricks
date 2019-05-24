@@ -13,7 +13,7 @@ import {
   ForgotPasswordFormData,
 } from '@src/components/auth';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
@@ -44,10 +44,6 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
     this.setState({ formData });
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height * 0.5;
-  };
-
   private onResetPasswordButtonPress = () => {
     this.props.onResetPress(this.state.formData);
   };
@@ -56,10 +52,10 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
     const { themedStyle } = this.props;
 
     return (
-      <ImageOverlay
-        style={themedStyle.container}
-        source={this.backgroundImage.imageSource}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
+      <ScrollableAvoidKeyboard>
+        <ImageOverlay
+          style={themedStyle.container}
+          source={this.backgroundImage.imageSource}>
           <Text
             style={themedStyle.forgotPasswordLabel}
             appearance='alternative'
@@ -83,8 +79,8 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
             onPress={this.onResetPasswordButtonPress}>
             RESET PASSWORD
           </Button>
-        </AvoidKeyboard>
-      </ImageOverlay>
+        </ImageOverlay>
+      </ScrollableAvoidKeyboard>
     );
   }
 }

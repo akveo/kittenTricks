@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -8,16 +7,16 @@ import {
 import {
   Button,
   Text,
-  Layout,
 } from '@kitten/ui';
 import {
   SignInForm2,
   SignInForm2Data,
 } from '@src/components/auth';
 import {
-  AvoidKeyboard,
+  ScrollableAvoidKeyboard,
   textStyle,
 } from '@src/components/common';
+import { View } from 'react-native';
 
 interface ComponentProps {
   onSignInPress: (formData: SignInForm2Data) => void;
@@ -53,42 +52,36 @@ class SignIn2Component extends React.Component<SignIn2Props> {
     this.setState({ formData });
   };
 
-  private keyboardOffset = (height: number): number => {
-    return height - 56;
-  };
-
   public render(): React.ReactNode {
     const { themedStyle } = this.props;
 
     return (
-      <Layout style={themedStyle.container}>
-        <AvoidKeyboard offset={this.keyboardOffset}>
-          <Layout style={themedStyle.headerContainer}>
-            <Text
-              style={themedStyle.helloLabel}
-              category='h1'>
-              Hello
-            </Text>
-            <Text
-              style={themedStyle.signInLabel}
-              category='s1'>
-              Sign in to your account
-            </Text>
-          </Layout>
-          <SignInForm2
-            style={themedStyle.formContainer}
-            onForgotPasswordPress={this.onForgotPasswordButtonPress}
-            onDataChange={this.onFormDataChange}
-          />
-          <Button
-            style={themedStyle.signInButton}
-            textStyle={textStyle.button}
-            size='giant'
-            disabled={!this.state.formData}
-            onPress={this.onSignInButtonPress}>
-            SIGN IN
-          </Button>
-        </AvoidKeyboard>
+      <ScrollableAvoidKeyboard style={themedStyle.container}>
+        <View style={themedStyle.headerContainer}>
+          <Text
+            style={themedStyle.helloLabel}
+            category='h1'>
+            Hello
+          </Text>
+          <Text
+            style={themedStyle.signInLabel}
+            category='s1'>
+            Sign in to your account
+          </Text>
+        </View>
+        <SignInForm2
+          style={themedStyle.formContainer}
+          onForgotPasswordPress={this.onForgotPasswordButtonPress}
+          onDataChange={this.onFormDataChange}
+        />
+        <Button
+          style={themedStyle.signInButton}
+          textStyle={textStyle.button}
+          size='giant'
+          disabled={!this.state.formData}
+          onPress={this.onSignInButtonPress}>
+          SIGN IN
+        </Button>
         <Button
           style={themedStyle.signUpButton}
           textStyle={themedStyle.signUpText}
@@ -97,7 +90,7 @@ class SignIn2Component extends React.Component<SignIn2Props> {
           onPress={this.onSignUpButtonPress}>
           Don't have an account? Create
         </Button>
-      </Layout>
+      </ScrollableAvoidKeyboard>
     );
   }
 }
@@ -106,6 +99,7 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => {
   return ({
     container: {
       flex: 1,
+      backgroundColor: theme['background-color-default-1'],
     },
     headerContainer: {
       justifyContent: 'center',

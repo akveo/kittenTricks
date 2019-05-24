@@ -3,6 +3,10 @@ export {
   ActivitiAuthoringProps,
 } from './activityAuthoring.component';
 export {
+  ScrollableAvoidKeyboard,
+  ScrollableAvoidKeyboardProps,
+} from './scrollableAvoidKeyboard.component';
+export {
   AvoidKeyboard,
   AvoidKeyboardProps,
 } from './avoidKeyboard.component';
