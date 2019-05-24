@@ -51,21 +51,9 @@ export const routes: LayoutsContainerData[] = [
     route: 'Dashboards',
   },
   {
-    title: 'Walkthrough',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconWalkthrough(style) : MenuIconWalkthroughDark(style),
-    route: '',
-  },
-  {
     title: 'Ecommerce',
     icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
       currentTheme === 'light' ? MenuIconEcommerce(style) : MenuIconEcommerceDark(style),
     route: 'Ecommerce',
-  },
-  {
-    title: 'Navigation',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconNavigation(style) : MenuIconNavigationDark(style),
-    route: '',
   },
 ];
