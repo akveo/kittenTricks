@@ -2,7 +2,7 @@ import React from 'react';
 import {
   FlatList,
   ListRenderItemInfo,
-  ScrollView,
+  Platform,
   View,
 } from 'react-native';
 import {
@@ -11,18 +11,18 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
-  List,
-  Input,
   Button,
+  Input,
+  List,
 } from '@kitten/ui';
 import {
+  Alignments,
   ChatMessage,
   ChatMessageProps,
-  Alignments,
 } from '@src/components/messaging';
 import {
-  PlusIcon,
   MicIcon,
+  PlusIcon,
 } from '@src/assets/icons';
 import {
   Conversation as ConversationModel,
@@ -94,39 +94,47 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
     );
   };
 
+  private keyboardOffset = (height: number) => {
+    return Platform.select({
+      ios: height,
+      android: 0,
+    });
+  };
+
   public render(): React.ReactNode {
     const { themedStyle, newMessage } = this.props;
     const isMessageEmpty: boolean = newMessage.length === 0;
 
     return (
-      <View style={themedStyle.container}>
-        <AvoidKeyboard autoDismiss={false}>
-          <List
-            ref={this.listRef}
-            contentContainerStyle={themedStyle.chatContainer}
-            data={this.createUiMessages()}
-            onContentSizeChange={this.onListContentSizeChange}
-            renderItem={this.renderMessage}
+      <AvoidKeyboard
+        style={themedStyle.container}
+        autoDismiss={false}
+        offset={this.keyboardOffset}>
+        <List
+          ref={this.listRef}
+          contentContainerStyle={themedStyle.chatContainer}
+          data={this.createUiMessages()}
+          onContentSizeChange={this.onListContentSizeChange}
+          renderItem={this.renderMessage}
+        />
+        <View style={themedStyle.inputContainer}>
+          <Button
+            style={themedStyle.addMessageButton}
+            textStyle={textStyle.button}
+            icon={PlusIcon}
+            disabled={isMessageEmpty}
+            onPress={this.onMessageAdd}
           />
-          <View style={themedStyle.inputContainer}>
-            <Button
-              style={themedStyle.addMessageButton}
-              textStyle={textStyle.button}
-              icon={PlusIcon}
-              disabled={isMessageEmpty}
-              onPress={this.onMessageAdd}
-            />
-            <Input
-              icon={MicIcon}
-              style={themedStyle.input}
-              textStyle={textStyle.paragraph}
-              value={newMessage}
-              placeholder='Message...'
-              onChangeText={this.onNewMessageChange}
-            />
-          </View>
-        </AvoidKeyboard>
-      </View>
+          <Input
+            icon={MicIcon}
+            style={themedStyle.input}
+            textStyle={textStyle.paragraph}
+            value={newMessage}
+            placeholder='Message...'
+            onChangeText={this.onNewMessageChange}
+          />
+        </View>
+      </AvoidKeyboard>
     );
   }
 }
@@ -134,6 +142,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
+    backgroundColor: theme['background-color-default-2'],
   },
   chatContainer: {
     paddingHorizontal: 16,
