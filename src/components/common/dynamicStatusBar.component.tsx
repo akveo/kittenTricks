@@ -48,6 +48,9 @@ class DynamicStatusBarComponent extends React.Component<DynamicStatusBarProps> {
 export const DynamicStatusBar = withStyles(DynamicStatusBarComponent, (theme: ThemeType) => ({
   container: {
     backgroundColor: theme['background-color-default-1'],
-    height: Platform.OS === 'ios' ? 20 : StatusBar.currentHeight,
+    height: Platform.select({
+      android: 0,
+      ios: StatusBar.currentHeight,
+    }),
   },
 }));
