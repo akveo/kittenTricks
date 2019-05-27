@@ -1,15 +1,17 @@
-import { AsyncStorage } from 'react-native';
 import { ThemeKey } from '@src/core/themes';
 
-class ThemeServiceType {
+export class ThemeService {
 
-  public setTheme(name: ThemeKey): Promise<void> {
-    return AsyncStorage.setItem('theme', name);
-  }
+  public static select = <T>(config: { [key in ThemeKey | 'default']?: T },
+                             currentTheme: ThemeKey): T | null => {
 
-  public getTheme(): Promise<ThemeKey> {
-    return AsyncStorage.getItem('theme') as Promise<ThemeKey>;
-  }
+    if (config[currentTheme]) {
+      return config[currentTheme];
+    } else if (config.default) {
+      return config.default;
+    } else {
+      return null;
+    }
+  };
+
 }
-
-export const ThemeService: ThemeServiceType = new ThemeServiceType();

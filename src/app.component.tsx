@@ -17,7 +17,7 @@ import {
   ThemeContext,
   ThemeKey,
   themes,
-  ThemeService,
+  ThemeStore,
 } from '@src/core/themes';
 
 const images: ImageRequireSource[] = [
@@ -75,7 +75,7 @@ export default class App extends React.Component<{}, State> {
   };
 
   private onSwitchTheme = (theme: ThemeKey) => {
-    ThemeService.setTheme(theme).then(() => {
+    ThemeStore.setTheme(theme).then(() => {
       this.setState({ theme });
     });
   };

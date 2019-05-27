@@ -7,15 +7,10 @@ import {
   CheckedDisabledRadio,
   CheckedRadio,
   DangerRadio,
-  GiantRadio,
   InfoRadio,
-  LargeRadio,
-  MediumRadio,
   PrimaryRadio,
-  SmallRadio,
   SuccessRadio,
   TextRadio,
-  TinyRadio,
   UncheckedDisabledRadio,
   UncheckedRadio,
   WarningRadio,
@@ -43,23 +38,6 @@ export class RadioContainer extends React.Component<NavigationScreenProps> {
         <ShowcaseSection title='Accessories'>
           <ShowcaseItem title='Text'>
             <TextRadio/>
-          </ShowcaseItem>
-        </ShowcaseSection>
-        <ShowcaseSection title='Size'>
-          <ShowcaseItem title='Giant'>
-            <GiantRadio/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Large'>
-            <LargeRadio/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Medium'>
-            <MediumRadio/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Small'>
-            <SmallRadio/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Tiny'>
-            <TinyRadio/>
           </ShowcaseItem>
         </ShowcaseSection>
         <ShowcaseSection title='Status'>
