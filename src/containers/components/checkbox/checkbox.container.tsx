@@ -7,16 +7,11 @@ import {
   CheckedCheckBox,
   CheckedDisabledCheckBox,
   DangerCheckBox,
-  GiantCheckBox,
   IndeterminateCheckBox,
   InfoCheckBox,
-  LargeCheckBox,
-  MediumCheckBox,
   PrimaryCheckBox,
-  SmallCheckBox,
   SuccessCheckBox,
   TextCheckBox,
-  TinyCheckBox,
   UncheckedCheckBox,
   UncheckedDisabledCheckBox,
   WarningCheckBox,
@@ -48,23 +43,6 @@ export class CheckBoxContainer extends React.Component<NavigationScreenProps> {
         <ShowcaseSection title='Accessories'>
           <ShowcaseItem title='Text'>
             <TextCheckBox/>
-          </ShowcaseItem>
-        </ShowcaseSection>
-        <ShowcaseSection title='Size'>
-          <ShowcaseItem title='Giant'>
-            <GiantCheckBox/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Large'>
-            <LargeCheckBox/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Medium'>
-            <MediumCheckBox/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Small'>
-            <SmallCheckBox/>
-          </ShowcaseItem>
-          <ShowcaseItem title='Tiny'>
-            <TinyCheckBox/>
           </ShowcaseItem>
         </ShowcaseSection>
         <ShowcaseSection title='Status'>

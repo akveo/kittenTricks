@@ -27,4 +27,3 @@ export {
   Movie,
   MovieDetail,
 } from './movie.model';
-
