@@ -12,8 +12,11 @@ import {
   Text,
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
+import {
+  ThemeContext,
+  ThemeKey,
+} from '@src/core/themes';
 import { ComponentsListItemData } from './type';
-import { ThemeContext } from '@src/core/utils/themeContext';
 
 interface ComponentProps {
   data: ComponentsListItemData;
@@ -23,9 +26,7 @@ export type ComponentsListItemProps = ThemedComponentProps & ListItemProps & Com
 
 class ComponentsListItemComponent extends React.Component<ComponentsListItemProps> {
 
-  private renderShowcaseElement = (style: StyleType,
-                                   theme: 'light' | 'dark'): React.ReactElement<ImageProps> => {
-
+  private renderShowcaseElement = (style: StyleType, theme: ThemeKey): React.ReactElement<ImageProps> => {
     const showcaseElement: React.ReactElement<ImageProps> = this.props.data.icon(style, theme);
 
     return React.cloneElement(showcaseElement, {
