@@ -1,12 +1,12 @@
 import React from 'react';
-import { CurrentTheme } from '@src/core/model';
+import { ThemeKey } from '@src/core/themes/index';
 
 export interface ContextType {
-  currentTheme: CurrentTheme;
+  currentTheme: ThemeKey;
   toggleTheme: (theme: string) => void;
 }
 
 export const ThemeContext: React.Context<ContextType> = React.createContext({
-  currentTheme: CurrentTheme.light,
+  currentTheme: 'Eva Light',
   toggleTheme: (theme: string) => {},
 });

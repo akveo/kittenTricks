@@ -1,10 +1,20 @@
 import React from 'react';
-import { Platform, StatusBar, StatusBarStyle, View, ViewProps } from 'react-native';
-import { ThemedComponentProps, ThemeType, withStyles } from '@kitten/theme';
-import { CurrentTheme } from '@src/core/model';
+import {
+  View,
+  StatusBar,
+  ViewProps,
+  Platform,
+  StatusBarStyle,
+} from 'react-native';
+import {
+  ThemedComponentProps,
+  ThemeType,
+  withStyles,
+} from '@kitten/theme';
+import { ThemeKey } from '@src/core/themes';
 
 interface ComponentProps {
-  currentTheme: CurrentTheme;
+  currentTheme: ThemeKey;
 }
 
 export type DynamicStatusBarProps = ThemedComponentProps & ViewProps & ComponentProps;
@@ -12,7 +22,7 @@ export type DynamicStatusBarProps = ThemedComponentProps & ViewProps & Component
 class DynamicStatusBarComponent extends React.Component<DynamicStatusBarProps> {
 
   private getStatusBarContent = (): StatusBarStyle => {
-    if (this.props.currentTheme === CurrentTheme.dark) {
+    if (this.props.currentTheme === 'Eva Light') {
       return 'dark-content';
     } else {
       return 'light-content';

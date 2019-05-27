@@ -13,8 +13,10 @@ import {
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 import { LayoutsListItemData } from './type';
-import { ThemeContext } from '@src/core/utils/themeContext';
-import { CurrentTheme } from '@src/core/model';
+import {
+  ThemeContext,
+  ThemeKey,
+} from '@src/core/themes';
 
 interface ComponentProps {
   data: LayoutsListItemData;
@@ -24,9 +26,7 @@ export type LayoutsListItemProps = ThemedComponentProps & ListItemProps & Compon
 
 class LayoutsListItemComponent extends React.Component<LayoutsListItemProps> {
 
-  private renderIconElement = (style: StyleType,
-                               theme: CurrentTheme): React.ReactElement<ImageProps> => {
-
+  private renderIconElement = (style: StyleType, theme: ThemeKey): React.ReactElement<ImageProps> => {
     const iconElement: React.ReactElement<ImageProps> = this.props.data.icon(style, theme);
 
     return React.cloneElement(iconElement, { style });

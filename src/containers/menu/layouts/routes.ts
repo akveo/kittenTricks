@@ -14,62 +14,68 @@ import {
   MenuIconEcommerceDark,
 } from '@src/assets/icons';
 import { LayoutsContainerData } from './type';
+import { ThemeKey } from '@src/core/themes';
 import { MenuImage } from '../menuImage';
-import { CurrentTheme } from '@src/core/model';
 
 export const routes: LayoutsContainerData[] = [
   {
     title: 'Auth',
-    icon: (style: StyleType, currentTheme: CurrentTheme) =>
-      MenuImage.select({
-        light: MenuIconAuth(style),
-        dark: MenuIconAuthDark(style),
-      }, currentTheme),
+    icon: (style: StyleType, currentTheme: ThemeKey) => {
+      return MenuImage.select({
+        'Eva Light': MenuIconAuth(style),
+        'Eva Dark': MenuIconAuthDark(style),
+      }, currentTheme);
+    },
     route: 'Auth',
   },
   {
     title: 'Social',
-    icon: (style: StyleType, currentTheme: CurrentTheme) =>
-      MenuImage.select({
-        light: MenuIconSocial(style),
-        dark: MenuIconSocialDark(style),
-      }, currentTheme),
+    icon: (style: StyleType, currentTheme: ThemeKey) => {
+      return  MenuImage.select({
+        'Eva Light': MenuIconSocial(style),
+        'Eva Dark': MenuIconSocialDark(style),
+      }, currentTheme);
+    },
     route: 'Social',
   },
   {
     title: 'Articles',
-    icon: (style: StyleType, currentTheme: CurrentTheme) =>
-      MenuImage.select({
-        light: MenuIconArticles(style),
-        dark: MenuIconArticlesDark(style),
-      }, currentTheme),
+    icon: (style: StyleType, currentTheme: ThemeKey) => {
+      return MenuImage.select({
+        'Eva Light': MenuIconArticles(style),
+        'Eva Dark': MenuIconArticlesDark(style),
+      }, currentTheme);
+    },
     route: 'Articles',
   },
   {
     title: 'Messaging',
-    icon: (style: StyleType, currentTheme: CurrentTheme) =>
-      MenuImage.select({
-        light: MenuIconMessaging(style),
-        dark: MenuIconMessagingDark(style),
-      }, currentTheme),
+    icon: (style: StyleType, currentTheme: ThemeKey) => {
+      return MenuImage.select({
+        'Eva Light': MenuIconMessaging(style),
+        'Eva Dark': MenuIconMessagingDark(style),
+      }, currentTheme);
+    },
     route: 'Messaging',
   },
   {
     title: 'Dashboards',
-    icon: (style: StyleType, currentTheme: CurrentTheme) =>
-      MenuImage.select({
-        light: MenuIconDashboards(style),
-        dark: MenuIconDashboardsDark(style),
-      }, currentTheme),
+    icon: (style: StyleType, currentTheme: ThemeKey) => {
+      return MenuImage.select({
+        'Eva Light': MenuIconDashboards(style),
+        'Eva Dark': MenuIconDashboardsDark(style),
+      }, currentTheme);
+    },
     route: 'Dashboards',
   },
   {
     title: 'Ecommerce',
-    icon: (style: StyleType, currentTheme: CurrentTheme) =>
-      MenuImage.select({
-        light: MenuIconEcommerce(style),
-        dark: MenuIconEcommerceDark(style),
-      }, currentTheme),
+    icon: (style: StyleType, currentTheme: ThemeKey) => {
+      return MenuImage.select({
+        'Eva Light': MenuIconEcommerce(style),
+        'Eva Dark': MenuIconEcommerceDark(style),
+      }, currentTheme);
+    },
     route: 'Ecommerce',
   },
 ];

@@ -1,9 +1,9 @@
 import React from 'react';
 import { ImageProps } from 'react-native';
 import { StyleType } from '@kitten/theme';
-import { CurrentTheme } from '@src/core/model';
+import { ThemeKey } from '@src/core/themes';
 
 export interface ComponentsListItemData {
   title: string;
-  icon: (style: StyleType, theme: CurrentTheme) => React.ReactElement<ImageProps>;
+  icon: (style: StyleType, theme: ThemeKey) => React.ReactElement<ImageProps>;
 }
