@@ -1,30 +1,75 @@
 import React from 'react';
-import { ViewProps } from 'react-native';
+import { ListRenderItemInfo } from 'react-native';
+import {
+  List,
+  ListItemProps,
+} from '@kitten/ui';
 import {
   ThemedComponentProps,
+  ThemeProvider,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { ThemeContext } from '@src/core/utils/themeContext';
-import { ThemesContent } from '@src/containers/menu/themes/themesContent.component';
+import { ThemeCard } from './themeCard.component';
+import { Theme } from './type';
 
-type Props = ThemedComponentProps;
+interface ComponentProps {
+  data: Theme[];
+  currentTheme: string;
+  onToggleTheme: (name: string) => void;
+}
 
-class ThemesComponent extends React.Component<Props> {
+type ThemesProps = ThemedComponentProps & ComponentProps;
 
-  private renderContent = ({ currentTheme, toggleTheme }): React.ReactElement<ViewProps> => {
+class ThemesComponent extends React.Component<ThemesProps> {
+
+  private onItemPress = (index: number) => {
+    const { [index]: theme } = this.props.data;
+
+    this.props.onToggleTheme(theme.name);
+  };
+
+  private renderItem = (info: ListRenderItemInfo<Theme>): React.ReactElement<ListItemProps> => {
+    const isDisabled: boolean = this.props.currentTheme === info.item.name;
+
     return (
-      <ThemesContent context={{ currentTheme, toggleTheme }}/>
+      <ThemeProvider theme={info.item.theme}>
+        <ThemeCard
+          style={this.props.themedStyle.item}
+          title={info.item.name}
+          disabled={isDisabled}
+          onPress={() => {
+            this.onItemPress(info.index);
+          }}
+        />
+      </ThemeProvider>
     );
   };
 
   public render(): React.ReactNode {
+    const { themedStyle, data } = this.props;
+
     return (
-      <ThemeContext.Consumer>
-        {this.renderContent}
-      </ThemeContext.Consumer>
+      <List
+        style={themedStyle.container}
+        contentContainerStyle={themedStyle.contentContainer}
+        data={data}
+        renderItem={this.renderItem}
+      />
     );
   }
 }
 
-export const Themes = withStyles(ThemesComponent, (theme: ThemeType) => ({}));
+export const Themes = withStyles(ThemesComponent, (theme: ThemeType) => ({
+  container: {
+    flex: 1,
+  },
+  contentContainer: {
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    backgroundColor: theme['background-color-default-2'],
+  },
+  item: {
+    marginVertical: 8,
+  },
+}));

@@ -3,14 +3,8 @@ import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
 import { default as mapping } from '@eva/eva';
-import {
-  ApplicationProvider,
-  ThemeType,
-} from '@kitten/theme';
-import {
-  light as lightTheme,
-  dark as darkTheme,
-} from '@eva/themes';
+import { ApplicationProvider } from '@kitten/theme';
+import { DynamicStatusBar } from '@src/components/common';
 import {
   ApplicationLoader,
   Assets,
@@ -21,9 +15,10 @@ import { getCurrentStateName } from './core/navigation/routeUtil';
 import {
   ContextType,
   ThemeContext,
-} from '@src/core/utils/themeContext';
-import { ThemeService } from '@src/core/utils/theme.service';
-import { DynamicStatusBar } from '@src/components/common';
+  ThemeKey,
+  themes,
+  ThemeService,
+} from '@src/core/themes';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
@@ -56,77 +51,52 @@ const assets: Assets = {
 };
 
 interface State {
-  currentTheme: 'light' | 'dark';
-  theme: ThemeType;
+  theme: ThemeKey;
 }
 
-export default class App extends React.Component<any, State> {
+export default class App extends React.Component<{}, State> {
 
   public state: State = {
-    currentTheme: 'dark',
-    theme: {},
+    theme: 'Eva Light',
   };
-
-  public componentWillMount(): void {
-    Promise.all([
-      ThemeService.setTheme('light', lightTheme),
-      ThemeService.setTheme('dark', darkTheme),
-    ])
-      .then(() => ThemeService.getTheme('light'))
-      .then((theme: ThemeType) => this.setTheme(theme, 'light'));
-  }
 
   private onTransitionTrackError = (error: any): void => {
     console.warn('Analytics error: ', error.message);
   };
 
-  private onTransitionTrackSuccess = (): void => {
-    // console.log('success');
-  };
-
-  private onNavigationStateChange = (prevState: NavigationState,
-                                     currentState: NavigationState): void => {
-
+  private onNavigationStateChange = (prevState: NavigationState, currentState: NavigationState) => {
     const prevStateName: string = getCurrentStateName(prevState);
     const currentStateName: string = getCurrentStateName(currentState);
+
     if (prevStateName !== currentStateName) {
       trackScreenTransition(currentStateName)
-        .then(this.onTransitionTrackSuccess)
         .catch(this.onTransitionTrackError);
     }
   };
 
-  private onThemeChange = (themeName: 'light' | 'dark'): void => {
-    ThemeService.getTheme(themeName)
-      .then((theme: ThemeType) => this.setTheme(theme, themeName));
-  };
-
-  private setTheme = (theme: ThemeType, themeName: 'light' | 'dark'): void => {
-    this.setState({
-      theme: theme,
-      currentTheme: themeName,
+  private onSwitchTheme = (theme: ThemeKey) => {
+    ThemeService.setTheme(theme).then(() => {
+      this.setState({ theme });
     });
   };
 
   public render(): React.ReactNode {
     const contextValue: ContextType = {
-      currentTheme: this.state.currentTheme,
-      toggleTheme: this.onThemeChange,
+      currentTheme: this.state.theme,
+      toggleTheme: this.onSwitchTheme,
     };
 
     return (
-      <ThemeContext.Provider value={contextValue}>
-        <ApplicationLoader assets={assets}>
+      <ApplicationLoader assets={assets}>
+        <ThemeContext.Provider value={contextValue}>
           <ApplicationProvider
             mapping={mapping}
-            theme={this.state.theme}>
-            <DynamicStatusBar currentTheme={this.state.currentTheme}/>
-            <Router
-              onNavigationStateChange={this.onNavigationStateChange}
-            />
+            theme={themes[this.state.theme]}>
+            <DynamicStatusBar currentTheme={this.state.theme}/>
+            <Router onNavigationStateChange={this.onNavigationStateChange}/>
           </ApplicationProvider>
-        </ApplicationLoader>
-      </ThemeContext.Provider>
+        </ThemeContext.Provider>
+      </ApplicationLoader>
     );
   }
 }

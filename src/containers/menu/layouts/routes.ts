@@ -7,53 +7,50 @@ import {
   MenuIconDashboards,
   MenuIconEcommerce,
   MenuIconMessaging,
-  MenuIconNavigation,
   MenuIconSocial,
-  MenuIconWalkthrough,
   MenuIconArticlesDark,
   MenuIconMessagingDark,
   MenuIconDashboardsDark,
-  MenuIconWalkthroughDark,
   MenuIconEcommerceDark,
-  MenuIconNavigationDark,
 } from '@src/assets/icons';
 import { LayoutsContainerData } from './type';
+import { ThemeKey } from '@src/core/themes';
 
 export const routes: LayoutsContainerData[] = [
   {
     title: 'Auth',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconAuth(style) : MenuIconAuthDark(style),
+    icon: (style: StyleType, currentTheme: ThemeKey) =>
+      currentTheme === 'Eva Light' ? MenuIconAuth(style) : MenuIconAuthDark(style),
     route: 'Auth',
   },
   {
     title: 'Social',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconSocial(style) : MenuIconSocialDark(style),
+    icon: (style: StyleType, currentTheme: ThemeKey) =>
+      currentTheme === 'Eva Light' ? MenuIconSocial(style) : MenuIconSocialDark(style),
     route: 'Social',
   },
   {
     title: 'Articles',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconArticles(style) : MenuIconArticlesDark(style),
+    icon: (style: StyleType, currentTheme: ThemeKey) =>
+      currentTheme === 'Eva Light' ? MenuIconArticles(style) : MenuIconArticlesDark(style),
     route: 'Articles',
   },
   {
     title: 'Messaging',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconMessaging(style) : MenuIconMessagingDark(style),
+    icon: (style: StyleType, currentTheme: ThemeKey) =>
+      currentTheme === 'Eva Light' ? MenuIconMessaging(style) : MenuIconMessagingDark(style),
     route: 'Messaging',
   },
   {
     title: 'Dashboards',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconDashboards(style) : MenuIconDashboardsDark(style),
+    icon: (style: StyleType, currentTheme: ThemeKey) =>
+      currentTheme === 'Eva Light' ? MenuIconDashboards(style) : MenuIconDashboardsDark(style),
     route: 'Dashboards',
   },
   {
     title: 'Ecommerce',
-    icon: (style: StyleType, currentTheme: 'light' | 'dark') =>
-      currentTheme === 'light' ? MenuIconEcommerce(style) : MenuIconEcommerceDark(style),
+    icon: (style: StyleType, currentTheme: ThemeKey) =>
+      currentTheme === 'Eva Light' ? MenuIconEcommerce(style) : MenuIconEcommerceDark(style),
     route: 'Ecommerce',
   },
 ];
