@@ -32,14 +32,16 @@ import {
   ComponentsIconTopNavigationDark,
   ComponentsIconBottomNavigationDark,
 } from '@src/assets/icons';
-import { ThemeKey } from '@src/core/themes';
-import { MenuImage } from '../menuImage';
+import {
+  ThemeKey,
+  ThemeService,
+} from '@src/core/themes';
 
 export const routes: ComponentsContainerData[] = [
   {
     title: 'Button',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconButton(style),
         'Eva Dark': ComponentsIconButtonDark(style),
       }, currentTheme);
@@ -49,7 +51,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Button Group',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconButtonGroup(style),
         'Eva Dark': ComponentsIconButtonGroupDark(style),
       }, currentTheme);
@@ -59,7 +61,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Checkbox',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconCheckBox(style),
         'Eva Dark': ComponentsIconCheckBoxDark(style),
       }, currentTheme);
@@ -69,7 +71,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Toggle',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconToggle(style),
         'Eva Dark': ComponentsIconToggleDark(style),
       }, currentTheme);
@@ -79,7 +81,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Radio',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconRadio(style),
         'Eva Dark': ComponentsIconRadioDark(style),
       }, currentTheme);
@@ -89,7 +91,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Input',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconInput(style),
         'Eva Dark': ComponentsIconInputDark(style),
       }, currentTheme);
@@ -99,7 +101,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Text',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconText(style),
         'Eva Dark': ComponentsIconTextDark(style),
       }, currentTheme);
@@ -109,7 +111,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Avatar',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconAvatar(style),
         'Eva Dark': ComponentsIconAvatarDark(style),
       }, currentTheme);
@@ -119,7 +121,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Popover',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconPopover(style),
         'Eva Dark': ComponentsIconPopoverDark(style),
       }, currentTheme);
@@ -129,7 +131,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Tooltip',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconTooltip(style),
         'Eva Dark': ComponentsIconTooltipDark(style),
       }, currentTheme);
@@ -139,7 +141,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Overflow Menu',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconOverflowMenu(style),
         'Eva Dark': ComponentsIconOverflowMenuDark(style),
       }, currentTheme);
@@ -149,7 +151,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Tab View',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconTabView(style),
         'Eva Dark': ComponentsIconTabViewDark(style),
       }, currentTheme);
@@ -159,7 +161,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'List',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconList(style),
         'Eva Dark': ComponentsIconListDark(style),
       }, currentTheme);
@@ -169,7 +171,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Top Navigation',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconTopNavigation(style),
         'Eva Dark': ComponentsIconTopNavigationDark(style),
       }, currentTheme);
@@ -179,7 +181,7 @@ export const routes: ComponentsContainerData[] = [
   {
     title: 'Bottom Navigation',
     icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return MenuImage.select({
+      return ThemeService.select({
         'Eva Light': ComponentsIconBottomNavigation(style),
         'Eva Dark': ComponentsIconBottomNavigationDark(style),
       }, currentTheme);

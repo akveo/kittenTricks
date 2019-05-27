@@ -21,4 +21,5 @@ export {
   ContextType,
 } from './themeContext';
 
+export { ThemeStore } from './theme.store';
 export { ThemeService } from './theme.service';
