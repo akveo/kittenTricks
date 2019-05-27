@@ -1,29 +1,32 @@
 import React from 'react';
 import {
+  GestureResponderEvent,
   View,
-  TouchableOpacity,
-  TouchableOpacityProps,
   ViewProps,
 } from 'react-native';
 import {
-  ThemeType,
-  ThemedComponentProps,
-  withStyles,
   StyleType,
+  ThemedComponentProps,
+  ThemeType,
+  withStyles,
 } from '@kitten/theme';
 import {
+  ListItem,
+  ListItemProps,
   Text,
-  TextProps,
 } from '@kitten/ui';
 
 interface ComponentProps {
-  currentTheme: 'light' | 'dark';
-  buttonResponsibility: 'light' | 'dark';
+  title: string;
 }
 
-export type ThemeCardComponentProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;
+export type ThemeCardComponentProps = ThemedComponentProps & ListItemProps & ComponentProps;
 
 export class ThemeCardComponent extends React.Component<ThemeCardComponentProps> {
+
+  private getCardStatus = (): string => {
+    return this.props.disabled ? 'ACTIVE' : '';
+  };
 
   private renderColors = (style: StyleType, index: number): React.ReactElement<ViewProps> => {
     const { themedStyle } = this.props;
@@ -36,29 +39,8 @@ export class ThemeCardComponent extends React.Component<ThemeCardComponentProps>
     );
   };
 
-  private getCardTitle = (): string => {
-    const { buttonResponsibility: text } = this.props;
-    const theme: string = text.charAt(0).toUpperCase() + text.slice(1);
-
-    return `Eva ${theme}`;
-  };
-
-  private renderText = (disabled: boolean): React.ReactElement<TextProps> => {
-    const title: string = disabled ? 'ACTIVE' : '';
-
-    return (
-      <Text category='label'>{title}</Text>
-    );
-  };
-
   public render(): React.ReactNode {
-    const {
-      themedStyle,
-      style,
-      currentTheme,
-      buttonResponsibility,
-      onPress,
-    } = this.props;
+    const { themedStyle, style, title, ...restProps } = this.props;
 
     const colors: string[] = [
       themedStyle.colorItem1,
@@ -69,53 +51,54 @@ export class ThemeCardComponent extends React.Component<ThemeCardComponentProps>
       themedStyle.colorItem6,
     ];
 
-    const disabled: boolean = currentTheme === buttonResponsibility;
-    const cardTitle: string = this.getCardTitle();
+    const cardStatus: string = this.getCardStatus();
 
     return (
-      <TouchableOpacity
-        style={[themedStyle.card, style]}
-        activeOpacity={0.85}
-        disabled={disabled}
-        onPress={onPress}>
-        <View style={[themedStyle.cardHeader, themedStyle.cardItem]}>
-          <Text category='h6'>{cardTitle}</Text>
-          {this.renderText(disabled)}
+      <ListItem
+        {...restProps}
+        style={[themedStyle.container, style]}>
+        <View style={themedStyle.headerContainer}>
+          <Text
+            style={themedStyle.titleLabel}
+            category='h6'>
+            {title}
+          </Text>
+          <Text category='label'>
+            {cardStatus}
+          </Text>
         </View>
-        <View style={themedStyle.cardItem}>
+        <View style={themedStyle.colorContainer}>
           {colors.map(this.renderColors)}
         </View>
-      </TouchableOpacity>
+      </ListItem>
     );
   }
 }
 
 export const ThemeCard = withStyles(ThemeCardComponent, (theme: ThemeType) => ({
-  card: {
+  container: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
     borderRadius: 8,
     overflow: 'hidden',
-    paddingTop: 24,
-    paddingBottom: 16,
-    paddingHorizontal: 16,
-    width: '100%',
-    backgroundColor: theme['background-color-default-1'],
   },
-  cardItem: {
+  headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
   },
-  cardHeader: {
-    marginBottom: 28,
+  colorContainer: {
+    marginTop: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  titleLabel: {
+    flex: 1,
   },
   colorItem: {
     width: 40,
     height: 40,
     borderRadius: 6,
-  },
-  button: {
-    flexDirection: 'row-reverse',
-    width: 144,
+    marginHorizontal: 2,
   },
   colorItem1: {
     backgroundColor: theme['background-color-default-2'],
