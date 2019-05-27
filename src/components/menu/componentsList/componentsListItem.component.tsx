@@ -14,6 +14,7 @@ import {
 import { textStyle } from '@src/components/common';
 import { ComponentsListItemData } from './type';
 import { ThemeContext } from '@src/core/utils/themeContext';
+import { CurrentTheme } from '@src/core/model';
 
 interface ComponentProps {
   data: ComponentsListItemData;
@@ -24,7 +25,7 @@ export type ComponentsListItemProps = ThemedComponentProps & ListItemProps & Com
 class ComponentsListItemComponent extends React.Component<ComponentsListItemProps> {
 
   private renderShowcaseElement = (style: StyleType,
-                                   theme: 'light' | 'dark'): React.ReactElement<ImageProps> => {
+                                   theme: CurrentTheme): React.ReactElement<ImageProps> => {
 
     const showcaseElement: React.ReactElement<ImageProps> = this.props.data.icon(style, theme);
 

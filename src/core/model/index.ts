@@ -27,4 +27,4 @@ export {
   Movie,
   MovieDetail,
 } from './movie.model';
-
+export { CurrentTheme } from './currentTheme.model';

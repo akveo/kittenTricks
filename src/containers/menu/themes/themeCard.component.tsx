@@ -15,10 +15,11 @@ import {
   Text,
   TextProps,
 } from '@kitten/ui';
+import { CurrentTheme } from '@src/core/model';
 
 interface ComponentProps {
-  currentTheme: 'light' | 'dark';
-  buttonResponsibility: 'light' | 'dark';
+  currentTheme: CurrentTheme;
+  buttonResponsibility: CurrentTheme;
 }
 
 export type ThemeCardComponentProps = ThemedComponentProps & TouchableOpacityProps & ComponentProps;

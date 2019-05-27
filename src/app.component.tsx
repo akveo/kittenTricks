@@ -24,6 +24,7 @@ import {
 } from '@src/core/utils/themeContext';
 import { ThemeService } from '@src/core/utils/theme.service';
 import { DynamicStatusBar } from '@src/components/common';
+import { CurrentTheme } from '@src/core/model';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
@@ -56,14 +57,14 @@ const assets: Assets = {
 };
 
 interface State {
-  currentTheme: 'light' | 'dark';
+  currentTheme: CurrentTheme;
   theme: ThemeType;
 }
 
 export default class App extends React.Component<any, State> {
 
   public state: State = {
-    currentTheme: 'dark',
+    currentTheme: CurrentTheme.light,
     theme: {},
   };
 
@@ -73,7 +74,7 @@ export default class App extends React.Component<any, State> {
       ThemeService.setTheme('dark', darkTheme),
     ])
       .then(() => ThemeService.getTheme('light'))
-      .then((theme: ThemeType) => this.setTheme(theme, 'light'));
+      .then((theme: ThemeType) => this.setTheme(theme, CurrentTheme.light));
   }
 
   private onTransitionTrackError = (error: any): void => {
@@ -96,12 +97,12 @@ export default class App extends React.Component<any, State> {
     }
   };
 
-  private onThemeChange = (themeName: 'light' | 'dark'): void => {
+  private onThemeChange = (themeName: CurrentTheme): void => {
     ThemeService.getTheme(themeName)
       .then((theme: ThemeType) => this.setTheme(theme, themeName));
   };
 
-  private setTheme = (theme: ThemeType, themeName: 'light' | 'dark'): void => {
+  private setTheme = (theme: ThemeType, themeName: CurrentTheme): void => {
     this.setState({
       theme: theme,
       currentTheme: themeName,

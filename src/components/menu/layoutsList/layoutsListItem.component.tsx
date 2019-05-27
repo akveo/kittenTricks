@@ -14,6 +14,7 @@ import {
 import { textStyle } from '@src/components/common';
 import { LayoutsListItemData } from './type';
 import { ThemeContext } from '@src/core/utils/themeContext';
+import { CurrentTheme } from '@src/core/model';
 
 interface ComponentProps {
   data: LayoutsListItemData;
@@ -24,7 +25,7 @@ export type LayoutsListItemProps = ThemedComponentProps & ListItemProps & Compon
 class LayoutsListItemComponent extends React.Component<LayoutsListItemProps> {
 
   private renderIconElement = (style: StyleType,
-                               theme: 'light' | 'dark'): React.ReactElement<ImageProps> => {
+                               theme: CurrentTheme): React.ReactElement<ImageProps> => {
 
     const iconElement: React.ReactElement<ImageProps> = this.props.data.icon(style, theme);
 
