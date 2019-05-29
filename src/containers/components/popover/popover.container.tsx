@@ -32,16 +32,18 @@ class PopoverContainerComponent extends React.Component<ComponentProps> {
 
     return (
       <Showcase style={themedStyle.container}>
-        <ShowcaseSection title='Placement'>
-          <ShowcaseItem style={themedStyle.bottomItem} title='Bottom'>
-            <BottomPopover/>
+        <ShowcaseSection title='Top'>
+          <ShowcaseItem style={themedStyle.topItem} title='Top'>
+            <TopPopover/>
           </ShowcaseItem>
-          <ShowcaseItem style={themedStyle.bottomItem} title='Bottom Start'>
-            <BottomStartPopover/>
+          <ShowcaseItem style={themedStyle.topItem} title='Top Start'>
+            <TopStartPopover/>
           </ShowcaseItem>
-          <ShowcaseItem style={themedStyle.bottomItem} title='Bottom End'>
-            <BottomEndPopover/>
+          <ShowcaseItem style={themedStyle.topItem} title='Top End'>
+            <TopEndPopover/>
           </ShowcaseItem>
+        </ShowcaseSection>
+        <ShowcaseSection title='Right'>
           <ShowcaseItem style={themedStyle.rightItem} title='Right'>
             <RightPopover/>
           </ShowcaseItem>
@@ -51,6 +53,8 @@ class PopoverContainerComponent extends React.Component<ComponentProps> {
           <ShowcaseItem style={themedStyle.rightItem} title='Right End'>
             <RightEndPopover/>
           </ShowcaseItem>
+        </ShowcaseSection>
+        <ShowcaseSection title='Left'>
           <ShowcaseItem style={themedStyle.leftItem} title='Left'>
             <LeftPopover/>
           </ShowcaseItem>
@@ -60,14 +64,16 @@ class PopoverContainerComponent extends React.Component<ComponentProps> {
           <ShowcaseItem style={themedStyle.leftItem} title='Left End'>
             <LeftEndPopover/>
           </ShowcaseItem>
-          <ShowcaseItem style={themedStyle.topItem} title='Top'>
-            <TopPopover/>
+        </ShowcaseSection>
+        <ShowcaseSection title='Bottom'>
+          <ShowcaseItem style={themedStyle.bottomItem} title='Bottom'>
+            <BottomPopover/>
           </ShowcaseItem>
-          <ShowcaseItem style={themedStyle.topItem} title='Top Start'>
-            <TopStartPopover/>
+          <ShowcaseItem style={themedStyle.bottomItem} title='Bottom Start'>
+            <BottomStartPopover/>
           </ShowcaseItem>
-          <ShowcaseItem style={themedStyle.topItem} title='Top End'>
-            <TopEndPopover/>
+          <ShowcaseItem style={themedStyle.bottomItem} title='Bottom End'>
+            <BottomEndPopover/>
           </ShowcaseItem>
         </ShowcaseSection>
       </Showcase>
