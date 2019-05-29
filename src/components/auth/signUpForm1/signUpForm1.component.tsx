@@ -163,7 +163,6 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
         <CheckBox
           style={themedStyle.termsCheckBox}
           textStyle={themedStyle.termsCheckBoxText}
-          size='small'
           checked={this.state.termsAccepted}
           text={'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
           onChange={this.onTermsAcceptChange}

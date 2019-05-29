@@ -467,7 +467,7 @@ const MenuNavigator: ReactNavigationContainer = createBottomTabNavigator({
 
 const AppNavigator: ReactNavigationContainer = createStackNavigator({
   ['Home']: {
-    screen: MenuNavigator,
+    screen: ListContainer,
     navigationOptions: HeadingNavigationOptions,
   },
 });

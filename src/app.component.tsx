@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { Font } from 'expo';
-import { default as mapping } from '@eva/eva';
+import { mapping } from '@eva-design/eva';
 import { ApplicationProvider } from '@kitten/theme';
 import { DynamicStatusBar } from '@src/components/common';
 import {
