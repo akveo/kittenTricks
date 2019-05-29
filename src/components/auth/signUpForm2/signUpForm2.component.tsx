@@ -129,7 +129,6 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
           <CheckBox
             style={themedStyle.termsCheckBox}
             textStyle={themedStyle.termsCheckBoxText}
-            size='small'
             checked={this.state.termsAccepted}
             onChange={this.onTermsValueChange}
             text='I read and agree to Terms & Conditions'
