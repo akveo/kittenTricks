@@ -1,4 +1,3 @@
-import { StyleType } from '@kitten/theme';
 import { ComponentsContainerData } from './type';
 import {
   ComponentsIconAvatar,
@@ -16,176 +15,82 @@ import {
   ComponentsIconToggle,
   ComponentsIconTooltip,
   ComponentsIconTopNavigation,
-  ComponentsIconAvatarDark,
-  ComponentsIconButtonDark,
-  ComponentsIconButtonGroupDark,
-  ComponentsIconCheckBoxDark,
-  ComponentsIconInputDark,
-  ComponentsIconListDark,
-  ComponentsIconOverflowMenuDark,
-  ComponentsIconPopoverDark,
-  ComponentsIconRadioDark,
-  ComponentsIconTabViewDark,
-  ComponentsIconTextDark,
-  ComponentsIconToggleDark,
-  ComponentsIconTooltipDark,
-  ComponentsIconTopNavigationDark,
-  ComponentsIconBottomNavigationDark,
 } from '@src/assets/icons';
-import {
-  ThemeKey,
-  ThemeService,
-} from '@src/core/themes';
 
 export const routes: ComponentsContainerData[] = [
   {
     title: 'Button',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconButton(style),
-        'Eva Dark': ComponentsIconButtonDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconButton,
     route: 'Button',
   },
   {
     title: 'Button Group',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconButtonGroup(style),
-        'Eva Dark': ComponentsIconButtonGroupDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconButtonGroup,
     route: 'Button Group',
   },
   {
     title: 'Checkbox',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconCheckBox(style),
-        'Eva Dark': ComponentsIconCheckBoxDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconCheckBox,
     route: 'CheckBox',
   },
   {
     title: 'Toggle',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconToggle(style),
-        'Eva Dark': ComponentsIconToggleDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconToggle,
     route: 'Toggle',
   },
   {
     title: 'Radio',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconRadio(style),
-        'Eva Dark': ComponentsIconRadioDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconRadio,
     route: 'Radio',
   },
   {
     title: 'Input',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconInput(style),
-        'Eva Dark': ComponentsIconInputDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconInput,
     route: 'Input',
   },
   {
     title: 'Text',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconText(style),
-        'Eva Dark': ComponentsIconTextDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconText,
     route: 'Text',
   },
   {
     title: 'Avatar',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconAvatar(style),
-        'Eva Dark': ComponentsIconAvatarDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconAvatar,
     route: 'Avatar',
   },
   {
     title: 'Popover',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconPopover(style),
-        'Eva Dark': ComponentsIconPopoverDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconPopover,
     route: 'Popover',
   },
   {
     title: 'Tooltip',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconTooltip(style),
-        'Eva Dark': ComponentsIconTooltipDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconTooltip,
     route: 'Tooltip',
   },
   {
     title: 'Overflow Menu',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconOverflowMenu(style),
-        'Eva Dark': ComponentsIconOverflowMenuDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconOverflowMenu,
     route: 'Overflow Menu',
   },
   {
     title: 'Tab View',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconTabView(style),
-        'Eva Dark': ComponentsIconTabViewDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconTabView,
     route: 'Tab View',
   },
   {
     title: 'List',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconList(style),
-        'Eva Dark': ComponentsIconListDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconList,
     route: 'List',
   },
   {
     title: 'Top Navigation',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconTopNavigation(style),
-        'Eva Dark': ComponentsIconTopNavigationDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconTopNavigation,
     route: 'Top Navigation',
   },
   {
     title: 'Bottom Navigation',
-    icon: (style: StyleType, currentTheme: ThemeKey) => {
-      return ThemeService.select({
-        'Eva Light': ComponentsIconBottomNavigation(style),
-        'Eva Dark': ComponentsIconBottomNavigationDark(style),
-      }, currentTheme);
-    },
+    icon: ComponentsIconBottomNavigation,
     route: 'Bottom Navigation',
   },
 ];
