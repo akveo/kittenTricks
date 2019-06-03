@@ -53,14 +53,12 @@ class SignInForm3Component extends React.Component<SignInForm3Props, State> {
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
     const remainValid: boolean = oldFormValid && newFormValid;
 
-    if (isStateChanged) {
-      if (becomeValid) {
-        this.props.onDataChange(this.state);
-      } else if (remainValid) {
-        this.props.onDataChange(this.state);
-      } else if (becomeInvalid) {
-        this.props.onDataChange(undefined);
-      }
+    if (becomeValid) {
+      this.props.onDataChange(this.state);
+    } else if (becomeInvalid) {
+      this.props.onDataChange(undefined);
+    } else if (isStateChanged && remainValid) {
+      this.props.onDataChange(this.state);
     }
   }
 
