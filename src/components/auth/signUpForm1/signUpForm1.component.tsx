@@ -55,13 +55,17 @@ class SignUpForm1Component extends React.Component<SignUpForm1Props, State> {
     const oldFormValid: boolean = this.isValid(prevState);
     const newFormValid: boolean = this.isValid(this.state);
 
+    const isStateChanged: boolean = this.state !== prevState;
     const becomeValid: boolean = !oldFormValid && newFormValid;
     const becomeInvalid: boolean = oldFormValid && !newFormValid;
+    const remainValid: boolean = oldFormValid && newFormValid;
 
     if (becomeValid) {
       this.props.onDataChange(this.state);
     } else if (becomeInvalid) {
       this.props.onDataChange(undefined);
+    } else if (isStateChanged && remainValid) {
+      this.props.onDataChange(this.state);
     }
   }
 
