@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView } from 'react-navigation';
 import {
+  ThemeProvider,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -14,6 +15,7 @@ import {
   LayoutIcon,
   StarIconOutline,
 } from '@src/assets/icons';
+import { themes } from '@src/core/themes';
 
 interface ComponentProps {
   selectedIndex: number;
@@ -33,23 +35,25 @@ class MenuComponent extends React.Component<Props> {
 
     return (
       <SafeAreaView style={themedStyle.safeAreaContainer}>
-        <BottomNavigation
-          appearance='noIndicator'
-          selectedIndex={selectedIndex}
-          onSelect={this.onTabSelect}>
-          <BottomNavigationTab
-            title='Layouts'
-            icon={LayoutIcon}
-          />
-          <BottomNavigationTab
-            title='Components'
-            icon={StarIconOutline}
-          />
-          <BottomNavigationTab
-            title='Themes'
-            icon={ColorPaletteIcon}
-          />
-        </BottomNavigation>
+        <ThemeProvider theme={{...this.props.theme, ...themes['App Theme']}}>
+          <BottomNavigation
+            appearance='noIndicator'
+            selectedIndex={selectedIndex}
+            onSelect={this.onTabSelect}>
+            <BottomNavigationTab
+              title='Layouts'
+              icon={LayoutIcon}
+            />
+            <BottomNavigationTab
+              title='Components'
+              icon={StarIconOutline}
+            />
+            <BottomNavigationTab
+              title='Themes'
+              icon={ColorPaletteIcon}
+            />
+          </BottomNavigation>
+        </ThemeProvider>
       </SafeAreaView>
     );
   }

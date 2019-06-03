@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ThemedComponentProps,
+  ThemeProvider,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
@@ -17,6 +18,7 @@ import {
 import { LayoutGridList } from '../layoutGridList';
 import { LayoutList } from '../layoutList';
 import { LayoutMenuItemData } from './type';
+import { themes } from '@src/core/themes';
 
 // @ts-ignore (override `children` prop)
 interface ComponentProps extends TabViewProps {
@@ -40,24 +42,26 @@ class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
     const { themedStyle, data, ...restProps } = this.props;
 
     return (
-      <TabView {...restProps}>
-        <Tab icon={GridIcon}>
-          <LayoutGridList
-            style={themedStyle.listContainer}
-            contentContainerStyle={themedStyle.listContentContainer}
-            data={data}
-            onItemPress={this.onItemPress}
-          />
-        </Tab>
-        <Tab icon={ListIconFill}>
-          <LayoutList
-            style={themedStyle.listContainer}
-            contentContainerStyle={themedStyle.listContentContainer}
-            data={data}
-            onItemPress={this.onItemPress}
-          />
-        </Tab>
-      </TabView>
+      <ThemeProvider theme={{ ...this.props.theme, ...themes['App Theme'] }}>
+        <TabView {...restProps}>
+          <Tab icon={GridIcon}>
+            <LayoutGridList
+              style={themedStyle.listContainer}
+              contentContainerStyle={themedStyle.listContentContainer}
+              data={data}
+              onItemPress={this.onItemPress}
+            />
+          </Tab>
+          <Tab icon={ListIconFill}>
+            <LayoutList
+              style={themedStyle.listContainer}
+              contentContainerStyle={themedStyle.listContentContainer}
+              data={data}
+              onItemPress={this.onItemPress}
+            />
+          </Tab>
+        </TabView>
+      </ThemeProvider>
     );
   }
 }

@@ -17,7 +17,7 @@ export {
 
 export const MenuIconAuth = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-auth.png'),
+    imageSource: require('./icon-auth-light.png'),
   };
 
   return Icon(source, style);
@@ -33,7 +33,7 @@ export const MenuIconAuthDark = (style: StyleProp<ImageStyle>): IconElement => {
 
 export const MenuIconSocial = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-social.png'),
+    imageSource: require('./icon-social-light.png'),
   };
 
   return Icon(source, style);
@@ -49,7 +49,7 @@ export const MenuIconSocialDark = (style: StyleProp<ImageStyle>): IconElement =>
 
 export const MenuIconArticles = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-articles.png'),
+    imageSource: require('./icon-articles-light.png'),
   };
 
   return Icon(source, style);
@@ -65,7 +65,7 @@ export const MenuIconArticlesDark = (style: StyleProp<ImageStyle>): IconElement 
 
 export const MenuIconMessaging = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-messaging.png'),
+    imageSource: require('./icon-messaging-light.png'),
   };
 
   return Icon(source, style);
@@ -81,7 +81,7 @@ export const MenuIconMessagingDark = (style: StyleProp<ImageStyle>): IconElement
 
 export const MenuIconDashboards = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-dashboards.png'),
+    imageSource: require('./icon-dashboards-light.png'),
   };
 
   return Icon(source, style);
@@ -97,7 +97,7 @@ export const MenuIconDashboardsDark = (style: StyleProp<ImageStyle>): IconElemen
 
 export const MenuIconWalkthrough = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-walkthrough.png'),
+    imageSource: require('./icon-walkthrough-light.png'),
   };
 
   return Icon(source, style);
@@ -113,7 +113,7 @@ export const MenuIconWalkthroughDark = (style: StyleProp<ImageStyle>): IconEleme
 
 export const MenuIconEcommerce = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-ecommerce.png'),
+    imageSource: require('./icon-ecommerce-light.png'),
   };
 
   return Icon(source, style);
@@ -129,7 +129,7 @@ export const MenuIconEcommerceDark = (style: StyleProp<ImageStyle>): IconElement
 
 export const MenuIconNavigation = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-navigation.png'),
+    imageSource: require('./icon-navigation-light.png'),
   };
 
   return Icon(source, style);
@@ -145,7 +145,7 @@ export const MenuIconNavigationDark = (style: StyleProp<ImageStyle>): IconElemen
 
 export const ComponentsIconAvatar = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-avatar.png'),
+    imageSource: require('./icon-avatar-light.png'),
   };
 
   return Icon(source, style);
@@ -161,7 +161,7 @@ export const ComponentsIconAvatarDark = (style: StyleProp<ImageStyle>): IconElem
 
 export const ComponentsIconButton = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-button.png'),
+    imageSource: require('./icon-button-light.png'),
   };
 
   return Icon(source, style);
@@ -177,7 +177,7 @@ export const ComponentsIconButtonDark = (style: StyleProp<ImageStyle>): IconElem
 
 export const ComponentsIconButtonGroup = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-button-group.png'),
+    imageSource: require('./icon-button-group-light.png'),
   };
 
   return Icon(source, style);
@@ -193,7 +193,7 @@ export const ComponentsIconButtonGroupDark = (style: StyleProp<ImageStyle>): Ico
 
 export const ComponentsIconCheckBox = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-checkbox.png'),
+    imageSource: require('./icon-checkbox-light.png'),
   };
 
   return Icon(source, style);
@@ -209,7 +209,7 @@ export const ComponentsIconCheckBoxDark = (style: StyleProp<ImageStyle>): IconEl
 
 export const ComponentsIconInput = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-input.png'),
+    imageSource: require('./icon-input-light.png'),
   };
 
   return Icon(source, style);
@@ -225,7 +225,7 @@ export const ComponentsIconInputDark = (style: StyleProp<ImageStyle>): IconEleme
 
 export const ComponentsIconList = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-list.png'),
+    imageSource: require('./icon-list-light.png'),
   };
 
   return Icon(source, style);
@@ -241,7 +241,7 @@ export const ComponentsIconListDark = (style: StyleProp<ImageStyle>): IconElemen
 
 export const ComponentsIconOverflowMenu = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-overflow-menu.png'),
+    imageSource: require('./icon-overflow-menu-light.png'),
   };
 
   return Icon(source, style);
@@ -257,7 +257,7 @@ export const ComponentsIconOverflowMenuDark = (style: StyleProp<ImageStyle>): Ic
 
 export const ComponentsIconPopover = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-popover.png'),
+    imageSource: require('./icon-popover-light.png'),
   };
 
   return Icon(source, style);
@@ -273,7 +273,7 @@ export const ComponentsIconPopoverDark = (style: StyleProp<ImageStyle>): IconEle
 
 export const ComponentsIconRadio = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-radio.png'),
+    imageSource: require('./icon-radio-light.png'),
   };
 
   return Icon(source, style);
@@ -289,7 +289,7 @@ export const ComponentsIconRadioDark = (style: StyleProp<ImageStyle>): IconEleme
 
 export const ComponentsIconTabView = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-tab-view.png'),
+    imageSource: require('./icon-tab-view-light.png'),
   };
 
   return Icon(source, style);
@@ -305,7 +305,7 @@ export const ComponentsIconTabViewDark = (style: StyleProp<ImageStyle>): IconEle
 
 export const ComponentsIconText = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-text.png'),
+    imageSource: require('./icon-text-light.png'),
   };
 
   return Icon(source, style);
@@ -321,7 +321,7 @@ export const ComponentsIconTextDark = (style: StyleProp<ImageStyle>): IconElemen
 
 export const ComponentsIconToggle = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-toggle.png'),
+    imageSource: require('./icon-toggle-light.png'),
   };
 
   return Icon(source, style);
@@ -337,7 +337,7 @@ export const ComponentsIconToggleDark = (style: StyleProp<ImageStyle>): IconElem
 
 export const ComponentsIconTooltip = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-tooltip.png'),
+    imageSource: require('./icon-tooltip-light.png'),
   };
 
   return Icon(source, style);
@@ -353,7 +353,7 @@ export const ComponentsIconTooltipDark = (style: StyleProp<ImageStyle>): IconEle
 
 export const ComponentsIconTopNavigation = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-top-navigation.png'),
+    imageSource: require('./icon-top-navigation-light.png'),
   };
 
   return Icon(source, style);
@@ -369,7 +369,7 @@ export const ComponentsIconTopNavigationDark = (style: StyleProp<ImageStyle>): I
 
 export const ComponentsIconBottomNavigation = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
-    imageSource: require('./icon-bottom-navigation.png'),
+    imageSource: require('./icon-bottom-navigation-light.png'),
   };
 
   return Icon(source, style);

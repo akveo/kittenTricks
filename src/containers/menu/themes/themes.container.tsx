@@ -3,20 +3,31 @@ import { Themes } from './themes.component';
 import {
   ContextType,
   ThemeContext,
+  ThemeKey,
   themes,
 } from '@src/core/themes';
 import { Theme } from './type';
 
 export class ThemesContainer extends React.Component {
 
+  private EXCLUDE_THEMES: ThemeKey[] = [
+    'App Theme',
+  ];
+
   private data: Theme[] = [];
 
   constructor(props) {
     super(props);
-    this.data = Object.keys(themes).map(this.toThemeObject);
+    this.data = Object.keys(themes)
+                      .filter(this.shouldIncludeTheme)
+                      .map(this.toThemeObject);
   }
 
-  private toThemeObject = (theme: string): Theme => {
+  private shouldIncludeTheme = (themeKey: ThemeKey): boolean => {
+    return !this.EXCLUDE_THEMES.includes(themeKey);
+  };
+
+  private toThemeObject = (theme: ThemeKey): Theme => {
     return { name: theme, theme: themes[theme] };
   };
 
