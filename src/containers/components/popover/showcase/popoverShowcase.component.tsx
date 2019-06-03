@@ -10,6 +10,7 @@ import {
   PopoverContentProps,
 } from './popoverContent.component';
 import { StyleSheet } from 'react-native';
+import { profile1 } from '@src/core/data/profile';
 
 interface PopoverShowcaseComponentState {
   visible: boolean;
@@ -39,34 +40,41 @@ export class PopoverShowcase extends React.Component<any, PopoverShowcaseCompone
     this.setState({ visible: true });
   };
 
-  private tipDescription = (): string => {
-    const { placement } = this.props;
+  private getButtonTitle = (placement: string): string => {
+    const placementArray: string[] = placement.split(' ');
 
-    const rawValue: string = placement.toString();
-    const tipValue: string = rawValue.replace(' ', '_').toUpperCase();
-
-    return `Use 'PopoverPositions.${tipValue}' instead of '${rawValue}'`;
+    if (placementArray.length > 1) {
+      return placementArray[1].toUpperCase();
+    } else {
+      return 'CENTER';
+    }
   };
 
   private renderContentElement = (): ContentElement => {
     return (
       <PopoverContent
         style={styles.content}
-        title='PRO TIP'
-        description={this.tipDescription()}
-        onGotItPress={this.onPopoverContentButtonPress}
+        profile={profile1}
+        onFollowPress={this.onPopoverContentButtonPress}
       />
     );
   };
 
   public render(): React.ReactElement<CheckBoxProps> {
+    const { placement } = this.props;
+    const title: string = this.getButtonTitle(placement);
+
     return (
       <Popover
         {...this.props}
         visible={this.state.visible}
         content={this.renderContentElement()}
         onRequestClose={this.onRequestClose}>
-        <Button onPress={this.onButtonPress}>BUTTON</Button>
+        <Button
+          style={styles.button}
+          onPress={this.onButtonPress}>
+          {title}
+        </Button>
       </Popover>
     );
   }
@@ -75,5 +83,8 @@ export class PopoverShowcase extends React.Component<any, PopoverShowcaseCompone
 const styles = StyleSheet.create({
   content: {
     width: 228,
+  },
+  button: {
+    width: 106,
   },
 });

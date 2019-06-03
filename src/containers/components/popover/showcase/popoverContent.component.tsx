@@ -11,45 +11,61 @@ import {
 import {
   Button,
   Text,
+  Avatar,
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
+import { Profile } from '@src/core/model';
 
 interface ComponentProps {
-  title: string;
-  description: string;
-  onGotItPress: () => void;
+  profile: Profile;
+  onFollowPress: () => void;
 }
 
 export type PopoverContentProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 class PopoverContentComponent extends React.Component<PopoverContentProps> {
 
-  private onGotItPress = () => {
-    this.props.onGotItPress();
+  private onFollowPress = () => {
+    this.props.onFollowPress();
   };
 
   public render(): React.ReactNode {
-    const { style, themedStyle, title, description, ...restProps } = this.props;
+    const {
+      style,
+      themedStyle,
+      profile,
+      ...restProps
+    } = this.props;
+    const name: string = `${profile.firstName} ${profile.lastName}`;
 
     return (
       <View
         style={[themedStyle.container, style]}
         {...restProps}>
-        <Text
-          style={themedStyle.popoverContentTitle}
-          category='h6'>
-          {title}
-        </Text>
-        <Text
-          style={themedStyle.popoverContentDescription}
-          category='s1'>
-          {description}
-        </Text>
+        <View style={themedStyle.topContainer}>
+          <Avatar
+            style={themedStyle.avatar}
+            source={profile.photo.imageSource}
+          />
+          <View>
+            <Text
+              category='s2'
+              style={themedStyle.nameLabel}>
+              {name}
+            </Text>
+            <Text
+              appearance='hint'
+              category='c1'>
+              {profile.location}
+            </Text>
+          </View>
+        </View>
         <Button
           style={themedStyle.button}
-          status='success'
-          onPress={this.onGotItPress}>
-          GOT IT
+          appearance='outline'
+          size='tiny'
+          onPress={this.onFollowPress}>
+          FOLLOW
         </Button>
       </View>
     );
@@ -58,18 +74,21 @@ class PopoverContentComponent extends React.Component<PopoverContentProps> {
 
 export const PopoverContent = withStyles(PopoverContentComponent, (theme: ThemeType) => ({
   container: {
-    paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
   },
-  title: {
-    marginVertical: 4,
-    ...textStyle.headline,
+  topContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 14,
   },
-  description: {
-    marginVertical: 4,
+  nameLabel: {
     ...textStyle.subtitle,
   },
   button: {
-    marginVertical: 8,
+    alignSelf: 'center',
+  },
+  avatar: {
+    marginRight: 12,
   },
 }));
