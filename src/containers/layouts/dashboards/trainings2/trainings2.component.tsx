@@ -67,6 +67,6 @@ export const Trainings2 = withStyles(Trainings2Component, (theme: ThemeType) => 
   },
   item: {
     marginVertical: 8,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));

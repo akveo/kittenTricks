@@ -89,7 +89,7 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   rightSection: {
     padding: 16,
     justifyContent: 'space-between',
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   leftSection: {
     padding: 16,
@@ -110,6 +110,6 @@ export const TrainingCard2 = withStyles(TrainingCardComponent, (theme: ThemeType
   detailsIcon: {
     width: 22,
     height: 22,
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
   },
 }));

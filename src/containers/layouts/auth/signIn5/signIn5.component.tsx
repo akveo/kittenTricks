@@ -190,7 +190,7 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
     backgroundColor: 'transparent',
   },
   tabViewIndicator: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   tabTitle: {
     color: 'white',

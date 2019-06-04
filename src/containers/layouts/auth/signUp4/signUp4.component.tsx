@@ -171,8 +171,8 @@ export const SignUp4 = withStyles(SignUp4Component, (theme: ThemeType) => ({
     height: 92,
     borderRadius: 46,
     alignSelf: 'center',
-    backgroundColor: theme['background-color-default-1'],
-    tintColor: theme['text-color-hint'],
+    backgroundColor: theme['background-basic-color-1'],
+    tintColor: theme['text-hint-color'],
   },
   photoButton: {
     width: 32,

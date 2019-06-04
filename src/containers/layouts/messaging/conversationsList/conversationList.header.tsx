@@ -71,7 +71,7 @@ class ConversationListHeaderComponent extends React.Component<ConversationListHe
 
 export const ConversationListHeader = withStyles(ConversationListHeaderComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));
 

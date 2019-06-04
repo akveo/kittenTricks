@@ -71,13 +71,13 @@ class Article1Component extends React.Component<Article1Props> {
 export const Article1 = withStyles(Article1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   activityContainer: {
     paddingHorizontal: 16,
     paddingVertical: 16,
     borderTopWidth: 1,
-    borderTopColor: theme['border-color-default-2'],
+    borderTopColor: theme['border-basic-color-2'],
   },
   contentLabel: {
     marginHorizontal: 24,

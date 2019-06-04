@@ -44,6 +44,6 @@ class EcommerceComponent extends React.Component<EcommerceProps> {
 export const Ecommerce = withStyles(EcommerceComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
 }));

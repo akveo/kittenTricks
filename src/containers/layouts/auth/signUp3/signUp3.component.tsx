@@ -147,8 +147,8 @@ export const SignUp3 = withStyles(SignUp3Component, (theme: ThemeType) => ({
     height: 116,
     borderRadius: 58,
     alignSelf: 'center',
-    backgroundColor: theme['background-color-default-1'],
-    tintColor: theme['text-color-hint'],
+    backgroundColor: theme['background-basic-color-1'],
+    tintColor: theme['text-hint-color'],
   },
   photoButton: {
     width: 40,

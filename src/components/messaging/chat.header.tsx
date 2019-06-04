@@ -102,7 +102,7 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
 
 export const ChatHeader = withStyles(ChatHeaderComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));
 

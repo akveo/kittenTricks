@@ -142,7 +142,7 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   chatContainer: {
     paddingHorizontal: 16,
@@ -156,7 +156,7 @@ export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   addMessageButton: {
     width: 26,

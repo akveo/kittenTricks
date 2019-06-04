@@ -99,7 +99,7 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => {
   return ({
     container: {
       flex: 1,
-      backgroundColor: theme['background-color-default-1'],
+      backgroundColor: theme['background-basic-color-1'],
     },
     headerContainer: {
       justifyContent: 'center',
@@ -128,7 +128,7 @@ export const SignIn2 = withStyles(SignIn2Component, (theme: ThemeType) => {
       marginVertical: 12,
     },
     signUpText: {
-      color: theme['text-color-hint'],
+      color: theme['text-hint-color'],
       ...textStyle.subtitle,
     },
   });

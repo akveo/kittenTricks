@@ -160,7 +160,7 @@ export const SignUpForm2 = withStyles(SignUpForm2Component, (theme: ThemeType) =
     marginTop: 24,
   },
   termsCheckBoxText: {
-    color: theme['text-color-hint'],
+    color: theme['text-hint-color'],
     ...textStyle.subtitle,
   },
 }));

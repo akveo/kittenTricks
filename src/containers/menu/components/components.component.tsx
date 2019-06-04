@@ -41,7 +41,7 @@ class ComponentsComponent extends React.Component<Props> {
 export const Components = withStyles(ComponentsComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   contentContainer: {
     paddingHorizontal: 16,

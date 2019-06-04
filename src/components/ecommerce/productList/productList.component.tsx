@@ -84,6 +84,6 @@ export const ProductList = withStyles(ProductListComponent, (theme: ThemeType) =
     flex: 1,
     marginHorizontal: 8,
     marginVertical: 8,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));

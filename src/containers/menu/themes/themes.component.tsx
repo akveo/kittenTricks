@@ -67,7 +67,7 @@ export const Themes = withStyles(ThemesComponent, (theme: ThemeType) => ({
   contentContainer: {
     paddingVertical: 12,
     paddingHorizontal: 24,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   item: {
     marginVertical: 8,

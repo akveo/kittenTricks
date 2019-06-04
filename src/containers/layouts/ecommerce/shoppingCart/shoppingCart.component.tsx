@@ -118,7 +118,7 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
 
 export const ShoppingCart = withStyles(ShoppingCartComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   contentContainer: {
     flex: 1,
@@ -126,11 +126,11 @@ export const ShoppingCart = withStyles(ShoppingCartComponent, (theme: ThemeType)
   },
   productsList: {
     // borderTopWidth: 1,
-    // borderTopColor: theme['border-color-default-2'],
+    // borderTopColor: theme['border-basic-color-2'],
   },
   item: {
     marginVertical: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   totalCostContainer: {
     flexDirection: 'row',
@@ -139,7 +139,7 @@ export const ShoppingCart = withStyles(ShoppingCartComponent, (theme: ThemeType)
     paddingVertical: 24,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   totalCostLabel: textStyle.headline,
   totalPriceLabel: {

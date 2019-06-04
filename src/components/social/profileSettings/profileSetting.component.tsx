@@ -58,7 +58,7 @@ export const ProfileSetting = withStyles(ProfileSettingComponent, (theme: ThemeT
   },
   hintLabel: textStyle.caption2,
   valueLabel: {
-    color: theme['text-color-default'],
+    color: theme['text-basic-color'],
     ...textStyle.caption2,
   },
 }));

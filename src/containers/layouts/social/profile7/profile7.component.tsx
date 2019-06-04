@@ -166,7 +166,7 @@ class Profile7Component extends React.Component<Profile7Props> {
 export const Profile7 = withStyles(Profile7Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   profileInfoContainer: {
     paddingHorizontal: 24,

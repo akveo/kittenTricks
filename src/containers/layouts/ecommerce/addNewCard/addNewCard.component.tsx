@@ -61,7 +61,7 @@ class AddNewCardComponent extends React.Component<AddNewCardProps, State> {
 export const AddNewCard = withStyles(AddNewCardComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
     paddingHorizontal: 16,
   },
   formContainer: {

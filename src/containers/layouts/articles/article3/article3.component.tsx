@@ -123,7 +123,7 @@ class Article3Component extends React.Component<Article3Props> {
 
 export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   image: {
     minHeight: 240,
@@ -134,7 +134,7 @@ export const Article3 = withStyles(Article3Component, (theme: ThemeType) => ({
     bottom: -32,
     margin: 0,
     borderWidth: 2,
-    borderColor: theme['border-color-default-2'],
+    borderColor: theme['border-basic-color-2'],
   },
   titleLabel: {
     marginHorizontal: 24,

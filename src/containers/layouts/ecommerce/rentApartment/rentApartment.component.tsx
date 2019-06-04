@@ -132,7 +132,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
 
 export const RentApartment = withStyles(RentApartmentComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   backgroundImage: {
     flex: 1,
@@ -142,13 +142,13 @@ export const RentApartment = withStyles(RentApartmentComponent, (theme: ThemeTyp
     marginTop: -80,
     marginHorizontal: 16,
     borderRadius: 12,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   detailsContainer: {
     paddingHorizontal: 24,
     paddingVertical: 24,
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   bookContainer: {
     flexDirection: 'row',

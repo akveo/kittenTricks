@@ -86,10 +86,10 @@ class ConversationsListComponent extends React.Component<ConversationsListProps>
 export const ConversationsList = withStyles(ConversationsListComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   item: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
     marginVertical: 0.5,
   },
   input: {
