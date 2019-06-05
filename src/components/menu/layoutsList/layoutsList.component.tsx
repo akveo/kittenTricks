@@ -1,5 +1,8 @@
 import React from 'react';
-import { ListRenderItemInfo } from 'react-native';
+import {
+  Dimensions,
+  ListRenderItemInfo,
+} from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -14,6 +17,9 @@ import {
   LayoutsListItemProps,
 } from './layoutsListItem.component';
 import { LayoutsListItemData } from './type';
+
+const { width } = Dimensions.get('window');
+const itemWidth: number = width / 2 - 32;
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
@@ -62,6 +68,7 @@ export const LayoutsList = withStyles(LayoutsListComponent, (theme: ThemeType) =
   item: {
     flex: 1,
     height: 160,
+    maxWidth: itemWidth,
     marginHorizontal: 8,
     marginVertical: 8,
   },

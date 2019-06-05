@@ -28,6 +28,10 @@ export const AccessoryList = (): ListElement => {
     ].join(' '),
   });
 
+  const renderAccessory = (): React.ReactElement<any> => {
+    return BottomEndTooltip({ indicatorOffset: 12 });
+  };
+
   const renderItem = (info: ListRenderItemInfo<ListItemModel>): ListItemElement => {
     const { title, description } = info.item;
 
@@ -36,7 +40,7 @@ export const AccessoryList = (): ListElement => {
         title={title}
         description={description}
         icon={StarIconFill}
-        accessory={BottomEndTooltip}
+        accessory={renderAccessory}
       />
     );
   };

@@ -1,5 +1,8 @@
 import React from 'react';
-import { ListRenderItemInfo } from 'react-native';
+import {
+  Dimensions,
+  ListRenderItemInfo,
+} from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -14,6 +17,9 @@ import {
   LayoutGridListItemProps,
 } from './layoutGridListItem.component';
 import { LayoutGridListItemData } from './type';
+
+const { width } = Dimensions.get('window');
+const itemWidth: number = width / 2 - 32;
 
 // @ts-ignore (override `renderItem` prop)
 interface ComponentProps extends ListProps {
@@ -57,6 +63,7 @@ class LayoutGridListComponent extends React.Component<LayoutGridListProps> {
 export const LayoutGridList = withStyles(LayoutGridListComponent, (theme: ThemeType) => ({
   item: {
     flex: 1,
+    maxWidth: itemWidth,
     marginVertical: 8,
     marginHorizontal: 8,
   },
