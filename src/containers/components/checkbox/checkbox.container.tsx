@@ -15,7 +15,6 @@ import {
   UncheckedCheckBox,
   UncheckedDisabledCheckBox,
   WarningCheckBox,
-  WhiteCheckBox,
 } from './showcase';
 
 export class CheckBoxContainer extends React.Component<NavigationScreenProps> {
@@ -60,9 +59,6 @@ export class CheckBoxContainer extends React.Component<NavigationScreenProps> {
           </ShowcaseItem>
           <ShowcaseItem title='Danger'>
             <DangerCheckBox/>
-          </ShowcaseItem>
-          <ShowcaseItem title='White'>
-            <WhiteCheckBox/>
           </ShowcaseItem>
         </ShowcaseSection>
       </Showcase>

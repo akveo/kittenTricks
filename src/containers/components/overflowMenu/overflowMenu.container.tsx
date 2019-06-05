@@ -76,7 +76,9 @@ class OverflowMenuContainerComponent extends React.Component<ComponentProps> {
 }
 
 export const OverflowMenuContainer = withStyles(OverflowMenuContainerComponent, (theme: ThemeType) => ({
-  container: {},
+  container: {
+    backgroundColor: theme['background-basic-color-2'],
+  },
   bottomItem: {
     justifyContent: 'flex-start',
   },
