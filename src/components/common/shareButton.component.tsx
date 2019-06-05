@@ -11,7 +11,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
-import { ShareIcon } from '@src/assets/icons';
+import { ShareIconOutline } from '@src/assets/icons';
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
@@ -29,7 +29,7 @@ class ShareButtonComponent extends React.Component<ShareButtonProps> {
       <TouchableOpacity
         style={[themedStyle.container, style]}
         {...restProps}>
-        {ShareIcon(themedStyle.icon)}
+        {ShareIconOutline(themedStyle.icon)}
         <Text
           style={[themedStyle.valueLabel, textStyle]}
           category='p2'>

@@ -9,7 +9,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { PlayCircleIcon } from '@src/assets/icons';
+import { PlayCircleIconFill } from '@src/assets/icons';
 import { Message } from '@src/core/model';
 import { ChatFileMessageAppearance } from './type';
 
@@ -41,7 +41,7 @@ class VideoMessageComponent extends React.Component<VideoMessageProps> {
         source={message.file.preview.imageSource}
         style={style}
         imageStyle={imageStyle}>
-        {PlayCircleIcon(iconStyle)}
+        {PlayCircleIconFill(iconStyle)}
       </ImageBackground>
     );
   }

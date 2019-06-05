@@ -12,7 +12,7 @@ import {
   TabViewProps,
 } from '@kitten/ui';
 import {
-  GridIcon,
+  GridIconOutline,
   ListIconFill,
 } from '@src/assets/icons';
 import { LayoutGridList } from '../layoutGridList';
@@ -44,7 +44,7 @@ class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
     return (
       <ThemeProvider theme={{ ...this.props.theme, ...themes['App Theme'] }}>
         <TabView {...restProps}>
-          <Tab icon={GridIcon}>
+          <Tab icon={GridIconOutline}>
             <LayoutGridList
               style={themedStyle.listContainer}
               contentContainerStyle={themedStyle.listContentContainer}

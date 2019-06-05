@@ -13,7 +13,7 @@ import {
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
 import { PaymentCard as PaymentCardModel } from '@src/core/model';
-import { MoreVerticalIcon } from '@src/assets/icons';
+import { MoreVerticalIconFill } from '@src/assets/icons';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
@@ -31,7 +31,7 @@ class PaymentCardComponent extends React.Component<PaymentCardProps> {
   };
 
   private renderDetailsIcon = (): React.ReactElement<ImageProps> => {
-    return MoreVerticalIcon(this.props.themedStyle.moreIcon);
+    return MoreVerticalIconFill(this.props.themedStyle.moreIcon);
   };
 
   public render(): React.ReactNode {

@@ -19,7 +19,7 @@ import {
   PaymentCard,
   PaymentCardProps,
 } from '@src/components/ecommerce';
-import { CreditCardIcon } from '@src/assets/icons';
+import { CreditCardIconFill } from '@src/assets/icons';
 
 
 interface ComponentProps {
@@ -74,7 +74,7 @@ class PaymentComponent extends React.Component<PaymentProps> {
             style={themedStyle.addCardContainer}
             activeOpacity={0.9}
             onPress={this.onAddCard}>
-            {CreditCardIcon(themedStyle.addCardIcon)}
+            {CreditCardIconFill(themedStyle.addCardIcon)}
             <Text
               style={themedStyle.addCardLabel}
               appearance='hint'

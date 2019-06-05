@@ -5,7 +5,7 @@ import {
   OverflowMenuProps,
   OverflowMenuItemType,
 } from '@kitten/ui';
-import { StarIcon } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/icons';
 import { StyleSheet } from 'react-native';
 
 interface OverflowMenuShowcaseComponentState {
@@ -23,11 +23,11 @@ export class OverflowMenuShowcase extends React.Component<any, OverflowMenuShowc
     },
     {
       text: 'Icon Menu Item',
-      icon: StarIcon,
+      icon: StarIconFill,
     },
     {
       text: 'Disabled Menu Item',
-      icon: StarIcon,
+      icon: StarIconFill,
       disabled: true,
     },
   ];

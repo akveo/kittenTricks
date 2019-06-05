@@ -18,7 +18,7 @@ import {
   ListItemProps,
   Text,
 } from '@kitten/ui';
-import { MoreIcon } from '@src/assets/icons';
+import { MoreHorizontalIconFill } from '@src/assets/icons';
 import { Comment } from '@src/core/model';
 
 interface ComponentProps {
@@ -37,7 +37,7 @@ class CommentList2ItemComponent extends React.Component<CommentList2ItemProps> {
   private renderMoreIcon = (): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return MoreIcon(themedStyle.moreIcon);
+    return MoreHorizontalIconFill(themedStyle.moreIcon);
   };
 
   public render(): React.ReactNode {
