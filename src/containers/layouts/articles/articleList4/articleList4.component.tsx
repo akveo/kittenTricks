@@ -116,7 +116,6 @@ export const ArticleList4 = withStyles(ArticleList4Component, (theme: ThemeType)
     flexDirection: 'row-reverse',
   },
   readButton: {
-    height: 40,
     width: 200,
     marginTop: 32,
   },

@@ -75,7 +75,10 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
   chips: {
     width: 80,
   },
-  chipsText: textStyle.caption2,
+  chipsText: {
+    color: 'white',
+    ...textStyle.caption2,
+  },
 }));
 
 

@@ -18,8 +18,8 @@ import {
 } from '@src/components/auth';
 import { ProfilePhoto } from '@src/components/social';
 import {
-  ScrollableAvoidKeyboard,
   ImageOverlay,
+  ScrollableAvoidKeyboard,
   textStyle,
 } from '@src/components/common';
 import {

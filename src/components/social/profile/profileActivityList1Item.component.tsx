@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
@@ -9,10 +10,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import {
-  ActivityAuthoring,
-  ImageOverlay,
-} from '@src/components/common';
+import { ActivityAuthoring } from '@src/components/common';
 import { ProfileActivityBar } from './profileActivityBar.component';
 
 interface ListDerivedProps {
@@ -61,7 +59,7 @@ class ProfileActivityList1ItemComponent extends React.Component<ProfileActivityL
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.photo}
           source={photo}
         />

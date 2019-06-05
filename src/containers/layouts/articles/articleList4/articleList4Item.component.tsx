@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
@@ -12,10 +13,7 @@ import {
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
-import {
-  ImageOverlay,
-  textStyle,
-} from '@src/components/common';
+import { textStyle } from '@src/components/common';
 
 interface ListDerivedProps {
   index?: number;
@@ -57,7 +55,7 @@ class ArticleList4ItemComponent extends React.Component<ArticleList4ItemProps> {
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.photo}
           source={photo}
         />

@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   ImageProps,
   View,
 } from 'react-native';
@@ -20,7 +21,6 @@ import {
 } from '@src/components/auth';
 import {
   ScrollableAvoidKeyboard,
-  ImageOverlay,
   textStyle,
 } from '@src/components/common';
 import {
@@ -100,7 +100,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
 
     return (
       <ScrollableAvoidKeyboard>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.container}
           source={this.backgroundImage.imageSource}>
           <Button
@@ -150,7 +150,7 @@ class SignIn1Component extends React.Component<SignIn1Props, State> {
             onFacebookPress={this.onFacebookButtonPress}
             onTwitterPress={this.onTwitterButtonPress}
           />
-        </ImageOverlay>
+        </ImageBackground>
       </ScrollableAvoidKeyboard>
     );
   }

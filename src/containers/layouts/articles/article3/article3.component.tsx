@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   ScrollView,
   View,
 } from 'react-native';
@@ -13,10 +14,7 @@ import {
   Text,
 } from '@kitten/ui';
 import { CommentsList1 } from '@src/components/articles';
-import {
-  ImageOverlay,
-  textStyle,
-} from '@src/components/common';
+import { textStyle } from '@src/components/common';
 import {
   Article,
   Comment,
@@ -72,10 +70,10 @@ class Article3Component extends React.Component<Article3Props> {
           category='s1'>
           {article.description}
         </Text>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.image}
-          source={article.image.imageSource}>
-        </ImageOverlay>
+          source={article.image.imageSource}
+        />
         <Text
           style={themedStyle.contentLabel}
           category='s1'>

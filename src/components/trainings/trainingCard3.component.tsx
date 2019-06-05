@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   ImageProps,
+  ImageBackground,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -19,10 +20,7 @@ import {
   FlashIcon,
 } from '@src/assets/icons';
 import { Exercise } from '@src/core/model';
-import {
-  ImageOverlay,
-  textStyle,
-} from '@src/components/common';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   training: Exercise;
@@ -68,7 +66,7 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
         activeOpacity={0.95}
         onPress={this.onDetails}
         style={style}>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.image}
           source={training.image.imageSource}
         />
