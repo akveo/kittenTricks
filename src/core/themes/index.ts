@@ -21,7 +21,7 @@ export const themes: ThemeRegistry = {
 
 export {
   ThemeContext,
-  ContextType,
+  ThemeContextType,
 } from './themeContext';
 
 export { ThemeStore } from './theme.store';
