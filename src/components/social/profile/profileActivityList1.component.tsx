@@ -80,6 +80,6 @@ class ProfileActivityList1Component extends React.Component<ProfileActivityList1
 export const ProfileActivityList1 = withStyles(ProfileActivityList1Component, (theme: ThemeType) => ({
   item: {
     marginVertical: 8,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));

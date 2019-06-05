@@ -122,11 +122,11 @@ class Profile4Component extends React.Component<Profile4Props> {
 export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   infoContainer: {
     paddingHorizontal: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   parameterContainer: {
     flexDirection: 'row',
@@ -152,6 +152,6 @@ export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
   profileParameter: {
     flex: 1,
     marginHorizontal: 12,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));

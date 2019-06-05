@@ -120,22 +120,22 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
 export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   photoSection: {
     marginVertical: 40,
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   contactSection: {
     marginTop: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   profileSetting: {
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   photo: {
     width: 124,
@@ -147,8 +147,8 @@ export const ProfileSettings1 = withStyles(ProfileSettings1Component, (theme: Th
     height: 48,
     borderRadius: 24,
     transform: [{ translateY: 82 }],
-    borderColor: theme['border-color-default-4'],
-    backgroundColor: theme['background-color-default-4'],
+    borderColor: theme['border-basic-color-4'],
+    backgroundColor: theme['background-basic-color-4'],
   },
   button: {
     marginHorizontal: 24,

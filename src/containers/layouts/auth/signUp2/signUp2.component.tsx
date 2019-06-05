@@ -117,7 +117,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
 export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: ['background-color-default-1'],
+    backgroundColor: ['background-basic-color-1'],
   },
   headerContainer: {
     justifyContent: 'center',
@@ -135,7 +135,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     height: 116,
     borderRadius: 58,
     alignSelf: 'center',
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
     tintColor: theme['color-primary-default'],
   },
   photoButton: {
@@ -143,8 +143,8 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     height: 40,
     borderRadius: 20,
     transform: [{ translateY: 80 }],
-    borderColor: theme['border-color-default-2'],
-    backgroundColor: theme['background-color-default-2'],
+    borderColor: theme['border-basic-color-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   photoButtonIcon: {
     width: 24,
@@ -158,7 +158,7 @@ export const SignUp2 = withStyles(SignUp2Component, (theme: ThemeType) => ({
     marginVertical: 12,
   },
   signInText: {
-    color: theme['text-color-hint'],
+    color: theme['text-hint-color'],
     ...textStyle.subtitle,
   },
 }));

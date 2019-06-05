@@ -153,7 +153,7 @@ class Profile6Component extends React.Component<Profile6Props> {
 export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   profileInfo: {
     paddingHorizontal: 24,
@@ -168,7 +168,7 @@ export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
     marginTop: 24,
     paddingVertical: 16,
     borderTopWidth: 1,
-    borderTopColor: theme['border-color-default-2'],
+    borderTopColor: theme['border-basic-color-2'],
   },
   followButton: {
     flex: 1,
@@ -180,7 +180,7 @@ export const Profile6 = withStyles(Profile6Component, (theme: ThemeType) => ({
   },
   activityContainer: {
     paddingVertical: 16,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   activityList: {
     paddingHorizontal: 16,

@@ -81,7 +81,7 @@ export const ProfileLocation = withStyles(ProfileLocationComponent, (theme: Them
   icon: {
     width: 14,
     height: 14,
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
   },
   text: textStyle.caption2,
 }));

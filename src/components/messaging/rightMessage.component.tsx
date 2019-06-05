@@ -56,7 +56,7 @@ export const RightMessage = withStyles(RigheMessageComponent, (theme: ThemeType)
   },
   triangleRight: {
     transform: [{ rotate: '90deg' }],
-    borderBottomColor: theme['background-color-default-4'],
+    borderBottomColor: theme['background-basic-color-4'],
   },
   cloudContainer: {
     flexDirection: 'row',
@@ -73,7 +73,7 @@ export const RightMessage = withStyles(RigheMessageComponent, (theme: ThemeType)
   },
   cloudRight: {
     left: 3,
-    backgroundColor: theme['background-color-default-4'],
+    backgroundColor: theme['background-basic-color-4'],
     marginLeft: 16,
   },
 }));

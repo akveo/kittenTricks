@@ -100,19 +100,19 @@ export const ThemeCard = withStyles(ThemeCardComponent, (theme: ThemeType) => ({
     marginHorizontal: 2,
   },
   colorItem1: {
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   colorItem2: {
-    backgroundColor: theme['background-color-default-3'],
+    backgroundColor: theme['background-basic-color-3'],
   },
   colorItem3: {
-    backgroundColor: theme['background-color-alternative-2'],
+    backgroundColor: theme['background-alternative-color-2'],
   },
   colorItem4: {
-    backgroundColor: theme['background-color-alternative-1'],
+    backgroundColor: theme['background-alternative-color-1'],
   },
   colorItem5: {
-    backgroundColor: theme['text-color-default'],
+    backgroundColor: theme['text-basic-color'],
   },
   colorItem6: {
     backgroundColor: theme['color-primary-default'],

@@ -95,11 +95,11 @@ export const CommentsList1 = withStyles(CommentList1Component, (theme: ThemeType
   item: {
     paddingHorizontal: 16,
     paddingVertical: 16,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   itemBorder: {
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-3'],
+    borderBottomColor: theme['border-basic-color-3'],
   },
 }));
 

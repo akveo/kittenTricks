@@ -94,13 +94,13 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
 export const Movie = withStyles(MovieDetailsComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   movieHeader: {
     paddingHorizontal: 64,
     paddingVertical: 24,
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   bottomSectionContainer: {
     paddingTop: 24,
@@ -122,7 +122,7 @@ export const Movie = withStyles(MovieDetailsComponent, (theme: ThemeType) => ({
     ...textStyle.subtitle,
   },
   screenshotList: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   screenshotListContent: {
     marginHorizontal: 8,

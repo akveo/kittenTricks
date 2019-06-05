@@ -82,7 +82,9 @@ class PopoverContainerComponent extends React.Component<ComponentProps> {
 }
 
 export const PopoverContainer = withStyles(PopoverContainerComponent, (theme: ThemeType) => ({
-  container: {},
+  container: {
+    backgroundColor: theme['background-basic-color-2'],
+  },
   bottomItem: {
     justifyContent: 'flex-start',
   },

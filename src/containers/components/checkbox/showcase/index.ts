@@ -9,4 +9,3 @@ export { SuccessCheckBox } from './successCheckBox.component';
 export { InfoCheckBox } from './infoCheckBox.component';
 export { WarningCheckBox } from './warningCheckBox.component';
 export { DangerCheckBox } from './dangerCheckBox.component';
-export { WhiteCheckBox } from './whiteCheckBox.component';

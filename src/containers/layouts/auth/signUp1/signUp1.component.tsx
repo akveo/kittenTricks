@@ -173,7 +173,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
 export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   headerContainer: {
     minHeight: 200,
@@ -231,7 +231,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
     ...textStyle.paragraph,
   },
   socialAuthIcon: {
-    tintColor: theme['text-color-default'],
+    tintColor: theme['text-basic-color'],
   },
   orContainer: {
     flexDirection: 'row',
@@ -251,7 +251,7 @@ export const SignUp1 = withStyles(SignUp1Component, (theme: ThemeType) => ({
   divider: {
     flex: 1,
     height: 1,
-    backgroundColor: theme['background-color-default-3'],
+    backgroundColor: theme['background-basic-color-3'],
   },
 }));
 

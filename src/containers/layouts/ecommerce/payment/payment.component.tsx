@@ -98,7 +98,7 @@ class PaymentComponent extends React.Component<PaymentProps> {
 export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   contentContainer: {
     flex: 1,
@@ -111,7 +111,7 @@ export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 12,
-    backgroundColor: theme['background-color-default-3'],
+    backgroundColor: theme['background-basic-color-3'],
   },
   addCardLabel: {
     marginTop: 12,
@@ -120,7 +120,7 @@ export const Payment = withStyles(PaymentComponent, (theme: ThemeType) => ({
   addCardIcon: {
     width: 48,
     height: 34,
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
   },
   paymentCard: {
     marginBottom: 16,

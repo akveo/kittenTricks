@@ -125,7 +125,7 @@ class Profile2Component extends React.Component<Profile2Props> {
 export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   infoContainer: {
     paddingHorizontal: 24,
@@ -135,7 +135,7 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     paddingVertical: 8,
     paddingHorizontal: 24,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   parameterContainer: {
     flex: 1,
@@ -157,12 +157,12 @@ export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   },
   divider: {
     borderWidth: 0.5,
-    borderColor: theme['border-color-default-3'],
+    borderColor: theme['border-basic-color-3'],
     marginHorizontal: 24,
     marginVertical: 8,
   },
   profileParameter: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
     marginVertical: 8,
   },
 }));

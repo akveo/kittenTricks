@@ -124,12 +124,12 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
 
 export const ProductDetails = withStyles(ProductDetailsComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   commentsContainer: {
     paddingHorizontal: 8,
     paddingVertical: 24,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   input: {
     marginHorizontal: 16,

@@ -148,7 +148,7 @@ export const CartProduct = withStyles(CartProductComponent, (theme: ThemeType) =
     height: 20,
     position: 'absolute',
     alignSelf: 'center',
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
     top: 8,
   },
   closeButton: {

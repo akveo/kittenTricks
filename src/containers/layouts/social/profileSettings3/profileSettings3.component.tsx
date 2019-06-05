@@ -131,7 +131,7 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
 export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   photoSection: {
     marginHorizontal: 32,
@@ -140,19 +140,19 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
   descriptionSection: {
     paddingHorizontal: 24,
     paddingVertical: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   contactSection: {
     marginTop: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   profileSetting: {
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   description: textStyle.paragraph,
   photo: {
@@ -165,8 +165,8 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
     height: 48,
     borderRadius: 24,
     transform: [{ translateY: 32 }, { translateX: -16 }],
-    borderColor: theme['border-color-default-4'],
-    backgroundColor: theme['background-color-default-4'],
+    borderColor: theme['border-basic-color-4'],
+    backgroundColor: theme['background-basic-color-4'],
   },
   button: {
     marginHorizontal: 24,

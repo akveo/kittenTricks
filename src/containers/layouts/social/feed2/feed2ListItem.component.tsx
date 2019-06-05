@@ -105,6 +105,6 @@ export const Feed2ListItem = withStyles(Feed2ListItemComponent, (theme: ThemeTyp
     paddingVertical: 16,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderTopColor: theme['border-color-default-2'],
+    borderTopColor: theme['border-basic-color-2'],
   },
 }));

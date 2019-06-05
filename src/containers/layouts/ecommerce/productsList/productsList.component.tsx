@@ -123,7 +123,7 @@ class ProductsListComponent extends React.Component<ProductsListProps, State> {
 export const ProductsList = withStyles(ProductsListComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   productsListContent: {
     paddingHorizontal: 8,

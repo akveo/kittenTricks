@@ -72,6 +72,6 @@ export const ApartmentPhotoList = withStyles(ApartmentPhotoListComponent, (theme
     width: 180,
     height: 120,
     marginHorizontal: 8,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
 }));
