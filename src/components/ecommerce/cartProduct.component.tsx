@@ -18,9 +18,9 @@ import {
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
 import {
-  CloseIcon,
-  MinusIcon,
-  PlusIcon,
+  CloseIconOutline,
+  MinusIconFill,
+  PlusIconFill,
 } from '@src/assets/icons';
 import { CartProduct as CartProductModel } from '@src/containers/layouts/ecommerce/shoppingCart/cartProduct.model';
 
@@ -57,19 +57,19 @@ class CartProductComponent extends React.Component<CartProductProps> {
   private renderCloseIcon = (): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return CloseIcon(themedStyle.closeIcon);
+    return CloseIconOutline(themedStyle.closeIcon);
   };
 
   private renderMinusIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return MinusIcon({ ...style, ...themedStyle.counterIcon });
+    return MinusIconFill({ ...style, ...themedStyle.counterIcon });
   };
 
   private renderPlusIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return PlusIcon({ ...style, ...themedStyle.counterIcon });
+    return PlusIconFill({ ...style, ...themedStyle.counterIcon });
   };
 
   public render(): React.ReactNode {

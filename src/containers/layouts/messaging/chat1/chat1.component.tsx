@@ -21,8 +21,8 @@ import {
   ChatMessageProps,
 } from '@src/components/messaging';
 import {
-  MicIcon,
-  PlusIcon,
+  MicIconFill,
+  PlusIconFill,
 } from '@src/assets/icons';
 import {
   Conversation as ConversationModel,
@@ -121,12 +121,12 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
           <Button
             style={themedStyle.addMessageButton}
             textStyle={textStyle.button}
-            icon={PlusIcon}
+            icon={PlusIconFill}
             disabled={isMessageEmpty}
             onPress={this.onMessageAdd}
           />
           <Input
-            icon={MicIcon}
+            icon={MicIconFill}
             style={themedStyle.input}
             textStyle={textStyle.paragraph}
             value={newMessage}

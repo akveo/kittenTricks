@@ -6,7 +6,7 @@ import {
   ThemedComponentProps,
   StyleType,
 } from '@kitten/theme';
-import { DoneAllIcon } from '@src/assets/icons';
+import { DoneAllIconOutline } from '@src/assets/icons';
 import { Message } from '@src/core/model';
 
 interface MessageIconProvider {
@@ -21,12 +21,12 @@ export enum MessageIcons {
 const messageIcons: { [key in MessageIcons]: MessageIconProvider } = {
   [MessageIcons.READ]: {
     icon(style: StyleType): React.ReactElement<ImageProps> {
-      return DoneAllIcon([style.messageIndicatorIcon, style.messageIndicatorIconRead]);
+      return DoneAllIconOutline([style.messageIndicatorIcon, style.messageIndicatorIconRead]);
     },
   },
   [MessageIcons.DELIVERED]: {
     icon(style: StyleType): React.ReactElement<ImageProps> {
-      return DoneAllIcon([style.messageIndicatorIcon, style.messageIndicatorIconDelivered]);
+      return DoneAllIconOutline([style.messageIndicatorIcon, style.messageIndicatorIconDelivered]);
     },
   },
 };

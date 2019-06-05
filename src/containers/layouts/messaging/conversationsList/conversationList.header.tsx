@@ -14,7 +14,7 @@ import {
   TopNavigation,
 } from '@kitten/ui';
 import {
-  BackArrowIcon,
+  ArrowIosBackFill,
   SearchIconOutline,
 } from '@src/assets/icons';
 
@@ -38,7 +38,7 @@ class ConversationListHeaderComponent extends React.Component<ConversationListHe
   private renderLeftControl = (): React.ReactElement<TopNavigationActionProps> => {
     return (
       <TopNavigationAction
-        icon={BackArrowIcon}
+        icon={ArrowIosBackFill}
         onPress={this.onBack}
       />
     );

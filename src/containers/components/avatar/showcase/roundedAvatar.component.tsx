@@ -3,6 +3,7 @@ import {
   Avatar,
   AvatarProps,
 } from '@kitten/ui';
+import { imageProfile1 } from '@src/assets/images';
 
 type AvatarElement = React.ReactElement<AvatarProps>;
 
@@ -10,7 +11,7 @@ export const RoundedAvatar = (): AvatarElement => {
   return (
     <Avatar
       shape='rounded'
-      source={{ uri: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/7790309/cena.jpg' }}
+      source={imageProfile1.imageSource}
     />
   );
 };

@@ -15,7 +15,7 @@ import {
   Chips,
   textStyle,
 } from '@src/components/common';
-import { ClockIcon } from '@src/assets/icons';
+import { ClockIconOutline } from '@src/assets/icons';
 
 interface ComponentProps {
   hint?: string;
@@ -30,7 +30,7 @@ class StyxComponent extends React.Component<StyxProps> {
 
   static defaultProps: Partial<StyxProps> = {
     hint: 'STYX',
-    icon: ClockIcon,
+    icon: ClockIconOutline,
   };
 
   public render(): React.ReactNode {
@@ -47,7 +47,7 @@ class StyxComponent extends React.Component<StyxProps> {
         </Text>
         <Chips
           style={themedStyle.chips}
-          icon={ClockIcon}>
+          icon={ClockIconOutline}>
           <Text
             style={themedStyle.chipsText}
             category='c2'>

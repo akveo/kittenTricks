@@ -5,7 +5,7 @@ import {
   TabViewProps,
   Text,
 } from '@kitten/ui';
-import { StarIcon } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/icons';
 
 type TabViewElement = React.ReactElement<TabViewProps>;
 
@@ -30,21 +30,21 @@ class IconTitleTabViewShowcase extends React.Component<TabViewProps, State> {
         onSelect={this.onTabSelect}>
         <Tab
           title='TAB 1'
-          icon={StarIcon}>
+          icon={StarIconFill}>
           <Text>
             Swipe next
           </Text>
         </Tab>
         <Tab
           title='TAB 2'
-          icon={StarIcon}>
+          icon={StarIconFill}>
           <Text>
             Swipe next
           </Text>
         </Tab>
         <Tab
           title='TAB 3'
-          icon={StarIcon}>
+          icon={StarIconFill}>
           <Text>
             You're done
           </Text>

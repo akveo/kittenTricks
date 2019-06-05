@@ -20,7 +20,7 @@ import {
   ScrollableAvoidKeyboard,
   textStyle,
 } from '@src/components/common';
-import { PlusIcon } from '@src/assets/icons';
+import { PlusIconFill } from '@src/assets/icons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 interface ComponentProps {
@@ -60,7 +60,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return PlusIcon({ ...style, ...themedStyle.photoButtonIcon });
+    return PlusIconFill({ ...style, ...themedStyle.photoButtonIcon });
   };
 
   private renderPhotoButton = (): React.ReactElement<ButtonProps> => {
