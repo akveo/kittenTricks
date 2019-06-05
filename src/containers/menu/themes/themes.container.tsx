@@ -1,7 +1,7 @@
 import React from 'react';
 import { Themes } from './themes.component';
 import {
-  ContextType,
+  ThemeContextType,
   ThemeContext,
   ThemeKey,
   themes,
@@ -31,7 +31,7 @@ export class ThemesContainer extends React.Component {
     return { name: theme, theme: themes[theme] };
   };
 
-  private renderContent = (context: ContextType): React.ReactElement<any> => {
+  private renderContent = (context: ThemeContextType): React.ReactElement<any> => {
     return (
       <Themes
         data={this.data}
