@@ -125,11 +125,11 @@ class Profile3Component extends React.Component<Profile3Props> {
 export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   infoContainer: {
     paddingHorizontal: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   detailsContainer: {
     flexDirection: 'row',
@@ -155,7 +155,7 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   divider: {
     borderWidth: 0.5,
     marginHorizontal: 24,
-    backgroundColor: theme['border-color-default-1'],
+    backgroundColor: theme['border-basic-color-1'],
   },
   descriptionLabel: {
     flex: 1,
@@ -164,6 +164,6 @@ export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
   profileParameter: {
     flex: 1,
     marginHorizontal: 12,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));

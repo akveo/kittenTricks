@@ -189,7 +189,7 @@ export const SignUpForm1 = withStyles(SignUpForm1Component, (theme: ThemeType) =
   },
   termsCheckBoxText: {
     fontSize: 11,
-    color: theme['text-color-hint'],
+    color: theme['text-hint-color'],
     ...textStyle.paragraph,
   },
 }));

@@ -172,10 +172,10 @@ export const Easy1 = withStyles(Easy1Component, (theme: ThemeType) => ({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: theme['background-color-default-3'],
+    backgroundColor: theme['background-basic-color-3'],
   },
   pagerIndicatorSelected: {
-    backgroundColor: theme['background-color-default-4'],
+    backgroundColor: theme['background-basic-color-4'],
   },
   indicatorMarginRight: {
     marginRight: 12,

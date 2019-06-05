@@ -120,12 +120,12 @@ const Section = (props?: SectionProps): React.ReactElement<TouchableOpacityProps
 export const Settings = withStyles(SettingsComponent, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   section: {
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   notificationSection: {
     paddingTop: 40,

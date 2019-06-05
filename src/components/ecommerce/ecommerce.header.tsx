@@ -87,7 +87,7 @@ class EcommerceHeaderComponent extends React.Component<EcommerceHeaderProps> {
 
 export const EcommerceHeader = withStyles(EcommerceHeaderComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   cartIcon: {
     tintColor: theme['color-primary-default'],

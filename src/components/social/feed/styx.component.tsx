@@ -65,7 +65,7 @@ export const Styx = withStyles(StyxComponent, (theme: ThemeType) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   hintLabel: {
     marginHorizontal: 16,

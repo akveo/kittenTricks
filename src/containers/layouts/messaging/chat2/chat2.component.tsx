@@ -234,7 +234,7 @@ export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   addMessageButton: {
     width: 26,

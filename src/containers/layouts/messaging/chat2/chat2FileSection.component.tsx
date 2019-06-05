@@ -229,7 +229,7 @@ class Chat2FileSectionComponent extends React.Component<Chat2FileSectionComponen
 
 export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   pagerContainer: {
     marginBottom: 16,
@@ -262,7 +262,7 @@ export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: Th
   actionIcon: {
     width: 20,
     height: 20,
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
   },
   actionItemContainer: {
     flexDirection: 'row',
@@ -271,7 +271,7 @@ export const Chat2FileSection = withStyles(Chat2FileSectionComponent, (theme: Th
     paddingVertical: 18,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   addActionLabel: textStyle.subtitle,
   cancelButton: {

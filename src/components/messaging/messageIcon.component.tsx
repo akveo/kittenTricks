@@ -69,6 +69,6 @@ export const MessageIcon = withStyles(MessageIconComponent, (theme: ThemeType) =
     tintColor: theme['color-primary-default'],
   },
   messageIndicatorIconDelivered: {
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
   },
 }));

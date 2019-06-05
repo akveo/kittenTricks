@@ -61,6 +61,6 @@ class MenuComponent extends React.Component<Props> {
 
 export const Menu = withStyles(MenuComponent, (theme: ThemeType) => ({
   safeAreaContainer: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));

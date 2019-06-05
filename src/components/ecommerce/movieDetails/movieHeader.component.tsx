@@ -75,7 +75,7 @@ export const MovieHeader = withStyles(MovieHeaderComponent, (theme: ThemeType) =
     height: 360,
     borderRadius: 12,
     marginBottom: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   titleLabel: {
     textAlign: 'center',

@@ -120,7 +120,7 @@ export const TrainingCard3 = withStyles(TrainingCard3Component, (theme: ThemeTyp
   controlButtonText: {
     fontSize: 13,
     fontWeight: 'normal',
-    color: theme['text-color-hint'],
+    color: theme['text-hint-color'],
     ...textStyle.button,
   },
   timingButton: {

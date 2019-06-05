@@ -125,13 +125,13 @@ class ProfileSettings2Component extends React.Component<ProfileSettings2Props> {
 export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   photoSection: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 32,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   nameSection: {
     flex: 1,
@@ -140,15 +140,15 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
   descriptionSection: {
     paddingHorizontal: 24,
     paddingBottom: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   infoSection: {
     marginTop: 24,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   profileSetting: {
     borderBottomWidth: 1,
-    borderBottomColor: theme['border-color-default-2'],
+    borderBottomColor: theme['border-basic-color-2'],
   },
   nameParameter: {
     paddingHorizontal: 0,
@@ -170,8 +170,8 @@ export const ProfileSettings2 = withStyles(ProfileSettings2Component, (theme: Th
     height: 32,
     borderRadius: 16,
     transform: [{ translateY: 48 }],
-    borderColor: theme['border-color-default-4'],
-    backgroundColor: theme['background-color-default-4'],
+    borderColor: theme['border-basic-color-4'],
+    backgroundColor: theme['background-basic-color-4'],
   },
   button: {
     marginHorizontal: 24,

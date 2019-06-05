@@ -86,13 +86,13 @@ class Article2Component extends React.Component<Article2Props> {
 export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   detailsContainer: {
     paddingHorizontal: 24,
     paddingVertical: 24,
     borderTopWidth: 1,
-    borderTopColor: theme['border-color-default-2'],
+    borderTopColor: theme['border-basic-color-2'],
   },
   dateContainer: {
     flexDirection: 'row',
@@ -107,7 +107,7 @@ export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
     bottom: -32,
     margin: 0,
     borderWidth: 2,
-    borderColor: theme['border-color-default-2'],
+    borderColor: theme['border-basic-color-2'],
   },
   titleLabel: {
     marginHorizontal: 24,
@@ -127,6 +127,6 @@ export const Article2 = withStyles(Article2Component, (theme: ThemeType) => ({
   dateIcon: {
     width: 24,
     height: 24,
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
   },
 }));

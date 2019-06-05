@@ -75,7 +75,7 @@ export const CommentList2Item = withStyles(CommentList2ItemComponent, (theme: Th
     flexDirection: 'column',
     alignItems: 'flex-start',
     borderRadius: 10,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   authorContainer: {
     flexDirection: 'row',
@@ -87,7 +87,7 @@ export const CommentList2Item = withStyles(CommentList2ItemComponent, (theme: Th
   moreIcon: {
     width: 18,
     height: 18,
-    tintColor: theme['text-color-hint'],
+    tintColor: theme['text-hint-color'],
   },
   commentLabel: {
     marginTop: 14,

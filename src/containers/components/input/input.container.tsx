@@ -111,7 +111,7 @@ class InputContainerComponent extends React.Component<InputContainerProps> {
 
 export const InputContainer = withStyles(InputContainerComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   component: {
     flex: 1,

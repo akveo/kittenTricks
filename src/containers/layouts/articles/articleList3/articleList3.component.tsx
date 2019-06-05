@@ -66,11 +66,11 @@ export const ArticleList3 = withStyles(ArticleList3Component, (theme: ThemeType)
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   item: {
     marginVertical: 8,
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
 }));
 

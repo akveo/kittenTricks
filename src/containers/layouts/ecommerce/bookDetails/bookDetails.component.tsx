@@ -122,7 +122,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
 
 export const BookDetails = withStyles(BookDetailsComponent, (theme: ThemeType) => ({
   container: {
-    backgroundColor: theme['background-color-default-1'],
+    backgroundColor: theme['background-basic-color-1'],
   },
   bookHeader: {
     paddingHorizontal: 16,
@@ -130,11 +130,11 @@ export const BookDetails = withStyles(BookDetailsComponent, (theme: ThemeType) =
   descriptionContainer: {
     paddingHorizontal: 16,
     paddingVertical: 24,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   commentsContainer: {
     paddingVertical: 24,
-    backgroundColor: theme['background-color-default-2'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   inputContainer: {
     paddingHorizontal: 24,

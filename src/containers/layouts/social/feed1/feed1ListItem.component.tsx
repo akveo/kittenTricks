@@ -143,7 +143,7 @@ export const Feed1ListItem = withStyles(Feed1ListItemComponent, (theme: ThemeTyp
     paddingVertical: 16,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderTopColor: theme['border-color-default-2'],
+    borderTopColor: theme['border-basic-color-2'],
   },
   photo: {
     minHeight: 220,
