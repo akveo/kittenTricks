@@ -13,7 +13,7 @@ import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from './core/utils/analytics';
 import { getCurrentStateName } from './core/navigation/routeUtil';
 import {
-  ContextType,
+  ThemeContextType,
   ThemeContext,
   ThemeKey,
   themes,
@@ -81,7 +81,7 @@ export default class App extends React.Component<{}, State> {
   };
 
   public render(): React.ReactNode {
-    const contextValue: ContextType = {
+    const contextValue: ThemeContextType = {
       currentTheme: this.state.theme,
       toggleTheme: this.onSwitchTheme,
     };

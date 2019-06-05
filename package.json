@@ -18,7 +18,7 @@
     "ci:build": "npm run env:set -- prod && npm run build"
   },
   "dependencies": {
-    "@eva-design/eva": "github:akveo/eva#package/eva",
+    "@eva-design/eva": "1.0.0-beta.2",
     "expo": "^32.0.0",
     "expo-analytics": "^1.0.8",
     "react": "16.5.0",
