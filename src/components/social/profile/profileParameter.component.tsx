@@ -49,6 +49,12 @@ export const ProfileParameter = withStyles(ProfileParameterComponent, (theme: Th
   container: {
     alignItems: 'center',
   },
-  valueLabel: textStyle.headline,
-  hintLabel: textStyle.subtitle,
+  valueLabel: {
+    color: 'white',
+    ...textStyle.headline,
+  },
+  hintLabel: {
+    color: 'white',
+    ...textStyle.subtitle,
+  },
 }));

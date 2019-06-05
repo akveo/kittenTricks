@@ -96,7 +96,10 @@ export const Profile5 = withStyles(Profile5Component, (theme: ThemeType) => ({
     color: 'white',
     ...textStyle.headline,
   },
-  locationLabel: textStyle.headline,
+  locationLabel: {
+    color: 'white',
+    ...textStyle.headline,
+  },
   rateHintLabel: {
     color: 'white',
   },

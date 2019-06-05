@@ -122,48 +122,49 @@ class Profile3Component extends React.Component<Profile3Props> {
   }
 }
 
-export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => ({
-  container: {
-    flex: 1,
-    backgroundColor: theme['background-basic-color-2'],
-  },
-  infoContainer: {
-    paddingHorizontal: 24,
-    backgroundColor: theme['background-basic-color-1'],
-  },
-  detailsContainer: {
-    flexDirection: 'row',
-    marginVertical: 24,
-  },
-  parameterContainer: {
-    flexDirection: 'row',
-    paddingHorizontal: 12,
-    paddingVertical: 24,
-  },
-  rateBar: {
-    marginTop: 24,
-  },
-  followButton: {
-    height: 40,
-    marginTop: 24,
-    fontSize: 14,
-  },
-  profileSocials: {
-    flexDirection: 'column',
-    minHeight: 176,
-  },
-  divider: {
-    borderWidth: 0.5,
-    marginHorizontal: 24,
-    backgroundColor: theme['border-basic-color-1'],
-  },
-  descriptionLabel: {
-    flex: 1,
-    ...textStyle.paragraph,
-  },
-  profileParameter: {
-    flex: 1,
-    marginHorizontal: 12,
-    backgroundColor: theme['background-basic-color-1'],
-  },
-}));
+export const Profile3 = withStyles(Profile3Component, (theme: ThemeType) => {
+  return ({
+    container: {
+      flex: 1,
+      backgroundColor: theme['background-basic-color-2'],
+    },
+    infoContainer: {
+      paddingHorizontal: 24,
+      backgroundColor: theme['background-basic-color-1'],
+    },
+    detailsContainer: {
+      flexDirection: 'row',
+      marginVertical: 24,
+    },
+    parameterContainer: {
+      flexDirection: 'row',
+      paddingHorizontal: 12,
+      paddingVertical: 24,
+    },
+    rateBar: {
+      marginTop: 24,
+    },
+    followButton: {
+      marginTop: 24,
+      fontSize: 14,
+    },
+    profileSocials: {
+      flexDirection: 'column',
+      minHeight: 176,
+    },
+    divider: {
+      borderWidth: 1,
+      marginHorizontal: 24,
+      borderColor: theme['border-basic-color-2'],
+    },
+    descriptionLabel: {
+      flex: 1,
+      ...textStyle.paragraph,
+    },
+    profileParameter: {
+      flex: 1,
+      marginHorizontal: 12,
+      backgroundColor: theme['background-basic-color-1'],
+    },
+  });
+});

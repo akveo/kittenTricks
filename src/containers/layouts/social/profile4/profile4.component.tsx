@@ -137,7 +137,6 @@ export const Profile4 = withStyles(Profile4Component, (theme: ThemeType) => ({
     marginTop: 24,
   },
   followButton: {
-    height: 40,
     marginTop: 16,
     fontSize: 14,
   },

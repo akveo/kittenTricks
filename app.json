@@ -19,6 +19,7 @@
     },
     "assetBundlePatterns": [
       "src/assets/images/source/*",
+      "src/assets/icons/**/*.png",
       "src/assets/fonts"
     ],
     "splash": {

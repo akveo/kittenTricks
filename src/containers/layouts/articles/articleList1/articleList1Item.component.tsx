@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   TouchableOpacity,
   TouchableOpacityProps,
   View,
@@ -13,7 +14,6 @@ import { Text } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
 import {
   ActivityAuthoring,
-  ImageOverlay,
   textStyle,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
@@ -52,7 +52,7 @@ class ArticleList1ItemComponent extends React.Component<ArticleList1ItemProps> {
         {...restProps}
         style={[themedStyle.container, style]}
         onPress={this.onPress}>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.image}
           source={article.image.imageSource}
         />
