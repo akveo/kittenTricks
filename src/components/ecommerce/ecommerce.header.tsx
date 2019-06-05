@@ -13,7 +13,7 @@ import {
   TopNavigation,
 } from '@kitten/ui';
 import {
-  BackArrowIcon,
+  ArrowIosBackFill,
   CartIconFill,
   SearchIconOutline,
 } from '@src/assets/icons';
@@ -44,7 +44,7 @@ class EcommerceHeaderComponent extends React.Component<EcommerceHeaderProps> {
   private renderLeftControl = (): React.ReactElement<TopNavigationActionProps> => {
     return (
       <TopNavigationAction
-        icon={BackArrowIcon}
+        icon={ArrowIosBackFill}
         onPress={this.onBack}
       />
     );

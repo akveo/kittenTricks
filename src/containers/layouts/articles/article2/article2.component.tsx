@@ -15,7 +15,7 @@ import {
 } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
 import { textStyle } from '@src/components/common';
-import { ClockIcon } from '@src/assets/icons';
+import { ClockIconOutline } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
 interface ComponentProps {
@@ -67,7 +67,7 @@ class Article2Component extends React.Component<Article2Props> {
             onCommentPress={this.onCommentButtonPress}
             onLikePress={this.onLikeButtonPress}>
             <View style={themedStyle.dateContainer}>
-              {ClockIcon(themedStyle.dateIcon)}
+              {ClockIconOutline(themedStyle.dateIcon)}
               <Text
                 style={themedStyle.dateLabel}
                 appearance='hint'

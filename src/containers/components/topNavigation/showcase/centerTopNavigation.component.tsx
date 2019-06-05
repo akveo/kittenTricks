@@ -7,9 +7,9 @@ import {
   TopNavigationActionProps,
 } from '@kitten/ui';
 import {
-  StarIcon,
-  BackArrowIcon,
-  MoreVerticalIcon,
+  StarIconFill,
+  ArrowIosBackFill,
+  MoreVerticalIconFill,
 } from '@src/assets/icons';
 
 type TopNavigationElement = React.ReactElement<TopNavigationProps>;
@@ -30,13 +30,13 @@ export const CenterTopNavigation = (props?: TopNavigationProps): TopNavigationEl
 
 const renderLeftControl = (): TopNavigationActionElement => {
   return (
-    <TopNavigationAction icon={BackArrowIcon} />
+    <TopNavigationAction icon={ArrowIosBackFill} />
   );
 };
 
 const renderRightControls = (): TopNavigationActionElement[] => {
   return ([
-    <TopNavigationAction icon={StarIcon}/>,
-    <TopNavigationAction icon={MoreVerticalIcon}/>,
+    <TopNavigationAction icon={StarIconFill}/>,
+    <TopNavigationAction icon={MoreVerticalIconFill}/>,
   ]);
 };

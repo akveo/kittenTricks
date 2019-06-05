@@ -6,7 +6,7 @@ import {
   ListItemProps,
   ListProps,
 } from '@kitten/ui';
-import { StarIcon } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/icons';
 
 
 interface ListItemModel {
@@ -36,7 +36,7 @@ export const IconList = (): ListElement => {
       <ListItem
         title={title}
         description={description}
-        icon={StarIcon}
+        icon={StarIconFill}
       />
     );
   };

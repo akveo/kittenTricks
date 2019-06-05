@@ -23,9 +23,8 @@ import {
   textStyle,
 } from '@src/components/common';
 import {
-  evaIcons,
   IconSource,
-  PlusIcon,
+  PlusIconFill,
 } from '@src/assets/icons';
 import {
   imageSignUp4Bg,
@@ -54,7 +53,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
   };
 
   private backgroundImage: ImageSource = imageSignUp4Bg;
-  private profileImage: IconSource = evaIcons.personFill;
+  private profileImage: IconSource = require('../../../../assets/icons/eva/person.png');
 
   private onFormDataChange = (formData: SignUpForm2Data) => {
     this.setState({ formData });
@@ -87,7 +86,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
   private renderPhotoButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return PlusIcon({ ...style, ...themedStyle.photoButtonIcon });
+    return PlusIconFill({ ...style, ...themedStyle.photoButtonIcon });
   };
 
   private renderPhotoButton = (): React.ReactElement<ButtonProps> => {

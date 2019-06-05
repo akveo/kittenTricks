@@ -16,8 +16,8 @@ import {
   Text,
 } from '@kitten/ui';
 import {
-  ClockIcon,
-  FlashIcon,
+  ClockIconOutline,
+  FlashIconOutline,
 } from '@src/assets/icons';
 import { Exercise } from '@src/core/model';
 import { textStyle } from '@src/components/common';
@@ -49,13 +49,13 @@ class TrainingCard3Component extends React.Component<TrainingCardProps> {
   private renderTimingIcon = (): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return ClockIcon(themedStyle.timingIcon);
+    return ClockIconOutline(themedStyle.timingIcon);
   };
 
   private renderEnergyIcon = (): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return FlashIcon(themedStyle.energyIcon);
+    return FlashIconOutline(themedStyle.energyIcon);
   };
 
   public render(): React.ReactNode {

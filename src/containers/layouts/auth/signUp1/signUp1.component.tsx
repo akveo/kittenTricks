@@ -24,8 +24,8 @@ import {
   textStyle,
 } from '@src/components/common';
 import {
-  ForwardIcon,
-  HeartIcon,
+  ArrowForwardIconOutline,
+  HeartIconFill,
 } from '@src/assets/icons';
 import {
   imageSignUp1Bg,
@@ -86,13 +86,13 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
   private renderEwaButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return HeartIcon({ ...style, ...themedStyle.ewaButtonIcon });
+    return HeartIconFill({ ...style, ...themedStyle.ewaButtonIcon });
   };
 
   private renderSignInButtonIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    return ForwardIcon({ ...style, ...themedStyle.signInButtonIcon });
+    return ArrowForwardIconOutline({ ...style, ...themedStyle.signInButtonIcon });
   };
 
   public render(): React.ReactNode {

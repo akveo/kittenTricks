@@ -11,8 +11,8 @@ import {
   BottomNavigationTab,
 } from '@kitten/ui';
 import {
-  ColorPaletteIcon,
-  LayoutIcon,
+  ColorPaletteIconOutline,
+  LayoutIconOutline,
   StarIconOutline,
 } from '@src/assets/icons';
 import { themes } from '@src/core/themes';
@@ -42,7 +42,7 @@ class MenuComponent extends React.Component<Props> {
             onSelect={this.onTabSelect}>
             <BottomNavigationTab
               title='Layouts'
-              icon={LayoutIcon}
+              icon={LayoutIconOutline}
             />
             <BottomNavigationTab
               title='Components'
@@ -50,7 +50,7 @@ class MenuComponent extends React.Component<Props> {
             />
             <BottomNavigationTab
               title='Themes'
-              icon={ColorPaletteIcon}
+              icon={ColorPaletteIconOutline}
             />
           </BottomNavigation>
         </ThemeProvider>
