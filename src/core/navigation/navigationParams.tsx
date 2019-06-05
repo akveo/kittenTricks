@@ -6,7 +6,7 @@ import {
 } from 'react-navigation';
 import { EcommerceHeader } from '@src/components/ecommerce';
 import { MenuContainer } from '@src/containers/menu';
-import { BackArrowIcon } from '@src/assets/icons';
+import { ArrowIosBackFill } from '@src/assets/icons';
 import { TopNavigationBar } from './components/topNavigationBar.component';
 import {
   getCurrentRouteState,
@@ -32,7 +32,7 @@ const MenuTopNavigationParams: TopNavigationParams = {
       <TopNavigationBar
         {...props}
         title={state.routeName}
-        backIcon={!state.params.root && BackArrowIcon}
+        backIcon={!state.params.root && ArrowIosBackFill}
         onBackPress={() => {
           props.navigation.goBack(null);
         }}

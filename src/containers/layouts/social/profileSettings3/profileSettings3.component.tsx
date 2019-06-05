@@ -17,7 +17,7 @@ import {
   ProfileSetting,
   ProfilePhoto,
 } from '@src/components/social';
-import { CameraIcon } from '@src/assets/icons';
+import { CameraIconFill } from '@src/assets/icons';
 import { Profile } from '@src/core/model';
 import { textStyle } from '@src/components/common';
 
@@ -46,7 +46,7 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
       <Button
         style={themedStyle.photoButton}
         activeOpacity={0.95}
-        icon={CameraIcon}
+        icon={CameraIconFill}
         onPress={this.onPhotoButtonPress}
       />
     );

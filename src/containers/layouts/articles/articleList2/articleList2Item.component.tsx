@@ -18,7 +18,7 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { BulbIcon } from '@src/assets/icons';
+import { BulbIconFill } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
 // @ts-ignore (override `onPress` prop)
@@ -64,7 +64,7 @@ class ArticleList2ItemComponent extends React.Component<ArticleList2ItemProps> {
           </Text>
           <ArticleTips
             style={themedStyle.tipsContainer}
-            icon={BulbIcon}>
+            icon={BulbIconFill}>
             {`${article.tips} Useful Tips`}
           </ArticleTips>
         </ImageOverlay>

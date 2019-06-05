@@ -9,12 +9,6 @@ import {
   RemoteIcon,
 } from './icon.component';
 
-export {
-  Icon,
-  IconSource,
-  RemoteIcon,
-} from './icon.component';
-
 export const MenuIconAuth = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
     imageSource: require('./icon-auth.png'),
@@ -209,261 +203,376 @@ export const ComponentsIconBottomNavigation = (style: StyleProp<ImageStyle>): Ic
   return Icon(source, style);
 };
 
-export const ArrowHeadDownIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.arrowHeadDownOutline, style);
+export const ArrowHeadDownIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/arrowhead-down.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const ArrowHeadUpIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.arrowHeadUpOutline, style);
+export const ArrowHeadUpIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/arrowhead-up.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const BackArrowIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.backArrowFill, style);
+export const ArrowIosBackFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/arrow-ios-back.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const BulbIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.bulbFill, style);
+export const BulbIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/bulb.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const CameraIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.cameraFill, style);
+export const CameraIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/camera.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const CartIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.cartOutline, style);
+export const CartIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/shopping-cart-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const CartIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.cartOutline, style);
+  const source: IconSource = {
+    imageSource: require('./eva/shopping-cart.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const ClockIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.clockOutline, style);
+export const ClockIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/clock-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const EmailIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.emailFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/email.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const EyeOffIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.eyeOffFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/eye-off.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const ColorPaletteIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.colorPaletteOutline, style);
+export const ColorPaletteIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/color-palette-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const ForwardArrowIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.arrowForwardOutline, style);
+export const ArrowForwardIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/arrow-forward-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const ForwardIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.arrowForwardOutline, style);
+export const GridIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/grid-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const GridIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.gridOutline, style);
+export const HeartIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/heart.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const HeartIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.heartFill, style);
-};
+export const LayoutIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/layout-outline.png'),
+  };
 
-export const LayoutIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.layoutOutline, style);
+  return Icon(source, style);
 };
 
 export const LockIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.lockFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/lock.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const MessageCircleIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.messageCircleFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/message-circle.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const MessageCircleIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.messageCircleOutline, style);
+  const source: IconSource = {
+    imageSource: require('./eva/message-circle-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const MoreIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.moreFill, style);
+export const MoreHorizontalIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/more-horizontal.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const PersonIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.personFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/person.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const PhoneIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.phoneFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/phone.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const PersonAddIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.personAddFill, style);
-};
+  const source: IconSource = {
+    imageSource: require('./eva/person-add.png'),
+  };
 
-export const PinIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.pinFill, style);
+  return Icon(source, style);
 };
 
 export const PinIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.pinOutline, style);
+  const source: IconSource = {
+    imageSource: require('./eva/pin.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const PlusIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.plusOutline, style);
+export const PinIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/pin-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const MinusIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.minusOutline, style);
+export const PlusIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/plus.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const MinusIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/minus.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const SearchIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.searchOutline, style);
+  const source: IconSource = {
+    imageSource: require('./eva/search-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const StarIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.starFill, style);
+export const StarIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/star.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const StarIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.starOutline, style);
+  const source: IconSource = {
+    imageSource: require('./eva/star-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const FlashIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.flashOutline, style);
+export const FlashIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/flash-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const DoneAllIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.doneAllFill, style);
+export const DoneAllIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/done-all-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const MoreVerticalIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.moreVerticalFill, style);
+export const MoreVerticalIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/more-vertical.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const CreditCardIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.creditCardFill, style);
+export const CreditCardIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/credit-card.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const CloseIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.closeFill, style);
+export const CloseIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/close-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const MicIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.micFill, style);
+export const MicIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/mic.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const PaperPlaneIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.paperPlaneFill, style);
+export const PaperPlaneIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/paper-plane.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const ImageIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.imageFill, style);
+export const ImageIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/image.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const FileTextIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.fileTextFill, style);
+export const FileTextIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/file-text.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const MapIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.mapFill, style);
+export const MapIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/map.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const PeopleIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.peopleFill, style);
+export const PeopleIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/people.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const PlayCircleIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.playCircleFill, style);
+export const PlayCircleIconFill = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/play-circle.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const ShareIcon = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.shareOutline, style);
+export const ShareIconOutline = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./eva/share-outline.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const ListIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.listFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/list.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const GoogleIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.googleFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/google.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const FacebookIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.facebookFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/facebook.png'),
+  };
+
+  return Icon(source, style);
 };
 
 export const TwitterIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.twitterFill, style);
+  const source: IconSource = {
+    imageSource: require('./eva/twitter.png'),
+  };
+
+  return Icon(source, style);
 };
 
-export const CheckMarkIconFill = (style: StyleProp<ImageStyle>): IconElement => {
-  return Icon(evaIcons.checkMark, style);
-};
-
-export const evaIcons: { [key: string]: IconSource } = {
-  arrowForwardFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-forward.png'),
-  backArrowFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/arrow-ios-back.png'),
-  bulbFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/bulb.png'),
-  cameraFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/camera.png'),
-  cartFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/shopping-cart.png'),
-  emailFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/email.png'),
-  eyeOffFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/eye-off.png'),
-  facebookFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/facebook.png'),
-  googleFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/google.png'),
-  heartFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/heart.png'),
-  listFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/list.png'),
-  lockFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/lock.png'),
-  messageCircleFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/message-circle.png'),
-  moreFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/more-horizontal.png'),
-  personFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/person.png'),
-  phoneFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/phone.png'),
-  personAddFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/person-add.png'),
-  pinFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/pin.png'),
-  settingsFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/settings.png'),
-  starFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/star.png'),
-  starOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/star-outline.png'),
-  twitterFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/twitter.png'),
-  doneAllFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/done-all.png'),
-  moreVerticalFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/more-vertical.png'),
-  creditCardFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/credit-card.png'),
-  closeFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/close.png'),
-  micFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/mic.png'),
-  paperPlaneFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/paper-plane.png'),
-  imageFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/image.png'),
-  fileTextFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/file-text.png'),
-  mapFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/map.png'),
-  peopleFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/people.png'),
-  playCircleFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/play-circle.png'),
-  moveFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/move.png'),
-  menuFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/menu.png'),
-  arrowForwardOutline: new RemoteIcon(
-    'https://akveo.github.io/eva-icons/outline/png/128/arrow-forward-outline.png'),
-  arrowHeadDownOutline: new RemoteIcon(
-    'https://akveo.github.io/eva-icons/outline/png/128/arrowhead-down-outline.png'),
-  arrowHeadUpOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/arrowhead-up-outline.png'),
-  cartOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/shopping-cart-outline.png'),
-  clockOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/clock-outline.png'),
-  edit2Outline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/edit-2-outline.png'),
-  colorPaletteOutline: new RemoteIcon(
-    'https://akveo.github.io/eva-icons/outline/png/128/color-palette-outline.png'),
-  gridOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/grid-outline.png'),
-  heartOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/heart-outline.png'),
-  layoutOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/layout-outline.png'),
-  lockOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/lock-outline.png'),
-  messageCircleOutline: new RemoteIcon(
-    'https://akveo.github.io/eva-icons/outline/png/128/message-circle-outline.png'),
-  personOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/person-outline.png'),
-  pinOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/pin-outline.png'),
-  plusOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/plus-outline.png'),
-  minusOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/minus-outline.png'),
-  shareOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/share-outline.png'),
-  searchOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/search-outline.png'),
-  smartphoneOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/smartphone-outline.png'),
-  flashOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/flash-outline.png'),
-  wifiOutline: new RemoteIcon('https://akveo.github.io/eva-icons/outline/png/128/wifi-outline.png'),
-  tvFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/tv.png'),
-  carFill: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/car.png'),
-  activityOutline: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/activity-outline.png'),
-  checkMark: new RemoteIcon('https://akveo.github.io/eva-icons/fill/png/128/checkmark.png'),
-};
+export {
+  Icon,
+  IconSource,
+  RemoteIcon,
+} from './icon.component';

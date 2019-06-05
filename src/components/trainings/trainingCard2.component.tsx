@@ -17,8 +17,8 @@ import {
   textStyle,
 } from '@src/components/common';
 import {
-  ClockIcon,
-  ForwardArrowIcon,
+  ClockIconOutline,
+  ArrowForwardIconOutline,
 } from '@src/assets/icons';
 import { Exercise } from '@src/core/model/exercise.model';
 
@@ -37,7 +37,7 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
   };
 
   private renderDetailsIcon = (): React.ReactElement<ImageProps> => {
-    return ForwardArrowIcon(this.props.themedStyle.detailsIcon);
+    return ArrowForwardIconOutline(this.props.themedStyle.detailsIcon);
   };
 
   public render(): React.ReactNode {
@@ -61,7 +61,7 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
             <View style={themedStyle.controlsContainer}>
               <Chips
                 style={themedStyle.chips}
-                icon={ClockIcon}>
+                icon={ClockIconOutline}>
                 <Text
                   style={themedStyle.chipsText}
                   category='c1'>

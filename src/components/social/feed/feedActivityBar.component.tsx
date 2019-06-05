@@ -15,7 +15,7 @@ import {
   ShareButton,
   textStyle,
 } from '@src/components/common';
-import { PlusIcon } from '@src/assets/icons';
+import { PlusIconFill } from '@src/assets/icons';
 
 interface ComponentProps {
   onSharePress: () => void;
@@ -42,7 +42,7 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
   private renderAddIcon = (style: StyleType): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
-    const iconElement: React.ReactElement<ImageProps> = PlusIcon(style);
+    const iconElement: React.ReactElement<ImageProps> = PlusIconFill(style);
 
     return React.cloneElement(iconElement, {
       style: [style, iconElement.props.style, themedStyle.addButtonIcon],

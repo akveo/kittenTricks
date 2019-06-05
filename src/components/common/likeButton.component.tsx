@@ -11,7 +11,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
-import { HeartIcon } from '@src/assets/icons';
+import { HeartIconFill } from '@src/assets/icons';
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
@@ -29,7 +29,7 @@ class LikeButtonComponent extends React.Component<LikeButtonProps> {
       <TouchableOpacity
         style={[themedStyle.container, style]}
         {...restProps}>
-        {HeartIcon(themedStyle.icon)}
+        {HeartIconFill(themedStyle.icon)}
         <Text
           style={[themedStyle.valueLabel, textStyle]}
           category='p2'>

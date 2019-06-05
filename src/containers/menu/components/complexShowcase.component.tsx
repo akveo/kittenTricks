@@ -8,7 +8,7 @@ import {
   ThemeType,
   ThemedComponentProps,
 } from '@kitten/theme';
-import { StarIcon } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/icons';
 
 type ComplexComponentShowcaseProps = ThemedComponentProps & ViewProps;
 
@@ -16,7 +16,7 @@ class ComplexComponentShowcaseComponent extends React.Component<ComplexComponent
   public render(): React.ReactElement<ImageProps> {
     const { themedStyle } = this.props;
 
-    return StarIcon(themedStyle.icon);
+    return StarIconFill(themedStyle.icon);
   }
 }
 

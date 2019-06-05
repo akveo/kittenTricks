@@ -14,7 +14,7 @@ import {
   Text,
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
-import { PinIconFill } from '@src/assets/icons';
+import { PinIconOutline } from '@src/assets/icons';
 import { ProfileLocation } from './profileLocation.component';
 
 interface ComponentProps {
@@ -46,7 +46,7 @@ class ProfileInfo3Component extends React.Component<ProfileInfo3Props> {
         <ProfileLocation
           iconStyle={themedStyle.locationIcon}
           textStyle={themedStyle.locationLabel}
-          icon={PinIconFill}>
+          icon={PinIconOutline}>
           {location}
         </ProfileLocation>
       </View>

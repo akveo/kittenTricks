@@ -16,7 +16,7 @@ import {
   Text,
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
-import { CartIcon } from '@src/assets/icons';
+import { CartIconOutline } from '@src/assets/icons';
 
 interface ListDerivedProps {
   index?: number;
@@ -79,7 +79,7 @@ class ProductListItemComponent extends React.Component<ProductListItemProps> {
             <Button
               style={themedStyle.buyButton}
               textStyle={textStyle.button}
-              icon={CartIcon}
+              icon={CartIconOutline}
               onPress={this.onAddToBucket}
             />
           </View>

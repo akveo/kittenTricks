@@ -15,7 +15,7 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { ClockIcon } from '@src/assets/icons';
+import { ClockIconOutline } from '@src/assets/icons';
 import { Exercise } from '@src/core/model';
 
 interface ComponentProps {
@@ -56,7 +56,7 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
           </View>
           <Chips
             style={themedStyle.chips}
-            icon={ClockIcon}>
+            icon={ClockIconOutline}>
             <Text
               style={themedStyle.chipsText}
               category='c2'>

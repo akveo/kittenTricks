@@ -27,9 +27,9 @@ import {
   ChatMessageProps,
 } from '@src/components/messaging';
 import {
-  MicIcon,
-  PaperPlaneIcon,
-  PlusIcon,
+  MicIconFill,
+  PaperPlaneIconFill,
+  PlusIconFill,
 } from '@src/assets/icons';
 import {
   Conversation as ConversationModel,
@@ -136,7 +136,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
         style={themedStyle.addMessageButton}
         appearance='ghost'
         size='large'
-        icon={PaperPlaneIcon}
+        icon={PaperPlaneIconFill}
         onPress={this.onMessageAdd}
       />
     ) : null;
@@ -198,13 +198,13 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
           <View style={themedStyle.inputContainer}>
             <Button
               style={themedStyle.addMessageButton}
-              icon={PlusIcon}
+              icon={PlusIconFill}
               onPress={this.onAddButtonPress}
             />
             <Input
               style={themedStyle.inputComponent}
               textStyle={textStyle.paragraph}
-              icon={MicIcon}
+              icon={MicIconFill}
               value={newMessage}
               placeholder='Message...'
               onChangeText={this.onNewMessageChange}

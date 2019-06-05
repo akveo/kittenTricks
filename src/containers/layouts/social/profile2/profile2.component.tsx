@@ -19,8 +19,8 @@ import {
   textStyle,
 } from '@src/components/common';
 import {
-  ArrowHeadDownIcon,
-  ArrowHeadUpIcon,
+  ArrowHeadDownIconFill,
+  ArrowHeadUpIconFill,
 } from '@src/assets/icons';
 import {
   Profile as ProfileModel,
@@ -107,13 +107,13 @@ class Profile2Component extends React.Component<Profile2Props> {
               style={themedStyle.profileParameter}
               hint='Height'
               value={`${profile.height} cm`}
-              icon={ArrowHeadUpIcon}
+              icon={ArrowHeadUpIconFill}
             />
             <ProfileParameterCard
               style={themedStyle.profileParameter}
               hint='Weight'
               value={`${profile.weight} kg`}
-              icon={ArrowHeadDownIcon}
+              icon={ArrowHeadDownIconFill}
             />
           </View>
         </View>
