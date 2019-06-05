@@ -4,8 +4,13 @@ import { TooltipShowcase } from './tooltipShowcase.component';
 
 type TooltipElement = React.ReactElement<TooltipProps>;
 
-export const BottomEndTooltip = (): TooltipElement => {
+// todo: fix in react-native-ui-kitten
+interface IndicatorOffsetProps {
+  indicatorOffset?: number;
+}
+
+export const BottomEndTooltip = (indicatorOffsetProps?: IndicatorOffsetProps): TooltipElement => {
   return (
-    <TooltipShowcase placement='bottom end'/>
+    <TooltipShowcase {...indicatorOffsetProps} placement='bottom end'/>
   );
 };
