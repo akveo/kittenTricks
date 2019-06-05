@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   TouchableOpacityProps,
+  ImageBackground,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -13,7 +14,6 @@ import {
 import { Text } from '@kitten/ui';
 import {
   Chips,
-  ImageOverlay,
   textStyle,
 } from '@src/components/common';
 import {
@@ -48,9 +48,10 @@ class TrainingCardComponent extends React.Component<TrainingCardProps> {
         activeOpacity={0.95}
         onPress={this.onDetails}>
         <View style={[themedStyle.container, style]}>
-          <ImageOverlay
+          <ImageBackground
             style={[themedStyle.subContainer, themedStyle.leftSection]}
-            source={training.image.imageSource}/>
+            source={training.image.imageSource}
+          />
           <View style={[themedStyle.subContainer, themedStyle.rightSection]}>
             <Text
               style={themedStyle.titleLabel}

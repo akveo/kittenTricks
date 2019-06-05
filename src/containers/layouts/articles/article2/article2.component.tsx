@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   ScrollView,
   View,
 } from 'react-native';
@@ -13,10 +14,7 @@ import {
   Text,
 } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
-import {
-  ImageOverlay,
-  textStyle,
-} from '@src/components/common';
+import { textStyle } from '@src/components/common';
 import { ClockIcon } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
@@ -43,7 +41,7 @@ class Article2Component extends React.Component<Article2Props> {
 
     return (
       <ScrollView style={themedStyle.container}>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.image}
           source={article.image.imageSource}>
           <Avatar
@@ -51,7 +49,7 @@ class Article2Component extends React.Component<Article2Props> {
             size='large'
             source={article.author.photo.imageSource}
           />
-        </ImageOverlay>
+        </ImageBackground>
           <Text
             style={themedStyle.titleLabel}
             category='h5'>

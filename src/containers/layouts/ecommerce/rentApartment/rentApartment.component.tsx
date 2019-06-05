@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ImageBackground,
   ScrollView,
   View,
 } from 'react-native';
@@ -19,10 +20,7 @@ import {
   PriceText,
 } from '@src/components/ecommerce';
 import { Apartment } from '@src/core/model';
-import {
-  ImageOverlay,
-  textStyle,
-} from '@src/components/common';
+import { textStyle } from '@src/components/common';
 
 interface ComponentProps {
   apartment: Apartment;
@@ -51,7 +49,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
 
     return (
       <ScrollView style={themedStyle.container}>
-        <ImageOverlay
+        <ImageBackground
           style={themedStyle.backgroundImage}
           source={apartment.primaryPhoto.imageSource}
         />
