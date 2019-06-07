@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   ENV: 'prod',
-  KITTEN_PATH: path.resolve(__dirname, '../node_modules/react-native-ui-kitten'),
+  KITTEN_PATH: path.resolve(__dirname, '../node_modules/react-native-ui-kitten/src/framework'),
   MAPPING_PATH: path.resolve(__dirname, '../node_modules/@eva-design/eva'),
   PROCESSOR_PATH: path.resolve(__dirname, '../node_modules/@eva-design/processor'),
 };

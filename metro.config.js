@@ -16,8 +16,8 @@ module.exports = {
     babelTransformerPath: require.resolve('react-native-typescript-transformer'),
   },
   watchFolders: [
-    path.resolve(Config.KITTEN_PATH, 'src/framework/theme'),
-    path.resolve(Config.KITTEN_PATH, 'src/framework/ui'),
+    path.resolve(Config.KITTEN_PATH, 'theme'),
+    path.resolve(Config.KITTEN_PATH, 'ui'),
     path.resolve(Config.MAPPING_PATH),
     path.resolve(Config.PROCESSOR_PATH),
   ],
