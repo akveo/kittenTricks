@@ -2,16 +2,15 @@ import React from 'react';
 import { ImageRequireSource } from 'react-native';
 import {
   AppLoading,
-  AppLoadingProps,
-  Asset,
-  Font,
   SplashScreen,
 } from 'expo';
+import { Asset } from 'expo-asset';
+import * as Font from 'expo-font';
 import { LoadingAnimationComponent } from '@src/core/appLoader/loadingAnimation.component';
 
 export interface Assets {
   images: ImageRequireSource[];
-  fonts: Font.FontMap;
+  fonts: { [key: string]: number };
 }
 
 interface Props {
@@ -23,7 +22,7 @@ interface State {
   loaded: boolean;
 }
 
-type LoadingElement = React.ReactElement<AppLoadingProps>;
+type LoadingElement = React.ReactElement<{}>;
 
 /**
  * Loads child component after asynchronous tasks are done
@@ -52,7 +51,7 @@ export class ApplicationLoader extends React.Component<Props, State> {
     return this.loadResourcesAsync(this.props.assets);
   };
 
-  private loadFonts = (fonts: Font.FontMap): Promise<void> => {
+  private loadFonts = (fonts: {[key: string]: number}): Promise<void> => {
     return Font.loadAsync(fonts);
   };
 

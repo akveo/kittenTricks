@@ -1,7 +1,6 @@
 import React from 'react';
 import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
-import { Font } from 'expo';
 import { mapping } from '@eva-design/eva';
 import { ApplicationProvider } from '@kitten/theme';
 import { DynamicStatusBar } from '@src/components/common';
@@ -13,8 +12,8 @@ import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from './core/utils/analytics';
 import { getCurrentStateName } from './core/navigation/routeUtil';
 import {
-  ThemeContextType,
   ThemeContext,
+  ThemeContextType,
   ThemeKey,
   themes,
   ThemeStore,
@@ -33,7 +32,7 @@ const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-10.jpg'),
 ];
 
-const fonts: Font.FontMap = {
+const fonts: { [key: string]: number } = {
   'opensans-semibold': require('./assets/fonts/opensans-semibold.ttf'),
   'opensans-bold': require('./assets/fonts/opensans-bold.ttf'),
   'opensans-extrabold': require('./assets/fonts/opensans-extra-bold.ttf'),
