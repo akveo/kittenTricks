@@ -3,10 +3,8 @@ import {
   NavigationScreenConfig,
   NavigationScreenProps,
 } from 'react-navigation';
-import {
-  MediaLibrary,
-  Permissions,
-} from 'expo';
+import * as MediaLibrary from 'expo-media-library';
+import * as Permissions from 'expo-permissions';
 import {
   ChatFileMessageAppearance,
   ChatHeader,
@@ -87,7 +85,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
     this.props.navigation.navigate('Profile 1');
   };
 
-  private onMediaResponse = (data: MediaLibrary.GetAssetsResult): void => {
+  private onMediaResponse = (data: MediaLibrary.PagedInfo<MediaLibrary.Asset>): void => {
     this.setState({ galleryFiles: data.assets });
   };
 

@@ -6,7 +6,7 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { MediaLibrary } from 'expo';
+import * as MediaLibrary from 'expo-media-library';
 import {
   ThemedComponentProps,
   ThemeType,

@@ -3,10 +3,8 @@ import {
   NavigationScreenConfig,
   NavigationScreenProps,
 } from 'react-navigation';
-import {
-  Permissions,
-  MediaLibrary,
-} from 'expo';
+import * as MediaLibrary from 'expo-media-library';
+import * as Permissions from 'expo-permissions';
 import {
   ChatHeader,
   ChatHeaderNavigationStateParams,
@@ -76,7 +74,7 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
 
   public componentWillMount(): void {
     MediaLibrary.getAssetsAsync({ first: 6 })
-      .then((data: MediaLibrary.GetAssetsResult) =>
+      .then((data: MediaLibrary.PagedInfo<MediaLibrary.Asset>) =>
         this.setState({ galleryFiles: data.assets }));
     this.props.navigation.setParams({
       interlocutor: this.state.conversation.interlocutor,
