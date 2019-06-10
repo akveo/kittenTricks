@@ -1,17 +1,15 @@
 import React from 'react';
 import {
-  ImageProps,
-  View,
-  ViewProps,
   Image,
+  ImageProps,
+  ScrollView,
   TouchableOpacity,
   TouchableOpacityProps,
-  ScrollView,
+  View,
+  ViewProps,
 } from 'react-native';
-import {
-  MediaLibrary,
-  Camera,
-} from 'expo';
+import * as MediaLibrary from 'expo-media-library';
+import { Camera } from 'expo-camera';
 import {
   StyleType,
   ThemedComponentProps,
@@ -19,16 +17,16 @@ import {
   withStyles,
 } from '@kitten/theme';
 import {
+  Button,
   ListItem,
   ListItemProps,
-  Button,
   Text,
   ViewPagerProps,
 } from '@kitten/ui';
 import {
   CameraIconFill,
-  ImageIconFill,
   FileTextIconFill,
+  ImageIconFill,
   MapIconFill,
   PeopleIconFill,
 } from '@src/assets/icons';
