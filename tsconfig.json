@@ -5,6 +5,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "sourceMap": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,

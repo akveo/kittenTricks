@@ -4,7 +4,7 @@
     "icon": "./src/assets/icons/icon.png",
     "version": "2.0.0",
     "slug": "kittenTricks",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "33.0.0",
     "privacy": "public",
     "orientation": "portrait",
     "githubUrl": "https://github.com/akveo/kittenTricks",
