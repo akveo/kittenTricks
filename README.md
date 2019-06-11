@@ -1,56 +1,60 @@
-# Kitten Tricks [![Build Status][badge-travis]][link-travis]
+# Kitten Tricks [<img src="https://i.imgur.com/oMcxwZ0.png" alt="Eva Design System" height="20px" />][link:eva] [![Build Status][badge:travis]][link:travis]
 
-A perfect starter kit for your next cross-platform React Native app. **FREE** and open-source! Check out live demo on [App Store](https://itunes.apple.com/us/app/kitten-tricks/id1246143230) or [Google Play](https://play.google.com/store/apps/details?id=com.akveo.kittenTricks).
+This perfect starter kit is an app based on React Native and [**UI Kitten library**][link:ui-kitten] with Light and Dark themes support. It’s completely free and Open Source. 
+Compose the application from available screens, add backend integration and you will end up with A-grade cross-platform mobile application.
+The themes can be changed in the runtime, without any need of reloading the application.
 
-![Preview](http://i.imgur.com/w1CAPJF.jpg)
+Download a live Demo published on both [App Store][link:app-store] and [Google Play][link:google-play]
+ or simply run it yourself by cloning a GitHub repo. 
 
-<a href="https://itunes.apple.com/us/app/kitten-tricks/id1246143230" alt="App Store"><img src="http://i.imgur.com/7IxtMV0.png" width="200"/></a> <a href="https://play.google.com/store/apps/details?id=com.akveo.kittenTricks" alt="Google play"><img src="http://i.imgur.com/pxFfB0S.png" width="200"/></a>
+![Preview](https://i.imgur.com/2E2nWHc.jpg)
 
+[<img src="http://i.imgur.com/7IxtMV0.png" width="200"/>][link:app-store]
+[<img src="http://i.imgur.com/pxFfB0S.png" width="200"/>][link:google-play]
 
-## Key Features
-- More than 40 ready to use application screens. Currently includes:
-  - App loader
-  - Auth screens: Login/Signup/Password recovery
-  - Social screens: User profile/Profile settings/Notifications/Contacts/Feed
-  - Articles Lists & Article details
-  - Chat list/Chat details/Comments
-  - Dashboard
-  - Walkthrough
-  - Credit cards
-  - Different navigation types
-  - Settings
-- **In app theme hot reload support**!
-- Carefully crafted user experience and design
-- Clean and comprehensive codebase
+## Key features:
+ 
+- Built with **TypeScript**.
+- **Dark and Light themes** could be used simultaneously and changed on the fly. 
+- **40 ready-to-use stunning screens** – for any domain: e-commerce, social, fitness, etc. 
+- **Huge variety of customizable layouts**, use “as is” or add new blocks from the UI Kit.
+- **Integration with Eva Design System** allows you to create mobile application staying in brand style and get clean, consistency design
 
-## Made with help of
-- [react-native](https://github.com/facebook/react-native)
-- [react-native-ui-kitten](https://github.com/akveo/react-native-ui-kitten)
-- [realm](https://github.com/realm/realm-js)
-- [react-navigation](https://github.com/react-community/react-navigation)
-- [victory-native](https://github.com/FormidableLabs/victory-native) charts
-- [Google Analytics](https://github.com/idehub/react-native-google-analytics-bridge)
+## Documentation:
 
-## Documentation
-Installation, customization and component docs are here: https://akveo.github.io/react-native-ui-kitten/
+This template is using [UI Kitten components][link:ui-kitten], [here you can find documentation and other useful articles][link:doc-ui-kitten].
 
-## Can I hire you guys?
-Yes!  Visit [our homepage](http://akveo.com/) or simply leave us a message to [contact@akveo.com](mailto:contact@akveo.com). We will be happy to work with you!
+## How can I support the developers?
 
-## License
-[MIT](LICENSE.txt) license.
-
-## How can I support developers?
 - Star our GitHub repo :star:
 - Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
-- Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
-- Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
+- Read us on [Medium][link:akveo-medium]
+- Follow us on [Twitter][link:akveo-twitter] :feet:
+- Like our page on [Facebook][link:akveo-facebook] :thumbsup:
 
+## License
 
-### From akveo
+[MIT](LICENSE.txt) license.
 
-Enjoy :metal:
+## More from Akveo
+
+- [Eva Icons][link:eva-icons] - 480+ beautiful Open Source icons
+
+## From Developers
+
+Made with :heart: by [Akveo team][link:akveo-homepage]. Follow us on [Twitter][link:akveo-twitter] to get the latest news first!
 We're always happy to receive your feedback!
 
-[badge-travis]: https://travis-ci.com/akveo/kittenTricks.svg?branch=next
-[link-travis]: https://travis-ci.com/akveo/kittenTricks
+[badge:travis]: https://travis-ci.com/akveo/kittenTricks.svg?branch=master
+
+[link:travis]: https://travis-ci.com/akveo/kittenTricks
+[link:eva]: https://eva.design
+[link:doc-ui-kitten]: https://akveo.github.io/react-native-ui-kitten
+[link:ui-kitten]: https://github.com/akveo/react-native-ui-kitten
+[link:app-store]: https://itunes.apple.com/us/app/kitten-tricks/id1246143230
+[link:google-play]: https://play.google.com/store/apps/details?id=com.akveo.kittenTricks
+[link:eva-icons]: https://github.com/akveo/eva-icons
+[link:akveo-homepage]: https://akveo.com
+[link:akveo-medium]: https://medium.com/akveo-engineering
+[link:akveo-twitter]: https://twitter.com/akveo_inc
+[link:akveo-facebook]: https://www.facebook.com/akveo
