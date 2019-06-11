@@ -8,9 +8,6 @@ env:
   - MODE=build
 matrix:
   fast_finish: true
-branches:
-  only:
-  - next
 before_install:
 - openssl aes-256-cbc -K $encrypted_11d3026708db_key -iv $encrypted_11d3026708db_iv
   -in travis_deploy_key.enc -out /tmp/travis_deploy_key -d
