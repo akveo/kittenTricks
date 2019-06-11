@@ -27,7 +27,7 @@
     "react": "^16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
-    "react-native-ui-kitten": "4.0.0",
+    "react-native-ui-kitten": "^4.0.0",
     "react-navigation": "^3.11.0"
   },
   "devDependencies": {
