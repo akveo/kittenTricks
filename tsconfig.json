@@ -18,7 +18,7 @@
     ],
     "paths": {
       "@src/*": ["./src/*"],
-      "@kitten/*": ["./node_modules/react-native-ui-kitten/src/framework/*"]
+      "@kitten/*": ["./node_modules/react-native-ui-kitten/*"]
     },
     "typeRoots": [
       "./node_modules/@types"
