@@ -7,7 +7,7 @@ The themes can be changed in the runtime, without any need of reloading the appl
 Download a live Demo published on both [App Store][link:app-store] and [Google Play][link:google-play]
  or simply run it yourself by cloning a GitHub repo. 
 
-![Preview](https://i.imgur.com/w1CAPJF.jpg)
+![Preview](https://i.imgur.com/2E2nWHc.jpg)
 
 [<img src="http://i.imgur.com/7IxtMV0.png" width="200"/>][link:app-store]
 [<img src="http://i.imgur.com/pxFfB0S.png" width="200"/>][link:google-play]
