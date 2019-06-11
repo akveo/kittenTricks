@@ -18,7 +18,7 @@
     "ci:build": "npm run env:set -- prod && npm run build"
   },
   "dependencies": {
-    "@eva-design/eva": "1.0.0-beta.2",
+    "@eva-design/eva": "1.0.0",
     "expo": "^33.0.4",
     "expo-analytics": "^1.0.8",
     "expo-camera": "^5.0.1",
@@ -27,7 +27,7 @@
     "react": "^16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
-    "react-native-ui-kitten": "github:akveo/react-native-ui-kitten#next",
+    "react-native-ui-kitten": "4.0.0",
     "react-navigation": "^3.11.0"
   },
   "devDependencies": {
