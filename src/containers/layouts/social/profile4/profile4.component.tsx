@@ -15,6 +15,7 @@ import {
   ProfileSocials,
 } from '@src/components/social';
 import {
+  ContainerView,
   RateBar,
   textStyle,
 } from '@src/components/common';
@@ -65,7 +66,7 @@ class Profile4Component extends React.Component<Profile4Props> {
     const { themedStyle, profile, socials } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <View style={themedStyle.infoContainer}>
           <ProfileInfo1
             photo={profile.photo.imageSource}
@@ -114,7 +115,7 @@ class Profile4Component extends React.Component<Profile4Props> {
             icon={ArrowHeadDownIconFill}
           />
         </View>
-      </View>
+      </ContainerView>
     );
   }
 }

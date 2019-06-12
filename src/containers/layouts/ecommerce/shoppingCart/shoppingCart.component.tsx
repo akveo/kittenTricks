@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   ListRenderItemInfo,
-  ScrollView,
 } from 'react-native';
 import {
   ThemedComponentProps,
@@ -14,7 +13,10 @@ import {
   Button,
   Text,
 } from '@kitten/ui';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 import { CartProduct as CartProductModel } from './cartProduct.model';
 import {
   CartProduct,
@@ -83,12 +85,11 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
     const { themedStyle, products } = this.props;
 
     return (
-      <ScrollView
+      <ContainerView
         style={themedStyle.container}
         contentContainerStyle={themedStyle.contentContainer}>
         <View>
           <List
-            style={themedStyle.productsList}
             data={products}
             renderItem={this.renderProduct}
           />
@@ -111,7 +112,7 @@ class ShoppingCartComponent extends React.Component<ShoppingCartProps> {
           onPress={this.onCheckout}>
           CHECKOUT
         </Button>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }
@@ -123,10 +124,6 @@ export const ShoppingCart = withStyles(ShoppingCartComponent, (theme: ThemeType)
   contentContainer: {
     flex: 1,
     justifyContent: 'space-between',
-  },
-  productsList: {
-    // borderTopWidth: 1,
-    // borderTopColor: theme['border-basic-color-2'],
   },
   item: {
     marginVertical: 1,

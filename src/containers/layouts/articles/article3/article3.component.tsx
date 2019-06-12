@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageBackground,
-  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -14,7 +13,10 @@ import {
   Text,
 } from '@kitten/ui';
 import { CommentsList1 } from '@src/components/articles';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 import {
   Article,
   Comment,
@@ -59,7 +61,7 @@ class Article3Component extends React.Component<Article3Props> {
     const { themedStyle, article, comments, currentCommentText } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <Text
           style={themedStyle.titleLabel}
           category='h4'>
@@ -114,7 +116,7 @@ class Article3Component extends React.Component<Article3Props> {
           onMorePress={this.onMorePress}
           onReplyMorePress={this.onReplyMorePress}
         />
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

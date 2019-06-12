@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageBackground,
-  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -20,7 +19,10 @@ import {
   PriceText,
 } from '@src/components/ecommerce';
 import { Apartment } from '@src/core/model';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   apartment: Apartment;
@@ -48,7 +50,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
     const { themedStyle, apartment } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <ImageBackground
           style={themedStyle.backgroundImage}
           source={apartment.primaryPhoto.imageSource}
@@ -123,7 +125,7 @@ class RentApartmentComponent extends React.Component<RentApartmentProps> {
             onItemPress={this.onPhotoPress}
           />
         </View>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

@@ -166,6 +166,7 @@ export const AddPaymentCardForm = withStyles(AddNewCardComponent, (theme: ThemeT
     marginTop: 24,
   },
   input: {
+    backgroundColor: theme['background-basic-color-1'],
   },
   expireInput: {
     width: 90,

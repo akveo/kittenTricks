@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageSourcePropType,
-  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -30,7 +29,10 @@ import {
   CategorisedProfileActivity as CategorisedProfileActivityModel,
   Post,
 } from '@src/core/model';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   profile: ProfileModel;
@@ -109,7 +111,7 @@ class Profile6Component extends React.Component<Profile6Props> {
     const { themedStyle, profile, socials, activity } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <ProfileInfo2
           style={themedStyle.profileInfo}
           photo={profile.photo.imageSource}
@@ -145,7 +147,7 @@ class Profile6Component extends React.Component<Profile6Props> {
         <View style={themedStyle.activityContainer}>
           {this.renderActivitiesElement(activity)}
         </View>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

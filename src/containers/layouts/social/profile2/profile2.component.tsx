@@ -17,6 +17,7 @@ import {
 import {
   RateBar,
   textStyle,
+  ContainerView,
 } from '@src/components/common';
 import {
   ArrowHeadDownIconFill,
@@ -65,7 +66,7 @@ class Profile2Component extends React.Component<Profile2Props> {
     const { themedStyle, profile, socials } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <View style={themedStyle.infoContainer}>
           <ProfileInfo1
             photo={profile.photo.imageSource}
@@ -117,7 +118,7 @@ class Profile2Component extends React.Component<Profile2Props> {
             />
           </View>
         </View>
-      </View>
+      </ContainerView>
     );
   }
 }
@@ -125,10 +126,11 @@ class Profile2Component extends React.Component<Profile2Props> {
 export const Profile2 = withStyles(Profile2Component, (theme: ThemeType) => ({
   container: {
     flex: 1,
-    backgroundColor: theme['background-basic-color-1'],
+    backgroundColor: theme['background-basic-color-2'],
   },
   infoContainer: {
     paddingHorizontal: 24,
+    backgroundColor: theme['background-basic-color-1'],
   },
   detailsContainer: {
     flex: 1,

@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -10,7 +9,10 @@ import {
   AddPaymentCardForm,
   AddPaymentCardFormType,
 } from '@src/components/ecommerce';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   onAddPress: (value: AddPaymentCardFormType) => void;
@@ -40,7 +42,9 @@ class AddNewCardComponent extends React.Component<AddNewCardProps, State> {
     const { themedStyle } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ContainerView
+        style={themedStyle.container}
+        contentContainerStyle={themedStyle.contentContainer}>
         <AddPaymentCardForm
           style={themedStyle.formContainer}
           onFormValueChange={this.onFormValueChange}
@@ -53,16 +57,18 @@ class AddNewCardComponent extends React.Component<AddNewCardProps, State> {
           onPress={this.onAddButtonPress}>
           ADD NEW CARD
         </Button>
-      </View>
+      </ContainerView>
     );
   }
 }
 
 export const AddNewCard = withStyles(AddNewCardComponent, (theme: ThemeType) => ({
   container: {
-    flex: 1,
-    backgroundColor: theme['background-basic-color-1'],
+    backgroundColor: theme['background-basic-color-2'],
     paddingHorizontal: 16,
+  },
+  contentContainer: {
+    flex: 1,
   },
   formContainer: {
     flex: 1,
