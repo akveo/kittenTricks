@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@eva-design/eva": "1.0.0",
-    "expo": "^33.0.4",
+    "expo": "^33.0.5",
     "expo-analytics": "^1.0.8",
     "expo-camera": "^5.0.1",
     "expo-constants": "^5.0.1",

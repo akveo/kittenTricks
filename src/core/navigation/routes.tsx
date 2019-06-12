@@ -10,6 +10,7 @@ import {
   LayoutsContainer,
   ComponentsContainer,
   ThemesContainer,
+  MenuContainer,
 } from '@src/containers/menu';
 import {
   ArticlesContainer,
@@ -104,19 +105,27 @@ import {
   ComponentShowcaseNavigatorParams,
   WalkthroughNavigatorParams,
   NavigationNavigatorParams,
+  MenuNavigatorDefaultOptions,
+  EcommerceNavigatorOptions,
 } from './navigationParams';
 import { BottomNavigationBar } from './components/bottomNavigationBar.component';
 import { getCurrentRouteState } from './routeUtil';
 
-const HeadingNavigationOptions = ({ navigation }) => {
+import { Alert } from 'react-native';
+import { NavigationParams, NavigationScreenProps } from 'react-navigation';
+import { EcommerceHeader } from '@src/components/ecommerce';
 
+const HeadingNavigationOptions = ({ navigation }) => {
   const header = (headerProps: HeaderProps): TopNavigationElement | null => {
     const { params } = getCurrentRouteState(navigation);
 
     return params && params.topNavigation && params.topNavigation(headerProps);
   };
 
-  return { ...navigation, header };
+  return {
+    ...navigation,
+    // ...(header ? { header } : null)
+  };
 };
 
 const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
@@ -128,51 +137,7 @@ const NavigationNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
-);
-
-const EcommerceNavigator: ReactNavigationContainer = createStackNavigator(
-  {
-    ['Ecommerce']: {
-      screen: EcommerceContainer,
-      params: MenuNavigatorParams,
-    },
-    ['Add New Card']: {
-      screen: AddNewCardContainer,
-      params: EcommerceNavigatorParams,
-    },
-    ['Payment']: {
-      screen: PaymentContainer,
-      params: EcommerceNavigatorParams,
-    },
-    ['Products List']: {
-      screen: ProductsListContainer,
-      params: EcommerceNavigatorParams,
-    },
-    ['Product Details']: {
-      screen: ProductDetailsContainer,
-      params: EcommerceNavigatorParams,
-    },
-    ['Shopping Cart']: {
-      screen: ShoppingCartContainer,
-      params: EcommerceNavigatorParams,
-    },
-    ['Rent Apartment']: {
-      screen: RentApartmentContainer,
-      params: EcommerceNavigatorParams,
-    },
-    ['Movie Details']: {
-      screen: MovieDetailsContainer,
-      params: EcommerceNavigatorParams,
-    },
-    ['Book Details']: {
-      screen: BookDetailsContainer,
-      params: EcommerceNavigatorParams,
-    },
-  },
-  {
-    headerMode: 'none',
-  },
+  }
 );
 
 const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
@@ -184,7 +149,7 @@ const WalkthroughNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
+  }
 );
 
 const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
@@ -204,7 +169,7 @@ const DashboardsNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
+  }
 );
 
 const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
@@ -230,7 +195,7 @@ const MessagingNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
+  }
 );
 
 const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
@@ -270,7 +235,7 @@ const ArticlesNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
+  }
 );
 
 const SocialNavigator: ReactNavigationContainer = createStackNavigator(
@@ -331,27 +296,7 @@ const SocialNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
-);
-
-const AuthNavigator: ReactNavigationContainer = createStackNavigator(
-  {
-    ['Auth']: AuthContainer,
-    ['Sign In 1']: SignIn1Container,
-    ['Sign In 2']: SignIn2Container,
-    ['Sign In 3']: SignIn3Container,
-    ['Sign In 4']: SignIn4Container,
-    ['Sign In 5']: SignIn5Container,
-    ['Sign Up 1']: SignUp1Container,
-    ['Sign Up 2']: SignUp2Container,
-    ['Sign Up 3']: SignUp3Container,
-    ['Sign Up 4']: SignUp4Container,
-    ['Forgot Password']: ForgotPasswordContainer,
-  },
-  {
-    headerMode: 'none',
-    initialRouteParams: MenuNavigatorParams,
-  },
+  }
 );
 
 const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
@@ -363,7 +308,7 @@ const ThemesNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
+  }
 );
 
 const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
@@ -435,41 +380,98 @@ const ComponentsNavigator: ReactNavigationContainer = createStackNavigator(
   },
   {
     headerMode: 'none',
-  },
+  }
 );
 
 const LayoutsNavigator: ReactNavigationContainer = createStackNavigator(
   {
-    ['Layouts']: {
-      screen: LayoutsContainer,
-      params: { ...RootNavigatorParams, ...MenuNavigatorParams },
-    },
-    ['Auth']: AuthNavigator,
+    ['Layouts']: LayoutsContainer,
+    ['Auth']: AuthContainer,
+    ['Ecommerce']: EcommerceContainer,
     ['Social']: SocialNavigator,
     ['Articles']: ArticlesNavigator,
     ['Messaging']: MessagingNavigator,
     ['Dashboards']: DashboardsNavigator,
     ['Walkthrough']: WalkthroughNavigator,
-    ['Ecommerce']: EcommerceNavigator,
     ['Navigation']: NavigationNavigator,
-  }, {
-    headerMode: 'none',
   },
+  {
+    defaultNavigationOptions: MenuNavigatorDefaultOptions,
+  }
 );
 
-const MenuNavigator: ReactNavigationContainer = createBottomTabNavigator({
-  ['Layouts']: LayoutsNavigator,
-  ['Components']: ComponentsNavigator,
-  ['Themes']: ThemesNavigator,
-}, {
-  tabBarComponent: BottomNavigationBar,
-});
-
-const AppNavigator: ReactNavigationContainer = createStackNavigator({
-  ['Home']: {
-    screen: MenuNavigator,
-    navigationOptions: HeadingNavigationOptions,
+const MenuNavigator: ReactNavigationContainer = createBottomTabNavigator(
+  {
+    ['Layouts']: LayoutsNavigator,
+    ['Components']: ComponentsNavigator,
+    ['Themes']: ThemesNavigator,
   },
-});
+  {
+    tabBarComponent: MenuContainer,
+  }
+);
 
-export const Router: ReactNavigationContainer = createAppContainer(AppNavigator);
+const AuthExamples = {
+  ['Sign In 1']: SignIn1Container,
+  ['Sign In 2']: SignIn2Container,
+  ['Sign In 3']: SignIn3Container,
+  ['Sign In 4']: SignIn4Container,
+  ['Sign In 5']: SignIn5Container,
+  ['Sign Up 1']: SignUp1Container,
+  ['Sign Up 2']: SignUp2Container,
+  ['Sign Up 3']: SignUp3Container,
+  ['Sign Up 4']: SignUp4Container,
+  ['Forgot Password']: ForgotPasswordContainer,
+};
+
+const EcommerceExamples = {
+  ['Add New Card']: {
+    screen: AddNewCardContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+  ['Payment']: {
+    screen: PaymentContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+  ['Products List']: {
+    screen: ProductsListContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+  ['Product Details']: {
+    screen: ProductDetailsContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+  ['Shopping Cart']: {
+    screen: ShoppingCartContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+  ['Rent Apartment']: {
+    screen: RentApartmentContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+  ['Movie Details']: {
+    screen: MovieDetailsContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+  ['Book Details']: {
+    screen: BookDetailsContainer,
+    navigationOptions: EcommerceNavigatorOptions,
+  },
+};
+
+const AppNavigator: ReactNavigationContainer = createStackNavigator(
+  {
+    ['Home']: MenuNavigator,
+    ...AuthExamples,
+    ...EcommerceExamples,
+  },
+  {
+    defaultNavigationOptions: {
+      header: null,
+    },
+  }
+);
+
+export const Router: ReactNavigationContainer = createAppContainer(
+  AppNavigator
+);
