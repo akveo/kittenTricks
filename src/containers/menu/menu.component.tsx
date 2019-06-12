@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView } from '@src/core/navigation';
 import {
   ThemeProvider,
   ThemedComponentProps,

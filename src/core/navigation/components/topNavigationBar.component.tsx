@@ -11,8 +11,8 @@ import {
   TopNavigationActionProps,
   TopNavigationProps,
 } from '@kitten/ui';
-import { SafeAreaView } from 'react-navigation';
 import { textStyle } from '@src/components/common';
+import { SafeAreaView } from './safeAreaView.component';
 
 export interface ComponentProps {
   backIcon?: BackIconProp;
