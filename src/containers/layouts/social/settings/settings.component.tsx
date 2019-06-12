@@ -2,7 +2,6 @@ import React from 'react';
 import {
   TouchableOpacity,
   TouchableOpacityProps,
-  View,
 } from 'react-native';
 import {
   ThemeType,
@@ -13,7 +12,10 @@ import {
   Toggle,
   Text,
 } from '@kitten/ui';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   soundEnabled: boolean;
@@ -49,7 +51,7 @@ class SettingsComponent extends React.Component<SettingsProps> {
     const { themedStyle, soundEnabled } = this.props;
 
     return (
-      <View style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <Section
           style={themedStyle.section}
           onPress={this.onEditProfilePress}>
@@ -99,7 +101,7 @@ class SettingsComponent extends React.Component<SettingsProps> {
             onChange={this.onSoundEnabledChange}
           />
         </Section>
-      </View>
+      </ContainerView>
     );
   }
 }

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -19,7 +16,10 @@ import {
   Product,
   Comment,
 } from '@src/core/model';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   product: Product;
@@ -77,7 +77,7 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
     const { themedStyle, product, comments, currentCommentText } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <ProductInfo
           image={product.photo.imageSource}
           name={product.name}
@@ -117,7 +117,7 @@ class ProductDetailsComponent extends React.Component<ProductDetailsProps, State
             onReplyMorePress={this.onCommentReplyMorePress}
           />
         </View>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

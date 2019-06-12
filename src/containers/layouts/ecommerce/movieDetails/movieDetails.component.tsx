@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   withStyles,
   ThemeType,
@@ -17,7 +14,10 @@ import {
   MovieHeader,
   MovieScreenshotList,
 } from '@src/components/ecommerce';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 import { Movie as MovieModel } from '@src/core/model';
 
 interface ComponentProps {
@@ -42,7 +42,7 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
     const { themedStyle, movie } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <MovieHeader
           style={themedStyle.movieHeader}
           image={movie.preview.imageSource}
@@ -86,7 +86,7 @@ class MovieDetailsComponent extends React.Component<MovieProps> {
             BUY TICKET
           </Button>
         </View>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ListRenderItemInfo,
-  ScrollView,
-} from 'react-native';
+import { ListRenderItemInfo } from 'react-native';
 import {
   StyleType,
   ThemedComponentProps,
@@ -19,7 +16,10 @@ import {
   ArticleList4Item,
   ArticleList4ItemProps,
 } from './articleList4Item.component';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   articles: Article[];
@@ -81,7 +81,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
     const [headingArticle, ...restArticles] = articles;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <ArticleHeader
           source={headingArticle.image.imageSource}
           title={headingArticle.title}
@@ -98,7 +98,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
           data={restArticles}
           renderItem={this.renderArticleItem}
         />
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

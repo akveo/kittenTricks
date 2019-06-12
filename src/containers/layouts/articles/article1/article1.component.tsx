@@ -1,5 +1,4 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -12,6 +11,7 @@ import {
 } from '@src/components/articles';
 import {
   ActivityAuthoring,
+  ContainerView,
   textStyle,
 } from '@src/components/common';
 import { Article } from '@src/core/model';
@@ -40,7 +40,7 @@ class Article1Component extends React.Component<Article1Props> {
     const commentsCount: number = article.comments ? article.comments.length : 0;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <ArticleHeader
           source={article.image.imageSource}
           title={article.title}
@@ -63,7 +63,7 @@ class Article1Component extends React.Component<Article1Props> {
             date={article.date}
           />
         </ArticleActivityBar>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

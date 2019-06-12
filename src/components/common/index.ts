@@ -7,6 +7,10 @@ export {
   ScrollableAvoidKeyboardProps,
 } from './scrollableAvoidKeyboard.component';
 export {
+  ContainerView,
+  ContainerViewProps,
+} from './containerView.component';
+export {
   AvoidKeyboard,
   AvoidKeyboardProps,
 } from './avoidKeyboard.component';

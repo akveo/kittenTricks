@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ScrollView,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -13,7 +12,10 @@ import {
   Button,
   Text,
 } from '@kitten/ui';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 import { PaymentCard as PaymentCardModel } from '@src/core/model';
 import {
   PaymentCard,
@@ -65,7 +67,7 @@ class PaymentComponent extends React.Component<PaymentProps> {
     const { themedStyle, paymentCards } = this.props;
 
     return (
-      <ScrollView
+      <ContainerView
         style={themedStyle.container}
         contentContainerStyle={themedStyle.contentContainer}>
         <View>
@@ -90,7 +92,7 @@ class PaymentComponent extends React.Component<PaymentProps> {
           onPress={this.onBuy}>
           BUY
         </Button>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

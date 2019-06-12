@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   withStyles,
   ThemeType,
@@ -19,7 +16,10 @@ import {
   Book,
   Comment,
 } from '@src/core/model';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   book: Book;
@@ -65,7 +65,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
     const { themedStyle, book, comments, currentCommentText } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <BookHeader
           style={themedStyle.bookHeader}
           image={book.preview.imageSource}
@@ -115,7 +115,7 @@ class BookDetailsComponent extends React.Component<BookDetailsProps> {
             onReplyMorePress={this.onCommentReplyMorePress}
           />
         </View>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

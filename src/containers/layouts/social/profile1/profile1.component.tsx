@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ScrollView,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -19,7 +16,10 @@ import {
   ProfileSocials as ProfileSocialsModel,
   Post as PostModel,
 } from '@src/core/model';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   profile: ProfileModel;
@@ -65,7 +65,7 @@ class Profile1Component extends React.Component<Profile1Props> {
     const { themedStyle, profile, socials, posts } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <ProfileInfo1
           style={themedStyle.profileInfo}
           photo={profile.photo.imageSource}
@@ -94,7 +94,7 @@ class Profile1Component extends React.Component<Profile1Props> {
           onItemPress={this.onItemPress}
           onItemLikePress={this.onItemLikePress}
         />
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

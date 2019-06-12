@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageBackground,
-  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -14,7 +13,10 @@ import {
   Text,
 } from '@kitten/ui';
 import { ArticleActivityBar } from '@src/components/articles';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 import { ClockIconOutline } from '@src/assets/icons';
 import { Article } from '@src/core/model';
 
@@ -40,7 +42,7 @@ class Article2Component extends React.Component<Article2Props> {
     const { themedStyle, article } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <ImageBackground
           style={themedStyle.image}
           source={article.image.imageSource}>
@@ -76,7 +78,7 @@ class Article2Component extends React.Component<Article2Props> {
               </Text>
             </View>
           </ArticleActivityBar>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }

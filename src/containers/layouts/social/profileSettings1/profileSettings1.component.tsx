@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ButtonProps,
-  ScrollView,
   View,
 } from 'react-native';
 import {
@@ -16,7 +15,10 @@ import {
 } from '@src/components/social';
 import { CameraIconFill } from '@src/assets/icons';
 import { Profile } from '@src/core/model';
-import { textStyle } from '@src/components/common';
+import {
+  ContainerView,
+  textStyle,
+} from '@src/components/common';
 
 interface ComponentProps {
   profile: Profile;
@@ -53,7 +55,7 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
     const { themedStyle, profile } = this.props;
 
     return (
-      <ScrollView style={themedStyle.container}>
+      <ContainerView style={themedStyle.container}>
         <View style={themedStyle.photoSection}>
           <ProfilePhoto
             style={themedStyle.photo}
@@ -112,7 +114,7 @@ class ProfileSettings1Component extends React.Component<ProfileSettings1Props> {
           onPress={this.onButtonPress}>
           DONE
         </Button>
-      </ScrollView>
+      </ContainerView>
     );
   }
 }
