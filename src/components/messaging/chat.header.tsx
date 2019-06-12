@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  NavigationScreenProps,
-  SafeAreaView,
-} from 'react-navigation';
+import { NavigationScreenProps } from 'react-navigation';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -17,6 +14,7 @@ import {
   TopNavigationProps,
 } from '@kitten/ui';
 import { ArrowIosBackFill } from '@src/assets/icons';
+import { SafeAreaView } from '@src/core/navigation';
 import { Profile } from '@src/core/model';
 
 interface ComponentProps {

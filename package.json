@@ -22,6 +22,7 @@
     "expo": "^33.0.4",
     "expo-analytics": "^1.0.8",
     "expo-camera": "^5.0.1",
+    "expo-constants": "^5.0.1",
     "expo-media-library": "^5.0.1",
     "expo-permissions": "^5.0.1",
     "react": "^16.8.3",

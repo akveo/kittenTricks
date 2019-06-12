@@ -1,6 +1,5 @@
 import React from 'react';
 import { ImageProps } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 import {
   StyleType,
   ThemedComponentProps,
@@ -12,6 +11,7 @@ import {
   TopNavigationAction,
   TopNavigation,
 } from '@kitten/ui';
+import { SafeAreaView } from '@src/core/navigation';
 import {
   ArrowIosBackFill,
   CartIconFill,

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  NavigationScreenProps,
-} from 'react-navigation';
+import { NavigationScreenProps } from 'react-navigation';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -13,6 +10,7 @@ import {
   TopNavigationAction,
   TopNavigation,
 } from '@kitten/ui';
+import { SafeAreaView } from '@src/core/navigation';
 import {
   ArrowIosBackFill,
   SearchIconOutline,
