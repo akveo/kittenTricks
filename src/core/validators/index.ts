@@ -50,10 +50,7 @@ export const CardholderNameValidator = (value: string): boolean => {
 };
 
 export const StringValidator = (value: string): boolean => {
-  if (value && value.length > 0) {
-    return true;
-  }
-  return false;
+  return !!value && value.length > 0;
 };
 
 const RegExpValidator = (regexp: RegExp, value: string): boolean => {
