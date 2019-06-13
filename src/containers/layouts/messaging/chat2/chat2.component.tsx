@@ -45,6 +45,7 @@ import {
   AvoidKeyboard,
   textStyle,
 } from '@src/components/common';
+import { StringValidator } from '@src/core/validators';
 
 interface ComponentProps {
   conversation: ConversationModel;
@@ -69,9 +70,14 @@ export type Chat2ComponentProps = ThemedComponentProps & ComponentProps;
 class Chat2Component extends React.Component<Chat2ComponentProps> {
 
   private listRef: React.RefObject<FlatList<any>> = React.createRef();
+  private scrollToLastMessageTimeout: number;
+
+  public componentWillUnmount() {
+    clearTimeout(this.scrollToLastMessageTimeout);
+  }
 
   private onListContentSizeChange = (): void => {
-    setTimeout(() => this.listRef.current.scrollToEnd({ animated: true }), 0);
+    this.scrollToLastMessageTimeout = setTimeout(this.scrollToLastMessage, 0);
   };
 
   private onNewMessageChange = (text: string): void => {
@@ -84,6 +90,16 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
 
   private onAddButtonPress = (): void => {
     this.props.onAddButtonPress();
+  };
+
+  private shouldRenderSendButton = (): boolean => {
+    const { newMessage } = this.props;
+
+    return StringValidator(newMessage);
+  };
+
+  private scrollToLastMessage = () => {
+    this.listRef.current.scrollToEnd({ animated: true });
   };
 
   private createUiMessages = (): UiMessageModel[] => {
@@ -128,10 +144,10 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
     );
   };
 
-  private renderSendMessageButton = (): React.ReactElement<ButtonProps> | null => {
-    const { newMessage, themedStyle } = this.props;
+  private renderSendMessageButton = (): React.ReactElement<ButtonProps> => {
+    const { themedStyle } = this.props;
 
-    return (newMessage && newMessage.length !== 0) ? (
+    return (
       <Button
         style={themedStyle.addMessageButton}
         appearance='ghost'
@@ -139,7 +155,7 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
         icon={PaperPlaneIconFill}
         onPress={this.onMessageAdd}
       />
-    ) : null;
+    );
   };
 
   private renderFileSection = (): React.ReactElement<ViewProps> => {
@@ -176,11 +192,9 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
   };
 
   public render(): React.ReactNode {
-    const {
-      themedStyle,
-      newMessage,
-      fileSectionOpened,
-    } = this.props;
+    const { themedStyle, newMessage, fileSectionOpened } = this.props;
+
+    const sendMessageButtonElement = this.shouldRenderSendButton() ? this.renderSendMessageButton() : null;
 
     return (
       <AvoidKeyboard
@@ -202,14 +216,14 @@ class Chat2Component extends React.Component<Chat2ComponentProps> {
               onPress={this.onAddButtonPress}
             />
             <Input
-              style={themedStyle.inputComponent}
+              style={themedStyle.messageInput}
               textStyle={textStyle.paragraph}
               icon={MicIconFill}
               value={newMessage}
               placeholder='Message...'
               onChangeText={this.onNewMessageChange}
             />
-            {this.renderSendMessageButton()}
+            {sendMessageButtonElement}
           </View>
           {fileSectionOpened && this.renderFileSection()}
         </View>
@@ -241,7 +255,7 @@ export const Chat2 = withStyles(Chat2Component, (theme: ThemeType) => ({
     height: 26,
     borderRadius: 26,
   },
-  inputComponent: {
+  messageInput: {
     flex: 1,
     marginHorizontal: 8,
   },

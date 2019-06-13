@@ -49,6 +49,9 @@ export const CardholderNameValidator = (value: string): boolean => {
   return RegExpValidator(PATTERN_FULLNAME, value);
 };
 
+export const StringValidator = (value: string): boolean => {
+  return !!value && value.length > 0;
+};
 
 const RegExpValidator = (regexp: RegExp, value: string): boolean => {
   return regexp.test(value);

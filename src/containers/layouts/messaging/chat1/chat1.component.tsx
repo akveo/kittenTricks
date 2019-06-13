@@ -12,6 +12,7 @@ import {
 } from '@kitten/theme';
 import {
   Button,
+  ButtonProps,
   Input,
   List,
 } from '@kitten/ui';
@@ -22,6 +23,7 @@ import {
 } from '@src/components/messaging';
 import {
   MicIconFill,
+  PaperPlaneIconFill,
   PlusIconFill,
 } from '@src/assets/icons';
 import {
@@ -37,6 +39,7 @@ import {
   AvoidKeyboard,
   textStyle,
 } from '@src/components/common';
+import { StringValidator } from '@src/core/validators';
 
 interface ComponentProps {
   conversation: ConversationModel;
@@ -61,6 +64,12 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
   private onMessageAdd = (): void => {
     this.props.onMessageAdd();
+  };
+
+  private shouldRenderSendButton = (): boolean => {
+    const { newMessage } = this.props;
+
+    return StringValidator(newMessage);
   };
 
   private createUiMessages = (): UiMessageModel[] => {
@@ -94,6 +103,20 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
     );
   };
 
+  private renderSendMessageButton = (): React.ReactElement<ButtonProps> => {
+    const { themedStyle } = this.props;
+
+    return (
+      <Button
+        style={themedStyle.addMessageButton}
+        appearance='ghost'
+        size='large'
+        icon={PaperPlaneIconFill}
+        onPress={this.onMessageAdd}
+      />
+    );
+  };
+
   private keyboardOffset = (height: number) => {
     return Platform.select({
       ios: height,
@@ -103,7 +126,8 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
 
   public render(): React.ReactNode {
     const { themedStyle, newMessage } = this.props;
-    const isMessageEmpty: boolean = newMessage.length === 0;
+
+    const sendMessageButtonElement = this.shouldRenderSendButton() ? this.renderSendMessageButton() : null;
 
     return (
       <AvoidKeyboard
@@ -122,17 +146,17 @@ class Chat1Component extends React.Component<Chat1ComponentProps> {
             style={themedStyle.addMessageButton}
             textStyle={textStyle.button}
             icon={PlusIconFill}
-            disabled={isMessageEmpty}
             onPress={this.onMessageAdd}
           />
           <Input
             icon={MicIconFill}
-            style={themedStyle.input}
+            style={themedStyle.messageInput}
             textStyle={textStyle.paragraph}
             value={newMessage}
             placeholder='Message...'
             onChangeText={this.onNewMessageChange}
           />
+          {sendMessageButtonElement}
         </View>
       </AvoidKeyboard>
     );
@@ -162,10 +186,10 @@ export const Chat1 = withStyles(Chat1Component, (theme: ThemeType) => ({
     width: 26,
     height: 26,
     borderRadius: 26,
-    marginRight: 18,
   },
-  input: {
+  messageInput: {
     flex: 1,
+    marginHorizontal: 8,
   },
 }));
 
