@@ -26,7 +26,8 @@
       "src/assets/fonts"
     ],
     "splash": {
-      "image": "src/assets/images/source/splash.png"
+      "image": "src/assets/images/source/splash.png",
+      "resizeMode": "contain"
     }
   }
 }
