@@ -1,3 +1,5 @@
+import { KEY_NAVIGATION_ROOT } from '@src/core/navigation/constants';
+
 export interface NavigationRouteState {
   index: number;
   routes: any[];
@@ -20,4 +22,8 @@ const findCurrentRoute = (state: NavigationRouteState): NavigationRouteState => 
   }
 
   return state;
+};
+
+export const isRootRoute = (key: string): boolean => {
+  return KEY_NAVIGATION_ROOT === key;
 };
