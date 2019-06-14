@@ -1,4 +1,5 @@
 import React from 'react';
+import { useScreens } from 'react-native-screens';
 import {
   createStackNavigator,
   createAppContainer,
@@ -472,4 +473,11 @@ const AppNavigator: ReactNavigationContainer = createStackNavigator({
   },
 });
 
-export const Router: ReactNavigationContainer = createAppContainer(AppNavigator);
+const createAppRouter = (container: ReactNavigationContainer): ReactNavigationContainer => {
+  useScreens();
+  return createAppContainer(container);
+};
+
+
+
+export const Router: ReactNavigationContainer = createAppRouter(AppNavigator);
