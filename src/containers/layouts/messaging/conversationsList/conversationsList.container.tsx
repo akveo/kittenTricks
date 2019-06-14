@@ -17,7 +17,7 @@ import {
   conversation12,
 } from '@src/core/data/conversation';
 import { ConversationsList } from './conversationsList.component';
-import { TopNavigationElement } from '@src/core/navigation/navigationParams';
+import { TopNavigationElement } from '@src/core/navigation/options';
 import { ConversationListHeader } from './conversationList.header';
 import { navigateAction } from '@src/core/navigation';
 
