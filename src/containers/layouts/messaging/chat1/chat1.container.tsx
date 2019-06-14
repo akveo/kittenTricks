@@ -19,6 +19,7 @@ import {
 } from '@src/core/data/profile';
 import { TopNavigationElement } from '@src/core/navigation/navigationParams';
 import { Chat1 } from './chat1.component';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   newMessageText: string;
@@ -71,7 +72,7 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
   }
 
   private onProfilePress = (profile: Profile): void => {
-    this.props.navigation.navigate('Profile 1');
+    this.props.navigation.dispatch(navigateAction('Profile 1'));
   };
 
   private onNewMessageChange = (newMessageText: string): void => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { SignInForm1Data } from '@src/components/auth';
 import { SignIn1 } from './signIn1.component';
+import { navigateAction } from '@src/core/navigation';
 
 export class SignIn1Container extends React.Component<NavigationScreenProps> {
 
@@ -10,7 +11,7 @@ export class SignIn1Container extends React.Component<NavigationScreenProps> {
   };
 
   private onSignUpPress = () => {
-    this.props.navigation.navigate('Sign Up 1');
+    this.props.navigation.dispatch(navigateAction('Sign Up 1'));
   };
 
   private onGooglePress = () => {

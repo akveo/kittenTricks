@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { SignUpForm2Data } from '@src/components/auth';
 import { SignUp3 } from './signUp3.component';
+import { navigateAction } from '@src/core/navigation';
 
 export class SignUp3Container extends React.Component<NavigationScreenProps> {
 
@@ -10,7 +11,7 @@ export class SignUp3Container extends React.Component<NavigationScreenProps> {
   };
 
   private onSignInPress = () => {
-    this.props.navigation.navigate('Sign In 3');
+    this.props.navigation.dispatch(navigateAction('Sign In 3'));
   };
 
   private onPhotoPress = () => {

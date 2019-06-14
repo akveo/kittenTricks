@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { Ecommerce } from './ecommerce.component';
 import { routes } from './routes';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   selectedLayoutIndex: number;
@@ -22,7 +23,7 @@ export class EcommerceContainer extends React.Component<NavigationScreenProps, S
   private onItemSelect = (index: number) => {
     const { [index]: selectedItem } = this.data;
 
-    this.props.navigation.navigate(selectedItem.route);
+    this.props.navigation.dispatch(navigateAction(selectedItem.route));
   };
 
   public render(): React.ReactNode {

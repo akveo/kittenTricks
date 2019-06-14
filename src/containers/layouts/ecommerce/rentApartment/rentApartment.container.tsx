@@ -3,6 +3,7 @@ import { NavigationScreenProps } from 'react-navigation';
 import { Apartment } from '@src/core/model';
 import { apartment1 } from '@src/core/data/apartment';
 import { RentApartment } from './rentApartment.component';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   apartment: Apartment;
@@ -15,7 +16,7 @@ export class RentApartmentContainer extends React.Component<NavigationScreenProp
   };
 
   private onBookPress = () => {
-    this.props.navigation.navigate('Payment');
+    this.props.navigation.dispatch(navigateAction('Payment'));
   };
 
   private onPhotoPress = (index: number) => {

@@ -24,6 +24,7 @@ import {
 import { Chat2 } from '../chat2/chat2.component';
 import { TopNavigationElement } from '@src/core/navigation/navigationParams';
 import { imageMessage2 } from '@src/assets/images';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   newMessageText: string;
@@ -85,7 +86,7 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
   }
 
   private onProfilePress = (profile: Profile): void => {
-    this.props.navigation.navigate('Profile 1');
+    this.props.navigation.dispatch(navigateAction('Profile 1'));
   };
 
   private onNewMessageChange = (newMessageText: string): void => {

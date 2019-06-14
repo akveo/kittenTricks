@@ -12,6 +12,7 @@ import {
   getCurrentRouteState,
   NavigationRouteState,
 } from './routeUtil';
+import { navigateAction } from '@src/core/navigation/navigationActions';
 
 export type TopNavigationElement = React.ReactElement<any>;
 export type BottomNavigationElement = React.ReactElement<any>;
@@ -54,7 +55,7 @@ const EcommerceMenuTopNavigationParams: TopNavigationParams = {
     };
 
     const onShoppingCartPress = (): void => {
-      props.navigation.navigate('Shopping Cart');
+      props.navigation.dispatch(navigateAction('Shopping Cart'));
     };
 
     return (

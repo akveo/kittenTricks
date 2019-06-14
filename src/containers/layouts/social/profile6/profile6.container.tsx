@@ -13,6 +13,7 @@ import {
 } from '@src/core/data/profile';
 import { Profile6 } from './profile6.component';
 import { posts } from '@src/core/data/post';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   profile: Profile;
@@ -35,7 +36,7 @@ export class Profile6Container extends React.Component<NavigationScreenProps, St
   };
 
   private onMessagePress = () => {
-    this.props.navigation.navigate('Chat 1');
+    this.props.navigation.dispatch(navigateAction('Chat 1'));
   };
 
   private onFollowersPress = () => {

@@ -8,3 +8,7 @@ export {
 export {
   BottomNavigationBar,
 } from './components/bottomNavigationBar.component';
+
+export {
+  navigateAction,
+} from './navigationActions';
