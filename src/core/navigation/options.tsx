@@ -89,8 +89,6 @@ export const SocialNavigationOptions: NavigationParams = MenuTopNavigationParams
 
 export const ArticlesNavigationOptions: NavigationParams = MenuTopNavigationParams;
 
-export const MessagingNavigationOptions: NavigationParams = MenuTopNavigationParams;
-
 export const DashboardNavigationOptions: NavigationParams = MenuTopNavigationParams;
 
 export const EcommerceNavigationOptions: NavigationParams = EcommerceMenuTopNavigationParams;

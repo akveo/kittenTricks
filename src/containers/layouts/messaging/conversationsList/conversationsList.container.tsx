@@ -64,13 +64,13 @@ export class ConversationsListContainer extends React.Component<NavigationScreen
       );
     };
 
-    navigation.state.params = {
-      topNavigation: (headerProps: NavigationScreenProps): TopNavigationElement => {
+    return {
+      ...navigation,
+      ...screenProps,
+      header: (headerProps: NavigationScreenProps): TopNavigationElement => {
         return renderHeader(headerProps, conversationHeaderConfig);
       },
     };
-
-    return { ...navigation, ...screenProps };
   };
 
   public componentWillMount(): void {

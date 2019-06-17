@@ -34,9 +34,13 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
   };
 
   static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
+    const user: Profile = navigation.getParam('interlocutor');
+    const date: string = navigation.getParam('lastSeen');
+    const interlocutor: Profile = user ? user : conversation5.interlocutor;
+    const lastSeen: string = date ? date : 'today';
     const chatHeaderConfig: ChatHeaderNavigationStateParams = {
-      interlocutor: navigation.getParam('interlocutor'),
-      lastSeen: navigation.getParam('lastSeen'),
+      interlocutor: interlocutor,
+      lastSeen: lastSeen,
       onBack: navigation.getParam('onBack'),
       onProfile: navigation.getParam('onProfile'),
     };
@@ -53,13 +57,13 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
       );
     };
 
-    navigation.state.params = {
-      topNavigation: (headerProps: NavigationScreenProps): TopNavigationElement => {
+    return {
+      ...navigation,
+      ...screenProps,
+      header: (headerProps: NavigationScreenProps): TopNavigationElement => {
         return renderHeader(headerProps, chatHeaderConfig);
       },
     };
-
-    return { ...navigation, ...screenProps };
   };
 
   public componentWillMount(): void {
@@ -72,7 +76,7 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
   }
 
   private onProfilePress = (profile: Profile): void => {
-    this.props.navigation.dispatch(navigateAction('Profile 1'));
+    this.props.navigation.navigate(navigateAction('Test Profile'));
   };
 
   private onNewMessageChange = (newMessageText: string): void => {

@@ -16,7 +16,7 @@ import {
   Message,
   Profile,
 } from '@src/core/model';
-import { conversation6 } from '@src/core/data/conversation';
+import { conversation5, conversation6 } from '@src/core/data/conversation';
 import {
   profile1,
   profile2,
@@ -43,9 +43,13 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
   };
 
   static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
+    const user: Profile = navigation.getParam('interlocutor');
+    const date: string = navigation.getParam('lastSeen');
+    const interlocutor: Profile = user ? user : conversation5.interlocutor;
+    const lastSeen: string = date ? date : 'today';
     const chatHeaderConfig: ChatHeaderNavigationStateParams = {
-      interlocutor: navigation.getParam('interlocutor'),
-      lastSeen: navigation.getParam('lastSeen'),
+      interlocutor: interlocutor,
+      lastSeen: lastSeen,
       onBack: navigation.getParam('onBack'),
       onProfile: navigation.getParam('onProfile'),
     };
@@ -62,13 +66,13 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
       );
     };
 
-    navigation.state.params = {
-      topNavigation: (headerProps: NavigationScreenProps): TopNavigationElement => {
+    return {
+      ...navigation,
+      ...screenProps,
+      header: (headerProps: NavigationScreenProps): TopNavigationElement => {
         return renderHeader(headerProps, chatHeaderConfig);
       },
     };
-
-    return { ...navigation, ...screenProps };
   };
 
   public componentWillMount(): void {

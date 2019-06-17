@@ -96,7 +96,6 @@ import {
   DashboardNavigationOptions,
   EcommerceNavigationOptions,
   MenuNavigationOptions,
-  MessagingNavigationOptions,
   SocialNavigationOptions,
 } from './options';
 
@@ -143,21 +142,11 @@ const DarhboardsNavigationMap: NavigationRouteConfigMap = {
 };
 
 const MessagingNavigationMap: NavigationRouteConfigMap = {
-  ['Conversations List']: {
-    screen: ConversationsListContainer,
-  },
-  ['Chat 1']: {
-    screen: Chat1Container,
-  },
-  ['Chat 2']: {
-    screen: Chat2Container,
-    navigationOptions: MessagingNavigationOptions,
-  },
-  ['Chat 3']: {
-    screen: Chat3Container,
-    navigationOptions: MessagingNavigationOptions,
-  },
-  ['Profile 1']: {
+  ['Conversations List']: ConversationsListContainer,
+  ['Chat 1']: Chat1Container,
+  ['Chat 2']: Chat2Container,
+  ['Chat 3']: Chat3Container,
+  ['Test Profile']: {
     screen: Profile1Container,
     navigationOptions: SocialNavigationOptions,
   },
