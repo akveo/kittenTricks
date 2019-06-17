@@ -23,7 +23,7 @@
     "assetBundlePatterns": [
       "src/assets/images/source/*",
       "src/assets/icons/**/*.png",
-      "src/assets/fonts"
+      "src/assets/fonts/*"
     ],
     "splash": {
       "image": "src/assets/images/source/splash.png"
