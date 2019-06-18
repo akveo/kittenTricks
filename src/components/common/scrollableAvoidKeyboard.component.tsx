@@ -19,6 +19,7 @@ class ScrollableAvoidKeyboardComponent extends React.Component<ScrollableAvoidKe
     return (
       <KeyboardAwareScrollView
         {...restProps}
+        bounces={false}
         style={[themedStyle.container, style]}
         contentContainerStyle={[themedStyle.contentContainer, contentContainerStyle]}
         enableOnAndroid={true}
