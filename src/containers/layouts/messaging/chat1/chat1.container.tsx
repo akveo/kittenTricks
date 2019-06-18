@@ -34,7 +34,6 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
   };
 
   static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
-
     const headerProps: ChatHeaderNavigationStateParams = {
       interlocutor: navigation.getParam('interlocutor', conversation5.interlocutor),
       lastSeen: navigation.getParam('lastSeen', 'today'),

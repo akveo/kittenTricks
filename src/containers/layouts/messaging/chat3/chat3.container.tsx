@@ -43,38 +43,23 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
   };
 
   static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
-    const user: Profile = navigation.getParam('interlocutor');
-    const date: string = navigation.getParam('lastSeen');
-    const interlocutor: Profile = user ? user : conversation5.interlocutor;
-    const lastSeen: string = date ? date : 'today';
-    const chatHeaderConfig: ChatHeaderNavigationStateParams = {
-      interlocutor: interlocutor,
-      lastSeen: lastSeen,
+    const headerProps: ChatHeaderNavigationStateParams = {
+      interlocutor: navigation.getParam('interlocutor', conversation5.interlocutor),
+      lastSeen: navigation.getParam('lastSeen', 'today'),
       onBack: navigation.getParam('onBack'),
       onProfile: navigation.getParam('onProfile'),
     };
 
-    const renderHeader = (headerProps: NavigationScreenProps,
-                          config: ChatHeaderNavigationStateParams) => {
-
+    const header = (navigationProps: NavigationScreenProps) => {
       return (
         <ChatHeader
+          {...navigationProps}
           {...headerProps}
-          lastSeen={config.lastSeen}
-          interlocutor={config.interlocutor}
-          onBack={config.onBack}
-          onProfile={config.onProfile}
         />
       );
     };
 
-    return {
-      ...navigation,
-      ...screenProps,
-      header: (headerProps: NavigationScreenProps): TopNavigationElement => {
-        return renderHeader(headerProps, chatHeaderConfig);
-      },
-    };
+    return { ...navigation, ...screenProps, header };
   };
 
   public componentWillMount(): void {
