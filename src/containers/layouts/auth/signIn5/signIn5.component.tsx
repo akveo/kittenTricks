@@ -101,7 +101,7 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
     const signInButtonEnabled: boolean = !!this.getSelectedFormData();
 
     return (
-      <ScrollableAvoidKeyboard>
+      <ScrollableAvoidKeyboard bounces={false}>
         <ImageOverlay
           style={themedStyle.container}
           source={this.backgroundImage.imageSource}>

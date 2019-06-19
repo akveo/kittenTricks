@@ -63,7 +63,7 @@ class SignIn3Component extends React.Component<SignIn3Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ScrollableAvoidKeyboard>
+      <ScrollableAvoidKeyboard bounces={false}>
         <ImageOverlay
           style={themedStyle.container}
           source={this.backgroundImage.imageSource}>
