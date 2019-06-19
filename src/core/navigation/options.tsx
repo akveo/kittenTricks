@@ -10,14 +10,17 @@ import { ArrowIosBackFill } from '@src/assets/icons';
 import { TopNavigationBar } from './components/topNavigationBar.component';
 import {
   getCurrentRouteState,
+  isRootRoute,
   NavigationRouteState,
-} from './routeUtil';
+} from './util';
+import { navigateAction } from './actions';
+import { KEY_NAVIGATION_BACK } from './constants';
 
 export type TopNavigationElement = React.ReactElement<any>;
 export type BottomNavigationElement = React.ReactElement<any>;
 
 export interface TopNavigationParams extends NavigationParams {
-  topNavigation: (props: NavigationScreenProps) => TopNavigationElement | null;
+  header: (props: NavigationScreenProps) => TopNavigationElement | null;
 }
 
 export interface BottomNavigationParams extends NavigationParams {
@@ -25,16 +28,17 @@ export interface BottomNavigationParams extends NavigationParams {
 }
 
 const MenuTopNavigationParams: TopNavigationParams = {
-  topNavigation: (props: NavigationScreenProps): TopNavigationElement => {
-    const state: NavigationRouteState = getCurrentRouteState(props.navigation);
+  header: (props: NavigationScreenProps): TopNavigationElement => {
+    // @ts-ignore (private API)
+    const { routeName, key } = getCurrentRouteState(props.navigation);
 
     return (
       <TopNavigationBar
         {...props}
-        title={state.routeName}
-        backIcon={!state.params.root && ArrowIosBackFill}
+        title={routeName}
+        backIcon={isRootRoute(key) && ArrowIosBackFill}
         onBackPress={() => {
-          props.navigation.goBack(null);
+          props.navigation.goBack(KEY_NAVIGATION_BACK);
         }}
       />
     );
@@ -42,19 +46,19 @@ const MenuTopNavigationParams: TopNavigationParams = {
 };
 
 const EcommerceMenuTopNavigationParams: TopNavigationParams = {
-  topNavigation: (props: NavigationScreenProps): TopNavigationElement => {
+  header: (props: NavigationScreenProps): TopNavigationElement => {
     const state: NavigationRouteState = getCurrentRouteState(props.navigation);
 
-    const onBackPress = (): void => {
-      props.navigation.goBack(null);
+    const onBackPress = () => {
+      props.navigation.goBack(KEY_NAVIGATION_BACK);
     };
 
-    const onSearchPress = (): void => {
+    const onSearchPress = () => {
       Alert.alert('Search...');
     };
 
-    const onShoppingCartPress = (): void => {
-      props.navigation.navigate('Shopping Cart');
+    const onShoppingCartPress = () => {
+      props.navigation.dispatch(navigateAction('Shopping Cart'));
     };
 
     return (
@@ -76,45 +80,15 @@ const MenuBottomNavigationParams: BottomNavigationParams = {
   },
 };
 
-export const RootNavigatorParams: NavigationParams = {
-  root: true,
-};
-
-export const MenuNavigatorParams: NavigationParams = {
+export const MenuNavigationOptions: NavigationParams = {
   ...MenuTopNavigationParams,
   ...MenuBottomNavigationParams,
 };
 
-export const SocialNavigatorParams: NavigationParams = {
-  ...MenuTopNavigationParams,
-};
+export const SocialNavigationOptions: NavigationParams = MenuTopNavigationParams;
 
-export const ArticlesNavigatorParams: NavigationParams = {
-  ...MenuTopNavigationParams,
-};
+export const ArticlesNavigationOptions: NavigationParams = MenuTopNavigationParams;
 
-export const MessagingNavigatorParams: NavigationParams = {
-  ...MenuTopNavigationParams,
-};
+export const DashboardNavigationOptions: NavigationParams = MenuTopNavigationParams;
 
-export const DashboardsNavigatorParams: NavigationParams = {
-  ...MenuTopNavigationParams,
-};
-
-export const WalkthroughNavigatorParams: NavigationParams = {
-  ...MenuTopNavigationParams,
-};
-
-export const EcommerceNavigatorParams: NavigationParams = {
-  ...EcommerceMenuTopNavigationParams,
-};
-
-export const NavigationNavigatorParams: NavigationParams = {
-  ...MenuTopNavigationParams,
-};
-
-export const ComponentShowcaseNavigatorParams: NavigationParams = {
-  ...MenuTopNavigationParams,
-};
-
-
+export const EcommerceNavigationOptions: NavigationParams = EcommerceMenuTopNavigationParams;

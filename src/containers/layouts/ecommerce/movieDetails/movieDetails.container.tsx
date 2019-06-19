@@ -3,6 +3,7 @@ import { NavigationScreenProps } from 'react-navigation';
 import { movie1 } from '@src/core/data/movie';
 import { Movie as MovieModel } from '@src/core/model';
 import { Movie } from './movieDetails.component';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   movie: MovieModel;
@@ -18,7 +19,7 @@ export class MovieDetailsContainer extends React.Component<NavigationScreenProps
   };
 
   private onBuyTicketPress = () => {
-    this.props.navigation.navigate('Payment');
+    this.props.navigation.dispatch(navigateAction('Payment'));
   };
 
   public render(): React.ReactNode {
