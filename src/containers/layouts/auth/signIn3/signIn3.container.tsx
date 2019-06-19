@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { SignInForm2Data } from '@src/components/auth';
 import { SignIn3 } from './signIn3.component';
+import { navigateAction } from '@src/core/navigation';
 
 export class SignIn3Container extends React.Component<NavigationScreenProps> {
 
@@ -10,11 +11,11 @@ export class SignIn3Container extends React.Component<NavigationScreenProps> {
   };
 
   private onSignUpPress = () => {
-    this.props.navigation.navigate('Sign Up 3');
+    this.props.navigation.dispatch(navigateAction('Sign Up 3'));
   };
 
   private onForgotPasswordPress = () => {
-    this.props.navigation.navigate('Forgot Password');
+    this.props.navigation.dispatch(navigateAction('Forgot Password'));
   };
 
   public render(): React.ReactNode {

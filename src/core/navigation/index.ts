@@ -6,5 +6,5 @@ export {
   SafeAreaView,
 } from './components/safeAreaView.component';
 export {
-  BottomNavigationBar,
-} from './components/bottomNavigationBar.component';
+  navigateAction,
+} from './actions';

@@ -3,6 +3,7 @@ import { NavigationScreenProps } from 'react-navigation';
 import { Payment } from './payment.component';
 import { PaymentCard } from '@src/core/model';
 import { paymentCard1 } from '@src/core/data/paymentCard';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   paymentCards: PaymentCard[];
@@ -23,7 +24,7 @@ export class PaymentContainer extends React.Component<NavigationScreenProps> {
   };
 
   private onAddCardPress = (): void => {
-    this.props.navigation.navigate('Add New Card');
+    this.props.navigation.dispatch(navigateAction('Add New Card'));
   };
 
   public render(): React.ReactNode {
