@@ -74,7 +74,7 @@ export class Chat2Container extends React.Component<NavigationScreenProps, State
   }
 
   private onProfilePress = (profile: Profile): void => {
-    this.props.navigation.dispatch(navigateAction('Profile 1'));
+    this.props.navigation.navigate('Test Profile');
   };
 
   private onMediaResponse = (data: MediaLibrary.PagedInfo<MediaLibrary.Asset>): void => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   NavigationScreenProps,
-  NavigationScreenConfig,
+  NavigationScreenConfig, NavigationActions,
 } from 'react-navigation';
 import {
   ChatHeader,
@@ -20,6 +20,7 @@ import {
 import { TopNavigationElement } from '@src/core/navigation/options';
 import { Chat1 } from './chat1.component';
 import { navigateAction } from '@src/core/navigation';
+import { KEY_NAVIGATION_ROOT } from '@src/core/navigation/constants';
 
 interface State {
   newMessageText: string;
@@ -63,7 +64,7 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
   }
 
   private onProfilePress = (profile: Profile): void => {
-    this.props.navigation.dispatch(navigateAction('Test Profile'));
+    this.props.navigation.navigate('Test Profile');
   };
 
   private onNewMessageChange = (newMessageText: string): void => {
