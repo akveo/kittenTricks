@@ -74,22 +74,22 @@ class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
   };
 
   private renderInterlocutorProps = (): TopNavigationProps | null => {
-    const { interlocutor } = this.props;
+    const { interlocutor, lastSeen } = this.props;
 
     return interlocutor && {
       title: `${interlocutor.firstName} ${interlocutor.lastName}`,
+      subtitle: `Last seen ${lastSeen}`,
       rightControls: this.renderRightControls(),
     };
   };
 
   public render(): React.ReactNode {
-    const { themedStyle, lastSeen } = this.props;
+    const { themedStyle, interlocutor } = this.props;
 
     return (
       <SafeAreaView style={themedStyle.container}>
         <TopNavigation
           alignment='center'
-          subtitle={`Last seen ${lastSeen}`}
           leftControl={this.renderLeftControl()}
           {...this.renderInterlocutorProps()}
         />

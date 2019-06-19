@@ -32,7 +32,31 @@ export type LayoutMenuProps = ThemedComponentProps & ComponentProps;
 type ChildElement = React.ReactElement<TabProps>;
 type ChildrenProp = ChildElement | ChildElement[];
 
+interface TabLoadingMap {
+  [key: string]: boolean;
+}
+
 class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
+
+  private tabLoadingMap: TabLoadingMap;
+
+  constructor(props: LayoutMenuProps) {
+    super(props);
+    this.tabLoadingMap = this.createTabLoadingMap(props.selectedIndex);
+  }
+
+  public componentWillUpdate(nextProps: LayoutMenuProps) {
+    const nextLoadingMap: TabLoadingMap = this.createTabLoadingMap(nextProps.selectedIndex);
+    this.tabLoadingMap = { ...this.tabLoadingMap, ...nextLoadingMap };
+  }
+
+  private shouldLoadTabContentElement = (index: number): boolean => {
+    return this.tabLoadingMap[`${index}`];
+  };
+
+  private createTabLoadingMap = (selectedIndex: number): TabLoadingMap => {
+    return { [`${selectedIndex}`]: true };
+  };
 
   private onItemPress = (index: number) => {
     this.props.onItemPress(index);
@@ -43,7 +67,9 @@ class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
 
     return (
       <ThemeProvider theme={{ ...this.props.theme, ...themes['App Theme'] }}>
-        <TabView {...restProps}>
+        <TabView
+          shouldLoadComponent={this.shouldLoadTabContentElement}
+          {...restProps}>
           <Tab icon={GridIconOutline}>
             <LayoutGridList
               style={themedStyle.listContainer}

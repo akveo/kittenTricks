@@ -10,7 +10,7 @@ import {
 } from './core/appLoader/applicationLoader.component';
 import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from './core/utils/analytics';
-import { getCurrentStateName } from './core/navigation/routeUtil';
+import { getCurrentStateName } from './core/navigation/util';
 import {
   ThemeContext,
   ThemeContextType,

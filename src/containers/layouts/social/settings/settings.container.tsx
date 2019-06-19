@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { Settings } from './settings.component';
+import { navigateAction } from '@src/core/navigation';
 
 interface State {
   soundEnabled: boolean;
@@ -13,7 +14,7 @@ export class SettingsContainer extends React.Component<NavigationScreenProps, St
   };
 
   private onEditProfilePress = () => {
-    this.props.navigation.navigate('Profile Settings 1');
+    this.props.navigation.dispatch(navigateAction('Profile Settings 1'));
   };
 
   private onChangePasswordPress = () => {
