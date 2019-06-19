@@ -80,9 +80,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ScrollableAvoidKeyboard
-        style={themedStyle.container}
-        bounces={false}>
+      <ScrollableAvoidKeyboard style={themedStyle.container}>
         <View style={themedStyle.headerContainer}>
           <ProfilePhoto
             style={themedStyle.photo}

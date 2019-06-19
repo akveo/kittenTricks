@@ -52,7 +52,7 @@ class ForgotPasswordComponent extends React.Component<ForgotPasswordProps, State
     const { themedStyle } = this.props;
 
     return (
-      <ScrollableAvoidKeyboard bounces={false}>
+      <ScrollableAvoidKeyboard>
         <ImageOverlay
           style={themedStyle.container}
           source={this.backgroundImage.imageSource}>

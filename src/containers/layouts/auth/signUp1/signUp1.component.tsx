@@ -99,9 +99,7 @@ class SignUp1Component extends React.Component<SignUp1Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ScrollableAvoidKeyboard
-        style={themedStyle.container}
-        bounces={false}>
+      <ScrollableAvoidKeyboard style={themedStyle.container}>
         <ImageOverlay
           style={themedStyle.headerContainer}
           source={this.backgroundImage.imageSource}>

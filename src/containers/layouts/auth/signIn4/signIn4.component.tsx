@@ -79,7 +79,7 @@ class SignIn4Component extends React.Component<SignIn4Props, State> {
     const { themedStyle } = this.props;
 
     return (
-      <ScrollableAvoidKeyboard bounces={false}>
+      <ScrollableAvoidKeyboard>
         <ImageOverlay
           style={themedStyle.container}
           source={this.backgroundImage.imageSource}>

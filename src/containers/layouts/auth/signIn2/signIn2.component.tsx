@@ -56,9 +56,7 @@ class SignIn2Component extends React.Component<SignIn2Props> {
     const { themedStyle } = this.props;
 
     return (
-      <ScrollableAvoidKeyboard
-        style={themedStyle.container}
-        bounces={false}>
+      <ScrollableAvoidKeyboard style={themedStyle.container}>
         <View style={themedStyle.headerContainer}>
           <Text
             style={themedStyle.helloLabel}

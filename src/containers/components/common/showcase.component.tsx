@@ -56,7 +56,6 @@ class ShowcaseComponent extends React.Component<ShowcaseProps> {
 
     return (
       <ScrollableAvoidKeyboard
-        bounces={false}
         style={[themedStyle.container, style]}
         extraScrollHeight={this.keyboardOffset}
         {...restProps}>
