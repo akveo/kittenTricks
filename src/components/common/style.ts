@@ -1,26 +1,30 @@
-import { Platform } from 'react-native';
-import { StyleType } from '@kitten/theme';
-
 export const textStyle = {
-  headline: getPlatformDependentFontStyle('opensans-bold', 'normal'),
-  subtitle: getPlatformDependentFontStyle('opensans-semibold', 'normal'),
-  paragraph: getPlatformDependentFontStyle('opensans-regular', 'normal'),
-  caption1: getPlatformDependentFontStyle('opensans-regular', 'normal'),
-  caption2: getPlatformDependentFontStyle('opensans-semibold', 'normal'),
-  label: getPlatformDependentFontStyle('opensans-bold', 'normal'),
+  headline: {
+    fontFamily: 'opensans-bold',
+    fontWeight: 'normal',
+  },
+  subtitle: {
+    fontFamily: 'opensans-semibold',
+    fontWeight: 'normal',
+  },
+  paragraph: {
+    fontFamily: 'opensans-regular',
+    fontWeight: 'normal',
+  },
+  caption1: {
+    fontFamily: 'opensans-regular',
+    fontWeight: 'normal',
+  },
+  caption2: {
+    fontFamily: 'opensans-semibold',
+    fontWeight: 'normal',
+  },
+  label: {
+    fontFamily: 'opensans-bold',
+    fontWeight: 'normal',
+  },
   button: {
     // fontFamily: 'opensans-extrabold',
+    // fontWeight: 'normal',
   },
 };
-
-function getPlatformDependentFontStyle(fontFamily: string, fontWeight: string): StyleType {
-  return Platform.select({
-    ios: {
-      fontFamily: fontFamily,
-    },
-    android: {
-      fontFamily: fontFamily,
-      fontWeight: fontWeight,
-    },
-  });
-}

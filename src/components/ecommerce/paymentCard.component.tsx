@@ -114,8 +114,8 @@ export const PaymentCard = withStyles(PaymentCardComponent, (theme: ThemeType) =
   numberLabel: {
     color: 'white',
     marginBottom: 26,
-    fontFamily: 'opensans-bold',
     fontSize: 18,
+    ...textStyle.headline,
   },
   bottomLabel: {
     color: 'white',

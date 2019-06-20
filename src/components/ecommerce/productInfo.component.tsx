@@ -129,7 +129,7 @@ export const ProductInfo = withStyles(ProductInfoComponent, (theme: ThemeType) =
   nameLabel: textStyle.headline,
   typeLabel: textStyle.paragraph,
   costLabel: {
-    fontFamily: 'opensans-bold',
+    ...textStyle.headline,
     fontSize: 26,
     lineHeight: 32,
   },
