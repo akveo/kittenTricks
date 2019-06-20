@@ -1,4 +1,6 @@
-export const textStyle = {
+import { TextStyle } from 'react-native';
+
+export const textStyle: { [key: string]: TextStyle } = {
   headline: {
     fontFamily: 'opensans-bold',
     fontWeight: 'normal',
