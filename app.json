@@ -2,7 +2,7 @@
   "expo": {
     "name": "Kitten Tricks",
     "icon": "./src/assets/icons/icon.png",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "slug": "kittenTricks",
     "sdkVersion": "33.0.0",
     "privacy": "public",
@@ -14,7 +14,7 @@
     },
     "android": {
       "package": "com.akveo.kittenTricks",
-      "versionCode": 16,
+      "versionCode": 17,
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.akveo.kittenTricks"
     },
     "androidStatusBar": {
