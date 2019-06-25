@@ -2,16 +2,20 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { SignUpForm2Data } from '@src/components/auth';
 import { SignUp4 } from './signUp4.component';
-import { navigateAction } from '@src/core/navigation';
 
 export class SignUp4Container extends React.Component<NavigationScreenProps> {
+
+  private navigationKey: string = 'SignUp4Container';
 
   private onSignUpPress = (data: SignUpForm2Data) => {
     this.props.navigation.goBack();
   };
 
   private onSignInPress = () => {
-    this.props.navigation.dispatch(navigateAction('Sign In 4'));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: 'Sign In 4',
+    });
   };
 
   private onGooglePress = () => {

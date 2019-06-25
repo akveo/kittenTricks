@@ -5,6 +5,4 @@ export {
 export {
   SafeAreaView,
 } from './components/safeAreaView.component';
-export {
-  navigateAction,
-} from './actions';
+export * from './util';

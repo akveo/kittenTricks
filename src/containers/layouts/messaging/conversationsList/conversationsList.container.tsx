@@ -19,7 +19,6 @@ import {
 import { ConversationsList } from './conversationsList.component';
 import { TopNavigationElement } from '@src/core/navigation/options';
 import { ConversationListHeader } from './conversationList.header';
-import { navigateAction } from '@src/core/navigation';
 
 interface ConversationsListNavigationStateParams {
   onBack: () => void;
@@ -85,6 +84,8 @@ export class ConversationsListContainer extends React.Component<NavigationScreen
     searchEnabled: false,
   };
 
+  private navigationKey: string = 'ConversationsListContainer';
+
   private onBackPress = (): void => {
     this.props.navigation.goBack(null);
   };
@@ -94,7 +95,10 @@ export class ConversationsListContainer extends React.Component<NavigationScreen
   };
 
   private onConversationPress = (index: number) => {
-    this.props.navigation.dispatch(navigateAction('Chat 1'));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: 'Chat 1',
+    });
   };
 
   private onSearchStringChange = (searchString: string): void => {

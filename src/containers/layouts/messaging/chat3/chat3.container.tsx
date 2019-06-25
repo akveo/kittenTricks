@@ -22,9 +22,7 @@ import {
   profile2,
 } from '@src/core/data/profile';
 import { Chat2 } from '../chat2/chat2.component';
-import { TopNavigationElement } from '@src/core/navigation/options';
 import { imageMessage2 } from '@src/assets/images';
-import { navigateAction } from '@src/core/navigation';
 
 interface State {
   newMessageText: string;

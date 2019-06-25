@@ -3,7 +3,6 @@ import { NavigationScreenProps } from 'react-navigation';
 import { Components } from './components.component';
 import { ComponentsContainerData } from './type';
 import { routes } from './routes';
-import { navigateAction } from '@src/core/navigation';
 
 interface State {
   data: ComponentsContainerData[];
@@ -15,10 +14,15 @@ export class ComponentsContainer extends React.Component<NavigationScreenProps, 
     data: routes,
   };
 
+  private navigationKey: string = 'ComponentsContainer';
+
   private onItemSelect = (index: number) => {
     const { [index]: selectedItem } = this.state.data;
 
-    this.props.navigation.dispatch(navigateAction(selectedItem.route));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: selectedItem.route,
+    });
   };
 
   public render(): React.ReactNode {

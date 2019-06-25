@@ -11,7 +11,6 @@ import {
   profileActivity1,
   profileSocials1,
 } from '@src/core/data/profile';
-import { navigateAction } from '@src/core/navigation';
 
 interface State {
   profile: Profile;
@@ -27,12 +26,17 @@ export class Profile7Container extends React.Component<NavigationScreenProps, St
     activity: profileActivity1,
   };
 
+  private navigationKey: string = 'Profile7Container';
+
   private onFollowPress = () => {
 
   };
 
   private onMessagePress = () => {
-    this.props.navigation.dispatch(navigateAction('Chat 1'));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: 'Chat 1',
+    });
   };
 
   private onFollowersPress = () => {

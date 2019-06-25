@@ -17,10 +17,7 @@ import {
   profile1,
   profile2,
 } from '@src/core/data/profile';
-import { TopNavigationElement } from '@src/core/navigation/options';
 import { Chat1 } from './chat1.component';
-import { navigateAction } from '@src/core/navigation';
-import { KEY_NAVIGATION_ROOT } from '@src/core/navigation/constants';
 
 interface State {
   newMessageText: string;

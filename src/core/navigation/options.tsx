@@ -12,8 +12,8 @@ import {
   getCurrentRouteState,
   isRootRoute,
   NavigationRouteState,
+  getCurrentRouteIndex,
 } from './util';
-import { navigateAction } from './actions';
 import { KEY_NAVIGATION_BACK } from './constants';
 
 export type TopNavigationElement = React.ReactElement<any>;
@@ -30,13 +30,14 @@ export interface BottomNavigationParams extends NavigationParams {
 const MenuTopNavigationParams: TopNavigationParams = {
   header: (props: NavigationScreenProps): TopNavigationElement => {
     // @ts-ignore (private API)
-    const { routeName, key } = getCurrentRouteState(props.navigation);
+    const { routeName } = getCurrentRouteState(props.navigation);
+    const index: number = getCurrentRouteIndex(props.navigation);
 
     return (
       <TopNavigationBar
         {...props}
         title={routeName}
-        backIcon={isRootRoute(key) && ArrowIosBackFill}
+        backIcon={isRootRoute(index) && ArrowIosBackFill}
         onBackPress={() => {
           props.navigation.goBack(KEY_NAVIGATION_BACK);
         }}
@@ -58,7 +59,10 @@ const EcommerceMenuTopNavigationParams: TopNavigationParams = {
     };
 
     const onShoppingCartPress = () => {
-      props.navigation.dispatch(navigateAction('Shopping Cart'));
+      props.navigation.navigate({
+        key: state.routeName,
+        routeName: 'Shopping Cart',
+      });
     };
 
     return (
