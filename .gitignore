@@ -23,9 +23,7 @@ docs/docs.json
 docs/output.json
 
 # config
-config/*
-!config/dev.env.js
-!config/prod.env.js
+config/index.js
 
 .expo
 .expo-shared/
