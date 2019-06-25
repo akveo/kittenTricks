@@ -42,6 +42,7 @@ import {
   Trainings2Container,
 } from '@src/containers/layouts/dashboards';
 import {
+  AddNewCardContainer,
   BookDetailsContainer,
   EcommerceContainer,
   MovieDetailsContainer,
@@ -100,6 +101,10 @@ import {
 } from './options';
 
 const EcommerceNavigationMap: NavigationRouteConfigMap = {
+  ['Add New Card']: {
+    screen: AddNewCardContainer,
+    navigationOptions: EcommerceNavigationOptions,
+  },
   ['Payment']: {
     screen: PaymentContainer,
     navigationOptions: EcommerceNavigationOptions,
@@ -314,6 +319,7 @@ const AppNavigator: NavigationContainer = createStackNavigator({
   ...DarhboardsNavigationMap,
   ...EcommerceNavigationMap,
 }, {
+  headerMode: 'screen',
   defaultNavigationOptions: {
     header: null,
   },

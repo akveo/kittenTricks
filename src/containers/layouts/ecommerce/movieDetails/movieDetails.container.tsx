@@ -3,7 +3,6 @@ import { NavigationScreenProps } from 'react-navigation';
 import { movie1 } from '@src/core/data/movie';
 import { Movie as MovieModel } from '@src/core/model';
 import { Movie } from './movieDetails.component';
-import { navigateAction } from '@src/core/navigation';
 
 interface State {
   movie: MovieModel;
@@ -15,11 +14,16 @@ export class MovieDetailsContainer extends React.Component<NavigationScreenProps
     movie: movie1,
   };
 
+  private navigationKey: string = 'MovieDetailsContainer';
+
   private onScreenshotPress = (index: number) => {
   };
 
   private onBuyTicketPress = () => {
-    this.props.navigation.dispatch(navigateAction('Payment'));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: 'Payment',
+    });
   };
 
   public render(): React.ReactNode {

@@ -2,7 +2,6 @@ import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { Walkthrough } from './walkthrough.component';
 import { routes } from './routes';
-import { navigateAction } from '@src/core/navigation';
 
 interface State {
   selectedLayoutIndex: number;
@@ -15,6 +14,7 @@ export class WalkthroughContainer extends React.Component<NavigationScreenProps,
   };
 
   private data = routes;
+  private navigationKey: string = 'WalkthroughContainer';
 
   private onCategorySelect = (selectedLayoutIndex: number) => {
     this.setState({ selectedLayoutIndex });
@@ -23,7 +23,10 @@ export class WalkthroughContainer extends React.Component<NavigationScreenProps,
   private onItemSelect = (index: number) => {
     const { [index]: selectedItem } = this.data;
 
-    this.props.navigation.dispatch(navigateAction(selectedItem.route));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: selectedItem.route,
+    });
   };
 
   public render(): React.ReactNode {

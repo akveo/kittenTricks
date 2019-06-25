@@ -1,15 +1,19 @@
 import React from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 import { Menu } from './menu.component';
-import { navigateAction } from '@src/core/navigation';
 
 export class MenuContainer extends React.Component<NavigationScreenProps> {
+
+  private navigationKey: string = 'MenuContainer';
 
   private onTabSelect = (index: number) => {
     const { navigation } = this.props;
     const { [index]: selectedRoute } = navigation.state.routes;
 
-    navigation.dispatch(navigateAction(selectedRoute.routeName));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: selectedRoute.routeName,
+    });
   };
 
   public render(): React.ReactNode {

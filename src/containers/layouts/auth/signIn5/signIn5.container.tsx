@@ -5,9 +5,10 @@ import {
   SignInForm4Data,
 } from '@src/components/auth';
 import { SignIn5 } from './signIn5.component';
-import { navigateAction } from '@src/core/navigation';
 
 export class SignIn5Container extends React.Component<NavigationScreenProps> {
+
+  private navigationKey: string = 'SignIn5Container';
 
   private onSignInEmailPress = (data: SignInForm3Data) => {
     this.props.navigation.goBack();
@@ -18,7 +19,10 @@ export class SignIn5Container extends React.Component<NavigationScreenProps> {
   };
 
   private onSignUpPress = () => {
-    this.props.navigation.dispatch(navigateAction('Sign Up 4'));
+    this.props.navigation.navigate({
+      key: this.navigationKey,
+      routeName: 'Sign Up 4',
+    });
   };
 
   public render(): React.ReactNode {
