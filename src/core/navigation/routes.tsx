@@ -319,6 +319,7 @@ const AppNavigator: NavigationContainer = createStackNavigator({
   ...DarhboardsNavigationMap,
   ...EcommerceNavigationMap,
 }, {
+  headerMode: 'screen',
   defaultNavigationOptions: {
     header: null,
   },
