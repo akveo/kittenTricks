@@ -191,4 +191,14 @@ export const routes: ComponentsContainerData[] = [
     },
     route: 'Bottom Navigation',
   },
+  {
+    title: 'Modal',
+    icon: (style: StyleProp<ImageStyle>, theme: ThemeKey) => {
+      return ThemeService.select({
+        'Eva Light': ComponentsIconBottomNavigation(style),
+        'Eva Dark': ComponentsIconBottomNavigationDark(style),
+      }, theme);
+    },
+    route: 'Modal',
+  },
 ];

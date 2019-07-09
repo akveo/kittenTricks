@@ -91,6 +91,7 @@ import {
   ToggleContainer,
   TooltipContainer,
   TopNavigationContainer,
+  ModalContainer,
 } from '@src/containers/components';
 import {
   ArticlesNavigationOptions,
@@ -281,6 +282,7 @@ const ComponentsNavigator: NavigationContainer = createStackNavigator(
     ['List']: ListContainer,
     ['Top Navigation']: TopNavigationContainer,
     ['Bottom Navigation']: BottomNavigationContainer,
+    ['Modal']: ModalContainer,
   },
   {
     defaultNavigationOptions: MenuNavigationOptions,
