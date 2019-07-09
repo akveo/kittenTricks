@@ -22,7 +22,7 @@ export class TooltipShowcase extends React.Component<any, TooltipShowcaseCompone
     visible: this.props.visible,
   };
 
-  private onRequestClose = () => {
+  private onBackdropPress = () => {
     this.setState({ visible: false });
   };
 
@@ -48,7 +48,7 @@ export class TooltipShowcase extends React.Component<any, TooltipShowcaseCompone
         style={[styles.container, style]}
         visible={this.state.visible}
         text={this.tipDescription()}
-        onRequestClose={this.onRequestClose}>
+        onBackdropPress={this.onBackdropPress}>
         <Button
           size='small'
           onPress={this.onButtonPress}>
