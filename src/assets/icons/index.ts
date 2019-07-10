@@ -345,6 +345,22 @@ export const ComponentsIconBottomNavigationDark = (style: StyleProp<ImageStyle>)
   return Icon(source, style);
 };
 
+export const ComponentsIconModal = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-modal.png'),
+  };
+
+  return Icon(source, style);
+};
+
+export const ComponentsIconModalDark = (style: StyleProp<ImageStyle>): IconElement => {
+  const source: IconSource = {
+    imageSource: require('./icon-modal-dark.png'),
+  };
+
+  return Icon(source, style);
+};
+
 export const ArrowHeadDownIconFill = (style: StyleProp<ImageStyle>): IconElement => {
   const source: IconSource = {
     imageSource: require('./eva/arrowhead-down.png'),

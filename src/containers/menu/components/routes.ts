@@ -33,6 +33,8 @@ import {
   ComponentsIconTooltipDark,
   ComponentsIconTopNavigation,
   ComponentsIconTopNavigationDark,
+  ComponentsIconModal,
+  ComponentsIconModalDark,
 } from '@src/assets/icons';
 import {
   ThemeKey,
@@ -191,13 +193,12 @@ export const routes: ComponentsContainerData[] = [
     },
     route: 'Bottom Navigation',
   },
-  // todo: replace with the correct icons
   {
     title: 'Modal',
     icon: (style: StyleProp<ImageStyle>, theme: ThemeKey) => {
       return ThemeService.select({
-        'Eva Light': ComponentsIconBottomNavigation(style),
-        'Eva Dark': ComponentsIconBottomNavigationDark(style),
+        'Eva Light': ComponentsIconModal(style),
+        'Eva Dark': ComponentsIconModalDark(style),
       }, theme);
     },
     route: 'Modal',
