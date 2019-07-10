@@ -40,7 +40,7 @@ export class OverflowMenuShowcase extends React.Component<any, OverflowMenuShowc
     visible: this.props.visible,
   };
 
-  private onRequestClose = () => {
+  private onBackdropPress = () => {
     this.setState({ visible: false });
   };
 
@@ -60,7 +60,7 @@ export class OverflowMenuShowcase extends React.Component<any, OverflowMenuShowc
         visible={this.state.visible}
         items={this.items}
         onSelect={this.onItemSelect}
-        onRequestClose={this.onRequestClose}>
+        onBackdropPress={this.onBackdropPress}>
         <Button onPress={this.onButtonPress}>BUTTON</Button>
       </OverflowMenu>
     );

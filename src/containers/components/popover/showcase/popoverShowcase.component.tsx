@@ -28,7 +28,7 @@ export class PopoverShowcase extends React.Component<any, PopoverShowcaseCompone
     visible: this.props.visible,
   };
 
-  private onRequestClose = () => {
+  private onBackdropPress = () => {
     this.setState({ visible: false });
   };
 
@@ -69,7 +69,7 @@ export class PopoverShowcase extends React.Component<any, PopoverShowcaseCompone
         {...this.props}
         visible={this.state.visible}
         content={this.renderContentElement()}
-        onRequestClose={this.onRequestClose}>
+        onBackdropPress={this.onBackdropPress}>
         <Button
           style={styles.button}
           onPress={this.onButtonPress}>

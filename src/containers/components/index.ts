@@ -13,3 +13,4 @@ export { OverflowMenuContainer } from './overflowMenu/overflowMenu.container';
 export { ListContainer } from './list/list.container';
 export { TopNavigationContainer } from './topNavigation/topNavigation.container';
 export { BottomNavigationContainer } from './bottomNavigation/bottomNavigation.container';
+export { ModalContainer } from './modal/modal.container';
