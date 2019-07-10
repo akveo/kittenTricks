@@ -191,6 +191,7 @@ export const routes: ComponentsContainerData[] = [
     },
     route: 'Bottom Navigation',
   },
+  // todo: replace with the correct icons
   {
     title: 'Modal',
     icon: (style: StyleProp<ImageStyle>, theme: ThemeKey) => {

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Button,
   Modal,
-  ModalProps,
 } from '@kitten/ui';
 import { ModalContent } from './modalContent.component';
 import { StyleSheet } from 'react-native';
@@ -12,7 +11,7 @@ interface ModalShowcaseState {
   visible: boolean;
 }
 
-export class ModalShowcase extends React.Component<ModalProps, ModalShowcaseState> {
+export class ModalShowcase extends React.Component<any, ModalShowcaseState> {
 
   public state: ModalShowcaseState = {
     visible: false,
