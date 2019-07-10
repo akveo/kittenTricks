@@ -3,9 +3,9 @@ import {
   ImageProps,
   ImageStyle,
   StyleProp,
+  StyleSheet,
 } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -23,10 +23,10 @@ export type SocialButtonProps = ThemedComponentProps & ButtonProps & ComponentPr
 
 class SocialAuthButtonComponent extends React.Component<SocialButtonProps> {
 
-  private renderIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  private renderIcon = (style: ImageStyle): React.ReactElement<ImageProps> => {
     const { icon, iconStyle } = this.props;
 
-    return icon([style, iconStyle]);
+    return icon({ ...style, ...StyleSheet.flatten(iconStyle) });
   };
 
   public render(): React.ReactNode {

@@ -72,7 +72,6 @@ class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
           {...restProps}>
           <Tab icon={GridIconOutline}>
             <LayoutGridList
-              style={themedStyle.listContainer}
               contentContainerStyle={themedStyle.listContentContainer}
               data={data}
               onItemPress={this.onItemPress}
@@ -80,7 +79,6 @@ class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
           </Tab>
           <Tab icon={ListIconFill}>
             <LayoutList
-              style={themedStyle.listContainer}
               contentContainerStyle={themedStyle.listContentContainer}
               data={data}
               onItemPress={this.onItemPress}
@@ -93,9 +91,6 @@ class LayoutMenuComponent extends React.Component<LayoutMenuProps> {
 }
 
 export const LayoutMenu = withStyles(LayoutMenuComponent, (theme: ThemeType) => ({
-  listContainer: {
-    flex: 1,
-  },
   listContentContainer: {
     paddingHorizontal: 16,
     paddingVertical: 16,

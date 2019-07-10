@@ -41,7 +41,7 @@ export class ThemeCardComponent extends React.Component<ThemeCardComponentProps>
   public render(): React.ReactNode {
     const { themedStyle, style, title, ...restProps } = this.props;
 
-    const colors: string[] = [
+    const colors: StyleType[] = [
       themedStyle.colorItem1,
       themedStyle.colorItem2,
       themedStyle.colorItem3,

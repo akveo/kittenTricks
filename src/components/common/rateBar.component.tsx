@@ -67,7 +67,7 @@ class RateBarComponent extends React.Component<RateBarProps> {
 
     const isEnabled: boolean = index < value;
     const stateStyle: StyleType = isEnabled ? style.iconEnabled : style.iconDisabled;
-    const derivedStateStyle: StyleType = isEnabled ? iconStyle : iconDisabledStyle;
+    const derivedStateStyle: StyleProp<ImageStyle> = isEnabled ? iconStyle : iconDisabledStyle;
 
     return React.cloneElement(iconElement, {
       style: [style.icon, iconElement.props.style, stateStyle, derivedStateStyle],

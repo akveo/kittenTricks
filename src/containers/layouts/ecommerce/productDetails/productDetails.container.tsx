@@ -72,7 +72,10 @@ export class ProductDetailsContainer extends React.Component<NavigationScreenPro
         actionItems={this.buyActions}
         onCancel={this.closeModal}
       />,
-      true,
+      {
+        allowBackdrop: true,
+        onBackdropPress: this.closeModal,
+      },
     );
   };
 

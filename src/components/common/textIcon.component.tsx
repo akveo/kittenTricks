@@ -6,9 +6,9 @@ import {
   TextStyle,
   View,
   ViewProps,
+  StyleSheet,
 } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
@@ -16,7 +16,7 @@ import {
 import { Text } from '@kitten/ui';
 import { textStyle } from './style';
 
-type IconProp = (style: StyleType) => React.ReactElement<ImageProps>;
+type IconProp = (style: StyleProp<ImageStyle>) => React.ReactElement<ImageProps>;
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
@@ -40,7 +40,8 @@ class TextIconComponent extends React.Component<TextIconProps> {
   public render(): React.ReactNode {
     const { style, themedStyle, textStyle: derivedTextStyle, iconStyle, icon, children } = this.props;
 
-    const iconElement = icon ? this.renderIconElement(icon, [themedStyle.icon, iconStyle]) : null;
+    const iconElement = icon ?
+      this.renderIconElement(icon, { ...themedStyle.icon, ...StyleSheet.flatten(iconStyle) }) : null;
 
     return (
       <View style={[themedStyle.container, style]}>
