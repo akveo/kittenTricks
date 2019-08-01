@@ -20,8 +20,10 @@ import {
   ScrollableAvoidKeyboard,
   textStyle,
 } from '@src/components/common';
-import { PlusIconFill } from '@src/assets/icons';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {
+  PersonIconFill,
+  PlusIconFill,
+} from '@src/assets/eva-icons';
 
 interface ComponentProps {
   onSignUpPress: (formData: SignUpForm2Data) => void;
@@ -85,7 +87,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
           <ProfilePhoto
             style={themedStyle.photo}
             resizeMode='center'
-            source={{ uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png' }}
+            icon={PersonIconFill}
             button={this.renderPhotoButton}
           />
         </View>

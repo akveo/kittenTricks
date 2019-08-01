@@ -5,4 +5,5 @@ module.exports = {
   KITTEN_PATH: path.resolve(__dirname, '../../react-native-ui-kitten/src/framework'),
   MAPPING_PATH: path.resolve(__dirname, '../../eva/packages/eva'),
   PROCESSOR_PATH: path.resolve(__dirname, '../../eva/packages/processor'),
+  EVA_ICONS_PATH: path.resolve(__dirname, '../../react-native-ui-kitten/src/eva-icons'),
 };

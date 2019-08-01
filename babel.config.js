@@ -12,6 +12,7 @@ const moduleResolverConfig = {
   alias: {
     '@kitten/theme': path.resolve(Config.KITTEN_PATH, 'theme'),
     '@kitten/ui': path.resolve(Config.KITTEN_PATH, 'ui'),
+    '@ui-kitten/eva-icons': path.resolve(Config.EVA_ICONS_PATH),
     '@eva-design/eva': path.resolve(Config.MAPPING_PATH),
     '@eva-design/processor': path.resolve(Config.PROCESSOR_PATH),
   },

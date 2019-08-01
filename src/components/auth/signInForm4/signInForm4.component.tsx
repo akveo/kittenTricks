@@ -19,7 +19,7 @@ import {
 import {
   LockIconFill,
   PhoneIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { SignInForm4Data } from './type';
 
 interface ComponentProps {

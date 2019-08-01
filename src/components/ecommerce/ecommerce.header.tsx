@@ -16,7 +16,7 @@ import {
   ArrowIosBackFill,
   CartIconFill,
   SearchIconOutline,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 
 interface ComponentProps {
   title: string;

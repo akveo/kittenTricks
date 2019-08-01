@@ -15,7 +15,7 @@ import {
 import {
   EmailIconFill,
   LockIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import {
   EmailValidator,
   PasswordValidator,

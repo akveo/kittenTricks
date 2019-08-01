@@ -1,12 +1,11 @@
 import React from 'react';
 import { ImageProps } from 'react-native';
 import {
-  StyleType,
   ThemedComponentProps,
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Button } from '@kitten/ui';
+import { Button, IconProps } from '@kitten/ui';
 import {
   ActivityBar,
   ActivityBarProps,
@@ -15,7 +14,7 @@ import {
   ShareButton,
   textStyle,
 } from '@src/components/common';
-import { PlusIconFill } from '@src/assets/icons';
+import { PlusIconFill } from '@src/assets/eva-icons';
 
 interface ComponentProps {
   onSharePress: () => void;
@@ -39,7 +38,7 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
     this.props.onAddPress();
   };
 
-  private renderAddIcon = (style: StyleType): React.ReactElement<ImageProps> => {
+  private renderAddIcon = (style: IconProps<ImageProps>): React.ReactElement<ImageProps> => {
     const { themedStyle } = this.props;
 
     const iconElement: React.ReactElement<ImageProps> = PlusIconFill(style);

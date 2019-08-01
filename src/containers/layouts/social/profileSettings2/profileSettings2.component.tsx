@@ -16,7 +16,7 @@ import {
   ProfileSetting,
   ProfilePhoto,
 } from '@src/components/social';
-import { CameraIconFill } from '@src/assets/icons';
+import { CameraIconFill } from '@src/assets/eva-icons';
 import { Profile } from '@src/core/model';
 import {
   ContainerView,

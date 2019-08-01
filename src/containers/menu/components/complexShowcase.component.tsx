@@ -8,7 +8,7 @@ import {
   ThemeType,
   ThemedComponentProps,
 } from '@kitten/theme';
-import { StarIconFill } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/eva-icons';
 
 type ComplexComponentShowcaseProps = ThemedComponentProps & ViewProps;
 

@@ -21,7 +21,7 @@ import {
   PaymentCard,
   PaymentCardProps,
 } from '@src/components/ecommerce';
-import { CreditCardIconFill } from '@src/assets/icons';
+import { CreditCardIconFill } from '@src/assets/eva-icons';
 
 
 interface ComponentProps {

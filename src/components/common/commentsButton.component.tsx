@@ -11,7 +11,7 @@ import {
   withStyles,
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
-import { MessageCircleIconOutline } from '@src/assets/icons';
+import { MessageCircleIconOutline } from '@src/assets/eva-icons';
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;

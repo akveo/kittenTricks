@@ -22,9 +22,9 @@ import {
   textStyle,
 } from '@src/components/common';
 import {
-  IconSource,
+  PersonIconFill,
   PlusIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import {
   imageSignUp3Bg,
   ImageSource,
@@ -49,8 +49,6 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
   };
 
   private backgroundImage: ImageSource = imageSignUp3Bg;
-
-  private profileImage: IconSource = require('../../../../assets/icons/eva/person.png');
 
   private onFormDataChange = (formData: SignUpForm2Data) => {
     this.setState({ formData });
@@ -98,7 +96,7 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
             <ProfilePhoto
               style={themedStyle.photo}
               resizeMode='center'
-              source={this.profileImage.imageSource}
+              icon={PersonIconFill}
               button={this.renderPhotoButton}
             />
           </View>

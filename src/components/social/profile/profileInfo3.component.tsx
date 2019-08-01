@@ -14,7 +14,7 @@ import {
   Text,
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
-import { PinIconOutline } from '@src/assets/icons';
+import { PinIconOutline } from '@src/assets/eva-icons';
 import { ProfileLocation } from './profileLocation.component';
 
 interface ComponentProps {

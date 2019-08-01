@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Image,
+  ImageProps,
   ImageSourcePropType,
   TouchableOpacity,
   TouchableOpacityProps,
@@ -11,7 +11,11 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@kitten/ui';
+import {
+  IconElement,
+  IconProps,
+  Text,
+} from '@kitten/ui';
 import {
   FeedActivityBar,
   Styx,
@@ -28,7 +32,7 @@ interface ListDerivedProps {
 // @ts-ignore (override `onPress` prop)
 interface ComponentProps extends TouchableOpacityProps, ListDerivedProps {
   photo: ImageSourcePropType;
-  icon: ImageSourcePropType;
+  icon: (style: IconProps<ImageProps>) => IconElement<ImageProps>;
   category: string;
   time: string;
   description: string;
@@ -64,18 +68,24 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
     this.props.onStyxPress(this.props.index);
   };
 
+  private renderIcon = (style: IconProps<ImageProps>): IconElement<ImageProps> | null => {
+    const { icon } = this.props;
+
+    return icon && icon(style);
+  };
+
   public render(): React.ReactNode {
     const {
       style,
       themedStyle,
       photo,
-      icon,
       category,
       time,
       description,
       styx,
       ...restProps
     } = this.props;
+    const iconElement: IconElement<ImageProps> | null = this.renderIcon(themedStyle.categoryIcon);
 
     return (
       <TouchableOpacity
@@ -87,10 +97,7 @@ class Feed1ListItemComponent extends React.Component<Feed1ListItemProps> {
           source={photo}>
           <View style={themedStyle.categoryContainer}>
             <View style={themedStyle.categoryInfoContainer}>
-              <Image
-                style={themedStyle.categoryIcon}
-                source={icon}
-              />
+              {iconElement}
               <Text
                 style={themedStyle.categoryLabel}
                 category='h6'>

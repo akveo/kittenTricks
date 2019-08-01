@@ -16,7 +16,7 @@ import {
   Text,
 } from '@kitten/ui';
 import { textStyle } from '@src/components/common';
-import { CartIconOutline } from '@src/assets/icons';
+import { CartIconOutline } from '@src/assets/eva-icons';
 
 interface ListDerivedProps {
   index?: number;

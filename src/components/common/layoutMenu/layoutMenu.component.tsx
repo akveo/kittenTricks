@@ -14,7 +14,7 @@ import {
 import {
   GridIconOutline,
   ListIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { LayoutGridList } from '../layoutGridList';
 import { LayoutList } from '../layoutList';
 import { LayoutMenuItemData } from './type';

@@ -17,7 +17,7 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { StarIconFill } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/eva-icons';
 import { textStyle } from '@src/components/common/style';
 
 interface ComponentProps {

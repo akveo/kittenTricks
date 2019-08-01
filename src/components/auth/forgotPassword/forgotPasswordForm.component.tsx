@@ -12,7 +12,7 @@ import {
   textStyle,
   ValidationInput,
 } from '@src/components/common';
-import { EmailIconFill } from '@src/assets/icons';
+import { EmailIconFill } from '@src/assets/eva-icons';
 import { EmailValidator } from '@src/core/validators';
 import { ForgotPasswordFormData } from './type';
 

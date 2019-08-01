@@ -30,7 +30,7 @@ import {
   MicIconFill,
   PaperPlaneIconFill,
   PlusIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import {
   Conversation as ConversationModel,
   Message as MessageModel,

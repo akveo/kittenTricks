@@ -4,13 +4,14 @@ import {
   imageTraining2Bg,
   imageTraining3Bg,
 } from '@src/assets/images';
+import { ActivityIconOutline } from '@src/assets/eva-icons';
 
 /* tslint:disable */
 
 export const trainings: Training[] = [
   {
     photo: imageTraining1Bg,
-    icon: require('../../assets/icons/eva/activity-outline.png'),
+    icon: ActivityIconOutline,
     category: 'Basketball',
     time: 16,
     styx: 55,
@@ -18,7 +19,7 @@ export const trainings: Training[] = [
   },
   {
     photo: imageTraining2Bg,
-    icon: require('../../assets/icons/eva/activity-outline.png'),
+    icon: ActivityIconOutline,
     category: 'Running',
     time: 2,
     styx: 55,
@@ -26,7 +27,7 @@ export const trainings: Training[] = [
   },
   {
     photo: imageTraining3Bg,
-    icon: require('../../assets/icons/eva/activity-outline.png'),
+    icon: ActivityIconOutline,
     category: 'Workout',
     time: 16,
     styx: 55,

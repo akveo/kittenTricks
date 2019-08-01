@@ -53,7 +53,7 @@ class Feed1Component extends React.Component<Feed1Props> {
         style={themedStyle.item}
         activeOpacity={0.95}
         photo={training.photo.imageSource}
-        icon={training.icon.imageSource}
+        icon={training.icon}
         category={training.category}
         time={`${training.time}h`}
         description={training.description}

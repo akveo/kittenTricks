@@ -15,7 +15,7 @@ import {
   Chips,
   textStyle,
 } from '@src/components/common';
-import { ClockIconOutline } from '@src/assets/icons';
+import { ClockIconOutline } from '@src/assets/eva-icons';
 
 interface ComponentProps {
   hint?: string;

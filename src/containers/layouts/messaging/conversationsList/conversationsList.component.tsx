@@ -18,7 +18,7 @@ import {
   ConversationProps,
 } from '@src/components/messaging';
 import { Conversation as ConversationModel } from '@src/core/model';
-import { SearchIconOutline } from '@src/assets/icons';
+import { SearchIconOutline } from '@src/assets/eva-icons';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {

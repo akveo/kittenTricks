@@ -18,7 +18,7 @@ import {
   ImageOverlay,
   textStyle,
 } from '@src/components/common';
-import { BulbIconFill } from '@src/assets/icons';
+import { BulbIconFill } from '@src/assets/eva-icons';
 import { Article } from '@src/core/model';
 
 // @ts-ignore (override `onPress` prop)

@@ -3,6 +3,7 @@ import { ImageRequireSource } from 'react-native';
 import { NavigationState } from 'react-navigation';
 import { mapping } from '@eva-design/eva';
 import { ApplicationProvider } from '@kitten/theme';
+import { IconRegistry } from '@kitten/ui';
 import { DynamicStatusBar } from '@src/components/common';
 import {
   ApplicationLoader,
@@ -18,6 +19,7 @@ import {
   themes,
   ThemeStore,
 } from '@src/core/themes';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
@@ -87,6 +89,7 @@ export default class App extends React.Component<{}, State> {
           <ApplicationProvider
             mapping={mapping}
             theme={themes[this.state.theme]}>
+            <IconRegistry icons={EvaIconsPack} />
             <DynamicStatusBar currentTheme={this.state.theme}/>
             <Router onNavigationStateChange={this.onNavigationStateChange}/>
           </ApplicationProvider>

@@ -18,7 +18,7 @@ import {
   ListItemProps,
   Text,
 } from '@kitten/ui';
-import { MoreHorizontalIconFill } from '@src/assets/icons';
+import { MoreHorizontalIconFill } from '@src/assets/eva-icons';
 import { Comment } from '@src/core/model';
 
 interface ComponentProps {

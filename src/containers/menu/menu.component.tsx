@@ -14,7 +14,7 @@ import {
   ColorPaletteIconOutline,
   LayoutIconOutline,
   StarIconOutline,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { themes } from '@src/core/themes';
 
 interface ComponentProps {

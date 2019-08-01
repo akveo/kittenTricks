@@ -9,6 +9,11 @@ import {
   imageApartment4,
   imageApartment5,
 } from '@src/assets/images';
+import {
+  WiFiIconOutline,
+  TvIconFill,
+  CarIconFill,
+} from '@src/assets/eva-icons';
 
 /* tslint:disable */
 
@@ -50,17 +55,17 @@ class BathFacility implements ApartmentFacility {
 
 const wifiFacility: ApartmentFacility = {
   title: 'Wi-Fi',
-  icon: require('../../assets/icons/eva/wifi-outline.png'),
+  icon: WiFiIconOutline,
 };
 
 const tvFacility: ApartmentFacility = {
   title: 'TV',
-  icon: require('../../assets/icons/eva/tv.png'),
+  icon: TvIconFill,
 };
 
 const freeParkingFacility: ApartmentFacility = {
   title: 'Free Parking',
-  icon: require('../../assets/icons/eva/car.png'),
+  icon: CarIconFill,
 };
 
 export const apartment1: Apartment = {

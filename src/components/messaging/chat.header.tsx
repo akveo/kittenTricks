@@ -13,7 +13,7 @@ import {
   TopNavigationActionProps,
   TopNavigationProps,
 } from '@kitten/ui';
-import { ArrowIosBackFill } from '@src/assets/icons';
+import { ArrowIosBackFill } from '@src/assets/eva-icons';
 import { SafeAreaView } from '@src/core/navigation';
 import { Profile } from '@src/core/model';
 

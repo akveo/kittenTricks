@@ -19,7 +19,7 @@ import {
 import {
   ClockIconOutline,
   ArrowForwardIconOutline,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { Exercise } from '@src/core/model/exercise.model';
 
 interface ComponentProps {

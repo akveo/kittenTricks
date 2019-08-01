@@ -21,7 +21,7 @@ import {
   CloseIconOutline,
   MinusIconFill,
   PlusIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { CartProduct as CartProductModel } from '@src/containers/layouts/ecommerce/shoppingCart/cartProduct.model';
 
 interface ComponentProps {

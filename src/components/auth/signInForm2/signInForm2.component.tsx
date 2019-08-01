@@ -16,7 +16,7 @@ import {
 import {
   EyeOffIconFill,
   PersonIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import {
   NameValidator,
   PasswordValidator,

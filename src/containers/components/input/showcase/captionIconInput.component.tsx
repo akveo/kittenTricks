@@ -3,7 +3,7 @@ import {
   Input,
   InputProps,
 } from '@kitten/ui';
-import { StarIconFill } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/eva-icons';
 
 type InputElement = React.ReactElement<InputProps>;
 

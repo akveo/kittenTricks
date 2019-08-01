@@ -18,7 +18,7 @@ import {
 import {
   ClockIconOutline,
   FlashIconOutline,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { Exercise } from '@src/core/model';
 import { textStyle } from '@src/components/common';
 

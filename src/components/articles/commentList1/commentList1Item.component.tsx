@@ -19,7 +19,7 @@ import {
   ActivityAuthoring,
   textStyle,
 } from '@src/components/common';
-import { MoreHorizontalIconFill } from '@src/assets/icons';
+import { MoreHorizontalIconFill } from '@src/assets/eva-icons';
 import { Comment as CommentModel } from '@src/core/model';
 import { CommentList2 } from '../commentList2';
 import { ArticleActivityBar } from '../articleActivityBar.component';

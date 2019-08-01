@@ -13,7 +13,7 @@ import {
 } from '@kitten/theme';
 import { Text } from '@kitten/ui';
 import { PaymentCard as PaymentCardModel } from '@src/core/model';
-import { MoreVerticalIconFill } from '@src/assets/icons';
+import { MoreVerticalIconFill } from '@src/assets/eva-icons';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {

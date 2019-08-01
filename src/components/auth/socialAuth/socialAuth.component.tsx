@@ -18,7 +18,7 @@ import {
   FacebookIconFill,
   GoogleIconFill,
   TwitterIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { SocialButton } from './socialAuthButton.component';
 
 interface ComponentProps {

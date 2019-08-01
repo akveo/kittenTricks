@@ -29,7 +29,7 @@ import {
   ImageIconFill,
   MapIconFill,
   PeopleIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import { textStyle } from '@src/components/common';
 
 interface ComponentProps {

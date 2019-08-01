@@ -15,6 +15,7 @@ module.exports = {
   watchFolders: [
     path.resolve(Config.KITTEN_PATH, 'theme'),
     path.resolve(Config.KITTEN_PATH, 'ui'),
+    path.resolve(Config.EVA_ICONS_PATH),
     path.resolve(Config.MAPPING_PATH),
     path.resolve(Config.PROCESSOR_PATH),
   ],

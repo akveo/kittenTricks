@@ -26,7 +26,7 @@ import {
 import {
   ArrowForwardIconOutline,
   HeartIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import {
   imageSignIn1Bg,
   ImageSource,

@@ -1,8 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  ENV: 'prod',
-  KITTEN_PATH: path.resolve(__dirname, '../node_modules/react-native-ui-kitten'),
-  MAPPING_PATH: path.resolve(__dirname, '../node_modules/@eva-design/eva'),
-  PROCESSOR_PATH: path.resolve(__dirname, '../node_modules/@eva-design/processor'),
+  ENV: 'dev',
+  KITTEN_PATH: path.resolve(__dirname, '../../react-native-ui-kitten/src/framework'),
+  MAPPING_PATH: path.resolve(__dirname, '../../eva/packages/eva'),
+  PROCESSOR_PATH: path.resolve(__dirname, '../../eva/packages/processor'),
+  EVA_ICONS_PATH: path.resolve(__dirname, '../../react-native-ui-kitten/src/eva-icons'),
 };

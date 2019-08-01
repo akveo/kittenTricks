@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ImageProps,
-  ImageStyle,
   StyleProp,
   TextStyle,
   View,
@@ -13,15 +12,17 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { Text } from '@kitten/ui';
+import {
+  IconElement,
+  IconProps,
+  Text,
+} from '@kitten/ui';
 import { textStyle } from './style';
-
-type IconProp = (style: StyleProp<ImageStyle>) => React.ReactElement<ImageProps>;
 
 interface ComponentProps {
   textStyle?: StyleProp<TextStyle>;
   iconStyle?: StyleProp<ImageProps>;
-  icon?: IconProp;
+  icon?: (style: IconProps<ImageProps>) => IconElement<ImageProps>;
   children?: string;
 }
 
@@ -29,19 +30,17 @@ export type TextIconProps = ThemedComponentProps & ViewProps & ComponentProps;
 
 class TextIconComponent extends React.Component<TextIconProps> {
 
-  private renderIconElement = (icon: IconProp, style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
-    const iconElement: React.ReactElement<ImageProps> = icon(style);
+  private renderIconElement = (style: IconProps<ImageProps>): IconElement<ImageProps> | null => {
+    const { icon } = this.props;
 
-    return React.cloneElement(iconElement, {
-      style: [style, iconElement.props.style],
-    });
+    return icon && icon(style);
   };
 
   public render(): React.ReactNode {
     const { style, themedStyle, textStyle: derivedTextStyle, iconStyle, icon, children } = this.props;
 
-    const iconElement = icon ?
-      this.renderIconElement(icon, { ...themedStyle.icon, ...StyleSheet.flatten(iconStyle) }) : null;
+    const iconElement: IconElement<ImageProps> | null =
+      this.renderIconElement({ ...themedStyle.icon, ...StyleSheet.flatten(iconStyle) });
 
     return (
       <View style={[themedStyle.container, style]}>

@@ -14,7 +14,7 @@ import { SafeAreaView } from '@src/core/navigation';
 import {
   ArrowIosBackFill,
   SearchIconOutline,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 
 interface ComponentProps {
   onBack: () => void;

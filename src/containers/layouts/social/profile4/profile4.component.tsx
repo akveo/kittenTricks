@@ -22,7 +22,7 @@ import {
 import {
   ArrowHeadDownIconFill,
   ArrowHeadUpIconFill,
-} from '@src/assets/icons';
+} from '@src/assets/eva-icons';
 import {
   Profile as ProfileModel,
   ProfileSocials as ProfileSocialsModel,

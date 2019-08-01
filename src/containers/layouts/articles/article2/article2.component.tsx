@@ -17,7 +17,7 @@ import {
   ContainerView,
   textStyle,
 } from '@src/components/common';
-import { ClockIconOutline } from '@src/assets/icons';
+import { ClockIconOutline } from '@src/assets/eva-icons';
 import { Article } from '@src/core/model';
 
 interface ComponentProps {

@@ -3,7 +3,7 @@ import {
   BottomNavigation,
   BottomNavigationTab,
 } from '@kitten/ui';
-import { StarIconFill } from '@src/assets/icons';
+import { StarIconFill } from '@src/assets/eva-icons';
 
 interface State {
   selectedIndex: number;

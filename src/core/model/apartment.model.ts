@@ -1,5 +1,9 @@
 import { ImageSource } from '@src/assets/images';
-import { IconSource } from '@src/assets/icons';
+import {
+  IconElement,
+  IconProps,
+} from '@kitten/ui';
+import { ImageProps } from 'react-native';
 
 export interface Apartment {
   title: string;
@@ -13,5 +17,5 @@ export interface Apartment {
 
 export interface ApartmentFacility {
   title: string;
-  icon?: IconSource;
+  icon?: (style: IconProps<ImageProps>) => IconElement<ImageProps>;
 }

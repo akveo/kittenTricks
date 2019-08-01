@@ -6,7 +6,7 @@ import {
 } from 'react-navigation';
 import { EcommerceHeader } from '@src/components/ecommerce';
 import { MenuContainer } from '@src/containers/menu';
-import { ArrowIosBackFill } from '@src/assets/icons';
+import { ArrowIosBackFill } from '@src/assets/eva-icons';
 import { TopNavigationBar } from './components/topNavigationBar.component';
 import {
   getCurrentRouteState,

@@ -6,11 +6,12 @@ import {
   ThemedComponentProps,
   StyleType,
 } from '@kitten/theme';
-import { DoneAllIconOutline } from '@src/assets/icons';
+import { DoneAllIconOutline } from '@src/assets/eva-icons';
 import { Message } from '@src/core/model';
+import { IconElement, IconProps } from '@kitten/ui';
 
 interface MessageIconProvider {
-  icon(style: StyleType): React.ReactElement<ImageProps>;
+  icon(style: IconProps<ImageProps>): IconElement<ImageProps>;
 }
 
 export enum MessageIcons {
@@ -21,12 +22,12 @@ export enum MessageIcons {
 const messageIcons: { [key in MessageIcons]: MessageIconProvider } = {
   [MessageIcons.READ]: {
     icon(style: StyleType): React.ReactElement<ImageProps> {
-      return DoneAllIconOutline([style.messageIndicatorIcon, style.messageIndicatorIconRead]);
+      return DoneAllIconOutline({ ...style.messageIndicatorIcon, ...style.messageIndicatorIconRead });
     },
   },
   [MessageIcons.DELIVERED]: {
     icon(style: StyleType): React.ReactElement<ImageProps> {
-      return DoneAllIconOutline([style.messageIndicatorIcon, style.messageIndicatorIconDelivered]);
+      return DoneAllIconOutline({ ...style.messageIndicatorIcon, ...style.messageIndicatorIconDelivered });
     },
   },
 };

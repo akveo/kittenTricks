@@ -1,5 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import {
+  ImageProps,
+  View,
+  StyleSheet,
+} from 'react-native';
 import {
   ThemeType,
   withStyles,
@@ -8,13 +12,16 @@ import {
   Avatar,
   AvatarProps,
   ButtonProps,
+  IconProps,
+  IconElement,
 } from '@kitten/ui';
 
 interface ComponentProps {
+  icon?: (style: IconProps<Partial<ImageProps>>) => IconElement<ImageProps>;
   button?: () => React.ReactElement<ButtonProps>;
 }
 
-export type ProfilePhotoProps = ComponentProps & AvatarProps;
+export type ProfilePhotoProps = ComponentProps & Partial<AvatarProps>;
 
 class ProfilePhotoComponent extends React.Component<ProfilePhotoProps> {
 
@@ -26,15 +33,29 @@ class ProfilePhotoComponent extends React.Component<ProfilePhotoProps> {
     });
   };
 
+  private renderImageElement = (): React.ReactElement<AvatarProps> => {
+    const { style, themedStyle, source, ...restProps } = this.props;
+
+    return (
+      <Avatar
+        {...restProps}
+        style={[style, themedStyle.avatar]}
+        source={source}
+      />
+    );
+  };
+
+  private renderIconElement = (): any => {
+    const { themedStyle, style, icon } = this.props;
+    return icon({ ...StyleSheet.flatten(style), ...themedStyle.avatar });
+  };
+
   public render(): React.ReactNode {
-    const { style, themedStyle, button, ...restProps } = this.props;
+    const { style, icon, button } = this.props;
 
     return (
       <View style={style}>
-        <Avatar
-          style={[style, themedStyle.avatar]}
-          {...restProps}
-        />
+        {icon ? this.renderIconElement() : this.renderImageElement()}
         {button ? this.renderEditElement() : null}
       </View>
     );

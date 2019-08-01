@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ImageBackground,
+  ImageProps,
   ViewProps,
 } from 'react-native';
 import {
@@ -9,9 +10,10 @@ import {
   ThemeType,
   withStyles,
 } from '@kitten/theme';
-import { PlayCircleIconFill } from '@src/assets/icons';
+import { PlayCircleIconFill } from '@src/assets/eva-icons';
 import { Message } from '@src/core/model';
 import { ChatFileMessageAppearance } from './type';
+import { IconProps } from '@kitten/ui';
 
 interface ComponentProps {
   message: Message;
@@ -33,7 +35,8 @@ class VideoMessageComponent extends React.Component<VideoMessageProps> {
 
     const style: StyleType = isFull ? themedStyle.fullMessageVideo : themedStyle.preViewAppearanceImage;
     const imageStyle: StyleType = isFull ? themedStyle.fullMessageVideoPreview : themedStyle.preViewAppearanceImage;
-    const iconStyle: StyleType = isFull ? themedStyle.fullVideoIcon : themedStyle.previewVideoIcon;
+    const iconStyle: IconProps<ImageProps> =
+      isFull ? themedStyle.fullVideoIcon : themedStyle.previewVideoIcon;
 
     return (
       <ImageBackground

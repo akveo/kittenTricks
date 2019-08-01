@@ -18,7 +18,8 @@
     ],
     "paths": {
       "@src/*": ["./src/*"],
-      "@kitten/*": ["./node_modules/react-native-ui-kitten/*"]
+      "@kitten/*": ["../react-native-ui-kitten/src/framework/*"],
+      "@ui-kitten/eva-icons": ["../react-native-ui-kitten/src/eva-icons"]
     },
     "typeRoots": [
       "./node_modules/@types"
