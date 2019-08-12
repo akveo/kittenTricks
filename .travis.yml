@@ -1,0 +1,22 @@
+sudo: false
+language: node_js
+node_js:
+- '8'
+env:
+  matrix:
+  - MODE=lint
+  - MODE=build
+matrix:
+  fast_finish: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_11d3026708db_key -iv $encrypted_11d3026708db_iv
+  -in travis_deploy_key.enc -out /tmp/travis_deploy_key -d
+- chmod 600 /tmp/travis_deploy_key
+- echo 'echo ${SSH_PASSPHRASE}' > /tmp/askpass && chmod +x /tmp/askpass
+- eval "$(ssh-agent -s)"
+- DISPLAY=":0.0" SSH_ASKPASS="/tmp/askpass" setsid ssh-add /tmp/travis_deploy_key
+  </dev/null
+install:
+- npm run ci:install
+script:
+- scripts/ci/travis-ci-script.sh
