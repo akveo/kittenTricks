@@ -20,6 +20,8 @@ import {
   themes,
   ThemeStore,
 } from '@src/core/themes';
+import { IconRegistry } from '@kitten/ui';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
 const images: ImageRequireSource[] = [
   require('./assets/images/source/image-profile-1.jpg'),
@@ -85,6 +87,7 @@ export default class App extends React.Component<{}, State> {
 
     return (
       <ApplicationLoader assets={assets}>
+        <IconRegistry icons={EvaIconsPack}/>
         <ThemeContext.Provider value={contextValue}>
           <ApplicationProvider
             mapping={mapping}

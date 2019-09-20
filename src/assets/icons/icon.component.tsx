@@ -23,9 +23,9 @@ export class RemoteIcon implements IconSource {
   }
 }
 
-export type IconElement = React.ReactElement<ImageProps>;
+export type AssetIconElement = React.ReactElement<ImageProps>;
 
-export const Icon = (source: IconSource, style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
+export const AssetIcon = (source: IconSource, style: StyleProp<ImageStyle>): React.ReactElement<ImageProps> => {
   return (
     <Image
       style={style}

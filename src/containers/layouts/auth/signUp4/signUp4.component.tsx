@@ -53,7 +53,7 @@ class SignUp4Component extends React.Component<SignUp4Props, State> {
   };
 
   private backgroundImage: ImageSource = imageSignUp4Bg;
-  private profileImage: IconSource = require('../../../../assets/icons/eva/person.png');
+  private profileImage: IconSource = require('../../../../assets/icons/icon-person.png');
 
   private onFormDataChange = (formData: SignUpForm2Data) => {
     this.setState({ formData });
