@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { movie1 } from '@src/core/data/movie';
 import { Movie as MovieModel } from '@src/core/model';
 import { Movie } from './movieDetails.component';
@@ -8,7 +8,7 @@ interface State {
   movie: MovieModel;
 }
 
-export class MovieDetailsContainer extends React.Component<NavigationScreenProps, State> {
+export class MovieDetailsContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     movie: movie1,

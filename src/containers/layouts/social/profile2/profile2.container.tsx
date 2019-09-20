@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   Profile,
   ProfileSocials,
@@ -15,7 +15,7 @@ interface State {
   socials: ProfileSocials;
 }
 
-export class Profile2Container extends React.Component<NavigationScreenProps, State> {
+export class Profile2Container extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     profile: profile1,

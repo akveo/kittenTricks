@@ -4,6 +4,8 @@ import {
   NavigationParams,
   NavigationScreenProps,
 } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
+import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import { EcommerceHeader } from '@src/components/ecommerce';
 import { MenuContainer } from '@src/containers/menu';
 import { ArrowIosBackFill } from '@src/assets/icons';
@@ -11,8 +13,8 @@ import { TopNavigationBar } from './components/topNavigationBar.component';
 import {
   getCurrentRouteState,
   isRootRoute,
-  NavigationRouteState,
   getCurrentRouteIndex,
+  RouteState,
 } from './util';
 import { KEY_NAVIGATION_BACK } from './constants';
 
@@ -24,7 +26,7 @@ export interface TopNavigationParams extends NavigationParams {
 }
 
 export interface BottomNavigationParams extends NavigationParams {
-  bottomNavigation: (props: NavigationScreenProps) => BottomNavigationElement | null;
+  bottomNavigation: (props: NavigationTabScreenProps) => BottomNavigationElement | null;
 }
 
 const MenuTopNavigationParams: TopNavigationParams = {
@@ -47,8 +49,8 @@ const MenuTopNavigationParams: TopNavigationParams = {
 };
 
 const EcommerceMenuTopNavigationParams: TopNavigationParams = {
-  header: (props: NavigationScreenProps): TopNavigationElement => {
-    const state: NavigationRouteState = getCurrentRouteState(props.navigation);
+  header: (props: NavigationStackScreenProps): TopNavigationElement => {
+    const state: RouteState = getCurrentRouteState(props.navigation);
 
     const onBackPress = () => {
       props.navigation.goBack(KEY_NAVIGATION_BACK);
@@ -77,7 +79,7 @@ const EcommerceMenuTopNavigationParams: TopNavigationParams = {
 };
 
 const MenuBottomNavigationParams: BottomNavigationParams = {
-  bottomNavigation: (props: NavigationScreenProps): BottomNavigationElement => {
+  bottomNavigation: (props: NavigationTabScreenProps): BottomNavigationElement => {
     return (
       <MenuContainer {...props} />
     );

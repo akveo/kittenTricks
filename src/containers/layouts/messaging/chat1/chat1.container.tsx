@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  NavigationScreenProps,
-  NavigationScreenConfig, NavigationActions,
-} from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   ChatHeader,
   ChatHeaderNavigationStateParams,
@@ -24,14 +21,14 @@ interface State {
   conversation: Conversation;
 }
 
-export class Chat1Container extends React.Component<NavigationScreenProps, State> {
+export class Chat1Container extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     newMessageText: '',
     conversation: conversation5,
   };
 
-  static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
+  static navigationOptions = ({ navigation, screenProps }) => {
     const headerProps: ChatHeaderNavigationStateParams = {
       interlocutor: navigation.getParam('interlocutor', conversation5.interlocutor),
       lastSeen: navigation.getParam('lastSeen', 'today'),
@@ -39,7 +36,7 @@ export class Chat1Container extends React.Component<NavigationScreenProps, State
       onProfile: navigation.getParam('onProfile'),
     };
 
-    const header = (navigationProps: NavigationScreenProps) => {
+    const header = (navigationProps: NavigationStackScreenProps) => {
       return (
         <ChatHeader
           {...navigationProps}

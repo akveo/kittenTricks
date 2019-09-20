@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Showcase } from '../common/showcase.component';
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import { ShowcaseItem } from '../common/showcaseItem.component';
@@ -25,7 +25,7 @@ import {
   WhiteButton,
 } from './showcase';
 
-export class ButtonContainer extends React.Component<NavigationScreenProps> {
+export class ButtonContainer extends React.Component<NavigationStackScreenProps> {
 
   public render(): React.ReactNode {
     return (

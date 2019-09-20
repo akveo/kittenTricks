@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { SignInForm2Data } from '@src/components/auth';
 import { SignIn3 } from './signIn3.component';
 
-export class SignIn3Container extends React.Component<NavigationScreenProps> {
+export class SignIn3Container extends React.Component<NavigationStackScreenProps> {
 
   private navigationKey: string = 'SignIn3Container';
 

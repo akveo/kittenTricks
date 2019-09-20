@@ -1,6 +1,5 @@
 import React from 'react';
 import { ImageRequireSource } from 'react-native';
-import { NavigationState } from 'react-navigation';
 import { mapping } from '@eva-design/eva';
 import { ApplicationProvider } from '@kitten/theme';
 import { DynamicStatusBar } from '@src/components/common';
@@ -10,7 +9,10 @@ import {
 } from './core/appLoader/applicationLoader.component';
 import { Router } from './core/navigation/routes';
 import { trackScreenTransition } from './core/utils/analytics';
-import { getCurrentStateName } from './core/navigation/util';
+import {
+  getCurrentStateName,
+  RouteState,
+} from './core/navigation/util';
 import {
   ThemeContext,
   ThemeContextType,
@@ -59,7 +61,7 @@ export default class App extends React.Component<{}, State> {
     console.warn('Analytics error: ', error.message);
   };
 
-  private onNavigationStateChange = (prevState: NavigationState, currentState: NavigationState) => {
+  private onNavigationStateChange = (prevState: RouteState, currentState: RouteState) => {
     const prevStateName: string = getCurrentStateName(prevState);
     const currentStateName: string = getCurrentStateName(currentState);
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Trainings2 } from './trainings2.component';
 import { Exercise } from '@src/core/model/exercise.model';
 import { exercises2 } from '@src/core/data/exercise';
@@ -8,7 +8,7 @@ interface State {
   exercises: Exercise[];
 }
 
-export class Trainings2Container extends React.Component<NavigationScreenProps, State> {
+export class Trainings2Container extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     exercises: exercises2,

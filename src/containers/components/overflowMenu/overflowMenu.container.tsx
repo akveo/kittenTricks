@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   StyledComponentProps,
   ThemeType,
@@ -23,7 +23,7 @@ import {
   TopStartOverflowMenu,
 } from './showcase';
 
-type ComponentProps = NavigationScreenProps & StyledComponentProps;
+type ComponentProps = NavigationStackScreenProps & StyledComponentProps;
 
 class OverflowMenuContainerComponent extends React.Component<ComponentProps> {
 

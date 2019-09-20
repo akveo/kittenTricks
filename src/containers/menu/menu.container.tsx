@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import { Menu } from './menu.component';
 
-export class MenuContainer extends React.Component<NavigationScreenProps> {
+export class MenuContainer extends React.Component<NavigationTabScreenProps> {
 
   private navigationKey: string = 'MenuContainer';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import {
   Button,
   OverflowMenu,
@@ -6,7 +7,6 @@ import {
   OverflowMenuItemType,
 } from '@kitten/ui';
 import { StarIconFill } from '@src/assets/icons';
-import { StyleSheet } from 'react-native';
 
 interface OverflowMenuShowcaseComponentState {
   visible: boolean;
@@ -16,17 +16,17 @@ export class OverflowMenuShowcase extends React.Component<any, OverflowMenuShowc
 
   private items: OverflowMenuItemType[] = [
     {
-      text: 'Menu Item 1',
+      title: 'Menu Item 1',
     },
     {
-      text: 'Menu Item 2',
+      title: 'Menu Item 2',
     },
     {
-      text: 'Icon Menu Item',
+      title: 'Icon Menu Item',
       icon: StarIconFill,
     },
     {
-      text: 'Disabled Menu Item',
+      title: 'Disabled Menu Item',
       icon: StarIconFill,
       disabled: true,
     },
@@ -58,7 +58,7 @@ export class OverflowMenuShowcase extends React.Component<any, OverflowMenuShowc
         style={styles.container}
         {...this.props}
         visible={this.state.visible}
-        items={this.items}
+        data={this.items}
         onSelect={this.onItemSelect}
         onBackdropPress={this.onBackdropPress}>
         <Button onPress={this.onButtonPress}>BUTTON</Button>

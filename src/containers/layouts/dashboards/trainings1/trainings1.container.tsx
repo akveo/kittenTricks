@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Trainings1 } from './trainings1.component';
 import { Exercise } from '@src/core/model/exercise.model';
 import { exercises1 } from '@src/core/data/exercise';
@@ -9,7 +9,7 @@ interface State {
   exercises: Exercise[];
 }
 
-export class Trainings1Container extends React.Component<NavigationScreenProps, State> {
+export class Trainings1Container extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     selectedLevelIndex: 0,
