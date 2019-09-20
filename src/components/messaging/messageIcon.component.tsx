@@ -1,10 +1,10 @@
 import React from 'react';
 import { ImageProps } from 'react-native';
 import {
+  StyleType,
+  ThemedComponentProps,
   ThemeType,
   withStyles,
-  ThemedComponentProps,
-  StyleType,
 } from '@kitten/theme';
 import { DoneAllIconOutline } from '@src/assets/icons';
 import { Message } from '@src/core/model';
@@ -21,12 +21,12 @@ export enum MessageIcons {
 const messageIcons: { [key in MessageIcons]: MessageIconProvider } = {
   [MessageIcons.READ]: {
     icon(style: StyleType): React.ReactElement<ImageProps> {
-      return DoneAllIconOutline([style.messageIndicatorIcon, style.messageIndicatorIconRead]);
+      return DoneAllIconOutline({ ...style.messageIndicatorIcon, ...style.messageIndicatorIconRead });
     },
   },
   [MessageIcons.DELIVERED]: {
     icon(style: StyleType): React.ReactElement<ImageProps> {
-      return DoneAllIconOutline([style.messageIndicatorIcon, style.messageIndicatorIconDelivered]);
+      return DoneAllIconOutline({ ...style.messageIndicatorIcon, ...style.messageIndicatorIconDelivered });
     },
   },
 };
