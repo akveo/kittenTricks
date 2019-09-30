@@ -41,9 +41,9 @@ class ValidationInputComponent extends React.Component<ValidationInputProps, Sta
     const becomeValid: boolean = !this.isValid(oldValue) && this.isValid(newValue);
     const becomeInvalid: boolean = !this.isValid(newValue) && this.isValid(oldValue);
 
-    if (becomeValid) {
+    if (becomeValid && this.props.onChangeText) {
       this.props.onChangeText(newValue);
-    } else if (becomeInvalid) {
+    } else if (becomeInvalid && this.props.onChangeText) {
       this.props.onChangeText(undefined);
     }
   }
