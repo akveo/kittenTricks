@@ -52,6 +52,11 @@ class SignUpForm2Component extends React.Component<SignUpForm2Props, State> {
   };
 
   public componentDidUpdate(prevProps: SignUpForm2Props, prevState: State) {
+    
+    if (!this.props.onDataChange) {
+      return;
+    }
+    
     const oldFormValid: boolean = this.isValid(prevState);
     const newFormValid: boolean = this.isValid(this.state);
 
