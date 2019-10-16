@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ImageProps,
   ImageStyle,
   StyleProp,
 } from 'react-native';
@@ -14,6 +13,7 @@ import {
   Icon,
   IconElement,
 } from '@kitten/ui';
+import { SvgProps } from 'react-native-svg';
 
 export const MenuIconAuth = (style: StyleProp<ImageStyle>): AssetIconElement => {
   const source: IconSource = {
@@ -367,277 +367,277 @@ export const ComponentsIconModalDark = (style: StyleProp<ImageStyle>): AssetIcon
   return AssetIcon(source, style);
 };
 
-export const ArrowHeadDownIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const ArrowHeadDownIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='arrowhead-down'/>
   );
 };
 
-export const ArrowHeadUpIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const ArrowHeadUpIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='arrowhead-up'/>
   );
 };
 
-export const ArrowIosBackFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const ArrowIosBackFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='arrow-ios-back'/>
   );
 };
 
-export const BulbIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const BulbIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='bulb'/>
   );
 };
 
-export const CameraIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const CameraIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='camera'/>
   );
 };
 
-export const CartIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const CartIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='shopping-cart-outline'/>
   );
 };
 
-export const CartIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const CartIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='shopping-cart'/>
   );
 };
 
-export const ClockIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const ClockIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='clock-outline'/>
   );
 };
 
-export const EmailIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const EmailIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='email'/>
   );
 };
 
-export const EyeOffIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const EyeOffIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='eye-off'/>
   );
 };
 
-export const ColorPaletteIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const ColorPaletteIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='color-palette-outline'/>
   );
 };
 
-export const ArrowForwardIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const ArrowForwardIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='arrow-forward-outline'/>
   );
 };
 
-export const GridIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const GridIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='grid-outline'/>
   );
 };
 
-export const HeartIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const HeartIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='heart'/>
   );
 };
 
-export const LayoutIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const LayoutIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='layout-outline'/>
   );
 };
 
-export const LockIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const LockIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='lock'/>
   );
 };
 
-export const MessageCircleIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const MessageCircleIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='message-circle'/>
   );
 };
 
-export const MessageCircleIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const MessageCircleIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='message-circle-outline'/>
   );
 };
 
-export const MoreHorizontalIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const MoreHorizontalIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='more-horizontal'/>
   );
 };
 
-export const PersonIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PersonIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='person'/>
   );
 };
 
-export const PhoneIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PhoneIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='phone'/>
   );
 };
 
-export const PersonAddIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PersonAddIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='person-add'/>
   );
 };
 
-export const PinIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PinIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='pin'/>
   );
 };
 
-export const PinIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const PinIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='pin-outline'/>
   );
 };
 
-export const PlusIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PlusIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='plus'/>
   );
 };
 
-export const MinusIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const MinusIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='minus'/>
   );
 };
 
-export const SearchIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const SearchIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='search-outline'/>
   );
 };
 
-export const StarIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const StarIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='star'/>
   );
 };
 
-export const StarIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const StarIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='star-outline'/>
   );
 };
 
-export const FlashIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const FlashIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='flash-outline'/>
   );
 };
 
-export const DoneAllIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const DoneAllIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='done-all-outline'/>
   );
 };
 
-export const MoreVerticalIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const MoreVerticalIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='more-vertical'/>
   );
 };
 
-export const CreditCardIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const CreditCardIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='credit-card'/>
   );
 };
 
-export const CloseIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const CloseIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='close-outline'/>
   );
 };
 
-export const MicIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const MicIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='mic'/>
   );
 };
 
-export const PaperPlaneIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PaperPlaneIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='paper-plane'/>
   );
 };
 
-export const ImageIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const ImageIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='image'/>
   );
 };
 
-export const FileTextIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const FileTextIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='file-text'/>
   );
 };
 
-export const MapIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const MapIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='map'/>
   );
 };
 
-export const PeopleIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PeopleIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='people'/>
   );
 };
 
-export const PlayCircleIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const PlayCircleIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='play-circle'/>
   );
 };
 
-export const ShareIconOutline = (style: ImageStyle): IconElement<ImageProps> => {
+export const ShareIconOutline = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='share-outline'/>
   );
 };
 
-export const ListIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const ListIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='list'/>
   );
 };
 
-export const GoogleIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const GoogleIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='google'/>
   );
 };
 
-export const FacebookIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const FacebookIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='facebook'/>
   );
 };
 
-export const TwitterIconFill = (style: ImageStyle): IconElement<ImageProps> => {
+export const TwitterIconFill = (style: ImageStyle): IconElement<SvgProps> => {
   return (
     <Icon {...style} name='twitter'/>
   );
