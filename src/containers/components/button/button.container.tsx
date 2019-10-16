@@ -5,6 +5,7 @@ import { Showcase } from '../common/showcase.component';
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import { ShowcaseItem } from '../common/showcaseItem.component';
 import {
+  BasicButton,
   DangerButton,
   DefaultButton,
   DisabledButton,
@@ -22,7 +23,6 @@ import {
   SuccessButton,
   TinyButton,
   WarningButton,
-  WhiteButton,
 } from './showcase';
 
 export class ButtonContainer extends React.Component<NavigationStackScreenProps> {
@@ -90,8 +90,8 @@ export class ButtonContainer extends React.Component<NavigationStackScreenProps>
           <ShowcaseItem title='Danger'>
             <DangerButton style={styles.component}/>
           </ShowcaseItem>
-          <ShowcaseItem title='White'>
-            <WhiteButton style={styles.component}/>
+          <ShowcaseItem title='Basic'>
+            <BasicButton style={styles.component}/>
           </ShowcaseItem>
         </ShowcaseSection>
       </Showcase>

@@ -89,7 +89,7 @@ class ArticleList4Component extends React.Component<ArticleList4Props> {
           <Button
             style={themedStyle.readButton}
             textStyle={textStyle.button}
-            status='white'
+            status='control'
             onPress={this.onReadButtonPress}>
             READ
           </Button>

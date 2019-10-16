@@ -15,4 +15,4 @@ export { SuccessButton } from './successButton.component';
 export { InfoButton } from './infoButton.component';
 export { WarningButton } from './warningButton.component';
 export { DangerButton } from './dangerButton.component';
-export { WhiteButton } from './whiteButton.component';
+export { BasicButton } from './basicButton.component';
