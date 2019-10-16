@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Payment } from './payment.component';
 import { PaymentCard } from '@src/core/model';
 import { paymentCard1 } from '@src/core/data/paymentCard';
@@ -8,7 +8,7 @@ interface State {
   paymentCards: PaymentCard[];
 }
 
-export class PaymentContainer extends React.Component<NavigationScreenProps> {
+export class PaymentContainer extends React.Component<NavigationStackScreenProps> {
 
   public state: State = {
     paymentCards: [paymentCard1],

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -21,7 +21,7 @@ interface ComponentProps {
   onSearchPress: () => void;
 }
 
-export type ConversationListHeaderProps = ThemedComponentProps & ComponentProps & NavigationScreenProps;
+export type ConversationListHeaderProps = ThemedComponentProps & ComponentProps & NavigationStackScreenProps;
 
 class ConversationListHeaderComponent extends React.Component<ConversationListHeaderProps> {
 

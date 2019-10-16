@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { ModalService } from '@kitten/theme';
 import {
   Comment,
@@ -35,7 +35,7 @@ interface State {
   currentCommentText: string;
 }
 
-export class ProductDetailsContainer extends React.Component<NavigationScreenProps, State> {
+export class ProductDetailsContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     product: products[1],

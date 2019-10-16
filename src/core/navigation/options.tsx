@@ -1,9 +1,8 @@
 import React from 'react';
 import { Alert } from 'react-native';
-import {
-  NavigationParams,
-  NavigationScreenProps,
-} from 'react-navigation';
+import { NavigationParams } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
+import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import { EcommerceHeader } from '@src/components/ecommerce';
 import { MenuContainer } from '@src/containers/menu';
 import { ArrowIosBackFill } from '@src/assets/icons';
@@ -11,8 +10,8 @@ import { TopNavigationBar } from './components/topNavigationBar.component';
 import {
   getCurrentRouteState,
   isRootRoute,
-  NavigationRouteState,
   getCurrentRouteIndex,
+  RouteState,
 } from './util';
 import { KEY_NAVIGATION_BACK } from './constants';
 
@@ -20,15 +19,15 @@ export type TopNavigationElement = React.ReactElement<any>;
 export type BottomNavigationElement = React.ReactElement<any>;
 
 export interface TopNavigationParams extends NavigationParams {
-  header: (props: NavigationScreenProps) => TopNavigationElement | null;
+  header: (props) => TopNavigationElement | null;
 }
 
 export interface BottomNavigationParams extends NavigationParams {
-  bottomNavigation: (props: NavigationScreenProps) => BottomNavigationElement | null;
+  bottomNavigation: (props: NavigationTabScreenProps) => BottomNavigationElement | null;
 }
 
 const MenuTopNavigationParams: TopNavigationParams = {
-  header: (props: NavigationScreenProps): TopNavigationElement => {
+  header: (props): TopNavigationElement => {
     // @ts-ignore (private API)
     const { routeName } = getCurrentRouteState(props.navigation);
     const index: number = getCurrentRouteIndex(props.navigation);
@@ -47,8 +46,8 @@ const MenuTopNavigationParams: TopNavigationParams = {
 };
 
 const EcommerceMenuTopNavigationParams: TopNavigationParams = {
-  header: (props: NavigationScreenProps): TopNavigationElement => {
-    const state: NavigationRouteState = getCurrentRouteState(props.navigation);
+  header: (props: NavigationStackScreenProps): TopNavigationElement => {
+    const state: RouteState = getCurrentRouteState(props.navigation);
 
     const onBackPress = () => {
       props.navigation.goBack(KEY_NAVIGATION_BACK);
@@ -77,7 +76,7 @@ const EcommerceMenuTopNavigationParams: TopNavigationParams = {
 };
 
 const MenuBottomNavigationParams: BottomNavigationParams = {
-  bottomNavigation: (props: NavigationScreenProps): BottomNavigationElement => {
+  bottomNavigation: (props: NavigationTabScreenProps): BottomNavigationElement => {
     return (
       <MenuContainer {...props} />
     );

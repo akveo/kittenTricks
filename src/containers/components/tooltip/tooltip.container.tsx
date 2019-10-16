@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   StyledComponentProps,
   ThemeType,
@@ -10,21 +10,21 @@ import { ShowcaseSection } from '../common/showcaseSection.component';
 import { ShowcaseItem } from '../common/showcaseItem.component';
 import {
   BottomEndTooltip,
-  BottomTooltip,
   BottomStartTooltip,
-  LeftEndTooltip,
-  LeftTooltip,
-  LeftStartTooltip,
-  RightEndTooltip,
-  RightTooltip,
-  RightStartTooltip,
-  TopEndTooltip,
-  TopTooltip,
-  TopStartTooltip,
+  BottomTooltip,
   IconTooltip,
+  LeftEndTooltip,
+  LeftStartTooltip,
+  LeftTooltip,
+  RightEndTooltip,
+  RightStartTooltip,
+  RightTooltip,
+  TopEndTooltip,
+  TopStartTooltip,
+  TopTooltip,
 } from './showcase';
 
-type ComponentProps = NavigationScreenProps & StyledComponentProps;
+type ComponentProps = NavigationStackScreenProps & StyledComponentProps;
 
 class TooltipContainerComponent extends React.Component<ComponentProps> {
 
@@ -35,7 +35,7 @@ class TooltipContainerComponent extends React.Component<ComponentProps> {
       <Showcase style={themedStyle.container}>
         <ShowcaseSection title='Accessories'>
           <ShowcaseItem title='Icon'>
-            <IconTooltip />
+            <IconTooltip/>
           </ShowcaseItem>
         </ShowcaseSection>
         <ShowcaseSection title='Placement'>
@@ -82,8 +82,7 @@ class TooltipContainerComponent extends React.Component<ComponentProps> {
 }
 
 export const TooltipContainer = withStyles(TooltipContainerComponent, (theme: ThemeType) => ({
-  container: {
-  },
+  container: {},
   bottomItem: {
     justifyContent: 'flex-start',
   },

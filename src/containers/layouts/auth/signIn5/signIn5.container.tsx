@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   SignInForm3Data,
   SignInForm4Data,
 } from '@src/components/auth';
 import { SignIn5 } from './signIn5.component';
 
-export class SignIn5Container extends React.Component<NavigationScreenProps> {
+export class SignIn5Container extends React.Component<NavigationStackScreenProps> {
 
   private navigationKey: string = 'SignIn5Container';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Showcase } from '../common/showcase.component';
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import {
@@ -13,7 +13,7 @@ import {
 } from './showcase';
 import { ShowcaseItem } from '@src/containers/components/common/showcaseItem.component';
 
-export class ButtonGroupContainer extends React.Component<NavigationScreenProps> {
+export class ButtonGroupContainer extends React.Component<NavigationStackScreenProps> {
 
   public render(): React.ReactNode {
     return (

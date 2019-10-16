@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   Book,
   Comment,
@@ -28,7 +28,7 @@ interface State {
   currentCommentText: string;
 }
 
-export class BookDetailsContainer extends React.Component<NavigationScreenProps, State> {
+export class BookDetailsContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     book: book1,

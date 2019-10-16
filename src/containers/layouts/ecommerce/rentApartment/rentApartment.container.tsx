@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Apartment } from '@src/core/model';
 import { apartment1 } from '@src/core/data/apartment';
 import { RentApartment } from './rentApartment.component';
@@ -8,7 +8,7 @@ interface State {
   apartment: Apartment;
 }
 
-export class RentApartmentContainer extends React.Component<NavigationScreenProps, State> {
+export class RentApartmentContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     apartment: apartment1,

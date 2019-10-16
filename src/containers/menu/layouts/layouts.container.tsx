@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Layouts } from './layouts.component';
 import { LayoutsContainerData } from './type';
 import { routes } from './routes';
 
-export class LayoutsContainer extends React.Component<NavigationScreenProps> {
+export class LayoutsContainer extends React.Component<NavigationStackScreenProps> {
 
   private data: LayoutsContainerData[] = routes;
   private navigationKey: string = 'LayoutsContainer';

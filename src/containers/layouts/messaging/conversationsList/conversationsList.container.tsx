@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  NavigationScreenProps,
-  NavigationScreenConfig,
-} from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Conversation } from '@src/core/model';
 import {
   conversation1,
@@ -43,15 +40,15 @@ const conversations: Conversation[] = [
   conversation12,
 ];
 
-export class ConversationsListContainer extends React.Component<NavigationScreenProps, State> {
+export class ConversationsListContainer extends React.Component<NavigationStackScreenProps, State> {
 
-  static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
+  static navigationOptions = ({ navigation, screenProps }) => {
     const conversationHeaderConfig: ConversationsListNavigationStateParams = {
       onBack: navigation.getParam('onBack'),
       onSearchPress: navigation.getParam('onSearchPress'),
     };
 
-    const renderHeader = (headerProps: NavigationScreenProps,
+    const renderHeader = (headerProps: NavigationStackScreenProps,
                           config: ConversationsListNavigationStateParams) => {
 
       return (
@@ -66,7 +63,7 @@ export class ConversationsListContainer extends React.Component<NavigationScreen
     return {
       ...navigation,
       ...screenProps,
-      header: (headerProps: NavigationScreenProps): TopNavigationElement => {
+      header: (headerProps: NavigationStackScreenProps): TopNavigationElement => {
         return renderHeader(headerProps, conversationHeaderConfig);
       },
     };

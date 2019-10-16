@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   Article,
   Comment,
@@ -28,7 +28,7 @@ interface State {
   currentCommentText: string;
 }
 
-export class Article3Container extends React.Component<NavigationScreenProps, State> {
+export class Article3Container extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     article: articles[0],

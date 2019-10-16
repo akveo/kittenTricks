@@ -85,7 +85,7 @@ class SignUp2Component extends React.Component<SignUp2Props, State> {
           <ProfilePhoto
             style={themedStyle.photo}
             resizeMode='center'
-            source={{ uri: 'https://akveo.github.io/eva-icons/fill/png/128/person.png' }}
+            source={require('../../../../assets/icons/icon-person.png')}
             button={this.renderPhotoButton}
           />
         </View>
