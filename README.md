@@ -24,6 +24,19 @@ Download a live Demo published on both [App Store][link:app-store] and [Google P
 
 This template is using [UI Kitten components][link:ui-kitten], [here you can find documentation and other useful articles][link:doc-ui-kitten].
 
+## Mobile backend Bundles
+
+Easy way to integrate UI Kitten with backend ([Java][link:ui-kitten-bundle-java], [.NET Core][link:ui-kitten-bundle-dotnet-core]).
+
+[<img src="https://i.imgur.com/HVNZQGR.jpg">][link:ui-kitten-bundles]
+
+## How can I support the developers?
+- Star our GitHub repo :star:
+- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
+- Read us on [Medium][link:akveo-medium]
+- Follow us on [Twitter][link:akveo-twitter]
+- Like our page on [Facebook][link:akveo-facebook]
+
 ## How can I support the developers?
 
 - Star our GitHub repo :star:
@@ -58,3 +71,6 @@ We're always happy to receive your feedback!
 [link:akveo-medium]: https://medium.com/akveo-engineering
 [link:akveo-twitter]: https://twitter.com/akveo_inc
 [link:akveo-facebook]: https://www.facebook.com/akveo
+[link:ui-kitten-bundles]: https://bit.ly/35AzNit
+[link:ui-kitten-bundle-java]: https://bit.ly/2IWdE4r
+[link:ui-kitten-bundle-dotnet-core]: http://bit.ly/2pl0kzL
