@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   StartTopNavigation,
   CenterTopNavigation,
@@ -7,7 +7,7 @@ import {
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import { Showcase } from '../common/showcase.component';
 
-export class TopNavigationContainer extends React.Component<NavigationScreenProps> {
+export class TopNavigationContainer extends React.Component<NavigationStackScreenProps> {
 
   public render(): React.ReactNode {
     return (

@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Settings } from './settings.component';
 
 interface State {
   soundEnabled: boolean;
 }
 
-export class SettingsContainer extends React.Component<NavigationScreenProps, State> {
+export class SettingsContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     soundEnabled: true,

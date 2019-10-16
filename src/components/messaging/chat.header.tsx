@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -31,7 +31,7 @@ export interface ChatHeaderNavigationStateParams {
   onProfile: (profile: Profile) => void;
 }
 
-export type ChatHeaderProps = ThemedComponentProps & ComponentProps & NavigationScreenProps;
+export type ChatHeaderProps = ThemedComponentProps & ComponentProps & NavigationStackScreenProps;
 
 class ChatHeaderComponent extends React.Component<ChatHeaderProps> {
 

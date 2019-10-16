@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Articles } from './articles.component';
 import { routes } from './routes';
 
@@ -7,7 +7,7 @@ interface State {
   selectedLayoutIndex: number;
 }
 
-export class ArticlesContainer extends React.Component<NavigationScreenProps, State> {
+export class ArticlesContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     selectedLayoutIndex: 0,

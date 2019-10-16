@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Showcase } from '../common/showcase.component';
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import { ShowcaseItem } from '../common/showcaseItem.component';
@@ -20,7 +20,7 @@ import {
   WarningToggle,
 } from './showcase';
 
-export class ToggleContainer extends React.Component<NavigationScreenProps> {
+export class ToggleContainer extends React.Component<NavigationStackScreenProps> {
 
   public render(): React.ReactNode {
     return (

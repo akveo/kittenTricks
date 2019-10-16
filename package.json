@@ -1,11 +1,16 @@
 {
-  "name": "kittenTricks",
+  "name": "kitten-tricks",
   "version": "2.0.1",
   "private": true,
-  "author": "akveo",
+  "license": "MIT",
+  "author": "akveo <contact@akveo.com>",
+  "repository": "git+https://github.com/akveo/kittenTricks.git",
+  "bugs": {
+    "url": "https://github.com/akveo/kittenTricks/issues"
+  },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "expo start -c",
     "start:dev": "npm run env:set -- dev && npm start -- -c",
     "start:prod": "npm run env:set -- prod && npm start -- -c",
     "env:set": "./scripts/environment/set-env.sh",
@@ -20,31 +25,39 @@
     "version:changelog": "npm run conventional-changelog -- -i ./CHANGELOG.md -s"
   },
   "dependencies": {
-    "@eva-design/eva": "^1.0.1",
-    "expo": "^33.0.6",
-    "expo-analytics": "^1.0.8",
-    "expo-camera": "^5.0.1",
-    "expo-constants": "^5.0.1",
-    "expo-media-library": "^5.0.1",
-    "expo-permissions": "^5.0.1",
-    "react": "^16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "@eva-design/eva": "^1.2.0",
+    "@ui-kitten/eva-icons": "^4.2.0",
+    "expo": "^35.0.0",
+    "expo-analytics": "^1.0.11",
+    "expo-camera": "^7.0.0",
+    "expo-constants": "^7.0.0",
+    "expo-media-library": "^7.0.0",
+    "expo-permissions": "^7.0.0",
+    "react": "^16.8.6",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-gesture-handler": "^1.3.0",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
-    "react-native-ui-kitten": "^4.1.0",
-    "react-navigation": "^3.11.0"
+    "react-native-reanimated": "^1.2.0",
+    "react-native-screens": "^1.0.0-alpha.23",
+    "react-native-svg": "^9.9.4",
+    "react-native-ui-kitten": "^4.2.0",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.9.4",
+    "react-navigation-tabs": "^2.5.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/runtime": "^7.1.2",
-    "@types/react": "^16.8.19",
-    "@types/react-native": "^0.57.60",
-    "@types/react-navigation": "^3.0.7",
+    "@babel/core": "^7.6.0",
+    "@babel/runtime": "^7.6.0",
+    "@types/react": "^16.9.2",
+    "@types/react-native": "^0.60.15",
+    "@types/react-navigation": "^3.0.8",
     "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "conventional-changelog-cli": "^2.0.21",
     "husky": "^1.1.2",
     "rimraf": "^2.6.2",
+    "scheduler": "^0.16.2",
     "tslint": "^5.12.1",
-    "typescript": "^3.5.1"
+    "typescript": "^3.6.3"
   }
 }

@@ -47,7 +47,7 @@ class ProfileSettings3Component extends React.Component<ProfileSettings3Props> {
     return (
       <Button
         style={themedStyle.photoButton}
-        activeOpacity={0.95}
+        status='basic'
         icon={CameraIconFill}
         onPress={this.onPhotoButtonPress}
       />
@@ -161,14 +161,14 @@ export const ProfileSettings3 = withStyles(ProfileSettings3Component, (theme: Th
     width: 320,
     height: 320,
     borderRadius: 16,
+    alignSelf: 'center',
   },
   photoButton: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    transform: [{ translateY: 32 }, { translateX: -16 }],
-    borderColor: theme['border-basic-color-4'],
-    backgroundColor: theme['background-basic-color-4'],
+    left: 256,
+    top: 32,
   },
   button: {
     marginHorizontal: 24,

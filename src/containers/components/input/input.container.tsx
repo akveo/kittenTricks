@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   ThemedComponentProps,
   ThemeType,
@@ -23,7 +23,7 @@ import {
 } from './showcase';
 import { textStyle } from '@src/components/common';
 
-type InputContainerProps = ThemedComponentProps & NavigationScreenProps;
+type InputContainerProps = ThemedComponentProps & NavigationStackScreenProps;
 
 class InputContainerComponent extends React.Component<InputContainerProps> {
 

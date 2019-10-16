@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Showcase } from '../common/showcase.component';
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import {
@@ -12,7 +12,7 @@ interface State {
   selectedTabIndex: number;
 }
 
-export class TabViewContainer extends React.Component<NavigationScreenProps, State> {
+export class TabViewContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     selectedTabIndex: 0,

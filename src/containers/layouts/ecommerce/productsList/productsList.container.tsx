@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Product } from '@src/core/model';
 import { products } from '@src/core/data/product';
 import { ProductsList } from './productsList.component';
@@ -8,7 +8,7 @@ interface State {
   products: Product[];
 }
 
-export class ProductsListContainer extends React.Component<NavigationScreenProps, State> {
+export class ProductsListContainer extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     products: products,

@@ -50,17 +50,17 @@ class BathFacility implements ApartmentFacility {
 
 const wifiFacility: ApartmentFacility = {
   title: 'Wi-Fi',
-  icon: require('../../assets/icons/eva/wifi-outline.png'),
+  icon: require('../../assets/icons/icon-wifi-outline.png'),
 };
 
 const tvFacility: ApartmentFacility = {
   title: 'TV',
-  icon: require('../../assets/icons/eva/tv.png'),
+  icon: require('../../assets/icons/icon-tv.png'),
 };
 
 const freeParkingFacility: ApartmentFacility = {
   title: 'Free Parking',
-  icon: require('../../assets/icons/eva/car.png'),
+  icon: require('../../assets/icons/icon-car.png'),
 };
 
 export const apartment1: Apartment = {

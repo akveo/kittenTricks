@@ -1,16 +1,21 @@
-export interface NavigationRouteState {
-  index: number;
-  routes: any[];
-  routeName?: string;
+import {
+  NavigationParams,
+  NavigationRoute,
+} from 'react-navigation';
 
-  params: { [key: string]: any };
-}
+export type RouteParams = NavigationParams;
+export type RouteState<P = RouteParams> = NavigationRoute<P>;
 
-export const getCurrentStateName = (state: NavigationRouteState): string => {
+/**
+ * Index refers to the active child route in the routes array.
+ */
+export const getCurrentStateName = (state: RouteState): string => {
+  // @ts-ignore
   return findCurrentRoute(state).routeName;
 };
 
-export const getCurrentRouteState = (navigation: any): NavigationRouteState => {
+export const getCurrentRouteState = (navigation: any): RouteState => {
+  // @ts-ignore
   return findCurrentRoute(navigation.state);
 };
 
@@ -18,7 +23,7 @@ export const getCurrentRouteIndex = (navigation: any): number => {
   return navigation.state.index;
 };
 
-const findCurrentRoute = (state: NavigationRouteState): NavigationRouteState => {
+const findCurrentRoute = (state: RouteState): RouteState => {
   if (state.routes && state.routes.length !== 0) {
     return findCurrentRoute(state.routes[state.index]);
   }

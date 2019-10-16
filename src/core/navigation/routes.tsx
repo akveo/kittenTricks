@@ -2,11 +2,14 @@ import React from 'react';
 import { useScreens } from 'react-native-screens';
 import {
   createAppContainer,
-  createBottomTabNavigator,
-  createStackNavigator,
   NavigationContainer,
   NavigationRouteConfigMap,
 } from 'react-navigation';
+import {
+  createStackNavigator,
+  NavigationStackProp,
+} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import {
   ComponentsContainer,
   LayoutsContainer,
@@ -83,6 +86,7 @@ import {
   CheckBoxContainer,
   InputContainer,
   ListContainer,
+  ModalContainer,
   OverflowMenuContainer,
   PopoverContainer,
   RadioContainer,
@@ -91,7 +95,6 @@ import {
   ToggleContainer,
   TooltipContainer,
   TopNavigationContainer,
-  ModalContainer,
 } from '@src/containers/components';
 import {
   ArticlesNavigationOptions,
@@ -101,7 +104,7 @@ import {
   SocialNavigationOptions,
 } from './options';
 
-const EcommerceNavigationMap: NavigationRouteConfigMap = {
+const EcommerceNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
   ['Add New Card']: {
     screen: AddNewCardContainer,
     navigationOptions: EcommerceNavigationOptions,
@@ -136,7 +139,7 @@ const EcommerceNavigationMap: NavigationRouteConfigMap = {
   },
 };
 
-const DarhboardsNavigationMap: NavigationRouteConfigMap = {
+const DarhboardsNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
   ['Trainings 1']: {
     screen: Trainings1Container,
     navigationOptions: DashboardNavigationOptions,
@@ -147,7 +150,7 @@ const DarhboardsNavigationMap: NavigationRouteConfigMap = {
   },
 };
 
-const MessagingNavigationMap: NavigationRouteConfigMap = {
+const MessagingNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
   ['Conversations List']: ConversationsListContainer,
   ['Chat 1']: Chat1Container,
   ['Chat 2']: Chat2Container,
@@ -158,7 +161,7 @@ const MessagingNavigationMap: NavigationRouteConfigMap = {
   },
 };
 
-const ArticlesNavigationMap: NavigationRouteConfigMap = {
+const ArticlesNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
   ['Article List 1']: {
     screen: ArticleList1Container,
     navigationOptions: ArticlesNavigationOptions,
@@ -189,7 +192,7 @@ const ArticlesNavigationMap: NavigationRouteConfigMap = {
   },
 };
 
-const SocialNavigationMap: NavigationRouteConfigMap = {
+const SocialNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
   ['Profile 1']: {
     screen: Profile1Container,
     navigationOptions: SocialNavigationOptions,
@@ -243,7 +246,7 @@ const SocialNavigationMap: NavigationRouteConfigMap = {
   },
 };
 
-const AuthNavigationMap: NavigationRouteConfigMap = {
+const AuthNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
   ['Sign In 1']: SignIn1Container,
   ['Sign In 2']: SignIn2Container,
   ['Sign In 3']: SignIn3Container,
@@ -304,7 +307,7 @@ const LayoutsNavigator: NavigationContainer = createStackNavigator(
   },
 );
 
-const MenuNavigator: NavigationContainer = createBottomTabNavigator({
+const MenuNavigator = createBottomTabNavigator({
   ['Layouts']: LayoutsNavigator,
   ['Components']: ComponentsNavigator,
   ['Themes']: ThemesNavigator,

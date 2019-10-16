@@ -50,7 +50,7 @@ class SignUp3Component extends React.Component<SignUp3Props, State> {
 
   private backgroundImage: ImageSource = imageSignUp3Bg;
 
-  private profileImage: IconSource = require('../../../../assets/icons/eva/person.png');
+  private profileImage: IconSource = require('../../../../assets/icons/icon-person.png');
 
   private onFormDataChange = (formData: SignUpForm2Data) => {
     this.setState({ formData });

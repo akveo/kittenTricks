@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import {
   BottomNavigationTitle,
   BottomNavigationIcon,
@@ -9,7 +9,7 @@ import {
 import { ShowcaseSection } from '../common/showcaseSection.component';
 import { Showcase } from '../common/showcase.component';
 
-export class BottomNavigationContainer extends React.Component<NavigationScreenProps> {
+export class BottomNavigationContainer extends React.Component<NavigationTabScreenProps> {
 
   public render(): React.ReactNode {
     return (

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  NavigationScreenConfig,
-  NavigationScreenProps,
-} from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import * as MediaLibrary from 'expo-media-library';
 import * as Permissions from 'expo-permissions';
 import {
@@ -31,7 +28,7 @@ interface State {
   conversation: Conversation;
 }
 
-export class Chat3Container extends React.Component<NavigationScreenProps, State> {
+export class Chat3Container extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     newMessageText: '',
@@ -40,7 +37,7 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
     conversation: conversation6,
   };
 
-  static navigationOptions: NavigationScreenConfig<any> = ({ navigation, screenProps }) => {
+  static navigationOptions = ({ navigation, screenProps }) => {
     const headerProps: ChatHeaderNavigationStateParams = {
       interlocutor: navigation.getParam('interlocutor', conversation5.interlocutor),
       lastSeen: navigation.getParam('lastSeen', 'today'),
@@ -48,7 +45,7 @@ export class Chat3Container extends React.Component<NavigationScreenProps, State
       onProfile: navigation.getParam('onProfile'),
     };
 
-    const header = (navigationProps: NavigationScreenProps) => {
+    const header = (navigationProps: NavigationStackScreenProps) => {
       return (
         <ChatHeader
           {...navigationProps}

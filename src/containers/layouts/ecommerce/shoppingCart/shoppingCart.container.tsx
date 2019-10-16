@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { Product } from '@src/core/model';
 import { ShoppingCart } from './shoppingCart.component';
 import { products } from '@src/core/data/product';
@@ -9,7 +9,7 @@ interface State {
   cartProducts: CartProduct[];
 }
 
-export class ShoppingCartContainer extends React.Component<NavigationScreenProps, State> {
+export class ShoppingCartContainer extends React.Component<NavigationStackScreenProps, State> {
 
   private prepareProducts = (): CartProduct[] => {
     return [products[0], products[1]]

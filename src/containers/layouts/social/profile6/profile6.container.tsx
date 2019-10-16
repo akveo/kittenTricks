@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationScreenProps } from 'react-navigation';
+import { NavigationStackScreenProps } from 'react-navigation-stack';
 import {
   CategorisedProfileActivity,
   Post,
@@ -21,7 +21,7 @@ interface State {
   posts: Post[];
 }
 
-export class Profile6Container extends React.Component<NavigationScreenProps, State> {
+export class Profile6Container extends React.Component<NavigationStackScreenProps, State> {
 
   public state: State = {
     profile: profile5,
