@@ -1,9 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-native';
-import {
-  NavigationParams,
-  NavigationScreenProps,
-} from 'react-navigation';
+import { NavigationParams } from 'react-navigation';
 import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { NavigationTabScreenProps } from 'react-navigation-tabs';
 import { EcommerceHeader } from '@src/components/ecommerce';
@@ -22,7 +19,7 @@ export type TopNavigationElement = React.ReactElement<any>;
 export type BottomNavigationElement = React.ReactElement<any>;
 
 export interface TopNavigationParams extends NavigationParams {
-  header: (props: NavigationScreenProps) => TopNavigationElement | null;
+  header: (props) => TopNavigationElement | null;
 }
 
 export interface BottomNavigationParams extends NavigationParams {
@@ -30,7 +27,7 @@ export interface BottomNavigationParams extends NavigationParams {
 }
 
 const MenuTopNavigationParams: TopNavigationParams = {
-  header: (props: NavigationScreenProps): TopNavigationElement => {
+  header: (props): TopNavigationElement => {
     // @ts-ignore (private API)
     const { routeName } = getCurrentRouteState(props.navigation);
     const index: number = getCurrentRouteIndex(props.navigation);
