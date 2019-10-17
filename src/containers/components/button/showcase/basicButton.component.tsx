@@ -6,10 +6,10 @@ import {
 
 type ButtonElement = React.ReactElement<ButtonProps>;
 
-export const WhiteButton = (props?: ButtonProps): ButtonElement => {
+export const BasicButton = (props?: ButtonProps): ButtonElement => {
   return (
     <Button
-      status='white'
+      status='basic'
       {...props}>
       BUTTON
     </Button>

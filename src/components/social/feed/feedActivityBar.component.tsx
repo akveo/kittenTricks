@@ -67,8 +67,8 @@ class FeedActivityBarComponent extends React.Component<FeedActivityBarProps> {
         <Button
           style={themedStyle.addButton}
           textStyle={textStyle.button}
+          appearance='ghost'
           size='giant'
-          status='white'
           icon={this.renderAddIcon}
           onPress={this.onAddButtonPress}>
           Add Training

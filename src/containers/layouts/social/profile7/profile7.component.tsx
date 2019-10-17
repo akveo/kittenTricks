@@ -112,7 +112,7 @@ class Profile7Component extends React.Component<Profile7Props> {
             <Button
               style={themedStyle.messageButton}
               textStyle={textStyle.button}
-              status='white'
+              status='control'
               icon={MessageCircleIconFill}
               onPress={this.onMessagePress}>
               MESSAGE

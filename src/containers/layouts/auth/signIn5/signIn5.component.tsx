@@ -117,7 +117,6 @@ class SignIn5Component extends React.Component<SignIn5Props, State> {
             </Text>
           </View>
           <TabView
-            style={themedStyle.tabView}
             tabBarStyle={themedStyle.tabBar}
             indicatorStyle={themedStyle.tabViewIndicator}
             selectedIndex={this.state.selectedTabIndex}
@@ -181,10 +180,10 @@ export const SignIn5 = withStyles(SignIn5Component, (theme: ThemeType) => ({
   },
   tabContentContainer: {
     marginVertical: 8,
+    paddingHorizontal: 16,
   },
   tabView: {
     flex: 1,
-    paddingHorizontal: 16,
   },
   tabBar: {
     backgroundColor: 'transparent',
