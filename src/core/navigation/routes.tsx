@@ -139,7 +139,7 @@ const EcommerceNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp>
   },
 };
 
-const DarhboardsNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
+const DashboardsNavigationMap: NavigationRouteConfigMap<any, NavigationStackProp> = {
   ['Trainings 1']: {
     screen: Trainings1Container,
     navigationOptions: DashboardNavigationOptions,
@@ -321,7 +321,7 @@ const AppNavigator: NavigationContainer = createStackNavigator({
   ...SocialNavigationMap,
   ...ArticlesNavigationMap,
   ...MessagingNavigationMap,
-  ...DarhboardsNavigationMap,
+  ...DashboardsNavigationMap,
   ...EcommerceNavigationMap,
 }, {
   headerMode: 'screen',
