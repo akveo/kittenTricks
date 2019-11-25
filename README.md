@@ -31,13 +31,6 @@ Easy way to integrate UI Kitten with backend ([Java][link:ui-kitten-bundle-java]
 [<img src="https://i.imgur.com/oSaGaCv.jpg">][link:ui-kitten-bundles]
 
 ## How can I support the developers?
-- Star our GitHub repo :star:
-- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
-- Read us on [Medium][link:akveo-medium]
-- Follow us on [Twitter][link:akveo-twitter]
-- Like our page on [Facebook][link:akveo-facebook]
-
-## How can I support the developers?
 
 - Star our GitHub repo :star:
 - Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
