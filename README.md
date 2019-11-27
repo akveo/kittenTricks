@@ -28,7 +28,7 @@ This template is using [UI Kitten components][link:ui-kitten], [here you can fin
 
 Easy way to integrate UI Kitten with backend ([Java][link:ui-kitten-bundle-java], [.NET Core][link:ui-kitten-bundle-dotnet-core]).
 
-[<img src="https://i.imgur.com/oSaGaCv.jpg">][link:ui-kitten-bundles]
+[<img src="https://i.imgur.com/zJq0xRa.jpg">][link:ui-kitten-bundles]
 
 ## How can I support the developers?
 
