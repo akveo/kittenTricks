@@ -30,6 +30,10 @@ export const MoreVerticalIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='more-vertical'/>
 );
 
+export const SearchIcon = (style: ImageStyle): IconElement => (
+  <Icon {...style} name='search'/>
+);
+
 export const SettingsIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='settings'/>
 );
