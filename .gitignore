@@ -20,6 +20,7 @@ npm-debug.log
 
 # env
 env/index.js
+tsconfig.json
 
 # expo
 

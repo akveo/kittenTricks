@@ -6,7 +6,9 @@ const appModules = [
   path.resolve(env.EVA_PACKAGES_PATH, 'eva'),
   path.resolve(env.EVA_PACKAGES_PATH, 'processor'),
   path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components'),
+  path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'date-fns'),
   path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'eva-icons'),
+  path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'moment'),
 ];
 
 const extraNodeModules = {
@@ -20,8 +22,15 @@ const extraNodeModules = {
   'lodash.merge': path.resolve(__dirname, './node_modules/lodash.merge'),
   'react-native-svg': path.resolve(__dirname, './node_modules/react-native-svg'),
 
+  // @ui-kitten/date-fns
+  'date-fns': path.resolve(__dirname, './node_modules/date-fns'),
+
   // @ui-kitten/eva-icons
   'react-native-eva-icons': path.resolve(__dirname, './node_modules/react-native-eva-icons'),
+
+  // @ui-kitten/moment
+  'moment': path.resolve(__dirname, './node_modules/moment'),
+  'react-is': path.resolve(__dirname, './node_modules/react-is'),
 };
 
 module.exports = {

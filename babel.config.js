@@ -6,7 +6,9 @@ const frameworkAlias = {
   '@eva-design/eva': path.resolve(env.EVA_PACKAGES_PATH, 'eva'),
   '@eva-design/processor': path.resolve(env.EVA_PACKAGES_PATH, 'processor'),
   '@ui-kitten/components': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components'),
+  '@ui-kitten/date-fns': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'date-fns'),
   '@ui-kitten/eva-icons': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'eva-icons'),
+  '@ui-kitten/moment': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'moment'),
 };
 
 const frameworkInternalAlias = {
@@ -14,14 +16,9 @@ const frameworkInternalAlias = {
   '@kitten/ui': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components/ui'),
 };
 
-const appAlias = {
-  '@src': path.resolve(__dirname, './src'),
-};
-
 const moduleResolverConfig = {
   root: path.resolve('./'),
   alias: {
-    ...appAlias,
     ...frameworkAlias,
     ...frameworkInternalAlias,
   },
