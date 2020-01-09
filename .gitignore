@@ -18,13 +18,13 @@ local.properties
 node_modules/
 npm-debug.log
 
-# docs
-docs/docs.json
-docs/output.json
+# env
+env/index.js
 
-# config
-config/index.js
+# expo
 
 .expo
 .expo-shared/
+web-build/
+
 dist
