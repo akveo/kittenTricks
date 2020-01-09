@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Divider, TopNavigation } from '@ui-kitten/components';
+import { Divider, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
+import { MenuIcon } from '../../components/icons';
 import { data } from './data';
 
 export const LayoutsScreen = (props): React.ReactElement => {
@@ -10,6 +11,13 @@ export const LayoutsScreen = (props): React.ReactElement => {
   const onItemPress = (index: number): void => {
     props.navigation.navigate(data[index].route);
   };
+
+  const renderDrawerAction = (): React.ReactElement => (
+    <TopNavigationAction
+      icon={MenuIcon}
+      onPress={props.navigation.toggleDrawer}
+    />
+  );
 
   return (
     <SafeAreaLayout
@@ -19,6 +27,7 @@ export const LayoutsScreen = (props): React.ReactElement => {
       <TopNavigation
         title='Kitten Tricks'
         alignment='center'
+        leftControl={renderDrawerAction()}
       />
       <Divider/>
       <MenuGridList

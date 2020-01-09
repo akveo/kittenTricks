@@ -4,8 +4,11 @@ import { LayoutsNavigator } from './layouts.navigator';
 import { ComponentsNavigator } from './components.navigator';
 import { ThemesNavigator } from './themes.navigator';
 import { HomeScreen } from '../scenes/home/home.component';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { HomeDrawer } from '../scenes/home/home-drawer.component';
 
 const BottomTab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 // Can we access it from `HomeNavigator`?
 const ROOT_ROUTES: string[] = ['Home', 'Layouts', 'Components', 'Themes'];
@@ -22,7 +25,7 @@ const TabBarVisibleOnRootScreenOptions = ({ route }): BottomTabNavigationOptions
   return { tabBarVisible: currentRoute && isOneOfRootRoutes(currentRoute) };
 };
 
-export const HomeNavigator = (): React.ReactElement => (
+const HomeTabsNavigator = (): React.ReactElement => (
   <BottomTab.Navigator
     screenOptions={TabBarVisibleOnRootScreenOptions}
     tabBar={(props) => <HomeScreen {...props} />}>
@@ -30,4 +33,10 @@ export const HomeNavigator = (): React.ReactElement => (
     <BottomTab.Screen name='Components' component={ComponentsNavigator}/>
     <BottomTab.Screen name='Themes' component={ThemesNavigator}/>
   </BottomTab.Navigator>
+);
+
+export const HomeNavigator = (): React.ReactElement => (
+  <Drawer.Navigator drawerContent={(props) => <HomeDrawer {...props}/>}>
+    <Drawer.Screen name='Home' component={HomeTabsNavigator}/>
+  </Drawer.Navigator>
 );

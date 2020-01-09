@@ -6,6 +6,10 @@ export const ArrowIosBackIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='arrow-ios-back'/>
 );
 
+export const BookIcon = (style: ImageStyle): IconElement => (
+  <Icon {...style} name='book'/>
+);
+
 export const ColorPaletteIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='color-palette-outline'/>
 );
@@ -24,6 +28,10 @@ export const LayoutIcon = (style: ImageStyle): IconElement => (
 
 export const ListIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='list'/>
+);
+
+export const MenuIcon = (style: ImageStyle): IconElement => (
+  <Icon {...style} name='menu'/>
 );
 
 export const MoreVerticalIcon = (style: ImageStyle): IconElement => (
