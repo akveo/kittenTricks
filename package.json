@@ -19,7 +19,7 @@
     "start": "npm run env -- prod && expo start -c",
     "start:dev": "npm run env -- dev && expo start -c --dev --no-minify",
     "start:prod": "npm start -- --no-dev --minify",
-    "env": "node ./scripts/set-env.js",
+    "env": "node ./env/set-env.js",
     "build": "tsc -p ./tsconfig.json",
     "clean": "rimraf ./dist",
     "lint": "tslint -p ./tsconfig.json",
