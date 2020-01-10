@@ -1,65 +1,55 @@
 import React from 'react';
-import { ViewProps } from 'react-native';
-import { Icon, IconProps, Input, StyleType } from '@ui-kitten/components';
-
-interface State {
-  iconName: string;
-}
+import { ImageStyle } from 'react-native';
+import { Icon, IconProps, Input } from '@ui-kitten/components';
 
 const DEFAULT_ICON: string = 'star';
 
-export class IconShowcase extends React.Component<IconProps, State> {
+export const IconShowcase = (props: IconProps): React.ReactElement => {
 
-  public state: State = {
-    iconName: DEFAULT_ICON,
-  };
-  private iconRef: React.RefObject<Icon<any>> = React.createRef();
-  private animationTimeout: NodeJS.Timeout;
+  const iconRef = React.useRef();
+  const [currentIcon, setCurrentIcon] = React.useState<string>(DEFAULT_ICON);
+  let inputValue: string = DEFAULT_ICON;
 
-  public componentDidMount() {
-    this.animationTimeout = setTimeout(this.startAnimation, 500);
-  }
+  React.useEffect(() => {
+    const animationTimeout = setTimeout(startAnimation, 500);
+    return () => clearTimeout(animationTimeout);
+  });
 
-  public componentWillUnmount() {
-    clearTimeout(this.animationTimeout);
-  }
-
-  public render(): React.ReactElement<ViewProps> {
-    return (
-      <Input
-        style={{ flex: 1 }}
-        placeholder='Type icon name'
-        autoCapitalize='none'
-        autoCorrect={false}
-        caption='Unfocus to change icon'
-        captionIcon={this.renderIcon}
-        icon={this.renderIcon}
-        onChangeText={this.onInputChangeText}
-        onBlur={this.onInputBlur}
-      />
-    );
-  }
-
-  private onInputChangeText = (text: string) => {
-    this.state.iconName = text.length > 0 ? text : DEFAULT_ICON;
+  const onInputChangeText = (text: string): void => {
+    inputValue = text;
   };
 
-  private onInputBlur = () => {
-    this.iconRef.current.startAnimation();
+  const onInputBlur = (): void => {
+    // @ts-ignore
+    iconRef.current.startAnimation();
+    setCurrentIcon(inputValue.length > 0 ? inputValue : DEFAULT_ICON);
   };
 
-  private startAnimation = () => {
-    this.iconRef.current.startAnimation();
+  const startAnimation = (): void => {
+    // @ts-ignore
+    iconRef.current.startAnimation();
   };
 
-  private renderIcon = (style: StyleType) => {
-    return (
-      <Icon
-        ref={this.iconRef}
-        name={this.state.iconName}
-        {...this.props}
-        {...style}
-      />
-    );
-  };
-}
+  const renderIcon = (style: ImageStyle): React.ReactElement => (
+    <Icon
+      {...props}
+      {...style}
+      ref={iconRef}
+      name={currentIcon}
+    />
+  );
+
+  return (
+    <Input
+      style={{ flex: 1 }}
+      placeholder='Type icon name'
+      autoCapitalize='none'
+      autoCorrect={false}
+      caption='Unfocus to change icon'
+      captionIcon={renderIcon}
+      icon={renderIcon}
+      onChangeText={onInputChangeText}
+      onBlur={onInputBlur}
+    />
+  );
+};
