@@ -1,4 +1,5 @@
 [Running](#running)
+
 [Reusing Screens](#reusing-screens)
 
 # Running
@@ -23,7 +24,7 @@ Kitten Tricks application supports two environments:
 git clone https://github.com/eva-design/eva && git clone https://github.com/akveo/react-native-ui-kitten
 ```
 
-- **IMPORTANT** Ensure you have the following structure of repos:
+- **IMPORTANT:** Ensure you have the following structure of repositories:
 ```
 - /
   - eva
@@ -43,9 +44,9 @@ All screens presented in Kitten Tricks application are listed in [`./src/scenes`
 - [Dashboards](./src/scenes/dashboards)
 - [Ecommerce](./src/scenes/ecommerce)
 
-If you would like to reuse it, you may copy and paste entire screen folder.
+If you would like to reuse it, you may copy and paste the entire screen folder.
 
-Some of the screens may contain 3rd-party modules needs to be installed.
+Some of the screens may contain 3rd-party modules that need to be installed.
 You can find them in `3rd-party.ts` files.
 
 E.g in case of reusing `Forgot Password` screen, you may need:
@@ -54,7 +55,7 @@ E.g in case of reusing `Forgot Password` screen, you may need:
 
 ## Structure
 
-Each screen is structured in same way:
+Each screen is structured in the same way:
 
 - index.ts - Screen itself
 - extra - Directory containing components, data, and 3rd-party modules used by screen
