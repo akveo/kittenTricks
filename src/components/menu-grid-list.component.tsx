@@ -16,7 +16,7 @@ export const MenuGridList = (props: MenuGridListProps): ListElement => {
     <Card
       style={styles.item}
       onPress={() => props.onItemPress(info.index)}>
-      {info.item.icon(styles.itemImage)}
+      {info.item.icon({ width: 64, height: 64, alignSelf: 'center' })}
       <Text
         style={styles.itemTitle}
         category='s2'>

@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     maxWidth: Dimensions.get('window').width / 2 - 24,
   },
   itemImage: {
-    alignSelf: 'center',
-    height: 320,
+    height: 276,
+    width: '100%',
     resizeMode: 'contain',
   },
 });
