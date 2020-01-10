@@ -15,7 +15,7 @@ export const ComponentsScreen = (props): React.ReactElement => {
   });
 
   const onItemPress = (index: number): void => {
-    props.navigation.navigate(data[index].route);
+    props.navigation.navigate(displayData[index].route);
   };
 
   return (
