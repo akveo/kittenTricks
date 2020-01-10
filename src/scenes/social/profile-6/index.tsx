@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   postItem: {
-    aspectRatio: 1.0,
+    width: 144,
     height: 144,
     borderRadius: 4,
     marginHorizontal: 8,

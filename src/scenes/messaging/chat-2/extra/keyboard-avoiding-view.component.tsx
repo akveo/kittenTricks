@@ -7,8 +7,8 @@ import {
   KeyboardEvent,
   KeyboardEventName,
   Platform,
-  StyleSheet,
   TouchableWithoutFeedback,
+  TransformsStyle,
   ViewProps,
 } from 'react-native';
 
@@ -70,24 +70,19 @@ export const KeyboardAvoidingView = (props: KeyboardAvoidingViewProps): React.Re
     });
   };
 
+  const transformsStyle: TransformsStyle = {
+    // @ts-ignore
+    transform: [{ translateY }],
+  };
+
   return (
     <TouchableWithoutFeedback
       disabled={!autoDismiss}
       onPress={Keyboard.dismiss}>
       <Animated.View
-        style={[styles.container, styles.transform(translateY), style]}
+        style={[transformsStyle, style]}
         {...viewProps}
       />
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-  },
-  // @ts-ignore
-  transform: (y: Animated.Value) => ({
-    transform: [{ translateY: y }],
-  }),
-});
