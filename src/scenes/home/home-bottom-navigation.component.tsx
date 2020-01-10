@@ -4,7 +4,7 @@ import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { BrandBottomNavigation } from '../../components/brand-bottom-navigation.component';
 import { ColorPaletteIcon, LayoutIcon, StarOutlineIcon } from '../../components/icons';
 
-export const HomeScreen = (props): React.ReactElement => {
+export const HomeBottomNavigation = (props): React.ReactElement => {
 
   const onSelect = (index: number): void => {
     props.navigation.navigate(props.state.routeNames[index]);
