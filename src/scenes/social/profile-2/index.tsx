@@ -5,21 +5,20 @@ import { RateBar } from './extra/rate-bar.component';
 import { ProfileSocial } from './extra/profile-social.component';
 import { ProfileParameterCard } from './extra/profile-parameter-card.component';
 import { ArrowHeadDownIcon, ArrowHeadUpIcon, ArrowIosBackIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Profile } from './extra/data';
 
 const profile: Profile = Profile.jenniferGreen();
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [rating, setRating] = React.useState(profile.experience);
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

@@ -14,7 +14,7 @@ import {
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { CommentList } from './extra/comment-list.component';
 import { ArrowIosBackIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Product, ProductColor } from './extra/data';
 
 const product: Product = Product.pinkChair();
@@ -24,34 +24,33 @@ const keyboardOffset = (height: number): number => Platform.select({
   ios: height,
 });
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [comment, setComment] = React.useState<string>();
   const [selectedColorIndex, setSelectedColorIndex] = React.useState<number>();
   const styles = StyleSheet.create();
 
   const onBuyButtonPress = (): void => {
-    navigation.navigate('Payment');
+    navigation && navigation.navigate('Payment');
   };
 
   const onAddButtonPress = (): void => {
-    navigation.navigate('ShoppingCart');
+    navigation && navigation.navigate('ShoppingCart');
   };
 
   const onSearchActionPress = (): void => {
-    navigation.navigate('ProductList');
+    navigation && navigation.navigate('ProductList');
   };
 
   const onCartActionPress = (): void => {
-    navigation.navigate('ShoppingCart');
+    navigation && navigation.navigate('ShoppingCart');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

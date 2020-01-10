@@ -5,21 +5,20 @@ import { ImageOverlay } from './extra/image-overlay.component';
 import { RateBar } from './extra/rate-bar.component';
 import { ProfileParameter } from './extra/profile-parameter.component';
 import { ArrowIosBackIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Profile } from './extra/data';
 
 const profile: Profile = Profile.jenAustin();
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [rating, setRating] = React.useState<number>(profile.experience);
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

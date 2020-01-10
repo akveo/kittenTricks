@@ -5,7 +5,7 @@ import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { RateBar } from './extra/rate-bar.component';
 import { CommentList } from './extra/comment-list.component';
 import { ArrowIosBackIcon, BookmarkIcon, BookmarkOutlineIcon, SearchIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Product } from './extra/data';
 
 const product: Product = Product.designSystemsBook();
@@ -15,9 +15,8 @@ const keyboardOffset = (height: number): number => Platform.select({
   ios: height,
 });
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [inputComment, setInputComment] = React.useState<string>();
   const [rating, setRating] = React.useState<number>(product.rating);
@@ -25,7 +24,7 @@ export default (): React.ReactElement => {
   const styles = StyleSheet.create();
 
   const onBuyButtonPress = (): void => {
-    navigation.navigate('Payment');
+    navigation && navigation.navigate('Payment');
   };
 
   const onBookmarkActionPress = (): void => {
@@ -33,13 +32,13 @@ export default (): React.ReactElement => {
   };
 
   const onSearchActionPress = (): void => {
-    navigation.navigate('ProductList');
+    navigation && navigation.navigate('ProductList');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

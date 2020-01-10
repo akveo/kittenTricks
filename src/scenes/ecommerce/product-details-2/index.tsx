@@ -14,21 +14,20 @@ import { RateBar } from './extra/rate-bar.component';
 import { DetailsList } from './extra/details-list.component';
 import { CategoryList } from './extra/category-list.component';
 import { ArrowIosBackIcon, BookmarkIcon, BookmarkOutlineIcon, SearchIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Product } from './extra/data';
 
 const product: Product = Product.howToTrainYourDragonMovie();
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [bookmarked, setBookmarked] = React.useState<boolean>(false);
   const [rating, setRating] = React.useState<number>(product.rating);
   const styles = StyleSheet.create();
 
   const onBuyButtonPress = (): void => {
-    navigation.navigate('Payment');
+    navigation && navigation.navigate('Payment');
   };
 
   const onBookmarkActionPress = (): void => {
@@ -36,13 +35,13 @@ export default (): React.ReactElement => {
   };
 
   const onSearchActionPress = (): void => {
-    navigation.navigate('ProductList');
+    navigation && navigation.navigate('ProductList');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

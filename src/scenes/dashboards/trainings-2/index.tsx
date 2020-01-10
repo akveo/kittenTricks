@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground, ListRenderItemInfo, StyleSheet, View } from 'react-native';
 import { Button, Card, Layout, List, Text, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { ActivityIcon, ArrowIosBackIcon, ClockIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Training } from './extra/data';
 
 const trainings: Training[] = [
@@ -14,15 +14,14 @@ const trainings: Training[] = [
   Training.workoutForWomen(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

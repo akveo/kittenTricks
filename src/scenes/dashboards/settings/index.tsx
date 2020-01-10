@@ -3,11 +3,10 @@ import { StyleSheet } from 'react-native';
 import { Divider, Layout, Toggle, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { Setting } from './extra/settings-section.component';
 import { ArrowIosBackIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [soundEnabled, setSoundEnabled] = React.useState<boolean>(false);
 
@@ -18,7 +17,7 @@ export default (): React.ReactElement => {
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

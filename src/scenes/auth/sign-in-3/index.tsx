@@ -3,25 +3,24 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Input, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { EyeIcon, EyeOffIcon, PersonIcon } from './extra/icons';
-import { KeyboardAvoidingView, useNavigation } from './extra/3rd-party';
+import { KeyboardAvoidingView } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const [email, setEmail] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
 
   const onSignInButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   const onSignUpButtonPress = (): void => {
-    navigation.navigate('SignUp3');
+    navigation && navigation.navigate('SignUp3');
   };
 
   const onForgotPasswordButtonPress = (): void => {
-    navigation.navigate('ForgotPassword');
+    navigation && navigation.navigate('ForgotPassword');
   };
 
   const onPasswordIconPress = (): void => {

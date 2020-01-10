@@ -34,6 +34,6 @@ export const AutocompleteShowcase = (props: AutocompleteProps): AutocompleteElem
 
 const styles = StyleSheet.create({
   autocomplete: {
-    flex: 1,
+    minWidth: 192,
   },
 });

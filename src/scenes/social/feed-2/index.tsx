@@ -3,7 +3,7 @@ import { ListRenderItemInfo, StyleSheet, View } from 'react-native';
 import { Button, Card, Layout, List, Text, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowIosBackIcon, HeartIcon, PlusIcon, ShareIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Training } from './extra/data';
 
 const data: Training[] = [
@@ -12,15 +12,14 @@ const data: Training[] = [
   Training.workout(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

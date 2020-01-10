@@ -11,7 +11,7 @@ import {
 } from '@ui-kitten/components';
 import { MessageItem } from './extra/message-item.component';
 import { ArrowIosBackIcon, SearchIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Message } from './extra/data';
 
 const initialMessages: Message[] = [
@@ -20,21 +20,20 @@ const initialMessages: Message[] = [
   Message.noProblem(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const styles = StyleSheet.create();
   const [searchQuery, setSearchQuery] = React.useState<string>();
 
   const onItemPress = (index: number): void => {
-    navigation.navigate('Chat1');
+    navigation && navigation.navigate('Chat1');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

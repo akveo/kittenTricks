@@ -4,24 +4,23 @@ import { Button, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/c
 import { ProfileAvatar } from './extra/profile-avatar.component';
 import { ProfileSetting } from './extra/profile-setting.component';
 import { ArrowIosBackIcon, CameraIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Profile } from './extra/data';
 
 const profile: Profile = Profile.jenniferGreen();
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const onDoneButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

@@ -3,11 +3,10 @@ import { View } from 'react-native';
 import { Button, Input, Tab, TabView, Text, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { EmailIcon, LockIcon, PhoneIcon } from './extra/icons';
-import { KeyboardAvoidingView, useNavigation } from './extra/3rd-party';
+import { KeyboardAvoidingView } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const [selectedTabIndex, setSelectedTabIndex] = React.useState<number>(0);
   const [email, setEmail] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
@@ -19,11 +18,11 @@ export default (): React.ReactElement => {
   const styles = StyleSheet.create();
 
   const onSignInButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   const onSignUpButtonPress = (): void => {
-    navigation.navigate('SignUp4');
+    navigation && navigation.navigate('SignUp4');
   };
 
   const onPasswordIconPress = (): void => {

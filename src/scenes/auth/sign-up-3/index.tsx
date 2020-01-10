@@ -4,11 +4,10 @@ import { Button, CheckBox, Input, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
 import { EmailIcon, EyeIcon, EyeOffIcon, PersonIcon, PlusIcon } from './extra/icons';
-import { KeyboardAvoidingView, useNavigation } from './extra/3rd-party';
+import { KeyboardAvoidingView } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const [userName, setUserName] = React.useState<string>();
   const [email, setEmail] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
@@ -18,11 +17,11 @@ export default (): React.ReactElement => {
   const styles = StyleSheet.create();
 
   const onSignUpButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   const onSignInButtonPress = (): void => {
-    navigation.navigate('SignIn3');
+    navigation && navigation.navigate('SignIn3');
   };
 
   const onPasswordIconPress = (): void => {

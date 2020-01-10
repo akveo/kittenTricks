@@ -12,7 +12,7 @@ import {
   TopNavigationActionElement,
 } from '@ui-kitten/components';
 import { ArrowIosBackIcon, HeartIcon, MessageCircleIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Article } from './extra/data';
 
 const data: Article[] = [
@@ -21,19 +21,18 @@ const data: Article[] = [
   Article.whyWorkoutImportant(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const onItemPress = (index: number): void => {
-    navigation.navigate('Article1');
+    navigation && navigation.navigate('Article1');
   };
 
   const renderBackAction = (): TopNavigationActionElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

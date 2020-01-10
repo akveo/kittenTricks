@@ -4,7 +4,7 @@ import { Avatar, Button, Layout, List, Text, TopNavigation, TopNavigationAction 
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileSocial } from './extra/profile-social.component';
 import { ArrowIosBackIcon, MessageCircleIcon, PersonAddIcon, PinIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Post, Profile } from './extra/data';
 
 /*
@@ -36,23 +36,22 @@ const posts: Post[] = [
   Post.plant1(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const onFollowButtonPress = (): void => {
-
+    navigation && navigation.goBack();
   };
 
   const onMessageButtonPress = (): void => {
-    navigation.navigate('Chat2');
+    navigation && navigation.navigate('Chat2');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

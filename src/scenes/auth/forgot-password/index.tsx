@@ -3,15 +3,14 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Input, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { EmailIcon } from './extra/icons';
-import { KeyboardAvoidingView, useNavigation } from './extra/3rd-party';
+import { KeyboardAvoidingView } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const [email, setEmail] = React.useState<string>();
 
   const onResetPasswordButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   return (

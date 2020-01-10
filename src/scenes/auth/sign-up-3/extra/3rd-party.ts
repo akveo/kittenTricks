@@ -2,26 +2,6 @@ import React from 'react';
 import { ScrollView, ScrollViewProps } from 'react-native';
 
 /**
- * https://github.com/react-navigation/navigation-ex
- */
-export const useNavigation = () => {
-  const lib = require('@react-navigation/native');
-
-  if (!lib) {
-    const message: string = [
-      '@react-navigation/native: module not installed',
-      'using fake call',
-    ].join('\n');
-
-    console.warn(message);
-
-    return {};
-  }
-
-  return lib.useNavigation();
-};
-
-/**
  * https://github.com/APSL/react-native-keyboard-aware-scroll-view
  */
 export const KeyboardAvoidingView = (props): React.ReactElement => {

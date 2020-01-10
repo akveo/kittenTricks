@@ -12,20 +12,20 @@ import {
 } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowIosBackIcon, BookmarkIcon, BookmarkOutlineIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Product, ProductOption } from './extra/data';
 
 const product: Product = Product.centralParkApartment();
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [bookmarked, setBookmarked] = React.useState<boolean>(false);
+
   const styles = StyleSheet.create();
 
   const onBookButtonPress = (): void => {
-    navigation.navigate('Payment');
+    navigation && navigation.navigate('Payment');
   };
 
   const onBookmarkActionPress = (): void => {
@@ -35,7 +35,7 @@ export default (): React.ReactElement => {
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

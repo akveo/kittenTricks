@@ -3,7 +3,7 @@ import { ListRenderItemInfo, StyleSheet, View } from 'react-native';
 import { Avatar, Button, Card, Layout, List, Text, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowIosBackIcon, BulbIcon, HeartIcon, MessageCircleIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Article } from './extra/data';
 
 const data: Article[] = [
@@ -12,19 +12,18 @@ const data: Article[] = [
   Article.morningWorkouts(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const onItemPress = (index: number): void => {
-    navigation.navigate('Article2');
+    navigation && navigation.navigate('Article2');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

@@ -4,7 +4,7 @@ import { Avatar, Button, Divider, Layout, Text, TopNavigation, TopNavigationActi
 import { ProfileSocial } from './extra/profile-social.component';
 import { CategoryList } from './extra/category-list.component';
 import { ArrowIosBackIcon, MessageCircleIcon, PersonAddIcon, PinIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Post, Profile } from './extra/data';
 
 const profile: Profile = Profile.helenKuper();
@@ -27,23 +27,22 @@ const stylePosts: Post[] = [
   Post.style3(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const onFollowButtonPress = (): void => {
-
+    navigation && navigation.goBack();
   };
 
   const onMessageButtonPress = (): void => {
-    navigation.navigate('Chat1');
+    navigation && navigation.navigate('Chat1');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

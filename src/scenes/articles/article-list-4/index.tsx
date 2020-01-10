@@ -3,7 +3,7 @@ import { ImageBackground, ListRenderItemInfo, StyleSheet, TouchableOpacity, View
 import { Button, Layout, List, Text, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowIosBackIcon, HeartIcon, MessageCircleIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Article } from './extra/data';
 
 const data: Article[] = [
@@ -16,9 +16,8 @@ const data: Article[] = [
 
 const [headingArticle, ...listArticles] = data;
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
 
   const isItemReverse = (index: number): boolean => {
@@ -26,13 +25,13 @@ export default (): React.ReactElement => {
   };
 
   const onItemPress = (index: number): void => {
-    navigation.navigate('Article3');
+    navigation && navigation.navigate('Article3');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

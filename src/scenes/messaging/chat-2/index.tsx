@@ -13,7 +13,7 @@ import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { Chat } from './extra/chat.component';
 import { AttachmentsMenu } from './extra/attachments-menu.component';
 import { ArrowIosBackIcon, MicIcon, PaperPlaneIcon, PlusIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Message, Profile } from './extra/data';
 
 const initialMessages: Message[] = [
@@ -41,9 +41,8 @@ const keyboardOffset = (height: number): number => Platform.select({
   ios: height,
 });
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const styles = StyleSheet.create();
 
@@ -68,7 +67,7 @@ export default (): React.ReactElement => {
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

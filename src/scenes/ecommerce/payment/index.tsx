@@ -11,39 +11,38 @@ import {
   useStyleSheet,
 } from '@ui-kitten/components';
 import { ArrowIosBackIcon, CreditCardIcon, MoreVerticalIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { PaymentCard } from './extra/data';
 
 const paymentCards: PaymentCard[] = [
   PaymentCard.emilyClarckVisa(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const styles = StyleSheet.create();
 
   const onCartActionPress = (): void => {
-    navigation.navigate('ShoppingCart');
+    navigation && navigation.navigate('ShoppingCart');
   };
 
   const onSearchActionPress = (): void => {
-    navigation.navigate('ProductList');
+    navigation && navigation.navigate('ProductList');
   };
 
   const onBuyButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   const onPlaceholderCardPress = (): void => {
-    navigation.navigate('AddNewCard');
+    navigation && navigation.navigate('AddNewCard');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

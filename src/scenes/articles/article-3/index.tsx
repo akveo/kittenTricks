@@ -4,7 +4,7 @@ import { Divider, Input, Layout, Text, TopNavigation, TopNavigationAction, useSt
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { CommentList } from './extra/comment-list.component';
 import { ArrowIosBackIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Article } from './extra/data';
 
 const data: Article = Article.howToEatHealthy();
@@ -14,9 +14,8 @@ const keyboardOffset = (height: number): number => Platform.select({
   ios: height,
 });
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const styles = StyleSheet.create();
 
@@ -25,7 +24,7 @@ export default (): React.ReactElement => {
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

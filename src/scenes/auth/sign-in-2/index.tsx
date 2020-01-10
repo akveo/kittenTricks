@@ -2,11 +2,10 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button, Input, Layout, Text, useStyleSheet } from '@ui-kitten/components';
 import { EyeIcon, EyeOffIcon, PersonIcon } from './extra/icons';
-import { KeyboardAvoidingView, useNavigation } from './extra/3rd-party';
+import { KeyboardAvoidingView } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const [email, setEmail] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
@@ -14,11 +13,11 @@ export default (): React.ReactElement => {
   const styles = StyleSheet.create();
 
   const onSignUpButtonPress = (): void => {
-    navigation.navigate('SignUp2');
+    navigation && navigation.navigate('SignUp2');
   };
 
   const onForgotPasswordButtonPress = (): void => {
-    navigation.navigate('ForgotPassword');
+    navigation && navigation.navigate('ForgotPassword');
   };
 
   const onPasswordIconPress = (): void => {

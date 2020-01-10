@@ -3,7 +3,7 @@ import { ListRenderItemInfo, StyleSheet } from 'react-native';
 import { Button, Layout, List, Text, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { CartItem } from './extra/cart-item.component';
 import { ArrowIosBackIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
-import { useNavigation, useSafeArea } from './extra/3rd-party';
+import { useSafeArea } from './extra/3rd-party';
 import { Product } from './extra/data';
 
 const initialProducts: Product[] = [
@@ -11,9 +11,8 @@ const initialProducts: Product[] = [
   Product.blackLamp(),
 ];
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const [products, setProducts] = React.useState<Product[]>(initialProducts);
 
@@ -22,7 +21,7 @@ export default (): React.ReactElement => {
   };
 
   const onSearchActionPress = (): void => {
-    navigation.navigate('ProductList');
+    navigation && navigation.navigate('ProductList');
   };
 
   const onCartActionPress = (): void => {
@@ -42,7 +41,7 @@ export default (): React.ReactElement => {
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

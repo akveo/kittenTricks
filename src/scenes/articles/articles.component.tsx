@@ -6,10 +6,6 @@ import { ArrowIosBackIcon, GridIcon, ListIcon } from '../../components/icons';
 
 export const ArticlesScreen = (props): React.ReactElement => {
 
-  const onBackActionPress = (): void => {
-    props.navigation.goBack(null);
-  };
-
   const onTabSelect = (index: number): void => {
     props.navigation.navigate(props.state.routeNames[index]);
   };
@@ -17,7 +13,7 @@ export const ArticlesScreen = (props): React.ReactElement => {
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={onBackActionPress}
+      onPress={props.navigation.goBack}
     />
   );
 

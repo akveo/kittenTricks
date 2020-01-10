@@ -11,11 +11,10 @@ import {
   useStyleSheet,
 } from '@ui-kitten/components';
 import { ArrowIosBackIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
-import { KeyboardAvoidingView, useNavigation, useSafeArea } from './extra/3rd-party';
+import { KeyboardAvoidingView, useSafeArea } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const safeArea = useSafeArea();
   const styles = StyleSheet.create();
 
@@ -25,21 +24,21 @@ export default (): React.ReactElement => {
   const [cvv, setCVV] = React.useState<string>();
 
   const onAddButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   const onCartActionPress = (): void => {
-    navigation.navigate('ShoppingCart');
+    navigation && navigation.navigate('ShoppingCart');
   };
 
   const onSearchActionPress = (): void => {
-    navigation.navigate('ProductList');
+    navigation && navigation.navigate('ProductList');
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={navigation.goBack}
+      onPress={navigation && navigation.goBack}
     />
   );
 

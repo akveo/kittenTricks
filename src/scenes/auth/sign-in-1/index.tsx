@@ -3,20 +3,19 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Input, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowForwardIcon, FacebookIcon, GoogleIcon, TwitterIcon } from './extra/icons';
-import { KeyboardAvoidingView, useNavigation } from './extra/3rd-party';
+import { KeyboardAvoidingView } from './extra/3rd-party';
 
-export default (): React.ReactElement => {
+export default ({ navigation }): React.ReactElement => {
 
-  const navigation = useNavigation();
   const [email, setEmail] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
 
   const onSignInButtonPress = (): void => {
-    navigation.goBack();
+    navigation && navigation.goBack();
   };
 
   const onSignUpButtonPress = (): void => {
-    navigation.navigate('SignUp1');
+    navigation && navigation.navigate('SignUp1');
   };
 
   return (
