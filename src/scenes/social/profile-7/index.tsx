@@ -91,6 +91,7 @@ export default ({ navigation }): React.ReactElement => {
             source={profile.photo}
           />
           <Text
+            style={styles.profileName}
             category='h5'
             status='control'>
             {profile.fullName}
@@ -185,6 +186,9 @@ const styles = StyleSheet.create({
     height: 124,
     borderRadius: 62,
     marginVertical: 16,
+  },
+  profileName: {
+    zIndex: 1,
   },
   locationContainer: {
     flexDirection: 'row',

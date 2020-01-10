@@ -32,6 +32,7 @@ export default ({ navigation }): React.ReactElement => {
       style={styles.itemHeader}
       source={info.item.image}>
       <Text
+        style={styles.itemTitle}
         category='h2'
         status='control'>
         {info.item.title}
@@ -121,6 +122,9 @@ const styles = StyleSheet.create({
     height: 220,
     paddingVertical: 24,
     paddingHorizontal: 16,
+  },
+  itemTitle: {
+    zIndex: 1,
   },
   itemDescriptionContainer: {
     flexDirection: 'row',

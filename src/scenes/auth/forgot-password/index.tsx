@@ -60,10 +60,12 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   forgotPasswordLabel: {
+    zIndex: 1,
     alignSelf: 'center',
     marginTop: 24,
   },
   enterEmailLabel: {
+    zIndex: 1,
     alignSelf: 'center',
     marginTop: 64,
   },

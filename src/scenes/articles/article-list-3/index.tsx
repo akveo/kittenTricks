@@ -35,6 +35,7 @@ export default ({ navigation }): React.ReactElement => {
         style={styles.itemImage}
         source={info.item.image}>
         <Text
+          style={styles.itemTitle}
           category='h2'
           status='control'>
           {info.item.title}
@@ -105,7 +106,11 @@ const styles = RNStyleSheet.create({
     paddingVertical: 24,
     paddingHorizontal: 16,
   },
+  itemTitle: {
+    zIndex: 1,
+  },
   itemDescription: {
+    zIndex: 1,
     marginVertical: 16,
   },
   itemFooter: {

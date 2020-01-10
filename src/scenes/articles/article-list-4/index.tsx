@@ -46,6 +46,7 @@ export default ({ navigation }): React.ReactElement => {
         {headingArticle.title}
       </Text>
       <Text
+        style={styles.headingArticleDescription}
         category='h6'
         status='control'>
         {headingArticle.description}
@@ -130,7 +131,11 @@ const styles = StyleSheet.create({
     height: 320,
   },
   headingArticleTitle: {
+    zIndex: 1,
     textAlign: 'center',
+  },
+  headingArticleDescription: {
+    zIndex: 1,
   },
   item: {
     flexDirection: 'row',

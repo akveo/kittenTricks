@@ -23,11 +23,13 @@ export const TrainingCard = (props: TrainingCardProps): CardElement => {
         style={styles.image}
         source={training.image}>
         <Text
+          style={styles.level}
           category='s1'
           status='control'>
           {training.formattedLevel}
         </Text>
         <Text
+          style={styles.title}
           category='h2'
           status='control'>
           {training.title}
@@ -52,6 +54,12 @@ const styles = StyleSheet.create({
     height: 200,
     paddingVertical: 24,
     paddingHorizontal: 16,
+  },
+  level: {
+    zIndex: 1,
+  },
+  title: {
+    zIndex: 1,
   },
   durationButton: {
     position: 'absolute',

@@ -38,6 +38,7 @@ export default ({ navigation }): React.ReactElement => {
           {data.title}
         </Text>
         <Text
+          style={styles.headerDescription}
           category='s1'
           status='control'>
           {data.description}
@@ -90,6 +91,10 @@ const styles = StyleSheet.create({
   headerTitle: {
     textAlign: 'center',
     marginVertical: 24,
+    zIndex: 1,
+  },
+  headerDescription: {
+    zIndex: 1,
   },
   contentLabel: {
     flex: 1,

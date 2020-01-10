@@ -10,27 +10,19 @@ export interface ImageOverlayProps extends ImageBackgroundProps {
   children?: React.ReactNode;
 }
 
+const DEFAULT_OVERLAY_COLOR = 'rgba(0, 0, 0, 0.45)';
+
 export const ImageOverlay = (props?: ImageOverlayProps): React.ReactElement<ImageBackgroundProps> => {
 
-  const { style, children, ...restProps } = props;
-  const { overlayColor: derivedOverlayColor, ...containerStyle } = StyleSheet.flatten(style);
-
-  // @ts-ignore: overlayColor (additional style property)
-  const overlayColor: string = derivedOverlayColor || styles.overlay.backgroundColor;
+  const { style, children, ...imageBackgroundProps } = props;
+  const { overlayColor, ...imageBackgroundStyle } = StyleSheet.flatten(style);
 
   return (
     <ImageBackground
-      style={containerStyle}
-      {...restProps}>
-      <View style={[styles.overlay, { backgroundColor: overlayColor }]}/>
+      {...imageBackgroundProps}
+      style={imageBackgroundStyle}>
+      <View style={[StyleSheet.absoluteFill, { backgroundColor: overlayColor || DEFAULT_OVERLAY_COLOR }]}/>
       {children}
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.45)',
-    ...StyleSheet.absoluteFillObject,
-  },
-});
