@@ -1,12 +1,10 @@
 {
   "expo": {
     "name": "Kitten Tricks",
-    "icon": "./src/assets/icons/icon.png",
+    "slug": "kitten-tricks",
     "version": "2.0.1",
-    "slug": "kittenTricks",
-    "sdkVersion": "35.0.0",
-    "privacy": "public",
-    "orientation": "portrait",
+    "sdkVersion": "36.0.0",
+    "description": "UI Kitten Demo Application",
     "githubUrl": "https://github.com/akveo/kittenTricks",
     "ios": {
       "bundleIdentifier": "com.akveo.kittentricks",
@@ -17,17 +15,28 @@
       "versionCode": 17,
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.akveo.kittenTricks"
     },
-    "androidStatusBar": {
-      "backgroundColor": "#FFFFFF"
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./src/assets/images/image-app-icon.png",
+    "splash": {
+      "image": "src/assets/images/image-splash.png",
+      "resizeMode": "contain"
     },
     "assetBundlePatterns": [
-      "src/assets/images/source/*",
-      "src/assets/icons/**/*.png",
-      "src/assets/fonts"
+      "src/assets/images/*",
+      "src/assets/fonts",
+      "src/scenes/**/assets/*"
     ],
-    "splash": {
-      "image": "src/assets/images/source/splash.png",
-      "resizeMode": "contain"
-    }
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#F7F9FC"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

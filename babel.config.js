@@ -1,19 +1,26 @@
 const path = require('path');
-const Config = require('./config');
+const env = require('./env');
 
-// FIXME: Resolve `transform[stderr]: Could not resolve` command-line warnings.
-// FIXME: Reproducible when starting with clearing cache (npm start -- -c)
-//
-// TODO: Framework path aliasing even not needed here. Replace?
-// TODO: Replace nested package.json-s with aliases
+const frameworkAlias = {
+  '@eva-design/dss': path.resolve(env.EVA_PACKAGES_PATH, 'dss'),
+  '@eva-design/eva': path.resolve(env.EVA_PACKAGES_PATH, 'eva'),
+  '@eva-design/processor': path.resolve(env.EVA_PACKAGES_PATH, 'processor'),
+  '@ui-kitten/components': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components'),
+  '@ui-kitten/date-fns': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'date-fns'),
+  '@ui-kitten/eva-icons': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'eva-icons'),
+  '@ui-kitten/moment': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'moment'),
+};
+
+const frameworkInternalAlias = {
+  '@kitten/theme': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components/theme'),
+  '@kitten/ui': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components/ui'),
+};
 
 const moduleResolverConfig = {
   root: path.resolve('./'),
   alias: {
-    '@kitten/theme': path.resolve(Config.KITTEN_PATH, 'theme'),
-    '@kitten/ui': path.resolve(Config.KITTEN_PATH, 'ui'),
-    '@eva-design/eva': path.resolve(Config.MAPPING_PATH),
-    '@eva-design/processor': path.resolve(Config.PROCESSOR_PATH),
+    ...frameworkAlias,
+    ...frameworkInternalAlias,
   },
 };
 

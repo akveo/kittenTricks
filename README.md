@@ -1,4 +1,4 @@
-# Kitten Tricks [<img src="https://i.imgur.com/oMcxwZ0.png" alt="Eva Design System" height="20px" />][link:eva] [![Build Status][badge:travis]][link:travis]
+# Kitten Tricks [<img src="https://i.imgur.com/oMcxwZ0.png" alt="Eva Design System" height="20px" />][link:eva] [![Build Status][badge:github-actions]][link:github-actions]
 
 This perfect starter kit is an app based on React Native and [**UI Kitten library**][link:ui-kitten] with Light and Dark themes support. It’s completely free and Open Source. 
 Compose the application from available screens, add backend integration and you will end up with A-grade cross-platform mobile application.
@@ -51,9 +51,9 @@ Easy way to integrate UI Kitten with backend ([Java][link:ui-kitten-bundle-java]
 Made with :heart: by [Akveo team][link:akveo-homepage]. Follow us on [Twitter][link:akveo-twitter] to get the latest news first!
 We're always happy to receive your feedback!
 
-[badge:travis]: https://travis-ci.com/akveo/kittenTricks.svg?branch=master
+[badge:github-actions]: https://github.com/akveo/kittenTricks/workflows/Build/badge.svg
 
-[link:travis]: https://travis-ci.com/akveo/kittenTricks
+[link:github-actions]: https://github.com/akveo/kittenTricks/actions
 [link:eva]: https://eva.design
 [link:doc-ui-kitten]: https://akveo.github.io/react-native-ui-kitten
 [link:ui-kitten]: https://github.com/akveo/react-native-ui-kitten
