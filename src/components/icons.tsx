@@ -14,6 +14,10 @@ export const ColorPaletteIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='color-palette-outline'/>
 );
 
+export const CloseIcon = (style: ImageStyle): IconElement => (
+  <Icon {...style} name='close'/>
+);
+
 export const GithubIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='github'/>
 );

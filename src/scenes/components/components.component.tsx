@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Divider, TopNavigation, Input } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
-import { SearchIcon } from '../../components/icons';
+import { CloseIcon, SearchIcon } from '../../components/icons';
 import { ComponentData, data } from './data';
 
 export const ComponentsScreen = (props): React.ReactElement => {
@@ -16,6 +16,10 @@ export const ComponentsScreen = (props): React.ReactElement => {
 
   const onItemPress = (index: number): void => {
     props.navigation.navigate(displayData[index].route);
+  };
+
+  const onInputIconPress = (): void => {
+    setQuery('');
   };
 
   return (
@@ -33,7 +37,8 @@ export const ComponentsScreen = (props): React.ReactElement => {
         value={query}
         onChangeText={setQuery}
         placeholder='Search'
-        icon={SearchIcon}
+        icon={query ? CloseIcon : SearchIcon}
+        onIconPress={onInputIconPress}
       />
       <MenuGridList
         data={displayData}
