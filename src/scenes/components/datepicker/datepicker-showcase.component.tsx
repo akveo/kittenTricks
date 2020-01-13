@@ -11,7 +11,7 @@ export const DatepickerShowcase = (props: DatepickerShowcaseProps): DatepickerEl
   return (
     <Datepicker
       {...props}
-      style={styles.datepicker}
+      style={[styles.datepicker, props.style]}
       date={date}
       onSelect={setDate}
     />

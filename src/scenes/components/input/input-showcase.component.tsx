@@ -3,7 +3,7 @@ import { Input, InputElement, InputProps } from '@ui-kitten/components';
 
 export const InputShowcase = (props?: InputProps): InputElement => {
 
-  const [value, setValue] = React.useState(null);
+  const [value, setValue] = React.useState<string>(null);
 
   return (
     <Input
