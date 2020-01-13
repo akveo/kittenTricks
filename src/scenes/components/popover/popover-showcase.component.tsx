@@ -24,7 +24,7 @@ export const PopoverShowcase = (props: PopoverProps): PopoverElement => {
       content={renderPopoverContent()}
       onBackdropPress={togglePopover}>
       <Button onPress={togglePopover}>
-        SHOW POPOVER
+        TOGGLE POPOVER
       </Button>
     </Popover>
   );

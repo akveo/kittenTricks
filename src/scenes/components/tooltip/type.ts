@@ -21,7 +21,6 @@ const iconTooltip: ComponentShowcaseItem = {
 const backdropTooltip: ComponentShowcaseItem = {
   title: 'Styled backdrop',
   props: {
-    allowBackdrop: true,
     backdropStyle: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
   },
 };
