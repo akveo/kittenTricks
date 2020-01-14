@@ -3,19 +3,16 @@ import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } fr
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#636e80',
-    width: 200,
-    height: 200,
-    padding: 12,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 8,
+    padding: 8,
+    backgroundColor: '#8F9BB3',
   },
   backdrop: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   customPosition: {
-    left: 100,
     top: 100,
   },
 });
