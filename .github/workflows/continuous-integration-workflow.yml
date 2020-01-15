@@ -1,4 +1,4 @@
-name: Node CI
+name: Build
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Running TypeScript compiler, TSLint and Jest
+    name: Running TypeScript compiler and TSLint
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
