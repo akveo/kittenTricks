@@ -2,7 +2,7 @@
   "expo": {
     "name": "Kitten Tricks",
     "slug": "kitten-tricks",
-    "version": "2.0.1",
+    "version": "2.4.0-beta.2",
     "sdkVersion": "36.0.0",
     "description": "UI Kitten Demo Application",
     "githubUrl": "https://github.com/akveo/kittenTricks",

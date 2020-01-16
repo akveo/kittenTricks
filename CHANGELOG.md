@@ -1,3 +1,15 @@
+## <small>2.4.0-beta.2 (2020-01-16)</small>
+
+### :rocket: Features
+
+* Rewrite with functional components and React hooks
+* Upgrade application structure for easier screens reusage
+* Upgrade UI Kitten to v4.4.0-beta.2
+* Upgrade React Navigation to v5
+* Upgrade Expo to SDK 36
+
+Upgrade application structure
+
 ## <small>2.0.1 (2019-06-20)</small>
 
 * refactor: adopt to framework changes d80b7dc
