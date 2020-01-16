@@ -70,7 +70,6 @@ const styledBackdropOverflowMenu: ComponentShowcaseItem = {
   title: 'Styled backdrop',
   props: {
     data: withIconMenuItems,
-    allowBackdrop: true,
     backdropStyle: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
   },
 };

@@ -2,21 +2,17 @@ import { StyleSheet } from 'react-native';
 import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } from '../../../model/showcase.model';
 
 const styles = StyleSheet.create({
-  modal: {
-    backgroundColor: '#636e80',
-    width: 200,
-    height: 200,
-    padding: 12,
-    alignItems: 'center',
+  container: {
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 8,
+    padding: 8,
+    backgroundColor: '#8F9BB3',
   },
-  backdropStyle: {
-    backgroundColor: 'black',
-    opacity: 0.5,
+  backdrop: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  customModalPosition: {
-    left: 100,
+  customPosition: {
     top: 100,
   },
 });
@@ -26,6 +22,30 @@ const defaultModal: ComponentShowcaseItem = {
   props: {},
 };
 
+const styledModal: ComponentShowcaseItem = {
+  title: 'Styled Modal',
+  props: {
+    ...defaultModal.props,
+    style: styles.container,
+  },
+};
+
+const customPositionModal: ComponentShowcaseItem = {
+  title: 'Custom Position',
+  props: {
+    ...defaultModal.props,
+    style: [styles.container, styles.customPosition],
+  },
+};
+
+const styledBackdropModal: ComponentShowcaseItem = {
+  title: 'Styled Backdrop',
+  props: {
+    ...styledModal.props,
+    backdropStyle: styles.backdrop,
+  },
+};
+
 const defaultSection: ComponentShowcaseSection = {
   title: 'Default Modal',
   items: [
@@ -33,60 +53,12 @@ const defaultSection: ComponentShowcaseSection = {
   ],
 };
 
-const customStyledModal: ComponentShowcaseItem = {
-  title: 'Styled Modal',
-  props: {
-    style: styles.modal,
-  },
-};
-
-const customStyledModalBackdrop: ComponentShowcaseItem = {
-  title: 'Styled Backdrop',
-  props: {
-    style: styles.modal,
-    backdropStyle: styles.backdropStyle,
-  },
-};
-
-const customModalPosition: ComponentShowcaseItem = {
-  title: 'Custom Position',
-  props: {
-    style: [styles.customModalPosition, styles.modal],
-  },
-};
-
-const customStyledSection: ComponentShowcaseSection = {
+const stylingSection: ComponentShowcaseSection = {
   title: 'Styling',
   items: [
-    customStyledModal,
-    customStyledModalBackdrop,
-    customModalPosition,
-  ],
-};
-
-const customModalBackdropAllowed: ComponentShowcaseItem = {
-  title: 'Close On Backdrop: true',
-  props: {
-    allowBackdrop: true,
-    style: styles.modal,
-    backdropStyle: styles.backdropStyle,
-  },
-};
-
-const customModalBackdropNotAllowed: ComponentShowcaseItem = {
-  title: 'Close On Backdrop: false',
-  props: {
-    closeOnBackdrop: false,
-    style: styles.modal,
-    backdropStyle: styles.backdropStyle,
-  },
-};
-
-const customBackdropAllowingSection: ComponentShowcaseSection = {
-  title: 'Backdrop Closing Permissions',
-  items: [
-    customModalBackdropAllowed,
-    customModalBackdropNotAllowed,
+    styledModal,
+    styledBackdropModal,
+    customPositionModal,
   ],
 };
 
@@ -94,7 +66,6 @@ export const modalShowcase: ComponentShowcase = {
   title: 'Modal',
   sections: [
     defaultSection,
-    customStyledSection,
-    customBackdropAllowingSection,
+    stylingSection,
   ],
 };

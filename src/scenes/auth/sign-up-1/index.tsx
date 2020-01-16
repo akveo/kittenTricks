@@ -112,6 +112,7 @@ export default ({ navigation }): React.ReactElement => {
         <Datepicker
           style={styles.formInput}
           placeholder='18/10/1995'
+          label='Date of Birth'
           date={dob}
           onSelect={setDob}
         />

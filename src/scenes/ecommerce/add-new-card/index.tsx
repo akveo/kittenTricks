@@ -10,7 +10,7 @@ import {
   TopNavigationAction,
   useStyleSheet,
 } from '@ui-kitten/components';
-import { ArrowIosBackIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
+import { ArrowIosBackIcon, EyeIcon, EyeOffIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
 import { KeyboardAvoidingView, useSafeArea } from './extra/3rd-party';
 
 export default ({ navigation }): React.ReactElement => {
@@ -22,6 +22,11 @@ export default ({ navigation }): React.ReactElement => {
   const [name, setName] = React.useState<string>();
   const [date, setDate] = React.useState<Date>();
   const [cvv, setCVV] = React.useState<string>();
+  const [cvvVisible, setCVVVisible] = React.useState<boolean>(false);
+
+  const onCVVIconPress = (): void => {
+    setCVVVisible(!cvvVisible);
+  };
 
   const onAddButtonPress = (): void => {
     navigation && navigation.goBack();
@@ -75,6 +80,27 @@ export default ({ navigation }): React.ReactElement => {
           value={number}
           onChangeText={setNumber}
         />
+        <View style={styles.middleContainer}>
+          <Datepicker
+            style={[styles.input, styles.middleInput]}
+            label='EXPIRES'
+            placeholder='09 / 20'
+            date={date}
+            onSelect={setDate}
+          />
+          <Input
+            style={[styles.input, styles.middleInput]}
+            label='CVV'
+            keyboardType='numeric'
+            placeholder='***'
+            maxLength={3}
+            value={cvv}
+            secureTextEntry={!cvvVisible}
+            icon={cvvVisible ? EyeIcon : EyeOffIcon}
+            onChangeText={setCVV}
+            onIconPress={onCVVIconPress}
+          />
+        </View>
         <Input
           style={styles.input}
           label='CARDHOLDER NAME'
@@ -82,22 +108,6 @@ export default ({ navigation }): React.ReactElement => {
           value={name}
           onChangeText={setName}
         />
-        <View style={styles.middleContainer}>
-          <Datepicker
-            style={[styles.input, styles.middleInput]}
-            placeholder='09 / 20'
-            date={date}
-            onSelect={setDate}
-          />
-          <Input
-            style={[styles.input, styles.middleInput]}
-            placeholder='CVV'
-            keyboardType='numeric'
-            maxLength={3}
-            value={cvv}
-            onChangeText={setCVV}
-          />
-        </View>
       </Layout>
       <Button
         style={styles.addButton}
@@ -120,7 +130,8 @@ const StyleSheet = useStyleSheet({
     paddingVertical: 24,
   },
   input: {
-    margin: 12,
+    marginHorizontal: 12,
+    marginVertical: 8,
   },
   middleContainer: {
     flexDirection: 'row',

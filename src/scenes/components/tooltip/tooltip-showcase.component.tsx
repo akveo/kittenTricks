@@ -16,7 +16,7 @@ export const TooltipShowcase = (props: TooltipProps): TooltipElement => {
       text='Hi! I am Tooltip!'
       onBackdropPress={toggleTooltip}>
       <Button onPress={toggleTooltip}>
-        SHOW TOOLTIP
+        TOGGLE TOOLTIP
       </Button>
     </Tooltip>
   );

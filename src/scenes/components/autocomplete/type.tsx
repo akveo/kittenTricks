@@ -118,8 +118,6 @@ export const autocompleteShowcase: ComponentShowcase = {
   title: 'Autocomplete',
   sections: [
     defaultSection,
-    defaultSection,
-    defaultSection,
     accessoriesSection,
     settingsSection,
   ],
