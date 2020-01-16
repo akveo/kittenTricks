@@ -4,6 +4,7 @@ const env = require('./env');
 const frameworkAlias = {
   '@eva-design/dss': path.resolve(env.EVA_PACKAGES_PATH, 'dss'),
   '@eva-design/eva': path.resolve(env.EVA_PACKAGES_PATH, 'eva'),
+  '@eva-design/material': path.resolve(env.EVA_PACKAGES_PATH, 'material'),
   '@eva-design/processor': path.resolve(env.EVA_PACKAGES_PATH, 'processor'),
   '@ui-kitten/components': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components'),
   '@ui-kitten/date-fns': path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'date-fns'),

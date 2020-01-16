@@ -17,7 +17,18 @@
     "skipLibCheck": true,
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "paths": {
+      "@eva-design/*": [
+        "../eva/packages/*"
+      ],
+      "@ui-kitten/*": [
+        "../react-native-ui-kitten/src/*"
+      ],
+      "@kitten/*": [
+        "../react-native-ui-kitten/src/components/*"
+      ]
+    }
   },
   "exclude": [
     "./node_modules",

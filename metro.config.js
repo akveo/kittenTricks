@@ -4,6 +4,7 @@ const env = require('./env');
 const appModules = [
   path.resolve(env.EVA_PACKAGES_PATH, 'dss'),
   path.resolve(env.EVA_PACKAGES_PATH, 'eva'),
+  path.resolve(env.EVA_PACKAGES_PATH, 'material'),
   path.resolve(env.EVA_PACKAGES_PATH, 'processor'),
   path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components'),
   path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'date-fns'),

@@ -14,6 +14,7 @@ import {
   Text,
 } from '@ui-kitten/components';
 import { BookIcon, GithubIcon } from '../../components/icons';
+import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 
 const DATA: MenuItemType[] = [
   { title: 'View Github', icon: GithubIcon },
@@ -66,21 +67,27 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
   );
 
   return (
-    <Drawer
-      header={renderHeader}
-      footer={renderFooter}
-      data={DATA}
-      onSelect={onItemSelect}
-    />
+    <SafeAreaLayout
+      style={styles.safeArea}
+      insets='top'>
+      <Drawer
+        header={renderHeader}
+        footer={renderFooter}
+        data={DATA}
+        onSelect={onItemSelect}
+      />
+    </SafeAreaLayout>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   header: {
     height: 128,
     paddingHorizontal: 16,
-    paddingTop: 48,
-    paddingBottom: 16,
+    justifyContent: 'center',
   },
   profileContainer: {
     flexDirection: 'row',

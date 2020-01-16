@@ -4,6 +4,7 @@ import { Card, CardElement, CardProps, Text, useStyleSheet } from '@ui-kitten/co
 
 export interface ThemeCardProps extends Omit<CardProps, 'children'> {
   title: string;
+  isActive: boolean;
 }
 
 export const ThemeCard = (props: ThemeCardProps): CardElement => {
@@ -36,7 +37,7 @@ export const ThemeCard = (props: ThemeCardProps): CardElement => {
       <Text
         appearance='hint'
         category='c1'>
-        {props.disabled && 'ACTIVE'}
+        {props.isActive && 'ACTIVE'}
       </Text>
     </View>
   );

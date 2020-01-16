@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Divider, TopNavigation, Input } from '@ui-kitten/components';
+import { Divider, Input, Layout, TopNavigation } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
 import { CloseIcon, SearchIcon } from '../../components/icons';
@@ -25,22 +25,23 @@ export const ComponentsScreen = (props): React.ReactElement => {
   return (
     <SafeAreaLayout
       style={styles.safeArea}
-      insets='top'
-      level='2'>
+      insets='top'>
       <TopNavigation
         title='Kitten Tricks'
         alignment='center'
       />
       <Divider/>
-      <Input
-        style={styles.searchInput}
-        value={query}
-        onChangeText={setQuery}
-        placeholder='Search'
-        icon={query ? CloseIcon : SearchIcon}
-        onIconPress={onInputIconPress}
-      />
+      <Layout style={styles.searchContainer}>
+        <Input
+          value={query}
+          onChangeText={setQuery}
+          placeholder='Search'
+          icon={query ? CloseIcon : SearchIcon}
+          onIconPress={onInputIconPress}
+        />
+      </Layout>
       <MenuGridList
+        contentContainerStyle={styles.menuGrid}
         data={displayData}
         onItemPress={onItemPress}
       />
@@ -52,8 +53,13 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-  searchInput: {
-    marginTop: 16,
-    marginHorizontal: 16,
+  searchContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 8,
+  },
+  menuGrid: {
+    paddingVertical: 0,
+    paddingHorizontal: 8,
   },
 });
