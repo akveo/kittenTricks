@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, Input, Tab, TabView, Text, useStyleSheet } from '@ui-kitten/components';
+import { Button, Input, StyleService, Tab, TabView, Text, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { EmailIcon, LockIcon, PhoneIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
@@ -15,7 +15,7 @@ export default ({ navigation }): React.ReactElement => {
   const [smsCode, setSMSCode] = React.useState<string>();
   const [smsCodeVisible, setSMSCodeVisible] = React.useState<boolean>(false);
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const onSignInButtonPress = (): void => {
     navigation && navigation.goBack();
@@ -130,7 +130,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
   },

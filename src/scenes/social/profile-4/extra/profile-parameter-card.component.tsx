@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageProps, View } from 'react-native';
-import { Card, CardElement, CardProps, StyleType, Text, useStyleSheet } from '@ui-kitten/components';
+import { Card, CardElement, CardProps, StyleService, StyleType, Text, useStyleSheet } from '@ui-kitten/components';
 
 export interface ProfileParameterCardProps extends Omit<CardProps, 'children'> {
   hint: string;
@@ -10,7 +10,7 @@ export interface ProfileParameterCardProps extends Omit<CardProps, 'children'> {
 
 export const ProfileParameterCard = (props: ProfileParameterCardProps): CardElement => {
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const { hint, value, icon, ...restProps } = props;
 
@@ -31,7 +31,7 @@ export const ProfileParameterCard = (props: ProfileParameterCardProps): CardElem
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   topContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

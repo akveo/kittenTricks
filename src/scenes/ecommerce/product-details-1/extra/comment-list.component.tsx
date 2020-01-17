@@ -1,14 +1,12 @@
 import React from 'react';
-import { ListRenderItemInfo, View } from 'react-native';
-import { Avatar, Button, Card, CardHeaderElement, List, ListProps, Text, useStyleSheet } from '@ui-kitten/components';
+import { ListRenderItemInfo, View, StyleSheet } from 'react-native';
+import { Avatar, Button, Card, CardHeaderElement, List, ListProps, Text } from '@ui-kitten/components';
 import { Comment } from './data';
 import { HeartIcon, MessageCircleIcon, MoreHorizontalIcon } from './icons';
 
 export type CommentListProps = Omit<ListProps, 'renderItem'>;
 
 export const CommentList = (props: CommentListProps): React.ReactElement => {
-
-  const styles = StyleSheet.create();
 
   const renderCommentHeader = (comment: Comment): CardHeaderElement => (
     <View style={styles.commentHeader}>
@@ -58,7 +56,7 @@ export const CommentList = (props: CommentListProps): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const styles = StyleSheet.create({
   commentItem: {
     marginVertical: 4,
     marginHorizontal: 16,

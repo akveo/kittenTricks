@@ -1,15 +1,6 @@
 import React from 'react';
 import { Image, ImageSourcePropType, ImageStyle, ListRenderItemInfo, ScrollView, View } from 'react-native';
-import {
-  Button,
-  Card,
-  Icon,
-  List,
-  Text,
-  TopNavigation,
-  TopNavigationAction,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Button, Card, Icon, List, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowIosBackIcon, BookmarkIcon, BookmarkOutlineIcon } from './extra/icons';
 import { useSafeArea } from './extra/3rd-party';
@@ -19,10 +10,9 @@ const product: Product = Product.centralParkApartment();
 
 export default ({ navigation }): React.ReactElement => {
 
-  const safeArea = useSafeArea();
   const [bookmarked, setBookmarked] = React.useState<boolean>(false);
-
-  const styles = StyleSheet.create();
+  const safeArea = useSafeArea();
+  const styles = useStyleSheet(themedStyles);
 
   const onBookButtonPress = (): void => {
     navigation && navigation.navigate('Payment');
@@ -157,7 +147,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     backgroundColor: 'background-basic-color-2',
   },

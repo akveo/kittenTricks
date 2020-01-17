@@ -6,6 +6,7 @@ import {
   Layout,
   Radio,
   RadioGroup,
+  StyleService,
   Text,
   TopNavigation,
   TopNavigationAction,
@@ -29,7 +30,7 @@ export default ({ navigation }): React.ReactElement => {
   const safeArea = useSafeArea();
   const [comment, setComment] = React.useState<string>();
   const [selectedColorIndex, setSelectedColorIndex] = React.useState<number>();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const onBuyButtonPress = (): void => {
     navigation && navigation.navigate('Payment');
@@ -171,7 +172,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-2',

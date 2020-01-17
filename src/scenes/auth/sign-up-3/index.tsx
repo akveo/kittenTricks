@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, CheckBox, Input, useStyleSheet } from '@ui-kitten/components';
+import { Button, CheckBox, Input, StyleService, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
 import { EmailIcon, EyeIcon, EyeOffIcon, PersonIcon, PlusIcon } from './extra/icons';
@@ -14,7 +14,7 @@ export default ({ navigation }): React.ReactElement => {
   const [termsAccepted, setTermsAccepted] = React.useState<boolean>(false);
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const onSignUpButtonPress = (): void => {
     navigation && navigation.goBack();
@@ -104,7 +104,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-1',
