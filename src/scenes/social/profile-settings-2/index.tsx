@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, Layout, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
+import { Button, Layout, Text, TopNavigation, TopNavigationAction, StyleSheet } from '@ui-kitten/components';
 import { ProfileSetting } from './extra/profile-setting.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
 import { ArrowIosBackIcon, CameraIcon } from './extra/icons';
@@ -12,7 +12,7 @@ const profile: Profile = Profile.jenniferGreen();
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const onDoneButtonPress = (): void => {
     navigation && navigation.goBack();
@@ -99,7 +99,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
   },

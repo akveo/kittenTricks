@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, Input, Layout, Text, useStyleSheet } from '@ui-kitten/components';
+import { Button, Input, Layout, Text, StyleSheet } from '@ui-kitten/components';
 import { EyeIcon, EyeOffIcon, PersonIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
 
@@ -10,7 +10,7 @@ export default ({ navigation }): React.ReactElement => {
   const [password, setPassword] = React.useState<string>();
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const onSignUpButtonPress = (): void => {
     navigation && navigation.navigate('SignUp2');
@@ -81,7 +81,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     backgroundColor: 'background-basic-color-1',
   },

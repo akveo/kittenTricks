@@ -8,7 +8,7 @@ import {
   Text,
   TopNavigation,
   TopNavigationAction,
-  useStyleSheet,
+  StyleSheet,
 } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowIosBackIcon, BookmarkIcon, BookmarkOutlineIcon } from './extra/icons';
@@ -19,10 +19,9 @@ const product: Product = Product.centralParkApartment();
 
 export default ({ navigation }): React.ReactElement => {
 
-  const safeArea = useSafeArea();
   const [bookmarked, setBookmarked] = React.useState<boolean>(false);
-
-  const styles = StyleSheet.create();
+  const safeArea = useSafeArea();
+  const styles = useStyleSheet();
 
   const onBookButtonPress = (): void => {
     navigation && navigation.navigate('Payment');
@@ -157,7 +156,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     backgroundColor: 'background-basic-color-2',
   },

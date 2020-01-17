@@ -8,7 +8,7 @@ import {
   Text,
   TopNavigation,
   TopNavigationAction,
-  useStyleSheet,
+  StyleSheet,
 } from '@ui-kitten/components';
 import { ArrowIosBackIcon, ClockIcon, HeartIcon, MessageCircleIcon } from './extra/icons';
 import { useSafeArea } from './extra/3rd-party';
@@ -19,7 +19,7 @@ const data: Article = Article.howToEatHealthy();
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
@@ -82,7 +82,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
   },

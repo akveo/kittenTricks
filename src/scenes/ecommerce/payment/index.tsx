@@ -8,7 +8,7 @@ import {
   Text,
   TopNavigation,
   TopNavigationAction,
-  useStyleSheet,
+  StyleSheet,
 } from '@ui-kitten/components';
 import { ArrowIosBackIcon, CreditCardIcon, MoreVerticalIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
 import { useSafeArea } from './extra/3rd-party';
@@ -21,7 +21,7 @@ const paymentCards: PaymentCard[] = [
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const onCartActionPress = (): void => {
     navigation && navigation.navigate('ShoppingCart');
@@ -150,7 +150,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
   },

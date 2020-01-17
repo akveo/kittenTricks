@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, CheckBox, Input, Text, useStyleSheet } from '@ui-kitten/components';
+import { Button, CheckBox, Input, Text, StyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
 import {
@@ -23,7 +23,7 @@ export default ({ navigation }): React.ReactElement => {
   const [termsAccepted, setTermsAccepted] = React.useState<boolean>(false);
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const onSignUpButtonPress = (): void => {
     navigation && navigation.goBack();
@@ -140,7 +140,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
   },

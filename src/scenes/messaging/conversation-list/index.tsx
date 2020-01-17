@@ -7,7 +7,7 @@ import {
   List,
   TopNavigation,
   TopNavigationAction,
-  useStyleSheet,
+  StyleSheet,
 } from '@ui-kitten/components';
 import { MessageItem } from './extra/message-item.component';
 import { ArrowIosBackIcon, SearchIcon } from './extra/icons';
@@ -23,7 +23,7 @@ const initialMessages: Message[] = [
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
   const [searchQuery, setSearchQuery] = React.useState<string>();
 
   const onItemPress = (index: number): void => {
@@ -74,7 +74,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
   },

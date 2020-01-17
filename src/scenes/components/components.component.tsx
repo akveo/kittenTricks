@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from '@ui-kitten/components';
 import { Divider, Input, Layout, TopNavigation } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
@@ -9,6 +9,7 @@ import { ComponentData, data } from './data';
 export const ComponentsScreen = (props): React.ReactElement => {
 
   const [query, setQuery] = React.useState<string>('');
+  const styles = useStyleSheet();
 
   const displayData: ComponentData[] = data.filter((componentData: ComponentData): boolean => {
     return componentData.title.toLowerCase().startsWith(query.toLowerCase());
@@ -49,7 +50,7 @@ export const ComponentsScreen = (props): React.ReactElement => {
   );
 };
 
-const styles = StyleSheet.create({
+const useStyleSheet = StyleSheet.create({
   safeArea: {
     flex: 1,
   },

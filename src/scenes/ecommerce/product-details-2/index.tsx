@@ -8,7 +8,7 @@ import {
   Text,
   TopNavigation,
   TopNavigationAction,
-  useStyleSheet,
+  StyleSheet,
 } from '@ui-kitten/components';
 import { RateBar } from './extra/rate-bar.component';
 import { DetailsList } from './extra/details-list.component';
@@ -24,7 +24,7 @@ export default ({ navigation }): React.ReactElement => {
   const safeArea = useSafeArea();
   const [bookmarked, setBookmarked] = React.useState<boolean>(false);
   const [rating, setRating] = React.useState<number>(product.rating);
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const onBuyButtonPress = (): void => {
     navigation && navigation.navigate('Payment');
@@ -140,7 +140,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
   },

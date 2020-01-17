@@ -1,7 +1,7 @@
 import React from 'react';
-import { I18nManager, Platform, ViewProps } from 'react-native';
+import { I18nManager, Platform, StyleSheet, ViewProps } from 'react-native';
 import { Updates } from 'expo';
-import { Button, CheckBox, Layout, OverflowMenu, OverflowMenuItemType, useStyleSheet } from '@ui-kitten/components';
+import { Button, CheckBox, Layout, OverflowMenu, OverflowMenuItemType } from '@ui-kitten/components';
 import { ColorPaletteIcon, SettingsIcon, TrashIcon } from './icons';
 import { ComponentShowcaseSetting } from '../model/showcase.model';
 import { Theme } from '../services/theme.service';
@@ -18,8 +18,6 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
 
   const [themesMenuVisible, setThemesMenuVisible] = React.useState<boolean>(false);
   const [settingsMenuVisible, setSettingsMenuVisible] = React.useState<boolean>(false);
-
-  const styles = StyleSheet.create();
 
   const createSettingMenuItem = (setting: ComponentShowcaseSetting): OverflowMenuItemType => {
     return {
@@ -120,7 +118,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
   );
 };
 
-const StyleSheet = useStyleSheet({
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',

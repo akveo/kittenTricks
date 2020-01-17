@@ -7,7 +7,7 @@ import {
   Layout,
   TopNavigation,
   TopNavigationAction,
-  useStyleSheet,
+  StyleSheet,
 } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { Chat } from './extra/chat.component';
@@ -44,7 +44,7 @@ const keyboardOffset = (height: number): number => Platform.select({
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const [messages, setMessages] = React.useState<Message[]>(initialMessages);
   const [message, setMessage] = React.useState<string>();
@@ -139,7 +139,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
   },

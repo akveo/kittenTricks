@@ -9,7 +9,7 @@ import {
   Text,
   TopNavigation,
   TopNavigationAction,
-  useStyleSheet,
+  StyleSheet,
 } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { CommentList } from './extra/comment-list.component';
@@ -29,7 +29,7 @@ export default ({ navigation }): React.ReactElement => {
   const safeArea = useSafeArea();
   const [comment, setComment] = React.useState<string>();
   const [selectedColorIndex, setSelectedColorIndex] = React.useState<number>();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet();
 
   const onBuyButtonPress = (): void => {
     navigation && navigation.navigate('Payment');
@@ -171,7 +171,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const useStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-2',
