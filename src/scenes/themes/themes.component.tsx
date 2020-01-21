@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListRenderItemInfo, StyleSheet } from 'react-native';
-import { Divider, List, ThemeProvider, TopNavigation } from '@ui-kitten/components';
+import { Button, ButtonGroup, Divider, List, ThemeProvider, Toggle, TopNavigation } from '@ui-kitten/components';
 import { ThemeCard } from './theme-card.component';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { ThemeContextValue, Theming } from '../../services/theme.service';
@@ -70,5 +70,10 @@ const styles = StyleSheet.create({
   },
   item: {
     margin: 8,
+  },
+  designSystemToggle: {
+    margin: 8,
+    alignSelf: 'flex-end',
+    flexDirection: 'row-reverse',
   },
 });

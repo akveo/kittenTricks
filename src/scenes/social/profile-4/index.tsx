@@ -32,7 +32,9 @@ export default ({ navigation }): React.ReactElement => {
         leftControl={renderBackAction()}
       />
       <Divider/>
-      <Layout style={styles.header}>
+      <Layout
+        style={styles.header}
+        level='1'>
         <View style={styles.profileContainer}>
           <Avatar
             style={styles.profileAvatar}

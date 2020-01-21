@@ -44,9 +44,13 @@ export default ({ navigation }): React.ReactElement => {
           {data.description}
         </Text>
       </ImageOverlay>
-      <Text style={styles.contentLabel}>
-        {data.content}
-      </Text>
+      <Layout
+        style={styles.contentContainer}
+        level='1'>
+        <Text>
+          {data.content}
+        </Text>
+      </Layout>
       <Divider/>
       <View style={styles.activityContainer}>
         <Avatar source={data.author.photo}/>
@@ -96,9 +100,9 @@ const styles = StyleSheet.create({
   headerDescription: {
     zIndex: 1,
   },
-  contentLabel: {
+  contentContainer: {
     flex: 1,
-    margin: 24,
+    padding: 24,
   },
   activityContainer: {
     flexDirection: 'row',

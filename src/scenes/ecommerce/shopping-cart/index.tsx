@@ -1,6 +1,6 @@
 import React from 'react';
-import { ListRenderItemInfo, StyleSheet } from 'react-native';
-import { Button, Layout, List, Text, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
+import { ListRenderItemInfo } from 'react-native';
+import { Button, Layout, List, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { CartItem } from './extra/cart-item.component';
 import { ArrowIosBackIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
 import { useSafeArea } from './extra/3rd-party';
@@ -14,6 +14,7 @@ const initialProducts: Product[] = [
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
+  const styles = useStyleSheet(themedStyle);
   const [products, setProducts] = React.useState<Product[]>(initialProducts);
 
   const totalCost = (): number => {
@@ -100,12 +101,13 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const styles = StyleSheet.create({
+const themedStyle = StyleService.create({
   container: {
     flex: 1,
   },
   item: {
-    marginVertical: 0.5,
+    borderBottomWidth: 1,
+    borderBottomColor: 'background-basic-color-3',
   },
   footer: {
     flexDirection: 'row',

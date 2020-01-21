@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { TopNavigation, TopNavigationAction } from '@ui-kitten/components';
+import { Divider, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout, SafeAreaLayoutProps } from './safe-area-layout.component';
 import { Showcase } from './showcase.component';
 import { ShowcaseSettings } from './showcase-settings.component';
@@ -20,7 +20,7 @@ const themes: Theme[] = ['light', 'dark'];
 
 export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactElement => {
 
-  const { showcase, settings, renderItem, children, onBackPress, ...layoutProps } = props;
+  const { showcase, settings, renderItem, children, onBackPress, ...showcaseProps } = props;
 
   const [showcaseSettings, setShowcaseSettings] = React.useState({});
   const themeContext: ThemeContextValue = React.useContext(Theming.Context);
@@ -43,8 +43,7 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
   return (
     <SafeAreaLayout
       style={styles.container}
-      insets='top'
-      level='2'>
+      insets='top'>
       <TopNavigation
         title={showcase.title}
         leftControl={renderBackAction()}
@@ -56,9 +55,10 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
         onThemeSelect={themeContext.setCurrentTheme}
         onReset={onResetSettings}
       />
+      <Divider/>
       {children}
       <Showcase
-        {...layoutProps}
+        {...showcaseProps}
         showcase={showcase}
         renderItem={renderItem}
         settings={showcaseSettings}

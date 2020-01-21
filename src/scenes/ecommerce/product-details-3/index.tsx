@@ -1,17 +1,6 @@
 import React from 'react';
 import { ImageBackground, Platform, View } from 'react-native';
-import {
-  Button,
-  Input,
-  Layout,
-  Radio,
-  RadioGroup,
-  StyleService,
-  Text,
-  TopNavigation,
-  TopNavigationAction,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Button, Input, Layout, Radio, RadioGroup, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { CommentList } from './extra/comment-list.component';
 import { ArrowIosBackIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
@@ -84,7 +73,9 @@ export default ({ navigation }): React.ReactElement => {
         style={styles.image}
         source={product.image}
       />
-      <Layout style={styles.detailsContainer}>
+      <Layout
+        style={styles.detailsContainer}
+        level='1'>
         <Text
           category='h6'>
           {product.title}

@@ -71,7 +71,9 @@ export default ({ navigation }): React.ReactElement => {
         rightControls={[renderSearchAction(), renderCartAction()]}
       />
       <Divider/>
-      <Layout style={styles.form}>
+      <Layout
+        style={styles.form}
+        level='1'>
         <Input
           style={styles.input}
           label='CARD NUMBER'
@@ -110,6 +112,7 @@ export default ({ navigation }): React.ReactElement => {
           onChangeText={setName}
         />
       </Layout>
+      <Divider/>
       <Button
         style={styles.addButton}
         size='giant'

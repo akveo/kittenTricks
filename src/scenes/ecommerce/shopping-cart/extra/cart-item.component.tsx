@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     height: 144,
   },
   detailsContainer: {
+    flex: 1,
     height: '100%',
     padding: 16,
   },

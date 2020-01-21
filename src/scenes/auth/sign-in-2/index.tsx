@@ -39,7 +39,9 @@ export default ({ navigation }): React.ReactElement => {
           Sign in to your account
         </Text>
       </View>
-      <Layout style={styles.formContainer}>
+      <Layout
+        style={styles.formContainer}
+        level='1'>
         <Input
           placeholder='Email'
           icon={PersonIcon}

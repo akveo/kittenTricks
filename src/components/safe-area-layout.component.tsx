@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlexStyle, View, ViewProps, ViewStyle } from 'react-native';
 import { EdgeInsets, SafeAreaConsumer } from 'react-native-safe-area-context';
-import { styled, StyledComponentProps } from '@ui-kitten/components';
+import { Layout, LayoutProps, styled, StyledComponentProps } from '@ui-kitten/components';
 
 interface InsetProvider {
   toStyle: (insets: EdgeInsets, styles) => FlexStyle;
@@ -22,15 +22,18 @@ const INSETS: Record<string, InsetProvider> = {
   },
 };
 
-export interface SafeAreaLayoutProps extends ViewProps, StyledComponentProps {
+type Inset = 'top' | 'bottom';
+
+export interface SafeAreaLayoutProps extends LayoutProps, StyledComponentProps {
   insets?: Inset;
+  children?: React.ReactNode;
 }
 
 export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps> {
 
   static styledComponentName: string = 'SafeAreaLayout';
 
-  private createInsets = (insets: Inset | Inset[], safeAreaInsets: EdgeInsets, style): ViewStyle => {
+  private createInsets = (insets: Inset | Inset[], safeAreaInsets: EdgeInsets, style): FlexStyle[] => {
     return React.Children.map(insets, inset => INSETS[inset].toStyle(safeAreaInsets, style));
   };
 
@@ -38,7 +41,7 @@ export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps
     const { style, insets, themedStyle, ...viewProps } = this.props;
 
     return (
-      <View
+      <Layout
         {...viewProps}
         style={[this.createInsets(insets, safeAreaInsets, themedStyle), style]}
       />

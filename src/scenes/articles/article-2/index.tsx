@@ -37,14 +37,18 @@ export default ({ navigation }): React.ReactElement => {
           source={data.author.photo}
         />
       </ImageBackground>
-      <Text
-        style={styles.titleLabel}
-        category='h5'>
-        {data.title}
-      </Text>
-      <Text style={styles.contentLabel}>
-        {data.content}
-      </Text>
+      <Layout
+        style={styles.contentContainer}
+        level='1'>
+        <Text
+          style={styles.titleLabel}
+          category='h5'>
+          {data.title}
+        </Text>
+        <Text>
+          {data.content}
+        </Text>
+      </Layout>
       <Divider/>
       <View style={styles.activityContainer}>
         <ClockIcon/>
@@ -79,6 +83,7 @@ const themedStyles = StyleService.create({
   },
   headerContainer: {
     height: 192,
+    zIndex: 1,
   },
   authorPhoto: {
     position: 'absolute',
@@ -88,13 +93,12 @@ const themedStyles = StyleService.create({
     borderColor: 'border-basic-color-2',
   },
   titleLabel: {
-    marginHorizontal: 24,
     marginTop: 48,
+    marginBottom: 24,
   },
-  contentLabel: {
+  contentContainer: {
     flex: 1,
-    marginHorizontal: 24,
-    marginVertical: 24,
+    paddingHorizontal: 24,
   },
   dateIcon: {
     width: 24,

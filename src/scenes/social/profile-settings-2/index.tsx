@@ -43,7 +43,9 @@ export default ({ navigation }): React.ReactElement => {
         title='Settings'
         leftControl={renderBackAction()}
       />
-      <Layout style={styles.photoSection}>
+      <Layout
+        style={styles.photoSection}
+        level='1'>
         <ProfileAvatar
           style={styles.photo}
           source={profile.photo}

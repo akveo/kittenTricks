@@ -64,7 +64,9 @@ export default ({ navigation }): React.ReactElement => {
       />
       <Divider/>
       <ScrollView style={styles.contentContainer}>
-        <Layout style={styles.header}>
+        <Layout
+          style={styles.header}
+          level='1'>
           <View style={styles.profileContainer}>
             <View style={styles.profileDetailsContainer}>
               <Text category='h4'>

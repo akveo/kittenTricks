@@ -14,6 +14,7 @@ export const ProfileSetting = (props: ProfileSettingProps): React.ReactElement =
   return (
     <React.Fragment>
       <Layout
+        level='1'
         {...layoutProps}
         style={[styles.container, style]}>
         <Text

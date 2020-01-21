@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, CheckBox, Input, StyleService, useStyleSheet } from '@ui-kitten/components';
+import { Button, CheckBox, Input, Layout, StyleService, useStyleSheet } from '@ui-kitten/components';
 import { ProfileAvatar } from './extra/profile-avatar.component';
 import { EmailIcon, EyeIcon, EyeOffIcon, PersonIcon, PlusIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
@@ -45,7 +45,9 @@ export default ({ navigation }): React.ReactElement => {
           editButton={renderEditAvatarButton}
         />
       </View>
-      <View style={styles.formContainer}>
+      <Layout
+        style={styles.formContainer}
+        level='1'>
         <Input
           autoCapitalize='none'
           placeholder='User Name'
@@ -78,7 +80,7 @@ export default ({ navigation }): React.ReactElement => {
           checked={termsAccepted}
           onChange={(checked: boolean) => setTermsAccepted(checked)}
         />
-      </View>
+      </Layout>
       <Button
         style={styles.signUpButton}
         size='giant'

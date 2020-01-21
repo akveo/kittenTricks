@@ -27,7 +27,7 @@ const mappings: Record<string, any> = {
 export const AppProvider = (props: AppProviderProps): React.ReactElement => {
 
   const { mapping, initialTheme, children } = { ...DEFAULT_PROPS, ...props };
-  const [themeContext, theme] = Theming.useTheming(appThemes, 'material', initialTheme);
+  const [themeContext, theme] = Theming.useTheming(appThemes, mapping, initialTheme);
 
   const appConfig: ApplicationProviderProps = {
     mapping: mappings[themeContext.currentMapping],

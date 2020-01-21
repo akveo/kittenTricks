@@ -31,7 +31,9 @@ export const ComponentsScreen = (props): React.ReactElement => {
         alignment='center'
       />
       <Divider/>
-      <Layout style={styles.searchContainer}>
+      <Layout
+        style={styles.searchContainer}
+        level='1'>
         <Input
           value={query}
           onChangeText={setQuery}

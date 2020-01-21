@@ -77,7 +77,6 @@ const themedStyles = StyleService.create({
   },
   list: {
     flex: 1,
-    backgroundColor: 'background-basic-color-1',
   },
   item: {
     paddingVertical: 16,

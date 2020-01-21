@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, ImageSourcePropType, ListRenderItemInfo, StyleSheet, TouchableOpacity } from 'react-native';
-import { Button, Layout, List, Menu } from '@ui-kitten/components';
+import { Button, Divider, Layout, List, Menu } from '@ui-kitten/components';
 import { CameraIcon, FileIcon, ImageIcon, PeopleIcon, PinIcon } from './icons';
 
 export interface AttachmentsMenuProps {
@@ -65,7 +65,8 @@ export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement
   );
 
   return (
-    <Layout>
+    <Layout level='1'>
+      <Divider style={styles.divider}/>
       <List
         style={styles.attachmentsContainer}
         horizontal={true}
@@ -90,6 +91,9 @@ export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement
 };
 
 const styles = StyleSheet.create({
+  divider: {
+    marginBottom: 24,
+  },
   attachmentsContainer: {
     flexDirection: 'row',
     marginHorizontal: 8,

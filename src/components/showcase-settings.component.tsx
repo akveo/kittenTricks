@@ -1,7 +1,7 @@
 import React from 'react';
 import { I18nManager, Platform, StyleSheet, ViewProps } from 'react-native';
 import { Updates } from 'expo';
-import { Button, CheckBox, Layout, OverflowMenu, OverflowMenuItemType } from '@ui-kitten/components';
+import { Button, CheckBox, Divider, Layout, OverflowMenu, OverflowMenuItemType } from '@ui-kitten/components';
 import { ColorPaletteIcon, SettingsIcon, TrashIcon } from './icons';
 import { ComponentShowcaseSetting } from '../model/showcase.model';
 import { Theme } from '../services/theme.service';
@@ -74,7 +74,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
   return (
     <Layout
       style={[styles.container, props.style]}
-      level='2'>
+      level='1'>
       <OverflowMenu
         visible={themesMenuVisible}
         onSelect={onThemeSelect}

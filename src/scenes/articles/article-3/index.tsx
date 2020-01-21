@@ -29,7 +29,9 @@ export default ({ navigation }): React.ReactElement => {
   );
 
   const renderHeader = (): React.ReactElement => (
-    <Layout style={styles.header}>
+    <Layout
+      style={styles.header}
+      level='1'>
       <Text
         style={styles.titleLabel}
         category='h4'>
