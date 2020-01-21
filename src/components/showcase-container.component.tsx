@@ -16,7 +16,7 @@ interface ShowcaseContainerProps extends SafeAreaLayoutProps {
   onBackPress?: () => void;
 }
 
-const themes = Object.keys(appThemes).filter(name => name !== 'brand') as Theme[];
+const themes: Theme[] = ['light', 'dark'];
 
 export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactElement => {
 
