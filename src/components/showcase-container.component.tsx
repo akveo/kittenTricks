@@ -48,6 +48,7 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
         title={showcase.title}
         leftControl={renderBackAction()}
       />
+      <Divider/>
       <ShowcaseSettings
         themes={themes}
         settings={settings}
