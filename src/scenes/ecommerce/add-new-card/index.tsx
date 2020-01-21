@@ -6,9 +6,10 @@ import {
   Divider,
   Input,
   Layout,
+  StyleService,
   TopNavigation,
   TopNavigationAction,
-  StyleSheet,
+  useStyleSheet,
 } from '@ui-kitten/components';
 import { ArrowIosBackIcon, EyeIcon, EyeOffIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
 import { KeyboardAvoidingView, useSafeArea } from './extra/3rd-party';
@@ -16,7 +17,7 @@ import { KeyboardAvoidingView, useSafeArea } from './extra/3rd-party';
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = useStyleSheet();
+  const styles = useStyleSheet(themedStyles);
 
   const [number, setNumber] = React.useState<string>();
   const [name, setName] = React.useState<string>();
@@ -119,7 +120,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const useStyleSheet = StyleSheet.create({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-2',

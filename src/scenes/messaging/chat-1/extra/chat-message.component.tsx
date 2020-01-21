@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ViewProps } from 'react-native';
-import { StyleType, Text, TextElement, StyleSheet } from '@ui-kitten/components';
+import { StyleService, StyleType, Text, TextElement, useStyleSheet } from '@ui-kitten/components';
 import { ChatMessageIndicator } from './chat-message-indicator.component';
 import { Message } from './data';
 
@@ -13,7 +13,7 @@ export type ChatMessageElement = React.ReactElement<ChatMessageProps>;
 
 export const ChatMessage = (props: ChatMessageProps): React.ReactElement => {
 
-  const styles = useStyleSheet();
+  const styles = useStyleSheet(themedStyles);
 
   const { style, message, children, ...viewProps } = props;
 
@@ -46,7 +46,7 @@ export const ChatMessage = (props: ChatMessageProps): React.ReactElement => {
   );
 };
 
-const useStyleSheet = StyleSheet.create({
+const themedStyles = StyleService.create({
   container: {
     alignItems: 'center',
   },
