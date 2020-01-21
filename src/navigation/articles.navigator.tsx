@@ -4,13 +4,13 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { ArticlesGridScreen } from '../scenes/articles/articles-grid.component';
 import { ArticlesListScreen } from '../scenes/articles/articles-list.component';
 import { ArticlesScreen } from '../scenes/articles/articles.component';
-import Article1Screen from '../scenes/articles/article-1';
-import Article2Screen from '../scenes/articles/article-2';
-import Article3Screen from '../scenes/articles/article-3';
-import ArticleList1Screen from '../scenes/articles/article-list-1';
-import ArticleList2Screen from '../scenes/articles/article-list-2';
-import ArticleList3Screen from '../scenes/articles/article-list-3';
-import ArticleList4Screen from '../scenes/articles/article-list-4';
+import { Article1Screen } from '../scenes/articles/article-1.component';
+import { Article2Screen } from '../scenes/articles/article-2.component';
+import { Article3Screen } from '../scenes/articles/article-3.component';
+import { ArticleList1Screen } from '../scenes/articles/article-list-1.component';
+import { ArticleList2Screen } from '../scenes/articles/article-list-2.component';
+import { ArticleList3Screen } from '../scenes/articles/article-list-3.component';
+import { ArticleList4Screen } from '../scenes/articles/article-list-4.component';
 
 const TopTab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();

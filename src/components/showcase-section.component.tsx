@@ -13,7 +13,8 @@ export const ShowcaseSection = (props: ShowcaseSectionProps): React.ReactElement
 
   const { style, section, renderItem } = props;
 
-  const renderShowcaseItem = (item: ComponentShowcaseItem, index: number): React.ReactElement<ShowcaseItemProps> => (
+  const renderShowcaseItem = (item: ComponentShowcaseItem,
+                              index: number): React.ReactElement<ShowcaseItemProps> => (
     <ShowcaseItem
       key={index}
       style={styles.item}

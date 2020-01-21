@@ -9,7 +9,7 @@ export const ListScreen = ({ navigation }): React.ReactElement => {
   const styles = useStyleSheet(themedStyle);
 
   const renderItem = (props: ListProps): ListElement => (
-    <ListShowcase {...props} style={[props.style, styles.component]} />
+    <ListShowcase {...props} style={[props.style, styles.component]}/>
   );
 
   return (

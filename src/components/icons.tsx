@@ -10,6 +10,14 @@ export const BookIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='book'/>
 );
 
+export const BookmarkIcon = (style: ImageStyle): IconElement => (
+  <Icon {...style} name='bookmark'/>
+);
+
+export const BookmarkOutlineIcon = (style: ImageStyle): IconElement => (
+  <Icon {...style} name='bookmark-outline'/>
+);
+
 export const ColorPaletteIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='color-palette-outline'/>
 );

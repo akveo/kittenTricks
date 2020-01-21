@@ -19,7 +19,7 @@ export default (): React.ReactElement => (
     assets={assets}
     splash={require('../assets/images/image-splash.png')}>
     <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
-    <AppProvider mapping='material'>
+    <AppProvider mapping='eva'>
       <StatusBar/>
       <AppNavigator/>
     </AppProvider>

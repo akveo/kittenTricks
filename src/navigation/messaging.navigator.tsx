@@ -4,10 +4,11 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { MessagingScreen } from '../scenes/messaging/messaging.component';
 import { MessagingGridScreen } from '../scenes/messaging/messaging-grid.component';
 import { MessagingListScreen } from '../scenes/messaging/messaging-list.component';
-import Chat1Screen from '../scenes/messaging/chat-1';
-import Chat2Screen from '../scenes/messaging/chat-2';
-import ConversationListScreen from '../scenes/messaging/conversation-list';
-import Profile7Screen from '../scenes/social/profile-7';
+import { Chat1Screen } from '../scenes/messaging/chat-1.component';
+import { Chat2Screen } from '../scenes/messaging/chat-2.component';
+import { ConversationListScreen } from '../scenes/messaging/conversation-list.component';
+
+import { Profile7Screen } from '../scenes/social/profile-7.component';
 
 const TopTab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();

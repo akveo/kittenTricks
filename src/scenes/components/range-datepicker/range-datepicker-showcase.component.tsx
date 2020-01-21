@@ -1,6 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { CalendarRange, RangeDatepicker, RangeDatepickerElement, RangeDatepickerProps } from '@ui-kitten/components';
+import {
+  CalendarRange,
+  RangeDatepicker,
+  RangeDatepickerElement,
+  RangeDatepickerProps,
+} from '@ui-kitten/components';
 
 type RangeDatepickerShowcaseProps = Omit<RangeDatepickerProps, 'onSelect'>;
 

@@ -4,14 +4,14 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { EcommerceScreen } from '../scenes/ecommerce/ecommerce.component';
 import { EcommerceGridScreen } from '../scenes/ecommerce/ecommerce-grid.component';
 import { EcommerceListScreen } from '../scenes/ecommerce/ecommerce-list.component';
-import AddNewCardScreen from '../scenes/ecommerce/add-new-card';
-import ProductDetails1Screen from '../scenes/ecommerce/product-details-1';
-import ProductDetails2Screen from '../scenes/ecommerce/product-details-2';
-import ProductDetails3Screen from '../scenes/ecommerce/product-details-3';
-import ProductDetails4Screen from '../scenes/ecommerce/product-details-4';
-import PaymentScreen from '../scenes/ecommerce/payment';
-import ProductListScreen from '../scenes/ecommerce/product-list';
-import ShoppingCartScreen from '../scenes/ecommerce/shopping-cart';
+import { AddNewCardScreen } from '../scenes/ecommerce/add-new-card.component';
+import { ProductDetails1Screen } from '../scenes/ecommerce/product-details-1.component';
+import { ProductDetails2Screen } from '../scenes/ecommerce/product-details-2.component';
+import { ProductDetails3Screen } from '../scenes/ecommerce/product-details-3.component';
+import { ProductDetails4Screen } from '../scenes/ecommerce/product-details-4.component';
+import { PaymentScreen } from '../scenes/ecommerce/payment.component';
+import { ProductListScreen } from '../scenes/ecommerce/product-list.component';
+import { ShoppingCartScreen } from '../scenes/ecommerce/shopping-cart.component';
 
 const TopTab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();

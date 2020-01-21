@@ -1,4 +1,8 @@
-import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } from '../../../model/showcase.model';
+import {
+  ComponentShowcase,
+  ComponentShowcaseItem,
+  ComponentShowcaseSection,
+} from '../../../model/showcase.model';
 
 const defaultRadioGroup: ComponentShowcaseItem = {
   props: {},

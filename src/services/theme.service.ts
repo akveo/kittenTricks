@@ -50,18 +50,21 @@ export class Theming {
    * - value to be set in `ThemeContext.Provider`
    * - and theme picked from `themes` param.
    */
-  static useTheming = (themes: Record<Mapping, Record<Theme, string>>,
+  static useTheming = (themes: Record<Mapping, Record<Theme, any>>,
                        mapping: Mapping,
                        theme: Theme): [ThemeContextValue, any] => {
 
     const deviceAppearance: ColorSchemeName = Appearance.getColorScheme();
-    const deviceAppearanceTheme: Theme = Theming.createAppearanceTheme(deviceAppearance, mapping, theme);
+    const deviceAppearanceTheme: Theme = Theming.createAppearanceTheme(deviceAppearance, theme);
 
     const [currentTheme, setCurrentTheme] = React.useState<Theme>(deviceAppearanceTheme);
 
     React.useEffect(() => {
       const subscription = Appearance.addChangeListener((preferences: AppearancePreferences): void => {
-        const appearanceTheme: Theme = Theming.createAppearanceTheme(preferences.colorScheme, theme);
+        const appearanceTheme: Theme = Theming.createAppearanceTheme(
+          preferences.colorScheme,
+          theme,
+        );
         setCurrentTheme(appearanceTheme);
       });
 
@@ -92,7 +95,8 @@ export class Theming {
     return themeContext.createTheme(upstreamTheme);
   };
 
-  private static createAppearanceTheme = (appearance: ColorSchemeName, preferredTheme: Theme): Theme => {
+  private static createAppearanceTheme = (appearance: ColorSchemeName,
+                                          preferredTheme: Theme): Theme => {
     if (appearance === 'no-preference') {
       return preferredTheme;
     }

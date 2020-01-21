@@ -1,6 +1,9 @@
 import React from 'react';
 import { RouteProp } from '@react-navigation/core';
-import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { LayoutsNavigator } from './layouts.navigator';
 import { ComponentsNavigator } from './components.navigator';
@@ -15,7 +18,8 @@ const Drawer = createDrawerNavigator();
  * When dev is true in .expo/settings.json (started via `start:dev`),
  * open Components tab as default.
  */
-const initialTabRoute: string = __DEV__ ? 'Components' : 'Layouts';
+// const initialTabRoute: string = __DEV__ ? 'Components' : 'Layouts';
+const initialTabRoute: string = false ? 'Components' : 'Layouts';
 
 /*
  * Can we access it from `HomeNavigator`?

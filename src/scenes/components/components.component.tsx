@@ -1,26 +1,23 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Divider, Input, Layout, TopNavigation } from '@ui-kitten/components';
+import { Divider, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
-import { CloseIcon, SearchIcon } from '../../components/icons';
-import { ComponentData, data } from './data';
+import { MenuIcon } from '../../components/icons';
+import { data } from './data';
 
-export const ComponentsScreen = (props): React.ReactElement => {
-
-  const [query, setQuery] = React.useState<string>('');
-
-  const displayData: ComponentData[] = data.filter((componentData: ComponentData): boolean => {
-    return componentData.title.toLowerCase().startsWith(query.toLowerCase());
-  });
+export const ComponentsScreen = ({ navigation }): React.ReactElement => {
 
   const onItemPress = (index: number): void => {
-    props.navigation.navigate(displayData[index].route);
+    navigation.navigate(data[index].route);
   };
 
-  const onInputIconPress = (): void => {
-    setQuery('');
-  };
+  const renderDrawerAction = (): React.ReactElement => (
+    <TopNavigationAction
+      icon={MenuIcon}
+      onPress={navigation.toggleDrawer}
+    />
+  );
 
   return (
     <SafeAreaLayout
@@ -28,23 +25,11 @@ export const ComponentsScreen = (props): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Kitten Tricks'
-        alignment='center'
+        leftControl={renderDrawerAction()}
       />
       <Divider/>
-      <Layout
-        style={styles.searchContainer}
-        level='1'>
-        <Input
-          value={query}
-          onChangeText={setQuery}
-          placeholder='Search'
-          icon={query ? CloseIcon : SearchIcon}
-          onIconPress={onInputIconPress}
-        />
-      </Layout>
       <MenuGridList
-        contentContainerStyle={styles.menuGrid}
-        data={displayData}
+        data={data}
         onItemPress={onItemPress}
       />
     </SafeAreaLayout>
@@ -58,10 +43,6 @@ const styles = StyleSheet.create({
   searchContainer: {
     paddingHorizontal: 16,
     paddingTop: 16,
-    paddingBottom: 8,
-  },
-  menuGrid: {
-    paddingVertical: 0,
-    paddingHorizontal: 8,
+    paddingBottom: 16,
   },
 });

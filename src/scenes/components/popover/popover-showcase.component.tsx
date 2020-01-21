@@ -1,5 +1,12 @@
 import React from 'react';
-import { Button, Popover, PopoverElement, PopoverProps, Text, TextElement } from '@ui-kitten/components';
+import {
+  Button,
+  Popover,
+  PopoverElement,
+  PopoverProps,
+  Text,
+  TextElement,
+} from '@ui-kitten/components';
 
 export const PopoverShowcase = (props: PopoverProps): PopoverElement => {
 

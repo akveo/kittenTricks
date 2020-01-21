@@ -1,5 +1,9 @@
 import React from 'react';
-import { BottomNavigation, BottomNavigationElement, BottomNavigationProps } from '@ui-kitten/components';
+import {
+  BottomNavigation,
+  BottomNavigationElement,
+  BottomNavigationProps,
+} from '@ui-kitten/components';
 
 export const BottomNavigationShowcase = (props: BottomNavigationProps): BottomNavigationElement => {
 

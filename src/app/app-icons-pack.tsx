@@ -30,7 +30,8 @@ export const AppIconsPack = {
     'avatar': IconProvider(require('../assets/images/icon-avatar.png')),
     'avatar-dark': IconProvider(require('../assets/images/icon-avatar-dark.png')),
     'bottom-navigation': IconProvider(require('../assets/images/icon-bottom-navigation.png')),
-    'bottom-navigation-dark': IconProvider(require('../assets/images/icon-bottom-navigation-dark.png')),
+    'bottom-navigation-dark': IconProvider(require(
+      '../assets/images/icon-bottom-navigation-dark.png')),
     'button': IconProvider(require('../assets/images/icon-button.png')),
     'button-dark': IconProvider(require('../assets/images/icon-button-dark.png')),
     'button-group': IconProvider(require('../assets/images/icon-button-group.png')),

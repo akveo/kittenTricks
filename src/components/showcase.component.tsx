@@ -1,6 +1,9 @@
 import React from 'react';
 import { ViewStyle } from 'react-native';
-import { KeyboardAwareScrollView, KeyboardAwareScrollViewProps } from 'react-native-keyboard-aware-scroll-view';
+import {
+  KeyboardAwareScrollView,
+  KeyboardAwareScrollViewProps,
+} from 'react-native-keyboard-aware-scroll-view';
 import { StyleService, useStyleSheet } from '@ui-kitten/components';
 import { ShowcaseSection } from './showcase-section.component';
 import { ComponentShowcase, ComponentShowcaseSection } from '../model/showcase.model';

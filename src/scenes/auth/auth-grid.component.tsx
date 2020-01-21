@@ -2,10 +2,10 @@ import React from 'react';
 import { LayoutGridList } from '../../components/layout-grid-list.component';
 import { data } from './data';
 
-export const AuthGridScreen = (props): React.ReactElement => {
+export const AuthGridScreen = ({ navigation }): React.ReactElement => {
 
   const onItemPress = (index: number): void => {
-    props.navigation.navigate(data[index].route);
+    navigation.navigate(data[index].route);
   };
 
   return (

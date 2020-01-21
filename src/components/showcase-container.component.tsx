@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Divider, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
+import { Divider, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout, SafeAreaLayoutProps } from './safe-area-layout.component';
 import { Showcase } from './showcase.component';
 import { ShowcaseSettings } from './showcase-settings.component';
-import { appThemes } from '../app/app-themes';
 import { Theme, ThemeContextValue, Theming } from '../services/theme.service';
 import { ComponentShowcase, ComponentShowcaseSetting } from '../model/showcase.model';
 import { ArrowIosBackIcon } from './icons';

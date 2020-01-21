@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Divider, OverflowMenu, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
+import { Divider, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
-import { ColorPaletteIcon, MenuIcon } from '../../components/icons';
+import { MenuIcon } from '../../components/icons';
 import { data } from './data';
 
 export const LayoutsScreen = (props): React.ReactElement => {
@@ -22,11 +22,9 @@ export const LayoutsScreen = (props): React.ReactElement => {
   return (
     <SafeAreaLayout
       style={styles.safeArea}
-      insets='top'
-      level='2'>
+      insets='top' L>
       <TopNavigation
         title='Kitten Tricks'
-        alignment='center'
         leftControl={renderDrawerAction()}
       />
       <Divider/>

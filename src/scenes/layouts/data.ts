@@ -26,42 +26,60 @@ export const data: LayoutData[] = [
     title: 'Auth',
     route: 'Auth',
     icon: (style: ImageStyle) => {
-      return React.createElement(ThemedIcon, { ...style, light: AssetAuthIcon, dark: AssetAuthDarkIcon });
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetAuthIcon, dark: AssetAuthDarkIcon },
+      );
     },
   },
   {
     title: 'Social',
     route: 'Social',
     icon: (style: ImageStyle) => {
-      return React.createElement(ThemedIcon, { ...style, light: AssetSocialIcon, dark: AssetSocialDarkIcon });
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetSocialIcon, dark: AssetSocialDarkIcon },
+      );
     },
   },
   {
     title: 'Articles',
     route: 'Articles',
     icon: (style: ImageStyle) => {
-      return React.createElement(ThemedIcon, { ...style, light: AssetArticlesIcon, dark: AssetArticlesDarkIcon });
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetArticlesIcon, dark: AssetArticlesDarkIcon },
+      );
     },
   },
   {
     title: 'Messaging',
     route: 'Messaging',
     icon: (style: ImageStyle) => {
-      return React.createElement(ThemedIcon, { ...style, light: AssetMessagingIcon, dark: AssetMessagingDarkIcon });
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetMessagingIcon, dark: AssetMessagingDarkIcon },
+      );
     },
   },
   {
     title: 'Dashboards',
     route: 'Dashboards',
     icon: (style: ImageStyle) => {
-      return React.createElement(ThemedIcon, { ...style, light: AssetDashboardsIcon, dark: AssetDashboardsDarkIcon });
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetDashboardsIcon, dark: AssetDashboardsDarkIcon },
+      );
     },
   },
   {
     title: 'Ecommerce',
     route: 'Ecommerce',
     icon: (style: ImageStyle) => {
-      return React.createElement(ThemedIcon, { ...style, light: AssetEcommerceIcon, dark: AssetEcommerceDarkIcon });
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetEcommerceIcon, dark: AssetEcommerceDarkIcon },
+      );
     },
   },
 ];

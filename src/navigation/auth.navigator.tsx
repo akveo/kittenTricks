@@ -4,16 +4,16 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { AuthScreen } from '../scenes/auth/auth.component';
 import { AuthGridScreen } from '../scenes/auth/auth-grid.component';
 import { AuthListScreen } from '../scenes/auth/auth-list.component';
-import SignIn1Screen from '../scenes/auth/sign-in-1';
-import SignIn2Screen from '../scenes/auth/sign-in-2';
-import SignIn3Screen from '../scenes/auth/sign-in-3';
-import SignIn4Screen from '../scenes/auth/sign-in-4';
-import SignIn5Screen from '../scenes/auth/sign-in-5';
-import SignUp1Screen from '../scenes/auth/sign-up-1';
-import SignUp2Screen from '../scenes/auth/sign-up-2';
-import SignUp3Screen from '../scenes/auth/sign-up-3';
-import SignUp4Screen from '../scenes/auth/sign-up-4';
-import ForgotPasswordScreen from '../scenes/auth/forgot-password';
+import { SignIn1Screen } from '../scenes/auth/sign-in-1.component';
+import { SignIn2Screen } from '../scenes/auth/sign-in-2.component';
+import { SignIn3Screen } from '../scenes/auth/sign-in-3.component';
+import { SignIn4Screen } from '../scenes/auth/sign-in-4.component';
+import { SignIn5Screen } from '../scenes/auth/sign-in-5.component';
+import { SignUp1Screen } from '../scenes/auth/sign-up-1.component';
+import { SignUp2Screen } from '../scenes/auth/sign-up-2.component';
+import { SignUp3Screen } from '../scenes/auth/sign-up-3.component';
+import { SignUp4Screen } from '../scenes/auth/sign-up-4.component';
+import { ForgotPasswordScreen } from '../scenes/auth/forgot-password.component';
 
 const TopTab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();

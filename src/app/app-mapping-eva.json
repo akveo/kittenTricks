@@ -3,6 +3,20 @@
     "text-font-family": "opensans-regular"
   },
   "components": {
+    "TopNavigation": {
+      "meta": {
+        "variantGroups": {
+          "alignment": {
+            "center": {
+              "default": true
+            },
+            "start": {
+              "default": false
+            }
+          }
+        }
+      }
+    },
     "StatusBar": {
       "meta": {
         "scope": "mobile",

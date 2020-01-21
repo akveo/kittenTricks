@@ -35,14 +35,14 @@ git clone https://github.com/eva-design/eva && git clone https://github.com/akve
 
 # Reusing Screens
 
-All screens presented in Kitten Tricks application are listed in [`./src/scenes`](./src/scenes) directory and structured by following categories: 
+All screens presented in Kitten Tricks application are listed in [`./src/layouts`](./src/layouts) directory and structured by following categories: 
 
-- [Auth](./src/scenes/auth)
-- [Social](./src/scenes/social)
-- [Articles](./src/scenes/articles)
-- [Messaging](./src/scenes/messaging)
-- [Dashboards](./src/scenes/dashboards)
-- [Ecommerce](./src/scenes/ecommerce)
+- [Auth](./src/layouts/auth)
+- [Social](./src/layouts/social)
+- [Articles](./src/layouts/articles)
+- [Messaging](./src/layouts/messaging)
+- [Dashboards](./src/layouts/dashboards)
+- [Ecommerce](./src/layouts/ecommerce)
 
 If you would like to reuse it, you may copy and paste the entire screen folder.
 
@@ -50,8 +50,8 @@ Some of the screens may contain 3rd-party modules that need to be installed.
 You can find them in `3rd-party.ts` files.
 
 E.g in case of reusing `Forgot Password` screen, you may need:
-- Copy [Forgot Password](./src/scenes/auth/forgot-password) directory into your project
-- Install and configure 3rd-party modules listed in [3rd-party.ts](./src/scenes/auth/forgot-password/extra/3rd-party.ts) file.
+- Copy [Forgot Password](./src/layouts/auth/forgot-password) directory into your project
+- Install and configure 3rd-party modules listed in [3rd-party.ts](./src/layouts/auth/forgot-password/extra/3rd-party.ts) file.
 
 ## Structure
 
