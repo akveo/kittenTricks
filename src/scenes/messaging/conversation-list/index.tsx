@@ -1,14 +1,6 @@
 import React from 'react';
 import { ListRenderItemInfo } from 'react-native';
-import {
-  Divider,
-  Input,
-  Layout,
-  List,
-  TopNavigation,
-  TopNavigationAction,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Divider, Input, Layout, List, StyleService, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { MessageItem } from './extra/message-item.component';
 import { ArrowIosBackIcon, SearchIcon } from './extra/icons';
 import { useSafeArea } from './extra/3rd-party';
@@ -23,7 +15,7 @@ const initialMessages: Message[] = [
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
   const [searchQuery, setSearchQuery] = React.useState<string>();
 
   const onItemPress = (index: number): void => {
@@ -74,7 +66,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
   },

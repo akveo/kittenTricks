@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Platform, View } from 'react-native';
-import { Button, Input, Layout, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
+import { Button, Input, Layout, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { RateBar } from './extra/rate-bar.component';
 import { CommentList } from './extra/comment-list.component';
@@ -21,7 +21,7 @@ export default ({ navigation }): React.ReactElement => {
   const [inputComment, setInputComment] = React.useState<string>();
   const [rating, setRating] = React.useState<number>(product.rating);
   const [bookmarked, setBookmarked] = React.useState<boolean>(false);
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const onBuyButtonPress = (): void => {
     navigation && navigation.navigate('Payment');
@@ -146,7 +146,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-2',

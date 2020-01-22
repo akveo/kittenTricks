@@ -1,15 +1,6 @@
 import React from 'react';
 import { Image, ListRenderItemInfo, View } from 'react-native';
-import {
-  Button,
-  Card,
-  Layout,
-  List,
-  Text,
-  TopNavigation,
-  TopNavigationAction,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Button, Card, Layout, List, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { ArrowIosBackIcon, CreditCardIcon, MoreVerticalIcon, SearchIcon, ShoppingCartIcon } from './extra/icons';
 import { useSafeArea } from './extra/3rd-party';
 import { PaymentCard } from './extra/data';
@@ -21,7 +12,7 @@ const paymentCards: PaymentCard[] = [
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const onCartActionPress = (): void => {
     navigation && navigation.navigate('ShoppingCart');
@@ -150,7 +141,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Button, CheckBox, Datepicker, Divider, Input, Text, useStyleSheet } from '@ui-kitten/components';
+import { Button, CheckBox, Datepicker, Divider, Input, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ArrowForwardIconOutline, FacebookIcon, GoogleIcon, HeartIconFill, TwitterIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
@@ -14,7 +14,7 @@ export default ({ navigation }): React.ReactElement => {
   const [dob, setDob] = React.useState<Date>();
   const [termsAccepted, setTermsAccepted] = React.useState<boolean>(false);
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const onSignUpButtonPress = (): void => {
     navigation && navigation.goBack();
@@ -149,7 +149,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     backgroundColor: 'background-basic-color-1',
   },

@@ -1,15 +1,6 @@
 import React from 'react';
 import { Image, ImageSourcePropType, ListRenderItemInfo, ScrollView } from 'react-native';
-import {
-  Button,
-  Divider,
-  Layout,
-  List,
-  Text,
-  TopNavigation,
-  TopNavigationAction,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Button, Divider, Layout, List, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { RateBar } from './extra/rate-bar.component';
 import { DetailsList } from './extra/details-list.component';
 import { CategoryList } from './extra/category-list.component';
@@ -24,7 +15,7 @@ export default ({ navigation }): React.ReactElement => {
   const safeArea = useSafeArea();
   const [bookmarked, setBookmarked] = React.useState<boolean>(false);
   const [rating, setRating] = React.useState<number>(product.rating);
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const onBuyButtonPress = (): void => {
     navigation && navigation.navigate('Payment');
@@ -140,7 +131,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
   },

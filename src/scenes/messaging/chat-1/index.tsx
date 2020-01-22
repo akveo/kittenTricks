@@ -1,14 +1,6 @@
 import React from 'react';
 import { ImageSourcePropType, Keyboard, Platform, TouchableWithoutFeedback } from 'react-native';
-import {
-  Avatar,
-  Button,
-  Input,
-  Layout,
-  TopNavigation,
-  TopNavigationAction,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Avatar, Button, Input, Layout, StyleService, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { Chat } from './extra/chat.component';
 import { AttachmentsMenu } from './extra/attachments-menu.component';
@@ -44,7 +36,7 @@ const keyboardOffset = (height: number): number => Platform.select({
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const [messages, setMessages] = React.useState<Message[]>(initialMessages);
   const [message, setMessage] = React.useState<string>();
@@ -139,7 +131,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
   },

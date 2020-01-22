@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, ImageBackground, ListRenderItemInfo, View } from 'react-native';
-import { Button, Card, List, Text, useStyleSheet } from '@ui-kitten/components';
+import { Button, Card, List, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { CartIcon } from './extra/icons';
 import { Product } from './extra/data';
 
@@ -17,7 +17,7 @@ const products: Product[] = [
 
 export const ProductListScreen = ({ navigation, route }): React.ReactElement => {
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const displayProducts: Product[] = products.filter(product => product.category === route.name);
 
@@ -77,7 +77,7 @@ export const ProductListScreen = ({ navigation, route }): React.ReactElement => 
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-2',

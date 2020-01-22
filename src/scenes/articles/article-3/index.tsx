@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageBackground, Platform, View } from 'react-native';
-import { Divider, Input, Layout, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
+import { Divider, Input, Layout, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { CommentList } from './extra/comment-list.component';
 import { ArrowIosBackIcon } from './extra/icons';
@@ -17,7 +17,7 @@ const keyboardOffset = (height: number): number => Platform.select({
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const [inputComment, setInputComment] = React.useState<string>();
 
@@ -90,7 +90,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-2',

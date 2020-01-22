@@ -1,15 +1,6 @@
 import React from 'react';
 import { ImageBackground, View } from 'react-native';
-import {
-  Avatar,
-  Button,
-  Divider,
-  Layout,
-  Text,
-  TopNavigation,
-  TopNavigationAction,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Avatar, Button, Divider, Layout, StyleService, Text, TopNavigation, TopNavigationAction, useStyleSheet } from '@ui-kitten/components';
 import { ArrowIosBackIcon, ClockIcon, HeartIcon, MessageCircleIcon } from './extra/icons';
 import { useSafeArea } from './extra/3rd-party';
 import { Article } from './extra/data';
@@ -19,7 +10,7 @@ const data: Article = Article.howToEatHealthy();
 export default ({ navigation }): React.ReactElement => {
 
   const safeArea = useSafeArea();
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
@@ -82,7 +73,7 @@ export default ({ navigation }): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
   },

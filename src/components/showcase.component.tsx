@@ -1,7 +1,7 @@
 import React from 'react';
 import { ViewStyle } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useStyleSheet } from '@ui-kitten/components';
+import { StyleService, useStyleSheet } from '@ui-kitten/components';
 import { ShowcaseSection } from './showcase-section.component';
 import { ComponentShowcase, ComponentShowcaseSection } from '../model/showcase.model';
 
@@ -13,7 +13,7 @@ export interface ShowcaseProps {
 
 export const Showcase = (props: ShowcaseProps): React.ReactElement => {
 
-  const styles = StyleSheet.create();
+  const styles = useStyleSheet(themedStyles);
   const { showcase } = props;
 
   const renderShowcaseElement = (showcaseProps: any): React.ReactElement => {
@@ -51,7 +51,7 @@ export const Showcase = (props: ShowcaseProps): React.ReactElement => {
   );
 };
 
-const StyleSheet = useStyleSheet({
+const themedStyles = StyleService.create({
   container: {
     flex: 1,
     backgroundColor: 'background-basic-color-1',
