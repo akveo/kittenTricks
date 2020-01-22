@@ -1,3 +1,15 @@
+## <small>2.4.0-beta.3 (2020-01-22)<small>
+
+### :rocket: Features
+
+* Upgrade UI Kitten to v4.4.0-beta.3
+
+### :bug: Bug Fixes
+
+* Theme switch using system appearance ([8eabc16](https://github.com/akveo/kittenTricks/commit/8eabc16))
+
+
+
 ## <small>2.4.0-beta.2 (2020-01-16)</small>
 
 ### :rocket: Features
