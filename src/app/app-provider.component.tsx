@@ -1,50 +1,40 @@
 import React from 'react';
 import { AppearanceProvider } from 'react-native-appearance';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { mapping as evaMapping } from '@eva-design/eva';
-import { mapping as materialMapping } from '@eva-design/material';
-import { ApplicationProvider, ApplicationProviderProps } from '@ui-kitten/components';
-import { appThemes } from './app-themes';
-import { appMappings } from './app-mappings';
-import { Mapping, Theme, Theming } from '../services/theme.service';
+import { ApplicationProvider } from '@ui-kitten/components';
+import { appMappings, appThemes } from './app-theming';
+import { Theming } from '../services/theme.service';
+import { AppConfig } from '../model/app-config.model';
 
 export interface AppProviderProps {
-  mapping?: Mapping;
-  initialTheme?: Theme;
+  config: AppConfig;
   children?: React.ReactNode;
 }
 
-const DEFAULT_PROPS: AppProviderProps = {
-  mapping: 'eva',
-  initialTheme: 'light',
-};
-
-const mappings: Record<string, any> = {
-  eva: evaMapping,
-  material: materialMapping,
-};
-
 export const AppProvider = (props: AppProviderProps): React.ReactElement => {
 
-  const { mapping, initialTheme, children } = { ...DEFAULT_PROPS, ...props };
-  const [themeContext, theme] = Theming.useTheming(appThemes, mapping, initialTheme);
+  const [mappingContext, mappingProps] = Theming.useMapping(
+    appMappings,
+    props.config.mapping,
+  );
 
-  const appConfig: ApplicationProviderProps = {
-    mapping: mappings[themeContext.currentMapping],
-    theme: theme,
-    // @ts-ignore
-    customMapping: appMappings[mapping],
-  };
+  const [themeContext, themeProp] = Theming.useTheming(
+    appThemes,
+    mappingContext.currentMapping,
+    'light',
+  );
 
   return (
     <AppearanceProvider>
-      <Theming.Context.Provider value={themeContext}>
-        <ApplicationProvider {...appConfig}>
-          <SafeAreaProvider>
-            {children}
-          </SafeAreaProvider>
-        </ApplicationProvider>
-      </Theming.Context.Provider>
+      <Theming.MappingContext.Provider value={mappingContext}>
+        <Theming.ThemeContext.Provider value={themeContext}>
+          <ApplicationProvider {...mappingProps} theme={themeProp}>
+            <SafeAreaProvider>
+              {props.children}
+            </SafeAreaProvider>
+          </ApplicationProvider>
+        </Theming.ThemeContext.Provider>
+      </Theming.MappingContext.Provider>
     </AppearanceProvider>
   );
 };

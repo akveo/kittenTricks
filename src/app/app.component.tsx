@@ -6,6 +6,7 @@ import { AppIconsPack } from './app-icons-pack';
 import { AppProvider } from './app-provider.component';
 import { StatusBar } from '../components/status-bar.component';
 import { AppNavigator } from '../navigation/app.navigator';
+import { AppConfig } from '../model/app-config.model';
 
 const assets: Assets = {
   fonts: {
@@ -14,14 +15,24 @@ const assets: Assets = {
   },
 };
 
-export default (): React.ReactElement => (
-  <ApplicationLoader
-    assets={assets}
-    splash={require('../assets/images/image-splash.png')}>
-    <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
-    <AppProvider mapping='eva'>
-      <StatusBar/>
-      <AppNavigator/>
-    </AppProvider>
-  </ApplicationLoader>
-);
+export default (): React.ReactElement => {
+
+  const renderApp = (config: AppConfig): React.ReactElement => (
+    <React.Fragment>
+      <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
+      <AppProvider config={config}>
+        <StatusBar/>
+        <AppNavigator/>
+      </AppProvider>
+    </React.Fragment>
+  );
+
+  return (
+    <ApplicationLoader
+      assets={assets}
+      initialConfig={{ mapping: 'eva' }}
+      splash={require('../assets/images/image-splash.png')}>
+      {renderApp}
+    </ApplicationLoader>
+  );
+};

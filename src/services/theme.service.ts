@@ -1,14 +1,27 @@
 import React from 'react';
+import { Updates } from 'expo';
 import { Appearance, AppearancePreferences, ColorSchemeName } from 'react-native-appearance';
+import { AppStorage } from './app-storage.service';
 
 export type Mapping = 'eva' | 'material';
 export type Theme = 'light' | 'dark' | 'brand';
 
-export interface ThemeContextValue {
+export interface MappingContextValue {
   /**
    * Should return the name of current mapping
    */
   currentMapping: Mapping;
+  /**
+   * Should switch mapping globally
+   */
+  setCurrentMapping: (mapping: Mapping) => void;
+  /**
+   * Should return true if current mapping is Eva
+   */
+  isEva: () => boolean;
+}
+
+export interface ThemeContextValue {
   /**
    * Should return the name of current theme
    */
@@ -29,14 +42,56 @@ export interface ThemeContextValue {
 
 export class Theming {
 
-  static Context = React.createContext<ThemeContextValue>(null);
+  static MappingContext = React.createContext<MappingContextValue>(null);
+  static ThemeContext = React.createContext<ThemeContextValue>(null);
+
+  /**
+   * @see MappingContextValue
+   *
+   * Creates context value with standard configuration:
+   *
+   * - `currentMapping` is set depending `mapping` argument.
+   * - `setCurrentMapping` will be called when device appearance is changed.
+   * - `isEva` returns true if current mapping is `eva`.
+   *
+   * @param {Record<Mapping, any>} mappings - set of mappings available in app.
+   * @param {Mapping} mapping - mapping name to use. Could be `eva` or `material`.
+   *
+   * @returns {[MappingContextValue, any]} - array of two values:
+   * - value to be set in `MappingContext.Provider`
+   * - and `mapping` and `customMapping` to be set in `ApplicationProvider`.
+   */
+  static useMapping = (mappings: Record<Mapping, any>,
+                       mapping: Mapping): [MappingContextValue, any] => {
+
+    /**
+     * Currently, there is no way to switch during the run time,
+     * so the Async Storage and Expo Updates is used.
+     *
+     * Writes mapping to AsyncStorage and reloads an app
+     */
+    const setCurrentMapping = (nextMapping: Mapping): void => {
+      AppStorage.setMapping(nextMapping).then(Updates.reload);
+    };
+
+    const isEva = (): boolean => {
+      return mapping === 'eva';
+    };
+
+    const mappingContext: MappingContextValue = {
+      currentMapping: mapping,
+      setCurrentMapping,
+      isEva,
+    };
+
+    return [mappingContext, mappings[mapping]];
+  };
 
   /**
    * @see ThemeContextValue
    *
    * Creates context value with standard configuration:
    *
-   * - `currentMapping` is set depending `mapping` argument.
    * - `currentTheme` is set depending on current appearance set on the device.
    * - `setCurrentTheme` will be called when device appearance is changed.
    * - `isDarkMode` returns true if current device appearance is `dark`.
@@ -48,7 +103,7 @@ export class Theming {
    *
    * @returns {[ThemeContextValue, any]} - array of two values:
    * - value to be set in `ThemeContext.Provider`
-   * - and theme picked from `themes` param.
+   * - and theme to be set in `ApplicationProvider`.
    */
   static useTheming = (themes: Record<Mapping, Record<Theme, any>>,
                        mapping: Mapping,
@@ -72,7 +127,7 @@ export class Theming {
     }, []);
 
     const isDarkMode = (): boolean => {
-      return currentTheme.endsWith('dark');
+      return currentTheme === 'dark';
     };
 
     const createTheme = (upstreamTheme: Theme): any => {
@@ -80,7 +135,6 @@ export class Theming {
     };
 
     const themeContext: ThemeContextValue = {
-      currentMapping: mapping,
       currentTheme,
       setCurrentTheme,
       isDarkMode,
@@ -91,7 +145,7 @@ export class Theming {
   };
 
   static useTheme = (upstreamTheme: Theme): any => {
-    const themeContext: ThemeContextValue = React.useContext(Theming.Context);
+    const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
     return themeContext.createTheme(upstreamTheme);
   };
 

@@ -22,7 +22,7 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
   const { showcase, settings, renderItem, children, onBackPress, ...showcaseProps } = props;
 
   const [showcaseSettings, setShowcaseSettings] = React.useState({});
-  const themeContext: ThemeContextValue = React.useContext(Theming.Context);
+  const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
 
   const onSelectSetting = (selectedSettings: { [prop: string]: any }): void => {
     setShowcaseSettings({ ...settings, ...selectedSettings });
