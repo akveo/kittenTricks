@@ -19,8 +19,7 @@ export const ConversationListScreen = ({ navigation }): React.ReactElement => {
       style={styles.container}
       insets='top'>
       <TopNavigation
-        title='John Doe'
-        subtitle='Last seen just now'
+        title='Messages'
         leftControl={renderBackAction()}
       />
       <Divider/>
