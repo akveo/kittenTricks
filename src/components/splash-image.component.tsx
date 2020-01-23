@@ -1,20 +1,19 @@
 import React from 'react';
-import { Animated, Easing, ImageSourcePropType, StyleSheet } from 'react-native';
+import { Animated, Easing, ImageProps, StyleSheet } from 'react-native';
 
-export interface LoadingAnimationProps {
-  splash: ImageSourcePropType;
-  isLoaded: boolean;
+export interface LoadingAnimationProps extends ImageProps {
+  loading: boolean;
 }
 
 const animationValue: Animated.Value = new Animated.Value(0);
 
-export const LoadingAnimation = (props: LoadingAnimationProps): React.ReactElement | undefined => {
+export const SplashImage = (props: LoadingAnimationProps): React.ReactElement | undefined => {
 
   const [animationCompleted, setAnimationCompleted] = React.useState<boolean>(false);
 
   React.useEffect((): void => {
-    props.isLoaded && startAnimation();
-  }, [props.isLoaded]);
+    !props.loading && startAnimation();
+  }, [props.loading]);
 
   const startAnimation = (): void => {
     Animated.timing(animationValue, {
@@ -44,10 +43,10 @@ export const LoadingAnimation = (props: LoadingAnimationProps): React.ReactEleme
   ];
 
   const renderAnimatedComponent = (): React.ReactElement => (
-    <Animated.View style={[styles.container, { opacity }]}>
+    <Animated.View style={[StyleSheet.absoluteFill, styles.container, { opacity }]}>
       <Animated.Image
-        style={[styles.image, { transform }]}
-        source={props.splash}
+        {...props}
+        style={[StyleSheet.absoluteFill, styles.image, props.style, { transform }]}
       />
     </Animated.View>
   );
@@ -57,13 +56,11 @@ export const LoadingAnimation = (props: LoadingAnimationProps): React.ReactEleme
 
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
   image: {
-    ...StyleSheet.absoluteFillObject,
     width: undefined,
     height: undefined,
     resizeMode: 'contain',

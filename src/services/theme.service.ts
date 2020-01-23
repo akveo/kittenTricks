@@ -97,7 +97,7 @@ export class Theming {
    * - `isDarkMode` returns true if current device appearance is `dark`.
    * - `createTheme` will take an `upstreamTheme` and merge it with `currentTheme`.
    *
-   * @param {Record<Theme, any>} themes - set of themes available in app.
+   * @param {Record<Mapping, Record<Theme, any>>} themes - set of themes available in app.
    * @param {Mapping} mapping - mapping name to use. Could be `Eva` or `Material`.
    * @param {Theme} theme - name of theme that will be applied if there is no preferred appearance set.
    *
@@ -109,10 +109,7 @@ export class Theming {
                        mapping: Mapping,
                        theme: Theme): [ThemeContextValue, any] => {
 
-    const deviceAppearance: ColorSchemeName = Appearance.getColorScheme();
-    const deviceAppearanceTheme: Theme = Theming.createAppearanceTheme(deviceAppearance, theme);
-
-    const [currentTheme, setCurrentTheme] = React.useState<Theme>(deviceAppearanceTheme);
+    const [currentTheme, setCurrentTheme] = React.useState<Theme>(theme);
 
     React.useEffect(() => {
       const subscription = Appearance.addChangeListener((preferences: AppearancePreferences): void => {
@@ -136,7 +133,10 @@ export class Theming {
 
     const themeContext: ThemeContextValue = {
       currentTheme,
-      setCurrentTheme,
+      setCurrentTheme: (nextTheme) => {
+        AppStorage.setTheme(nextTheme);
+        setCurrentTheme(nextTheme);
+      },
       isDarkMode,
       createTheme,
     };

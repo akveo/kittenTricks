@@ -1,91 +1,88 @@
 import React from 'react';
-import { ImageRequireSource } from 'react-native';
-import { AppLoading, SplashScreen } from 'expo';
-import { Asset } from 'expo-asset';
+import { AppLoading as ExpoAppLoading, SplashScreen } from 'expo';
 import * as Font from 'expo-font';
-import { LoadingAnimation, LoadingAnimationProps } from './app-loader-animation.component';
-import { AppConfig } from '../model/app-config.model';
-import { AppStorage } from '../services/app-storage.service';
-import { Mapping } from '../services/theme.service';
+import { Asset } from 'expo-asset';
 
-export interface Assets {
-  images?: ImageRequireSource[];
-  fonts?: Record<string, number>;
+type TaskResult = [string, any];
+type Task = () => Promise<TaskResult | null>;
+
+export interface ApplicationLoaderProps {
+  tasks?: Task[];
+  initialConfig?: Record<string, any>;
+  placeholder?: (props: { loading: boolean }) => React.ReactElement;
+  children: (config: any) => React.ReactElement;
 }
 
-export interface ApplicationLoaderProps extends Omit<LoadingAnimationProps, 'isLoaded'> {
-  assets: Assets;
-  initialConfig: AppConfig;
-  children: (config: AppConfig) => React.ReactNode;
-}
+export const LoadFontsTask = (fonts: { [key: string]: number }): Promise<TaskResult> => {
+  return Font.loadAsync(fonts).then(() => null);
+};
 
+export const LoadAssetsTask = (assets: number[]): Promise<TaskResult> => {
+  const tasks: Promise<void>[] = assets.map((source: number): Promise<void> => {
+    return Asset.fromModule(source).downloadAsync();
+  });
+
+  return Promise.all(tasks).then(() => null);
+};
+
+/*
+ * Prevent splash screen from hiding since it is controllable by AppLoading component.
+ */
 SplashScreen.preventAutoHide();
 
 /**
- * Loads application resources and application config from `AppStorage`
+ * Loads application configuration and returns content of the application when done.
  *
- * @property {Assets} assets - assets to load.
+ * @property {Task[]} tasks - Array of tasks to prepare application before it's loaded.
+ * A single task should return a Promise with value and a by which this value is accessible.
  *
- * @property {AppConfig} initialConfig - default application config.
- * Should not be nullable to avoid loading errors.
+ * @property {any} fallback - Fallback configuration that is used as default application configuration.
+ * May be useful at first run.
  *
- * @property {(config: AppConfig) => React.ReactElement} - Should return Application component
+ * @property {(props: { loaded: boolean }) => React.ReactElement} placeholder - Element to render
+ * while application is loading.
+ *
+ * @property {(result: any) => React.ReactElement} children - Should return Application component
  */
-export const ApplicationLoader = (props: ApplicationLoaderProps): React.ReactElement => {
+export const AppLoading = (props: ApplicationLoaderProps): React.ReactElement => {
 
-  const [loaded, setLoaded] = React.useState<boolean>(false);
-  const appConfig = props.initialConfig;
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const loadingResult = props.initialConfig || {};
 
-  const onLoadSuccess = (): void => {
-    setLoaded(true);
+  const onTasksFinish = (): void => {
+    setLoading(false);
     SplashScreen.hide();
   };
 
-  const loadResourcesAndApplicationConfig = (): Promise<void> => {
-    return loadResources(props.assets)
-      .then(loadApplicationConfig);
+  const saveTaskResult = (result: [string, any] | null): void => {
+    if (result) {
+      loadingResult[result[0]] = result[1];
+    }
   };
 
-  const loadFonts = (fonts: { [key: string]: number }): Promise<void> => {
-    return Font.loadAsync(fonts);
+  const createRunnableTask = (task: Task): Promise<void> => {
+    return task().then(saveTaskResult);
   };
 
-  const loadImages = (images: ImageRequireSource[]): Promise<void[]> => {
-    const tasks: Promise<void>[] = images.map((image: ImageRequireSource): Promise<void> => {
-      return Asset.fromModule(image).downloadAsync();
-    });
-
-    return Promise.all(tasks);
+  const startTasks = (): Promise<any> => {
+    if (props.tasks) {
+      return Promise.all(props.tasks.map(createRunnableTask));
+    }
+    return Promise.resolve();
   };
 
-  const loadApplicationConfig = (): Promise<void> => {
-    return AppStorage.getMapping(props.initialConfig.mapping).then((mapping: Mapping): void => {
-      appConfig.mapping = mapping;
-    });
-  };
-
-  const loadResources = (assets: Assets): Promise<any> => {
-    return Promise.all([
-      loadFonts(assets.fonts || {}),
-      loadImages(assets.images || []),
-    ]);
-  };
-
-  const renderLoading = (): React.ReactElement => (
-    <AppLoading
-      startAsync={loadResourcesAndApplicationConfig}
-      onFinish={onLoadSuccess}
+  const renderLoadingElement = (): React.ReactElement => (
+    <ExpoAppLoading
+      startAsync={startTasks}
+      onFinish={onTasksFinish}
       autoHideSplash={false}
     />
   );
 
   return (
     <React.Fragment>
-      {loaded ? props.children(appConfig) : renderLoading()}
-      <LoadingAnimation
-        splash={props.splash}
-        isLoaded={loaded}
-      />
+      {loading ? renderLoadingElement() : props.children(loadingResult)}
+      {props.placeholder && props.placeholder({ loading })}
     </React.Fragment>
   );
 };
