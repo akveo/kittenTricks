@@ -1,6 +1,5 @@
 import React from 'react';
 import { I18nManager, Platform, StyleSheet, ViewProps } from 'react-native';
-import { Updates } from 'expo';
 import {
   Button,
   CheckBox,
@@ -11,6 +10,7 @@ import {
 import { ColorPaletteIcon, SettingsIcon, TrashIcon } from './icons';
 import { ComponentShowcaseSetting } from '../model/showcase.model';
 import { Theme } from '../services/theme.service';
+import { AppReloadService } from '../services/app-reload.service';
 
 export interface ShowcaseSettingsProps extends ViewProps {
   themes?: Theme[];
@@ -74,7 +74,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
   const toggleRtl = (): void => {
     I18nManager.forceRTL(!I18nManager.isRTL);
     I18nManager.allowRTL(I18nManager.isRTL);
-    Platform.OS !== 'web' && Updates.reload();
+    Platform.OS !== 'web' && AppReloadService.reload();
   };
 
   return (

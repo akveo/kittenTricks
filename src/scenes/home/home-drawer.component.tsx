@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
 import {
   Avatar,
   Divider,
@@ -15,6 +14,7 @@ import {
 } from '@ui-kitten/components';
 import { BookIcon, GithubIcon } from '../../components/icons';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
+import { WebBrowserService } from '../../services/web-browser.service';
 
 const DATA: MenuItemType[] = [
   { title: 'View Github', icon: GithubIcon },
@@ -26,12 +26,12 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
   const onItemSelect = (index: number): void => {
     switch (index) {
       case 0: {
-        WebBrowser.openBrowserAsync('https://github.com/akveo/kittenTricks');
+        WebBrowserService.openBrowserAsync('https://github.com/akveo/kittenTricks');
         navigation.toggleDrawer();
         return;
       }
       case 1: {
-        WebBrowser.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
+        WebBrowserService.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
         navigation.toggleDrawer();
         return;
       }

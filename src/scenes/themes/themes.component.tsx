@@ -20,13 +20,15 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
 
   const mappingContext: MappingContextValue = React.useContext(Theming.MappingContext);
   const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
+  const [evaToggleChecked, setEvaToggleChecked] = React.useState(mappingContext.isEva());
 
   const themes: ThemeItem[] = ThemesService.createThemeListItems(
     appThemes,
     mappingContext.currentMapping,
   );
 
-  const onDesignSystemToggleChange = (checked: boolean): void => {
+  const onEvaToggleCheckedChange = (checked: boolean): void => {
+    setEvaToggleChecked(checked);
     mappingContext.setCurrentMapping(checked ? 'eva' : 'material');
   };
 
@@ -67,10 +69,10 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
 
   const renderFooter = (): React.ReactElement => (
     <Toggle
-      style={styles.designSystemToggle}
+      style={styles.evaToggle}
       text='Eva Design System'
-      checked={mappingContext.isEva()}
-      onChange={onDesignSystemToggleChange}
+      checked={evaToggleChecked}
+      onChange={onEvaToggleCheckedChange}
     />
   );
 
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
   item: {
     margin: 8,
   },
-  designSystemToggle: {
+  evaToggle: {
     margin: 8,
     alignSelf: 'flex-end',
     flexDirection: 'row-reverse',
