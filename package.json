@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/akveo/kittenTricks/issues"
   },
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "./index.js",
   "workspaces": {
     "nohoist": [
       "*",
@@ -16,9 +16,11 @@
     ]
   },
   "scripts": {
-    "start": "npm run env -- prod && expo start -c",
-    "start:dev": "npm run env -- dev && expo start -c --dev --no-minify",
-    "start:prod": "npm start -- --no-dev --minify",
+    "start": "npm run env -- prod && react-native start",
+    "start:dev": "npm run env -- dev && react-native start --reset-cache",
+    "ios": "react-native run-ios",
+    "web": "expo start -w",
+    "postinstall": "jetify",
     "env": "node ./env/set-env.js",
     "build": "tsc -p ./tsconfig.json",
     "clean": "rimraf ./dist",
@@ -48,7 +50,7 @@
     "moment": "^2.24.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native": "~0.61.5",
     "react-native-appearance": "~0.3.1",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
@@ -68,6 +70,7 @@
     "babel-preset-expo": "^8.0.0",
     "conventional-changelog-cli": "^2.0.21",
     "husky": "^1.1.2",
+    "jetifier": "~1.6.4",
     "rimraf": "^2.6.2",
     "tslint": "^5.12.1",
     "typescript": "3.7"
