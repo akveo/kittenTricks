@@ -15,10 +15,10 @@ import { Mapping, Theme, Theming } from '../services/theme.service';
 const loadingTasks = [
   // Should be used it when running Expo.
   // In Bare RN Project this is configured by react-native.config.js
-  // () => LoadFontsTask({
-  //   'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),
-  //   'roboto-regular': require('../assets/fonts/roboto-regular.ttf'),
-  // }),
+  () => LoadFontsTask({
+    'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),
+    'roboto-regular': require('../assets/fonts/roboto-regular.ttf'),
+  }),
   () => AppStorage.getMapping(defaultConfig.mapping).then(result => ['mapping', result]),
   () => AppStorage.getTheme(defaultConfig.theme).then(result => ['theme', result]),
 ];
