@@ -1,7 +1,7 @@
 import React from 'react';
-import { Updates } from 'expo';
 import { Appearance, AppearancePreferences, ColorSchemeName } from 'react-native-appearance';
 import { AppStorage } from './app-storage.service';
+import { AppReloadService } from './app-reload.service';
 
 export type Mapping = 'eva' | 'material';
 export type Theme = 'light' | 'dark' | 'brand';
@@ -71,7 +71,8 @@ export class Theming {
      * Writes mapping to AsyncStorage and reloads an app
      */
     const setCurrentMapping = (nextMapping: Mapping): void => {
-      AppStorage.setMapping(nextMapping).then(Updates.reload);
+      AppStorage.setMapping(nextMapping)
+                .then(AppReloadService.reload);
     };
 
     const isEva = (): boolean => {

@@ -3,7 +3,7 @@ import { AppearanceProvider } from 'react-native-appearance';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
-import { AppLoading, LoadFontsTask } from './app-loader.component';
+import { AppLoading, LoadFontsTask } from './app-loading.component';
 import { appMappings, appThemes } from './app-theming';
 import { AppIconsPack } from './app-icons-pack';
 import { StatusBar } from '../components/status-bar.component';
@@ -12,13 +12,13 @@ import { AppNavigator } from '../navigation/app.navigator';
 import { AppStorage } from '../services/app-storage.service';
 import { Mapping, Theme, Theming } from '../services/theme.service';
 
-const fonts = {
-  'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),
-  'roboto-regular': require('../assets/fonts/roboto-regular.ttf'),
-};
-
 const loadingTasks = [
-  () => LoadFontsTask(fonts),
+  // Should be used it when running Expo.
+  // In Bare RN Project this is configured by react-native.config.js
+  // () => LoadFontsTask({
+  //   'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),
+  //   'roboto-regular': require('../assets/fonts/roboto-regular.ttf'),
+  // }),
   () => AppStorage.getMapping(defaultConfig.mapping).then(result => ['mapping', result]),
   () => AppStorage.getTheme(defaultConfig.theme).then(result => ['theme', result]),
 ];
