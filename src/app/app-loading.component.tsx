@@ -1,7 +1,7 @@
 import React from 'react';
 
 type TaskResult = [string, any];
-type Task = () => Promise<TaskResult | null>;
+export type Task = () => Promise<TaskResult | null>;
 
 export interface ApplicationLoaderProps {
   tasks?: Task[];
@@ -16,7 +16,10 @@ export const LoadFontsTask = (fonts: { [key: string]: number }): Promise<TaskRes
     'Use `react-native.config.js',
     'Documentation: https://github.com/react-native-community/cli/blob/master/docs/configuration.md',
   ].join('\n');
-  return Promise.reject(message);
+
+  console.warn(message);
+
+  return Promise.resolve(null);
 };
 
 export const LoadAssetsTask = (assets: number[]): Promise<TaskResult> => {
@@ -25,7 +28,10 @@ export const LoadAssetsTask = (assets: number[]): Promise<TaskResult> => {
     'Use `react-native.config.js',
     'Documentation: https://github.com/react-native-community/cli/blob/master/docs/configuration.md',
   ].join('\n');
-  return Promise.reject(message);
+
+  console.warn(message);
+
+  return Promise.resolve(null);
 };
 
 /**

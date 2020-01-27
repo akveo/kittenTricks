@@ -22,7 +22,7 @@ export const LayoutsScreen = (props): React.ReactElement => {
   return (
     <SafeAreaLayout
       style={styles.safeArea}
-      insets='top' L>
+      insets='top'>
       <TopNavigation
         title='Kitten Tricks'
         leftControl={renderDrawerAction()}

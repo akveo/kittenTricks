@@ -24,7 +24,7 @@
       </activity>
       <activity
           android:name=".MainActivity"
-          android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+          android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
           android:launchMode="singleTask"
           android:screenOrientation="portrait"
           android:windowSoftInputMode="adjustPan">
