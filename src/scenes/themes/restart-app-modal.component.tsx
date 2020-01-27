@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
     padding: 16,
-    maxWidth: 320,
+    width: 320,
   },
   description: {
     marginTop: 8,

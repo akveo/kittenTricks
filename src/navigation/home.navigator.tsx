@@ -10,6 +10,7 @@ import { ComponentsNavigator } from './components.navigator';
 import { ThemesNavigator } from './themes.navigator';
 import { HomeBottomNavigation } from '../scenes/home/home-bottom-navigation.component';
 import { HomeDrawer } from '../scenes/home/home-drawer.component';
+import { LibrariesScreen } from '../scenes/libraries/libraries.component';
 
 const BottomTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -51,5 +52,6 @@ export const HomeNavigator = (): React.ReactElement => (
     screenOptions={{ gestureEnabled: false }}
     drawerContent={props => <HomeDrawer {...props}/>}>
     <Drawer.Screen name='Home' component={HomeTabsNavigator}/>
+    <Drawer.Screen name='Libraries' component={LibrariesScreen}/>
   </Drawer.Navigator>
 );

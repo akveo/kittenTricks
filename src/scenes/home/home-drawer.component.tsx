@@ -17,7 +17,7 @@ import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { WebBrowserService } from '../../services/web-browser.service';
 
 const DATA: MenuItemType[] = [
-  { title: 'View Github', icon: GithubIcon },
+  { title: 'Libraries', icon: GithubIcon },
   { title: 'Documentation', icon: BookIcon },
 ];
 
@@ -26,8 +26,8 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
   const onItemSelect = (index: number): void => {
     switch (index) {
       case 0: {
-        WebBrowserService.openBrowserAsync('https://github.com/akveo/kittenTricks');
         navigation.toggleDrawer();
+        navigation.navigate('Libraries');
         return;
       }
       case 1: {

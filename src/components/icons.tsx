@@ -6,6 +6,10 @@ export const ArrowIosBackIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='arrow-ios-back'/>
 );
 
+export const ArrowIosForwardIcon = (style: ImageStyle): IconElement => (
+  <Icon {...style} name='arrow-ios-forward'/>
+);
+
 export const BookIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='book'/>
 );
