@@ -36,4 +36,6 @@ target 'KittenTricks' do
   pod 'Folly', :podspec => "#{rnPrefix}/third-party-podspecs/Folly.podspec"
 
   use_native_modules!
+  pod 'react-native-safari-view', :path => '../node_modules/react-native-safari-view'
+
 end

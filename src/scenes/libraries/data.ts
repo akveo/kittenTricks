@@ -66,4 +66,9 @@ export const data: Library[] = [
     description: 'React Native Masked View Library',
     link: 'https://github.com/react-native-community/react-native-masked-view',
   },
+  {
+    title: 'Safari View',
+    description: 'A React Native wrapper for Safari View Controller',
+    link: 'https://github.com/naoufal/react-native-safari-view',
+  },
 ];

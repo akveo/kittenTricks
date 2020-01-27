@@ -6,6 +6,10 @@
 
 # Run
 
+Before running, application dependencies should be installed and linked.
+
+`yarn && npx react-native link && cd ios && pod install` from the project root.
+
 By default, Kitten Tricks starts like a regular React Native application. In case you want it to run
 with Expo, see [Expo](#run-with-expo) section.
 
