@@ -15,12 +15,14 @@ import { ThemesService } from './themes.service';
 import { ThemeItem } from './type';
 import { appThemes } from '../../app/app-theming';
 import { MenuIcon } from '../../components/icons';
+import { RestartAppModal } from './restart-app-modal.component';
 
 export const ThemesScreen = ({ navigation }): React.ReactElement => {
 
   const mappingContext: MappingContextValue = React.useContext(Theming.MappingContext);
   const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
-  const [evaToggleChecked, setEvaToggleChecked] = React.useState(mappingContext.isEva());
+  const [evaToggleChecked, setEvaToggleChecked] = React.useState<boolean>(mappingContext.isEva());
+  const [restartModalVisible, setRestartModalVisible] = React.useState<boolean>(false);
 
   const themes: ThemeItem[] = ThemesService.createThemeListItems(
     appThemes,
@@ -29,6 +31,7 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
 
   const onEvaToggleCheckedChange = (checked: boolean): void => {
     setEvaToggleChecked(checked);
+    setRestartModalVisible(true);
     mappingContext.setCurrentMapping(checked ? 'eva' : 'material');
   };
 
@@ -46,6 +49,10 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
 
   const createThemeNameForItem = (theme: ThemeItem): string => {
     return `${theme.mapping} ${theme.name}`.toUpperCase();
+  };
+
+  const toggleRestartModal = (): void => {
+    setRestartModalVisible(!restartModalVisible);
   };
 
   const renderDrawerAction = (): React.ReactElement => (
@@ -90,6 +97,11 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
         data={themes}
         renderItem={renderItem}
         ListFooterComponent={renderFooter}
+      />
+      <RestartAppModal
+        visible={restartModalVisible}
+        onBackdropPress={toggleRestartModal}
+        onGotItButtonPress={toggleRestartModal}
       />
     </SafeAreaLayout>
   );

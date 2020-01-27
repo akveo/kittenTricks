@@ -77,6 +77,14 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
     Platform.OS !== 'web' && AppReloadService.reload();
   };
 
+  const renderRTLToggle = (): React.ReactElement => (
+    <CheckBox
+      checked={I18nManager.isRTL}
+      onChange={toggleRtl}
+      text='RTL'
+    />
+  );
+
   return (
     <Layout
       style={[styles.container, props.style]}
@@ -115,11 +123,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
         onPress={onResetButtonPress}>
         RESET
       </Button>
-      <CheckBox
-        checked={I18nManager.isRTL}
-        onChange={toggleRtl}
-        text='RTL'
-      />
+      {__DEV__ && renderRTLToggle()}
     </Layout>
   );
 };

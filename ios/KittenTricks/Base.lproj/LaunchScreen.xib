@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_background_splash" translatesAutoresizingMaskIntoConstraints="NO" id="Jli-Ng-iwg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Jli-Ng-iwg" secondAttribute="trailing" id="0Tg-a0-zqm"/>
+                <constraint firstItem="Jli-Ng-iwg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CKd-63-idp"/>
+                <constraint firstAttribute="bottom" secondItem="Jli-Ng-iwg" secondAttribute="bottom" id="Equ-rG-1I5"/>
+                <constraint firstItem="Jli-Ng-iwg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="w4f-zB-8E3"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="547.10144927536237" y="454.35267857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_background_splash" width="375" height="812"/>
+    </resources>
+</document>
