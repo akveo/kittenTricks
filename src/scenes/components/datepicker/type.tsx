@@ -54,6 +54,14 @@ const boundsDatepicker: ComponentShowcaseItem = {
   },
 };
 
+const backdropDatepicker: ComponentShowcaseItem = {
+  title: 'Backdrop',
+  props: {
+    ...defaultDatepicker.props,
+    backdropStyle: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+  },
+};
+
 const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
   items: [
@@ -75,6 +83,7 @@ const settingsSection: ComponentShowcaseSection = {
   title: 'Settings',
   items: [
     boundsDatepicker,
+    backdropDatepicker,
   ],
 };
 
