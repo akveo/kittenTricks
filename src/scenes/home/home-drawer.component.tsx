@@ -15,11 +15,14 @@ import {
 import { BookIcon, GithubIcon } from '../../components/icons';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { WebBrowserService } from '../../services/web-browser.service';
+import { AppInfoService } from '../../services/app-info.service';
 
 const DATA: MenuItemType[] = [
   { title: 'Libraries', icon: GithubIcon },
   { title: 'Documentation', icon: BookIcon },
 ];
+
+const version: string = AppInfoService.getVersion();
 
 export const HomeDrawer = ({ navigation }): DrawerElement => {
 
@@ -61,7 +64,7 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
       <Divider/>
       <DrawerHeaderFooter
         disabled={true}
-        description='Version 4.4.0-beta.1'
+        description={`Version ${AppInfoService.getVersion()}`}
       />
     </React.Fragment>
   );

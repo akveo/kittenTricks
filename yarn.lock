@@ -5374,7 +5374,7 @@ expo-cli@^3.11.7:
     "@expo/traveling-fastlane-darwin" "1.11.4"
     "@expo/traveling-fastlane-linux" "1.11.4"
 
-expo-constants@~8.0.0:
+expo-constants@^8.0.0, expo-constants@~8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-8.0.0.tgz#e2c5a072dacb4263ccfc57dcb4835ca791960d48"
   integrity sha512-NGRwSWfhwNFA9WVLXwqnSDPJJ4DdXTqEkl9Fr9PcyW5VCoFgz7uke256E1YZsYhOE0Ph365lu/5jjZs+MRmRog==
@@ -10610,6 +10610,11 @@ react-native-appearance@~0.3.1:
     fbemitter "^2.1.1"
     invariant "^2.2.4"
     use-subscription "^1.0.0"
+
+react-native-device-info@^5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.4.1.tgz#507d2cd4be98813fc0421a35731b471b86ca194d"
+  integrity sha512-eb1fadKkaCy0C6p2gozGQ6vHO+rhQBh1FTN+l7pE23McfI7EKtp6Wy7OCexHvmEe6xsxoHK93cMiCsZuyaTnMA==
 
 react-native-eva-icons@1.1.0:
   version "1.1.0"
