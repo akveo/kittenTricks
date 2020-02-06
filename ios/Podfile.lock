@@ -225,9 +225,9 @@ PODS:
     - ReactCommon/jscallinvoker (= 0.61.5)
   - RNCMaskedView (0.1.6):
     - React
-  - RNDeviceInfo (5.4.1):
+  - RNDeviceInfo (5.5.1):
     - React
-  - RNGestureHandler (1.5.3):
+  - RNGestureHandler (1.5.6):
     - React
   - RNReanimated (1.4.0):
     - React
@@ -380,13 +380,13 @@ SPEC CHECKSUMS:
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCMaskedView: a88953beefbd347a29072d9eba90e42945fe291e
-  RNDeviceInfo: 0e40d9a9031252d2525d8b69a4b3fa8689efcea4
-  RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6
+  RNDeviceInfo: 017aa2fd29a437fba26807cbe2fa51a149da70cd
+  RNGestureHandler: 911d3b110a7a233a34c4f800e7188a84b75319c6
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: 254da4b84f25971cbb30ed3ddc84131f23cac812
   RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: e19ca058dbeabfed672dd29f4f6b6a15c8b63654
+PODFILE CHECKSUM: 283d79fe9f997cb2e4e5c3b30b4cfe5de474678b
 
 COCOAPODS: 1.7.5
