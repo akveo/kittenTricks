@@ -5330,7 +5330,7 @@ expo-asset@~8.0.0:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
-expo-cli@^3.11.7:
+expo-cli@^3.11.9:
   version "3.11.9"
   resolved "https://registry.yarnpkg.com/expo-cli/-/expo-cli-3.11.9.tgz#d9de9a4e1c7280106fcf28ac5569f06955fba88e"
   integrity sha512-orL91Us6GQGtx+Yhmo9l8MrktoXypDTJsxLtIjz9yC8l8sisw7yyljgNuaxjSsCfdA/KH59SJdXVdjc9S4uWqQ==
@@ -7227,11 +7227,9 @@ is-extglob@^2.1.0, is-extglob@^2.1.1:
   integrity sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=
 
 is-finite@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/is-finite/-/is-finite-1.0.2.tgz#cc6677695602be550ef11e8b4aa6305342b6d0aa"
-  integrity sha1-zGZ3aVYCvlUO8R6LSqYwU0K20Ko=
-  dependencies:
-    number-is-nan "^1.0.0"
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/is-finite/-/is-finite-1.1.0.tgz#904135c77fb42c0641d6aa1bcdbc4daa8da082f3"
+  integrity sha512-cdyMtqX/BOqqNBBiKlIVkytNHm49MtMlYyn1zxzvJKWmFMlGzm+ry5BBfYyeY9YmNKbRSo/o7OX9w9ale0wg3w==
 
 is-fullwidth-code-point@^1.0.0:
   version "1.0.0"

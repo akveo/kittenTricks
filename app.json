@@ -29,7 +29,7 @@
       "image": "src/assets/images/image-splash.png",
       "resizeMode": "contain"
     },
-    "assetBundlePatterns": [  
+    "assetBundlePatterns": [
       "src/assets/images/*",
       "src/assets/fonts",
       "src/layouts/**/assets/*"
