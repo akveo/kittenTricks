@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } from '../../../model/showcase.model';
+import {
+  ComponentShowcase,
+  ComponentShowcaseItem,
+  ComponentShowcaseSection,
+} from '../../../model/showcase.model';
 
 const styles = StyleSheet.create({
   container: {

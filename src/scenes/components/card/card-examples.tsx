@@ -1,6 +1,13 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { Button, CardFooterElement, CardHeader, CardHeaderElement, Text, TextElement } from '@ui-kitten/components';
+import {
+  Button,
+  CardFooterElement,
+  CardHeader,
+  CardHeaderElement,
+  Text,
+  TextElement,
+} from '@ui-kitten/components';
 
 export const CardDefaultHeader = (): CardHeaderElement => (
   <CardHeader
@@ -42,7 +49,8 @@ export const CardFooter = (): CardFooterElement => (
 export const CardBody = (): TextElement => (
   <Text>
     A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
-    Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the Milky Way.
+    Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the
+    Milky Way.
   </Text>
 );
 

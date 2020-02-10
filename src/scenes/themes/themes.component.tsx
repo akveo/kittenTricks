@@ -1,42 +1,107 @@
 import React from 'react';
 import { ListRenderItemInfo, StyleSheet } from 'react-native';
-import { Divider, List, ThemeProvider, TopNavigation } from '@ui-kitten/components';
+import {
+  Divider,
+  List,
+  ThemeProvider,
+  Toggle,
+  TopNavigation,
+  TopNavigationAction,
+} from '@ui-kitten/components';
 import { ThemeCard } from './theme-card.component';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
-import { Theme, ThemeContextValue, Theming } from '../../services/theme.service';
-import { appThemes } from '../../app/app-themes';
+import { MappingContextValue, ThemeContextValue, Theming } from '../../services/theme.service';
+import { ThemesService } from './themes.service';
+import { ThemeItem } from './type';
+import { appThemes } from '../../app/app-theming';
+import { MenuIcon } from '../../components/icons';
+import { RestartAppModal } from './restart-app-modal.component';
 
-const themes: string[] = Object.keys(appThemes).filter(theme => theme !== 'brand');
+export const ThemesScreen = ({ navigation }): React.ReactElement => {
 
-export const ThemesScreen = (): React.ReactElement => {
+  const mappingContext: MappingContextValue = React.useContext(Theming.MappingContext);
+  const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
+  const [evaToggleChecked, setEvaToggleChecked] = React.useState<boolean>(mappingContext.isEva());
+  const [restartModalVisible, setRestartModalVisible] = React.useState<boolean>(false);
 
-  const themeContext: ThemeContextValue = React.useContext(Theming.Context);
+  const themes: ThemeItem[] = ThemesService.createThemeListItems(
+    appThemes,
+    mappingContext.currentMapping,
+  );
 
-  const renderItem = (info: ListRenderItemInfo<Theme>): React.ReactElement => (
-    <ThemeProvider theme={appThemes[info.item]}>
+  const onEvaToggleCheckedChange = (checked: boolean): void => {
+    setEvaToggleChecked(checked);
+    setRestartModalVisible(true);
+    mappingContext.setCurrentMapping(checked ? 'eva' : 'material');
+  };
+
+  const onItemPress = (info: ListRenderItemInfo<ThemeItem>): void => {
+    themeContext.setCurrentTheme(info.item.name);
+  };
+
+  const isActiveTheme = (theme: ThemeItem): boolean => {
+    return mappingContext.currentMapping === theme.mapping && themeContext.currentTheme === theme.name;
+  };
+
+  const shouldDisableItem = (theme: ThemeItem): boolean => {
+    return themeContext.currentTheme === theme.name;
+  };
+
+  const createThemeNameForItem = (theme: ThemeItem): string => {
+    return `${theme.mapping} ${theme.name}`.toUpperCase();
+  };
+
+  const toggleRestartModal = (): void => {
+    setRestartModalVisible(!restartModalVisible);
+  };
+
+  const renderDrawerAction = (): React.ReactElement => (
+    <TopNavigationAction
+      icon={MenuIcon}
+      onPress={navigation.toggleDrawer}
+    />
+  );
+
+  const renderItem = (info: ListRenderItemInfo<ThemeItem>): React.ReactElement => (
+    <ThemeProvider theme={info.item.theme}>
       <ThemeCard
         style={styles.item}
-        title={info.item.toUpperCase()}
-        disabled={themeContext.currentTheme === info.item}
-        onPress={() => themeContext.setCurrentTheme(info.item)}
+        title={createThemeNameForItem(info.item)}
+        isActive={isActiveTheme(info.item)}
+        disabled={shouldDisableItem(info.item)}
+        onPress={() => onItemPress(info)}
       />
     </ThemeProvider>
+  );
+
+  const renderFooter = (): React.ReactElement => (
+    <Toggle
+      style={styles.evaToggle}
+      text='Eva Design System'
+      checked={evaToggleChecked}
+      onChange={onEvaToggleCheckedChange}
+    />
   );
 
   return (
     <SafeAreaLayout
       style={styles.safeArea}
-      insets='top'
-      level='2'>
+      insets='top'>
       <TopNavigation
         title='Kitten Tricks'
-        alignment='center'
+        leftControl={renderDrawerAction()}
       />
       <Divider/>
       <List
         contentContainerStyle={styles.container}
         data={themes}
         renderItem={renderItem}
+        ListFooterComponent={renderFooter}
+      />
+      <RestartAppModal
+        visible={restartModalVisible}
+        onBackdropPress={toggleRestartModal}
+        onGotItButtonPress={toggleRestartModal}
       />
     </SafeAreaLayout>
   );
@@ -51,5 +116,10 @@ const styles = StyleSheet.create({
   },
   item: {
     margin: 8,
+  },
+  evaToggle: {
+    margin: 8,
+    alignSelf: 'flex-end',
+    flexDirection: 'row-reverse',
   },
 });

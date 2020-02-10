@@ -1,11 +1,11 @@
 import React from 'react';
-import { LayoutList, LayoutListElement } from '../../components/layout-list.component';
+import { LayoutList } from '../../components/layout-list.component';
 import { data } from './data';
 
-export const SocialListScreen = (props): LayoutListElement => {
+export const SocialListScreen = ({ navigation }): React.ReactElement => {
 
   const onItemPress = (index: number): void => {
-    props.navigation.navigate(data[index].route);
+    navigation.navigate(data[index].route);
   };
 
   return (

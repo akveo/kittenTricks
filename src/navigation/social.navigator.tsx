@@ -4,20 +4,20 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { SocialScreen } from '../scenes/social/social.component';
 import { SocialGridScreen } from '../scenes/social/social-grid.component';
 import { SocialListScreen } from '../scenes/social/social-list.component';
-import Feed1Screen from '../scenes/social/feed-1';
-import Feed2Screen from '../scenes/social/feed-2';
-import Profile1Screen from '../scenes/social/profile-1';
-import Profile2Screen from '../scenes/social/profile-2';
-import Profile3Screen from '../scenes/social/profile-3';
-import Profile4Screen from '../scenes/social/profile-4';
-import Profile5Screen from '../scenes/social/profile-5';
-import Profile6Screen from '../scenes/social/profile-6';
-import Profile7Screen from '../scenes/social/profile-7';
-import ProfileSettings1Screen from '../scenes/social/profile-settings-1';
-import ProfileSettings2Screen from '../scenes/social/profile-settings-2';
-import ProfileSettings3Screen from '../scenes/social/profile-settings-3';
-import Chat1Screen from '../scenes/messaging/chat-1';
-import Chat2Screen from '../scenes/messaging/chat-2';
+import { Feed1Screen } from '../scenes/social/feed-1.component';
+import { Feed2Screen } from '../scenes/social/feed-2.component';
+import { Profile1Screen } from '../scenes/social/profile-1.component';
+import { Profile2Screen } from '../scenes/social/profile-2.component';
+import { Profile3Screen } from '../scenes/social/profile-3.component';
+import { Profile4Screen } from '../scenes/social/profile-4.component';
+import { Profile5Screen } from '../scenes/social/profile-5.component';
+import { Profile6Screen } from '../scenes/social/profile-6.component';
+import { Profile7Screen } from '../scenes/social/profile-7.component';
+import { ProfileSettings1Screen } from '../scenes/social/profile-settings-1.component';
+import { ProfileSettings2Screen } from '../scenes/social/profile-settings-2.component';
+import { ProfileSettings3Screen } from '../scenes/social/profile-settings-3.component';
+
+import { Chat1Screen } from '../scenes/messaging/chat-1.component';
 
 const TopTab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
@@ -46,6 +46,5 @@ export const SocialNavigator = (): React.ReactElement => (
     <Stack.Screen name='ProfileSettings3' component={ProfileSettings3Screen}/>
 
     <Stack.Screen name='Chat1' component={Chat1Screen}/>
-    <Stack.Screen name='Chat2' component={Chat2Screen}/>
   </Stack.Navigator>
 );

@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { TopNavigation, TopNavigationAction } from '@ui-kitten/components';
+import { Divider, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout, SafeAreaLayoutProps } from './safe-area-layout.component';
 import { Showcase } from './showcase.component';
 import { ShowcaseSettings } from './showcase-settings.component';
-import { appThemes } from '../app/app-themes';
 import { Theme, ThemeContextValue, Theming } from '../services/theme.service';
 import { ComponentShowcase, ComponentShowcaseSetting } from '../model/showcase.model';
 import { ArrowIosBackIcon } from './icons';
@@ -16,14 +15,14 @@ interface ShowcaseContainerProps extends SafeAreaLayoutProps {
   onBackPress?: () => void;
 }
 
-const themes = Object.keys(appThemes).filter(name => name !== 'brand') as Theme[];
+const themes: Theme[] = ['light', 'dark'];
 
 export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactElement => {
 
-  const { showcase, settings, renderItem, children, onBackPress, ...layoutProps } = props;
+  const { showcase, settings, renderItem, children, onBackPress, ...showcaseProps } = props;
 
   const [showcaseSettings, setShowcaseSettings] = React.useState({});
-  const themeContext: ThemeContextValue = React.useContext(Theming.Context);
+  const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
 
   const onSelectSetting = (selectedSettings: { [prop: string]: any }): void => {
     setShowcaseSettings({ ...settings, ...selectedSettings });
@@ -43,12 +42,12 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
   return (
     <SafeAreaLayout
       style={styles.container}
-      insets='top'
-      level='2'>
+      insets='top'>
       <TopNavigation
         title={showcase.title}
         leftControl={renderBackAction()}
       />
+      <Divider/>
       <ShowcaseSettings
         themes={themes}
         settings={settings}
@@ -56,9 +55,10 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
         onThemeSelect={themeContext.setCurrentTheme}
         onReset={onResetSettings}
       />
+      <Divider/>
       {children}
       <Showcase
-        {...layoutProps}
+        {...showcaseProps}
         showcase={showcase}
         renderItem={renderItem}
         settings={showcaseSettings}

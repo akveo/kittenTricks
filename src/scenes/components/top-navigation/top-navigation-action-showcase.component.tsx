@@ -1,5 +1,9 @@
 import React from 'react';
-import { TopNavigationAction, TopNavigationActionElement, TopNavigationActionProps } from '@ui-kitten/components';
+import {
+  TopNavigationAction,
+  TopNavigationActionElement,
+  TopNavigationActionProps,
+} from '@ui-kitten/components';
 import { ArrowIosBackIcon, MoreVerticalIcon, StarIcon } from '../../../components/icons';
 
 type TopNavigationActionShowcaseProps = Omit<TopNavigationActionProps, 'icon'>;

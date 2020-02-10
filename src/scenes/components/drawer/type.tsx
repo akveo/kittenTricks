@@ -1,5 +1,9 @@
 import React from 'react';
-import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } from '../../../model/showcase.model';
+import {
+  ComponentShowcase,
+  ComponentShowcaseItem,
+  ComponentShowcaseSection,
+} from '../../../model/showcase.model';
 
 
 const defaultDrawer: ComponentShowcaseItem = {

@@ -1,18 +1,27 @@
 import React from 'react';
-import { StatusBar as RNStatusBar, StatusBarProps } from 'react-native';
-import { useTheme } from '@ui-kitten/components';
-import { Theming } from '../services/theme.service';
+import {
+  StatusBar as RNStatusBar,
+  StatusBarProps as RNStatusBarProps,
+  ViewProps,
+} from 'react-native';
+import { styled, StyledComponentProps } from '@ui-kitten/components';
 
-export const StatusBar = (props: StatusBarProps): React.ReactElement => {
+export type StatusBarProps = RNStatusBarProps & StyledComponentProps;
 
-  const theme = useTheme();
-  const themeContext = React.useContext(Theming.Context);
+class StatusBarComponent extends React.Component<StatusBarProps> {
 
-  return (
-    <RNStatusBar
-      {...props}
-      barStyle={themeContext.isDarkMode() ? 'light-content' : 'dark-content'}
-      backgroundColor={theme['background-basic-color-2']}
-    />
-  );
-};
+  static styledComponentName: string = 'StatusBar';
+
+  public render(): React.ReactElement<ViewProps> {
+    const { themedStyle, ...statusBarProps } = this.props;
+
+    return (
+      <RNStatusBar
+        {...themedStyle}
+        {...statusBarProps}
+      />
+    );
+  }
+}
+
+export const StatusBar = styled(StatusBarComponent);

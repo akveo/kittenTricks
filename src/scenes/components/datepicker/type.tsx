@@ -1,5 +1,9 @@
 import React from 'react';
-import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } from '../../../model/showcase.model';
+import {
+  ComponentShowcase,
+  ComponentShowcaseItem,
+  ComponentShowcaseSection,
+} from '../../../model/showcase.model';
 import { StarIcon } from '../../../components/icons';
 
 const now: Date = new Date();
@@ -50,6 +54,14 @@ const boundsDatepicker: ComponentShowcaseItem = {
   },
 };
 
+const backdropDatepicker: ComponentShowcaseItem = {
+  title: 'Backdrop',
+  props: {
+    ...defaultDatepicker.props,
+    backdropStyle: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+  },
+};
+
 const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
   items: [
@@ -71,6 +83,7 @@ const settingsSection: ComponentShowcaseSection = {
   title: 'Settings',
   items: [
     boundsDatepicker,
+    backdropDatepicker,
   ],
 };
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { LayoutList, LayoutListElement } from '../../components/layout-list.component';
 import { data } from './data';
 
-export const EcommerceListScreen = (props): LayoutListElement => {
+export const EcommerceListScreen = ({ navigation }): LayoutListElement => {
 
   const onItemPress = (index: number): void => {
-    props.navigation.navigate(data[index].route);
+    navigation.navigate(data[index].route);
   };
 
   return (

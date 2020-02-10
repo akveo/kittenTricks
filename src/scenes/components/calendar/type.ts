@@ -3,7 +3,11 @@ import { CalendarViewModes, NativeDateService } from '@ui-kitten/components';
 import { MomentDateService } from '@ui-kitten/moment';
 import { DateFnsService } from '@ui-kitten/date-fns';
 import { CalendarCustomItem } from './calendar-custom-item.component';
-import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } from '../../../model/showcase.model';
+import {
+  ComponentShowcase,
+  ComponentShowcaseItem,
+  ComponentShowcaseSection,
+} from '../../../model/showcase.model';
 
 const now: Date = new Date();
 

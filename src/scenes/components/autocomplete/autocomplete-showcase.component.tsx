@@ -1,6 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Autocomplete, AutocompleteElement, AutocompleteOption, AutocompleteProps } from '@ui-kitten/components';
+import {
+  Autocomplete,
+  AutocompleteElement,
+  AutocompleteOption,
+  AutocompleteProps,
+} from '@ui-kitten/components';
 
 export const AutocompleteShowcase = (props: AutocompleteProps): AutocompleteElement => {
 

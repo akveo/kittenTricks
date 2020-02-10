@@ -4,34 +4,27 @@ import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { BrandTabBar } from '../../components/brand-tab-bar.component';
 import { ArrowIosBackIcon, GridIcon, ListIcon } from '../../components/icons';
 
-export const AuthScreen = (props): React.ReactElement => {
-
-  const onBackActionPress = (): void => {
-    props.navigation.goBack(null);
-  };
+export const AuthScreen = ({ navigation, state }): React.ReactElement => {
 
   const onTabSelect = (index: number): void => {
-    props.navigation.navigate(props.state.routeNames[index]);
+    navigation.navigate(state.routeNames[index]);
   };
 
   const renderBackAction = (): React.ReactElement => (
     <TopNavigationAction
       icon={ArrowIosBackIcon}
-      onPress={onBackActionPress}
+      onPress={navigation.goBack}
     />
   );
 
   return (
-    <SafeAreaLayout
-      insets='top'
-      level='2'>
+    <SafeAreaLayout insets='top'>
       <TopNavigation
         title='Auth'
-        alignment='center'
         leftControl={renderBackAction()}
       />
       <BrandTabBar
-        selectedIndex={props.state.index}
+        selectedIndex={state.index}
         onSelect={onTabSelect}>
         <Tab icon={GridIcon}/>
         <Tab icon={ListIcon}/>

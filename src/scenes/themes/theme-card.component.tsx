@@ -1,9 +1,17 @@
 import React from 'react';
 import { View, ViewProps, ViewStyle } from 'react-native';
-import { Card, CardElement, CardProps, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
+import {
+  Card,
+  CardElement,
+  CardProps,
+  StyleService,
+  Text,
+  useStyleSheet,
+} from '@ui-kitten/components';
 
 export interface ThemeCardProps extends Omit<CardProps, 'children'> {
   title: string;
+  isActive: boolean;
 }
 
 export const ThemeCard = (props: ThemeCardProps): CardElement => {
@@ -36,7 +44,7 @@ export const ThemeCard = (props: ThemeCardProps): CardElement => {
       <Text
         appearance='hint'
         category='c1'>
-        {props.disabled && 'ACTIVE'}
+        {props.isActive && 'ACTIVE'}
       </Text>
     </View>
   );
