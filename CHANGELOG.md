@@ -1,3 +1,14 @@
+## 2.4.0 (2020-02-10)
+
+### :rocket: Features
+
+* Upgrade UI Kitten to [v4.4.0](https://github.com/akveo/react-native-ui-kitten/issues/517#issuecomment-584100452)
+* Eva material compatibility ([9f73d1a](https://github.com/akveo/kittenTricks/commit/9f73d1a))
+* Upgrade React Navigation to v5
+* Make runnable in both React Native and Expo environments
+
+
+
 ## <small>2.4.0-beta.3 (2020-01-22)<small>
 
 ### :rocket: Features
