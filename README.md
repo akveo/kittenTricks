@@ -7,6 +7,8 @@ The themes can be changed in the runtime, without any need of reloading the appl
 Download a live Demo published on both [App Store][link:app-store] and [Google Play][link:google-play]
  or simply run it yourself by cloning a GitHub repo. 
 
+![Kitten Material](https://camo.githubusercontent.com/f0487d92194f3c685213539c53e9784113cd8a4b/68747470733a2f2f692e696d6775722e636f6d2f58384f344748622e706e67)
+
 ![Preview](https://i.imgur.com/2E2nWHc.jpg)
 
 [<img src="http://i.imgur.com/7IxtMV0.png" width="200"/>][link:app-store]
