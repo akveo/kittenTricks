@@ -24,6 +24,7 @@
     "start:dev": "npm run env -- dev && react-native start --reset-cache",
     "env": "node ./env/set-env.js",
     "build": "tsc -p ./tsconfig.json",
+    "build:web": "expo build:web",
     "clean": "rimraf ./dist ./web-build",
     "lint": "tslint -c ./tslint.json ./src/**/*.{ts,tsx}",
     "changelog": "conventional-changelog -i ./CHANGELOG.md -s",
