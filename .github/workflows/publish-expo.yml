@@ -39,8 +39,8 @@ jobs:
 #          expo-password: ${{ secrets.EXPO_CLI_PASSWORD_UI_KITTEN }}
 #          expo-cache: true
 
-      - name: Setup Netlify
-        run: npm i -g netlify-cli
+#      - name: Setup Netlify
+#        run: npm i -g netlify-cli
 
       - name: Get yarn cache
         id: yarn-cache
@@ -67,21 +67,22 @@ jobs:
 #      - name: Publish Expo App
 #        run: expo publish --release-channel=pr-${{ github.event.number }}
 
-#      - name: Deploy to Netlify
-#        uses: netlify/actions/cli@master
-#        env:
-#          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-#          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-#        with:
-#          args: deploy --dir=web-build
-#          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
-
       - name: Build Web App
         run: yarn build:web
 
-      - name: Deploy Web App to Netlify
+#      - name: Deploy Web App to Netlify
+#        working-directory: ./web-build
+#        run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Deploy to Netlify
         working-directory: ./web-build
-        run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }}
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
 #      - name: Get Expo App link
 #        id: expo
