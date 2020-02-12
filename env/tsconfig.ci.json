@@ -33,12 +33,6 @@
   "exclude": [
     "./node_modules",
     "./babel.config.js",
-    "./metro.config.js",
-    "./**/*.spec.ts",
-    "./**/*.spec.tsx",
-    "./**/*.snap",
-    "./packages-ci/react-native-ui-kitten/src/template-js",
-    "./packages-ci/react-native-ui-kitten/src/template-ts",
-    "./packages-ci/react-native-ui-kitten/src/showcases",
+    "./metro.config.js"
   ]
 }
