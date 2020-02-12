@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/tsc-out",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "paths": {
+      "@eva-design/*": [
+        "./packages-ci/eva/packages/*"
+      ],
+      "@ui-kitten/*": [
+        "./packages-ci/react-native-ui-kitten/src/*"
+      ],
+      "@kitten/*": [
+        "./packages-ci/react-native-ui-kitten/src/components/*"
+      ]
+    }
+  },
+  "exclude": [
+    "./node_modules",
+    "./babel.config.js",
+    "./metro.config.js"
+  ]
+}

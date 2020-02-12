@@ -1,4 +1,5 @@
-# Kitten Tricks [<img src="https://i.imgur.com/oMcxwZ0.png" alt="Eva Design System" height="20px" />][link:eva] [![Build Status][badge:github-actions]][link:github-actions]
+# Kitten Tricks [<img src="https://i.imgur.com/oMcxwZ0.png" alt="Eva Design System" height="20px" />][link:eva] [![Build Status][badge:github-actions]][link:github-actions] [![runs with expo][badge:expo]][link:expo] [![Netlify Status][badge:netlify]][link:netlify]
+
 
 This perfect starter kit is an app based on React Native and [**UI Kitten library**][link:ui-kitten] with Light and Dark themes support. It’s completely free and Open Source. 
 Compose the application from available screens, add backend integration and you will end up with A-grade cross-platform mobile application.
@@ -54,8 +55,12 @@ Made with :heart: by [Akveo team][link:akveo-homepage]. Follow us on [Twitter][l
 We're always happy to receive your feedback!
 
 [badge:github-actions]: https://github.com/akveo/kittenTricks/workflows/Build/badge.svg
+[badge:expo]: https://img.shields.io/badge/Runs%20with%20Expo-000.svg?style=flat&logo=EXPO&labelColor=ffffff&logoColor=000
+[badge:netlify]: https://api.netlify.com/api/v1/badges/95cdef77-0d68-49a1-a497-b305bb5e3f98/deploy-status
 
 [link:github-actions]: https://github.com/akveo/kittenTricks/actions
+[link:expo]: https://expo.io/@ui-kitten/kitten-tricks
+[link:netlify]: https://kitten-tricks.netlify.com
 [link:eva]: https://eva.design
 [link:doc-ui-kitten]: https://akveo.github.io/react-native-ui-kitten
 [link:ui-kitten]: https://github.com/akveo/react-native-ui-kitten
