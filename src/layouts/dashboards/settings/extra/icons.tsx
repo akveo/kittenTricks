@@ -1,7 +1,7 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const ArrowIosBackIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='arrow-ios-back'/>
+export const ArrowIosBackIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='arrow-ios-back'/>
 );

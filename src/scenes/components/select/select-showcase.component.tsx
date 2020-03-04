@@ -1,27 +1,15 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Select, SelectElement, SelectProps } from '@ui-kitten/components';
+import { IndexPath, Select, SelectProps } from '@ui-kitten/components';
 
-export const SelectShowcase = (props: SelectProps): SelectElement => {
+export const SelectShowcase = (props: SelectProps): React.ReactElement => {
 
-  const [selectedOption, setSelectedOption] = React.useState(props.selectedOption);
-
-  const onSelect = (option) => {
-    setSelectedOption(option);
-  };
+  const [selectedIndex, setSelectedIndex] = React.useState<IndexPath | IndexPath[]>();
 
   return (
     <Select
       {...props}
-      style={styles.select}
-      selectedOption={selectedOption}
-      onSelect={onSelect}
+      selectedIndex={selectedIndex}
+      onSelect={setSelectedIndex}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  select: {
-    width: 200,
-  },
-});

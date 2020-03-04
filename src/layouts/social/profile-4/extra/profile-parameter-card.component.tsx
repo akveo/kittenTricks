@@ -11,8 +11,8 @@ import {
 } from '@ui-kitten/components';
 
 export interface ProfileParameterCardProps extends Omit<CardProps, 'children'> {
-  hint: string;
-  value: string;
+  hint: React.ReactText;
+  value: React.ReactText;
   icon: (style: StyleType) => React.ReactElement<ImageProps>;
 }
 

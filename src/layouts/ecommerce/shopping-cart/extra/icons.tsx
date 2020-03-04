@@ -1,17 +1,17 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const CloseIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='close'/>
+export const CloseIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='close'/>
 );
 
-export const MinusIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='minus'/>
+export const MinusIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='minus'/>
 );
 
-export const PlusIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='plus'/>
+export const PlusIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='plus'/>
 );
 
 

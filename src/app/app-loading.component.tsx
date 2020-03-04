@@ -17,7 +17,7 @@ export const LoadFontsTask = (fonts: { [key: string]: number }): Promise<TaskRes
     'Documentation: https://github.com/react-native-community/cli/blob/master/docs/configuration.md',
   ].join('\n');
 
-  console.warn(message);
+  // console.warn(message);
 
   return Promise.resolve(null);
 };

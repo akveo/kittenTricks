@@ -31,8 +31,8 @@ export const ShoppingCartScreen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Shopping Cart'
-        leftControl={renderBackAction()}
-        rightControls={[renderSearchAction()]}
+        accessoryLeft={renderBackAction}
+        accessoryRight={renderSearchAction}
       />
       <ContentView/>
     </SafeAreaLayout>

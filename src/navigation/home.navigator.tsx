@@ -19,7 +19,7 @@ const Drawer = createDrawerNavigator();
  * When dev is true in .expo/settings.json (started via `start:dev`),
  * open Components tab as default.
  */
-const initialTabRoute: string = __DEV__ ? 'Components' : 'Layouts';
+const initialTabRoute: string = __DEV__ ? 'Layouts' : 'Layouts';
 
 /*
  * Can we access it from `HomeNavigator`?

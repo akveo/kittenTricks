@@ -71,7 +71,7 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-expo": "^8.0.0",
     "conventional-changelog-cli": "^2.0.21",
-    "expo-cli": "^3.11.9",
+    "expo-cli": "^3.13.1",
     "husky": "^1.1.2",
     "jetifier": "^1.6.5",
     "rimraf": "^2.6.2",

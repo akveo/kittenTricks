@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardBody, CardCustomHeader, CardDefaultHeader, CardFooter } from './card-examples';
+import { CardCustomHeader, CardDefaultHeader, CardFooter } from './card-examples';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
@@ -8,9 +8,51 @@ import {
 } from '../../../model/showcase.model';
 
 const defaultCard: ComponentShowcaseItem = {
+  props: {},
+};
+
+const headerCard: ComponentShowcaseItem = {
   props: {
-    children: <CardBody/>,
+    ...defaultCard.props,
+    header: CardDefaultHeader,
   },
+};
+
+const headerFooterCard: ComponentShowcaseItem = {
+  props: {
+    ...headerCard.props,
+    footer: CardFooter,
+  },
+};
+
+const customHeaderCard: ComponentShowcaseItem = {
+  props: {
+    ...defaultCard.props,
+    header: CardCustomHeader,
+  },
+};
+
+const accentCard: ComponentShowcaseItem = {
+  props: {
+    ...defaultCard.props,
+    status: 'basic',
+  },
+};
+
+const accentSection: ComponentShowcaseSection = {
+  title: 'Accent',
+  items: [
+    accentCard,
+  ],
+};
+
+const headerFooterSection: ComponentShowcaseSection = {
+  title: 'Header & Footer',
+  items: [
+    headerCard,
+    headerFooterCard,
+    customHeaderCard,
+  ],
 };
 
 const defaultSection: ComponentShowcaseSection = {
@@ -20,71 +62,12 @@ const defaultSection: ComponentShowcaseSection = {
   ],
 };
 
-const cardDefaultHeader: ComponentShowcaseItem = {
-  props: {
-    children: <CardBody/>,
-    header: CardDefaultHeader,
-  },
-};
-
-const cardDefaultHeaderSection: ComponentShowcaseSection = {
-  title: 'Header',
-  items: [
-    cardDefaultHeader,
-  ],
-};
-
-const cardCustomHeader: ComponentShowcaseItem = {
-  props: {
-    children: <CardBody/>,
-    header: CardCustomHeader,
-  },
-};
-
-const cardCustomHeaderSection: ComponentShowcaseSection = {
-  title: 'Custom Header',
-  items: [
-    cardCustomHeader,
-  ],
-};
-
-const footerCard: ComponentShowcaseItem = {
-  props: {
-    children: <CardBody/>,
-    footer: CardFooter,
-  },
-};
-
-const footerSection: ComponentShowcaseSection = {
-  title: 'Footer',
-  items: [
-    footerCard,
-  ],
-};
-
-const headerFooterCard: ComponentShowcaseItem = {
-  props: {
-    children: <CardBody/>,
-    header: CardDefaultHeader,
-    footer: CardFooter,
-  },
-};
-
-const headerFooterSection: ComponentShowcaseSection = {
-  title: 'Header & Footer',
-  items: [
-    headerFooterCard,
-  ],
-};
-
 export const cardShowcase: ComponentShowcase = {
   title: 'Card',
   sections: [
     defaultSection,
-    cardDefaultHeaderSection,
-    cardCustomHeaderSection,
-    footerSection,
     headerFooterSection,
+    accentSection,
   ],
 };
 

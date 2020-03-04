@@ -36,8 +36,8 @@ export const ThemeCard = (props: ThemeCardProps): CardElement => {
     />
   );
 
-  const renderHeader = (): React.ReactElement<ViewProps> => (
-    <View style={styles.header}>
+  const renderHeader = (evaProps: ViewProps): React.ReactElement<ViewProps> => (
+    <View style={[evaProps.style, styles.header]}>
       <Text category='h6'>
         {title}
       </Text>
@@ -65,8 +65,6 @@ const themedStyles = StyleService.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
   },
   body: {
     flexDirection: 'row',

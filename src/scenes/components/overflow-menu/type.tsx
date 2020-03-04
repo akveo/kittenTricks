@@ -1,5 +1,5 @@
 import React from 'react';
-import { OverflowMenuItemType } from '@ui-kitten/components';
+import { MenuItem } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 import {
   ComponentShowcase,
@@ -8,69 +8,56 @@ import {
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
 
-const defaultMenuItems: OverflowMenuItemType[] = [
-  { title: 'Item 1' },
-  { title: 'Item 2' },
-  { title: 'Item 3' },
-];
-
-const withIconMenuItems: OverflowMenuItemType[] = [
-  {
-    title: 'Item 1',
-    icon: StarIcon,
-  },
-  {
-    title: 'Item 2',
-    icon: StarIcon,
-  },
-  {
-    title: 'Item 3',
-    icon: StarIcon,
-  },
-];
-
-const withDisabledItemMenuItems: OverflowMenuItemType[] = [
-  {
-    title: 'Item 1',
-    icon: StarIcon,
-  },
-  {
-    title: 'Item 2',
-    icon: StarIcon,
-    disabled: true,
-  },
-  {
-    title: 'Item 3',
-    icon: StarIcon,
-  },
-];
 
 const defaultOverflowMenu: ComponentShowcaseItem = {
   title: 'Default',
   props: {
-    data: defaultMenuItems,
+    children: [
+      <MenuItem title='Users'/>,
+      <MenuItem title='Orders'/>,
+      <MenuItem title='Transactions'/>,
+    ],
   },
 };
 
-const withIcons: ComponentShowcaseItem = {
-  title: 'Icon',
+const disabledMenu: ComponentShowcaseItem = {
+  title: 'Disabled Item',
   props: {
-    data: withIconMenuItems,
+    children: [
+      <MenuItem title='Users' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Orders' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Transactions' disabled={true} accessoryLeft={StarIcon}/>,
+    ],
   },
 };
 
-const withDisabledItem: ComponentShowcaseItem = {
-  title: 'Disabled items',
+const leftAccessoryMenu: ComponentShowcaseItem = {
+  title: 'Left',
   props: {
-    data: withDisabledItemMenuItems,
+    children: [
+      <MenuItem title='Users' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Orders' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Transactions' accessoryLeft={StarIcon}/>,
+    ],
+  },
+};
+
+const rightAccessoryMenu: ComponentShowcaseItem = {
+  title: 'Right',
+  props: {
+    children: [
+      <MenuItem title='Users' accessoryRight={StarIcon}/>,
+      <MenuItem title='Orders' accessoryRight={StarIcon}/>,
+      <MenuItem title='Transactions' accessoryRight={StarIcon}/>,
+    ],
   },
 };
 
 const styledBackdropOverflowMenu: ComponentShowcaseItem = {
   title: 'Styled backdrop',
   props: {
-    data: withIconMenuItems,
     backdropStyle: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+    children: defaultOverflowMenu.props.children,
   },
 };
 
@@ -78,14 +65,15 @@ const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
   items: [
     defaultOverflowMenu,
-    withDisabledItem,
+    disabledMenu,
   ],
 };
 
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
   items: [
-    withIcons,
+    leftAccessoryMenu,
+    rightAccessoryMenu,
   ],
 };
 

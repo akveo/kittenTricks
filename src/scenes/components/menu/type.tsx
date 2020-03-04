@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItemType } from '@ui-kitten/components';
+import { MenuItem, MenuGroup } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 import {
   ComponentShowcase,
@@ -8,91 +8,64 @@ import {
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
 
-const defaultMenuItems: MenuItemType[] = [
-  { title: 'Item 1' },
-  { title: 'Item 2' },
-  { title: 'Item 3' },
-];
-
-const withIconMenuItems: MenuItemType[] = [
-  {
-    title: 'Item 1',
-    icon: StarIcon,
-  },
-  {
-    title: 'Item 2',
-    icon: StarIcon,
-  },
-  {
-    title: 'Item 3',
-    icon: StarIcon,
-  },
-];
-
-const withDisabledItemMenuItems: MenuItemType[] = [
-  {
-    title: 'Item 1',
-    icon: StarIcon,
-  },
-  {
-    title: 'Item 2',
-    icon: StarIcon,
-    disabled: true,
-  },
-  {
-    title: 'Item 3',
-    icon: StarIcon,
-  },
-];
-
-const withGroupsMenuItems: MenuItemType[] = [
-  {
-    title: 'Item 1',
-    icon: StarIcon,
-  },
-  {
-    title: 'Item 2',
-    icon: StarIcon,
-    subItems: [
-      {
-        title: 'Item 21',
-        icon: StarIcon,
-        disabled: true,
-      },
-      {
-        title: 'Item 22',
-        icon: StarIcon,
-      },
-      {
-        title: 'Item 23',
-        icon: StarIcon,
-      },
-    ],
-  },
-  {
-    title: 'Item 3',
-    icon: StarIcon,
-  },
-];
-
 const defaultMenu: ComponentShowcaseItem = {
   title: 'Default',
   props: {
-    data: defaultMenuItems,
+    children: [
+      <MenuItem title='Users'/>,
+      <MenuItem title='Orders'/>,
+      <MenuItem title='Transactions'/>,
+    ],
   },
 };
 
-const withIconsMenu: ComponentShowcaseItem = {
-  title: 'Icon',
-  props: {
-    data: withIconMenuItems,
-  },
-};
-
-const withDisabledItemMenu: ComponentShowcaseItem = {
+const disabledMenu: ComponentShowcaseItem = {
   title: 'Disabled Item',
   props: {
-    data: withDisabledItemMenuItems,
+    children: [
+      <MenuItem title='Users' accessoryLeft={StarIcon} />,
+      <MenuItem title='Orders' accessoryLeft={StarIcon} />,
+      <MenuItem title='Transactions' disabled={true} accessoryLeft={StarIcon} />,
+    ],
+  },
+};
+
+const leftAccessoryMenu: ComponentShowcaseItem = {
+  title: 'Left',
+  props: {
+    children: [
+      <MenuItem title='Users' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Orders' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Transactions' accessoryLeft={StarIcon}/>,
+    ],
+  },
+};
+
+const rightAccessoryMenu: ComponentShowcaseItem = {
+  title: 'Right',
+  props: {
+    children: [
+      <MenuItem title='Users' accessoryRight={StarIcon} />,
+      <MenuItem title='Orders' accessoryRight={StarIcon} />,
+      <MenuItem title='Transactions' accessoryRight={StarIcon} />,
+    ],
+  },
+};
+
+const groupedMenu: ComponentShowcaseItem = {
+  title: 'Groups',
+  props: {
+    children: [
+      <MenuGroup title='Certificates'>
+        <MenuItem title='iOS Distribution' accessoryRight={StarIcon} />
+        <MenuItem title='iOS Development' accessoryRight={StarIcon} />
+      </MenuGroup>,
+      <MenuGroup title='Devices'>
+        <MenuItem title='iPhone 11 Pro Max' accessoryRight={StarIcon} />
+        <MenuItem title='iPhone 11 Pro' accessoryRight={StarIcon} />
+        <MenuItem title='iPhone 11' accessoryRight={StarIcon} />
+      </MenuGroup>,
+    ],
   },
 };
 
@@ -100,22 +73,22 @@ const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
   items: [
     defaultMenu,
-    withIconsMenu,
-    withDisabledItemMenu,
+    disabledMenu,
   ],
 };
 
-const withGroupsMenu: ComponentShowcaseItem = {
-  title: 'Groups',
-  props: {
-    data: withGroupsMenuItems,
-  },
+const accessoriesSection: ComponentShowcaseSection = {
+  title: 'Accessories',
+  items: [
+    leftAccessoryMenu,
+    rightAccessoryMenu,
+  ],
 };
 
-const withGroupsSection: ComponentShowcaseSection = {
-  title: 'With Groups',
+const groupedSection: ComponentShowcaseSection = {
+  title: 'Groups',
   items: [
-    withGroupsMenu,
+    groupedMenu,
   ],
 };
 
@@ -123,7 +96,8 @@ export const menuShowcase: ComponentShowcase = {
   title: 'Menu',
   sections: [
     defaultSection,
-    withGroupsSection,
+    accessoriesSection,
+    groupedSection,
   ],
 };
 

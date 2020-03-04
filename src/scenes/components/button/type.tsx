@@ -22,24 +22,21 @@ const disabledButton: ComponentShowcaseItem = {
 const leftIconButton: ComponentShowcaseItem = {
   title: 'Left Icon',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
 };
 
 const rightIconButton: ComponentShowcaseItem = {
   title: 'Right Icon',
   props: {
-    icon: StarIcon,
-    style: {
-      flexDirection: 'row-reverse',
-    },
+    accessoryRight: StarIcon,
   },
 };
 
 const disabledIconButton: ComponentShowcaseItem = {
   title: 'Disabled',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     disabled: true,
   },
 };
@@ -47,7 +44,7 @@ const disabledIconButton: ComponentShowcaseItem = {
 const giantButton: ComponentShowcaseItem = {
   title: 'Giant',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     size: 'giant',
   },
 };
@@ -55,7 +52,7 @@ const giantButton: ComponentShowcaseItem = {
 const largeButton: ComponentShowcaseItem = {
   title: 'Large',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     size: 'large',
   },
 };
@@ -63,7 +60,7 @@ const largeButton: ComponentShowcaseItem = {
 const mediumButton: ComponentShowcaseItem = {
   title: 'Medium',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     size: 'medium',
   },
 };
@@ -71,7 +68,7 @@ const mediumButton: ComponentShowcaseItem = {
 const smallButton: ComponentShowcaseItem = {
   title: 'Small',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     size: 'small',
   },
 };
@@ -79,7 +76,7 @@ const smallButton: ComponentShowcaseItem = {
 const tinyButton: ComponentShowcaseItem = {
   title: 'Tiny',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     size: 'tiny',
   },
 };

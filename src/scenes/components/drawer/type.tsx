@@ -5,7 +5,6 @@ import {
   ComponentShowcaseSection,
 } from '../../../model/showcase.model';
 
-
 const defaultDrawer: ComponentShowcaseItem = {
   title: 'Default',
   props: {},

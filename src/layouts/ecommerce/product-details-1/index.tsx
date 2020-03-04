@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, View } from 'react-native';
+import { Image, Platform, TextProps, View } from 'react-native';
 import { Button, Input, Layout, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { RateBar } from './extra/rate-bar.component';
@@ -30,6 +30,12 @@ export default ({ navigation }): React.ReactElement => {
       size='tiny'>
       {category}
     </Button>
+  );
+
+  const renderCommentInputLabel = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.commentInputLabel]}>
+      Comments
+    </Text>
   );
 
   const renderHeader = (): React.ReactElement => (
@@ -85,8 +91,7 @@ export default ({ navigation }): React.ReactElement => {
       </Layout>
       <Input
         style={styles.commentInput}
-        labelStyle={styles.commentInputLabel}
-        label='Comments'
+        label={renderCommentInputLabel}
         placeholder='Write your comment'
         value={inputComment}
         onChangeText={setInputComment}

@@ -76,15 +76,15 @@ export default ({ navigation }): React.ReactElement => {
             style={styles.iconButton}
             appearance='ghost'
             status='basic'
-            icon={MessageCircleIcon}>
-            {`${info.item.comments.length}`}
+            accessoryLeft={MessageCircleIcon}>
+            {info.item.comments.length}
           </Button>
           <Button
             style={styles.iconButton}
             appearance='ghost'
             status='danger'
-            icon={HeartIcon}>
-            {`${info.item.likes.length}`}
+            accessoryLeft={HeartIcon}>
+            {info.item.likes.length}
           </Button>
         </View>
       </View>

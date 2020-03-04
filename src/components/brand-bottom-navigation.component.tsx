@@ -8,7 +8,7 @@ export const BrandBottomNavigation = (props: BottomNavigationProps): React.React
 
   return (
     <ThemeProvider theme={brandTheme}>
-      <BottomNavigation {...props}/>
+      <BottomNavigation {...props} />
     </ThemeProvider>
   );
 };

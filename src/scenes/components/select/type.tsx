@@ -1,105 +1,58 @@
 import React from 'react';
-import { SelectOptionType } from '@ui-kitten/components';
+import { SelectGroup, SelectItem } from '@ui-kitten/components';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
   ComponentShowcaseSection,
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
-import { StarIcon } from '../../../components/icons';
-
-const defaultOptions: SelectOptionType[] = [
-  { text: 'Option 1' },
-  { text: 'Option 2' },
-  { text: 'Option 3' },
-  { text: 'Option 4' },
-  { text: 'Option 5' },
-  { text: 'Option 6' },
-  { text: 'Option 7' },
-  { text: 'Option 8' },
-];
-
-const groupedOptions: SelectOptionType[] = [
-  {
-    text: 'Group 1',
-    items: [
-      { text: 'Option 1' },
-      { text: 'Option 2' },
-    ],
-  },
-  {
-    text: 'Group 2',
-    items: [
-      { text: 'Option 1' },
-      { text: 'Option 2' },
-    ],
-  },
-];
+import { AssetAppIcon, StarIcon } from '../../../components/icons';
 
 const defaultSelect: ComponentShowcaseItem = {
   title: 'Default',
   props: {
-    data: defaultOptions,
-  },
-};
-
-const disabledSelect: ComponentShowcaseItem = {
-  title: 'Disabled',
-  props: {
-    ...defaultSelect.props,
-    disabled: true,
-  },
-};
-
-const initialValueSelect: ComponentShowcaseItem = {
-  title: 'Initial Value',
-  props: {
-    ...defaultSelect.props,
-    selectedOption: defaultOptions[0],
+    children: [
+      <SelectItem title='Option 1'/>,
+      <SelectItem title='Option 2'/>,
+      <SelectItem title='Option 3'/>,
+      <SelectItem title='Option 4'/>,
+    ],
   },
 };
 
 const multiSelect: ComponentShowcaseItem = {
-  title: 'Multiselect',
+  title: 'Multi',
   props: {
     ...defaultSelect.props,
     multiSelect: true,
   },
 };
 
-const multiSelectInitialValue: ComponentShowcaseItem = {
-  title: 'Initial Value',
-  props: {
-    ...multiSelect.props,
-    selectedOption: [defaultOptions[0], defaultOptions[1]],
-  },
-};
-
-const groupSelect: ComponentShowcaseItem = {
+const groupsSelect: ComponentShowcaseItem = {
   title: 'Default',
   props: {
-    ...defaultSelect.props,
-    data: groupedOptions,
+    children: [
+      <SelectGroup title='Group 1'>
+        <SelectItem title='Option 1.1'/>
+        <SelectItem title='Option 1.2'/>
+      </SelectGroup>,
+      <SelectGroup title='Group 2'>
+        <SelectItem title='Option 2.1'/>
+        <SelectItem title='Option 2.2'/>
+      </SelectGroup>
+    ],
   },
 };
 
-const groupMultiselect: ComponentShowcaseItem = {
-  title: 'Multiselect',
+const groupsMultiSelect: ComponentShowcaseItem = {
+  title: 'Multi',
   props: {
-    ...groupSelect.props,
+    ...groupsSelect.props,
     multiSelect: true,
   },
 };
 
-const withIconSelect: ComponentShowcaseItem = {
-  title: 'Icon',
-  props: {
-    ...defaultSelect.props,
-    icon: StarIcon,
-  },
-};
-
-const withLabelSelect: ComponentShowcaseItem = {
+const labelSelect: ComponentShowcaseItem = {
   title: 'Label',
   props: {
     ...defaultSelect.props,
@@ -107,45 +60,82 @@ const withLabelSelect: ComponentShowcaseItem = {
   },
 };
 
-const placeholderSelect: ComponentShowcaseItem = {
-  title: 'Placeholder',
+const captionSelect: ComponentShowcaseItem = {
+  title: 'Caption',
   props: {
     ...defaultSelect.props,
-    placeholder: 'Place your Text',
+    caption: 'Caption',
   },
 };
 
-const defaultSection: ComponentShowcaseSection = {
-  title: 'Default',
-  items: [
-    defaultSelect,
-    disabledSelect,
-    initialValueSelect,
-  ],
+const accessoryLeftSelect: ComponentShowcaseItem = {
+  title: 'Accessory Left',
+  props: {
+    ...defaultSelect.props,
+    accessoryLeft: StarIcon,
+    accessoryRight: () => null,
+  },
 };
 
-const multiSelectSection: ComponentShowcaseSection = {
-  title: 'Multiselect',
-  items: [
-    multiSelect,
-    multiSelectInitialValue,
-  ],
+const accessoryRightSelect: ComponentShowcaseItem = {
+  title: 'Accessory Right',
+  props: {
+    ...defaultSelect.props,
+    accessoryRight: StarIcon,
+  },
 };
 
-const groupsSection: ComponentShowcaseSection = {
-  title: 'Groups',
+const renderItemAccessoryLeftSelect: ComponentShowcaseItem = {
+  title: 'Accessory Left',
+  props: {
+    ...defaultSelect.props,
+    renderItem: ({ item }) => (
+      <SelectItem accessoryLeft={AssetAppIcon} title={item.title}/>
+    ),
+  },
+};
+
+const renderItemAccessoryRightSelect: ComponentShowcaseItem = {
+  title: 'Accessory Right',
+  props: {
+    ...defaultSelect.props,
+    renderItem: ({ item }) => (
+      <SelectItem accessoryRight={AssetAppIcon} title={item.title}/>
+    ),
+  },
+};
+
+const renderItemSection: ComponentShowcaseSection = {
+  title: 'Render Item',
   items: [
-    groupSelect,
-    groupMultiselect,
+    renderItemAccessoryLeftSelect,
+    renderItemAccessoryRightSelect,
   ],
 };
 
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
   items: [
-    withIconSelect,
-    withLabelSelect,
-    placeholderSelect,
+    labelSelect,
+    captionSelect,
+    accessoryLeftSelect,
+    accessoryRightSelect,
+  ],
+};
+
+const groupsSection: ComponentShowcaseSection = {
+  title: 'Groups',
+  items: [
+    groupsSelect,
+    groupsMultiSelect,
+  ],
+};
+
+const defaultSection: ComponentShowcaseSection = {
+  title: 'Default',
+  items: [
+    defaultSelect,
+    multiSelect,
   ],
 };
 
@@ -153,9 +143,9 @@ export const selectShowcase: ComponentShowcase = {
   title: 'Select',
   sections: [
     defaultSection,
-    multiSelectSection,
     groupsSection,
     accessoriesSection,
+    renderItemSection,
   ],
 };
 
@@ -201,3 +191,4 @@ export const selectSettings: ComponentShowcaseSetting[] = [
     value: 'large',
   },
 ];
+

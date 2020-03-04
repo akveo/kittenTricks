@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, Platform, View } from 'react-native';
+import { ImageBackground, Platform, TextProps, View } from 'react-native';
 import {
   Button,
   Input,
@@ -39,9 +39,14 @@ export default ({ navigation }): React.ReactElement => {
     <Radio
       key={index}
       style={styles.colorRadio}
-      textStyle={{ color: color.value }}
       text={color.description.toUpperCase()}
     />
+  );
+
+  const renderCommentInputLabel = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.commentInputLabel]}>
+      Comments
+    </Text>
   );
 
   const renderHeader = (): React.ReactElement => (
@@ -112,8 +117,7 @@ export default ({ navigation }): React.ReactElement => {
       </Layout>
       <Input
         style={styles.commentInput}
-        labelStyle={styles.commentInputLabel}
-        label='Comments'
+        label={renderCommentInputLabel}
         placeholder='Write your comment'
         value={comment}
         onChangeText={setComment}

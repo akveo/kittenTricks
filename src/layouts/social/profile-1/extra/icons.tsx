@@ -1,7 +1,7 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const HeartIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='heart'/>
+export const HeartIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='heart'/>
 );

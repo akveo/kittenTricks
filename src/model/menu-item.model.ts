@@ -1,7 +1,7 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 
 export interface MenuItem {
   title: string;
-  icon: (style: ImageStyle) => React.ReactElement;
+  icon: (props: Partial<ImageProps>) => React.ReactElement;
 }

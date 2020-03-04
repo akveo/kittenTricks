@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageStyle, StyleSheet, View, ViewProps } from 'react-native';
+import { ImageProps, ImageStyle, StyleSheet, View, ViewProps } from 'react-native';
 import { Button, ButtonElement, Icon, IconElement, Text } from '@ui-kitten/components';
 
 export interface RateBarProps extends ViewProps {
@@ -8,8 +8,8 @@ export interface RateBarProps extends ViewProps {
   onValueChange: (value: number) => void;
 }
 
-export const StarIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='star'/>
+export const StarIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='star'/>
 );
 
 export const RateBar = (props: RateBarProps): React.ReactElement<ViewProps> => {
@@ -24,7 +24,7 @@ export const RateBar = (props: RateBarProps): React.ReactElement<ViewProps> => {
         appearance='ghost'
         size='tiny'
         status={status}
-        icon={StarIcon}
+        accessoryLeft={StarIcon}
         onPress={() => props.onValueChange(value)}
       />
     );

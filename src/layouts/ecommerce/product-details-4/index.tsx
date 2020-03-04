@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Image,
-  ImageSourcePropType,
-  ImageStyle,
-  ListRenderItemInfo,
-  ScrollView,
-  View,
-} from 'react-native';
+import { Image, ImageProps, ImageSourcePropType, ListRenderItemInfo, ScrollView, View } from 'react-native';
 import { Button, Card, Icon, List, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { Product, ProductOption } from './extra/data';
@@ -28,8 +21,8 @@ export default (): React.ReactElement => {
     />
   );
 
-  const renderOptionItemIcon = (style: ImageStyle, icon: string): React.ReactElement => (
-    <Icon {...style} name={icon}/>
+  const renderOptionItemIcon = (props: Partial<ImageProps>, icon: string): React.ReactElement => (
+    <Icon {...props} name={icon}/>
   );
 
   const renderOptionItem = (option: ProductOption, index: number): React.ReactElement => (
@@ -38,7 +31,7 @@ export default (): React.ReactElement => {
       style={styles.optionItem}
       appearance='ghost'
       size='small'
-      icon={(style: ImageStyle) => renderOptionItemIcon(style, option.icon)}>
+      accessoryLeft={(props: ImageProps) => renderOptionItemIcon(props, option.icon)}>
       {option.title}
     </Button>
   );

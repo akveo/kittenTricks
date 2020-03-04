@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { List, ListElement, ListProps, Text } from '@ui-kitten/components';
 
 export interface CategoryListProps extends ListProps {
-  hint: string;
+  hint: React.ReactText;
 }
 
 export const CategoryList = (props: CategoryListProps): ListElement => {

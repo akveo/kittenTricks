@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListRenderItemInfo, StyleSheet, View } from 'react-native';
+import { ListRenderItemInfo, StyleSheet, View, ViewProps } from 'react-native';
 import { Button, Card, Layout, List, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ClockIcon, HeartIcon, PlusIcon, ShareIcon } from './extra/icons';
@@ -32,25 +32,26 @@ export default (): React.ReactElement => {
     </ImageOverlay>
   );
 
-  const renderItemFooter = (): React.ReactElement => (
-    <View style={styles.itemFooter}>
+  const renderItemFooter = (props: ViewProps): React.ReactElement => (
+    <View style={[props.style, styles.itemFooter]}>
       <View style={styles.itemReactionsContainer}>
         <Button
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          icon={ShareIcon}/>
+          accessoryLeft={ShareIcon}
+        />
         <Button
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          icon={HeartIcon}
+          accessoryLeft={HeartIcon}
         />
       </View>
       <Button
         style={styles.itemAddButton}
         appearance='ghost'
-        icon={PlusIcon}>
+        accessoryRight={PlusIcon}>
         Add Training
       </Button>
     </View>
@@ -72,7 +73,7 @@ export default (): React.ReactElement => {
         <Button
           style={styles.itemStyxButton}
           size='tiny'
-          icon={ClockIcon}>
+          accessoryLeft={ClockIcon}>
           {`${info.item.styx} min`}
         </Button>
       </Layout>
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
     borderRadius: 24,
   },
   itemDescription: {
-    marginHorizontal: -8,
     marginTop: 16,
   },
   itemFooter: {
@@ -142,7 +142,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   itemAddButton: {
-    flexDirection: 'row-reverse',
     paddingHorizontal: 0,
   },
   iconButton: {

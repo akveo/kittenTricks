@@ -1,324 +1,325 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
+import { SvgProps } from 'react-native-svg';
 
-export const ArrowIosBackIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='arrow-ios-back'/>
+export const ArrowIosBackIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='arrow-ios-back'/>
 );
 
-export const ArrowIosForwardIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='arrow-ios-forward'/>
+export const ArrowIosForwardIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='arrow-ios-forward'/>
 );
 
-export const BookIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='book'/>
+export const BookIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='book'/>
 );
 
-export const BookmarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='bookmark'/>
+export const BookmarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='bookmark'/>
 );
 
-export const BookmarkOutlineIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='bookmark-outline'/>
+export const BookmarkOutlineIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='bookmark-outline'/>
 );
 
-export const ColorPaletteIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='color-palette-outline'/>
+export const ColorPaletteIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='color-palette-outline'/>
 );
 
-export const CloseIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='close'/>
+export const GithubIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='github'/>
 );
 
-export const GithubIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='github'/>
+export const GridIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='grid-outline'/>
 );
 
-export const GridIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='grid-outline'/>
+export const LayoutIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='layout-outline'/>
 );
 
-export const LayoutIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='layout-outline'/>
+export const ListIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='list'/>
 );
 
-export const ListIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='list'/>
+export const MenuIcon = (props: SvgProps): IconElement => (
+  <Icon {...props} name='menu'/>
 );
 
-export const MenuIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='menu'/>
+export const MoreVerticalIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='more-vertical'/>
 );
 
-export const MoreVerticalIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='more-vertical'/>
+export const SearchIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='search'/>
 );
 
-export const SearchIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='search'/>
+export const SettingsIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='settings'/>
 );
 
-export const SettingsIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='settings'/>
+export const StarIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='star'/>
 );
 
-export const StarIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='star'/>
+export const StarOutlineIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='star-outline'/>
 );
 
-export const StarOutlineIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='star-outline'/>
+export const TrashIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='trash'/>
 );
 
-export const TrashIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='trash'/>
+export const AssetAppIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} style={[props.style, { tintColor: undefined }]} pack='app' name='app-icon'/>
 );
 
-export const AssetAuthIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='auth'/>
+export const AssetAuthIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='auth'/>
 );
 
-export const AssetAuthDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='auth-dark'/>
+export const AssetAuthDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='auth-dark'/>
 );
 
-export const AssetSocialIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='social'/>
+export const AssetSocialIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='social'/>
 );
 
-export const AssetSocialDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='social-dark'/>
+export const AssetSocialDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='social-dark'/>
 );
 
-export const AssetArticlesIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='articles'/>
+export const AssetArticlesIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='articles'/>
 );
 
-export const AssetArticlesDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='articles-dark'/>
+export const AssetArticlesDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='articles-dark'/>
 );
 
-export const AssetMessagingIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='messaging'/>
+export const AssetMessagingIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='messaging'/>
 );
 
-export const AssetMessagingDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='messaging-dark'/>
+export const AssetMessagingDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='messaging-dark'/>
 );
 
-export const AssetDashboardsIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='dashboards'/>
+export const AssetDashboardsIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='dashboards'/>
 );
 
-export const AssetDashboardsDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='dashboards-dark'/>
+export const AssetDashboardsDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='dashboards-dark'/>
 );
 
-export const AssetEcommerceIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='ecommerce'/>
+export const AssetEcommerceIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='ecommerce'/>
 );
 
-export const AssetEcommerceDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='ecommerce-dark'/>
+export const AssetEcommerceDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='ecommerce-dark'/>
 );
 
-export const AssetAutocompleteIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='autocomplete'/>
+export const AssetAutocompleteIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='autocomplete'/>
 );
 
-export const AssetAutocompleteDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='autocomplete-dark'/>
+export const AssetAutocompleteDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='autocomplete-dark'/>
 );
 
-export const AssetAvatarIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='avatar'/>
+export const AssetAvatarIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='avatar'/>
 );
 
-export const AssetAvatarDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='avatar-dark'/>
+export const AssetAvatarDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='avatar-dark'/>
 );
 
-export const AssetBottomNavigationIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='bottom-navigation'/>
+export const AssetBottomNavigationIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='bottom-navigation'/>
 );
 
-export const AssetBottomNavigationDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='bottom-navigation-dark'/>
+export const AssetBottomNavigationDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='bottom-navigation-dark'/>
 );
 
-export const AssetButtonIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='button'/>
+export const AssetButtonIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='button'/>
 );
 
-export const AssetButtonDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='button-dark'/>
+export const AssetButtonDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='button-dark'/>
 );
 
-export const AssetButtonGroupIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='button-group'/>
+export const AssetButtonGroupIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='button-group'/>
 );
 
-export const AssetButtonGroupDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='button-group-dark'/>
+export const AssetButtonGroupDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='button-group-dark'/>
 );
 
-export const AssetCalendarIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='calendar'/>
+export const AssetCalendarIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='calendar'/>
 );
 
-export const AssetCalendarDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='calendar-dark'/>
+export const AssetCalendarDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='calendar-dark'/>
 );
 
-export const AssetCardIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='card'/>
+export const AssetCardIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='card'/>
 );
 
-export const AssetCardDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='card-dark'/>
+export const AssetCardDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='card-dark'/>
 );
 
-export const AssetCheckBoxIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='check-box'/>
+export const AssetCheckBoxIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='check-box'/>
 );
 
-export const AssetCheckBoxDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='check-box-dark'/>
+export const AssetCheckBoxDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='check-box-dark'/>
 );
 
-export const AssetDatepickerIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='datepicker'/>
+export const AssetDatepickerIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='datepicker'/>
 );
 
-export const AssetDatepickerDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='datepicker-dark'/>
+export const AssetDatepickerDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='datepicker-dark'/>
 );
 
-export const AssetDrawerIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='drawer'/>
+export const AssetDrawerIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='drawer'/>
 );
 
-export const AssetDrawerDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='drawer-dark'/>
+export const AssetDrawerDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='drawer-dark'/>
 );
 
-export const AssetIconIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='icon'/>
+export const AssetIconIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='icon'/>
 );
 
-export const AssetIconDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='icon-dark'/>
+export const AssetIconDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='icon-dark'/>
 );
 
-export const AssetInputIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='input'/>
+export const AssetInputIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='input'/>
 );
 
-export const AssetInputDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='input-dark'/>
+export const AssetInputDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='input-dark'/>
 );
 
-export const AssetListIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='list'/>
+export const AssetListIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='list'/>
 );
 
-export const AssetListDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='list-dark'/>
+export const AssetListDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='list-dark'/>
 );
 
-export const AssetMenuIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='menu'/>
+export const AssetMenuIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='menu'/>
 );
 
-export const AssetMenuDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='menu-dark'/>
+export const AssetMenuDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='menu-dark'/>
 );
 
-export const AssetModalIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='modal'/>
+export const AssetModalIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='modal'/>
 );
 
-export const AssetModalDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='modal-dark'/>
+export const AssetModalDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='modal-dark'/>
 );
 
-export const AssetOverflowMenuIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='overflow-menu'/>
+export const AssetOverflowMenuIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='overflow-menu'/>
 );
 
-export const AssetOverflowMenuDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='overflow-menu-dark'/>
+export const AssetOverflowMenuDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='overflow-menu-dark'/>
 );
 
-export const AssetPopoverIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='popover'/>
+export const AssetPopoverIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='popover'/>
 );
 
-export const AssetPopoverDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='popover-dark'/>
+export const AssetPopoverDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='popover-dark'/>
 );
 
-export const AssetRadioIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='radio'/>
+export const AssetRadioIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='radio'/>
 );
 
-export const AssetRadioDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='radio-dark'/>
+export const AssetRadioDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='radio-dark'/>
 );
 
-export const AssetSelectIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='select'/>
+export const AssetSelectIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='select'/>
 );
 
-export const AssetSelectDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='select-dark'/>
+export const AssetSelectDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='select-dark'/>
 );
 
-export const AssetSpinnerIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='spinner'/>
+export const AssetSpinnerIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='spinner'/>
 );
 
-export const AssetSpinnerDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='spinner-dark'/>
+export const AssetSpinnerDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='spinner-dark'/>
 );
 
-export const AssetTabViewIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='tab-view'/>
+export const AssetTabViewIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='tab-view'/>
 );
 
-export const AssetTabViewDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='tab-view-dark'/>
+export const AssetTabViewDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='tab-view-dark'/>
 );
 
-export const AssetTextIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='text'/>
+export const AssetTextIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='text'/>
 );
 
-export const AssetTextDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='text-dark'/>
+export const AssetTextDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='text-dark'/>
 );
 
-export const AssetToggleIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='toggle'/>
+export const AssetToggleIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='toggle'/>
 );
 
-export const AssetToggleDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='toggle-dark'/>
+export const AssetToggleDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='toggle-dark'/>
 );
 
-export const AssetTooltipIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='tooltip'/>
+export const AssetTooltipIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='tooltip'/>
 );
 
-export const AssetTooltipDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='tooltip-dark'/>
+export const AssetTooltipDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='tooltip-dark'/>
 );
 
-export const AssetTopNavigationIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='top-navigation'/>
+export const AssetTopNavigationIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='top-navigation'/>
 );
 
-export const AssetTopNavigationDarkIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} pack='app' name='top-navigation-dark'/>
+export const AssetTopNavigationDarkIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} pack='app' name='top-navigation-dark'/>
 );
 

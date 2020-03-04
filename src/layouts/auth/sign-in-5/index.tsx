@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ImageProps, TextProps, TouchableWithoutFeedback, View } from 'react-native';
 import {
   Button,
   Input,
@@ -12,6 +12,7 @@ import {
 import { ImageOverlay } from './extra/image-overlay.component';
 import { EmailIcon, LockIcon, PhoneIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
+import { EyeIcon, EyeOffIcon } from '../sign-in-2/extra/icons';
 
 export default ({ navigation }): React.ReactElement => {
 
@@ -41,6 +42,30 @@ export default ({ navigation }): React.ReactElement => {
     setSMSCodeVisible(!smsCodeVisible);
   };
 
+  const renderSMSCodeIcon = (props: ImageProps): React.ReactElement => (
+    <TouchableWithoutFeedback onPress={onSMSCodeIconPress}>
+      {passwordVisible ? EyeIcon(props) : EyeOffIcon(props)}
+    </TouchableWithoutFeedback>
+  );
+
+  const renderPasswordIcon = (props: ImageProps): React.ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      {passwordVisible ? EyeIcon(props) : EyeOffIcon(props)}
+    </TouchableWithoutFeedback>
+  );
+
+  const renderSMSTabTitle = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.tabTitle]}>
+      SMS
+    </Text>
+  );
+
+  const renderEmailTabTitle = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.tabTitle]}>
+      EMAIL
+    </Text>
+  );
+
   return (
     <KeyboardAvoidingView>
       <ImageOverlay
@@ -65,14 +90,12 @@ export default ({ navigation }): React.ReactElement => {
           indicatorStyle={styles.tabViewIndicator}
           selectedIndex={selectedTabIndex}
           onSelect={setSelectedTabIndex}>
-          <Tab
-            titleStyle={styles.tabTitle}
-            title='EMAIL'>
+          <Tab title={renderEmailTabTitle}>
             <View style={styles.tabContentContainer}>
               <Input
                 status='control'
                 placeholder='Email'
-                icon={EmailIcon}
+                accessoryRight={EmailIcon}
                 value={email}
                 onChangeText={setEmail}
               />
@@ -81,22 +104,19 @@ export default ({ navigation }): React.ReactElement => {
                 status='control'
                 placeholder='Password'
                 secureTextEntry={!passwordVisible}
-                icon={LockIcon}
+                accessoryRight={renderPasswordIcon}
                 value={password}
                 onChangeText={setPassword}
-                onIconPress={onPasswordIconPress}
               />
             </View>
           </Tab>
-          <Tab
-            titleStyle={styles.tabTitle}
-            title='SMS'>
+          <Tab title={renderSMSTabTitle}>
             <View>
               <View style={styles.tabContentContainer}>
                 <Input
                   status='control'
                   placeholder='Phone Number'
-                  icon={PhoneIcon}
+                  accessoryRight={PhoneIcon}
                   value={phoneNumber}
                   onChangeText={setPhoneNumber}
                 />
@@ -105,10 +125,9 @@ export default ({ navigation }): React.ReactElement => {
                   status='control'
                   placeholder='SMS Code'
                   secureTextEntry={!smsCodeVisible}
-                  icon={LockIcon}
+                  accessoryRight={renderSMSCodeIcon}
                   value={smsCode}
                   onChangeText={setSMSCode}
-                  onIconPress={onSMSCodeIconPress}
                 />
               </View>
               <Text

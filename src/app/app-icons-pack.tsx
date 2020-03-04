@@ -1,18 +1,21 @@
 import React from 'react';
-import { Image, ImageRequireSource } from 'react-native';
+import { Image, ImageProps, ImageRequireSource } from 'react-native';
 
 /**
  * https://akveo.github.io/react-native-ui-kitten/docs/guides/icon-packages#3rd-party-icon-packages
  */
 const IconProvider = (source: ImageRequireSource) => ({
-  toReactElement: ({ animation, ...style }) => (
-    <Image style={style} source={source}/>
-  ),
+  toReactElement: (props: ImageProps) => {
+    return (
+      <Image {...props} source={source}/>
+    );
+  },
 });
 
 export const AppIconsPack = {
   name: 'app',
   icons: {
+    'app-icon': IconProvider(require('../assets/images/image-app-icon.png')),
     'auth': IconProvider(require('../assets/images/icon-auth.png')),
     'auth-dark': IconProvider(require('../assets/images/icon-auth-dark.png')),
     'social': IconProvider(require('../assets/images/icon-social.png')),

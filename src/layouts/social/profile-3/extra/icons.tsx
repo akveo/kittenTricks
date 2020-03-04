@@ -1,11 +1,11 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const ArrowHeadUpIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='arrowhead-up'/>
+export const ArrowHeadUpIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='arrowhead-up'/>
 );
 
-export const ArrowHeadDownIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='arrowhead-down'/>
+export const ArrowHeadDownIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='arrowhead-down'/>
 );

@@ -20,7 +20,7 @@ export const Trainings2Screen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Trainings'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <ContentView/>
     </SafeAreaLayout>

@@ -63,17 +63,17 @@ export default ({ navigation }): React.ReactElement => {
           <ProfileSocial
             style={styles.profileSocialContainer}
             hint='Followers'
-            value={`${profile.followers}`}
+            value={profile.followers}
           />
           <ProfileSocial
             style={styles.profileSocialContainer}
             hint='Following'
-            value={`${profile.following}`}
+            value={profile.following}
           />
           <ProfileSocial
             style={styles.profileSocialContainer}
             hint='Posts'
-            value={`${profile.posts}`}
+            value={profile.posts}
           />
         </View>
         <Divider style={styles.profileSectionsDivider}/>

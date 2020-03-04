@@ -1,19 +1,11 @@
 import React from 'react';
 import { ImageProps, View } from 'react-native';
-import {
-  Card,
-  CardElement,
-  CardProps,
-  StyleService,
-  StyleType,
-  Text,
-  useStyleSheet,
-} from '@ui-kitten/components';
+import { Card, CardElement, CardProps, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 
 export interface ProfileParameterCardProps extends Omit<CardProps, 'children'> {
-  hint: string;
-  value: string;
-  icon: (style: StyleType) => React.ReactElement<ImageProps>;
+  hint: React.ReactText;
+  value: React.ReactText;
+  icon: (props: Partial<ImageProps>) => React.ReactElement<ImageProps>;
 }
 
 export const ProfileParameterCard = (props: ProfileParameterCardProps): CardElement => {
@@ -28,7 +20,7 @@ export const ProfileParameterCard = (props: ProfileParameterCardProps): CardElem
         <Text appearance='hint'>
           {hint}
         </Text>
-        {icon(styles.icon)}
+        {icon({ style: styles.icon })}
       </View>
       <Text
         style={styles.valueLabel}

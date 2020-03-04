@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ImageProps, TextProps, TouchableWithoutFeedback, View } from 'react-native';
 import { Button, CheckBox, Input, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
@@ -32,8 +32,20 @@ export default ({ navigation }): React.ReactElement => {
     <Button
       style={styles.editAvatarButton}
       size='small'
-      icon={PlusIcon}
+      accessoryLeft={PlusIcon}
     />
+  );
+
+  const renderTermsText = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.termsCheckBoxText]}>
+      I read and agree to Terms & Conditions
+    </Text>
+  );
+
+  const renderPasswordIcon = (props: ImageProps): React.ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      {passwordVisible ? EyeIcon(props) : EyeOffIcon(props)}
+    </TouchableWithoutFeedback>
   );
 
   return (
@@ -54,7 +66,7 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             autoCapitalize='none'
             placeholder='User Name'
-            icon={PersonIcon}
+            accessoryRight={PersonIcon}
             value={userName}
             onChangeText={setUserName}
           />
@@ -63,7 +75,7 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             autoCapitalize='none'
             placeholder='Email'
-            icon={EmailIcon}
+            accessoryRight={EmailIcon}
             value={email}
             onChangeText={setEmail}
           />
@@ -73,16 +85,14 @@ export default ({ navigation }): React.ReactElement => {
             autoCapitalize='none'
             secureTextEntry={!passwordVisible}
             placeholder='Password'
-            icon={passwordVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={renderPasswordIcon}
             value={password}
             onChangeText={setPassword}
-            onIconPress={onPasswordIconPress}
           />
           <CheckBox
             style={styles.termsCheckBox}
-            textStyle={styles.termsCheckBoxText}
-            text='I read and agree to Terms & Conditions'
             checked={termsAccepted}
+            text={renderTermsText}
             onChange={(checked: boolean) => setTermsAccepted(checked)}
           />
         </View>
@@ -103,19 +113,19 @@ export default ({ navigation }): React.ReactElement => {
               appearance='ghost'
               size='giant'
               status='control'
-              icon={FacebookIcon}
+              accessoryLeft={FacebookIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={GoogleIcon}
+              accessoryLeft={GoogleIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={TwitterIcon}
+              accessoryLeft={TwitterIcon}
             />
           </View>
         </View>

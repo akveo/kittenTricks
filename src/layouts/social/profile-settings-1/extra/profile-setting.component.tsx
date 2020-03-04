@@ -3,8 +3,8 @@ import { StyleSheet, ViewProps } from 'react-native';
 import { Divider, Layout, Text } from '@ui-kitten/components';
 
 export interface ProfileSettingProps extends ViewProps {
-  hint: string;
-  value: string;
+  hint: React.ReactText;
+  value: React.ReactText;
 }
 
 export const ProfileSetting = (props: ProfileSettingProps): React.ReactElement => {

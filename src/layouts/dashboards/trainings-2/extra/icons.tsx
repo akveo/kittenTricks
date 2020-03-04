@@ -1,12 +1,12 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const ActivityIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='activity'/>
+export const ActivityIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='activity'/>
 );
 
-export const ClockIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='clock'/>
+export const ClockIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='clock'/>
 );
 

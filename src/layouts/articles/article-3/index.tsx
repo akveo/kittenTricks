@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, Platform, View } from 'react-native';
+import { ImageBackground, Platform, TextProps, View } from 'react-native';
 import { Input, Layout, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { KeyboardAvoidingView } from './extra/keyboard-avoiding-view.component';
 import { CommentList } from './extra/comment-list.component';
@@ -16,6 +16,12 @@ export default (): React.ReactElement => {
 
   const styles = useStyleSheet(themedStyles);
   const [inputComment, setInputComment] = React.useState<string>();
+
+  const renderCommentInputLabel = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.commentInputLabel]}>
+      Comments
+    </Text>
+  );
 
   const renderHeader = (): React.ReactElement => (
     <Layout
@@ -53,8 +59,7 @@ export default (): React.ReactElement => {
       </View>
       <Input
         style={styles.commentInput}
-        labelStyle={styles.commentInputLabel}
-        label='Comments'
+        label={renderCommentInputLabel}
         placeholder='Write your comment'
         value={inputComment}
         onChangeText={setInputComment}

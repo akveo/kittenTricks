@@ -16,11 +16,11 @@ export const PopoverShowcase = (props: PopoverProps): PopoverElement => {
     setVisible(!visible);
   };
 
-  const renderPopoverContent = (): TextElement => {
+  const renderToggleButton = (): TextElement => {
     return (
-      <Text>
-        Hi! I'm Popover!
-      </Text>
+      <Button onPress={togglePopover}>
+        TOGGLE POPOVER
+      </Button>
     );
   };
 
@@ -28,11 +28,11 @@ export const PopoverShowcase = (props: PopoverProps): PopoverElement => {
     <Popover
       {...props}
       visible={visible}
-      content={renderPopoverContent()}
+      anchor={renderToggleButton}
       onBackdropPress={togglePopover}>
-      <Button onPress={togglePopover}>
-        TOGGLE POPOVER
-      </Button>
+      <Text>
+        Hi! I'm Popover!
+      </Text>
     </Popover>
   );
 };

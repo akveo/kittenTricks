@@ -7,50 +7,43 @@ import {
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
 
-const rightControlsTopNavigation: ComponentShowcaseItem = {
-  props: {
-    title: 'Title',
-    subtitle: 'Subtitle',
-    leftControl: <BackAction/>,
-    rightControls: [
-      <StarAction/>,
-      <MenuAction/>,
-    ],
-  },
-};
-
-const leftControlTopNavigation: ComponentShowcaseItem = {
-  props: {
-    title: 'Title',
-    subtitle: 'Subtitle',
-    leftControl: <BackAction/>,
-  },
-};
-
-const subtitleTopNavigation: ComponentShowcaseItem = {
-  props: {
-    title: 'Title',
-    subtitle: 'Subtitle',
-  },
-};
-
 const titleTopNavigation: ComponentShowcaseItem = {
   props: {
     title: 'Title',
   },
 };
 
-const rightControlsSection: ComponentShowcaseSection = {
-  title: 'Right Controls',
-  items: [
-    rightControlsTopNavigation,
-  ],
+const subtitleTopNavigation: ComponentShowcaseItem = {
+  props: {
+    ...titleTopNavigation.props,
+    subtitle: 'Subtitle',
+  },
 };
 
-const leftControlSection: ComponentShowcaseSection = {
-  title: 'Left Control',
+const accessoryLeftTopNavigation: ComponentShowcaseItem = {
+  props: {
+    ...subtitleTopNavigation.props,
+    accessoryLeft: () => <BackAction/>,
+  },
+};
+
+const accessoryRightTopNavigation: ComponentShowcaseItem = {
+  props: {
+    ...accessoryLeftTopNavigation.props,
+    accessoryRight: () => (
+      <React.Fragment>
+        <StarAction/>
+        <MenuAction/>
+      </React.Fragment>
+    ),
+  },
+};
+
+const accessoriesSection: ComponentShowcaseSection = {
+  title: 'Accessories',
   items: [
-    leftControlTopNavigation,
+    accessoryLeftTopNavigation,
+    accessoryRightTopNavigation,
   ],
 };
 
@@ -73,8 +66,7 @@ export const topNavigationShowcase: ComponentShowcase = {
   sections: [
     titleSection,
     subtitleSection,
-    leftControlSection,
-    rightControlsSection,
+    accessoriesSection,
   ],
 };
 

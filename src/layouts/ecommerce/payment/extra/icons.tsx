@@ -1,11 +1,11 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const CreditCardIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='credit-card'/>
+export const CreditCardIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='credit-card'/>
 );
 
-export const MoreVerticalIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='more-vertical'/>
+export const MoreVerticalIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='more-vertical'/>
 );

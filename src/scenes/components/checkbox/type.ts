@@ -1,3 +1,5 @@
+import React from 'react';
+import { Text } from '@ui-kitten/components';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
@@ -64,6 +66,17 @@ const textDisabledCheckBox: ComponentShowcaseItem = {
   },
 };
 
+const styledTextCheckBox: ComponentShowcaseItem = {
+  title: 'Customized Text',
+  props: {
+    text: (props) => React.createElement(
+      Text,
+      { ...props, style: [props.style, { color: 'red' }] },
+      'Place your text',
+    ),
+  },
+};
+
 const stateSection: ComponentShowcaseSection = {
   title: 'State',
   items: [
@@ -81,6 +94,7 @@ const accessoriesSection: ComponentShowcaseSection = {
     rightTextCheckBox,
     leftTextCheckBox,
     textDisabledCheckBox,
+    styledTextCheckBox,
   ],
 };
 

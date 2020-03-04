@@ -1,17 +1,6 @@
 const path = require('path');
 const env = require('./env');
 
-const appModules = [
-  path.resolve(env.EVA_PACKAGES_PATH, 'dss'),
-  path.resolve(env.EVA_PACKAGES_PATH, 'eva'),
-  path.resolve(env.EVA_PACKAGES_PATH, 'material'),
-  path.resolve(env.EVA_PACKAGES_PATH, 'processor'),
-  path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components'),
-  path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'date-fns'),
-  path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'eva-icons'),
-  path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'moment'),
-];
-
 const extraNodeModules = {
   '@babel/runtime': path.resolve(__dirname, './node_modules/@babel/runtime'),
   'react': path.resolve(__dirname, './node_modules/react'),
@@ -37,5 +26,14 @@ const extraNodeModules = {
 module.exports = {
   projectRoot: path.resolve(__dirname),
   resolver: { extraNodeModules },
-  watchFolders: appModules,
+  watchFolders: [
+    path.resolve(env.EVA_PACKAGES_PATH, 'dss'),
+    path.resolve(env.EVA_PACKAGES_PATH, 'eva'),
+    path.resolve(env.EVA_PACKAGES_PATH, 'material'),
+    path.resolve(env.EVA_PACKAGES_PATH, 'processor'),
+    path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'components'),
+    path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'date-fns'),
+    path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'eva-icons'),
+    path.resolve(env.UI_KITTEN_PACKAGES_PATH, 'moment'),
+  ],
 };

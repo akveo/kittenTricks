@@ -11,12 +11,20 @@ const defaultTooltip: ComponentShowcaseItem = {
   props: {},
 };
 
-const iconTooltip: ComponentShowcaseItem = {
-  title: 'With Icon',
+const leftIconTooltip: ComponentShowcaseItem = {
+  title: 'Left',
   props: {
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
 };
+
+const rightIconTooltip: ComponentShowcaseItem = {
+  title: 'Right',
+  props: {
+    accessoryRight: StarIcon,
+  },
+};
+
 
 const backdropTooltip: ComponentShowcaseItem = {
   title: 'Styled backdrop',
@@ -35,7 +43,8 @@ const defaultSection: ComponentShowcaseSection = {
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
   items: [
-    iconTooltip,
+    leftIconTooltip,
+    rightIconTooltip,
   ],
 };
 

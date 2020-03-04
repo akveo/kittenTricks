@@ -20,7 +20,7 @@ export const Profile4Screen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Profile'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <Divider/>
       <ContentView navigation={navigation}/>

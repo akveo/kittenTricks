@@ -1,11 +1,11 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const EyeIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='eye'/>
+export const EyeIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='eye'/>
 );
 
-export const EyeOffIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='eye-off'/>
+export const EyeOffIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='eye-off'/>
 );

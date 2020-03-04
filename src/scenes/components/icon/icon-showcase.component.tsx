@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps, ImageStyle } from 'react-native';
 import { Icon, IconProps, Input } from '@ui-kitten/components';
 
 const DEFAULT_ICON: string = 'star';
@@ -30,10 +30,10 @@ export const IconShowcase = (props: IconProps): React.ReactElement => {
     iconRef.current.startAnimation();
   };
 
-  const renderIcon = (style: ImageStyle): React.ReactElement => (
+  const renderIcon = (evaProps: Partial<ImageProps>): React.ReactElement => (
     <Icon
       {...props}
-      {...style}
+      {...evaProps}
       ref={iconRef}
       name={currentIcon}
     />
@@ -47,7 +47,7 @@ export const IconShowcase = (props: IconProps): React.ReactElement => {
       autoCorrect={false}
       caption='Unfocus to change icon'
       captionIcon={renderIcon}
-      icon={renderIcon}
+      accessoryRight={renderIcon}
       onChangeText={onInputChangeText}
       onBlur={onInputBlur}
     />

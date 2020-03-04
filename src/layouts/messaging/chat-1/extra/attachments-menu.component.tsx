@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { Button, Divider, Layout, List, Menu } from '@ui-kitten/components';
+import { Button, Divider, Layout, List, Menu, MenuItem } from '@ui-kitten/components';
 import { CameraIcon, FileIcon, ImageIcon, PeopleIcon, PinIcon } from './icons';
 
 export interface AttachmentsMenuProps {
@@ -22,41 +22,13 @@ export interface AttachmentsMenuProps {
 
 export type AttachmentsMenuElement = React.ReactElement<AttachmentsMenuProps>;
 
-const menu = [
-  { title: 'Photo or Video', accessory: ImageIcon },
-  { title: 'File', accessory: FileIcon },
-  { title: 'Location', accessory: PinIcon },
-  { title: 'Contact', accessory: PeopleIcon },
-];
-
 export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement => {
-
-  const onAttachmentsMenuItemSelect = (index: number): void => {
-    switch (index) {
-      case 0: {
-        props.onSelectPhoto();
-        return;
-      }
-      case 1: {
-        props.onSelectFile();
-        return;
-      }
-      case 2: {
-        props.onSelectLocation();
-        return;
-      }
-      case 3: {
-        props.onSelectContact();
-        return;
-      }
-    }
-  };
 
   const renderActionAttachment = (): React.ReactElement => (
     <Button
       style={styles.attachmentsAction}
       appearance='outline'
-      icon={CameraIcon}
+      accessoryLeft={CameraIcon}
       onPress={props.onCameraPress}
     />
   );
@@ -81,11 +53,28 @@ export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement
         renderItem={renderAttachment}
         ListHeaderComponent={renderActionAttachment}
       />
-      <Menu
-        data={menu}
-        scrollEnabled={false}
-        onSelect={onAttachmentsMenuItemSelect}
-      />
+      <Menu scrollEnabled={false}>
+        <MenuItem
+          title='Photo or Video'
+          accessoryRight={ImageIcon}
+          onPress={props.onSelectPhoto}
+        />
+        <MenuItem
+          title='File'
+          accessoryRight={FileIcon}
+          onPress={props.onSelectFile}
+        />
+        <MenuItem
+          title='Location'
+          accessoryRight={PinIcon}
+          onPress={props.onSelectLocation}
+        />
+        <MenuItem
+          title='Contact'
+          accessoryRight={PeopleIcon}
+          onPress={props.onSelectContact}
+        />
+      </Menu>
       <Button
         appearance='ghost'
         size='giant'

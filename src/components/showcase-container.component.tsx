@@ -25,7 +25,7 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
   const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
 
   const onSelectSetting = (selectedSettings: { [prop: string]: any }): void => {
-    setShowcaseSettings({ ...settings, ...selectedSettings });
+    setShowcaseSettings({ ...showcaseSettings, ...selectedSettings });
   };
 
   const onResetSettings = (): void => {
@@ -45,7 +45,7 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
       insets='top'>
       <TopNavigation
         title={showcase.title}
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <Divider/>
       <ShowcaseSettings

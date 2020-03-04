@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, ListRenderItemInfo, StyleSheet, View } from 'react-native';
+import { ImageBackground, ListRenderItemInfo, StyleSheet, View, ViewProps } from 'react-native';
 import { Avatar, Button, Card, Layout, List, Text } from '@ui-kitten/components';
 import { HeartIcon, MessageCircleIcon } from './extra/icons';
 import { Article } from './extra/data';
@@ -16,15 +16,15 @@ export default ({ navigation }): React.ReactElement => {
     navigation && navigation.navigate('Article1');
   };
 
-  const renderItemHeader = (info: ListRenderItemInfo<Article>): React.ReactElement => (
+  const renderItemHeader = (props: ViewProps, info: ListRenderItemInfo<Article>): React.ReactElement => (
     <ImageBackground
       style={styles.itemHeader}
       source={info.item.image}
     />
   );
 
-  const renderItemFooter = (info: ListRenderItemInfo<Article>): React.ReactElement => (
-    <View style={styles.itemFooter}>
+  const renderItemFooter = (props: ViewProps, info: ListRenderItemInfo<Article>): React.ReactElement => (
+    <View style={[props.style, styles.itemFooter]}>
       <Avatar source={info.item.author.photo}/>
       <View style={styles.itemAuthoringContainer}>
         <Text
@@ -41,15 +41,15 @@ export default ({ navigation }): React.ReactElement => {
         style={styles.iconButton}
         appearance='ghost'
         status='basic'
-        icon={MessageCircleIcon}>
-        {`${info.item.comments.length}`}
+        accessoryLeft={MessageCircleIcon}>
+        {info.item.comments.length}
       </Button>
       <Button
         style={styles.iconButton}
         appearance='ghost'
         status='danger'
-        icon={HeartIcon}>
-        {`${info.item.likes.length}`}
+        accessoryLeft={HeartIcon}>
+        {info.item.likes.length}
       </Button>
     </View>
   );
@@ -57,8 +57,8 @@ export default ({ navigation }): React.ReactElement => {
   const renderItem = (info: ListRenderItemInfo<Article>): React.ReactElement => (
     <Card
       style={styles.item}
-      header={() => renderItemHeader(info)}
-      footer={() => renderItemFooter(info)}
+      header={props => renderItemHeader(props, info)}
+      footer={props => renderItemFooter(props, info)}
       onPress={() => onItemPress(info.index)}>
       <Text category='h5'>
         {info.item.title}

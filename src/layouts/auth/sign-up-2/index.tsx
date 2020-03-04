@@ -1,11 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ImageProps, TextProps, TouchableWithoutFeedback, View } from 'react-native';
 import {
   Button,
   CheckBox,
   Input,
   Layout,
-  StyleService,
+  StyleService, Text,
   useStyleSheet,
 } from '@ui-kitten/components';
 import { ProfileAvatar } from './extra/profile-avatar.component';
@@ -38,8 +38,21 @@ export default ({ navigation }): React.ReactElement => {
     <Button
       style={styles.editAvatarButton}
       status='basic'
-      icon={PlusIcon}
+      accessoryLeft={PlusIcon}
     />
+  );
+
+  const renderTermsText = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.termsCheckBoxText]}>
+      By creating an account, I agree to the Ewa Terms of
+      Use and Privacy Policy
+    </Text>
+  );
+
+  const renderPasswordIcon = (props: ImageProps): React.ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      {passwordVisible ? EyeIcon(props) : EyeOffIcon(props)}
+    </TouchableWithoutFeedback>
   );
 
   return (
@@ -58,7 +71,7 @@ export default ({ navigation }): React.ReactElement => {
         <Input
           autoCapitalize='none'
           placeholder='User Name'
-          icon={PersonIcon}
+          accessoryRight={PersonIcon}
           value={userName}
           onChangeText={setUserName}
         />
@@ -66,7 +79,7 @@ export default ({ navigation }): React.ReactElement => {
           style={styles.emailInput}
           autoCapitalize='none'
           placeholder='Email'
-          icon={EmailIcon}
+          accessoryRight={EmailIcon}
           value={email}
           onChangeText={setEmail}
         />
@@ -75,15 +88,13 @@ export default ({ navigation }): React.ReactElement => {
           autoCapitalize='none'
           secureTextEntry={!passwordVisible}
           placeholder='Password'
-          icon={passwordVisible ? EyeIcon : EyeOffIcon}
+          accessoryRight={renderPasswordIcon}
           value={password}
           onChangeText={setPassword}
-          onIconPress={onPasswordIconPress}
         />
         <CheckBox
           style={styles.termsCheckBox}
-          textStyle={styles.termsCheckBoxText}
-          text='I read and agree to Terms & Conditions'
+          text={renderTermsText}
           checked={termsAccepted}
           onChange={(checked: boolean) => setTermsAccepted(checked)}
         />
@@ -143,6 +154,8 @@ const themedStyles = StyleService.create({
     marginTop: 24,
   },
   termsCheckBoxText: {
+    fontSize: 11,
+    lineHeight: 14,
     color: 'text-hint-color',
   },
   signUpButton: {

@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  CheckBox,
-  CheckBoxProps,
-  ListItem,
-  ListItemElement,
-  ListItemProps,
-  StyleType,
-} from '@ui-kitten/components';
+import { ViewProps } from 'react-native';
+import { CheckBox, CheckBoxProps, ListItem, ListItemElement, ListItemProps } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 
-const AccessoryElement = (style: StyleType): React.ReactElement<CheckBoxProps> => {
+const AccessoryElement = (props: ViewProps): React.ReactElement<CheckBoxProps> => {
   const [checked, setChecked] = React.useState<boolean>(true);
 
   const onChange = (nextChecked: boolean): void => {
@@ -29,14 +23,17 @@ export const ListItemShowcase = (props?: ListItemProps): ListItemElement => (
 );
 
 export const ListItemIconShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem icon={StarIcon} {...props} />
+  <ListItem accessoryLeft={StarIcon} {...props} />
 );
 
 export const ListItemAccessoryShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem {...props} accessory={AccessoryElement}/>
+  <ListItem {...props} accessoryRight={AccessoryElement}/>
 );
 
 export const ListItemIconAccessoryShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem {...props} icon={StarIcon}
-            accessory={(style, index) => <AccessoryElement style={style} index={index}/>}/>
+  <ListItem
+    {...props}
+    accessoryLeft={StarIcon}
+    accessoryRight={AccessoryElement}
+  />
 );

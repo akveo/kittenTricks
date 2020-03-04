@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Layout, Toggle } from '@ui-kitten/components';
-import { Setting } from './extra/settings-section.component';
+import { Menu, MenuItem, StyleService, Toggle, useStyleSheet } from '@ui-kitten/components';
 
 export default (): React.ReactElement => {
+
+  const styles = useStyleSheet(themedStyle);
 
   const [soundEnabled, setSoundEnabled] = React.useState<boolean>(false);
 
@@ -11,45 +11,31 @@ export default (): React.ReactElement => {
     setSoundEnabled(!soundEnabled);
   };
 
+  const renderSoundToggle = (): React.ReactElement => (
+    <Toggle
+      checked={soundEnabled}
+      onChange={setSoundEnabled}
+    />
+  );
+
   return (
-    <Layout style={styles.container}>
-      <Setting
-        style={styles.setting}
-        hint='Edit Profile'
+    <Menu style={styles.container}>
+      <MenuItem title='Edit Profile'/>
+      <MenuItem title='Change Password'/>
+      <MenuItem title='Notifications'/>
+      <MenuItem title='Privacy'/>
+      <MenuItem
+        title='Sound Enabled'
+        accessoryRight={renderSoundToggle}
+        onPress={toggleSound}
       />
-      <Setting
-        style={styles.setting}
-        hint='Change Password'
-      />
-      <Setting
-        style={[styles.setting, styles.section]}
-        hint='Notification'
-      />
-      <Setting
-        style={styles.setting}
-        hint='Privacy'
-      />
-      <Setting
-        style={[styles.setting, styles.section]}
-        hint='Sound Enabled'
-        onPress={toggleSound}>
-        <Toggle
-          checked={soundEnabled}
-          onChange={toggleSound}
-        />
-      </Setting>
-    </Layout>
+    </Menu>
   );
 };
 
-const styles = StyleSheet.create({
+const themedStyle = StyleService.create({
   container: {
     flex: 1,
-  },
-  setting: {
-    padding: 16,
-  },
-  section: {
-    paddingTop: 32,
+    backgroundColor: 'background-basic-color-1',
   },
 });

@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Divider, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
+import { StyleSheet, View } from 'react-native';
+import { Avatar, Divider, Text, TextProps, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { MenuGridList } from '../../components/menu-grid-list.component';
 import { MenuIcon } from '../../components/icons';
@@ -19,13 +19,27 @@ export const ComponentsScreen = ({ navigation }): React.ReactElement => {
     />
   );
 
+  const renderTitle = (props: TextProps): React.ReactElement => (
+    <View style={styles.titleContainer}>
+      <Avatar
+        style={styles.titleImage}
+        size='small'
+        source={require('../../assets/images/image-app-icon.png')}
+      />
+      <Text {...props}>
+        Kitten Tricks
+      </Text>
+    </View>
+  );
+
   return (
     <SafeAreaLayout
       style={styles.safeArea}
       insets='top'>
       <TopNavigation
-        title='Kitten Tricks'
-        leftControl={renderDrawerAction()}
+        title={renderTitle}
+        // title='Kitten Tricks'
+        accessoryLeft={renderDrawerAction}
       />
       <Divider/>
       <MenuGridList
@@ -40,9 +54,11 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-  searchContainer: {
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 16,
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  titleImage: {
+    marginHorizontal: 8,
   },
 });

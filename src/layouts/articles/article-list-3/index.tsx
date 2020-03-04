@@ -1,5 +1,11 @@
 import React from 'react';
-import { ListRenderItemInfo, StyleSheet as RNStyleSheet, View } from 'react-native';
+import {
+  ListRenderItemInfo,
+  StyleSheet as RNStyleSheet,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import { Button, Card, List, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { HeartIcon, MessageCircleIcon } from './extra/icons';
@@ -18,7 +24,8 @@ export default ({ navigation }): React.ReactElement => {
   };
 
   const renderItem = (info: ListRenderItemInfo<Article>): React.ReactElement => (
-    <Card
+    <TouchableOpacity
+      activeOpacity={1.0}
       style={styles.item}
       onPress={() => onItemPress(info.index)}>
       <ImageOverlay
@@ -41,19 +48,19 @@ export default ({ navigation }): React.ReactElement => {
             style={styles.iconButton}
             appearance='ghost'
             status='control'
-            icon={MessageCircleIcon}>
-            {`${info.item.comments.length}`}
+            accessoryLeft={MessageCircleIcon}>
+            {info.item.comments.length}
           </Button>
           <Button
             style={styles.iconButton}
             appearance='ghost'
             status='control'
-            icon={HeartIcon}>
-            {`${info.item.likes.length}`}
+            accessoryLeft={HeartIcon}>
+            {info.item.likes.length}
           </Button>
         </View>
       </ImageOverlay>
-    </Card>
+    </TouchableOpacity>
   );
 
   return (
@@ -77,9 +84,10 @@ const styles = RNStyleSheet.create({
   item: {
     marginVertical: 8,
     height: 220,
+    borderRadius: 4,
+    overflow: 'hidden',
   },
   itemImage: {
-    ...RNStyleSheet.absoluteFillObject,
     height: 220,
     paddingVertical: 24,
     paddingHorizontal: 16,

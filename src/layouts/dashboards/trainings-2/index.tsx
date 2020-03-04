@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, ListRenderItemInfo, StyleSheet, View } from 'react-native';
+import { ImageBackground, ListRenderItemInfo, StyleSheet, View, ViewProps } from 'react-native';
 import { Button, Card, List, Text } from '@ui-kitten/components';
 import { ActivityIcon, ClockIcon } from './extra/icons';
 import { Training } from './extra/data';
@@ -32,7 +32,7 @@ export default (): React.ReactElement => {
           style={styles.activityButton}
           appearance='ghost'
           size='tiny'
-          icon={ClockIcon}>
+          accessoryLeft={ClockIcon}>
           {info.item.formattedDuration}
         </Button>
         <Button
@@ -40,7 +40,7 @@ export default (): React.ReactElement => {
           appearance='ghost'
           size='tiny'
           status='danger'
-          icon={ActivityIcon}>
+          accessoryLeft={ActivityIcon}>
           {info.item.formattedKcal}
         </Button>
       </View>

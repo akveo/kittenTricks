@@ -1,64 +1,39 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
-import {
-  Button,
-  CardFooterElement,
-  CardHeader,
-  CardHeaderElement,
-  Text,
-  TextElement,
-} from '@ui-kitten/components';
+import { ImageBackground, StyleSheet, ViewProps } from 'react-native';
+import { Button, Layout, Text } from '@ui-kitten/components';
 
-export const CardDefaultHeader = (): CardHeaderElement => (
-  <CardHeader
-    title='Title'
-    description='Description'
-  />
+export const CardDefaultHeader = (props: ViewProps): React.ReactElement => (
+  <Layout {...props}>
+    <Text category='h6'>Maldives</Text>
+    <Text category='s2'>By Wikipedia</Text>
+  </Layout>
 );
 
-export const CardCustomHeader = (): CardHeaderElement => (
-  <React.Fragment>
-    <Image
-      source={{ uri: 'https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704__340.jpg' }}
-      style={styles.headerImage}
-    />
-    <View style={styles.headerTextContainer}>
-      <Text category='h6'>
-        Title
-      </Text>
-    </View>
-  </React.Fragment>
+export const CardCustomHeader = (props: ViewProps): React.ReactElement => (
+  <ImageBackground
+    style={[props.style, styles.headerImage]}
+    source={{ uri: 'https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704__340.jpg' }}>
+    <Text category='h4' status='control'>Maldives</Text>
+  </ImageBackground>
 );
 
-export const CardFooter = (): CardFooterElement => (
-  <View style={styles.footerContainer}>
+export const CardFooter = (props: ViewProps): React.ReactElement => (
+  <Layout {...props} style={[props.style, styles.footerContainer]}>
     <Button
       style={styles.footerControl}
       size='small'
       status='basic'>
-      Cancel
+      CANCEL
     </Button>
     <Button
       style={styles.footerControl}
       size='small'>
-      Accept
+      ACCEPT
     </Button>
-  </View>
-);
-
-export const CardBody = (): TextElement => (
-  <Text>
-    A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
-    Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the
-    Milky Way.
-  </Text>
+  </Layout>
 );
 
 const styles = StyleSheet.create({
-  headerTextContainer: {
-    paddingHorizontal: 24,
-    paddingVertical: 16,
-  },
   headerImage: {
     flex: 1,
     height: 192,

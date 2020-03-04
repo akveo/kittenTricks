@@ -48,12 +48,12 @@ export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps
   };
 
   private renderComponent = (safeAreaInsets: EdgeInsets): React.ReactElement<ViewProps> => {
-    const { style, insets, themedStyle, ...viewProps } = this.props;
+    const { eva, style, insets, ...viewProps } = this.props;
 
     return (
       <View
         {...viewProps}
-        style={[this.createInsets(insets, safeAreaInsets, themedStyle), style]}
+        style={[this.createInsets(insets, safeAreaInsets, eva.style), style]}
       />
     );
   };

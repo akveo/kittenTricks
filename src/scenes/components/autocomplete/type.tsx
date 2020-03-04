@@ -64,11 +64,19 @@ const captionIconAutocomplete: ComponentShowcaseItem = {
   },
 };
 
-const iconAutocomplete: ComponentShowcaseItem = {
-  title: 'Icon',
+const leftAccessoryAutocomplete: ComponentShowcaseItem = {
+  title: 'Left',
   props: {
     ...defaultAutocomplete.props,
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
+  },
+};
+
+const rightIconAutocomplete: ComponentShowcaseItem = {
+  title: 'Right',
+  props: {
+    ...defaultAutocomplete.props,
+    accessoryRight: StarIcon,
   },
 };
 
@@ -99,7 +107,8 @@ const defaultSection: ComponentShowcaseSection = {
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
   items: [
-    iconAutocomplete,
+    leftAccessoryAutocomplete,
+    rightIconAutocomplete,
     labelAutocomplete,
     // captionAutocomplete,
     // captionIconAutocomplete,

@@ -89,7 +89,7 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Kitten Tricks'
-        leftControl={renderDrawerAction()}
+        accessoryLeft={renderDrawerAction}
       />
       <Divider/>
       <List

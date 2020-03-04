@@ -16,7 +16,7 @@ export default ({ navigation }): React.ReactElement => {
   const styles = useStyleSheet(themedStyles);
   const [searchQuery, setSearchQuery] = React.useState<string>();
 
-  const onItemPress = (index: number): void => {
+  const onItemPress = (): void => {
     navigation && navigation.navigate('Chat1');
   };
 
@@ -35,7 +35,7 @@ export default ({ navigation }): React.ReactElement => {
       <Input
         placeholder='Search'
         value={searchQuery}
-        icon={SearchIcon}
+        accessoryRight={SearchIcon}
       />
     </Layout>
   );
@@ -60,6 +60,7 @@ const themedStyles = StyleService.create({
     paddingBottom: 8,
   },
   item: {
+    paddingHorizontal: 16,
     paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: 'background-basic-color-3',

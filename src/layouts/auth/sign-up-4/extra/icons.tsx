@@ -1,35 +1,35 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const EmailIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='email'/>
+export const EmailIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='email'/>
 );
 
-export const EyeIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='eye'/>
+export const EyeIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='eye'/>
 );
 
-export const EyeOffIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='eye-off'/>
+export const EyeOffIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='eye-off'/>
 );
 
-export const FacebookIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='facebook'/>
+export const FacebookIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='facebook'/>
 );
 
-export const GoogleIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='google'/>
+export const GoogleIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='google'/>
 );
 
-export const PersonIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='person'/>
+export const PersonIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='person'/>
 );
 
-export const PlusIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='plus'/>
+export const PlusIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='plus'/>
 );
 
-export const TwitterIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='twitter'/>
+export const TwitterIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='twitter'/>
 );

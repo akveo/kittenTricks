@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ImageProps, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import { Button, Input, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import {
@@ -34,6 +34,12 @@ export default ({ navigation }): React.ReactElement => {
     setPasswordVisible(!passwordVisible);
   };
 
+  const renderPasswordIcon = (props: ImageProps): React.ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      {passwordVisible ? EyeIcon(props) : EyeOffIcon(props)}
+    </TouchableWithoutFeedback>
+  );
+
   return (
     <KeyboardAvoidingView>
       <ImageOverlay
@@ -56,7 +62,7 @@ export default ({ navigation }): React.ReactElement => {
           <Input
             status='control'
             placeholder='Email'
-            icon={PersonIcon}
+            accessoryRight={PersonIcon}
             value={email}
             onChangeText={setEmail}
           />
@@ -64,11 +70,10 @@ export default ({ navigation }): React.ReactElement => {
             style={styles.passwordInput}
             status='control'
             placeholder='Password'
-            icon={passwordVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={renderPasswordIcon}
             value={password}
             secureTextEntry={!passwordVisible}
             onChangeText={setPassword}
-            onIconPress={onPasswordIconPress}
           />
           <View style={styles.forgotPasswordContainer}>
             <Button
@@ -97,19 +102,19 @@ export default ({ navigation }): React.ReactElement => {
               appearance='ghost'
               status='control'
               size='giant'
-              icon={GoogleIcon}
+              accessoryLeft={GoogleIcon}
             />
             <Button
               appearance='ghost'
               status='control'
               size='giant'
-              icon={FacebookIcon}
+              accessoryLeft={FacebookIcon}
             />
             <Button
               appearance='ghost'
               status='control'
               size='giant'
-              icon={TwitterIcon}
+              accessoryLeft={TwitterIcon}
             />
           </View>
         </View>

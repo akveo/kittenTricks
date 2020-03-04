@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, ImageBackground, ListRenderItemInfo, View } from 'react-native';
+import { Dimensions, ImageBackground, ListRenderItemInfo, View, ViewProps } from 'react-native';
 import { Button, Card, List, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { CartIcon } from './extra/icons';
 import { Product } from './extra/data';
@@ -29,23 +29,23 @@ export const ProductListScreen = ({ navigation, route }): React.ReactElement => 
     navigation && navigation.navigate('ShoppingCart');
   };
 
-  const renderItemFooter = (info: ListRenderItemInfo<Product>): React.ReactElement => (
-    <View style={styles.itemFooter}>
+  const renderItemFooter = (props: ViewProps, info: ListRenderItemInfo<Product>): React.ReactElement => (
+    <View style={[props.style, styles.itemFooter]}>
       <Text category='s1'>
         {info.item.formattedPrice}
       </Text>
       <Button
         style={styles.iconButton}
         size='small'
-        icon={CartIcon}
+        accessoryLeft={CartIcon}
         onPress={() => onItemCartPress(info.index)}
       />
     </View>
   );
 
-  const renderItemHeader = (info: ListRenderItemInfo<Product>): React.ReactElement => (
+  const renderItemHeader = (props, info: ListRenderItemInfo<Product>): React.ReactElement => (
     <ImageBackground
-      style={styles.itemHeader}
+      style={[props.style, styles.itemHeader]}
       source={info.item.image}
     />
   );
@@ -53,8 +53,8 @@ export const ProductListScreen = ({ navigation, route }): React.ReactElement => 
   const renderProductItem = (info: ListRenderItemInfo<Product>): React.ReactElement => (
     <Card
       style={styles.productItem}
-      header={() => renderItemHeader(info)}
-      footer={() => renderItemFooter(info)}
+      header={props => renderItemHeader(props, info)}
+      footer={props => renderItemFooter(props, info)}
       onPress={() => onItemPress(info.index)}>
       <Text category='s1'>
         {info.item.title}

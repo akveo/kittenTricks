@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Easing, ImageProps, StyleSheet } from 'react-native';
+import { Animated, Easing, ImageProps, Platform, StyleSheet } from 'react-native';
 
 export interface LoadingAnimationProps extends ImageProps {
   loading: boolean;
@@ -20,7 +20,10 @@ export const SplashImage = (props: LoadingAnimationProps): React.ReactElement | 
       toValue: 1,
       duration: 700,
       easing: Easing.in(Easing.exp),
-      useNativeDriver: true,
+      useNativeDriver: Platform.select({
+        default: true,
+        web: false,
+      }),
     }).start(onAnimationCompleted);
   };
 

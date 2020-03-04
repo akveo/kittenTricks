@@ -1,14 +1,6 @@
 import React from 'react';
-import { ListRenderItemInfo, StyleSheet, View } from 'react-native';
-import {
-  Avatar,
-  Button,
-  Card,
-  CardHeaderElement,
-  List,
-  ListProps,
-  Text,
-} from '@ui-kitten/components';
+import { ListRenderItemInfo, StyleSheet, View, ViewProps } from 'react-native';
+import { Avatar, Button, Card, List, ListProps, Text } from '@ui-kitten/components';
 import { HeartIcon, MessageCircleIcon, MoreHorizontalIcon } from './icons';
 import { Comment } from './data';
 
@@ -16,8 +8,8 @@ export type CommentListProps = Omit<ListProps, 'renderItem'>;
 
 export const CommentList = (props: CommentListProps): React.ReactElement => {
 
-  const renderCommentHeader = (comment: Comment): CardHeaderElement => (
-    <View style={styles.commentHeader}>
+  const renderCommentHeader = (props: ViewProps, comment: Comment): React.ReactElement => (
+    <View style={[props.style, styles.commentHeader]}>
       <Avatar source={comment.author.photo}/>
       <View style={styles.commentAuthorContainer}>
         <Text category='s2'>{comment.author.fullName}</Text>
@@ -27,7 +19,7 @@ export const CommentList = (props: CommentListProps): React.ReactElement => {
         style={styles.iconButton}
         appearance='ghost'
         status='basic'
-        icon={MoreHorizontalIcon}
+        accessoryLeft={MoreHorizontalIcon}
       />
     </View>
   );
@@ -35,22 +27,22 @@ export const CommentList = (props: CommentListProps): React.ReactElement => {
   const renderItem = (info: ListRenderItemInfo<Comment>): React.ReactElement => (
     <Card
       style={styles.commentItem}
-      header={() => renderCommentHeader(info.item)}>
+      header={props => renderCommentHeader(props, info.item)}>
       <Text>{info.item.text}</Text>
       <View style={styles.commentReactionsContainer}>
         <Button
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          icon={MessageCircleIcon}>
-          {`${info.item.comments.length}`}
+          accessoryLeft={MessageCircleIcon}>
+          {info.item.comments.length}
         </Button>
         <Button
           style={styles.iconButton}
           appearance='ghost'
           status='danger'
-          icon={HeartIcon}>
-          {`${info.item.likes.length}`}
+          accessoryLeft={HeartIcon}>
+          {info.item.likes.length}
         </Button>
       </View>
     </Card>

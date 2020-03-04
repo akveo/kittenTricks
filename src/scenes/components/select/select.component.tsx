@@ -1,5 +1,5 @@
 import React from 'react';
-import { SelectElement, SelectProps } from '@ui-kitten/components';
+import { SelectProps, SelectElement } from '@ui-kitten/components';
 import { SelectShowcase } from './select-showcase.component';
 import { selectSettings, selectShowcase } from './type';
 import { ShowcaseContainer } from '../../../components/showcase-container.component';

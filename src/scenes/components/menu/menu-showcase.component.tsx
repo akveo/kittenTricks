@@ -1,19 +1,15 @@
 import React from 'react';
-import { Menu, MenuElement, MenuProps } from '@ui-kitten/components';
+import { IndexPath, Menu, MenuElement, MenuProps } from '@ui-kitten/components';
 
 export const MenuShowcase = (props: MenuProps): MenuElement => {
 
-  const [selectedIndex, setSelectedIndex] = React.useState(null);
-
-  const onSelect = (index: number): void => {
-    setSelectedIndex(index);
-  };
+  const [selectedIndex, setSelectedIndex] = React.useState<IndexPath>(props.selectedIndex);
 
   return (
     <Menu
       {...props}
       selectedIndex={selectedIndex}
-      onSelect={onSelect}
+      onSelect={setSelectedIndex}
     />
   );
 };

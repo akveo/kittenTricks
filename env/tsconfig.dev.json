@@ -24,9 +24,6 @@
       ],
       "@ui-kitten/*": [
         "../react-native-ui-kitten/src/*"
-      ],
-      "@kitten/*": [
-        "../react-native-ui-kitten/src/components/*"
       ]
     }
   },

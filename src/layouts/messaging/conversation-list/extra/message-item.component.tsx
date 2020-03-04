@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import { ImageProps, StyleSheet, View, ViewProps } from 'react-native';
 import { Avatar, ListItem, ListItemProps, Text } from '@ui-kitten/components';
 import { DoneAllIcon } from './icons';
 import { Message } from './data';
@@ -12,7 +12,7 @@ export const MessageItem = (props: MessageItemProps): React.ReactElement => {
 
   const { message, ...listItemProps } = props;
 
-  const renderMessageDate = (style: ViewStyle, index: number): React.ReactElement => (
+  const renderMessageDate = (): React.ReactElement => (
     <View style={styles.dateContainer}>
       {message.isRead && <DoneAllIcon/>}
       <Text
@@ -37,8 +37,8 @@ export const MessageItem = (props: MessageItemProps): React.ReactElement => {
       {...listItemProps}
       title={message.profile.fullName}
       description={message.formattedText}
-      icon={renderProfileAvatar}
-      accessory={renderMessageDate}
+      accessoryLeft={renderProfileAvatar}
+      accessoryRight={renderMessageDate}
     />
   );
 };

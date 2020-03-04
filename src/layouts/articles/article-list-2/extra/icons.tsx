@@ -1,19 +1,19 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps, ImageStyle } from 'react-native';
 import { Icon, IconElement, useTheme } from '@ui-kitten/components';
 
-export const BulbIcon = (style: ImageStyle): IconElement => {
+export const BulbIcon = (props: Partial<ImageProps>): IconElement => {
   const theme = useTheme();
   return (
     <Icon width='24' height='24' fill={theme['text-control-color']} name='bulb-outline'/>
   );
 };
 
-export const HeartIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='heart'/>
+export const HeartIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='heart'/>
 );
 
-export const MessageCircleIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='message-circle-outline'/>
+export const MessageCircleIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='message-circle-outline'/>
 );
 

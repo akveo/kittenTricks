@@ -50,15 +50,15 @@ export default ({ navigation }): React.ReactElement => {
         <View style={styles.profileSocialsContainer}>
           <ProfileSocial
             hint='Followers'
-            value={`${profile.followers}`}
+            value={profile.followers}
           />
           <ProfileSocial
             hint='Following'
-            value={`${profile.following}`}
+            value={profile.following}
           />
           <ProfileSocial
             hint='Posts'
-            value={`${profile.posts}`}
+            value={profile.posts}
           />
         </View>
         <Button

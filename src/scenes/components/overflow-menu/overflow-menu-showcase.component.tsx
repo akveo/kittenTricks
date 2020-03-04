@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button,
+  Button, ButtonElement,
   OverflowMenu,
   OverflowMenuElement,
   OverflowMenuProps,
@@ -9,27 +9,23 @@ import {
 export const OverflowMenuShowcase = (props: OverflowMenuProps): OverflowMenuElement => {
 
   const [visible, setVisible] = React.useState<boolean>(false);
-  const [selectedIndex, setSelectedIndex] = React.useState<number>(null);
 
   const toggleMenu = (): void => {
     setVisible(!visible);
   };
 
-  const onSelect = (index: number): void => {
-    setSelectedIndex(index);
-    toggleMenu();
-  };
+  const renderToggleButton = (): ButtonElement => (
+    <Button onPress={toggleMenu}>
+      TOGGLE MENU
+    </Button>
+  );
 
   return (
     <OverflowMenu
       {...props}
       visible={visible}
-      selectedIndex={selectedIndex}
-      onSelect={onSelect}
-      onBackdropPress={toggleMenu}>
-      <Button onPress={toggleMenu}>
-        TOGGLE MENU
-      </Button>
-    </OverflowMenu>
+      anchor={renderToggleButton}
+      onBackdropPress={toggleMenu}
+    />
   );
 };

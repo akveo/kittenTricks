@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Tooltip, TooltipElement, TooltipProps } from '@ui-kitten/components';
+import { Button, TextElement, Tooltip, TooltipElement, TooltipProps } from '@ui-kitten/components';
 
 export const TooltipShowcase = (props: TooltipProps): TooltipElement => {
 
@@ -9,15 +9,21 @@ export const TooltipShowcase = (props: TooltipProps): TooltipElement => {
     setVisible(!visible);
   };
 
+  const renderToggleButton = (): TextElement => {
+    return (
+      <Button onPress={toggleTooltip}>
+        TOGGLE TOOLTIP
+      </Button>
+    );
+  };
+
   return (
     <Tooltip
       {...props}
       visible={visible}
-      text='Hi! I am Tooltip!'
+      anchor={renderToggleButton}
       onBackdropPress={toggleTooltip}>
-      <Button onPress={toggleTooltip}>
-        TOGGLE TOOLTIP
-      </Button>
+      Hi! I'm a Tooltip
     </Tooltip>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { TextProps, View } from 'react-native';
 import {
   Button,
   CheckBox,
@@ -39,6 +39,13 @@ export default ({ navigation }): React.ReactElement => {
     navigation && navigation.navigate('SignIn1');
   };
 
+  const renderTermsText = (props: TextProps): React.ReactElement => (
+    <Text {...props} style={[props.style, styles.termsCheckBoxText]}>
+      By creating an account, I agree to the Ewa Terms of
+      Use and Privacy Policy
+    </Text>
+  );
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ImageOverlay
@@ -49,7 +56,7 @@ export default ({ navigation }): React.ReactElement => {
           appearance='ghost'
           status='control'
           size='large'
-          icon={HeartIconFill}>
+          accessoryLeft={HeartIconFill}>
           EVA
         </Button>
         <View style={styles.signUpContainer}>
@@ -64,7 +71,7 @@ export default ({ navigation }): React.ReactElement => {
             appearance='ghost'
             status='control'
             size='giant'
-            icon={ArrowForwardIconOutline}
+            accessoryRight={ArrowForwardIconOutline}
             onPress={onSignInButtonPress}>
             Sign In
           </Button>
@@ -79,19 +86,19 @@ export default ({ navigation }): React.ReactElement => {
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={GoogleIcon}
+            accessoryLeft={GoogleIcon}
           />
           <Button
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={FacebookIcon}
+            accessoryLeft={FacebookIcon}
           />
           <Button
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={TwitterIcon}
+            accessoryLeft={TwitterIcon}
           />
         </View>
       </View>
@@ -148,9 +155,8 @@ export default ({ navigation }): React.ReactElement => {
         />
         <CheckBox
           style={styles.termsCheckBox}
-          textStyle={styles.termsCheckBoxText}
+          text={renderTermsText}
           checked={termsAccepted}
-          text={'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
           onChange={(checked: boolean) => setTermsAccepted(checked)}
         />
       </View>
@@ -203,7 +209,6 @@ const themedStyles = StyleService.create({
     flex: 1,
   },
   signInButton: {
-    flexDirection: 'row-reverse',
     paddingHorizontal: 0,
   },
   signUpButton: {

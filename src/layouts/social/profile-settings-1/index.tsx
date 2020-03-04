@@ -20,7 +20,7 @@ export default ({ navigation }): React.ReactElement => {
     <Button
       style={styles.editAvatarButton}
       status='basic'
-      icon={CameraIcon}
+      accessoryLeft={CameraIcon}
     />
   );
 
@@ -51,7 +51,7 @@ export default ({ navigation }): React.ReactElement => {
       <ProfileSetting
         style={styles.profileSetting}
         hint='Age'
-        value={`${profile.age}`}
+        value={profile.age}
       />
       <ProfileSetting
         style={styles.profileSetting}

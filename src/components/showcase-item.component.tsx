@@ -28,7 +28,6 @@ export const ShowcaseItem = (props: ShowcaseItemProps): React.ReactElement => {
     </Text>
   );
 
-
   const titleElement: TextElement = item.title && renderTitleElement();
   const showcaseElement: React.ReactElement = renderElement();
 

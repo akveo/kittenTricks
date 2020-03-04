@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListRenderItemInfo, StyleSheet, View } from 'react-native';
+import { ListRenderItemInfo, StyleSheet, View, ViewProps } from 'react-native';
 import { Avatar, Button, Card, List, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { BulbIcon, HeartIcon, MessageCircleIcon } from './extra/icons';
@@ -17,9 +17,9 @@ export default ({ navigation }): React.ReactElement => {
     navigation && navigation.navigate('Article2');
   };
 
-  const renderItemHeader = (info: ListRenderItemInfo<Article>): React.ReactElement => (
+  const renderItemHeader = (props: ViewProps, info: ListRenderItemInfo<Article>): React.ReactElement => (
     <ImageOverlay
-      style={styles.itemHeader}
+      style={[props.style, styles.itemHeader]}
       source={info.item.image}>
       <Text
         style={styles.itemTitle}
@@ -42,7 +42,7 @@ export default ({ navigation }): React.ReactElement => {
   const renderItem = (info: ListRenderItemInfo<Article>): React.ReactElement => (
     <Card
       style={styles.item}
-      header={() => renderItemHeader(info)}
+      header={props => renderItemHeader(props, info)}
       onPress={() => onItemPress(info.index)}>
       <View style={styles.itemFooter}>
         <Avatar source={info.item.author.photo}/>
@@ -61,15 +61,15 @@ export default ({ navigation }): React.ReactElement => {
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          icon={MessageCircleIcon}>
-          {`${info.item.comments.length}`}
+          accessoryLeft={MessageCircleIcon}>
+          {info.item.comments.length}
         </Button>
         <Button
           style={styles.iconButton}
           appearance='ghost'
           status='danger'
-          icon={HeartIcon}>
-          {`${info.item.likes.length}`}
+          accessoryLeft={HeartIcon}>
+          {info.item.likes.length}
         </Button>
       </View>
     </Card>
@@ -98,8 +98,6 @@ const styles = StyleSheet.create({
   },
   itemHeader: {
     height: 220,
-    paddingVertical: 24,
-    paddingHorizontal: 16,
   },
   itemTitle: {
     zIndex: 1,

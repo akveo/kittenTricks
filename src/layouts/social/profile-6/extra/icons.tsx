@@ -1,13 +1,13 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement, useTheme } from '@ui-kitten/components';
 
-export const MessageCircleIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='message-circle'/>
+export const MessageCircleIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='message-circle'/>
 );
 
-export const PersonAddIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='person-add'/>
+export const PersonAddIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='person-add'/>
 );
 
 export const PinIcon = (): IconElement => {

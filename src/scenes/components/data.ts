@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { ThemedIcon } from '../../components/themed-icon.component';
 import {
   AssetAutocompleteDarkIcon,
@@ -63,9 +63,9 @@ export const data: ComponentData[] = [
   {
     title: 'Autocomplete',
     route: 'Autocomplete',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(ThemedIcon, {
-        ...style, light: AssetAutocompleteIcon,
+        ...props, light: AssetAutocompleteIcon,
         dark: AssetAutocompleteDarkIcon,
       });
     },
@@ -73,280 +73,280 @@ export const data: ComponentData[] = [
   {
     title: 'Avatar',
     route: 'Avatar',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetAvatarIcon, dark: AssetAvatarDarkIcon },
+        { ...props, light: AssetAvatarIcon, dark: AssetAvatarDarkIcon },
       );
     },
   },
   {
     title: 'BottomNavigation',
     route: 'BottomNavigation',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetBottomNavigationIcon, dark: AssetBottomNavigationDarkIcon },
+        { ...props, light: AssetBottomNavigationIcon, dark: AssetBottomNavigationDarkIcon },
       );
     },
   },
   {
     title: 'Button',
     route: 'Button',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetButtonIcon, dark: AssetButtonDarkIcon },
+        { ...props, light: AssetButtonIcon, dark: AssetButtonDarkIcon },
       );
     },
   },
   {
     title: 'ButtonGroup',
     route: 'ButtonGroup',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetButtonGroupIcon, dark: AssetButtonGroupDarkIcon },
+        { ...props, light: AssetButtonGroupIcon, dark: AssetButtonGroupDarkIcon },
       );
     },
   },
   {
     title: 'Calendar',
     route: 'Calendar',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetCalendarIcon, dark: AssetCalendarDarkIcon },
+        { ...props, light: AssetCalendarIcon, dark: AssetCalendarDarkIcon },
       );
     },
   },
   {
     title: 'Card',
     route: 'Card',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetCardIcon, dark: AssetCardDarkIcon },
+        { ...props, light: AssetCardIcon, dark: AssetCardDarkIcon },
       );
     },
   },
   {
     title: 'CheckBox',
     route: 'CheckBox',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetCheckBoxIcon, dark: AssetCheckBoxDarkIcon },
+        { ...props, light: AssetCheckBoxIcon, dark: AssetCheckBoxDarkIcon },
       );
     },
   },
   {
     title: 'Datepicker',
     route: 'Datepicker',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetDatepickerIcon, dark: AssetDatepickerDarkIcon },
+        { ...props, light: AssetDatepickerIcon, dark: AssetDatepickerDarkIcon },
       );
     },
   },
   {
     title: 'Drawer',
     route: 'Drawer',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetDrawerIcon, dark: AssetDrawerDarkIcon },
+        { ...props, light: AssetDrawerIcon, dark: AssetDrawerDarkIcon },
       );
     },
   },
   {
     title: 'Icon',
     route: 'Icon',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetIconIcon, dark: AssetIconDarkIcon },
+        { ...props, light: AssetIconIcon, dark: AssetIconDarkIcon },
       );
     },
   },
   {
     title: 'Input',
     route: 'Input',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetInputIcon, dark: AssetInputDarkIcon },
+        { ...props, light: AssetInputIcon, dark: AssetInputDarkIcon },
       );
     },
   },
   {
     title: 'Layout',
     route: 'Layout',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetModalIcon, dark: AssetModalDarkIcon },
+        { ...props, light: AssetModalIcon, dark: AssetModalDarkIcon },
       );
     },
   },
   {
     title: 'List',
     route: 'List',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetListIcon, dark: AssetListDarkIcon },
+        { ...props, light: AssetListIcon, dark: AssetListDarkIcon },
       );
     },
   },
   {
     title: 'Menu',
     route: 'Menu',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetMenuIcon, dark: AssetMenuDarkIcon },
+        { ...props, light: AssetMenuIcon, dark: AssetMenuDarkIcon },
       );
     },
   },
   {
     title: 'Modal',
     route: 'Modal',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetModalIcon, dark: AssetModalDarkIcon },
+        { ...props, light: AssetModalIcon, dark: AssetModalDarkIcon },
       );
     },
   },
   {
     title: 'OverflowMenu',
     route: 'OverflowMenu',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetOverflowMenuIcon, dark: AssetOverflowMenuDarkIcon },
+        { ...props, light: AssetOverflowMenuIcon, dark: AssetOverflowMenuDarkIcon },
       );
     },
   },
   {
     title: 'Popover',
     route: 'Popover',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetPopoverIcon, dark: AssetPopoverDarkIcon },
+        { ...props, light: AssetPopoverIcon, dark: AssetPopoverDarkIcon },
       );
     },
   },
   {
     title: 'Radio',
     route: 'Radio',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetRadioIcon, dark: AssetRadioDarkIcon },
+        { ...props, light: AssetRadioIcon, dark: AssetRadioDarkIcon },
       );
     },
   },
   {
     title: 'RadioGroup',
     route: 'RadioGroup',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetRadioIcon, dark: AssetRadioDarkIcon },
+        { ...props, light: AssetRadioIcon, dark: AssetRadioDarkIcon },
       );
     },
   },
   {
     title: 'RangeCalendar',
     route: 'RangeCalendar',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetCalendarIcon, dark: AssetCalendarDarkIcon },
+        { ...props, light: AssetCalendarIcon, dark: AssetCalendarDarkIcon },
       );
     },
   },
   {
     title: 'RangeDatepicker',
     route: 'RangeDatepicker',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetDatepickerIcon, dark: AssetDatepickerDarkIcon },
+        { ...props, light: AssetDatepickerIcon, dark: AssetDatepickerDarkIcon },
       );
     },
   },
   {
     title: 'Select',
     route: 'Select',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetSelectIcon, dark: AssetSelectDarkIcon },
+        { ...props, light: AssetSelectIcon, dark: AssetSelectDarkIcon },
       );
     },
   },
   {
     title: 'Spinner',
     route: 'Spinner',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetSpinnerIcon, dark: AssetSpinnerDarkIcon },
+        { ...props, light: AssetSpinnerIcon, dark: AssetSpinnerDarkIcon },
       );
     },
   },
   {
     title: 'TabView',
     route: 'TabView',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetTabViewIcon, dark: AssetTabViewDarkIcon },
+        { ...props, light: AssetTabViewIcon, dark: AssetTabViewDarkIcon },
       );
     },
   },
   {
     title: 'Text',
     route: 'Text',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetTextIcon, dark: AssetTextDarkIcon },
+        { ...props, light: AssetTextIcon, dark: AssetTextDarkIcon },
       );
     },
   },
   {
     title: 'Toggle',
     route: 'Toggle',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetToggleIcon, dark: AssetToggleDarkIcon },
+        { ...props, light: AssetToggleIcon, dark: AssetToggleDarkIcon },
       );
     },
   },
   {
     title: 'Tooltip',
     route: 'Tooltip',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetTooltipIcon, dark: AssetTooltipDarkIcon },
+        { ...props, light: AssetTooltipIcon, dark: AssetTooltipDarkIcon },
       );
     },
   },
   {
     title: 'TopNavigation',
     route: 'TopNavigation',
-    icon: (style: ImageStyle) => {
+    icon: (props: ImageProps) => {
       return React.createElement(
         ThemedIcon,
-        { ...style, light: AssetTopNavigationIcon, dark: AssetTopNavigationDarkIcon },
+        { ...props, light: AssetTopNavigationIcon, dark: AssetTopNavigationDarkIcon },
       );
     },
   },

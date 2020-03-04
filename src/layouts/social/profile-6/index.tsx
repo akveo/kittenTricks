@@ -82,14 +82,14 @@ export default ({ navigation }): React.ReactElement => {
         <View style={styles.profileButtonsContainer}>
           <Button
             style={styles.profileButton}
-            icon={PersonAddIcon}
+            accessoryLeft={PersonAddIcon}
             onPress={onFollowButtonPress}>
             FOLLOW
           </Button>
           <Button
             appearance='outline'
             style={styles.profileButton}
-            icon={MessageCircleIcon}
+            accessoryLeft={MessageCircleIcon}
             onPress={onMessageButtonPress}>
             MESSAGE
           </Button>
@@ -98,15 +98,15 @@ export default ({ navigation }): React.ReactElement => {
         <View style={styles.profileSocialsContainer}>
           <ProfileSocial
             hint='Followers'
-            value={`${profile.followers}`}
+            value={profile.followers}
           />
           <ProfileSocial
             hint='Following'
-            value={`${profile.following}`}
+            value={profile.following}
           />
           <ProfileSocial
             hint='Posts'
-            value={`${profile.posts}`}
+            value={profile.posts}
           />
         </View>
       </Layout>

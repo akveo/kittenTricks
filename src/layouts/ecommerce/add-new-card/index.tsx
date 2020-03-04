@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ImageProps, TouchableWithoutFeedback, View } from 'react-native';
 import {
   Button,
   Datepicker,
@@ -29,6 +29,12 @@ export default ({ navigation }): React.ReactElement => {
   const onAddButtonPress = (): void => {
     navigation && navigation.goBack();
   };
+
+  const renderCVVIcon = (props: ImageProps): React.ReactElement => (
+    <TouchableWithoutFeedback onPress={onCVVIconPress}>
+      {cvvVisible ? EyeIcon(props) : EyeOffIcon(props)}
+    </TouchableWithoutFeedback>
+  );
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -60,9 +66,8 @@ export default ({ navigation }): React.ReactElement => {
             maxLength={3}
             value={cvv}
             secureTextEntry={!cvvVisible}
-            icon={cvvVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={renderCVVIcon}
             onChangeText={setCVV}
-            onIconPress={onCVVIconPress}
           />
         </View>
         <Input

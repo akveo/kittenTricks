@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Button, Card, CardElement, CardProps, Text } from '@ui-kitten/components';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, CardElement, CardProps, Text } from '@ui-kitten/components';
 import { ImageOverlay } from './image-overlay.component';
 import { ClockIcon } from './icons';
 import { Training } from './data';
@@ -13,11 +13,12 @@ export type TrainingCardElement = React.ReactElement<TrainingCardProps>;
 
 export const TrainingCard = (props: TrainingCardProps): CardElement => {
 
-  const { style, training, ...cardProps } = props;
+  const { style, training, ...touchableProps } = props;
 
   return (
-    <Card
-      {...cardProps}
+    <TouchableOpacity
+      {...touchableProps}
+      activeOpacity={1.0}
       style={[styles.container, style]}>
       <ImageOverlay
         style={styles.image}
@@ -37,20 +38,21 @@ export const TrainingCard = (props: TrainingCardProps): CardElement => {
         <Button
           style={styles.durationButton}
           size='tiny'
-          icon={ClockIcon}>
+          accessoryLeft={ClockIcon}>
           {training.formattedDuration}
         </Button>
       </ImageOverlay>
-    </Card>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     height: 200,
+    borderRadius: 4,
+    overflow: 'hidden',
   },
   image: {
-    ...StyleSheet.absoluteFillObject,
     height: 200,
     paddingVertical: 24,
     paddingHorizontal: 16,

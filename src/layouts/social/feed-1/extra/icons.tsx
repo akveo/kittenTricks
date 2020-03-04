@@ -1,19 +1,19 @@
 import React from 'react';
-import { ImageStyle } from 'react-native';
+import { ImageProps } from 'react-native';
 import { Icon, IconElement } from '@ui-kitten/components';
 
-export const ClockIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='clock-outline'/>
+export const ClockIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='clock-outline'/>
 );
 
-export const HeartIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='heart-outline'/>
+export const HeartIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='heart-outline'/>
 );
 
-export const PlusIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='plus'/>
+export const PlusIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='plus'/>
 );
 
-export const ShareIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='share-outline'/>
+export const ShareIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='share-outline'/>
 );
