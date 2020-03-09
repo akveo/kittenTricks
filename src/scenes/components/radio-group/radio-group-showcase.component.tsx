@@ -9,9 +9,9 @@ export const RadioGroupShowcase = (props: RadioGroupProps): RadioGroupElement =>
     <RadioGroup
       selectedIndex={selectedIndex}
       onChange={setSelectedIndex}>
-      <Radio text='Option 1'/>
-      <Radio text='Option 2'/>
-      <Radio text='Option 3'/>
+      <Radio>Option 1</Radio>
+      <Radio>Option 2</Radio>
+      <Radio>Option 3</Radio>
     </RadioGroup>
   );
 };

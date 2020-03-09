@@ -6,7 +6,7 @@ import {
   ComponentShowcaseSection,
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
-import { AssetAppIcon, StarIcon } from '../../../components/icons';
+import { StarIcon } from '../../../components/icons';
 
 const defaultSelect: ComponentShowcaseItem = {
   title: 'Default',
@@ -20,8 +20,16 @@ const defaultSelect: ComponentShowcaseItem = {
   },
 };
 
+const disabledSelect: ComponentShowcaseItem = {
+  title: 'Disabled',
+  props: {
+    ...defaultSelect.props,
+    disabled: true,
+  },
+};
+
 const multiSelect: ComponentShowcaseItem = {
-  title: 'Multi',
+  title: 'Default',
   props: {
     ...defaultSelect.props,
     multiSelect: true,
@@ -29,7 +37,7 @@ const multiSelect: ComponentShowcaseItem = {
 };
 
 const groupsSelect: ComponentShowcaseItem = {
-  title: 'Default',
+  title: 'Grouping',
   props: {
     children: [
       <SelectGroup title='Group 1'>
@@ -39,16 +47,24 @@ const groupsSelect: ComponentShowcaseItem = {
       <SelectGroup title='Group 2'>
         <SelectItem title='Option 2.1'/>
         <SelectItem title='Option 2.2'/>
-      </SelectGroup>
+      </SelectGroup>,
     ],
   },
 };
 
 const groupsMultiSelect: ComponentShowcaseItem = {
-  title: 'Multi',
+  title: 'Grouping',
   props: {
     ...groupsSelect.props,
     multiSelect: true,
+  },
+};
+
+const placeholderSelect: ComponentShowcaseItem = {
+  title: 'Placeholder',
+  props: {
+    ...defaultSelect.props,
+    placeholder: 'Place your text',
   },
 };
 
@@ -69,7 +85,7 @@ const captionSelect: ComponentShowcaseItem = {
 };
 
 const accessoryLeftSelect: ComponentShowcaseItem = {
-  title: 'Accessory Left',
+  title: 'Left',
   props: {
     ...defaultSelect.props,
     accessoryLeft: StarIcon,
@@ -78,44 +94,51 @@ const accessoryLeftSelect: ComponentShowcaseItem = {
 };
 
 const accessoryRightSelect: ComponentShowcaseItem = {
-  title: 'Accessory Right',
+  title: 'Right',
   props: {
     ...defaultSelect.props,
     accessoryRight: StarIcon,
   },
 };
 
-const renderItemAccessoryLeftSelect: ComponentShowcaseItem = {
-  title: 'Accessory Left',
+const optionAccessoryLeftSelect: ComponentShowcaseItem = {
+  title: 'Left',
   props: {
     ...defaultSelect.props,
-    renderItem: ({ item }) => (
-      <SelectItem accessoryLeft={AssetAppIcon} title={item.title}/>
-    ),
+    children: [
+      <SelectItem accessoryLeft={StarIcon} title='Option 1'/>,
+      <SelectItem accessoryLeft={StarIcon} title='Option 2'/>,
+      <SelectItem accessoryLeft={StarIcon} title='Option 3'/>,
+      <SelectItem accessoryLeft={StarIcon} title='Option 4'/>,
+    ],
   },
 };
 
-const renderItemAccessoryRightSelect: ComponentShowcaseItem = {
-  title: 'Accessory Right',
+const optionAccessoryRightSelect: ComponentShowcaseItem = {
+  title: 'Right',
   props: {
     ...defaultSelect.props,
-    renderItem: ({ item }) => (
-      <SelectItem accessoryRight={AssetAppIcon} title={item.title}/>
-    ),
+    children: [
+      <SelectItem accessoryRight={StarIcon} title='Option 1'/>,
+      <SelectItem accessoryRight={StarIcon} title='Option 2'/>,
+      <SelectItem accessoryRight={StarIcon} title='Option 3'/>,
+      <SelectItem accessoryRight={StarIcon} title='Option 4'/>,
+    ],
   },
 };
 
-const renderItemSection: ComponentShowcaseSection = {
-  title: 'Render Item',
+const optionAccessoriesSection: ComponentShowcaseSection = {
+  title: 'Option Accessories',
   items: [
-    renderItemAccessoryLeftSelect,
-    renderItemAccessoryRightSelect,
+    optionAccessoryLeftSelect,
+    optionAccessoryRightSelect,
   ],
 };
 
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
   items: [
+    placeholderSelect,
     labelSelect,
     captionSelect,
     accessoryLeftSelect,
@@ -123,10 +146,10 @@ const accessoriesSection: ComponentShowcaseSection = {
   ],
 };
 
-const groupsSection: ComponentShowcaseSection = {
-  title: 'Groups',
+const multiSection: ComponentShowcaseSection = {
+  title: 'Multi Select',
   items: [
-    groupsSelect,
+    multiSelect,
     groupsMultiSelect,
   ],
 };
@@ -135,7 +158,8 @@ const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
   items: [
     defaultSelect,
-    multiSelect,
+    disabledSelect,
+    groupsSelect,
   ],
 };
 
@@ -143,9 +167,9 @@ export const selectShowcase: ComponentShowcase = {
   title: 'Select',
   sections: [
     defaultSection,
-    groupsSection,
+    multiSection,
     accessoriesSection,
-    renderItemSection,
+    optionAccessoriesSection,
   ],
 };
 

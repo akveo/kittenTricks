@@ -19,8 +19,15 @@ const disabledInput: ComponentShowcaseItem = {
   },
 };
 
-const iconInput: ComponentShowcaseItem = {
-  title: 'Icon',
+const leftAccessoryInput: ComponentShowcaseItem = {
+  title: 'Left',
+  props: {
+    accessoryLeft: StarIcon,
+  },
+};
+
+const rightAccessoryInput: ComponentShowcaseItem = {
+  title: 'Right',
   props: {
     accessoryRight: StarIcon,
   },
@@ -59,7 +66,8 @@ const stateSection: ComponentShowcaseSection = {
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
   items: [
-    iconInput,
+    leftAccessoryInput,
+    rightAccessoryInput,
     labelInput,
     captionInput,
     captionIconInput,

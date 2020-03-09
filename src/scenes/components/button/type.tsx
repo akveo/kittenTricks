@@ -19,21 +19,21 @@ const disabledButton: ComponentShowcaseItem = {
   },
 };
 
-const leftIconButton: ComponentShowcaseItem = {
-  title: 'Left Icon',
+const leftAccessoryButton: ComponentShowcaseItem = {
+  title: 'Left',
   props: {
     accessoryLeft: StarIcon,
   },
 };
 
-const rightIconButton: ComponentShowcaseItem = {
-  title: 'Right Icon',
+const rightAccessoryButton: ComponentShowcaseItem = {
+  title: 'Right',
   props: {
     accessoryRight: StarIcon,
   },
 };
 
-const disabledIconButton: ComponentShowcaseItem = {
+const disabledAccessoryButton: ComponentShowcaseItem = {
   title: 'Disabled',
   props: {
     accessoryLeft: StarIcon,
@@ -89,11 +89,11 @@ const textSection: ComponentShowcaseSection = {
 };
 
 const iconSection: ComponentShowcaseSection = {
-  title: 'Icon',
+  title: 'Accessories',
   items: [
-    leftIconButton,
-    rightIconButton,
-    disabledIconButton,
+    leftAccessoryButton,
+    rightAccessoryButton,
+    disabledAccessoryButton,
   ],
 };
 

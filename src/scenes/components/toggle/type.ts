@@ -6,24 +6,24 @@ import {
 } from '../../../model/showcase.model';
 
 const leftTitleToggle: ComponentShowcaseItem = {
-  title: 'Right Text',
+  title: 'Right',
   props: {
-    text: 'Place your text',
+    children: 'Place your text',
   },
 };
 
 const rightTitleToggle: ComponentShowcaseItem = {
-  title: 'Left Text',
+  title: 'Left',
   props: {
     style: { flexDirection: 'row-reverse' },
-    text: 'Place your text',
+    children: 'Place your text',
   },
 };
 
 const disabledTitleToggle: ComponentShowcaseItem = {
-  title: 'Text Disabled',
+  title: 'Disabled',
   props: {
-    text: 'Place your text',
+    children: 'Place your text',
     disabled: true,
   },
 };

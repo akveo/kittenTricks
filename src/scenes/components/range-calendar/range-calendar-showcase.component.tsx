@@ -3,7 +3,7 @@ import { RangeCalendar, RangeCalendarElement, RangeCalendarProps } from '@ui-kit
 
 export const RangeCalendarShowcase = (props: RangeCalendarProps): RangeCalendarElement => {
 
-  const [range, setRange] = React.useState({});
+  const [range, setRange] = React.useState();
 
   return (
     <RangeCalendar

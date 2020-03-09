@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageProps, ImageSourcePropType, ListRenderItemInfo, ScrollView, View } from 'react-native';
+import { Image, ImageProps, ImageSourcePropType, ListRenderItemInfo, ScrollView, View, ViewProps } from 'react-native';
 import { Button, Card, Icon, List, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { Product, ProductOption } from './extra/data';
@@ -46,8 +46,8 @@ export default (): React.ReactElement => {
     </Button>
   );
 
-  const renderBookingFooter = (): React.ReactElement => (
-    <View>
+  const renderBookingFooter = (props: ViewProps): React.ReactElement => (
+    <View {...props}>
       <Text
         category='s1'>
         Facilities

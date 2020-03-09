@@ -23,8 +23,16 @@ export const BookmarkOutlineIcon = (props: Partial<ImageProps>): IconElement => 
   <Icon {...props} name='bookmark-outline'/>
 );
 
+export const BrowserIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='browser'/>
+);
+
 export const ColorPaletteIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='color-palette-outline'/>
+);
+
+export const GlobeIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='globe'/>
 );
 
 export const GithubIcon = (props: Partial<ImageProps>): IconElement => (
@@ -33,6 +41,18 @@ export const GithubIcon = (props: Partial<ImageProps>): IconElement => (
 
 export const GridIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='grid-outline'/>
+);
+
+export const HomeIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='home'/>
+);
+
+export const HeartIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='heart'/>
+);
+
+export const LayersIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='layers'/>
 );
 
 export const LayoutIcon = (props: Partial<ImageProps>): IconElement => (

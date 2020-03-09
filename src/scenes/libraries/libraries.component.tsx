@@ -30,9 +30,9 @@ export const LibrariesScreen = ({ navigation }): React.ReactElement => {
     />
   );
 
-  const renderForwardIcon = (style): React.ReactElement => (
+  const renderForwardIcon = (props): React.ReactElement => (
     <ArrowIosForwardIcon
-      {...style}
+      {...props}
       width='24'
       height='24'
       fill={theme['text-hint-color']}

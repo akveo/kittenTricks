@@ -94,10 +94,10 @@ export default ({ navigation }): React.ReactElement => {
         />
         <CheckBox
           style={styles.termsCheckBox}
-          text={renderTermsText}
           checked={termsAccepted}
-          onChange={(checked: boolean) => setTermsAccepted(checked)}
-        />
+          onChange={(checked: boolean) => setTermsAccepted(checked)}>
+          {renderTermsText}
+        </CheckBox>
       </Layout>
       <Button
         style={styles.signUpButton}

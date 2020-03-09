@@ -13,11 +13,18 @@ const defaultDatepicker: ComponentShowcaseItem = {
   props: {},
 };
 
-const iconDatepicker: ComponentShowcaseItem = {
-  title: 'Icon',
+const disabledDatepicker: ComponentShowcaseItem = {
+  title: 'Disabled',
+  props: {
+    disabled: true,
+  },
+};
+
+const leftAccessoryDatepicker: ComponentShowcaseItem = {
+  title: 'Right',
   props: {
     ...defaultDatepicker.props,
-    icon: StarIcon,
+    accessoryRight: StarIcon,
   },
 };
 
@@ -66,13 +73,14 @@ const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
   items: [
     defaultDatepicker,
+    disabledDatepicker,
   ],
 };
 
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
   items: [
-    iconDatepicker,
+    leftAccessoryDatepicker,
     labelDatepicker,
     captionDatepicker,
     captionIconDatepicker,

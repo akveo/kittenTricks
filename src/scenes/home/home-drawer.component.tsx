@@ -1,16 +1,33 @@
 import React from 'react';
 import { StyleSheet, ViewProps } from 'react-native';
-import { Avatar, Divider, Drawer, DrawerElement, DrawerItem, Layout, Text } from '@ui-kitten/components';
-import { BookIcon, GithubIcon } from '../../components/icons';
-import { SafeAreaLayout } from '../../components/safe-area-layout.component';
+import { Divider, DrawerElement, DrawerGroup, DrawerItem, IndexPath, Layout, Text } from '@ui-kitten/components';
+import {
+  BookIcon,
+  BrowserIcon,
+  ColorPaletteIcon,
+  GithubIcon,
+  GlobeIcon,
+  HeartIcon,
+  HomeIcon,
+  LayersIcon,
+} from '../../components/icons';
 import { WebBrowserService } from '../../services/web-browser.service';
 import { AppInfoService } from '../../services/app-info.service';
+import { BrandDrawer } from '../../components/brand-drawer.component';
+import { ImageOverlay } from '../../layouts/social/feed-1/extra/image-overlay.component';
 
-export const HomeDrawer = ({ navigation }): DrawerElement => {
+export const HomeDrawer = ({ navigation, state }): DrawerElement => {
 
-  const onLibrariesItemPress = (): void => {
-    navigation.toggleDrawer();
+  const [selectedIndex, setSelectedIndex] = React.useState(new IndexPath(state.index));
+
+  const onHomeItemPress = ({ index }): void => {
+    navigation.navigate('Home');
+    setSelectedIndex(index);
+  };
+
+  const onLibrariesItemPress = ({ index }): void => {
     navigation.navigate('Libraries');
+    setSelectedIndex(index);
   };
 
   const onDocumentationItemPress = (): void => {
@@ -18,18 +35,32 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
     navigation.toggleDrawer();
   };
 
+  const onEvaItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://eva.design');
+    navigation.toggleDrawer();
+  };
+
+  const onNebularItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://akveo.github.io/nebular');
+    navigation.toggleDrawer();
+  };
+
+  const onNGXAdminItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://akveo.github.io/ngx-admin');
+    navigation.toggleDrawer();
+  };
+
+  const onUIBakeryItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://uibakery.io');
+    navigation.toggleDrawer();
+  };
+
   const renderHeader = (props: ViewProps): React.ReactElement => (
     <React.Fragment>
-      <Layout
+      <ImageOverlay
         style={[styles.header, props.style]}
-        level='2'>
-        <Avatar source={require('../../assets/images/image-app-icon.png')}/>
-        <Text
-          style={styles.headerTitle}
-          category='h6'>
-          Kitten Tricks
-        </Text>
-      </Layout>
+        source={require('../../assets/images/image-app-icon.png')}
+      />
       <Divider/>
     </React.Fragment>
   );
@@ -48,24 +79,55 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
   );
 
   return (
-    <SafeAreaLayout
-      style={styles.safeArea}
-      insets='top'>
-      <Drawer
-        header={renderHeader}
-        footer={renderFooter}>
+    <BrandDrawer
+      selectedIndex={selectedIndex}
+      header={renderHeader}
+      footer={renderFooter}>
+      <DrawerItem
+        title='Home'
+        accessoryLeft={HomeIcon}
+        onPress={onHomeItemPress}
+      />
+      <DrawerItem
+        title='Libraries'
+        accessoryLeft={GithubIcon}
+        onPress={onLibrariesItemPress}
+      />
+      <DrawerItem
+        title='Documentation'
+        accessoryLeft={BookIcon}
+        onPress={onDocumentationItemPress}
+      />
+      <DrawerGroup
+        title='More from Akveo'
+        accessoryLeft={HeartIcon}>
         <DrawerItem
-          title='Libraries'
+          title='UI Kitten'
           accessoryLeft={GithubIcon}
-          onPress={onLibrariesItemPress}
-        />
-        <DrawerItem
-          title='Documentation'
-          accessoryLeft={BookIcon}
           onPress={onDocumentationItemPress}
         />
-      </Drawer>
-    </SafeAreaLayout>
+        <DrawerItem
+          title='Eva Design System'
+          accessoryLeft={ColorPaletteIcon}
+          onPress={onEvaItemPress}
+        />
+        <DrawerItem
+          title='Nebular'
+          accessoryLeft={GlobeIcon}
+          onPress={onNebularItemPress}
+        />
+        <DrawerItem
+          title='ngx-admin'
+          accessoryLeft={BrowserIcon}
+          onPress={onNGXAdminItemPress}
+        />
+        <DrawerItem
+          title='UI Bakery'
+          accessoryLeft={LayersIcon}
+          onPress={onUIBakeryItemPress}
+        />
+      </DrawerGroup>
+    </BrandDrawer>
   );
 };
 

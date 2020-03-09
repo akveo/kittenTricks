@@ -38,9 +38,9 @@ export default ({ navigation }): React.ReactElement => {
   const renderColorItem = (color: ProductColor, index: number): React.ReactElement => (
     <Radio
       key={index}
-      style={styles.colorRadio}
-      text={color.description.toUpperCase()}
-    />
+      style={styles.colorRadio}>
+      {color.description.toUpperCase()}
+    </Radio>
   );
 
   const renderCommentInputLabel = (props: TextProps): React.ReactElement => (

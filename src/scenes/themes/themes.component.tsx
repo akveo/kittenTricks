@@ -77,10 +77,10 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
   const renderFooter = (): React.ReactElement => (
     <Toggle
       style={styles.evaToggle}
-      text='Eva Design System'
       checked={evaToggleChecked}
-      onChange={onEvaToggleCheckedChange}
-    />
+      onChange={onEvaToggleCheckedChange}>
+      Eva Design System
+    </Toggle>
   );
 
   return (

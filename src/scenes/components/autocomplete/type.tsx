@@ -1,6 +1,4 @@
 import React from 'react';
-import { AutocompleteOption } from '@ui-kitten/components';
-import { CustomOptionsAutocompleteItem } from './autocomplete-examples';
 import { StarIcon } from '../../../components/icons';
 import {
   ComponentShowcase,
@@ -11,24 +9,10 @@ import {
 
 // https://facebook.github.io/react-native/movies.json
 
-export interface AutocompleteShowcaseOption extends AutocompleteOption {
-  id: number;
-  releaseYear: number;
-}
-
-const defaultData: AutocompleteShowcaseOption[] = [
-  { id: 1, title: 'Star Wars', releaseYear: 1977 },
-  { id: 2, title: 'Back to the Future', releaseYear: 1985 },
-  { id: 3, title: 'The Matrix', releaseYear: 1999 },
-  { id: 4, title: 'Inception', releaseYear: 2010 },
-  { id: 5, title: 'Interstellar', releaseYear: 2014 },
-];
-
 const defaultAutocomplete: ComponentShowcaseItem = {
   title: 'Default',
   props: {
     placeholder: 'Place your text',
-    data: defaultData,
   },
 };
 
@@ -80,23 +64,6 @@ const rightIconAutocomplete: ComponentShowcaseItem = {
   },
 };
 
-const renderItemAutocomplete: ComponentShowcaseItem = {
-  title: 'Render Item',
-  props: {
-    ...defaultAutocomplete.props,
-    renderItem: CustomOptionsAutocompleteItem,
-  },
-};
-
-const placeholderDataAutocomplete: ComponentShowcaseItem = {
-  title: 'Placeholder Data',
-  props: {
-    ...defaultAutocomplete.props,
-    placeholder: '123 for no results',
-    placeholderData: [{ title: 'No Results 🙀' }],
-  },
-};
-
 const defaultSection: ComponentShowcaseSection = {
   items: [
     defaultAutocomplete,
@@ -115,20 +82,11 @@ const accessoriesSection: ComponentShowcaseSection = {
   ],
 };
 
-const settingsSection: ComponentShowcaseSection = {
-  title: 'Settings',
-  items: [
-    renderItemAutocomplete,
-    placeholderDataAutocomplete,
-  ],
-};
-
 export const autocompleteShowcase: ComponentShowcase = {
   title: 'Autocomplete',
   sections: [
     defaultSection,
     accessoriesSection,
-    settingsSection,
   ],
 };
 

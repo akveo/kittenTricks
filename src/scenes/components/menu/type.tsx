@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem, MenuGroup } from '@ui-kitten/components';
+import { MenuGroup, MenuItem } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 import {
   ComponentShowcase,
@@ -23,9 +23,9 @@ const disabledMenu: ComponentShowcaseItem = {
   title: 'Disabled Item',
   props: {
     children: [
-      <MenuItem title='Users' accessoryLeft={StarIcon} />,
-      <MenuItem title='Orders' accessoryLeft={StarIcon} />,
-      <MenuItem title='Transactions' disabled={true} accessoryLeft={StarIcon} />,
+      <MenuItem title='Users' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Orders' accessoryLeft={StarIcon}/>,
+      <MenuItem title='Transactions' disabled={true} accessoryLeft={StarIcon}/>,
     ],
   },
 };
@@ -45,9 +45,9 @@ const rightAccessoryMenu: ComponentShowcaseItem = {
   title: 'Right',
   props: {
     children: [
-      <MenuItem title='Users' accessoryRight={StarIcon} />,
-      <MenuItem title='Orders' accessoryRight={StarIcon} />,
-      <MenuItem title='Transactions' accessoryRight={StarIcon} />,
+      <MenuItem title='Users' accessoryRight={StarIcon}/>,
+      <MenuItem title='Orders' accessoryRight={StarIcon}/>,
+      <MenuItem title='Transactions' accessoryRight={StarIcon}/>,
     ],
   },
 };
@@ -57,13 +57,13 @@ const groupedMenu: ComponentShowcaseItem = {
   props: {
     children: [
       <MenuGroup title='Certificates'>
-        <MenuItem title='iOS Distribution' accessoryRight={StarIcon} />
-        <MenuItem title='iOS Development' accessoryRight={StarIcon} />
+        <MenuItem title='iOS Distribution' accessoryRight={StarIcon}/>
+        <MenuItem title='iOS Development' accessoryRight={StarIcon}/>
       </MenuGroup>,
       <MenuGroup title='Devices'>
-        <MenuItem title='iPhone 11 Pro Max' accessoryRight={StarIcon} />
-        <MenuItem title='iPhone 11 Pro' accessoryRight={StarIcon} />
-        <MenuItem title='iPhone 11' accessoryRight={StarIcon} />
+        <MenuItem title='iPhone 11 Pro Max' accessoryRight={StarIcon}/>
+        <MenuItem title='iPhone 11 Pro' accessoryRight={StarIcon}/>
+        <MenuItem title='iPhone 11' accessoryRight={StarIcon}/>
       </MenuGroup>,
     ],
   },

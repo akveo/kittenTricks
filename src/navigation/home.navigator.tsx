@@ -19,7 +19,7 @@ const Drawer = createDrawerNavigator();
  * When dev is true in .expo/settings.json (started via `start:dev`),
  * open Components tab as default.
  */
-const initialTabRoute: string = __DEV__ ? 'Layouts' : 'Layouts';
+const initialTabRoute: string = __DEV__ ? 'Components' : 'Layouts';
 
 /*
  * Can we access it from `HomeNavigator`?
@@ -47,9 +47,7 @@ const HomeTabsNavigator = (): React.ReactElement => (
 );
 
 export const HomeNavigator = (): React.ReactElement => (
-  <Drawer.Navigator
-    screenOptions={{ gestureEnabled: false }}
-    drawerContent={props => <HomeDrawer {...props}/>}>
+  <Drawer.Navigator drawerContent={props => <HomeDrawer {...props}/>}>
     <Drawer.Screen name='Home' component={HomeTabsNavigator}/>
     <Drawer.Screen name='Libraries' component={LibrariesScreen}/>
   </Drawer.Navigator>
