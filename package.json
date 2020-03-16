@@ -43,6 +43,7 @@
     "@ui-kitten/date-fns": "^4.4.0",
     "@ui-kitten/eva-icons": "^4.4.0",
     "@ui-kitten/moment": "^4.4.0",
+    "awesome-debounce-promise": "^2.1.0",
     "date-fns": "^1.30.1",
     "expo": "^36.0.2",
     "expo-constants": "^8.0.0",

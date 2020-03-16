@@ -1,39 +1,35 @@
 import React from 'react';
-import { ViewProps } from 'react-native';
-import { CheckBox, CheckBoxProps, ListItem, ListItemElement, ListItemProps } from '@ui-kitten/components';
-import { StarIcon } from '../../../components/icons';
+import { Button, ListItem, ListItemElement, ListItemProps } from '@ui-kitten/components';
+import { PersonIcon, StarIcon } from '../../../components/icons';
 
-const AccessoryElement = (props: ViewProps): React.ReactElement<CheckBoxProps> => {
-  const [checked, setChecked] = React.useState<boolean>(true);
-
-  const onChange = (nextChecked: boolean): void => {
-    setChecked(nextChecked);
-  };
-
-  return (
-    <CheckBox
-      checked={checked}
-      onChange={onChange}
-    />
-  );
-};
+const FollowButton = (props) => (
+  <Button size='tiny'>
+    FOLLOW
+  </Button>
+);
 
 export const ListItemShowcase = (props?: ListItemProps): ListItemElement => (
   <ListItem {...props} />
 );
 
 export const ListItemIconShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem accessoryLeft={StarIcon} {...props} />
+  <ListItem
+    {...props}
+    accessoryLeft={StarIcon}
+  />
 );
 
 export const ListItemAccessoryShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem {...props} accessoryRight={AccessoryElement}/>
+  <ListItem
+    {...props}
+    accessoryRight={FollowButton}
+  />
 );
 
 export const ListItemIconAccessoryShowcase = (props?: ListItemProps): ListItemElement => (
   <ListItem
     {...props}
-    accessoryLeft={StarIcon}
-    accessoryRight={AccessoryElement}
+    accessoryLeft={PersonIcon}
+    accessoryRight={FollowButton}
   />
 );

@@ -1,16 +1,11 @@
-import {
-  ComponentShowcase,
-  ComponentShowcaseItem,
-  ComponentShowcaseSection,
-  ComponentShowcaseSetting,
-} from '../../../model/showcase.model';
+import { ComponentShowcase, ComponentShowcaseItem, ComponentShowcaseSection } from '../../../model/showcase.model';
 
 const defaultLayout: ComponentShowcaseItem = {
   props: {},
 };
 
 const defaultSection: ComponentShowcaseSection = {
-  title: 'Default',
+  title: 'Levels',
   items: [
     defaultLayout,
   ],
@@ -22,26 +17,3 @@ export const layoutShowcase: ComponentShowcase = {
     defaultSection,
   ],
 };
-
-export const layoutSettings: ComponentShowcaseSetting[] = [
-  {
-    propertyName: 'level',
-    value: '1',
-    description: 'level 1',
-  },
-  {
-    propertyName: 'level',
-    value: '2',
-    description: 'level 2',
-  },
-  {
-    propertyName: 'level',
-    value: '3',
-    description: 'level 3',
-  },
-  {
-    propertyName: 'level',
-    value: '4',
-    description: 'level 4',
-  },
-];

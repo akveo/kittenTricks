@@ -4,12 +4,13 @@ import { Divider, DrawerElement, DrawerGroup, DrawerItem, IndexPath, Layout, Tex
 import {
   BookIcon,
   BrowserIcon,
-  ColorPaletteIcon,
+  ColorPaletteIcon, FacebookIcon,
   GithubIcon,
   GlobeIcon,
   HeartIcon,
+  HeartOutlineIcon,
   HomeIcon,
-  LayersIcon,
+  LayersIcon, PeopleIcon, SmartphoneIcon, TwitterIcon,
 } from '../../components/icons';
 import { WebBrowserService } from '../../services/web-browser.service';
 import { AppInfoService } from '../../services/app-info.service';
@@ -31,12 +32,22 @@ export const HomeDrawer = ({ navigation, state }): DrawerElement => {
   };
 
   const onDocumentationItemPress = (): void => {
-    WebBrowserService.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
+    WebBrowserService.openBrowserAsync('https://hubs.ly/H0n7b4L0');
     navigation.toggleDrawer();
   };
 
-  const onEvaItemPress = (): void => {
-    WebBrowserService.openBrowserAsync('https://eva.design');
+  const onBundlesItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://hubs.ly/H0n79BR0');
+    navigation.toggleDrawer();
+  };
+
+  const onEvaDesignItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://hubs.ly/H0n79zV0');
+    navigation.toggleDrawer();
+  };
+
+  const onEvaIconsItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://akveo.github.io/eva-icons');
     navigation.toggleDrawer();
   };
 
@@ -52,6 +63,21 @@ export const HomeDrawer = ({ navigation, state }): DrawerElement => {
 
   const onUIBakeryItemPress = (): void => {
     WebBrowserService.openBrowserAsync('https://uibakery.io');
+    navigation.toggleDrawer();
+  };
+
+  const onTwitterItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://twitter.com/akveo_inc');
+    navigation.toggleDrawer();
+  };
+
+  const onFacebookItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://www.facebook.com/akveo');
+    navigation.toggleDrawer();
+  };
+
+  const onMediumItemPress = (): void => {
+    WebBrowserService.openBrowserAsync('https://medium.com/akveo-engineering');
     navigation.toggleDrawer();
   };
 
@@ -107,9 +133,19 @@ export const HomeDrawer = ({ navigation, state }): DrawerElement => {
           onPress={onDocumentationItemPress}
         />
         <DrawerItem
+          title='UI Kitten Bundles'
+          accessoryLeft={SmartphoneIcon}
+          onPress={onBundlesItemPress}
+        />
+        <DrawerItem
           title='Eva Design System'
           accessoryLeft={ColorPaletteIcon}
-          onPress={onEvaItemPress}
+          onPress={onEvaDesignItemPress}
+        />
+        <DrawerItem
+          title='Eva Icons'
+          accessoryLeft={HeartOutlineIcon}
+          onPress={onEvaIconsItemPress}
         />
         <DrawerItem
           title='Nebular'
@@ -125,6 +161,25 @@ export const HomeDrawer = ({ navigation, state }): DrawerElement => {
           title='UI Bakery'
           accessoryLeft={LayersIcon}
           onPress={onUIBakeryItemPress}
+        />
+      </DrawerGroup>
+      <DrawerGroup
+        title='Socials'
+        accessoryLeft={PeopleIcon}>
+        <DrawerItem
+          title='Twitter'
+          accessoryLeft={TwitterIcon}
+          onPress={onTwitterItemPress}
+        />
+        <DrawerItem
+          title='Facebook'
+          accessoryLeft={FacebookIcon}
+          onPress={onFacebookItemPress}
+        />
+        <DrawerItem
+          title='Medium'
+          accessoryLeft={BookIcon}
+          onPress={onMediumItemPress}
         />
       </DrawerGroup>
     </BrandDrawer>

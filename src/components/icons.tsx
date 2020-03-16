@@ -31,6 +31,10 @@ export const ColorPaletteIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='color-palette-outline'/>
 );
 
+export const FacebookIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='facebook'/>
+);
+
 export const GlobeIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='globe'/>
 );
@@ -49,6 +53,10 @@ export const HomeIcon = (props: Partial<ImageProps>): IconElement => (
 
 export const HeartIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='heart'/>
+);
+
+export const HeartOutlineIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='heart-outline'/>
 );
 
 export const LayersIcon = (props: Partial<ImageProps>): IconElement => (
@@ -71,6 +79,14 @@ export const MoreVerticalIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='more-vertical'/>
 );
 
+export const PersonIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='person'/>
+);
+
+export const PeopleIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='people'/>
+);
+
 export const SearchIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='search'/>
 );
@@ -83,12 +99,20 @@ export const StarIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='star'/>
 );
 
+export const SmartphoneIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='smartphone-outline'/>
+);
+
 export const StarOutlineIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='star-outline'/>
 );
 
 export const TrashIcon = (props: Partial<ImageProps>): IconElement => (
   <Icon {...props} name='trash'/>
+);
+
+export const TwitterIcon = (props: Partial<ImageProps>): IconElement => (
+  <Icon {...props} name='twitter'/>
 );
 
 export const AssetAppIcon = (props: Partial<ImageProps>): IconElement => (

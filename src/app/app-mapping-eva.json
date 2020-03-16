@@ -1,6 +1,18 @@
 {
   "strict": {
-    "text-font-family": "opensans-regular"
+    "text-heading-1-font-family": "OpenSans-Bold",
+    "text-heading-2-font-family": "OpenSans-Bold",
+    "text-heading-3-font-family": "OpenSans-Bold",
+    "text-heading-4-font-family": "OpenSans-Bold",
+    "text-heading-5-font-family": "OpenSans-Bold",
+    "text-heading-6-font-family": "OpenSans-Bold",
+    "text-subtitle-1-font-family": "OpenSans-SemiBold",
+    "text-subtitle-2-font-family": "OpenSans-SemiBold",
+    "text-paragraph-1-font-family": "OpenSans-Regular",
+    "text-paragraph-2-font-family": "OpenSans-Regular",
+    "text-caption-1-font-family": "OpenSans-Regular",
+    "text-caption-2-font-family": "OpenSans-SemiBold",
+    "text-label-font-family": "OpenSans-Bold"
   },
   "components": {
     "TopNavigation": {

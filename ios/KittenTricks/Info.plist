@@ -59,11 +59,6 @@
 	<string>Give Kitten Tricks periences permission to access your photos</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>Allow Kitten Tricks to access your reminders</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>opensans-regular.ttf</string>
-		<string>roboto-regular.ttf</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -78,5 +73,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+	</array>
 </dict>
 </plist>

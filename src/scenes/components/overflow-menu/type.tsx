@@ -8,14 +8,13 @@ import {
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
 
-
 const defaultOverflowMenu: ComponentShowcaseItem = {
   title: 'Default',
   props: {
     children: [
-      <MenuItem title='Users'/>,
-      <MenuItem title='Orders'/>,
-      <MenuItem title='Transactions'/>,
+      <MenuItem key={0} title='Users'/>,
+      <MenuItem key={1} title='Orders'/>,
+      <MenuItem key={2} title='Transactions'/>,
     ],
   },
 };
@@ -24,9 +23,9 @@ const disabledMenu: ComponentShowcaseItem = {
   title: 'Disabled Item',
   props: {
     children: [
-      <MenuItem title='Users' accessoryLeft={StarIcon}/>,
-      <MenuItem title='Orders' accessoryLeft={StarIcon}/>,
-      <MenuItem title='Transactions' disabled={true} accessoryLeft={StarIcon}/>,
+      <MenuItem key={0} title='Users' accessoryLeft={StarIcon}/>,
+      <MenuItem key={1} title='Orders' accessoryLeft={StarIcon}/>,
+      <MenuItem key={2} title='Transactions' disabled={true} accessoryLeft={StarIcon}/>,
     ],
   },
 };
@@ -35,9 +34,9 @@ const leftAccessoryMenu: ComponentShowcaseItem = {
   title: 'Left',
   props: {
     children: [
-      <MenuItem title='Users' accessoryLeft={StarIcon}/>,
-      <MenuItem title='Orders' accessoryLeft={StarIcon}/>,
-      <MenuItem title='Transactions' accessoryLeft={StarIcon}/>,
+      <MenuItem key={0} title='Users' accessoryLeft={StarIcon}/>,
+      <MenuItem key={1} title='Orders' accessoryLeft={StarIcon}/>,
+      <MenuItem key={2} title='Transactions' accessoryLeft={StarIcon}/>,
     ],
   },
 };
@@ -46,9 +45,9 @@ const rightAccessoryMenu: ComponentShowcaseItem = {
   title: 'Right',
   props: {
     children: [
-      <MenuItem title='Users' accessoryRight={StarIcon}/>,
-      <MenuItem title='Orders' accessoryRight={StarIcon}/>,
-      <MenuItem title='Transactions' accessoryRight={StarIcon}/>,
+      <MenuItem key={0} title='Users' accessoryRight={StarIcon}/>,
+      <MenuItem key={1} title='Orders' accessoryRight={StarIcon}/>,
+      <MenuItem key={2} title='Transactions' accessoryRight={StarIcon}/>,
     ],
   },
 };
@@ -56,8 +55,8 @@ const rightAccessoryMenu: ComponentShowcaseItem = {
 const styledBackdropOverflowMenu: ComponentShowcaseItem = {
   title: 'Styled backdrop',
   props: {
+    ...defaultOverflowMenu.props,
     backdropStyle: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-    children: defaultOverflowMenu.props.children,
   },
 };
 

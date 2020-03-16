@@ -1,6 +1,18 @@
 {
   "strict": {
-    "text-font-family": "roboto-regular"
+    "text-heading-1-font-family": "Roboto-Bold",
+    "text-heading-2-font-family": "Roboto-Bold",
+    "text-heading-3-font-family": "Roboto-Bold",
+    "text-heading-4-font-family": "Roboto-Bold",
+    "text-heading-5-font-family": "Roboto-Bold",
+    "text-heading-6-font-family": "Roboto-Bold",
+    "text-subtitle-1-font-family": "Roboto-Medium",
+    "text-subtitle-2-font-family": "Roboto-Medium",
+    "text-paragraph-1-font-family": "Roboto-Regular",
+    "text-paragraph-2-font-family": "Roboto-Regular",
+    "text-caption-1-font-family": "Roboto-Regular",
+    "text-caption-2-font-family": "Roboto-Medium",
+    "text-label-font-family": "Roboto-Bold"
   },
   "components": {
     "StatusBar": {

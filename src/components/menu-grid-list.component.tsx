@@ -19,7 +19,7 @@ export const MenuGridList = (props: MenuGridListProps): ListElement => {
       {info.item.icon({ style: { width: 64, height: 64, alignSelf: 'center' } })}
       <Text
         style={styles.itemTitle}
-        category='s2'>
+        category='c2'>
         {info.item.title}
       </Text>
     </Card>
