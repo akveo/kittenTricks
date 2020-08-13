@@ -42,15 +42,12 @@ const App = ({ mapping, theme }): React.ReactElement => {
     <React.Fragment>
       <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
       <AppearanceProvider>
-        <ApplicationProvider
-          {...eva}
-          {...currentMapping}
-          theme={currentTheme}>
+        <ApplicationProvider {...eva} {...currentMapping} theme={currentTheme}>
           <Theming.MappingContext.Provider value={mappingContext}>
             <Theming.ThemeContext.Provider value={themeContext}>
               <SafeAreaProvider>
-                <StatusBar />
-                <AppNavigator />
+                <StatusBar/>
+                <AppNavigator/>
               </SafeAreaProvider>
             </Theming.ThemeContext.Provider>
           </Theming.MappingContext.Provider>
