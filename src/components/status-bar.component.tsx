@@ -8,6 +8,7 @@ import { styled, StyledComponentProps } from '@ui-kitten/components';
 
 export type StatusBarProps = RNStatusBarProps & StyledComponentProps;
 
+@styled('StatusBar')
 class StatusBarComponent extends React.Component<StatusBarProps> {
 
   static styledComponentName: string = 'StatusBar';
@@ -24,4 +25,4 @@ class StatusBarComponent extends React.Component<StatusBarProps> {
   }
 }
 
-export const StatusBar = styled(StatusBarComponent);
+export const StatusBar = StatusBarComponent;
