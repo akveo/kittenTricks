@@ -29,6 +29,7 @@ export interface SafeAreaLayoutProps extends ViewProps, StyledComponentProps {
   children?: React.ReactNode;
 }
 
+@styled('SafeAreaLayout')
 export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps> {
 
   static styledComponentName: string = 'SafeAreaLayout';
@@ -59,5 +60,5 @@ export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps
   };
 }
 
-export const SafeAreaLayout = styled(SafeAreaLayoutComponent);
+export const SafeAreaLayout = SafeAreaLayoutComponent;
 

@@ -902,25 +902,25 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
-"@eva-design/dss@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@eva-design/dss/-/dss-1.4.0.tgz#81aa9b2bd884da4361715ee9d79dda455e728cdd"
-  integrity sha512-T0qIZrTNjXiLIFA1Rwzqledw94pWoxQKIunYw+zmSG/vMDHYn6VDEnaZSdsoNBa7HflDgzADB1Sw2qimb9VgZQ==
+"@eva-design/dss@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@eva-design/dss/-/dss-2.0.0.tgz#d0038b43dfa3bcb925bc3ab4433e55d10bd92ea1"
+  integrity sha512-jHMSLG9w/uhu92Oi8pViwYL5kbUxDolTpAoS28DSl9SAgGSLpdlyX1vtDKC7+nx1Ay5J5OWhNIcsMML3IGSbZg==
 
-"@eva-design/eva@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@eva-design/eva/-/eva-1.4.0.tgz#2a9f5a19c5a26ed73f6efa98da812abc507e1f6c"
-  integrity sha512-bG+L6oLo0t913ViC1RbJulMGPCCdf1fIMghTLTPA90u/eAZEt1iyfZyY7tmbmn8hZUx5bENgYkwtQP2u/Hk4NA==
+"@eva-design/eva@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@eva-design/eva/-/eva-2.0.0.tgz#6a6265322f66441a8765307f5197fd8117506d1e"
+  integrity sha512-6cf3PPAZOHGl59Wx8QmPW/BZgGxOSjiLZctErBlFezsAdMNtoduUfoAE/SRaPFt25bTTpbPFL8o2FrxrQvvFeA==
 
-"@eva-design/material@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@eva-design/material/-/material-1.4.0.tgz#2fe7c5ccf9bc59f470147c0fe781b5d99dbb1b84"
-  integrity sha512-j7h26cEYKackJHvWcjmrrDXKg86u59HboDJaxtGonYjV/zVa4PYozslVJQLT0A0fQiVA7l4Vq5t7kLLGZsABkQ==
+"@eva-design/material@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@eva-design/material/-/material-2.0.0.tgz#b24402ad140fa5b0d707811875b66542bf5ef1a1"
+  integrity sha512-Pm/FQ6qiJlbP6a7e1vc0wt9FA2VIA87uzWNyJQTeGhagd3rsvNuh4sCn0dl3aupeZ278cQ7nbh14KNjQoaZ2Gw==
 
-"@eva-design/processor@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@eva-design/processor/-/processor-1.4.0.tgz#388154c96645f86cb36a00a363707db2ff0c963a"
-  integrity sha512-QEiP6i2UORPNUZQHPvrCqyy2NQcLc9gvkeiuEckfiruwi++S89/HlJKcLvraiVD8RzZ7r8b7QcAIZdvyScNW7w==
+"@eva-design/processor@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@eva-design/processor/-/processor-2.0.0.tgz#b291fd94e11fd342fb06af6c333b2be99f4696a9"
+  integrity sha512-k+WUjj877u9SoRbSuQ4DO15AF5FkIqIhGzraBNQKDki8J8Xq/4VpOv1YiKEkRF6XjbZU89GKq+e/ipL+VZxI3Q==
 
 "@expo/build-tools@0.1.3":
   version "0.1.3"
@@ -2242,33 +2242,33 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@ui-kitten/components@^4.4.0":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@ui-kitten/components/-/components-4.4.1.tgz#e460f5ab56761e0a8f96186c82241f68762a5f96"
-  integrity sha512-//pbCqa36IX5DUEMoUlwd1IkxMe2s/lxLv3o9tLypmdZl0LZ2Ca2srd2q758TaivAS8l9c14+RZjHv+EPjZHyw==
+"@ui-kitten/components@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ui-kitten/components/-/components-5.0.0.tgz#6a41719220f1c98afc3721abc19659f7e3a129ed"
+  integrity sha512-XYcXYju7yPDGvg7TAxfTSlxWbxGL/p2R1Y9rSroIpylnSlow7KGlfq0R1MOxeKCf3tZDxSNvuVzaSlFgvJK7fQ==
   dependencies:
-    "@eva-design/dss" "^1.4.0"
-    "@eva-design/processor" "^1.4.0"
+    "@eva-design/dss" "^2.0.0"
+    "@eva-design/processor" "^2.0.0"
     fecha "3.0.3"
     hoist-non-react-statics "^3.2.1"
     lodash.merge "^4.6.1"
 
-"@ui-kitten/date-fns@^4.4.0":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@ui-kitten/date-fns/-/date-fns-4.4.1.tgz#a2525bd429c7e34c17f420298d5df350b61c2f79"
-  integrity sha512-BcJ38SdNS0u4Tek/99c6C6l+5ZC/vB0yVBkHLa96g59Kw4zWqu32PsD/na/qEukTFzvNYPuPbOxXJK+CyQqdAQ==
+"@ui-kitten/date-fns@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ui-kitten/date-fns/-/date-fns-5.0.0.tgz#b8e74ce84dbbe34d0e831e5231c88d114ee7d408"
+  integrity sha512-kauhX2f3E192pqTmdclAXRjhkgZ/9HYi5tjY1Fum6V8KqwfP14W7prhNpS5PKP3bCAZk1SHaLRde6v8qLKRQFg==
 
-"@ui-kitten/eva-icons@^4.4.0":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@ui-kitten/eva-icons/-/eva-icons-4.4.1.tgz#a71b9415889510321d4c422174107af98b8becf9"
-  integrity sha512-G730KOgSuUuTTuxuTg6ChcUJZxQ0zX2XKlonAgDwtJiBTDj+zrofr2IJ0ZURHkHgasJwZ1o8S+RxZ+5wH7LGKw==
+"@ui-kitten/eva-icons@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ui-kitten/eva-icons/-/eva-icons-5.0.0.tgz#b8ab2fea3dafcb9f914534ef66a5dfd1badfeb1d"
+  integrity sha512-Iae3FtnNQKC0PnRnFDUpaCFhvUFaN+NkRxag6LstEjNqAMcVnsQbPTqPQFx18j920Z5S7f5/oZqaJ8NxZtPaNA==
   dependencies:
-    react-native-eva-icons "1.1.0"
+    react-native-eva-icons "^1.3.1"
 
-"@ui-kitten/moment@^4.4.0":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@ui-kitten/moment/-/moment-4.4.1.tgz#1ed92c7ca79647193e7bdc85d92ec554a0d93bb8"
-  integrity sha512-sNrP0WM8ClIKmVwQIfcyzb8B0zekKMs4gSM/1yBVkT+fphPENzM/d2dEhVSZy0XIGE7UD/Ca/TEVhcQ2l0UMzw==
+"@ui-kitten/moment@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@ui-kitten/moment/-/moment-5.0.0.tgz#b4dd043c649321b7b1316aa0c82e588d82a5b9eb"
+  integrity sha512-yM9nozxtD8bup5FXp5/CiA4ioDry8xlNX3WCved8GTrAeXiDkNuPomrmO8LC+3xYvJ+5gpNmXUkr7qKHiMkzEA==
 
 "@unimodules/core@~5.0.0":
   version "5.0.0"
@@ -11002,10 +11002,10 @@ react-native-device-info@^5.5.1:
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.5.3.tgz#6652fb46c4602a1dd3a5d6a18d2266ecdf97fec7"
   integrity sha512-bzUVTPHca+FfNco1qaOM1+idoeII8zdpGRsR+RK+DWhwp9utHZWfbkonZZ9XFm/U+i3mirNxt6oaKV+vUMjMzg==
 
-react-native-eva-icons@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-eva-icons/-/react-native-eva-icons-1.1.0.tgz#323e55d759187edc216d049e7c0012a27383e0ed"
-  integrity sha512-0k6sbiKoHxmmbCgAZTHj6llcdcwtbyZJ1E2AK0my7QU0WRaWwqWMep5AUlMbrIiuYE9mkMZiabEXYcfn3ir2PA==
+react-native-eva-icons@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-eva-icons/-/react-native-eva-icons-1.3.1.tgz#1e6e019b0fd3cb1669db50bd6bbdaa6d89327593"
+  integrity sha512-emd/aYXuOacuDVTx0SJoLi+xsOdCNdljQB3PTNCM9AQ3m/smG0X1TN0+ihelPO7MqoHzaH0h6lbANtwxGUy8Fw==
 
 react-native-gesture-handler@~1.5.0:
   version "1.5.6"
