@@ -95,7 +95,7 @@ Note that the source code for reusable screens doesn't include headers, safe are
 In case you want to add this, the following links might be helpful:
 
 - [Supporting safe areas](https://reactnavigation.org/docs/en/next/handling-safe-area.html)
-- [Adding navigation headers](https://hubs.ly/H0n7b5r0)
+- [Adding navigation headers](https://akveo.github.io/react-native-ui-kitten/docs/components/top-navigation?utm_campaign=ui_kitten%20-%20home%20-%20kitten_tricks%20github%20readme&utm_source=kitten_tricks&utm_medium=referral&utm_content=dev_docs_link)
 
 ## Structure
 
