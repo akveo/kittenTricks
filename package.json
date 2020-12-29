@@ -20,8 +20,8 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "npm run env -- prod && react-native start",
-    "start:dev": "npm run env -- dev && react-native start --reset-cache",
+    "start": "npm run env --prod && react-native start",
+    "start:dev": "npm run env --dev && react-native start --reset-cache",
     "env": "node ./env/set-env.js",
     "build": "tsc -p ./tsconfig.json",
     "build:web": "expo build:web",

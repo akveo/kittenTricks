@@ -20,7 +20,7 @@ export const ArticleList3Screen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Blog'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <ContentView navigation={navigation}/>
     </SafeAreaLayout>

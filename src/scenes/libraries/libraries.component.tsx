@@ -67,7 +67,7 @@ export const LibrariesScreen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Libraries'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <List
         contentContainerStyle={styles.listContent}

@@ -37,7 +37,7 @@ export const ProductListScreen = ({ navigation, route }): React.ReactElement => 
       <Button
         style={styles.iconButton}
         size='small'
-        icon={CartIcon}
+        accessoryLeft={CartIcon}
         onPress={() => onItemCartPress(info.index)}
       />
     </View>

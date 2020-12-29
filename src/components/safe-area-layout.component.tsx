@@ -4,19 +4,17 @@ import { EdgeInsets, SafeAreaConsumer } from 'react-native-safe-area-context';
 import { styled, StyledComponentProps } from '@ui-kitten/components';
 
 interface InsetProvider {
-  toStyle: (insets: EdgeInsets, styles) => FlexStyle;
+  toStyle: (insets: EdgeInsets) => FlexStyle;
 }
 
 const INSETS: Record<string, InsetProvider> = {
   top: {
-    toStyle: (insets: EdgeInsets, styles): FlexStyle => ({
-      ...styles,
+    toStyle: (insets: EdgeInsets): FlexStyle => ({
       paddingTop: insets.top,
     }),
   },
   bottom: {
-    toStyle: (insets: EdgeInsets, styles): FlexStyle => ({
-      ...styles,
+    toStyle: (insets: EdgeInsets): FlexStyle => ({
       paddingBottom: insets.bottom,
     }),
   },
@@ -29,9 +27,8 @@ export interface SafeAreaLayoutProps extends ViewProps, StyledComponentProps {
   children?: React.ReactNode;
 }
 
+@styled('SafeAreaLayout')
 export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps> {
-
-  static styledComponentName: string = 'SafeAreaLayout';
 
   public render(): React.ReactElement<ViewProps> {
     return (
@@ -42,22 +39,21 @@ export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps
   }
 
   private createInsets = (insets: Inset | Inset[],
-                          safeAreaInsets: EdgeInsets,
-                          style): FlexStyle[] => {
-    return React.Children.map(insets, inset => INSETS[inset].toStyle(safeAreaInsets, style));
+                          safeAreaInsets: EdgeInsets): FlexStyle[] => {
+    return React.Children.map(insets, inset => INSETS[inset].toStyle(safeAreaInsets));
   };
 
   private renderComponent = (safeAreaInsets: EdgeInsets): React.ReactElement<ViewProps> => {
-    const { style, insets, themedStyle, ...viewProps } = this.props;
+    const { style, insets, ...viewProps } = this.props;
 
     return (
       <View
         {...viewProps}
-        style={[this.createInsets(insets, safeAreaInsets, themedStyle), style]}
+        style={[this.createInsets(insets, safeAreaInsets), style]}
       />
     );
   };
 }
 
-export const SafeAreaLayout = styled(SafeAreaLayoutComponent);
+export const SafeAreaLayout = SafeAreaLayoutComponent;
 

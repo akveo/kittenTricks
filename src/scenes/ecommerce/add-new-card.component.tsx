@@ -20,7 +20,7 @@ export const AddNewCardScreen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Add New Card'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <Divider/>
       <ContentView navigation={navigation}/>

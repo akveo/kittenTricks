@@ -33,8 +33,8 @@ export const ProductDetails3Screen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Product Details'
-        leftControl={renderBackAction()}
-        rightControls={[renderBookmarkAction()]}
+        accessoryLeft={renderBackAction}
+        accessoryRight={renderBookmarkAction}
       />
       <ContentView navigation={navigation}/>
     </SafeAreaLayout>

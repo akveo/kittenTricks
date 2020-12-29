@@ -37,7 +37,7 @@ export const TrainingCard = (props: TrainingCardProps): CardElement => {
         <Button
           style={styles.durationButton}
           size='tiny'
-          icon={ClockIcon}>
+          accessoryLeft={ClockIcon}>
           {training.formattedDuration}
         </Button>
       </ImageOverlay>

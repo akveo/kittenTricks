@@ -21,7 +21,7 @@ export const EcommerceScreen = ({ navigation, state }): React.ReactElement => {
     <SafeAreaLayout insets='top'>
       <TopNavigation
         title='Ecommerce'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <BrandTabBar
         selectedIndex={state.index}

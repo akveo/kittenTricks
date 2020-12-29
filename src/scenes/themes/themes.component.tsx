@@ -77,10 +77,11 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
   const renderFooter = (): React.ReactElement => (
     <Toggle
       style={styles.evaToggle}
-      text='Eva Design System'
       checked={evaToggleChecked}
       onChange={onEvaToggleCheckedChange}
-    />
+    >
+      Eva Design System
+    </Toggle>
   );
 
   return (
@@ -89,7 +90,7 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Kitten Tricks'
-        leftControl={renderDrawerAction()}
+        accessoryLeft={renderDrawerAction}
       />
       <Divider/>
       <List

@@ -21,7 +21,7 @@ export const SocialScreen = ({ navigation, state }): React.ReactElement => {
     <SafeAreaLayout insets='top'>
       <TopNavigation
         title='Social'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <BrandTabBar
         selectedIndex={state.index}

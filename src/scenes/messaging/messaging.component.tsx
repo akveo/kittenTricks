@@ -21,7 +21,7 @@ export const MessagingScreen = ({ navigation, state }): React.ReactElement => {
     <SafeAreaLayout insets='top'>
       <TopNavigation
         title='Messaging'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <BrandTabBar
         selectedIndex={state.index}

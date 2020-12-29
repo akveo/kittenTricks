@@ -1,30 +1,45 @@
-import React from 'react';
+import React, { ReactElement, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import {
   Avatar,
   Divider,
   Drawer,
+  DrawerItem,
   DrawerElement,
-  DrawerHeaderElement,
-  DrawerHeaderFooter,
-  DrawerHeaderFooterElement,
   Layout,
-  MenuItemType,
   Text,
+  IndexPath,
 } from '@ui-kitten/components';
 import { BookIcon, GithubIcon } from '../../components/icons';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
 import { WebBrowserService } from '../../services/web-browser.service';
 import { AppInfoService } from '../../services/app-info.service';
 
-const DATA: MenuItemType[] = [
-  { title: 'Libraries', icon: GithubIcon },
-  { title: 'Documentation', icon: BookIcon },
-];
-
 const version: string = AppInfoService.getVersion();
 
 export const HomeDrawer = ({ navigation }): DrawerElement => {
+  const [selectedIndex, setSelectedIndex] = useState<IndexPath>(null);
+
+  const DATA = [
+    {
+      title: 'Libraries',
+      icon: GithubIcon,
+      onPress: () => {
+        navigation.toggleDrawer();
+        navigation.navigate('Libraries');
+      },
+    },
+    {
+      title: 'Documentation',
+      icon: BookIcon,
+      onPress: () => {
+        WebBrowserService.openBrowserAsync(
+          'https://akveo.github.io/react-native-ui-kitten'
+        );
+        navigation.toggleDrawer();
+      },
+    },
+  ];
 
   const onItemSelect = (index: number): void => {
     switch (index) {
@@ -34,51 +49,55 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
         return;
       }
       case 1: {
-        WebBrowserService.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
+        WebBrowserService.openBrowserAsync(
+          'https://akveo.github.io/react-native-ui-kitten'
+        );
         navigation.toggleDrawer();
         return;
       }
     }
   };
 
-  const renderHeader = (): DrawerHeaderElement => (
-    <Layout
-      style={styles.header}
-      level='2'>
+  const renderHeader = (): ReactElement => (
+    <Layout style={styles.header} level='2'>
       <View style={styles.profileContainer}>
         <Avatar
           size='giant'
           source={require('../../assets/images/image-app-icon.png')}
         />
-        <Text
-          style={styles.profileName}
-          category='h6'>
+        <Text style={styles.profileName} category='h6'>
           Kitten Tricks
         </Text>
       </View>
     </Layout>
   );
 
-  const renderFooter = (): DrawerHeaderFooterElement => (
+  const renderFooter = () => (
     <React.Fragment>
-      <Divider/>
-      <DrawerHeaderFooter
-        disabled={true}
-        description={`Version ${AppInfoService.getVersion()}`}
-      />
+      <Divider />
+      <View>
+        <Text>{`Version ${AppInfoService.getVersion()}`}</Text>
+      </View>
     </React.Fragment>
   );
 
   return (
-    <SafeAreaLayout
-      style={styles.safeArea}
-      insets='top'>
+    <SafeAreaLayout style={styles.safeArea} insets='top'>
       <Drawer
         header={renderHeader}
         footer={renderFooter}
-        data={DATA}
-        onSelect={onItemSelect}
-      />
+        selectedIndex={selectedIndex}
+        onSelect={(index) => setSelectedIndex(index)}
+      >
+        {DATA.map((el, index) => (
+          <DrawerItem
+            key={index}
+            title={el.title}
+            onPress={el.onPress}
+            accessoryLeft={el.icon}
+          />
+        ))}
+      </Drawer>
     </SafeAreaLayout>
   );
 };

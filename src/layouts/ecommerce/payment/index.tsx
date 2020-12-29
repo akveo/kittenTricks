@@ -52,7 +52,7 @@ export default ({ navigation }): React.ReactElement => {
           style={styles.cardOptionsButton}
           appearance='ghost'
           status='control'
-          icon={MoreVerticalIcon}
+          accessoryLeft={MoreVerticalIcon}
         />
       </View>
       <Text
