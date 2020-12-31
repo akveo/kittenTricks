@@ -21,7 +21,6 @@ import {
 import { KeyboardAvoidingView } from './extra/3rd-party';
 
 export default ({ navigation }): React.ReactElement => {
-
   const [firstName, setFirstName] = React.useState<string>();
   const [lastName, setLastName] = React.useState<string>();
   const [email, setEmail] = React.useState<string>();
@@ -43,20 +42,19 @@ export default ({ navigation }): React.ReactElement => {
     <KeyboardAvoidingView style={styles.container}>
       <ImageOverlay
         style={styles.headerContainer}
-        source={require('./assets/image-background.jpg')}>
+        source={require('./assets/image-background.jpg')}
+      >
         <Button
           style={styles.evaButton}
           appearance='ghost'
           status='control'
           size='large'
-          icon={HeartIconFill}>
+          icon={HeartIconFill}
+        >
           EVA
         </Button>
         <View style={styles.signUpContainer}>
-          <Text
-            style={styles.signInLabel}
-            category='h4'
-            status='control'>
+          <Text style={styles.signInLabel} category='h4' status='control'>
             SIGN UP
           </Text>
           <Button
@@ -65,7 +63,8 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             size='giant'
             icon={ArrowForwardIconOutline}
-            onPress={onSignInButtonPress}>
+            onPress={onSignInButtonPress}
+          >
             Sign In
           </Button>
         </View>
@@ -96,18 +95,13 @@ export default ({ navigation }): React.ReactElement => {
         </View>
       </View>
       <View style={styles.orContainer}>
-        <Divider style={styles.divider}/>
-        <Text
-          style={styles.orLabel}
-          category='h5'>
+        <Divider style={styles.divider} />
+        <Text style={styles.orLabel} category='h5'>
           OR
         </Text>
-        <Divider style={styles.divider}/>
+        <Divider style={styles.divider} />
       </View>
-      <Text
-        style={styles.emailSignLabel}>
-        Sign up with Email
-      </Text>
+      <Text style={styles.emailSignLabel}>Sign up with Email</Text>
       <View style={[styles.container, styles.formContainer]}>
         <Input
           placeholder='Ally'
@@ -148,16 +142,22 @@ export default ({ navigation }): React.ReactElement => {
         />
         <CheckBox
           style={styles.termsCheckBox}
-          textStyle={styles.termsCheckBoxText}
           checked={termsAccepted}
-          text={'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
           onChange={(checked: boolean) => setTermsAccepted(checked)}
-        />
+        >
+          {(evaProps) => (
+            <Text {...evaProps} style={styles.termsCheckBoxText}>
+              By creating an account, I agree to the Ewa Terms of\nUse and
+              Privacy Policy
+            </Text>
+          )}
+        </CheckBox>
       </View>
       <Button
         style={styles.signUpButton}
         size='large'
-        onPress={onSignUpButtonPress}>
+        onPress={onSignUpButtonPress}
+      >
         SIGN UP
       </Button>
     </KeyboardAvoidingView>
@@ -241,4 +241,3 @@ const themedStyles = StyleService.create({
     color: 'text-hint-color',
   },
 });
-
