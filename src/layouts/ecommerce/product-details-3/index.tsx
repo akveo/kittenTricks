@@ -39,9 +39,9 @@ export default ({ navigation }): React.ReactElement => {
     <Radio
       key={index}
       style={styles.colorRadio}
-      textStyle={{ color: color.value }}
-      text={color.description.toUpperCase()}
-    />
+    >
+      {evaProps => <Text {...evaProps} style={{ color: color.value }}>{color.description.toUpperCase()}</Text>}
+    </Radio>
   );
 
   const renderHeader = (): React.ReactElement => (
