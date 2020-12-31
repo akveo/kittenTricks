@@ -66,8 +66,7 @@ export default ({ navigation }): React.ReactElement => {
           selectedIndex={selectedTabIndex}
           onSelect={setSelectedTabIndex}>
           <Tab
-            titleStyle={styles.tabTitle}
-            title='EMAIL'>
+            title={evaProps => <Text {...evaProps} style={styles.tabTitle}>EMAIL</Text>}>
             <View style={styles.tabContentContainer}>
               <Input
                 status='control'
@@ -89,8 +88,7 @@ export default ({ navigation }): React.ReactElement => {
             </View>
           </Tab>
           <Tab
-            titleStyle={styles.tabTitle}
-            title='SMS'>
+            title={evaProps => <Text {...evaProps} style={styles.tabTitle}>SMS</Text>}>
             <View>
               <View style={styles.tabContentContainer}>
                 <Input
