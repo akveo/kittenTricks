@@ -49,7 +49,7 @@ export default ({ navigation }): React.ReactElement => {
           <Input
             status='control'
             placeholder='Email'
-            icon={PersonIcon}
+            accessoryLeft={PersonIcon}
             value={email}
             onChangeText={setEmail}
           />
@@ -57,11 +57,11 @@ export default ({ navigation }): React.ReactElement => {
             style={styles.passwordInput}
             status='control'
             placeholder='Password'
-            icon={passwordVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={passwordVisible ? EyeIcon : EyeOffIcon}
             value={password}
             secureTextEntry={!passwordVisible}
             onChangeText={setPassword}
-            onIconPress={onPasswordIconPress}
+            onAccessibilityAction={onPasswordIconPress}
           />
           <View style={styles.forgotPasswordContainer}>
             <Button

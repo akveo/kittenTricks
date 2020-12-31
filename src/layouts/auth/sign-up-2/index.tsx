@@ -58,7 +58,7 @@ export default ({ navigation }): React.ReactElement => {
         <Input
           autoCapitalize='none'
           placeholder='User Name'
-          icon={PersonIcon}
+          accessoryRight={PersonIcon}
           value={userName}
           onChangeText={setUserName}
         />
@@ -66,7 +66,7 @@ export default ({ navigation }): React.ReactElement => {
           style={styles.emailInput}
           autoCapitalize='none'
           placeholder='Email'
-          icon={EmailIcon}
+          accessoryRight={EmailIcon}
           value={email}
           onChangeText={setEmail}
         />
@@ -75,10 +75,10 @@ export default ({ navigation }): React.ReactElement => {
           autoCapitalize='none'
           secureTextEntry={!passwordVisible}
           placeholder='Password'
-          icon={passwordVisible ? EyeIcon : EyeOffIcon}
+          accessoryRight={passwordVisible ? EyeIcon : EyeOffIcon}
           value={password}
           onChangeText={setPassword}
-          onIconPress={onPasswordIconPress}
+          onAccessibilityAction={onPasswordIconPress}
         />
         <CheckBox
           style={styles.termsCheckBox}

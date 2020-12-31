@@ -7,7 +7,6 @@ import {
   StyleService,
   Text,
   useStyleSheet,
-  Text,
 } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
@@ -67,7 +66,7 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             autoCapitalize='none'
             placeholder='User Name'
-            icon={PersonIcon}
+            accessoryRight={PersonIcon}
             value={userName}
             onChangeText={setUserName}
           />
@@ -76,7 +75,7 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             autoCapitalize='none'
             placeholder='Email'
-            icon={EmailIcon}
+            accessoryRight={EmailIcon}
             value={email}
             onChangeText={setEmail}
           />
@@ -86,10 +85,10 @@ export default ({ navigation }): React.ReactElement => {
             autoCapitalize='none'
             secureTextEntry={!passwordVisible}
             placeholder='Password'
-            icon={passwordVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={passwordVisible ? EyeIcon : EyeOffIcon}
             value={password}
             onChangeText={setPassword}
-            onIconPress={onPasswordIconPress}
+            onAccessibilityAction={onPasswordIconPress}
           />
           <CheckBox
             style={styles.termsCheckBox}

@@ -112,8 +112,7 @@ export default ({ navigation }): React.ReactElement => {
       </Layout>
       <Input
         style={styles.commentInput}
-        labelStyle={styles.commentInputLabel}
-        label='Comments'
+        label={evaProps => <Text {...evaProps} style={styles.commentInputLabel}>Comments</Text>}
         placeholder='Write your comment'
         value={comment}
         onChangeText={setComment}

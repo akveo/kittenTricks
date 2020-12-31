@@ -72,7 +72,7 @@ export default ({ navigation }): React.ReactElement => {
               <Input
                 status='control'
                 placeholder='Email'
-                icon={EmailIcon}
+                accessoryRight={EmailIcon}
                 value={email}
                 onChangeText={setEmail}
               />
@@ -81,10 +81,10 @@ export default ({ navigation }): React.ReactElement => {
                 status='control'
                 placeholder='Password'
                 secureTextEntry={!passwordVisible}
-                icon={LockIcon}
+                accessoryRight={LockIcon}
                 value={password}
                 onChangeText={setPassword}
-                onIconPress={onPasswordIconPress}
+                onAccessibilityAction={onPasswordIconPress}
               />
             </View>
           </Tab>
@@ -96,7 +96,7 @@ export default ({ navigation }): React.ReactElement => {
                 <Input
                   status='control'
                   placeholder='Phone Number'
-                  icon={PhoneIcon}
+                  accessoryRight={PhoneIcon}
                   value={phoneNumber}
                   onChangeText={setPhoneNumber}
                 />
@@ -105,10 +105,10 @@ export default ({ navigation }): React.ReactElement => {
                   status='control'
                   placeholder='SMS Code'
                   secureTextEntry={!smsCodeVisible}
-                  icon={LockIcon}
+                  accessoryRight={LockIcon}
                   value={smsCode}
                   onChangeText={setSMSCode}
-                  onIconPress={onSMSCodeIconPress}
+                  onAccessibilityAction={onSMSCodeIconPress}
                 />
               </View>
               <Text

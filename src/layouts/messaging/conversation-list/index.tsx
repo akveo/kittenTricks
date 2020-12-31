@@ -35,7 +35,7 @@ export default ({ navigation }): React.ReactElement => {
       <Input
         placeholder='Search'
         value={searchQuery}
-        icon={SearchIcon}
+        accessoryRight={SearchIcon}
       />
     </Layout>
   );

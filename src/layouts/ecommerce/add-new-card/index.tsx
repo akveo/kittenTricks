@@ -60,9 +60,9 @@ export default ({ navigation }): React.ReactElement => {
             maxLength={3}
             value={cvv}
             secureTextEntry={!cvvVisible}
-            icon={cvvVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={cvvVisible ? EyeIcon : EyeOffIcon}
             onChangeText={setCVV}
-            onIconPress={onCVVIconPress}
+            onAccessibilityAction={onCVVIconPress}
           />
         </View>
         <Input

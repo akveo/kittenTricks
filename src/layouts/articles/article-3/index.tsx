@@ -53,8 +53,7 @@ export default (): React.ReactElement => {
       </View>
       <Input
         style={styles.commentInput}
-        labelStyle={styles.commentInputLabel}
-        label='Comments'
+        label={evaProps => <Text {...evaProps} style={styles.commentInputLabel}>Comments</Text>}
         placeholder='Write your comment'
         value={inputComment}
         onChangeText={setInputComment}

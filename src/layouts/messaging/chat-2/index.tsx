@@ -86,7 +86,7 @@ export default (): React.ReactElement => {
           placeholder='Message...'
           value={message}
           onChangeText={setMessage}
-          icon={MicIcon}
+          accessoryRight={MicIcon}
         />
         <Button
           appearance='ghost'

@@ -51,11 +51,11 @@ export default ({ navigation }): React.ReactElement => {
         <Input
           style={styles.passwordInput}
           placeholder='Password'
-          icon={passwordVisible ? EyeIcon : EyeOffIcon}
+          accessoryRight={passwordVisible ? EyeIcon : EyeOffIcon}
           value={password}
           secureTextEntry={!passwordVisible}
           onChangeText={setPassword}
-          onIconPress={onPasswordIconPress}
+          onAccessibilityAction={onPasswordIconPress}
         />
         <View style={styles.forgotPasswordContainer}>
           <Button
