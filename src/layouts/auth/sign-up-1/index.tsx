@@ -49,7 +49,7 @@ export default ({ navigation }): React.ReactElement => {
           appearance='ghost'
           status='control'
           size='large'
-          icon={HeartIconFill}
+          accessoryLeft={HeartIconFill}
         >
           EVA
         </Button>
@@ -62,7 +62,7 @@ export default ({ navigation }): React.ReactElement => {
             appearance='ghost'
             status='control'
             size='giant'
-            icon={ArrowForwardIconOutline}
+            accessoryLeft={ArrowForwardIconOutline}
             onPress={onSignInButtonPress}
           >
             Sign In
@@ -78,19 +78,19 @@ export default ({ navigation }): React.ReactElement => {
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={GoogleIcon}
+            accessoryLeft={GoogleIcon}
           />
           <Button
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={FacebookIcon}
+            accessoryLeft={FacebookIcon}
           />
           <Button
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={TwitterIcon}
+            accessoryLeft={TwitterIcon}
           />
         </View>
       </View>

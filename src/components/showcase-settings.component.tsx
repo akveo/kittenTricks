@@ -97,7 +97,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
         onBackdropPress={toggleThemesMenu}>
         <Button
           size='tiny'
-          icon={ColorPaletteIcon}
+          accessoryLeft={ColorPaletteIcon}
           disabled={!props.themes}
           onPress={toggleThemesMenu}>
           THEMES
@@ -110,7 +110,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
         onBackdropPress={toggleSettingsMenu}>
         <Button
           size='tiny'
-          icon={SettingsIcon}
+          accessoryLeft={SettingsIcon}
           disabled={!props.settings}
           onPress={toggleSettingsMenu}>
           SETTINGS
@@ -119,7 +119,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
       <Button
         size='tiny'
         status='danger'
-        icon={TrashIcon}
+        accessoryLeft={TrashIcon}
         disabled={!props.settings}
         onPress={onResetButtonPress}>
         RESET

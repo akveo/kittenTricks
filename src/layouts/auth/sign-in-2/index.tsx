@@ -44,7 +44,7 @@ export default ({ navigation }): React.ReactElement => {
         level='1'>
         <Input
           placeholder='Email'
-          icon={PersonIcon}
+          accessoryLeft={PersonIcon}
           value={email}
           onChangeText={setEmail}
         />

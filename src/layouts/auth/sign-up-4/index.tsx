@@ -119,19 +119,19 @@ export default ({ navigation }): React.ReactElement => {
               appearance='ghost'
               size='giant'
               status='control'
-              icon={FacebookIcon}
+              accessoryLeft={FacebookIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={GoogleIcon}
+              accessoryLeft={GoogleIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={TwitterIcon}
+              accessoryLeft={TwitterIcon}
             />
           </View>
         </View>

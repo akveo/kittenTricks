@@ -56,7 +56,7 @@ export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement
     <Button
       style={styles.attachmentsAction}
       appearance='outline'
-      icon={CameraIcon}
+      accessoryLeft={CameraIcon}
       onPress={props.onCameraPress}
     />
   );

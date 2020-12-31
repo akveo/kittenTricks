@@ -74,7 +74,7 @@ export const CartItem = (props: CartItemProps): React.ReactElement => {
           <Button
             style={[styles.iconButton, styles.amountButton]}
             size='tiny'
-            icon={MinusIcon}
+            accessoryLeft={MinusIcon}
             onPress={onMinusButtonPress}
             disabled={!decrementButtonEnabled()}
           />
@@ -86,7 +86,7 @@ export const CartItem = (props: CartItemProps): React.ReactElement => {
           <Button
             style={[styles.iconButton, styles.amountButton]}
             size='tiny'
-            icon={PlusIcon}
+            accessoryLeft={PlusIcon}
             onPress={onPlusButtonPress}
           />
         </View>
@@ -95,7 +95,7 @@ export const CartItem = (props: CartItemProps): React.ReactElement => {
         style={[styles.iconButton, styles.removeButton]}
         appearance='ghost'
         status='basic'
-        icon={CloseIcon}
+        accessoryLeft={CloseIcon}
         onPress={onRemoveButtonPress}
       />
     </ListItem>
