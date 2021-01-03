@@ -49,7 +49,7 @@ export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps
     return (
       <View
         {...viewProps}
-        style={[this.createInsets(insets, safeAreaInsets), style]}
+        style={[this.createInsets(insets, safeAreaInsets), style, {backgroundColor: this.props.eva.theme['background-basic-color-1']}]}
       />
     );
   };
