@@ -32,13 +32,11 @@ export const ShowcaseSettings = (
   );
 
   const createSettingMenuItem = (setting: ComponentShowcaseSetting): any => {
-    return {
-      title: setting.description || `${setting.propertyName}: ${setting.value}`,
-    };
+    return setting.description || `${setting.propertyName}: ${setting.value}`;
   };
 
   const createThemeMenuItem = (title: string): any => {
-    return { title };
+    return title;
   };
 
   const onThemeSelect = (index: IndexPath): void => {
