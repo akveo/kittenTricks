@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Button,
+  ButtonElement,
   Popover,
   PopoverElement,
   PopoverProps,
@@ -9,7 +10,6 @@ import {
 } from '@ui-kitten/components';
 
 export const PopoverShowcase = (props: PopoverProps): PopoverElement => {
-
   const [visible, setVisible] = React.useState<boolean>(false);
 
   const togglePopover = (): void => {
@@ -17,22 +17,21 @@ export const PopoverShowcase = (props: PopoverProps): PopoverElement => {
   };
 
   const renderPopoverContent = (): TextElement => {
-    return (
-      <Text>
-        Hi! I'm Popover!
-      </Text>
-    );
+    return <Text>Hi! I'm Popover!</Text>;
   };
+
+  const renderToggleButton = (): ButtonElement => (
+    <Button onPress={togglePopover}>TOGGLE POPOVER</Button>
+  );
 
   return (
     <Popover
       {...props}
       visible={visible}
-      content={renderPopoverContent()}
-      onBackdropPress={togglePopover}>
-      <Button onPress={togglePopover}>
-        TOGGLE POPOVER
-      </Button>
+      anchor={renderToggleButton}
+      onBackdropPress={togglePopover}
+    >
+      {renderPopoverContent()}
     </Popover>
   );
 };
