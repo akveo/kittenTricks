@@ -41,64 +41,49 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
     },
   ];
 
-  const onItemSelect = (index: number): void => {
-    switch (index) {
-      case 0: {
-        navigation.toggleDrawer();
-        navigation.navigate('Libraries');
-        return;
-      }
-      case 1: {
-        WebBrowserService.openBrowserAsync(
-          'https://akveo.github.io/react-native-ui-kitten'
-        );
-        navigation.toggleDrawer();
-        return;
-      }
-    }
-  };
-
   const renderHeader = (): ReactElement => (
-    <Layout style={styles.header} level='2'>
-      <View style={styles.profileContainer}>
-        <Avatar
-          size='giant'
-          source={require('../../assets/images/image-app-icon.png')}
-        />
-        <Text style={styles.profileName} category='h6'>
-          Kitten Tricks
-        </Text>
-      </View>
-    </Layout>
+    <SafeAreaLayout insets='top' backgroundColor='background-basic-color-2'>
+      <Layout style={styles.header} level='2'>
+        <View style={styles.profileContainer}>
+          <Avatar
+            size='giant'
+            source={require('../../assets/images/image-app-icon.png')}
+          />
+          <Text style={styles.profileName} category='h6'>
+            Kitten Tricks
+          </Text>
+        </View>
+      </Layout>
+    </SafeAreaLayout>
   );
 
   const renderFooter = () => (
-    <React.Fragment>
-      <Divider />
-      <View>
-        <Text>{`Version ${AppInfoService.getVersion()}`}</Text>
-      </View>
-    </React.Fragment>
+    <SafeAreaLayout insets='bottom'>
+      <React.Fragment>
+        <Divider />
+        <View style={styles.footer}>
+          <Text>{`Version ${AppInfoService.getVersion()}`}</Text>
+        </View>
+      </React.Fragment>
+    </SafeAreaLayout>
   );
 
   return (
-    <SafeAreaLayout style={styles.safeArea} insets='top'>
-      <Drawer
-        header={renderHeader}
-        footer={renderFooter}
-        selectedIndex={selectedIndex}
-        onSelect={(index) => setSelectedIndex(index)}
-      >
-        {DATA.map((el, index) => (
-          <DrawerItem
-            key={index}
-            title={el.title}
-            onPress={el.onPress}
-            accessoryLeft={el.icon}
-          />
-        ))}
-      </Drawer>
-    </SafeAreaLayout>
+    <Drawer
+      header={renderHeader}
+      footer={renderFooter}
+      selectedIndex={selectedIndex}
+      onSelect={(index) => setSelectedIndex(index)}
+    >
+      {DATA.map((el, index) => (
+        <DrawerItem
+          key={index}
+          title={el.title}
+          onPress={el.onPress}
+          accessoryLeft={el.icon}
+        />
+      ))}
+    </Drawer>
   );
 };
 
@@ -110,6 +95,11 @@ const styles = StyleSheet.create({
     height: 128,
     paddingHorizontal: 16,
     justifyContent: 'center',
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    marginLeft: 16,
   },
   profileContainer: {
     flexDirection: 'row',

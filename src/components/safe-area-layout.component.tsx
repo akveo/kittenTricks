@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlexStyle, View, ViewProps } from 'react-native';
+import { FlexStyle, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 import { EdgeInsets, SafeAreaConsumer } from 'react-native-safe-area-context';
 import { styled, StyledComponentProps } from '@ui-kitten/components';
 
@@ -25,6 +25,7 @@ type Inset = 'top' | 'bottom';
 export interface SafeAreaLayoutProps extends ViewProps, StyledComponentProps {
   insets?: Inset;
   children?: React.ReactNode;
+  backgroundColor?: string;
 }
 
 @styled('SafeAreaLayout')
@@ -45,7 +46,7 @@ export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps
   private renderComponent = (
     safeAreaInsets: EdgeInsets,
   ): React.ReactElement<ViewProps> => {
-    const { style, insets, eva, ...viewProps } = this.props;
+    const { style, insets, eva, backgroundColor, ...viewProps } = this.props;
 
     return (
       <View
@@ -53,7 +54,7 @@ export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps
         style={[
           this.createInsets(insets, safeAreaInsets),
           style,
-          { backgroundColor: eva.theme['background-basic-color-1'] },
+          { backgroundColor: eva.theme[backgroundColor || 'background-basic-color-1'] },
         ]}
       />
     );
