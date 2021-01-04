@@ -1,7 +1,10 @@
 import React from 'react';
 import { FlexStyle, View, ViewProps } from 'react-native';
 import { EdgeInsets, SafeAreaConsumer } from 'react-native-safe-area-context';
-import { styled, StyledComponentProps } from '@ui-kitten/components';
+import {
+  styled,
+  StyledComponentProps,
+} from '@ui-kitten/components';
 
 interface InsetProvider {
   toStyle: (insets: EdgeInsets) => FlexStyle;
@@ -29,31 +32,35 @@ export interface SafeAreaLayoutProps extends ViewProps, StyledComponentProps {
 
 @styled('SafeAreaLayout')
 export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps> {
-
   public render(): React.ReactElement<ViewProps> {
-    return (
-      <SafeAreaConsumer>
-        {this.renderComponent}
-      </SafeAreaConsumer>
-    );
+    return <SafeAreaConsumer>{this.renderComponent}</SafeAreaConsumer>;
   }
 
-  private createInsets = (insets: Inset | Inset[],
-                          safeAreaInsets: EdgeInsets): FlexStyle[] => {
-    return React.Children.map(insets, inset => INSETS[inset].toStyle(safeAreaInsets));
+  private createInsets = (
+    insets: Inset | Inset[],
+    safeAreaInsets: EdgeInsets
+  ): FlexStyle[] => {
+    return React.Children.map(insets, (inset) =>
+      INSETS[inset].toStyle(safeAreaInsets)
+    );
   };
 
-  private renderComponent = (safeAreaInsets: EdgeInsets): React.ReactElement<ViewProps> => {
-    const { style, insets, ...viewProps } = this.props;
+  private renderComponent = (
+    safeAreaInsets: EdgeInsets
+  ): React.ReactElement<ViewProps> => {
+    const { style, insets, eva, ...viewProps } = this.props;
 
     return (
       <View
         {...viewProps}
-        style={[this.createInsets(insets, safeAreaInsets), style, {backgroundColor: this.props.eva.theme['background-basic-color-1']}]}
+        style={[
+          this.createInsets(insets, safeAreaInsets),
+          style,
+          { backgroundColor: eva.theme['background-basic-color-1'] },
+        ]}
       />
     );
   };
 }
 
 export const SafeAreaLayout = SafeAreaLayoutComponent;
-

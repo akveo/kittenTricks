@@ -1,24 +1,31 @@
 import React from 'react';
 import {
   Button,
+  ButtonElement,
+  IndexPath,
   OverflowMenu,
   OverflowMenuElement,
   OverflowMenuProps,
 } from '@ui-kitten/components';
 
-export const OverflowMenuShowcase = (props: OverflowMenuProps): OverflowMenuElement => {
-
+export const OverflowMenuShowcase = (
+  props: OverflowMenuProps
+): OverflowMenuElement => {
   const [visible, setVisible] = React.useState<boolean>(false);
-  const [selectedIndex, setSelectedIndex] = React.useState<number>(null);
+  const [selectedIndex, setSelectedIndex] = React.useState<IndexPath>(null);
 
   const toggleMenu = (): void => {
     setVisible(!visible);
   };
 
-  const onSelect = (index: number): void => {
+  const onSelect = (index: IndexPath): void => {
     setSelectedIndex(index);
     toggleMenu();
   };
+
+  const renderButton = (): ButtonElement => (
+    <Button onPress={toggleMenu}>TOGGLE MENU</Button>
+  );
 
   return (
     <OverflowMenu
@@ -26,10 +33,10 @@ export const OverflowMenuShowcase = (props: OverflowMenuProps): OverflowMenuElem
       visible={visible}
       selectedIndex={selectedIndex}
       onSelect={onSelect}
-      onBackdropPress={toggleMenu}>
-      <Button onPress={toggleMenu}>
-        TOGGLE MENU
-      </Button>
+      onBackdropPress={toggleMenu}
+      anchor={renderButton}
+    >
+      {props.children}
     </OverflowMenu>
   );
 };
