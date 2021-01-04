@@ -22,13 +22,13 @@ export interface ShowcaseSettingsProps extends ViewProps {
 }
 
 export const ShowcaseSettings = (
-  props: ShowcaseSettingsProps
+  props: ShowcaseSettingsProps,
 ): React.ReactElement => {
   const [themesMenuVisible, setThemesMenuVisible] = React.useState<boolean>(
-    false
+    false,
   );
   const [settingsMenuVisible, setSettingsMenuVisible] = React.useState<boolean>(
-    false
+    false,
   );
 
   const createSettingMenuItem = (setting: ComponentShowcaseSetting): any => {
