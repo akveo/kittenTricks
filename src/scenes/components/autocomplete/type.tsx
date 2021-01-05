@@ -1,5 +1,4 @@
-import React from 'react';
-import { AutocompleteOption } from '@ui-kitten/components';
+import { AutocompleteProps } from '@ui-kitten/components';
 import { CustomOptionsAutocompleteItem } from './autocomplete-examples';
 import { StarIcon } from '../../../components/icons';
 import {
@@ -11,12 +10,18 @@ import {
 
 // https://facebook.github.io/react-native/movies.json
 
-export interface AutocompleteShowcaseOption extends AutocompleteOption {
+export interface DataProps {
   id: number;
+  title: string;
   releaseYear: number;
+};
+
+export interface AutocompletePropsCustom extends AutocompleteProps {
+  data?: DataProps[];
+  renderItem?: ({title: string, releaseYear: number}) => any;
 }
 
-const defaultData: AutocompleteShowcaseOption[] = [
+const defaultData: DataProps[] = [
   { id: 1, title: 'Star Wars', releaseYear: 1977 },
   { id: 2, title: 'Back to the Future', releaseYear: 1985 },
   { id: 3, title: 'The Matrix', releaseYear: 1999 },
@@ -68,7 +73,7 @@ const iconAutocomplete: ComponentShowcaseItem = {
   title: 'Icon',
   props: {
     ...defaultAutocomplete.props,
-    icon: StarIcon,
+    accessoryRight: StarIcon,
   },
 };
 
