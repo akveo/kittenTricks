@@ -40,7 +40,7 @@ export default ({ navigation }): React.ReactElement => {
       key={index}
       style={styles.colorRadio}
     >
-      {evaProps => <Text {...evaProps} style={{ color: color.value }}>{color.description.toUpperCase()}</Text>}
+      {evaProps => <Text {...evaProps} style={{ color: color.value, marginLeft: 10, }}>{color.description.toUpperCase()}</Text>}
     </Radio>
   );
 

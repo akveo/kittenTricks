@@ -99,6 +99,8 @@ const themedStyles = StyleService.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   iconButton: {
     paddingHorizontal: 0,
