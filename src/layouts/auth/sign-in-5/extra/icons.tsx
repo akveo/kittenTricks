@@ -6,10 +6,6 @@ export const EmailIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='email'/>
 );
 
-export const LockIcon = (style: ImageStyle): IconElement => (
-  <Icon {...style} name='lock'/>
-);
-
 export const PhoneIcon = (style: ImageStyle): IconElement => (
   <Icon {...style} name='phone'/>
 );

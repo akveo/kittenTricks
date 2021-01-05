@@ -1,5 +1,5 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { ReactElement } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import {
   Button,
   Input,
@@ -8,9 +8,10 @@ import {
   TabView,
   Text,
   useStyleSheet,
+  Icon,
 } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
-import { EmailIcon, LockIcon, PhoneIcon } from './extra/icons';
+import { EmailIcon, PhoneIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
 
 export default ({ navigation }): React.ReactElement => {
@@ -40,6 +41,18 @@ export default ({ navigation }): React.ReactElement => {
   const onSMSCodeIconPress = (): void => {
     setSMSCodeVisible(!smsCodeVisible);
   };
+
+  const renderIconPassword = (props): ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      <Icon {...props} name={'lock'} />
+    </TouchableWithoutFeedback>
+  );
+
+  const renderIconSMS = (props): ReactElement => (
+    <TouchableWithoutFeedback onPress={onSMSCodeIconPress}>
+      <Icon {...props} name={'lock'} />
+    </TouchableWithoutFeedback>
+  );
 
   return (
     <KeyboardAvoidingView>
@@ -80,10 +93,9 @@ export default ({ navigation }): React.ReactElement => {
                 status='control'
                 placeholder='Password'
                 secureTextEntry={!passwordVisible}
-                accessoryRight={LockIcon}
+                accessoryRight={renderIconPassword}
                 value={password}
                 onChangeText={setPassword}
-                onAccessibilityAction={onPasswordIconPress}
               />
             </View>
           </Tab>
@@ -103,10 +115,9 @@ export default ({ navigation }): React.ReactElement => {
                   status='control'
                   placeholder='SMS Code'
                   secureTextEntry={!smsCodeVisible}
-                  accessoryRight={LockIcon}
+                  accessoryRight={renderIconSMS}
                   value={smsCode}
                   onChangeText={setSMSCode}
-                  onAccessibilityAction={onSMSCodeIconPress}
                 />
               </View>
               <Text

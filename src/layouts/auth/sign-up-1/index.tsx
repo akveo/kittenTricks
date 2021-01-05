@@ -239,5 +239,6 @@ const themedStyles = StyleService.create({
     fontSize: 11,
     lineHeight: 14,
     color: 'text-hint-color',
+    marginLeft: 10,
   },
 });

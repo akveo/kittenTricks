@@ -1,7 +1,7 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Button, Input, Layout, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
-import { EyeIcon, EyeOffIcon, PersonIcon } from './extra/icons';
+import React, { ReactElement } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
+import { Button, Input, Layout, StyleService, Text, useStyleSheet, Icon } from '@ui-kitten/components';
+import { PersonIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
 
 export default ({ navigation }): React.ReactElement => {
@@ -23,6 +23,12 @@ export default ({ navigation }): React.ReactElement => {
   const onPasswordIconPress = (): void => {
     setPasswordVisible(!passwordVisible);
   };
+
+  const renderPasswordIcon = (props): ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      <Icon {...props} name={passwordVisible ? 'eye-off' : 'eye'} />
+    </TouchableWithoutFeedback>
+  );
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -51,11 +57,10 @@ export default ({ navigation }): React.ReactElement => {
         <Input
           style={styles.passwordInput}
           placeholder='Password'
-          accessoryRight={passwordVisible ? EyeIcon : EyeOffIcon}
+          accessoryRight={renderPasswordIcon}
           value={password}
           secureTextEntry={!passwordVisible}
           onChangeText={setPassword}
-          onAccessibilityAction={onPasswordIconPress}
         />
         <View style={styles.forgotPasswordContainer}>
           <Button

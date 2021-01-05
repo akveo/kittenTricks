@@ -1,5 +1,5 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { ReactElement } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import {
   Button,
   CheckBox,
@@ -7,13 +7,12 @@ import {
   StyleService,
   Text,
   useStyleSheet,
+  Icon,
 } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
 import {
   EmailIcon,
-  EyeIcon,
-  EyeOffIcon,
   FacebookIcon,
   GoogleIcon,
   PersonIcon,
@@ -44,7 +43,13 @@ export default ({ navigation }): React.ReactElement => {
   };
 
   const renderPhotoButton = (): React.ReactElement => (
-    <Button style={styles.editAvatarButton} size='small' icon={PlusIcon} />
+    <Button style={styles.editAvatarButton} size='small' accessoryRight={PlusIcon} />
+  );
+
+  const renderPasswordIcon = (props): ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      <Icon {...props} name={passwordVisible ? 'eye-off' : 'eye'} />
+    </TouchableWithoutFeedback>
   );
 
   return (
@@ -85,10 +90,9 @@ export default ({ navigation }): React.ReactElement => {
             autoCapitalize='none'
             secureTextEntry={!passwordVisible}
             placeholder='Password'
-            accessoryRight={passwordVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={renderPasswordIcon}
             value={password}
             onChangeText={setPassword}
-            onAccessibilityAction={onPasswordIconPress}
           />
           <CheckBox
             style={styles.termsCheckBox}
@@ -182,6 +186,7 @@ const themedStyles = StyleService.create({
   },
   termsCheckBoxText: {
     color: 'text-control-color',
+    marginLeft: 10,
   },
   signUpButton: {
     marginHorizontal: 16,
