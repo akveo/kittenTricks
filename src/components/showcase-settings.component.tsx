@@ -33,7 +33,7 @@ export const ShowcaseSettings = (
   );
 
   const createSettingMenuItem = (setting: ComponentShowcaseSetting, index: number): ReactElement => {
-    return <MenuItem key={index} title={setting.description || `${setting.propertyName}: ${setting.value}`} />
+    return <MenuItem key={index} title={setting.description || `${setting.propertyName}: ${setting.value}`} />;
   };
 
   const createThemeMenuItem = (title: string, index: number): ReactElement => {
