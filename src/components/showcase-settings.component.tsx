@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { I18nManager, Platform, StyleSheet, ViewProps } from 'react-native';
 import {
   Button,
@@ -7,6 +7,7 @@ import {
   IndexPath,
   Layout,
   OverflowMenu,
+  MenuItem,
 } from '@ui-kitten/components';
 import { ColorPaletteIcon, SettingsIcon, TrashIcon } from './icons';
 import { ComponentShowcaseSetting } from '../model/showcase.model';
@@ -31,12 +32,12 @@ export const ShowcaseSettings = (
     false,
   );
 
-  const createSettingMenuItem = (setting: ComponentShowcaseSetting): any => {
-    return setting.description || `${setting.propertyName}: ${setting.value}`;
+  const createSettingMenuItem = (setting: ComponentShowcaseSetting, index: number): ReactElement => {
+    return <MenuItem key={index} title={setting.description || `${setting.propertyName}: ${setting.value}`} />
   };
 
-  const createThemeMenuItem = (title: string): any => {
-    return title;
+  const createThemeMenuItem = (title: string, index: number): ReactElement => {
+    return <MenuItem key={index} title={title} />;
   };
 
   const onThemeSelect = (index: IndexPath): void => {
