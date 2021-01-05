@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
   footerContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    paddingHorizontal: 20,
+    paddingVertical: 20,
   },
   footerControl: {
     marginHorizontal: 4,
