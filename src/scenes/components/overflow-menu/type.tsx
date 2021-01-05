@@ -1,5 +1,5 @@
-import React from 'react';
-import { OverflowMenuItemType } from '@ui-kitten/components';
+import { ImageStyle } from 'react-native';
+import { IconElement, OverflowMenuProps } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 import {
   ComponentShowcase,
@@ -7,6 +7,16 @@ import {
   ComponentShowcaseSection,
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
+
+export interface OverflowMenuItemType {
+  title: string;
+  accessoryLeft?: (style: ImageStyle) => IconElement;
+  disabled?: boolean;
+}
+
+export interface OverflowMenuPropsCustom extends OverflowMenuProps {
+  data: OverflowMenuItemType[];
+}
 
 const defaultMenuItems: OverflowMenuItemType[] = [
   { title: 'Item 1' },
@@ -17,31 +27,31 @@ const defaultMenuItems: OverflowMenuItemType[] = [
 const withIconMenuItems: OverflowMenuItemType[] = [
   {
     title: 'Item 1',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
   {
     title: 'Item 2',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
   {
     title: 'Item 3',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
 ];
 
 const withDisabledItemMenuItems: OverflowMenuItemType[] = [
   {
     title: 'Item 1',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
   {
     title: 'Item 2',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     disabled: true,
   },
   {
     title: 'Item 3',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
 ];
 

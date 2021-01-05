@@ -5,11 +5,12 @@ import {
   IndexPath,
   OverflowMenu,
   OverflowMenuElement,
-  OverflowMenuProps,
+  MenuItem,
 } from '@ui-kitten/components';
+import { OverflowMenuPropsCustom } from './type';
 
 export const OverflowMenuShowcase = (
-  props: OverflowMenuProps
+  props: OverflowMenuPropsCustom
 ): OverflowMenuElement => {
   const [visible, setVisible] = React.useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = React.useState<IndexPath>(null);
@@ -27,6 +28,10 @@ export const OverflowMenuShowcase = (
     <Button onPress={toggleMenu}>TOGGLE MENU</Button>
   );
 
+  const renderData = props.data.map((el, index) => (
+    <MenuItem key={index} {...el} />
+  ));
+
   return (
     <OverflowMenu
       {...props}
@@ -36,7 +41,7 @@ export const OverflowMenuShowcase = (
       onBackdropPress={toggleMenu}
       anchor={renderButton}
     >
-      {props.children}
+      {renderData}
     </OverflowMenu>
   );
 };
