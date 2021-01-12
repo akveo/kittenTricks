@@ -44,15 +44,31 @@ export default ({ navigation }): React.ReactElement => {
 
   const renderIconPassword = (props): ReactElement => (
     <TouchableWithoutFeedback onPress={onPasswordIconPress}>
-      <Icon {...props} name={'lock'} />
+      <Icon {...props} name='lock' />
     </TouchableWithoutFeedback>
   );
 
   const renderIconSMS = (props): ReactElement => (
     <TouchableWithoutFeedback onPress={onSMSCodeIconPress}>
-      <Icon {...props} name={'lock'} />
+      <Icon {...props} name='lock' />
     </TouchableWithoutFeedback>
   );
+
+  const renderTabEmailTitle = React.useCallback(evaProps => (
+    <Text 
+      {...evaProps}
+      style={styles.tabTitle}>
+      EMAIL
+    </Text>
+  ), []);
+  
+  const renderTabSMSTitle = React.useCallback(evaProps => (
+    <Text 
+      {...evaProps}
+      style={styles.tabTitle}>
+      SMS
+    </Text>
+  ), []);
 
   return (
     <KeyboardAvoidingView>
@@ -79,7 +95,7 @@ export default ({ navigation }): React.ReactElement => {
           selectedIndex={selectedTabIndex}
           onSelect={setSelectedTabIndex}>
           <Tab
-            title={evaProps => <Text {...evaProps} style={styles.tabTitle}>EMAIL</Text>}>
+            title={renderTabEmailTitle}>
             <View style={styles.tabContentContainer}>
               <Input
                 status='control'
@@ -100,7 +116,7 @@ export default ({ navigation }): React.ReactElement => {
             </View>
           </Tab>
           <Tab
-            title={evaProps => <Text {...evaProps} style={styles.tabTitle}>SMS</Text>}>
+            title={renderTabSMSTitle}>
             <View>
               <View style={styles.tabContentContainer}>
                 <Input

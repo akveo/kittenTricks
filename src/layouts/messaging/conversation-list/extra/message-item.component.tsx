@@ -6,7 +6,6 @@ import { Message } from './data';
 
 export type MessageItemProps = ListItemProps & {
   message: Message;
-  onPress?: any;
 };
 
 export const MessageItem = (props: MessageItemProps): React.ReactElement => {

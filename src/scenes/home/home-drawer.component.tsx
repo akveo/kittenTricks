@@ -33,9 +33,7 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
       title: 'Documentation',
       icon: BookIcon,
       onPress: () => {
-        WebBrowserService.openBrowserAsync(
-          'https://akveo.github.io/react-native-ui-kitten'
-        );
+        WebBrowserService.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
         navigation.toggleDrawer();
       },
     },

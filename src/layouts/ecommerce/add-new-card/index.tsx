@@ -10,9 +10,8 @@ import {
   StyleService,
   useStyleSheet,
 } from '@ui-kitten/components';
-import { EyeIcon, EyeOffIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { TouchableWithoutFeedback } from 'react-native';
 
 export default ({ navigation }): React.ReactElement => {
 

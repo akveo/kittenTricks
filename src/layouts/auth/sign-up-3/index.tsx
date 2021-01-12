@@ -40,7 +40,11 @@ export default ({ navigation }): React.ReactElement => {
   };
 
   const renderEditAvatarButton = (): React.ReactElement => (
-    <Button style={styles.editAvatarButton} status='basic' accessoryRight={PlusIcon} />
+    <Button
+      style={styles.editAvatarButton}
+      status='basic'
+      accessoryRight={PlusIcon} 
+    />
   );
 
   const renderPasswordIcon = (props): ReactElement => (
@@ -49,12 +53,20 @@ export default ({ navigation }): React.ReactElement => {
     </TouchableWithoutFeedback>
   );
 
+  const renderCheckboxLabel = React.useCallback(
+    (evaProps) => (
+      <Text {...evaProps} style={styles.termsCheckBoxText}>
+        I read and agree to Terms & Conditions
+      </Text>
+    ),
+    []
+  );
+
   return (
     <KeyboardAvoidingView>
       <ImageOverlay
         style={styles.container}
-        source={require('./assets/image-background.jpg')}
-      >
+        source={require('./assets/image-background.jpg')}>
         <View style={styles.headerContainer}>
           <ProfileAvatar
             style={styles.profileAvatar}
@@ -94,28 +106,21 @@ export default ({ navigation }): React.ReactElement => {
           <CheckBox
             style={styles.termsCheckBox}
             checked={termsAccepted}
-            onChange={(checked: boolean) => setTermsAccepted(checked)}
-          >
-            {(evaProps) => (
-              <Text {...evaProps} style={styles.termsCheckBoxText}>
-                I read and agree to Terms & Conditions
-              </Text>
-            )}
+            onChange={(checked: boolean) => setTermsAccepted(checked)}>
+            {renderCheckboxLabel}
           </CheckBox>
         </View>
         <Button
           style={styles.signUpButton}
           size='giant'
-          onPress={onSignUpButtonPress}
-        >
+          onPress={onSignUpButtonPress}>
           SIGN UP
         </Button>
         <Button
           style={styles.signInButton}
           appearance='ghost'
           status='control'
-          onPress={onSignInButtonPress}
-        >
+          onPress={onSignInButtonPress}>
           Already have an account? Sign In
         </Button>
       </ImageOverlay>

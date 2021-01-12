@@ -39,7 +39,8 @@ export default (): React.ReactElement => {
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          accessoryLeft={ShareIcon}/>
+          accessoryLeft={ShareIcon}
+        />
         <Button
           style={styles.iconButton}
           appearance='ghost'

@@ -38,19 +38,27 @@ export default ({ navigation }): React.ReactElement => {
     navigation && navigation.navigate('SignIn1');
   };
 
+  const renderCheckboxLabel = React.useCallback(
+    (evaProps) => (
+      <Text {...evaProps} style={styles.termsCheckBoxText}>
+        By creating an account, I agree to the Ewa Terms of\nUse and Privacy
+        Policy
+      </Text>
+    ),
+    []
+  );
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ImageOverlay
         style={styles.headerContainer}
-        source={require('./assets/image-background.jpg')}
-      >
+        source={require('./assets/image-background.jpg')}>
         <Button
           style={styles.evaButton}
           appearance='ghost'
           status='control'
           size='large'
-          accessoryLeft={HeartIconFill}
-        >
+          accessoryLeft={HeartIconFill}>
           EVA
         </Button>
         <View style={styles.signUpContainer}>
@@ -63,8 +71,7 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             size='giant'
             accessoryLeft={ArrowForwardIconOutline}
-            onPress={onSignInButtonPress}
-          >
+            onPress={onSignInButtonPress}>
             Sign In
           </Button>
         </View>
@@ -101,7 +108,9 @@ export default ({ navigation }): React.ReactElement => {
         </Text>
         <Divider style={styles.divider} />
       </View>
-      <Text style={styles.emailSignLabel}>Sign up with Email</Text>
+      <Text style={styles.emailSignLabel}>
+        Sign up with Email
+      </Text>
       <View style={[styles.container, styles.formContainer]}>
         <Input
           placeholder='Ally'
@@ -143,21 +152,14 @@ export default ({ navigation }): React.ReactElement => {
         <CheckBox
           style={styles.termsCheckBox}
           checked={termsAccepted}
-          onChange={(checked: boolean) => setTermsAccepted(checked)}
-        >
-          {(evaProps) => (
-            <Text {...evaProps} style={styles.termsCheckBoxText}>
-              By creating an account, I agree to the Ewa Terms of\nUse and
-              Privacy Policy
-            </Text>
-          )}
+          onChange={(checked: boolean) => setTermsAccepted(checked)}>
+          {renderCheckboxLabel}
         </CheckBox>
       </View>
       <Button
         style={styles.signUpButton}
         size='large'
-        onPress={onSignUpButtonPress}
-      >
+        onPress={onSignUpButtonPress}>
         SIGN UP
       </Button>
     </KeyboardAvoidingView>

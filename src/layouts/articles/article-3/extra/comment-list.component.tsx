@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { ListRenderItemInfo, StyleSheet, View } from 'react-native';
 import {
   Avatar,
@@ -15,7 +15,7 @@ export type CommentListProps = Omit<ListProps, 'renderItem'>;
 
 export const CommentList = (props: CommentListProps): React.ReactElement => {
 
-  const renderCommentHeader = (comment: Comment): ReactElement => (
+  const renderCommentHeader = (comment: Comment): React.ReactElement => (
     <View style={styles.commentHeader}>
       <Avatar source={comment.author.photo}/>
       <View style={styles.commentAuthorContainer}>

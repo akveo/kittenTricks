@@ -9,7 +9,7 @@ export const CustomOptionsAutocompleteItem = ({ title, releaseYear, id }: DataPr
     <View style={{ marginHorizontal: 8 }}>
       <Text>{title}</Text>
       <Text appearance='hint' category='p2'>
-        {`${releaseYear}`}
+        {releaseYear}
       </Text>
     </View>
   </AutocompleteItem>

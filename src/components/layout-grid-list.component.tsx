@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import {
   Dimensions,
   Image,
@@ -27,7 +27,7 @@ export const LayoutGridList = (props: LayoutGridListProps): ListElement => {
   const { contentContainerStyle, onItemPress, ...listProps } = props;
 
   const renderItem = (info: ListRenderItemInfo<LayoutItem>): CardElement => {
-    const renderItemHeader = (evaProps): ReactElement => (
+    const renderItemHeader = (evaProps): React.ReactElement => (
       <Layout {...evaProps}>
         <Text category='h6'>{info.item.title}</Text>
         <Text category='s1'>{info.item.description}</Text>
@@ -38,8 +38,7 @@ export const LayoutGridList = (props: LayoutGridListProps): ListElement => {
       <Card
         style={styles.itemContainer}
         header={renderItemHeader}
-        onPress={() => onItemPress(info.index)}
-      >
+        onPress={() => onItemPress(info.index)}>
         <Image style={styles.itemImage} source={info.item.image} />
       </Card>
     );

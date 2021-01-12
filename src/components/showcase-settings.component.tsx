@@ -22,9 +22,7 @@ export interface ShowcaseSettingsProps extends ViewProps {
   onReset: () => void;
 }
 
-export const ShowcaseSettings = (
-  props: ShowcaseSettingsProps,
-): React.ReactElement => {
+export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactElement => {
   const [themesMenuVisible, setThemesMenuVisible] = React.useState<boolean>(
     false,
   );
@@ -32,13 +30,19 @@ export const ShowcaseSettings = (
     false,
   );
 
-  const createSettingMenuItem = (setting: ComponentShowcaseSetting, index: number): ReactElement => {
-    return <MenuItem key={index} title={setting.description || `${setting.propertyName}: ${setting.value}`} />;
-  };
+  const createSettingMenuItem = (setting: ComponentShowcaseSetting, index: number): React.ReactElement => (
+    <MenuItem
+      key={index}
+      title={setting.description || `${setting.propertyName}: ${setting.value}`}
+    />
+  );
 
-  const createThemeMenuItem = (title: string, index: number): ReactElement => {
-    return <MenuItem key={index} title={title} />;
-  };
+  const createThemeMenuItem = (title: string, index: number): ReactElement => (
+    <MenuItem
+      key={index}
+      title={title}
+     />
+  );
 
   const onThemeSelect = (index: IndexPath): void => {
     props.onThemeSelect(props.themes[index.row]);
@@ -59,13 +63,12 @@ export const ShowcaseSettings = (
     setSettingsMenuVisible(false);
   };
 
-  const createThemesMenuItems = (): any => {
+  const createThemesMenuItems = (): React.ReactElement[] => {
     return props.themes && props.themes.map(createThemeMenuItem);
   };
 
-  const createSettingsMenuItems = (): any => {
-    const settings =
-      props.settings && props.settings.map(createSettingMenuItem);
+  const createSettingsMenuItems = (): React.ReactElement[] => {
+    const settings = props.settings && props.settings.map(createSettingMenuItem);
     return settings || [];
   };
 
@@ -84,7 +87,9 @@ export const ShowcaseSettings = (
   };
 
   const renderRTLToggle = (): React.ReactElement => (
-    <CheckBox checked={I18nManager.isRTL} onChange={toggleRtl}>
+    <CheckBox 
+      checked={I18nManager.isRTL} 
+      onChange={toggleRtl}>
       RTL
     </CheckBox>
   );
@@ -94,8 +99,7 @@ export const ShowcaseSettings = (
       size='tiny'
       accessoryLeft={ColorPaletteIcon}
       disabled={!props.themes}
-      onPress={toggleThemesMenu}
-    >
+      onPress={toggleThemesMenu}>
       THEMES
     </Button>
   );
@@ -105,8 +109,7 @@ export const ShowcaseSettings = (
       size='tiny'
       accessoryLeft={SettingsIcon}
       disabled={!props.settings}
-      onPress={toggleSettingsMenu}
-    >
+      onPress={toggleSettingsMenu}>
       SETTINGS
     </Button>
   );
@@ -117,16 +120,14 @@ export const ShowcaseSettings = (
         visible={themesMenuVisible}
         onSelect={onThemeSelect}
         onBackdropPress={toggleThemesMenu}
-        anchor={renderButtonThemes}
-      >
+        anchor={renderButtonThemes}>
         {createThemesMenuItems()}
       </OverflowMenu>
       <OverflowMenu
         visible={settingsMenuVisible}
         onSelect={onSettingSelect}
         onBackdropPress={toggleSettingsMenu}
-        anchor={renderButtonSettings}
-      >
+        anchor={renderButtonSettings}>
         {createSettingsMenuItems()}
       </OverflowMenu>
       <Button
@@ -134,8 +135,7 @@ export const ShowcaseSettings = (
         status='danger'
         accessoryLeft={TrashIcon}
         disabled={!props.settings}
-        onPress={onResetButtonPress}
-      >
+        onPress={onResetButtonPress}>
         RESET
       </Button>
       {__DEV__ && renderRTLToggle()}

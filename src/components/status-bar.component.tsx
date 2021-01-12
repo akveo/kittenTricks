@@ -11,9 +11,12 @@ export type StatusBarProps = RNStatusBarProps & StyledComponentProps;
 @styled('StatusBar')
 class StatusBarComponent extends React.Component<StatusBarProps> {
   public render(): React.ReactElement<ViewProps> {
-    const { ...statusBarProps } = this.props;
+    const { eva, ...statusBarProps } = this.props;
 
-    return <RNStatusBar {...statusBarProps} />;
+    return <RNStatusBar
+      {...eva?.style}
+      {...statusBarProps}
+    />;
   }
 }
 
