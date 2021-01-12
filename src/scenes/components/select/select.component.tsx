@@ -4,9 +4,13 @@ import { SelectShowcase } from './select-showcase.component';
 import { selectSettings, selectShowcase } from './type';
 import { ShowcaseContainer } from '../../../components/showcase-container.component';
 
+interface ShowcaseProps extends SelectProps{
+  data: any[];
+}
+
 export const SelectScreen = ({ navigation }): React.ReactElement => {
 
-  const renderItem = (props: SelectProps): SelectElement => (
+  const renderItem = (props: ShowcaseProps): SelectElement => (
     <SelectShowcase {...props}/>
   );
 

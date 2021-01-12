@@ -20,8 +20,8 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "npm run env --prod && react-native start",
-    "start:dev": "npm run env --dev && react-native start --reset-cache",
+    "start": "npm run env -- prod && react-native start",
+    "start:dev": "npm run env -- dev && react-native start --reset-cache",
     "env": "node ./env/set-env.js",
     "build": "tsc -p ./tsconfig.json",
     "build:web": "expo build:web",
@@ -48,6 +48,7 @@
     "expo-constants": "^8.0.0",
     "expo-web-browser": "~8.0.0",
     "moment": "^2.24.0",
+    "patch-package": "^6.2.2",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "~0.61.5",
