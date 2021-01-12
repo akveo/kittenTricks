@@ -87,8 +87,8 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
   };
 
   const renderRTLToggle = (): React.ReactElement => (
-    <CheckBox 
-      checked={I18nManager.isRTL} 
+    <CheckBox
+      checked={I18nManager.isRTL}
       onChange={toggleRtl}>
       RTL
     </CheckBox>
