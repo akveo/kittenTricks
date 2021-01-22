@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageStyle } from 'react-native'
-import { IconElement } from '@ui-kitten/components';
+import { IconElement, MenuProps } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 import {
   ComponentShowcase,
@@ -13,6 +13,10 @@ interface MenuType {
   title: string;
   accessoryLeft?: (style: ImageStyle) => IconElement;
   disabled?: boolean;
+}
+
+export interface MenuShowcaseProps extends MenuProps {
+  data: MenuGroupType[],
 }
 
 export interface MenuGroupType extends MenuType {

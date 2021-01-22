@@ -1,10 +1,6 @@
-import React, { ReactElement } from 'react';
-import { IndexPath, Menu, MenuElement, MenuProps, MenuItem, MenuGroup } from '@ui-kitten/components';
-import { MenuGroupType } from './type';
-
-interface MenuShowcaseProps extends MenuProps {
-  data: MenuGroupType[],
-}
+import React from 'react';
+import { IndexPath, Menu, MenuElement, MenuItem, MenuGroup } from '@ui-kitten/components';
+import { MenuShowcaseProps } from './type';
 
 export const MenuShowcase = (props: MenuShowcaseProps): MenuElement => {
 

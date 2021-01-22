@@ -29,14 +29,14 @@ export const ListItemShowcase = (props?: ListItemProps): ListItemElement => (
 );
 
 export const ListItemIconShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem icon={StarIcon} {...props} />
+  <ListItem accessoryLeft={StarIcon} {...props} />
 );
 
 export const ListItemAccessoryShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem {...props} accessory={AccessoryElement}/>
+  <ListItem {...props} accessoryRight={AccessoryElement}/>
 );
 
 export const ListItemIconAccessoryShowcase = (props?: ListItemProps): ListItemElement => (
-  <ListItem {...props} icon={StarIcon}
-            accessory={(style, index) => <AccessoryElement style={style} index={index}/>}/>
+  <ListItem {...props} accessoryLeft={StarIcon}
+            accessoryRight={(style) => AccessoryElement(style)}/>
 );

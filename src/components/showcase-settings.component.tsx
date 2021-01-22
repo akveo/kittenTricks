@@ -115,7 +115,7 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
   );
 
   return (
-    <Layout style={[styles.container, props.style]} level='1'>
+    <Layout style={styles.container} level='1'>
       <OverflowMenu
         visible={themesMenuVisible}
         onSelect={onThemeSelect}

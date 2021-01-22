@@ -73,6 +73,7 @@ export const KeyboardAvoidingView = (props: KeyboardAvoidingViewProps): React.Re
       toValue: params.offsetValue,
       duration: animationDuration,
       easing: Easing.linear,
+      useNativeDriver: false,
     });
   };
 

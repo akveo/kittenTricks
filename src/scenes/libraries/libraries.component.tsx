@@ -44,8 +44,8 @@ export const LibrariesScreen = ({ navigation }): React.ReactElement => {
       style={styles.item}
       title={info.item.title}
       description={info.item.description}
-      accessory={renderForwardIcon}
-      onPress={onItemPress}
+      accessoryRight={renderForwardIcon}
+      onPress={() => onItemPress(info.index)}
     />
   );
 
