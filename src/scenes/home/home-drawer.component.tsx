@@ -40,7 +40,7 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
   ];
 
   const renderHeader = (): ReactElement => (
-    <SafeAreaLayout insets='top' backgroundColor='background-basic-color-2'>
+    <SafeAreaLayout insets='top' level='2'>
       <Layout style={styles.header} level='2'>
         <View style={styles.profileContainer}>
           <Avatar
