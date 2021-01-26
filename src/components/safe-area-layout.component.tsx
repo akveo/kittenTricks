@@ -1,7 +1,5 @@
 import React from 'react';
-import { FlexStyle } from 'react-native';
 import {
-  EdgeInsets,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import {
@@ -10,10 +8,6 @@ import {
   Layout,
   useTheme,
 } from '@ui-kitten/components';
-
-interface InsetProvider {
-  toStyle: (insets: EdgeInsets) => FlexStyle;
-}
 
 type Inset = 'top' | 'bottom';
 
