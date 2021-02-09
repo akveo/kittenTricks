@@ -19,7 +19,7 @@ export const LoadFontsTask = (fonts: { [key: string]: number }): Promise<TaskRes
 };
 
 export const LoadAssetsTask = (assets: number[]): Promise<TaskResult> => {
-  const tasks: Promise<void>[] = assets.map((source: number): Promise<void> => {
+  const tasks: Promise<Asset>[] = assets.map((source: number): Promise<Asset> => {
     return Asset.fromModule(source).downloadAsync();
   });
 
@@ -52,7 +52,7 @@ export const AppLoading = (props: ApplicationLoaderProps): React.ReactElement =>
 
   const onTasksFinish = (): void => {
     setLoading(false);
-    SplashScreen.hide();
+    SplashScreen.hideAsync();
   };
 
   const saveTaskResult = (result: [string, any] | null): void => {

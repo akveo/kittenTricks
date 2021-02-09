@@ -56,7 +56,6 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
         onReset={onResetSettings}
       />
       <Divider/>
-      {children}
       <Showcase
         {...showcaseProps}
         showcase={showcase}

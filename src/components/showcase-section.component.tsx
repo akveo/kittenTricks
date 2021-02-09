@@ -1,8 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, ViewProps } from 'react-native';
-import { Text, TextElement, TextProps } from '@ui-kitten/components';
-import { ShowcaseItem, ShowcaseItemProps } from './showcase-item.component';
-import { ComponentShowcaseItem, ComponentShowcaseSection } from '../model/showcase.model';
+import {
+  StyleSheet,
+  View,
+  ViewProps,
+} from 'react-native';
+import {
+  Text,
+  TextElement,
+  TextProps,
+} from '@ui-kitten/components';
+import {
+  ShowcaseItem,
+  ShowcaseItemProps,
+} from './showcase-item.component';
+import {
+  ComponentShowcaseItem,
+  ComponentShowcaseSection,
+} from '../model/showcase.model';
 
 export interface ShowcaseSectionProps extends ViewProps {
   section: ComponentShowcaseSection;
@@ -34,7 +48,7 @@ export const ShowcaseSection = (props: ShowcaseSectionProps): React.ReactElement
   return (
     <View style={[styles.container, style]}>
       {titleElement}
-      {section.items.map(renderShowcaseItem)}
+      <View style={{ height: 20, width: 20, backgroundColor: 'red' }}/>
     </View>
   );
 };
