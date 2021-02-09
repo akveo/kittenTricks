@@ -1,5 +1,6 @@
 import React from 'react';
-import { AppLoading as ExpoAppLoading, SplashScreen } from 'expo';
+import * as SplashScreen from 'expo-splash-screen';
+import AppLoadingExpo from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 
@@ -28,7 +29,7 @@ export const LoadAssetsTask = (assets: number[]): Promise<TaskResult> => {
 /*
  * Prevent splash screen from hiding since it is controllable by AppLoading component.
  */
-SplashScreen.preventAutoHide();
+SplashScreen.preventAutoHideAsync();
 
 /**
  * Loads application configuration and returns content of the application when done.
@@ -72,7 +73,8 @@ export const AppLoading = (props: ApplicationLoaderProps): React.ReactElement =>
   };
 
   const renderLoadingElement = (): React.ReactElement => (
-    <ExpoAppLoading
+    <AppLoadingExpo
+      onError={() => {}}
       startAsync={startTasks}
       onFinish={onTasksFinish}
       autoHideSplash={false}
