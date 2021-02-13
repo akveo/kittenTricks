@@ -76,7 +76,7 @@ export default (): React.ReactElement => {
       <CommentList
         style={styles.list}
         data={data.comments}
-        ListHeaderComponent={renderHeader}
+        ListHeaderComponent={renderHeader()}
       />
     </KeyboardAvoidingView>
   );

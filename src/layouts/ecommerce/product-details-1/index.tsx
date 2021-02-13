@@ -100,7 +100,7 @@ export default ({ navigation }): React.ReactElement => {
       <CommentList
         style={styles.commentList}
         data={product.comments}
-        ListHeaderComponent={renderHeader}
+        ListHeaderComponent={renderHeader()}
       />
     </KeyboardAvoidingView>
   );
