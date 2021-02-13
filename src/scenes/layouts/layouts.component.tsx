@@ -25,7 +25,7 @@ export const LayoutsScreen = (props): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Kitten Tricks'
-        leftControl={renderDrawerAction()}
+        accessoryLeft={renderDrawerAction}
       />
       <Divider/>
       <MenuGridList

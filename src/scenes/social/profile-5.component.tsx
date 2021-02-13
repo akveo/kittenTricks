@@ -20,7 +20,7 @@ export const Profile5Screen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Profile'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <ContentView/>
     </SafeAreaLayout>

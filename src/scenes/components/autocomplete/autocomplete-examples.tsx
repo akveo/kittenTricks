@@ -1,18 +1,24 @@
 import React from 'react';
-import { ListRenderItemInfo, View } from 'react-native';
-import { Avatar, Text } from '@ui-kitten/components';
-import { AutocompleteShowcaseOption } from './type';
+import { View, StyleSheet } from 'react-native';
+import { Avatar, Text, AutocompleteItem } from '@ui-kitten/components';
+import { DataProps } from './type';
 
-type Option = AutocompleteShowcaseOption;
-
-export const CustomOptionsAutocompleteItem = ({ item }: ListRenderItemInfo<Option>) => (
-  <React.Fragment>
+export const CustomOptionsAutocompleteItem = ({ title, releaseYear, id }: DataProps): any => (
+  <AutocompleteItem style={styles.wrapper} key={id}>
     <Avatar size='small' source={require('../../../assets/images/image-app-icon.png')}/>
     <View style={{ marginHorizontal: 8 }}>
-      <Text>{item.title}</Text>
+      <Text>{title}</Text>
       <Text appearance='hint' category='p2'>
-        {`${item.releaseYear}`}
+        {releaseYear}
       </Text>
     </View>
-  </React.Fragment>
+  </AutocompleteItem>
 );
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: 'row',
+    marginTop: 5,
+    alignItems: 'center',
+  }
+})

@@ -45,7 +45,7 @@ export const ShowcaseContainer = (props: ShowcaseContainerProps): React.ReactEle
       insets='top'>
       <TopNavigation
         title={showcase.title}
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <Divider/>
       <ShowcaseSettings

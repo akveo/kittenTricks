@@ -17,6 +17,14 @@ export default (): React.ReactElement => {
   const styles = useStyleSheet(themedStyles);
   const [inputComment, setInputComment] = React.useState<string>();
 
+  const renderCommentsLabel = React.useCallback(evaProps => (
+    <Text 
+      {...evaProps}
+      style={styles.commentInputLabel}>
+      Comments
+    </Text>
+  ), []);
+
   const renderHeader = (): React.ReactElement => (
     <Layout
       style={styles.header}
@@ -53,8 +61,7 @@ export default (): React.ReactElement => {
       </View>
       <Input
         style={styles.commentInput}
-        labelStyle={styles.commentInputLabel}
-        label='Comments'
+        label={renderCommentsLabel}
         placeholder='Write your comment'
         value={inputComment}
         onChangeText={setInputComment}

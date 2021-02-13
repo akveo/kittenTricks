@@ -21,7 +21,7 @@ export const AuthScreen = ({ navigation, state }): React.ReactElement => {
     <SafeAreaLayout insets='top'>
       <TopNavigation
         title='Auth'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <BrandTabBar
         selectedIndex={state.index}

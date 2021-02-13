@@ -1,13 +1,27 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Button, CheckBox, Input, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
+import React, { ReactElement } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
+import {
+  Button,
+  CheckBox,
+  Input,
+  StyleService,
+  Text,
+  useStyleSheet,
+  Icon,
+} from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileAvatar } from './extra/profile-avatar.component';
-import { EmailIcon, EyeIcon, EyeOffIcon, FacebookIcon, GoogleIcon, PersonIcon, PlusIcon, TwitterIcon } from './extra/icons';
+import {
+  EmailIcon,
+  FacebookIcon,
+  GoogleIcon,
+  PersonIcon,
+  PlusIcon,
+  TwitterIcon,
+} from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
 
 export default ({ navigation }): React.ReactElement => {
-
   const [userName, setUserName] = React.useState<string>();
   const [email, setEmail] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
@@ -29,12 +43,20 @@ export default ({ navigation }): React.ReactElement => {
   };
 
   const renderPhotoButton = (): React.ReactElement => (
-    <Button
-      style={styles.editAvatarButton}
-      size='small'
-      icon={PlusIcon}
-    />
+    <Button style={styles.editAvatarButton} size='small' accessoryRight={PlusIcon} />
   );
+
+  const renderPasswordIcon = (props): ReactElement => (
+    <TouchableWithoutFeedback onPress={onPasswordIconPress}>
+      <Icon {...props} name={passwordVisible ? 'eye-off' : 'eye'} />
+    </TouchableWithoutFeedback>
+  );
+
+  const renderCheckboxLabel = React.useCallback(evaProps => (
+    <Text {...evaProps} style={styles.termsCheckBoxText}>
+      I read and agree to Terms & Conditions
+    </Text>
+  ), []);
 
   return (
     <KeyboardAvoidingView>
@@ -54,7 +76,7 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             autoCapitalize='none'
             placeholder='User Name'
-            icon={PersonIcon}
+            accessoryRight={PersonIcon}
             value={userName}
             onChangeText={setUserName}
           />
@@ -63,7 +85,7 @@ export default ({ navigation }): React.ReactElement => {
             status='control'
             autoCapitalize='none'
             placeholder='Email'
-            icon={EmailIcon}
+            accessoryRight={EmailIcon}
             value={email}
             onChangeText={setEmail}
           />
@@ -73,29 +95,26 @@ export default ({ navigation }): React.ReactElement => {
             autoCapitalize='none'
             secureTextEntry={!passwordVisible}
             placeholder='Password'
-            icon={passwordVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={renderPasswordIcon}
             value={password}
             onChangeText={setPassword}
-            onIconPress={onPasswordIconPress}
           />
           <CheckBox
             style={styles.termsCheckBox}
-            textStyle={styles.termsCheckBoxText}
-            text='I read and agree to Terms & Conditions'
             checked={termsAccepted}
-            onChange={(checked: boolean) => setTermsAccepted(checked)}
-          />
+            onChange={(checked: boolean) => setTermsAccepted(checked)}>
+            {renderCheckboxLabel}
+          </CheckBox>
         </View>
         <Button
           style={styles.signUpButton}
           size='giant'
-          onPress={onSignUpButtonPress}>
+          onPress={onSignUpButtonPress}
+        >
           SIGN UP
         </Button>
         <View style={styles.socialAuthContainer}>
-          <Text
-            style={styles.socialAuthHintText}
-            status='control'>
+          <Text style={styles.socialAuthHintText} status='control'>
             Or Register Using Social Media
           </Text>
           <View style={styles.socialAuthButtonsContainer}>
@@ -103,19 +122,19 @@ export default ({ navigation }): React.ReactElement => {
               appearance='ghost'
               size='giant'
               status='control'
-              icon={FacebookIcon}
+              accessoryLeft={FacebookIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={GoogleIcon}
+              accessoryLeft={GoogleIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={TwitterIcon}
+              accessoryLeft={TwitterIcon}
             />
           </View>
         </View>
@@ -123,7 +142,8 @@ export default ({ navigation }): React.ReactElement => {
           style={styles.signInButton}
           appearance='ghost'
           status='control'
-          onPress={onSignInButtonPress}>
+          onPress={onSignInButtonPress}
+        >
           Already have account? Sign In
         </Button>
       </ImageOverlay>
@@ -166,6 +186,7 @@ const themedStyles = StyleService.create({
   },
   termsCheckBoxText: {
     color: 'text-control-color',
+    marginLeft: 10,
   },
   signUpButton: {
     marginHorizontal: 16,
@@ -186,4 +207,3 @@ const themedStyles = StyleService.create({
     marginBottom: 16,
   },
 });
-

@@ -10,6 +10,8 @@ export const RadioShowcase = (props: RadioProps): RadioElement => {
       {...props}
       checked={checked}
       onChange={setChecked}
-    />
+    >
+      {props.children}
+    </Radio>
   );
 };

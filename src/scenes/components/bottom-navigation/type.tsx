@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { BottomNavigationTab } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 import {
@@ -7,6 +8,13 @@ import {
   ComponentShowcaseSection,
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
+
+
+const styles = StyleSheet.create({
+  customIcons: {
+    marginTop: 10,
+  }
+})
 
 const titleBottomNavigation: ComponentShowcaseItem = {
   props: {
@@ -31,9 +39,9 @@ const iconBottomNavigation: ComponentShowcaseItem = {
 const iconTitleBottomNavigation: ComponentShowcaseItem = {
   props: {
     children: [
-      <BottomNavigationTab icon={StarIcon} title='Tab 1'/>,
-      <BottomNavigationTab icon={StarIcon} title='Tab 2'/>,
-      <BottomNavigationTab icon={StarIcon} title='Tab 3'/>,
+      <BottomNavigationTab style={styles.customIcons} icon={StarIcon} title='Tab 1'/>,
+      <BottomNavigationTab style={styles.customIcons} icon={StarIcon} title='Tab 2'/>,
+      <BottomNavigationTab style={styles.customIcons} icon={StarIcon} title='Tab 3'/>,
     ],
   },
 };

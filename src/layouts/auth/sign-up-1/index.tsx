@@ -21,7 +21,6 @@ import {
 import { KeyboardAvoidingView } from './extra/3rd-party';
 
 export default ({ navigation }): React.ReactElement => {
-
   const [firstName, setFirstName] = React.useState<string>();
   const [lastName, setLastName] = React.useState<string>();
   const [email, setEmail] = React.useState<string>();
@@ -39,6 +38,16 @@ export default ({ navigation }): React.ReactElement => {
     navigation && navigation.navigate('SignIn1');
   };
 
+  const renderCheckboxLabel = React.useCallback(
+    (evaProps) => (
+      <Text {...evaProps} style={styles.termsCheckBoxText}>
+        By creating an account, I agree to the Ewa Terms of\nUse and Privacy
+        Policy
+      </Text>
+    ),
+    []
+  );
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ImageOverlay
@@ -49,14 +58,11 @@ export default ({ navigation }): React.ReactElement => {
           appearance='ghost'
           status='control'
           size='large'
-          icon={HeartIconFill}>
+          accessoryLeft={HeartIconFill}>
           EVA
         </Button>
         <View style={styles.signUpContainer}>
-          <Text
-            style={styles.signInLabel}
-            category='h4'
-            status='control'>
+          <Text style={styles.signInLabel} category='h4' status='control'>
             SIGN UP
           </Text>
           <Button
@@ -64,7 +70,7 @@ export default ({ navigation }): React.ReactElement => {
             appearance='ghost'
             status='control'
             size='giant'
-            icon={ArrowForwardIconOutline}
+            accessoryLeft={ArrowForwardIconOutline}
             onPress={onSignInButtonPress}>
             Sign In
           </Button>
@@ -79,33 +85,30 @@ export default ({ navigation }): React.ReactElement => {
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={GoogleIcon}
+            accessoryLeft={GoogleIcon}
           />
           <Button
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={FacebookIcon}
+            accessoryLeft={FacebookIcon}
           />
           <Button
             appearance='ghost'
             size='giant'
             status='basic'
-            icon={TwitterIcon}
+            accessoryLeft={TwitterIcon}
           />
         </View>
       </View>
       <View style={styles.orContainer}>
-        <Divider style={styles.divider}/>
-        <Text
-          style={styles.orLabel}
-          category='h5'>
+        <Divider style={styles.divider} />
+        <Text style={styles.orLabel} category='h5'>
           OR
         </Text>
-        <Divider style={styles.divider}/>
+        <Divider style={styles.divider} />
       </View>
-      <Text
-        style={styles.emailSignLabel}>
+      <Text style={styles.emailSignLabel}>
         Sign up with Email
       </Text>
       <View style={[styles.container, styles.formContainer]}>
@@ -148,11 +151,10 @@ export default ({ navigation }): React.ReactElement => {
         />
         <CheckBox
           style={styles.termsCheckBox}
-          textStyle={styles.termsCheckBoxText}
           checked={termsAccepted}
-          text={'By creating an account, I agree to the Ewa Terms of\nUse and Privacy Policy'}
-          onChange={(checked: boolean) => setTermsAccepted(checked)}
-        />
+          onChange={(checked: boolean) => setTermsAccepted(checked)}>
+          {renderCheckboxLabel}
+        </CheckBox>
       </View>
       <Button
         style={styles.signUpButton}
@@ -239,6 +241,6 @@ const themedStyles = StyleService.create({
     fontSize: 11,
     lineHeight: 14,
     color: 'text-hint-color',
+    marginLeft: 10,
   },
 });
-

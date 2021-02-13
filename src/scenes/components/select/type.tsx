@@ -1,5 +1,4 @@
 import React from 'react';
-import { SelectOptionType } from '@ui-kitten/components';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
@@ -7,32 +6,32 @@ import {
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
 import { StarIcon } from '../../../components/icons';
+import { IndexPath } from '@ui-kitten/components';
+
+export interface SelectOptionType {
+  title: string;
+  items?: { title: string }[];
+}
 
 const defaultOptions: SelectOptionType[] = [
-  { text: 'Option 1' },
-  { text: 'Option 2' },
-  { text: 'Option 3' },
-  { text: 'Option 4' },
-  { text: 'Option 5' },
-  { text: 'Option 6' },
-  { text: 'Option 7' },
-  { text: 'Option 8' },
+  { title: 'Option 1' },
+  { title: 'Option 2' },
+  { title: 'Option 3' },
+  { title: 'Option 4' },
+  { title: 'Option 5' },
+  { title: 'Option 6' },
+  { title: 'Option 7' },
+  { title: 'Option 8' },
 ];
 
 const groupedOptions: SelectOptionType[] = [
   {
-    text: 'Group 1',
-    items: [
-      { text: 'Option 1' },
-      { text: 'Option 2' },
-    ],
+    title: 'Group 1',
+    items: [{ title: 'Option 1' }, { title: 'Option 2' }],
   },
   {
-    text: 'Group 2',
-    items: [
-      { text: 'Option 1' },
-      { text: 'Option 2' },
-    ],
+    title: 'Group 2',
+    items: [{ title: 'Option 1' }, { title: 'Option 2' }],
   },
 ];
 
@@ -55,7 +54,7 @@ const initialValueSelect: ComponentShowcaseItem = {
   title: 'Initial Value',
   props: {
     ...defaultSelect.props,
-    selectedOption: defaultOptions[0],
+    selectedIndex: new IndexPath(0),
   },
 };
 
@@ -71,7 +70,7 @@ const multiSelectInitialValue: ComponentShowcaseItem = {
   title: 'Initial Value',
   props: {
     ...multiSelect.props,
-    selectedOption: [defaultOptions[0], defaultOptions[1]],
+    selectedIndex: [new IndexPath(0), new IndexPath(1)],
   },
 };
 
@@ -80,6 +79,7 @@ const groupSelect: ComponentShowcaseItem = {
   props: {
     ...defaultSelect.props,
     data: groupedOptions,
+    groupedOptions: true,
   },
 };
 
@@ -95,7 +95,7 @@ const withIconSelect: ComponentShowcaseItem = {
   title: 'Icon',
   props: {
     ...defaultSelect.props,
-    icon: StarIcon,
+    accessoryRight: StarIcon,
   },
 };
 
@@ -117,36 +117,22 @@ const placeholderSelect: ComponentShowcaseItem = {
 
 const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
-  items: [
-    defaultSelect,
-    disabledSelect,
-    initialValueSelect,
-  ],
+  items: [defaultSelect, disabledSelect, initialValueSelect],
 };
 
 const multiSelectSection: ComponentShowcaseSection = {
   title: 'Multiselect',
-  items: [
-    multiSelect,
-    multiSelectInitialValue,
-  ],
+  items: [multiSelect, multiSelectInitialValue],
 };
 
 const groupsSection: ComponentShowcaseSection = {
   title: 'Groups',
-  items: [
-    groupSelect,
-    groupMultiselect,
-  ],
+  items: [groupSelect, groupMultiselect],
 };
 
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
-  items: [
-    withIconSelect,
-    withLabelSelect,
-    placeholderSelect,
-  ],
+  items: [withIconSelect, withLabelSelect, placeholderSelect],
 };
 
 export const selectShowcase: ComponentShowcase = {

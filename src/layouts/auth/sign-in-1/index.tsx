@@ -35,7 +35,7 @@ export default ({ navigation }): React.ReactElement => {
             appearance='ghost'
             status='control'
             size='giant'
-            icon={ArrowForwardIcon}
+            accessoryLeft={ArrowForwardIcon}
             onPress={onSignUpButtonPress}>
             Sign Up
           </Button>
@@ -75,19 +75,19 @@ export default ({ navigation }): React.ReactElement => {
               appearance='ghost'
               size='giant'
               status='control'
-              icon={GoogleIcon}
+              accessoryLeft={GoogleIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={FacebookIcon}
+              accessoryLeft={FacebookIcon}
             />
             <Button
               appearance='ghost'
               size='giant'
               status='control'
-              icon={TwitterIcon}
+              accessoryLeft={TwitterIcon}
             />
           </View>
         </View>

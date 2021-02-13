@@ -21,7 +21,7 @@ export const DashboardScreen = ({ navigation, state }): React.ReactElement => {
     <SafeAreaLayout insets='top'>
       <TopNavigation
         title='Dashboards'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <BrandTabBar
         selectedIndex={state.index}

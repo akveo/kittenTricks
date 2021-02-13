@@ -1,12 +1,12 @@
 import React from 'react';
-import { MenuElement, MenuProps } from '@ui-kitten/components';
+import { MenuElement } from '@ui-kitten/components';
 import { MenuShowcase } from './menu-showcase.component';
-import { menuSettings, menuShowcase } from './type';
+import { menuSettings, menuShowcase, MenuShowcaseProps } from './type';
 import { ShowcaseContainer } from '../../../components/showcase-container.component';
 
 export const MenuScreen = ({ navigation }): React.ReactElement => {
 
-  const renderItem = (props: MenuProps): MenuElement => (
+  const renderItem = (props: MenuShowcaseProps): MenuElement => (
     <MenuShowcase {...props} />
   );
 

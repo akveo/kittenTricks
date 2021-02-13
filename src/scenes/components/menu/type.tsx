@@ -1,5 +1,6 @@
 import React from 'react';
-import { MenuItemType } from '@ui-kitten/components';
+import { ImageStyle } from 'react-native'
+import { IconElement, MenuProps } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
 import {
   ComponentShowcase,
@@ -8,70 +9,84 @@ import {
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
 
-const defaultMenuItems: MenuItemType[] = [
+interface MenuType {
+  title: string;
+  accessoryLeft?: (style: ImageStyle) => IconElement;
+  disabled?: boolean;
+}
+
+export interface MenuShowcaseProps extends MenuProps {
+  data: MenuGroupType[],
+}
+
+export interface MenuGroupType extends MenuType {
+  subItems?: MenuType[],
+}
+
+const defaultMenuItems: MenuType[] = [
   { title: 'Item 1' },
   { title: 'Item 2' },
   { title: 'Item 3' },
 ];
 
-const withIconMenuItems: MenuItemType[] = [
+const withIconMenuItems: MenuType[] = [
   {
     title: 'Item 1',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
   {
     title: 'Item 2',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
   {
     title: 'Item 3',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
 ];
 
-const withDisabledItemMenuItems: MenuItemType[] = [
+const withDisabledItemMenuItems: MenuType[] = [
   {
     title: 'Item 1',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
   {
     title: 'Item 2',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     disabled: true,
   },
   {
     title: 'Item 3',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
 ];
 
-const withGroupsMenuItems: MenuItemType[] = [
+const withGroupsMenuItems: MenuGroupType[] = [
   {
     title: 'Item 1',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
   {
     title: 'Item 2',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
     subItems: [
       {
         title: 'Item 21',
-        icon: StarIcon,
+        accessoryLeft: StarIcon,
         disabled: true,
       },
       {
         title: 'Item 22',
-        icon: StarIcon,
+        accessoryLeft: StarIcon,
       },
       {
         title: 'Item 23',
-        icon: StarIcon,
+        accessoryLeft: StarIcon,
       },
     ],
   },
   {
     title: 'Item 3',
-    icon: StarIcon,
+    accessoryLeft: StarIcon,
   },
 ];
 

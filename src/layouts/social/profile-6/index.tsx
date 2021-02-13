@@ -82,14 +82,14 @@ export default ({ navigation }): React.ReactElement => {
         <View style={styles.profileButtonsContainer}>
           <Button
             style={styles.profileButton}
-            icon={PersonAddIcon}
+            accessoryLeft={PersonAddIcon}
             onPress={onFollowButtonPress}>
             FOLLOW
           </Button>
           <Button
             appearance='outline'
             style={styles.profileButton}
-            icon={MessageCircleIcon}
+            accessoryLeft={MessageCircleIcon}
             onPress={onMessageButtonPress}>
             MESSAGE
           </Button>

@@ -41,14 +41,14 @@ export default ({ navigation }): React.ReactElement => {
             style={styles.iconButton}
             appearance='ghost'
             status='control'
-            icon={MessageCircleIcon}>
+            accessoryLeft={MessageCircleIcon}>
             {`${info.item.comments.length}`}
           </Button>
           <Button
             style={styles.iconButton}
             appearance='ghost'
             status='control'
-            icon={HeartIcon}>
+            accessoryLeft={HeartIcon}>
             {`${info.item.likes.length}`}
           </Button>
         </View>
