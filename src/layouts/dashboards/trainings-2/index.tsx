@@ -32,7 +32,7 @@ export default (): React.ReactElement => {
           style={styles.activityButton}
           appearance='ghost'
           size='tiny'
-          icon={ClockIcon}>
+          accessoryLeft={ClockIcon}>
           {info.item.formattedDuration}
         </Button>
         <Button
@@ -40,7 +40,7 @@ export default (): React.ReactElement => {
           appearance='ghost'
           size='tiny'
           status='danger'
-          icon={ActivityIcon}>
+          accessoryLeft={ActivityIcon}>
           {info.item.formattedKcal}
         </Button>
       </View>

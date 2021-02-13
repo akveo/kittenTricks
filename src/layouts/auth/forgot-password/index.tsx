@@ -33,7 +33,7 @@ export default ({ navigation }): React.ReactElement => {
           <Input
             status='control'
             placeholder='Email'
-            icon={EmailIcon}
+            accessoryRight={EmailIcon}
             value={email}
             onChangeText={setEmail}
           />

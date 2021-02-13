@@ -1,17 +1,26 @@
 import React from 'react';
-import { Radio, RadioGroup, RadioGroupElement, RadioGroupProps } from '@ui-kitten/components';
+import {
+  Radio,
+  RadioGroup,
+  RadioGroupElement,
+  RadioGroupProps,
+  Text,
+} from '@ui-kitten/components';
 
-export const RadioGroupShowcase = (props: RadioGroupProps): RadioGroupElement => {
-
+export const RadioGroupShowcase = (
+  props: RadioGroupProps
+): RadioGroupElement => {
   const [selectedIndex, setSelectedIndex] = React.useState(props.selectedIndex);
 
+  const options: string[] = ['Option 1', 'Option 2', 'Option 3'];
+
   return (
-    <RadioGroup
-      selectedIndex={selectedIndex}
-      onChange={setSelectedIndex}>
-      <Radio text='Option 1'/>
-      <Radio text='Option 2'/>
-      <Radio text='Option 3'/>
+    <RadioGroup selectedIndex={selectedIndex} onChange={setSelectedIndex}>
+      {options.map((el, index) => (
+        <Radio key={index}>
+          {(evaProps) => <Text {...evaProps}>{el}</Text>}
+        </Radio>
+      ))}
     </RadioGroup>
   );
 };

@@ -20,7 +20,7 @@ export const Feed2Screen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Feed'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <ContentView/>
     </SafeAreaLayout>

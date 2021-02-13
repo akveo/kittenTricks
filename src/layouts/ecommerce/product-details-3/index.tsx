@@ -39,9 +39,9 @@ export default ({ navigation }): React.ReactElement => {
     <Radio
       key={index}
       style={styles.colorRadio}
-      textStyle={{ color: color.value }}
-      text={color.description.toUpperCase()}
-    />
+    >
+      {evaProps => <Text {...evaProps} style={{ color: color.value, marginLeft: 10, }}>{color.description.toUpperCase()}</Text>}
+    </Radio>
   );
 
   const renderHeader = (): React.ReactElement => (
@@ -112,8 +112,7 @@ export default ({ navigation }): React.ReactElement => {
       </Layout>
       <Input
         style={styles.commentInput}
-        labelStyle={styles.commentInputLabel}
-        label='Comments'
+        label={evaProps => <Text {...evaProps} style={styles.commentInputLabel}>Comments</Text>}
         placeholder='Write your comment'
         value={comment}
         onChangeText={setComment}

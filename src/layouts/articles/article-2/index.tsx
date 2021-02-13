@@ -56,14 +56,14 @@ export default (): React.ReactElement => {
           style={styles.reactionButton}
           appearance='ghost'
           status='basic'
-          icon={MessageCircleIcon}>
+          accessoryLeft={MessageCircleIcon}>
           {`${data.comments.length}`}
         </Button>
         <Button
           style={styles.reactionButton}
           appearance='ghost'
           status='danger'
-          icon={HeartIcon}>
+          accessoryLeft={HeartIcon}>
           {`${data.likes.length}`}
         </Button>
       </View>

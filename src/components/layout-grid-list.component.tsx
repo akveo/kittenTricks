@@ -1,13 +1,18 @@
 import React from 'react';
-import { Dimensions, Image, ListRenderItemInfo, StyleSheet } from 'react-native';
+import {
+  Dimensions,
+  Image,
+  ListRenderItemInfo,
+  StyleSheet,
+} from 'react-native';
 import {
   Card,
   CardElement,
-  CardHeader,
-  CardHeaderElement,
   List,
   ListElement,
   ListProps,
+  Layout,
+  Text,
 } from '@ui-kitten/components';
 import { LayoutItem } from '../model/layout-item.model';
 
@@ -19,28 +24,25 @@ export interface LayoutGridListProps extends Omit<ListProps, 'renderItem'> {
 export type LayoutGridListElement = React.ReactElement<LayoutGridListProps>;
 
 export const LayoutGridList = (props: LayoutGridListProps): ListElement => {
-
   const { contentContainerStyle, onItemPress, ...listProps } = props;
 
-  const renderItemHeader = (info: ListRenderItemInfo<LayoutItem>): CardHeaderElement => (
-    <CardHeader
-      style={styles.itemHeader}
-      title={info.item.title}
-      description={info.item.description}
-    />
-  );
+  const renderItem = (info: ListRenderItemInfo<LayoutItem>): CardElement => {
+    const renderItemHeader = (evaProps): React.ReactElement => (
+      <Layout {...evaProps}>
+        <Text category='h6'>{info.item.title}</Text>
+        <Text category='s1'>{info.item.description}</Text>
+      </Layout>
+    );
 
-  const renderItem = (info: ListRenderItemInfo<LayoutItem>): CardElement => (
-    <Card
-      style={styles.itemContainer}
-      header={() => renderItemHeader(info)}
-      onPress={() => onItemPress(info.index)}>
-      <Image
-        style={styles.itemImage}
-        source={info.item.image}
-      />
-    </Card>
-  );
+    return (
+      <Card
+        style={styles.itemContainer}
+        header={renderItemHeader}
+        onPress={() => onItemPress(info.index)}>
+        <Image style={styles.itemImage} source={info.item.image} />
+      </Card>
+    );
+  };
 
   return (
     <List

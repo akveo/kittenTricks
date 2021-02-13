@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, ViewProps } from 'react-native';
-import { Divider, Layout, Text } from '@ui-kitten/components';
+import { StyleSheet } from 'react-native';
+import { Divider, Layout, Text, LayoutProps } from '@ui-kitten/components';
 
-export interface ProfileSettingProps extends ViewProps {
+export interface ProfileSettingProps extends LayoutProps {
   hint: string;
   value: string;
 }

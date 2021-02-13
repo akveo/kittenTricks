@@ -1,12 +1,12 @@
 import React from 'react';
-import { OverflowMenuElement, OverflowMenuProps } from '@ui-kitten/components';
+import { OverflowMenuElement } from '@ui-kitten/components';
 import { OverflowMenuShowcase } from './overflow-menu-showcase.component';
-import { overflowMenuSettings, overflowMenuShowcase } from './type';
+import { overflowMenuSettings, overflowMenuShowcase, OverflowMenuPropsCustom } from './type';
 import { ShowcaseContainer } from '../../../components/showcase-container.component';
 
 export const OverflowMenuScreen = ({ navigation }): React.ReactElement => {
 
-  const renderItem = (props: OverflowMenuProps): OverflowMenuElement => (
+  const renderItem = (props: OverflowMenuPropsCustom): OverflowMenuElement => (
     <OverflowMenuShowcase {...props} />
   );
 

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { View } from 'react-native';
 import {
   Button,
   Datepicker,
   Divider,
+  Icon,
   Input,
   Layout,
   StyleService,
   useStyleSheet,
 } from '@ui-kitten/components';
-import { EyeIcon, EyeOffIcon } from './extra/icons';
 import { KeyboardAvoidingView } from './extra/3rd-party';
+import { TouchableWithoutFeedback } from 'react-native';
 
 export default ({ navigation }): React.ReactElement => {
 
@@ -29,6 +30,12 @@ export default ({ navigation }): React.ReactElement => {
   const onAddButtonPress = (): void => {
     navigation && navigation.goBack();
   };
+
+  const renderCVVIcon = (props): ReactElement => (
+    <TouchableWithoutFeedback onPress={onCVVIconPress}>
+      <Icon {...props} name={cvvVisible ? 'eye' : 'eye-off'} />
+    </TouchableWithoutFeedback>
+  );
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -60,9 +67,8 @@ export default ({ navigation }): React.ReactElement => {
             maxLength={3}
             value={cvv}
             secureTextEntry={!cvvVisible}
-            icon={cvvVisible ? EyeIcon : EyeOffIcon}
+            accessoryRight={renderCVVIcon}
             onChangeText={setCVV}
-            onIconPress={onCVVIconPress}
           />
         </View>
         <Input
