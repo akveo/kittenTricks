@@ -20,7 +20,7 @@ export const SettingsScreen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Settings'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <Divider/>
       <ContentView/>

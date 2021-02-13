@@ -37,7 +37,7 @@ export const ProductListScreen = ({ navigation, route }): React.ReactElement => 
       <Button
         style={styles.iconButton}
         size='small'
-        icon={CartIcon}
+        accessoryLeft={CartIcon}
         onPress={() => onItemCartPress(info.index)}
       />
     </View>
@@ -99,6 +99,8 @@ const themedStyles = StyleService.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   iconButton: {
     paddingHorizontal: 0,

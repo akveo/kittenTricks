@@ -78,7 +78,7 @@ export default (): React.ReactElement => {
         offset={keyboardOffset}>
         <Button
           style={[styles.iconButton, styles.attachButton]}
-          icon={PlusIcon}
+          accessoryLeft={PlusIcon}
           onPress={toggleAttachmentsMenu}
         />
         <Input
@@ -86,12 +86,12 @@ export default (): React.ReactElement => {
           placeholder='Message...'
           value={message}
           onChangeText={setMessage}
-          icon={MicIcon}
+          accessoryRight={MicIcon}
         />
         <Button
           appearance='ghost'
           style={[styles.iconButton, styles.sendButton]}
-          icon={PaperPlaneIcon}
+          accessoryLeft={PaperPlaneIcon}
           disabled={!sendButtonEnabled()}
           onPress={onSendButtonPress}
         />

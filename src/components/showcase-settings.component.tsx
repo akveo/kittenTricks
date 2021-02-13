@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { I18nManager, Platform, StyleSheet, ViewProps } from 'react-native';
 import {
   Button,
+  ButtonElement,
   CheckBox,
+  IndexPath,
   Layout,
   OverflowMenu,
-  OverflowMenuItemType,
+  MenuItem,
 } from '@ui-kitten/components';
 import { ColorPaletteIcon, SettingsIcon, TrashIcon } from './icons';
 import { ComponentShowcaseSetting } from '../model/showcase.model';
@@ -21,22 +23,29 @@ export interface ShowcaseSettingsProps extends ViewProps {
 }
 
 export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactElement => {
+  const [themesMenuVisible, setThemesMenuVisible] = React.useState<boolean>(
+    false,
+  );
+  const [settingsMenuVisible, setSettingsMenuVisible] = React.useState<boolean>(
+    false,
+  );
 
-  const [themesMenuVisible, setThemesMenuVisible] = React.useState<boolean>(false);
-  const [settingsMenuVisible, setSettingsMenuVisible] = React.useState<boolean>(false);
+  const createSettingMenuItem = (setting: ComponentShowcaseSetting, index: number): React.ReactElement => (
+    <MenuItem
+      key={index}
+      title={setting.description || `${setting.propertyName}: ${setting.value}`}
+    />
+  );
 
-  const createSettingMenuItem = (setting: ComponentShowcaseSetting): OverflowMenuItemType => {
-    return {
-      title: setting.description || `${setting.propertyName}: ${setting.value}`,
-    };
-  };
+  const createThemeMenuItem = (title: string, index: number): ReactElement => (
+    <MenuItem
+      key={index}
+      title={title}
+     />
+  );
 
-  const createThemeMenuItem = (title: string): OverflowMenuItemType => {
-    return { title };
-  };
-
-  const onThemeSelect = (index: number): void => {
-    props.onThemeSelect(props.themes[index]);
+  const onThemeSelect = (index: IndexPath): void => {
+    props.onThemeSelect(props.themes[index.row]);
     setThemesMenuVisible(false);
   };
 
@@ -44,8 +53,8 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
     props.onReset();
   };
 
-  const onSettingSelect = (index: number): void => {
-    const { [index]: setting } = props.settings;
+  const onSettingSelect = (index: IndexPath): void => {
+    const { [index.row]: setting } = props.settings;
 
     props.onSettingSelect({
       [setting.propertyName]: setting.value,
@@ -54,11 +63,11 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
     setSettingsMenuVisible(false);
   };
 
-  const createThemesMenuItems = (): OverflowMenuItemType[] => {
+  const createThemesMenuItems = (): React.ReactElement[] => {
     return props.themes && props.themes.map(createThemeMenuItem);
   };
 
-  const createSettingsMenuItems = (): OverflowMenuItemType[] => {
+  const createSettingsMenuItems = (): React.ReactElement[] => {
     const settings = props.settings && props.settings.map(createSettingMenuItem);
     return settings || [];
   };
@@ -80,45 +89,51 @@ export const ShowcaseSettings = (props: ShowcaseSettingsProps): React.ReactEleme
   const renderRTLToggle = (): React.ReactElement => (
     <CheckBox
       checked={I18nManager.isRTL}
-      onChange={toggleRtl}
-      text='RTL'
-    />
+      onChange={toggleRtl}>
+      RTL
+    </CheckBox>
+  );
+
+  const renderButtonThemes = (): ButtonElement => (
+    <Button
+      size='tiny'
+      accessoryLeft={ColorPaletteIcon}
+      disabled={!props.themes}
+      onPress={toggleThemesMenu}>
+      THEMES
+    </Button>
+  );
+
+  const renderButtonSettings = (): ButtonElement => (
+    <Button
+      size='tiny'
+      accessoryLeft={SettingsIcon}
+      disabled={!props.settings}
+      onPress={toggleSettingsMenu}>
+      SETTINGS
+    </Button>
   );
 
   return (
-    <Layout
-      style={[styles.container, props.style]}
-      level='1'>
+    <Layout style={styles.container} level='1'>
       <OverflowMenu
         visible={themesMenuVisible}
         onSelect={onThemeSelect}
-        data={createThemesMenuItems()}
-        onBackdropPress={toggleThemesMenu}>
-        <Button
-          size='tiny'
-          icon={ColorPaletteIcon}
-          disabled={!props.themes}
-          onPress={toggleThemesMenu}>
-          THEMES
-        </Button>
+        onBackdropPress={toggleThemesMenu}
+        anchor={renderButtonThemes}>
+        {createThemesMenuItems()}
       </OverflowMenu>
       <OverflowMenu
         visible={settingsMenuVisible}
         onSelect={onSettingSelect}
-        data={createSettingsMenuItems()}
-        onBackdropPress={toggleSettingsMenu}>
-        <Button
-          size='tiny'
-          icon={SettingsIcon}
-          disabled={!props.settings}
-          onPress={toggleSettingsMenu}>
-          SETTINGS
-        </Button>
+        onBackdropPress={toggleSettingsMenu}
+        anchor={renderButtonSettings}>
+        {createSettingsMenuItems()}
       </OverflowMenu>
       <Button
         size='tiny'
         status='danger'
-        icon={TrashIcon}
+        accessoryLeft={TrashIcon}
         disabled={!props.settings}
         onPress={onResetButtonPress}>
         RESET

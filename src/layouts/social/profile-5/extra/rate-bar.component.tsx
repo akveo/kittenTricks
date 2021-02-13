@@ -24,7 +24,7 @@ export const RateBar = (props: RateBarProps): React.ReactElement<ViewProps> => {
         appearance='ghost'
         size='tiny'
         status={status}
-        icon={StarIcon}
+        accessoryLeft={StarIcon}
         onPress={() => props.onValueChange(value)}
       />
     );

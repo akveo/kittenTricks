@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { Button, Divider, Layout, List, Menu } from '@ui-kitten/components';
+import { Button, Divider, IndexPath, Layout, List, Menu, MenuItem, MenuItemElement } from '@ui-kitten/components';
 import { CameraIcon, FileIcon, ImageIcon, PeopleIcon, PinIcon } from './icons';
 
 export interface AttachmentsMenuProps {
@@ -31,8 +31,8 @@ const menu = [
 
 export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement => {
 
-  const onAttachmentsMenuItemSelect = (index: number): void => {
-    switch (index) {
+  const onAttachmentsMenuItemSelect = (index: IndexPath): void => {
+    switch (index.row) {
       case 0: {
         props.onSelectPhoto();
         return;
@@ -52,11 +52,19 @@ export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement
     }
   };
 
+  const renderMenuData = (): MenuItemElement => (
+    <>
+      {menu.map((el, index) => (
+        <MenuItem key={index} title={el.title} accessoryLeft={el.accessory} />
+      ))}
+    </>
+  )
+
   const renderActionAttachment = (): React.ReactElement => (
     <Button
       style={styles.attachmentsAction}
       appearance='outline'
-      icon={CameraIcon}
+      accessoryLeft={CameraIcon}
       onPress={props.onCameraPress}
     />
   );
@@ -82,10 +90,11 @@ export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement
         ListHeaderComponent={renderActionAttachment}
       />
       <Menu
-        data={menu}
         scrollEnabled={false}
         onSelect={onAttachmentsMenuItemSelect}
-      />
+      >
+        {renderMenuData()}
+      </Menu>
       <Button
         appearance='ghost'
         size='giant'

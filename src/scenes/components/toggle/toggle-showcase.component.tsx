@@ -10,6 +10,8 @@ export const ToggleShowcase = (props: ToggleProps): ToggleElement => {
       {...props}
       checked={checked}
       onChange={setChecked}
-    />
+    >
+      {props.children}
+    </Toggle>
   );
 };

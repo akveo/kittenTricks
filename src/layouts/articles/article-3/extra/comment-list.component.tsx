@@ -4,7 +4,6 @@ import {
   Avatar,
   Button,
   Card,
-  CardHeaderElement,
   List,
   ListProps,
   Text,
@@ -16,7 +15,7 @@ export type CommentListProps = Omit<ListProps, 'renderItem'>;
 
 export const CommentList = (props: CommentListProps): React.ReactElement => {
 
-  const renderCommentHeader = (comment: Comment): CardHeaderElement => (
+  const renderCommentHeader = (comment: Comment): React.ReactElement => (
     <View style={styles.commentHeader}>
       <Avatar source={comment.author.photo}/>
       <View style={styles.commentAuthorContainer}>
@@ -27,7 +26,7 @@ export const CommentList = (props: CommentListProps): React.ReactElement => {
         style={styles.iconButton}
         appearance='ghost'
         status='basic'
-        icon={MoreHorizontalIcon}
+        accessoryLeft={MoreHorizontalIcon}
       />
     </View>
   );
@@ -42,14 +41,14 @@ export const CommentList = (props: CommentListProps): React.ReactElement => {
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          icon={MessageCircleIcon}>
+          accessoryLeft={MessageCircleIcon}>
           {`${info.item.comments.length}`}
         </Button>
         <Button
           style={styles.iconButton}
           appearance='ghost'
           status='danger'
-          icon={HeartIcon}>
+          accessoryLeft={HeartIcon}>
           {`${info.item.likes.length}`}
         </Button>
       </View>

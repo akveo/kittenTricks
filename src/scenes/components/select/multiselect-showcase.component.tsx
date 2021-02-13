@@ -15,7 +15,9 @@ interface SelectCustomProps extends SelectProps {
   groupedOptions?: boolean;
 }
 
-export const SelectShowcase = (props: SelectCustomProps): SelectElement => {
+export const MultiselectShowcase = (
+  props: SelectCustomProps
+): SelectElement => {
   const [selectedIndex, setSelectedIndex] = useState<any>(props.selectedIndex);
 
   const renderOption = useCallback(
@@ -32,10 +34,16 @@ export const SelectShowcase = (props: SelectCustomProps): SelectElement => {
     []
   );
 
-  const displayValue = () =>
-    props.groupedOptions
-      ? props.data[selectedIndex.section].items[selectedIndex.row].title
-      : props.data[selectedIndex.row].title;
+  const multipleValues =
+    selectedIndex && selectedIndex instanceof Array
+      ? selectedIndex
+          .map((index) => {
+            return props.data[index.section]?.items[index.row].title;
+          })
+          .join(', ')
+      : null;
+
+  const displayValue = () => (props.groupedOptions ? multipleValues : null);
 
   return (
     <>

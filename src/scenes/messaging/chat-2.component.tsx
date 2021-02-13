@@ -39,8 +39,8 @@ export const Chat2Screen = ({ navigation }): React.ReactElement => {
       <TopNavigation
         title='Helen Kuper'
         subtitle='Last seen just now'
-        leftControl={renderBackAction()}
-        rightControls={[renderProfileAction()]}
+        accessoryLeft={renderBackAction}
+        accessoryRight={renderProfileAction}
       />
       <ContentView/>
     </SafeAreaLayout>

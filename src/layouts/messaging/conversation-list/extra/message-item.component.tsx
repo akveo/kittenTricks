@@ -10,9 +10,9 @@ export type MessageItemProps = ListItemProps & {
 
 export const MessageItem = (props: MessageItemProps): React.ReactElement => {
 
-  const { message, ...listItemProps } = props;
+  const { message, onPress, ...listItemProps } = props;
 
-  const renderMessageDate = (style: ViewStyle, index: number): React.ReactElement => (
+  const renderMessageDate = (style: ViewStyle): React.ReactElement => (
     <View style={styles.dateContainer}>
       {message.isRead && <DoneAllIcon/>}
       <Text
@@ -35,10 +35,11 @@ export const MessageItem = (props: MessageItemProps): React.ReactElement => {
   return (
     <ListItem
       {...listItemProps}
+      onPress={onPress}
       title={message.profile.fullName}
       description={message.formattedText}
-      icon={renderProfileAvatar}
-      accessory={renderMessageDate}
+      accessoryLeft={renderProfileAvatar}
+      accessoryRight={renderMessageDate}
     />
   );
 };
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     tintColor: null,
+    marginRight: 10,
   },
   dateContainer: {
     flexDirection: 'row',

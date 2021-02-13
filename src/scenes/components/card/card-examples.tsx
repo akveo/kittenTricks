@@ -1,22 +1,20 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import {
   Button,
-  CardFooterElement,
-  CardHeader,
-  CardHeaderElement,
   Text,
   TextElement,
+  Layout,
 } from '@ui-kitten/components';
 
-export const CardDefaultHeader = (): CardHeaderElement => (
-  <CardHeader
-    title='Title'
-    description='Description'
-  />
+export const CardDefaultHeader = (evaProps): ReactElement => (
+  <Layout {...evaProps}>
+    <Text category='h6'>Title</Text>
+    <Text category='s1'>Description</Text>
+  </Layout>
 );
 
-export const CardCustomHeader = (): CardHeaderElement => (
+export const CardCustomHeader = (): ReactElement => (
   <React.Fragment>
     <Image
       source={{ uri: 'https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704__340.jpg' }}
@@ -30,7 +28,7 @@ export const CardCustomHeader = (): CardHeaderElement => (
   </React.Fragment>
 );
 
-export const CardFooter = (): CardFooterElement => (
+export const CardFooter = (): ReactElement => (
   <View style={styles.footerContainer}>
     <Button
       style={styles.footerControl}
@@ -66,6 +64,8 @@ const styles = StyleSheet.create({
   footerContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    paddingHorizontal: 20,
+    paddingVertical: 20,
   },
   footerControl: {
     marginHorizontal: 4,

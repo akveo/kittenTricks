@@ -1,10 +1,15 @@
 import React from 'react';
-import { CheckBox, CheckBoxElement, CheckBoxProps } from '@ui-kitten/components';
+import {
+  CheckBox,
+  CheckBoxElement,
+  CheckBoxProps,
+} from '@ui-kitten/components';
 
 export const CheckBoxShowcase = (props: CheckBoxProps): CheckBoxElement => {
-
   const [checked, setChecked] = React.useState<boolean>(props.checked);
-  const [indeterminate, setIndeterminate] = React.useState<boolean>(props.indeterminate);
+  const [indeterminate, setIndeterminate] = React.useState<boolean>(
+    props.indeterminate
+  );
 
   const onChange = (isChecked: boolean, isIndeterminate: boolean) => {
     setChecked(isChecked);
@@ -17,6 +22,8 @@ export const CheckBoxShowcase = (props: CheckBoxProps): CheckBoxElement => {
       checked={checked}
       indeterminate={indeterminate}
       onChange={onChange}
-    />
+    >
+      {props.children}
+    </CheckBox>
   );
 };

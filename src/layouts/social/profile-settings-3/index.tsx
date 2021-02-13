@@ -20,7 +20,7 @@ export default ({ navigation }): React.ReactElement => {
     <Button
       style={styles.photoButton}
       status='basic'
-      icon={CameraIcon}
+      accessoryLeft={CameraIcon}
     />
   );
 

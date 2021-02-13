@@ -39,18 +39,19 @@ export default (): React.ReactElement => {
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          icon={ShareIcon}/>
+          accessoryLeft={ShareIcon}
+        />
         <Button
           style={styles.iconButton}
           appearance='ghost'
           status='basic'
-          icon={HeartIcon}
+          accessoryLeft={HeartIcon}
         />
       </View>
       <Button
         style={styles.itemAddButton}
         appearance='ghost'
-        icon={PlusIcon}>
+        accessoryLeft={PlusIcon}>
         Add Training
       </Button>
     </View>
@@ -72,7 +73,7 @@ export default (): React.ReactElement => {
         <Button
           style={styles.itemStyxButton}
           size='tiny'
-          icon={ClockIcon}>
+          accessoryLeft={ClockIcon}>
           {`${info.item.styx} min`}
         </Button>
       </Layout>

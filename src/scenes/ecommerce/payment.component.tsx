@@ -20,7 +20,7 @@ export const PaymentScreen = ({ navigation }): React.ReactElement => {
       insets='top'>
       <TopNavigation
         title='Payment'
-        leftControl={renderBackAction()}
+        accessoryLeft={renderBackAction}
       />
       <ContentView navigation={navigation}/>
     </SafeAreaLayout>

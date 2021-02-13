@@ -38,7 +38,7 @@ export default (): React.ReactElement => {
       style={styles.optionItem}
       appearance='ghost'
       size='small'
-      icon={(style: ImageStyle) => renderOptionItemIcon(style, option.icon)}>
+      accessoryLeft={(style: ImageStyle) => renderOptionItemIcon(style, option.icon)}>
       {option.title}
     </Button>
   );

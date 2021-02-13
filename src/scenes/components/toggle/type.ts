@@ -8,7 +8,7 @@ import {
 const leftTitleToggle: ComponentShowcaseItem = {
   title: 'Right Text',
   props: {
-    text: 'Place your text',
+    children: 'Place your text',
   },
 };
 
@@ -16,14 +16,14 @@ const rightTitleToggle: ComponentShowcaseItem = {
   title: 'Left Text',
   props: {
     style: { flexDirection: 'row-reverse' },
-    text: 'Place your text',
+    children: 'Place your text',
   },
 };
 
 const disabledTitleToggle: ComponentShowcaseItem = {
   title: 'Text Disabled',
   props: {
-    text: 'Place your text',
+    children: 'Place your text',
     disabled: true,
   },
 };

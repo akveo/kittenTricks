@@ -46,7 +46,7 @@ export default ({ navigation }): React.ReactElement => {
           style={styles.iconButton}
           appearance='ghost'
           status='danger'
-          icon={HeartIcon}>
+          accessoryLeft={HeartIcon}>
           {`${info.item.likes.length}`}
         </Button>
       </View>

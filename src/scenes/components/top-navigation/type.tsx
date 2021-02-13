@@ -1,5 +1,5 @@
 import React from 'react';
-import { BackAction, MenuAction, StarAction } from './top-navigation-action-showcase.component';
+import { BackAction, RightAction } from './top-navigation-action-showcase.component';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
@@ -11,11 +11,8 @@ const rightControlsTopNavigation: ComponentShowcaseItem = {
   props: {
     title: 'Title',
     subtitle: 'Subtitle',
-    leftControl: <BackAction/>,
-    rightControls: [
-      <StarAction/>,
-      <MenuAction/>,
-    ],
+    accessoryLeft: BackAction,
+    accessoryRight: RightAction,
   },
 };
 
@@ -23,7 +20,7 @@ const leftControlTopNavigation: ComponentShowcaseItem = {
   props: {
     title: 'Title',
     subtitle: 'Subtitle',
-    leftControl: <BackAction/>,
+    accessoryLeft: BackAction,
   },
 };
 

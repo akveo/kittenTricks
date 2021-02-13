@@ -22,7 +22,7 @@ const disabledInput: ComponentShowcaseItem = {
 const iconInput: ComponentShowcaseItem = {
   title: 'Icon',
   props: {
-    icon: StarIcon,
+    accessoryRight: StarIcon,
   },
 };
 
