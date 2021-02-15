@@ -16,7 +16,14 @@ const babelLoaderRules = {
 };
 
 module.exports = async function (env, argv) {
-  const config = await createExpoWebpackConfigAsync(env, argv);
+
+  // https://github.com/akveo/react-native-ui-kitten/issues/996
+  const config = await createExpoWebpackConfigAsync({
+    ...env,
+    babel: {
+      dangerouslyAddModulePathsToTranspile: ['@ui-kitten/components']
+    }
+  }, argv);
 
   config.module.rules = [
     ...config.module.rules,

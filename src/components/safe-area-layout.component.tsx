@@ -29,36 +29,32 @@ export interface SafeAreaLayoutProps extends ViewProps, StyledComponentProps {
 }
 
 @styled('SafeAreaLayout')
-export class SafeAreaLayoutComponent extends React.Component<SafeAreaLayoutProps> {
-  public render(): React.ReactElement<ViewProps> {
-    return <SafeAreaConsumer>{this.renderComponent}</SafeAreaConsumer>;
-  }
+export class SafeAreaLayout extends React.Component<SafeAreaLayoutProps> {
 
-  private createInsets = (
-    insets: Inset | Inset[],
-    safeAreaInsets: EdgeInsets,
-  ): FlexStyle[] => {
-    return React.Children.map(insets, (inset) =>
-      INSETS[inset].toStyle(safeAreaInsets),
-    );
+  static styledComponentName: string = 'SafeAreaLayout';
+
+  private createInsets = (insets: Inset | Inset[],
+                          safeAreaInsets: EdgeInsets,
+                          style): FlexStyle[] => {
+    return React.Children.map(insets, inset => INSETS[inset].toStyle(safeAreaInsets, style));
   };
 
-  private renderComponent = (
-    safeAreaInsets: EdgeInsets,
-  ): React.ReactElement<ViewProps> => {
-    const { style, insets, eva, backgroundColor, ...viewProps } = this.props;
+  private renderComponent = (safeAreaInsets: EdgeInsets): React.ReactElement<ViewProps> => {
+    const { style, insets, eva, ...viewProps } = this.props;
 
     return (
       <View
         {...viewProps}
-        style={[
-          this.createInsets(insets, safeAreaInsets),
-          style,
-          { backgroundColor: eva.theme[backgroundColor || 'background-basic-color-1'] },
-        ]}
+        style={[this.createInsets(insets, safeAreaInsets, eva.style), style]}
       />
     );
   };
-}
 
-export const SafeAreaLayout = SafeAreaLayoutComponent;
+  public render(): React.ReactElement<ViewProps> {
+    return (
+      <SafeAreaConsumer>
+        {this.renderComponent}
+      </SafeAreaConsumer>
+    );
+  }
+}

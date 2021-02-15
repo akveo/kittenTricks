@@ -13,8 +13,6 @@ import { AppStorage } from '../services/app-storage.service';
 import { Mapping, Theme, Theming } from '../services/theme.service';
 
 const loadingTasks: Task[] = [
-  // Should be used it when running Expo.
-  // In Bare RN Project this is configured by react-native.config.js
   () => LoadFontsTask({
     'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),
     'roboto-regular': require('../assets/fonts/roboto-regular.ttf'),
@@ -28,21 +26,21 @@ const defaultConfig: { mapping: Mapping, theme: Theme } = {
   theme: 'light',
 };
 
-const App = ({ mapping, theme }): React.ReactElement => {
+const App: React.FC<{ mapping: Mapping, theme: Theme }> = ({ mapping, theme }) => {
 
   const [mappingContext, currentMapping] = Theming.useMapping(appMappings, mapping);
   const [themeContext, currentTheme] = Theming.useTheming(appThemes, mapping, theme);
 
   return (
     <React.Fragment>
-      <IconRegistry icons={[EvaIconsPack, AppIconsPack]}/>
+      <IconRegistry icons={[EvaIconsPack, AppIconsPack]} />
       <AppearanceProvider>
         <ApplicationProvider {...currentMapping} theme={currentTheme}>
           <Theming.MappingContext.Provider value={mappingContext}>
             <Theming.ThemeContext.Provider value={themeContext}>
               <SafeAreaProvider>
-                <StatusBar/>
-                <AppNavigator/>
+                <StatusBar />
+                <AppNavigator />
               </SafeAreaProvider>
             </Theming.ThemeContext.Provider>
           </Theming.MappingContext.Provider>
@@ -64,6 +62,6 @@ export default (): React.ReactElement => (
     tasks={loadingTasks}
     initialConfig={defaultConfig}
     placeholder={Splash}>
-    {props => <App {...props}/>}
+    {props => <App {...props} />}
   </AppLoading>
 );
