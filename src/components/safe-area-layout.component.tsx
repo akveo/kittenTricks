@@ -23,15 +23,14 @@ export const SafeAreaLayout: React.FC<SafeAreaLayoutProps> = ({
   const theme = useTheme();
   const insetsConfig = useSafeAreaInsets();
 
-  const backgroundColor: string =
-    theme[`background-basic-color-${props.level}`];
+  const backgroundColor: string = theme[`background-basic-color-${props.level}`];
 
   return (
     <Layout
       {...props}
       style={[
         props.style,
-        backgroundColor && { backgroundColor: backgroundColor },
+        backgroundColor && { backgroundColor },
         {
           paddingTop: insets === 'top' && insetsConfig.top,
           paddingBottom: insets === 'bottom' && insetsConfig.bottom,
