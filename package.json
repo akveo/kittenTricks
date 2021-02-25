@@ -33,6 +33,7 @@
   "dependencies": {
     "@eva-design/eva": "^1.4.0",
     "@eva-design/material": "^1.4.0",
+    "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-community/masked-view": "^0.1.5",
     "@react-navigation/bottom-tabs": "^5.0.0",
     "@react-navigation/drawer": "^5.0.0",
