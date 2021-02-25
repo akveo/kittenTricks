@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteProp } from '@react-navigation/core';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
@@ -26,13 +26,13 @@ const initialTabRoute: string = __DEV__ ? 'Components' : 'Layouts';
  */
 const ROOT_ROUTES: string[] = ['Home', 'Layouts', 'Components', 'Themes'];
 
-const isOneOfRootRoutes = (currentRoute: RouteProp<any, any>): boolean => {
-  return ROOT_ROUTES.find(route => currentRoute.name === route) !== undefined;
+const isOneOfRootRoutes = (currentRouteName: string): boolean => {
+  return ROOT_ROUTES.find(route => currentRouteName === route) !== undefined;
 };
 
 const TabBarVisibleOnRootScreenOptions = ({ route }): BottomTabNavigationOptions => {
-  const currentRoute = route.state && route.state.routes[route.state.index];
-  return { tabBarVisible: currentRoute && isOneOfRootRoutes(currentRoute) };
+  const currentRouteName = getFocusedRouteNameFromRoute(route);
+  return { tabBarVisible: currentRouteName && isOneOfRootRoutes(currentRouteName) };
 };
 
 const HomeTabsNavigator = (): React.ReactElement => (
