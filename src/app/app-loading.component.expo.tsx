@@ -3,9 +3,7 @@ import ExpoAppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
-
-type TaskResult<T = any> = [string, T];
-export type Task = () => Promise<TaskResult | null>;
+import { Task, TaskResult} from './app-loading.component';
 
 export interface ApplicationLoaderProps<LoadableConfiguration = any> {
   tasks?: Task[];
