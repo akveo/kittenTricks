@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  useSafeAreaInsets,
+  useSafeArea,
 } from 'react-native-safe-area-context';
 import {
   StyledComponentProps,
@@ -21,7 +21,7 @@ export const SafeAreaLayout: React.FC<SafeAreaLayoutProps> = ({
   ...props
 }) => {
   const theme = useTheme();
-  const insetsConfig = useSafeAreaInsets();
+  const insetsConfig = useSafeArea();
 
   const backgroundColor: string = theme[`background-basic-color-${props.level}`];
 
