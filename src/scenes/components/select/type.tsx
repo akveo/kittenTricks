@@ -1,4 +1,6 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Text } from '@ui-kitten/components';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
@@ -11,6 +13,28 @@ import { IndexPath } from '@ui-kitten/components';
 export interface SelectOptionType {
   title: string;
   items?: { title: string }[];
+}
+
+const styles = StyleSheet.create({
+  captionContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  captionIcon: {
+    width: 10,
+    height: 10,
+    marginRight: 5
+  }
+});
+
+const captionRender = ({ style }) => {
+  return (
+    <View style={styles.captionContainer}>
+      {StarIcon(styles.captionIcon)}
+      <Text style={style}>Place your text</Text>
+    </View>
+  )
 }
 
 const defaultOptions: SelectOptionType[] = [
@@ -115,6 +139,14 @@ const placeholderSelect: ComponentShowcaseItem = {
   },
 };
 
+const captionSelect: ComponentShowcaseItem = {
+  title: 'Caption',
+  props: {
+    ...defaultSelect.props,
+    caption: captionRender,
+  }
+};
+
 const defaultSection: ComponentShowcaseSection = {
   title: 'Default',
   items: [defaultSelect, disabledSelect, initialValueSelect],
@@ -132,7 +164,7 @@ const groupsSection: ComponentShowcaseSection = {
 
 const accessoriesSection: ComponentShowcaseSection = {
   title: 'Accessories',
-  items: [withIconSelect, withLabelSelect, placeholderSelect],
+  items: [withIconSelect, withLabelSelect, placeholderSelect, captionSelect],
 };
 
 export const selectShowcase: ComponentShowcase = {
