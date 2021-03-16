@@ -19,20 +19,14 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     marginRight: 5
-  },
-  captionText: {
-    fontSize: 12,
-    fontWeight: "400",
-    fontFamily: "opensans-regular",
-    color: "#8F9BB3",
   }
 });
 
-const captionRender = () => {
+const captionRender = ({ style }) => {
   return (
     <View style={styles.captionContainer}>
       {StarIcon(styles.captionIcon)}
-      <Text style={styles.captionText}>Place your text</Text>
+      <Text style={style}>Place your text</Text>
     </View>
   )
 }
