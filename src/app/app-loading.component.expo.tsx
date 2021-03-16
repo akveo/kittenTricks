@@ -43,10 +43,10 @@ export const AppLoading: React.FC<ApplicationLoaderProps> = (props) => {
   const [loading, setLoading] = React.useState<boolean>(true);
   const loadingResult = React.useRef(props.initialConfig || {});
 
-  const onTasksFinish = React.useCallback((): void => {
+  const onTasksFinish = (): void => {
     setLoading(false);
     SplashScreen.hideAsync();
-  }, [loading]);
+  };
 
   const saveTaskResult = (result: TaskResult | null): void => {
     if (result) {
@@ -55,9 +55,8 @@ export const AppLoading: React.FC<ApplicationLoaderProps> = (props) => {
   };
 
   const startTasks = (): Promise<void> => {
-    return Promise.all([
-      ...props.tasks.map(task => task().then(saveTaskResult)),
-    ]).then();
+    return Promise.all(props.tasks.map(task => task().then(saveTaskResult)))
+    .then();
   };
 
   const renderLoadingElement = (): React.ReactElement => (
