@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, ListRenderItemInfo, ScrollView, View, YellowBox } from 'react-native';
+import { ImageBackground, ListRenderItemInfo, LogBox, ScrollView, View } from 'react-native';
 import { Avatar, Button, List, StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 import { ImageOverlay } from './extra/image-overlay.component';
 import { ProfileSocial } from './extra/profile-social.component';
@@ -10,7 +10,7 @@ import { Post, Profile } from './extra/data';
  * Will warn because container view is ScrollView that contains 3 List components inside.
  * Better workaround depends on the user needs.
  */
-YellowBox.ignoreWarnings(['VirtualizedLists should never be nested inside plain ScrollViews']);
+LogBox.ignoreLogs(['VirtualizedLists should never be nested inside plain ScrollViews']);
 
 const profile: Profile = Profile.helenKuper();
 

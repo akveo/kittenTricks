@@ -1,5 +1,8 @@
 const path = require('path');
 const env = require('./env');
+const MetroConfig = require('@expo/metro-config');
+
+const defaultConfig = MetroConfig.getDefaultConfig(__dirname);
 
 const appModules = [
   path.resolve(env.EVA_PACKAGES_PATH, 'dss'),
@@ -35,7 +38,17 @@ const extraNodeModules = {
 };
 
 module.exports = {
+  ...defaultConfig,
   projectRoot: path.resolve(__dirname),
-  resolver: { extraNodeModules },
-  watchFolders: appModules,
+  resolver: {
+    ...defaultConfig.resolver,
+    extraNodeModules: {
+      ...defaultConfig.extraNodeModules,
+      ...extraNodeModules,
+    }
+  },
+  watchFolders: [
+    ...defaultConfig.watchFolders,
+    ...appModules,
+  ],
 };

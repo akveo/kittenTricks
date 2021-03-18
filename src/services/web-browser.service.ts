@@ -1,22 +1,8 @@
-import { Linking, Platform } from 'react-native';
-import SafariView from 'react-native-safari-view';
+import Constants from 'expo-constants';
 
-export class WebBrowserService {
+import { WebBrowserService as RNService } from './web-browser.service.rn';
+import { WebBrowserService as ExpoService } from './web-browser.service.expo';
 
-  static openBrowserAsync = (url: string): Promise<any> => {
-    if (Platform.OS === 'ios') {
-      return WebBrowserService.openInAppUrl(url).catch(() => WebBrowserService.openUrl(url));
-    } else {
-      return WebBrowserService.openUrl(url);
-    }
-  };
+const Service = Constants.platform ? ExpoService : RNService;
 
-  private static openInAppUrl = (url: string): Promise<any> => {
-    return SafariView.isAvailable()
-                     .then(() => SafariView.show({ url }));
-  };
-
-  private static openUrl = (url: string): Promise<any> => {
-    return Linking.openURL(url);
-  };
-}
+export const WebBrowserService = Service;

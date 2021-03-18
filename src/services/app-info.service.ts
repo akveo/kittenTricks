@@ -1,12 +1,8 @@
-import DeviceInfo from 'react-native-device-info';
+import Constants from 'expo-constants';
 
-export class AppInfoService {
+import { AppInfoService as RNService } from './app-info.service.rn';
+import { AppInfoService as ExpoService} from './app-info.service.expo';
 
-  static getVersion = (): string => {
-    return DeviceInfo.getVersion();
-  };
+const Service = Constants.platform ? ExpoService : RNService;
 
-  static getBuildNumber = (): string => {
-    return DeviceInfo.getBuildNumber();
-  };
-}
+export const AppInfoService = Service;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteProp } from '@react-navigation/core';
+import { LogBox } from 'react-native';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
@@ -21,36 +21,33 @@ const Drawer = createDrawerNavigator();
  */
 const initialTabRoute: string = __DEV__ ? 'Components' : 'Layouts';
 
-/*
- * Can we access it from `HomeNavigator`?
- */
 const ROOT_ROUTES: string[] = ['Home', 'Layouts', 'Components', 'Themes'];
 
-const isOneOfRootRoutes = (currentRoute: RouteProp<any, any>): boolean => {
-  return ROOT_ROUTES.find(route => currentRoute.name === route) !== undefined;
-};
+const TabBarVisibilityOptions = ({ route }): BottomTabNavigationOptions => {
+  const isNestedRoute: boolean = route.state?.index > 0;
+  const isRootRoute: boolean = ROOT_ROUTES.includes(route.name);
 
-const TabBarVisibleOnRootScreenOptions = ({ route }): BottomTabNavigationOptions => {
-  const currentRoute = route.state && route.state.routes[route.state.index];
-  return { tabBarVisible: currentRoute && isOneOfRootRoutes(currentRoute) };
+  return { tabBarVisible: isRootRoute && !isNestedRoute };
 };
 
 const HomeTabsNavigator = (): React.ReactElement => (
   <BottomTab.Navigator
-    screenOptions={TabBarVisibleOnRootScreenOptions}
+    screenOptions={TabBarVisibilityOptions}
     initialRouteName={initialTabRoute}
     tabBar={props => <HomeBottomNavigation {...props} />}>
-    <BottomTab.Screen name='Layouts' component={LayoutsNavigator}/>
-    <BottomTab.Screen name='Components' component={ComponentsNavigator}/>
-    <BottomTab.Screen name='Themes' component={ThemesNavigator}/>
+    <BottomTab.Screen name='Layouts' component={LayoutsNavigator} />
+    <BottomTab.Screen name='Components' component={ComponentsNavigator} />
+    <BottomTab.Screen name='Themes' component={ThemesNavigator} />
   </BottomTab.Navigator>
 );
 
 export const HomeNavigator = (): React.ReactElement => (
   <Drawer.Navigator
     screenOptions={{ gestureEnabled: false }}
-    drawerContent={props => <HomeDrawer {...props}/>}>
-    <Drawer.Screen name='Home' component={HomeTabsNavigator}/>
-    <Drawer.Screen name='Libraries' component={LibrariesScreen}/>
+    drawerContent={props => <HomeDrawer {...props} />}>
+    <Drawer.Screen name='Home' component={HomeTabsNavigator} />
+    <Drawer.Screen name='Libraries' component={LibrariesScreen} />
   </Drawer.Navigator>
 );
+
+LogBox.ignoreLogs(['Accessing the \'state\'']);
