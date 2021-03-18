@@ -1,16 +1,15 @@
 import React from 'react';
-import { AppLoading as ExpoAppLoading, SplashScreen } from 'expo';
+import ExpoAppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
+import { Task, TaskResult} from './app-loading.component';
 
-type TaskResult = [string, any];
-type Task = () => Promise<TaskResult | null>;
-
-export interface ApplicationLoaderProps {
+export interface ApplicationLoaderProps<LoadableConfiguration = any> {
   tasks?: Task[];
-  initialConfig?: Record<string, any>;
+  initialConfig?: LoadableConfiguration;
   placeholder?: (props: { loading: boolean }) => React.ReactElement;
-  children: (config: any) => React.ReactElement;
+  children: (config: LoadableConfiguration) => React.ReactElement;
 }
 
 export const LoadFontsTask = (fonts: { [key: string]: number }): Promise<TaskResult> => {
@@ -19,16 +18,11 @@ export const LoadFontsTask = (fonts: { [key: string]: number }): Promise<TaskRes
 
 export const LoadAssetsTask = (assets: number[]): Promise<TaskResult> => {
   const tasks: Promise<void>[] = assets.map((source: number): Promise<void> => {
-    return Asset.fromModule(source).downloadAsync();
+    return Asset.fromModule(source).downloadAsync().then();
   });
 
   return Promise.all(tasks).then(() => null);
 };
-
-/*
- * Prevent splash screen from hiding since it is controllable by AppLoading component.
- */
-SplashScreen.preventAutoHide();
 
 /**
  * Loads application configuration and returns content of the application when done.
@@ -36,53 +30,53 @@ SplashScreen.preventAutoHide();
  * @property {Task[]} tasks - Array of tasks to prepare application before it's loaded.
  * A single task should return a Promise with value and a by which this value is accessible.
  *
- * @property {any} fallback - Fallback configuration that is used as default application configuration.
+ * @property {LoadableConfiguration} initialConfig - Configuration to use by default.
  * May be useful at first run.
  *
  * @property {(props: { loaded: boolean }) => React.ReactElement} placeholder - Element to render
  * while application is loading.
  *
- * @property {(result: any) => React.ReactElement} children - Should return Application component
+ * @property {(config: LoadableConfiguration) => React.ReactElement} children - Should return Application component
  */
-export const AppLoading = (props: ApplicationLoaderProps): React.ReactElement => {
+export const AppLoading: React.FC<ApplicationLoaderProps> = (props) => {
 
   const [loading, setLoading] = React.useState<boolean>(true);
-  const loadingResult = props.initialConfig || {};
+  const loadingResult = React.useRef(props.initialConfig || {});
 
   const onTasksFinish = (): void => {
     setLoading(false);
-    SplashScreen.hide();
+    SplashScreen.hideAsync();
   };
 
-  const saveTaskResult = (result: [string, any] | null): void => {
+  const saveTaskResult = (result: TaskResult | null): void => {
     if (result) {
-      loadingResult[result[0]] = result[1];
+      loadingResult.current[result[0]] = result[1];
     }
   };
 
-  const createRunnableTask = (task: Task): Promise<void> => {
-    return task().then(saveTaskResult);
-  };
-
-  const startTasks = (): Promise<any> => {
-    if (props.tasks) {
-      return Promise.all(props.tasks.map(createRunnableTask));
-    }
-    return Promise.resolve();
+  const startTasks = (): Promise<void> => {
+    return Promise.all(props.tasks.map(task => task().then(saveTaskResult)))
+    .then();
   };
 
   const renderLoadingElement = (): React.ReactElement => (
     <ExpoAppLoading
+      autoHideSplash={false}
       startAsync={startTasks}
       onFinish={onTasksFinish}
-      autoHideSplash={false}
+      onError={console.error}
     />
   );
 
   return (
-    <React.Fragment>
-      {loading ? renderLoadingElement() : props.children(loadingResult)}
+    <>
+      {loading ? renderLoadingElement() : props.children(loadingResult.current)}
       {props.placeholder && props.placeholder({ loading })}
-    </React.Fragment>
+    </>
   );
+};
+
+AppLoading.defaultProps = {
+  tasks: [],
+  initialConfig: {},
 };

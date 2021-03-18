@@ -1,18 +1,8 @@
-import React from 'react';
-import { ImageProps, NativeModules } from 'react-native';
+import Constants from 'expo-constants';
 
-export interface LoadingAnimationProps extends ImageProps {
-  loading: boolean;
-}
+import { SplashImage as RNComponent } from './splash-image.component.rn';
+import { SplashImage as ExpoComponent } from './splash-image.component.expo';
 
-export const SplashImage = (props: LoadingAnimationProps): React.ReactElement | undefined => {
+const Component = Constants.platform ? ExpoComponent : RNComponent;
 
-  if (!props.loading) {
-    NativeModules.SplashScreen.close({
-      animationType: 2,
-      duration: 500,
-    });
-  }
-
-  return null;
-};
+export const SplashImage = Component;
