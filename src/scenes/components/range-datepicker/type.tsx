@@ -1,4 +1,6 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Text } from '@ui-kitten/components';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
@@ -7,6 +9,28 @@ import {
 import { StarIcon } from '../../../components/icons';
 
 const now: Date = new Date();
+
+const styles = StyleSheet.create({
+  captionContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  captionIcon: {
+    width: 10,
+    height: 10,
+    marginRight: 5
+  }
+});
+
+const captionRender = ({ style }) => {
+  return (
+    <View style={styles.captionContainer}>
+      {StarIcon(styles.captionIcon)}
+      <Text style={style}>Place your text</Text>
+    </View>
+  )
+}
 
 const defaultDatepicker: ComponentShowcaseItem = {
   title: 'Default',
@@ -17,7 +41,7 @@ const iconDatepicker: ComponentShowcaseItem = {
   title: 'Icon',
   props: {
     ...defaultDatepicker.props,
-    icon: StarIcon,
+    accessoryRight: StarIcon,
   },
 };
 
@@ -33,15 +57,7 @@ const captionDatepicker: ComponentShowcaseItem = {
   title: 'Caption',
   props: {
     ...defaultDatepicker.props,
-    caption: 'Place your text',
-  },
-};
-
-const captionIconDatepicker: ComponentShowcaseItem = {
-  title: 'Caption Icon',
-  props: {
-    ...captionDatepicker.props,
-    captionIcon: StarIcon,
+    caption: captionRender,
   },
 };
 
@@ -75,7 +91,6 @@ const accessoriesSection: ComponentShowcaseSection = {
     iconDatepicker,
     labelDatepicker,
     captionDatepicker,
-    captionIconDatepicker,
   ],
 };
 

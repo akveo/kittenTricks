@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import {
   ComponentShowcase,
   ComponentShowcaseItem,
@@ -6,6 +7,29 @@ import {
   ComponentShowcaseSetting,
 } from '../../../model/showcase.model';
 import { StarIcon } from '../../../components/icons';
+import { Text } from '@ui-kitten/components';
+
+const styles = StyleSheet.create({
+  captionContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  captionIcon: {
+    width: 10,
+    height: 10,
+    marginRight: 5
+  }
+});
+
+const captionRender = ({ style }) => {
+  return (
+    <View style={styles.captionContainer}>
+      {StarIcon(styles.captionIcon)}
+      <Text style={style}>Place your text</Text>
+    </View>
+  )
+}
 
 const defaultInput: ComponentShowcaseItem = {
   title: 'Default',
@@ -36,15 +60,7 @@ const labelInput: ComponentShowcaseItem = {
 const captionInput: ComponentShowcaseItem = {
   title: 'Caption',
   props: {
-    caption: 'Place your text',
-  },
-};
-
-const captionIconInput: ComponentShowcaseItem = {
-  title: 'Caption Icon',
-  props: {
-    caption: 'Place your text',
-    captionIcon: StarIcon,
+    caption: captionRender,
   },
 };
 
@@ -62,7 +78,6 @@ const accessoriesSection: ComponentShowcaseSection = {
     iconInput,
     labelInput,
     captionInput,
-    captionIconInput,
   ],
 };
 
