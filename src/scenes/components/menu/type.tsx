@@ -1,4 +1,3 @@
-import React from 'react';
 import { ImageStyle } from 'react-native'
 import { IconElement, MenuProps } from '@ui-kitten/components';
 import { StarIcon } from '../../../components/icons';
@@ -13,6 +12,7 @@ interface MenuType {
   title: string;
   accessoryLeft?: (style: ImageStyle) => IconElement;
   disabled?: boolean;
+  expanded?: boolean;
 }
 
 export interface MenuShowcaseProps extends MenuProps {
@@ -90,6 +90,29 @@ const withGroupsMenuItems: MenuGroupType[] = [
   },
 ];
 
+const withGroupsExpandedMenuItems: MenuGroupType[] = [
+  {
+    title: 'Item 1',
+    accessoryLeft: StarIcon,
+    expanded: true,
+    subItems: [
+      {
+        title: 'Item 11',
+        accessoryLeft: StarIcon,
+        disabled: true,
+      },
+      {
+        title: 'Item 12',
+        accessoryLeft: StarIcon,
+      },
+      {
+        title: 'Item 13',
+        accessoryLeft: StarIcon,
+      },
+    ],
+  }
+];
+
 const defaultMenu: ComponentShowcaseItem = {
   title: 'Default',
   props: {
@@ -127,10 +150,18 @@ const withGroupsMenu: ComponentShowcaseItem = {
   },
 };
 
+const withExpandedGroupsMenu: ComponentShowcaseItem = {
+  title: 'Default expand',
+  props: {
+    data: withGroupsExpandedMenuItems,
+  },
+};
+
 const withGroupsSection: ComponentShowcaseSection = {
   title: 'With Groups',
   items: [
     withGroupsMenu,
+    withExpandedGroupsMenu,
   ],
 };
 
