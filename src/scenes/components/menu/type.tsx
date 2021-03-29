@@ -12,7 +12,7 @@ interface MenuType {
   title: string;
   accessoryLeft?: (style: ImageStyle) => IconElement;
   disabled?: boolean;
-  expanded?: boolean;
+  initialExpanded?: boolean;
 }
 
 export interface MenuShowcaseProps extends MenuProps {
@@ -94,7 +94,7 @@ const withGroupsExpandedMenuItems: MenuGroupType[] = [
   {
     title: 'Item 1',
     accessoryLeft: StarIcon,
-    expanded: true,
+    initialExpanded: true,
     subItems: [
       {
         title: 'Item 11',
