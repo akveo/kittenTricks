@@ -12,7 +12,7 @@ export const MenuShowcase = (props: MenuShowcaseProps): MenuElement => {
 
   const renderData: MenuElement[] = props.data.map((el, index) => (
     el.subItems ? (
-      <MenuGroup key={index}>
+      <MenuGroup key={index} {...el}>
         {el.subItems.map((el, index) => (
           <MenuItem key={index} {...el} />
         ))}
