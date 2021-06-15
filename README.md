@@ -6,7 +6,28 @@ Compose the application from available screens, add backend integration and you 
 The themes can be changed in the runtime, without any need of reloading the application.
 
 Download a live Demo published on both [App Store][link:app-store] and [Google Play][link:google-play]
- or simply run it yourself by cloning a GitHub repo. 
+ or simply run it yourself by cloning a GitHub repo (see the **[DEV_DOCS](./DEV_DOCS.md)** for more information)
+
+
+-----
+
+<details>
+<summary>Quick-start Instructions</summary>
+
+## Quickstart 
+
+Follow the instructions below to fetch and configure the KittenTricks project and start a web interface from which you can launch iOS + Android device simulators or a browser-based experience
+
+```sh
+git clone https://github.com/akveo/kittenTricks
+cd kittenTricks
+yarn # npm install
+yarn run web # npm run start
+```
+
+</details>
+
+------
 
 ![Kitten Material](https://camo.githubusercontent.com/f0487d92194f3c685213539c53e9784113cd8a4b/68747470733a2f2f692e696d6775722e636f6d2f58384f344748622e706e67)
 
