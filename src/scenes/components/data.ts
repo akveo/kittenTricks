@@ -141,6 +141,16 @@ export const data: ComponentData[] = [
     },
   },
   {
+    title: 'Circular Progress Bar',
+    route: 'CircularProgressBar',
+    icon: (style: ImageStyle) => {
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetCheckBoxIcon, dark: AssetCheckBoxDarkIcon },
+      );
+    },
+  },
+  {
     title: 'Datepicker',
     route: 'Datepicker',
     icon: (style: ImageStyle) => {
@@ -233,6 +243,16 @@ export const data: ComponentData[] = [
   {
     title: 'Popover',
     route: 'Popover',
+    icon: (style: ImageStyle) => {
+      return React.createElement(
+        ThemedIcon,
+        { ...style, light: AssetPopoverIcon, dark: AssetPopoverDarkIcon },
+      );
+    },
+  },
+  {
+    title: 'Progress Bar',
+    route: 'ProgressBar',
     icon: (style: ImageStyle) => {
       return React.createElement(
         ThemedIcon,

@@ -30,6 +30,8 @@ import { TextScreen } from '../scenes/components/text/text.component';
 import { ToggleScreen } from '../scenes/components/toggle/toggle.component';
 import { TooltipScreen } from '../scenes/components/tooltip/tooltip.component';
 import { TopNavigationScreen } from '../scenes/components/top-navigation/top-navigation.component';
+import { ProgressBarScreen } from '../scenes/components/progress-bar/progressBar.component';
+import { CircularProgressBarScreen } from '../scenes/components/circular-progress-bar/circularProgressBar.component';
 
 const Stack = createStackNavigator();
 
@@ -44,6 +46,7 @@ export const ComponentsNavigator = (): React.ReactElement => (
     <Stack.Screen name='Calendar' component={CalendarScreen}/>
     <Stack.Screen name='Card' component={CardScreen}/>
     <Stack.Screen name='CheckBox' component={CheckBoxScreen}/>
+    <Stack.Screen name='CircularProgressBar' component={CircularProgressBarScreen}/>
     <Stack.Screen name='Datepicker' component={DatepickerScreen}/>
     <Stack.Screen name='Drawer' component={DrawerScreen}/>
     <Stack.Screen name='Icon' component={IconScreen}/>
@@ -54,6 +57,7 @@ export const ComponentsNavigator = (): React.ReactElement => (
     <Stack.Screen name='Modal' component={ModalScreen}/>
     <Stack.Screen name='OverflowMenu' component={OverflowMenuScreen}/>
     <Stack.Screen name='Popover' component={PopoverScreen}/>
+    <Stack.Screen name='ProgressBar' component={ProgressBarScreen}/>
     <Stack.Screen name='Radio' component={RadioScreen}/>
     <Stack.Screen name='RadioGroup' component={RadioGroupScreen}/>
     <Stack.Screen name='RangeCalendar' component={RangeCalendarScreen}/>
