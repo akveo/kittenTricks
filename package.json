@@ -28,7 +28,7 @@
     "clean": "rimraf ./dist ./web-build",
     "lint": "tslint -c ./tslint.json ./src/**/*.{ts,tsx}",
     "changelog": "conventional-changelog -i ./CHANGELOG.md -s",
-    "postinstall": "jetify"
+    "postinstall": "jetify; patch-package"
   },
   "dependencies": {
     "@eva-design/eva": "^2.1.0",
@@ -51,7 +51,8 @@
     "expo-splash-screen": "~0.8.1",
     "expo-web-browser": "~8.6.0",
     "moment": "^2.24.0",
-    "patch-package": "^6.2.2",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
