@@ -1,5 +1,5 @@
 import React from 'react';
-import { Appearance, AppearancePreferences, ColorSchemeName } from 'react-native-appearance';
+import { Appearance } from 'react-native';
 import { AppStorage } from './app-storage.service';
 
 export type Mapping = 'eva' | 'material';
@@ -111,7 +111,7 @@ export class Theming {
     const [currentTheme, setCurrentTheme] = React.useState<Theme>(theme);
 
     React.useEffect(() => {
-      const subscription = Appearance.addChangeListener((preferences: AppearancePreferences): void => {
+      const subscription = Appearance.addChangeListener((preferences: Appearance.AppearancePreferences): void => {
         const appearanceTheme: Theme = Theming.createAppearanceTheme(
           preferences.colorScheme,
           theme,
@@ -148,9 +148,9 @@ export class Theming {
     return themeContext.createTheme(upstreamTheme);
   };
 
-  private static createAppearanceTheme = (appearance: ColorSchemeName,
+  private static createAppearanceTheme = (appearance: Appearance.AppearancePreferences['colorScheme'],
                                           preferredTheme: Theme): Theme => {
-    if (appearance === 'no-preference') {
+    if (appearance === null) {
       return preferredTheme;
     }
     return appearance;

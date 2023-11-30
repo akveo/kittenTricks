@@ -1,5 +1,4 @@
 import React from 'react';
-import { AppearanceProvider } from 'react-native-appearance';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
@@ -34,18 +33,16 @@ const App: React.FC<{ mapping: Mapping, theme: Theme }> = ({ mapping, theme }) =
   return (
     <React.Fragment>
       <IconRegistry icons={[EvaIconsPack, AppIconsPack]} />
-      <AppearanceProvider>
-        <ApplicationProvider {...currentMapping} theme={currentTheme}>
-          <Theming.MappingContext.Provider value={mappingContext}>
-            <Theming.ThemeContext.Provider value={themeContext}>
-              <SafeAreaProvider>
-                <StatusBar />
-                <AppNavigator />
-              </SafeAreaProvider>
-            </Theming.ThemeContext.Provider>
-          </Theming.MappingContext.Provider>
-        </ApplicationProvider>
-      </AppearanceProvider>
+      <ApplicationProvider {...currentMapping} theme={currentTheme}>
+        <Theming.MappingContext.Provider value={mappingContext}>
+          <Theming.ThemeContext.Provider value={themeContext}>
+            <SafeAreaProvider>
+              <StatusBar />
+              <AppNavigator />
+            </SafeAreaProvider>
+          </Theming.ThemeContext.Provider>
+        </Theming.MappingContext.Provider>
+      </ApplicationProvider>
     </React.Fragment>
   );
 };
