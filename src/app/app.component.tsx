@@ -1,16 +1,16 @@
-import React from 'react';
-import { AppearanceProvider } from 'react-native-appearance';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
-import { AppLoading, LoadFontsTask, Task } from './app-loading.component';
-import { appMappings, appThemes } from './app-theming';
-import { AppIconsPack } from './app-icons-pack';
+import React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SplashImage } from '../components/splash-image.component.ex';
 import { StatusBar } from '../components/status-bar.component';
-import { SplashImage } from '../components/splash-image.component';
 import { AppNavigator } from '../navigation/app.navigator';
 import { AppStorage } from '../services/app-storage.service';
 import { Mapping, Theme, Theming } from '../services/theme.service';
+import { AppIconsPack } from './app-icons-pack';
+import { AppLoading, LoadFontsTask, Task } from './app-loading.component';
+import { appMappings, appThemes } from './app-theming';
 
 const loadingTasks: Task[] = [
   () => LoadFontsTask({
@@ -34,7 +34,7 @@ const App: React.FC<{ mapping: Mapping, theme: Theme }> = ({ mapping, theme }) =
   return (
     <React.Fragment>
       <IconRegistry icons={[EvaIconsPack, AppIconsPack]} />
-      <AppearanceProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
         <ApplicationProvider {...currentMapping} theme={currentTheme}>
           <Theming.MappingContext.Provider value={mappingContext}>
             <Theming.ThemeContext.Provider value={themeContext}>
@@ -45,7 +45,7 @@ const App: React.FC<{ mapping: Mapping, theme: Theme }> = ({ mapping, theme }) =
             </Theming.ThemeContext.Provider>
           </Theming.MappingContext.Provider>
         </ApplicationProvider>
-      </AppearanceProvider>
+      </GestureHandlerRootView>
     </React.Fragment>
   );
 };

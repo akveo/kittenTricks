@@ -23,7 +23,7 @@ application on iOS, Android or Web.
 
 When running with Expo, `ios` and `android` folder are not needed for this project.
 Also, some of the business logic may have different implementation for Expo and Bare React Native apps.
-In Kitten Tricks, we handle it with [`.expo` file extension](https://docs.expo.io/versions/latest/bare/using-expo-client/#practical-patterns-for-client-compatible-bare-apps).
+In Kitten Tricks, we handle it with `.ex` file extension.
 
 # Environments
 

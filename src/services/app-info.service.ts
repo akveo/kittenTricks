@@ -1,5 +1,7 @@
-import { isExpo } from "./detect-expo.service";
+import { isExpo } from './detect-expo.service';
 
-const Service = isExpo ? require('./app-info.service.ex') : require('./app-info.service.rn')
+const Service = isExpo
+  ? require('./app-info.service.ex')
+  : require('./app-info.service.rn');
 
-export const AppInfoService = Service;
+export const AppInfoService = Service.AppInfoService;
