@@ -1,8 +1,5 @@
-import Constants from 'expo-constants';
+import { isExpo } from "./detect-expo.service";
 
-import { AppInfoService as RNService } from './app-info.service.rn';
-import { AppInfoService as ExpoService} from './app-info.service.expo';
-
-const Service = Constants.platform ? ExpoService : RNService;
+const Service = isExpo ? require('./app-info.service.ex') : require('./app-info.service.rn')
 
 export const AppInfoService = Service;

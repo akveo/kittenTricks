@@ -1,8 +1,5 @@
 import Constants from 'expo-constants';
 
-import { WebBrowserService as RNService } from './web-browser.service.rn';
-import { WebBrowserService as ExpoService } from './web-browser.service.expo';
-
-const Service = Constants.platform ? ExpoService : RNService;
+const Service = Constants.expoGoConfig === null ? require('./web-browser.service.rn') : require('./web-browser.service.ex')
 
 export const WebBrowserService = Service;
