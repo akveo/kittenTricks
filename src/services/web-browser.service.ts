@@ -5,4 +5,4 @@ const Service =
     ? require('./web-browser.service.rn')
     : require('./web-browser.service.ex');
 
-export const WebBrowserService = Service;
+export const WebBrowserService = Service.WebBrowserService;
