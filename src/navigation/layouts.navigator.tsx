@@ -12,12 +12,12 @@ const Stack = createStackNavigator();
 
 export const LayoutsNavigator = (): React.ReactElement => (
   <Stack.Navigator screenOptions={{ headerShown: false }}>
-    <Stack.Screen name='Layouts' component={LayoutsScreen} />
-    <Stack.Screen name='Auth' component={AuthNavigator} />
-    <Stack.Screen name='Social' component={SocialNavigator} />
-    <Stack.Screen name='Articles' component={ArticlesNavigator} />
-    <Stack.Screen name='Messaging' component={MessagingNavigator} />
-    <Stack.Screen name='Dashboards' component={DashboardsNavigator} />
-    <Stack.Screen name='Ecommerce' component={EcommerceNavigator} />
+    <Stack.Screen name='LayoutsSection' component={LayoutsScreen} />
+    <Stack.Screen name='AuthSection' component={AuthNavigator} />
+    <Stack.Screen name='SocialSection' component={SocialNavigator} />
+    <Stack.Screen name='ArticlesSection' component={ArticlesNavigator} />
+    <Stack.Screen name='MessagingSection' component={MessagingNavigator} />
+    <Stack.Screen name='DashboardsSection' component={DashboardsNavigator} />
+    <Stack.Screen name='EcommerceSection' component={EcommerceNavigator} />
   </Stack.Navigator>
 );
