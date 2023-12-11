@@ -1,7 +1,4 @@
-import {
-  BottomTabNavigationOptions,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 import { LogBox } from 'react-native';
@@ -21,23 +18,9 @@ const Drawer = createDrawerNavigator();
  */
 const initialTabRoute: string = __DEV__ ? 'ComponentsTab' : 'LayoutsTab';
 
-const ROOT_ROUTES: string[] = [
-  'Home',
-  'LayoutsTab',
-  'ComponentsTab',
-  'ThemesTab',
-];
-
-const TabBarVisibilityOptions = ({ route }): BottomTabNavigationOptions => {
-  const isNestedRoute: boolean = route.state?.index > 0;
-  const isRootRoute: boolean = ROOT_ROUTES.includes(route.name);
-
-  return { tabBarVisible: isRootRoute && !isNestedRoute };
-};
-
 const HomeTabsNavigator = (): React.ReactElement => (
   <BottomTab.Navigator
-    screenOptions={TabBarVisibilityOptions}
+    screenOptions={{ headerShown: false }}
     initialRouteName={initialTabRoute}
     tabBar={props => <HomeBottomNavigation {...props} />}>
     <BottomTab.Screen name='LayoutsTab' component={LayoutsNavigator} />
@@ -48,7 +31,7 @@ const HomeTabsNavigator = (): React.ReactElement => (
 
 export const HomeNavigator = (): React.ReactElement => (
   <Drawer.Navigator
-    screenOptions={{ gestureEnabled: false }}
+    screenOptions={{ gestureEnabled: false, headerShown: false }}
     drawerContent={props => <HomeDrawer {...props} />}>
     <Drawer.Screen name='Home' component={HomeTabsNavigator} />
     <Drawer.Screen name='Libraries' component={LibrariesScreen} />
