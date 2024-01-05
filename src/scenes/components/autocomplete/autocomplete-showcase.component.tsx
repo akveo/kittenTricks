@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet } from 'react-native';
 import {
   Autocomplete,
@@ -13,20 +13,20 @@ export const AutocompleteShowcase = (
   const [value, setValue] = React.useState<string>(props.value);
   const [data, setData] = React.useState(props.data);
 
-  const onSelect = (index: number): void => {
-    setValue(props.data[index].title);
-  };
+  const onSelect = useCallback((index: number): void => {
+    setValue(data[index].title);
+  }, [data]);
 
   const RenderComponent = props.renderItem;
 
-  const onChangeText = (query: string): void => {
+  const onChangeText = useCallback((query: string): void => {
     const visibleData = props.data.filter((item) => {
       return item.title.toLowerCase().includes(query.toLowerCase());
     });
 
     setValue(query);
     setData(visibleData);
-  };
+  }, [props.data]);
 
   const renderOption = (item, index): React.ReactElement => (
     <AutocompleteItem key={index} title={item.title} />
