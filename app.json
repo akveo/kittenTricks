@@ -36,7 +36,6 @@
     "androidStatusBar": {
       "barStyle": "dark-content",
       "backgroundColor": "#F7F9FC"
-    },
-    "entryPoint": "node_modules/expo/AppEntry.js"
+    }
   }
 }

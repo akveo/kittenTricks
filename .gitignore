@@ -7,6 +7,7 @@ npm-debug.*
 
 # osx
 .DS_Store
+ios/.xcode.env.local
 
 # intellij
 .idea
@@ -40,13 +41,21 @@ build/
 .gradle
 *.iml
 *.apk
-
-# BUCK
-buck-out/
-\.buckd/
+*.hprof
+.cxx/
 *.keystore
 !debug.keystore
 
-# CocoaPods
+# Ruby / CocoaPods
 /ios/Pods/
 
+/vendor/bundle/
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
+# testing
+/coverage
+
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
