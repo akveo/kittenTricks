@@ -27,11 +27,11 @@ Download a live Demo published on both [App Store][link:app-store] and [Google P
 
 This template is using [UI Kitten components][link:ui-kitten], [here you can find documentation and other useful articles][link:doc-ui-kitten].
 
-## Mobile backend Bundles
+## UI Bakery
 
-Easy way to integrate UI Kitten with backend ([Java][link:ui-kitten-bundle-java], [.NET Core][link:ui-kitten-bundle-dotnet-core]).
+Need to quickly build an admin panel for your mobile app? Check out UI builder [UI Bakery](https://uibakery.io).
 
-[<img src="https://i.imgur.com/HVNZQGR.jpg">][link:ui-kitten-bundles]
+<a href="https://uibakery.io"><img src="https://storage.uibakery.io/video-assets/landing/Logo/UIB%20400x150.png" height="80" /></a>
 
 ## How can I support the developers?
 
