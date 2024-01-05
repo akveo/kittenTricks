@@ -1,16 +1,16 @@
-import { Platform } from 'react-native';
 import Constants from 'expo-constants';
+import { Platform } from 'react-native';
 
 export class AppInfoService {
 
   static getVersion = (): string => {
-    return Constants.manifest.version;
+    return Constants.expoConfig.version;
   };
 
   static getBuildNumber = (): string => {
     return Platform.select({
-      ios: Constants.manifest.ios.buildNumber,
-      android: Constants.manifest.android.versionCode,
+      ios: Constants.expoConfig.ios.buildNumber,
+      android: Constants.expoConfig.android.versionCode.toString(),
       web: '',
     });
   };

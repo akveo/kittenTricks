@@ -51,7 +51,7 @@ export const SplashImage = (props: LoadingAnimationProps): React.ReactElement | 
     </Animated.View>
   );
 
-  return !animationCompleted && renderAnimatedComponent();
+  return !animationCompleted ? renderAnimatedComponent() : null;
 };
 
 const styles = StyleSheet.create({

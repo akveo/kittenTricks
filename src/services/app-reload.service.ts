@@ -1,8 +1,8 @@
-import Constants from 'expo-constants';
+import { DevSettings } from 'react-native';
 
-import { AppReloadService as RNService } from './app-reload.service.rn';
-import { AppReloadService as ExpoService } from './app-reload.service.expo';
+export class AppReloadService  {
 
-const Service = Constants.platform ? ExpoService : RNService;
-
-export const AppReloadService = Service;
+  static reload = (): void => {
+    DevSettings.reload();
+  };
+}

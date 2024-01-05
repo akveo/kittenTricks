@@ -1,6 +1,5 @@
 import React from 'react';
 import { ImageStyle } from 'react-native';
-import { ThemedIcon } from '../../components/themed-icon.component';
 import {
   AssetArticlesDarkIcon,
   AssetArticlesIcon,
@@ -15,6 +14,7 @@ import {
   AssetSocialDarkIcon,
   AssetSocialIcon,
 } from '../../components/icons';
+import { ThemedIcon } from '../../components/themed-icon.component';
 import { MenuItem } from '../../model/menu-item.model';
 
 export interface LayoutData extends MenuItem {
@@ -24,7 +24,7 @@ export interface LayoutData extends MenuItem {
 export const data: LayoutData[] = [
   {
     title: 'Auth',
-    route: 'Auth',
+    route: 'AuthSection',
     icon: (style: ImageStyle) => {
       return React.createElement(
         ThemedIcon,
@@ -34,7 +34,7 @@ export const data: LayoutData[] = [
   },
   {
     title: 'Social',
-    route: 'Social',
+    route: 'SocialSection',
     icon: (style: ImageStyle) => {
       return React.createElement(
         ThemedIcon,
@@ -44,7 +44,7 @@ export const data: LayoutData[] = [
   },
   {
     title: 'Articles',
-    route: 'Articles',
+    route: 'ArticlesSection',
     icon: (style: ImageStyle) => {
       return React.createElement(
         ThemedIcon,
@@ -54,7 +54,7 @@ export const data: LayoutData[] = [
   },
   {
     title: 'Messaging',
-    route: 'Messaging',
+    route: 'MessagingSection',
     icon: (style: ImageStyle) => {
       return React.createElement(
         ThemedIcon,
@@ -64,7 +64,7 @@ export const data: LayoutData[] = [
   },
   {
     title: 'Dashboards',
-    route: 'Dashboards',
+    route: 'DashboardsSection',
     icon: (style: ImageStyle) => {
       return React.createElement(
         ThemedIcon,
@@ -74,7 +74,7 @@ export const data: LayoutData[] = [
   },
   {
     title: 'Ecommerce',
-    route: 'Ecommerce',
+    route: 'EcommerceSection',
     icon: (style: ImageStyle) => {
       return React.createElement(
         ThemedIcon,
