@@ -22,6 +22,7 @@
     "ios": "react-native run-ios",
     "start": "npm run env -- prod && react-native start",
     "start:dev": "npm run env -- dev && react-native start --reset-cache",
+    "web": "npm run env -- dev && expo start --web",
     "env": "node ./env/set-env.js",
     "build": "tsc -p ./tsconfig.json",
     "build:web": "expo build:web",
