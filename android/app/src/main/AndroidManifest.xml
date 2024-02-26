@@ -15,7 +15,8 @@
           android:theme="@style/SplashTheme"
           android:configChanges="orientation"
           android:screenOrientation="portrait"
-          android:launchMode="singleTask">
+          android:launchMode="singleTask"
+          android:exported="true">
         <intent-filter>
           <action android:name="android.intent.action.MAIN" />
           <category android:name="android.intent.category.DEFAULT" />
@@ -27,7 +28,8 @@
           android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
           android:launchMode="singleTask"
           android:screenOrientation="portrait"
-          android:windowSoftInputMode="adjustPan">
+          android:windowSoftInputMode="adjustPan"
+          android:exported="true">
         <intent-filter>
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
