@@ -33,7 +33,7 @@
   "dependencies": {
     "@eva-design/eva": "^2.1.0",
     "@eva-design/material": "^2.1.0",
-    "@react-native-async-storage/async-storage": "^1.13.4",
+    "@react-native-async-storage/async-storage": "1.13.4",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.7",
     "@react-navigation/drawer": "^5.12.3",
@@ -55,7 +55,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
-    "react-native-appearance": "~0.3.3",
+    "react-native-appearance": "0.3.3",
     "react-native-device-info": "^5.5.1",
     "react-native-gesture-handler": "~1.8.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",

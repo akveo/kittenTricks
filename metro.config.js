@@ -1,5 +1,5 @@
 const path = require('path');
-const env = require('./env');
+const env = require('./env/env.prod');
 const MetroConfig = require('@expo/metro-config');
 
 const defaultConfig = MetroConfig.getDefaultConfig(__dirname);

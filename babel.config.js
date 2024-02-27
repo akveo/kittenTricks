@@ -1,5 +1,5 @@
 const path = require('path');
-const env = require('./env');
+const env = require('./env/env.prod');
 
 const frameworkAlias = {
   '@eva-design/dss': path.resolve(env.EVA_PACKAGES_PATH, 'dss'),
